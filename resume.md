@@ -6,8 +6,8 @@ description: "C# Software Engineer"
 
 # Personal Information
 
-- 刘成桃/Male/1984 
-- Phone: 13814840840
+- 刘成桃/Male 
+- Phone: 13814840840 / 18151072061
 - Email: liuct94@gmail.com
 - Education: Bachelor/Nanjing University of Science and Technology 
 - Blog: [http://celery94.github.io](http://celery94.github.io)
@@ -63,10 +63,11 @@ Platform: ASP.NET, SQLSERVER, COBOL
 
 # Skills
 
-- C#, Javascipt, HTML, CSS
+- C#
+- Javascipt, HTML, CSS
+- Bootstrap, AngularJS, jQuery, Vue
 - ASP.NET MVC, ASP.NET Web API
 - WCF
-- Entity framework
-- Bootstrap, AngularJS, jQuery
+- Entity framework, LINQ
 - SQLSERVER
 - SVN, Git
