@@ -78,6 +78,11 @@ Grpc.Tools在1.17版之后，可以与MSBuild集成，自动根据proto文件编
 * 添加Grpc.Tools nuget包
 * 在proto文件的属性中，将Build Action修改为Protobuf compiler
 * Build Action如果设置为Content，Custom Tool设置为MSBuild:Compile也可
+* 直接修改csproj文件，添加：
+
+```xml
+<Protobuf Include="Protos\greet.proto" GrpcServices="Client" />
+```
 
 > 注意：如果proto文件中使用了import导入其他proto文件，需要写入在Visual Studio中的完整路径，例如：
 >
