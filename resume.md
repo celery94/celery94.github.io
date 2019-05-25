@@ -8,11 +8,11 @@ description: "C# Software Engineer"
 ## Personal Information
 
 - 刘成桃/Male
-- Phone: 13814840840 / 18151072061
+- Phone:  18151072061
 - Email: liuct94@gmail.com
 - Education: Bachelor/Nanjing University of Science and Technology
 - Blog: [http://celery94.github.io](http://celery94.github.io)
-- Expect Position: .net Software Engineer, application architecture
+- Expect Position: .Net/C# Software Engineer, application architecture
 - Expect Location: Suzhou and around
 
 ---
@@ -24,8 +24,9 @@ description: "C# Software Engineer"
 - Bootstrap, jQuery, Vue, Angular, React
 - ASP.NET MVC, ASP.NET Web API
 - WCF
+- gRPC
 - Entity framework, LINQ
-- SQLSERVER
+- SQL SERVER
 - SVN, Git
 - TDD
 - Domain Driven Design
@@ -34,7 +35,17 @@ description: "C# Software Engineer"
 
 ## Work Experience
 
-### Commscope (Suzhou) (2011/3 ~ Now)
+### MM Software (Suzhou) (2019/1 ~ Now)
+
+#### Fits
+
+Platform: asp.net core, gRPC, angular, FDT
+
+- TODO
+- TODO
+- TODO
+
+### Commscope (Suzhou) (2011/3 ~ 2018/12)
 
 #### imVison
 
