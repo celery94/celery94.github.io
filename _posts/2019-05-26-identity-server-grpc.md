@@ -1,12 +1,12 @@
 ---
 layout: post
-title:  "gRPC中集成asp.net identity实现oAuth认证"
+title:  "gRPC中集成asp.net identity实现token认证"
 date:   2019-05-27
 tags: 
     - gRPC
 ---
 
-# gRPC中集成asp.net identity实现oAuth认证
+# gRPC中集成asp.net identity实现token认证
 
 ## 在asp.net core 3.0中开启identity认证
 
