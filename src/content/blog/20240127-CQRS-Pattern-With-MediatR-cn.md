@@ -1,6 +1,6 @@
 ---
 title: 使用 MediatR 的 CQRS 模式
-pubDatetime: 2024-01-26T08:46:29 (UTC +08:00)
+pubDatetime: 2024-01-26T08:46:29
 slug: cqrs-pattern-with-mediatr
 featured: false
 draft: false
