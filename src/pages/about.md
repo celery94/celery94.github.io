@@ -1,6 +1,6 @@
 ---
 layout: ../layouts/AboutLayout.astro
-title: "About"
+title: "我的公众号"
 ---
 
-TODO
+![Alt text](https://github.com/celery94/celery94.github.io/raw/main/wechat.jpg)
