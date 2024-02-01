@@ -6,8 +6,7 @@ slug: what-is-api-security-and-best-practices-on-aspnet-core-webapi
 featured: false
 draft: false
 tags:
-  - ASP.NET
-  - Core
+  - ASP.NET Core
   - WebAPI
   - RestAPI
 description: 了解API安全如何帮助团队捕获并修复API安全威胁。
