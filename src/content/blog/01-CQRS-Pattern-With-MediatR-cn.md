@@ -1,6 +1,6 @@
 ---
 title: 使用 MediatR 的 CQRS 模式
-pubDatetime: 2024-01-26T08:46:29
+pubDatetime: 2024-01-26
 slug: cqrs-pattern-with-mediatr
 featured: false
 draft: false
@@ -9,6 +9,7 @@ tags:
   - CQRS
   - MediatR
 source: https://www.milanjovanovic.tech/blog/cqrs-pattern-with-mediatr
+description: 如何使用 CQRS 模式来构建快速且可扩展的应用程序。
 ---
 
 如何使用 **CQRS** 模式来构建快速且可扩展的应用程序。
@@ -17,11 +18,11 @@ CQRS 模式在应用程序中分离了写入和读取操作。
 
 这种分离可以是逻辑上的或物理上的，并带来了许多好处：
 
--   管理复杂性
--   提升性能
--   可扩展性
--   灵活性
--   安全性
+- 管理复杂性
+- 提升性能
+- 可扩展性
+- 灵活性
+- 安全性
 
 我还会向你展示如何使用 MediatR 在你的应用程序中实现 CQRS。
 
@@ -43,8 +44,8 @@ CQRS 模式在应用程序中分离了写入和读取操作。
 
 CQS 的基本前提是将对象的方法分为 **命令** 和 **查询**。
 
--   **命令**：改变系统的状态，但不返回值
--   **查询**：返回值，并且不改变系统的状态（无副作用）
+- **命令**：改变系统的状态，但不返回值
+- **查询**：返回值，并且不改变系统的状态（无副作用）
 
 这并不意味着命令永远不能返回值。一个典型的例子是从堆栈中弹出一个值。它返回一个值并改变系统的状态。但重要的是意图。
 
@@ -57,13 +58,14 @@ CQRS 是 CQS 的演进。CQRS 在架构级别上工作。同时，CQS 在方法�
 这里是使用多个数据库的 CQRS 系统的高级概述。命令更新写数据库。然后，你需要将更新与读数据库同步。这为 CQRS 系统引入了最终一致性。
 
 最终一致性显著增加了应用程序的复杂性。你必须考虑如果同步过程失败会发生什么，并具备容错策略。
-![image](./Pasted%20image%2020240126084758.png)
+
+<!-- ![image](../../assets/images/Pasted%20image%2020240126084758.png) -->
 
 这种方法有很多种形式：
 
--   写入方面使用 SQL 数据库，读取方面使用 NoSQL 数据库（例如，[RavenDB](https://ravendb.net/)）
--   写入方面使用事件溯源，读取方面使用 NoSQL 数据库
--   读取方面使用 Redis 或其他分布式缓存
+- 写入方面使用 SQL 数据库，读取方面使用 NoSQL 数据库（例如，[RavenDB](https://ravendb.net/)）
+- 写入方面使用事件溯源，读取方面使用 NoSQL 数据库
+- 读取方面使用 Redis 或其他分布式缓存
 
 为更新和读取数据分离模型，允许你为你的需求选择最佳数据库。
 
@@ -78,15 +80,15 @@ MediatR 实现了 [中介者模式](https://refactoring.guru/design-patterns/med
 在写入方面，我通常使用 [EF Core](https://learn.microsoft.com/en-us/ef/core/) 和丰富的域模型来封装业务逻辑。命令流程使用 EF 将实体加载到内存中，执行域逻辑，并将更改保存到数据库。
 
 在读取方面，我希望尽可能少的间接操作。使用 [Dapper](https://github.com/DapperLib/Dapper) 和原始 SQL 查询是一个很好的选择。你也可以在数据库中创建视图并查询它们。或者，你可以使用 EF Core 执行带有投影的查询。
-![image](./Pasted%20image%2020240126084826.png)
 
+<!-- ![image](./Pasted%20image%2020240126084826.png) -->
 
 ## [使用 MediatR 实现 CQRS](https://www.milanjovanovic.tech/blog/cqrs-pattern-with-mediatr#implementing-cqrs-with-mediatr)
 
 使用 MediatR 实现 CQRS 包含两个组件：
 
--   定义你的命令或查询类
--   实现相应的命令或查询处理程序
+- 定义你的命令或查询类
+- 实现相应的命令或查询处理程序
 
 我制作了一个深入解释这个过程的视频，你可以[在这里观看](https://youtu.be/vdi-p9StmG0)。
 
@@ -126,6 +128,7 @@ public class BookingsController : ControllerBase
 ```
 
 这是一个带有仓库和丰富域模型的命令处理程序示例：
+
 ```csharp
 internal sealed class ConfirmBookingCommandHandler
     : ICommandHandler<ConfirmBookingCommand>
@@ -241,7 +244,7 @@ internal sealed class SearchApartmentsQueryHandler
                 {
                     request.StartDate,
                     request.EndDate,
-                   
+
 
  ActiveBookingStatuses
                 },
