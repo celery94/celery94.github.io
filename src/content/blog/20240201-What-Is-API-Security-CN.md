@@ -10,7 +10,7 @@ tags:
   - Core
   - WebAPI
   - RestAPI
-description: 了解 API 安全的左移方法如何帮助团队捕获并修复 API 安全威胁。
+description: 了解API安全如何帮助团队捕获并修复API安全威胁。
 ---
 
 # 什么是 API 安全？以及在ASP.NET Core WebAPI上的最佳实践
