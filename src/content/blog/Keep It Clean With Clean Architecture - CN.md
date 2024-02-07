@@ -6,6 +6,7 @@ tags:
 source: https://juliocasal.com/blog/Clean-Architecture
 author: Julio Casal
 title: 在DOTNET开发中保持整洁的架构
+slug: keep-it-clean-with-clean-architecture
 description:
   Clean Architecture 是一种架构模式，强调：关注点的分离，系统内不同组件的独立性。
   它由Robert C. Martin (Uncle Bob)创建，并基于他同样提出的SOLID原则。
