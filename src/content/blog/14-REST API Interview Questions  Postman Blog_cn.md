@@ -3,15 +3,13 @@ pubDatetime: 2024-02-21T16:10:06
 tags: []
 source: https://blog.postman.com/rest-api-interview-questions/
 author: The Postman Team
-title: REST API 面试问题 | Postman 博客
+title: 关于REST API 的一些基础问题 | Postman 博客
 description: 通过复习这些针对十个最常见的REST API面试问题的答案来备战你即将到来的面试。
 ---
 
-# REST API 面试问题 | Postman 博客
+# 关于REST API 的一些基础问题 | Postman 博客
 
 > ## 摘录
->
-> 通过复习这些针对十个最常见的REST API面试问题的答案来备战你即将到来的面试。
 >
 > 本文翻译自 [Postman 博客](https://blog.postman.com/rest-api-interview-questions/)，原文作者为 The Postman Team。
 
