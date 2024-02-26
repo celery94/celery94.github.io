@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-02-25T15:00:29
-tags: []
+tags: [EF Core, Single and Split Queries]
 source: https://code-maze.com/efcore-single-and-split-queries/
 author: Code Maze
 title: 在Entity Framework Core 中的单一和分割查询

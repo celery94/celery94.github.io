@@ -1,17 +1,10 @@
 ---
 pubDatetime: 2024-02-25T18:00:14
-tags: [
-    DDD,
-    Domain Events,
-    EF Core,
-    MediatR
-]
+tags: [DDD, EF Core, MediatR, Domain Events]
 source: https://www.milanjovanovic.tech/blog/how-to-use-domain-events-to-build-loosely-coupled-systems
 author: Milan Jovanović
 title: 如何使用领域事件构建松耦合系统
-description: 什么是领域事件，领域事件与集成事件的区别，如何实现和引发领域事件，如何使用EF Core发布领域事件，如何使用MediatR处理领域事件
-我们有很多内容需要覆盖，让我们开始吧。
-
+description: 什么是领域事件，领域事件与集成事件的区别，如何实现和引发领域事件，如何使用EF Core发布领域事件，如何使用MediatR处理领域事件我们有很多内容需要覆盖，让我们开始吧。
 ---
 
 # 如何使用领域事件构建松耦合系统
