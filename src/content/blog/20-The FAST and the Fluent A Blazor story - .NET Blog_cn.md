@@ -1,5 +1,5 @@
 ---
-pubDatetime: 2024-02-27T07:42:56
+pubDatetime: 2024-02-27
 tags: [Blazor, Web Components, Fluent Design]
 source: https://devblogs.microsoft.com/dotnet/the-fast-and-the-fluent-a-blazor-story/
 author: Vincent Baaij
