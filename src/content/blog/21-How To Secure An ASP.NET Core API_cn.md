@@ -4,7 +4,7 @@ tags: [".NET", "ASP.NET Core", "API", "Security", "JWT"]
 source: https://juliocasal.com/blog/Secure-AspNetCore-API
 author: Julio Casal
 title: 如何保护一个ASP.NET Core API
-description: .NET 星期六
+description: 如何保护一个ASP.NET Core API
 ---
 
 # 如何保护一个ASP.NET Core API
