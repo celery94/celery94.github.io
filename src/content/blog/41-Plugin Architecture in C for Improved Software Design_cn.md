@@ -29,6 +29,8 @@ description: 了解 C# 中的插件架构以创建可扩展的应用程序！本
 > ## 摘要
 >
 > 了解 C# 中的插件架构以创建可扩展的应用程序！本文通过代码片段提供示例，解释如何开始使用 C# 插件。
+>
+> 原文 [Plugin Architecture in C# for Improved Software Design](https://www.devleader.ca/2024/03/12/plugin-architecture-in-c-for-improved-software-design/)
 
 ---
 
