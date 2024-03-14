@@ -3,11 +3,11 @@ pubDatetime: 2024-03-13
 tags: [api, api version]
 source: https://www.postman.com/api-platform/api-versioning/
 author: Postman
-title: API版本控制是什么？益处、类型和最佳实践 | Postmann
+title: API版本控制是什么？益处、类型和最佳实践 | Postman
 description: 了解API版本控制如何使团队能够对其API进行更改，同时不为消费者创造问题。
 ---
 
-# API版本控制是什么？益处、类型和最佳实践 | Postmann
+# API版本控制是什么？益处、类型和最佳实践 | Postman
 
 > ## 摘要
 >
