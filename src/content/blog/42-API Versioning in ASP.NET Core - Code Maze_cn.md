@@ -126,7 +126,7 @@ public class StringListController : ControllerBase
 
 为了测试这个，让我们在 GET 请求中以查询字符串参数的形式发送版本信息：
 
-[![使用查询字符串版本信息发送 Postman 请求](../../assets/42/SentWithVersion1.png)](https://code-maze.com/wp-content/uploads/2021/12/SentWithVersion1.png)
+![使用查询字符串版本信息发送 Postman 请求](../../assets/42/SentWithVersion1.png)
 
 我们可以看到，所有以 “B” 开头的字符串作为响应被返回。
 
@@ -150,7 +150,7 @@ public class StringListController : Controller
 
 然后，我们可以通过在请求的头部提供 `X-Version`（正如我们通过配置中的 `HeaderApiVersionReader` 类所设置的那样）来发送版本控制信息：
 
-[![使用媒体头版本信息发送 Postman 请求](../../assets/42/SentWithHeaderVersion2-1.png)](https://code-maze.com/wp-content/uploads/2021/12/SentWithHeaderVersion2-1.png)
+![使用媒体头版本信息发送 Postman 请求](../../assets/42/SentWithHeaderVersion2-1.png)
 
 明显地，我们看到版本 2.0 在自定义头中被选中，以 “S” 开头的字符串被返回。
 
@@ -158,13 +158,13 @@ public class StringListController : Controller
 
 那么，让我们修改我们的请求并提供 `Accept` 头部：
 
-[![使用具有版本控制信息的媒体类型头部发送 Postman 请求](../../assets/42/SentWithHeaderMediaTypeVersion2-1.png)](https://code-maze.com/wp-content/uploads/2021/12/SentWithHeaderMediaTypeVersion2-1.png)
+![使用具有版本控制信息的媒体类型头部发送 Postman 请求](../../assets/42/SentWithHeaderMediaTypeVersion2-1.png)
 
 我们在这里得到了相同的结果。
 
 最后，既然我们现在有了两个控制器，我们可以测试如果我们发送一个不带版本信息的请求会发生什么：
 
-[![使用 Postman 请求测试 API 版本控制，未提供版本](../../assets/42/SentWithoutVersion.png)](https://code-maze.com/wp-content/uploads/2021/12/SentWithoutVersion.png)
+![使用 Postman 请求测试 API 版本控制，未提供版本](../../assets/42/SentWithoutVersion.png)
 
 默认版本被选中且以 “B” 开头的字符串被返回给客户端。
 
@@ -241,7 +241,7 @@ var apiVersioningBuilder = builder.Services.AddApiVersioning(o =>
 });
 ```
 
-[![使用 Postman 请求测试 API 版本控制，已弃用的版本](../../assets/42/2023.12.25DeprecatedVersion.96dpi.smaller.png)](https://code-maze.com/wp-content/uploads/2022/01/2023.12.25DeprecatedVersion.96dpi.smaller.png)
+![使用 Postman 请求测试 API 版本控制，已弃用的版本](../../assets/42/2023.12.25DeprecatedVersion.96dpi.smaller.png)
 
 ## 在 Minimal API 中的版本控制
 
@@ -304,19 +304,19 @@ app.MapGet("api/minimal/v{version:apiVersion}/StringList", () =>
 
 当我们调用端点的版本 1.0 时，它返回所有以 “B” 开头的摘要数据：
 
-[![使用 Postman 请求测试 minimal API v1 的 API 版本控制](../../assets/42/GetStringsMinimalV1.png)](https://code-maze.com/wp-content/uploads/2022/01/GetStringsMinimalV1.png)
+![使用 Postman 请求测试 minimal API v1 的 API 版本控制](../../assets/42/GetStringsMinimalV1.png)
 
 同一个端点的 2.0 版本，返回所有以 “S” 开头的摘要数据：
 
-[![使用 Postman 请求测试 minimal API v2 的 API 版本控制](../../assets/42/GetStringsMinimalV2.png)](https://code-maze.com/wp-content/uploads/2022/01/GetStringsMinimalV2.png)
+![使用 Postman 请求测试 minimal API v2 的 API 版本控制](../../assets/42/GetStringsMinimalV2.png)
 
 最后，带有 URI 版本控制的同一个端点的 3.0 版本，将返回所有以 “C” 开头的摘要数据：
 
-[![使用 Postman 请求测试 minimal API v3 的 API 版本控制](../../assets/42/GetStringsMinimalV3.png)](https://code-maze.com/wp-content/uploads/2022/01/GetStringsMinimalV3.png)
+![使用 Postman 请求测试 minimal API v3 的 API 版本控制](../../assets/42/GetStringsMinimalV3.png)
 
 再一次，我们将版本 1.0 标记为已弃用。因此，在响应中带有头 `api-deprecated-versions` 的版本将返回版本 1.0：
 
-[![使用 Postman 请求测试 minimal API 已弃用版本的 API 版本控制](../../assets/42/2023.12.25DeprecatedVersionMinimal.96dpi-1.png)](https://code-maze.com/wp-content/uploads/2022/01/2023.12.25DeprecatedVersionMinimal.96dpi-1.png)
+![使用 Postman 请求测试 minimal API 已弃用版本的 API 版本控制](../../assets/42/2023.12.25DeprecatedVersionMinimal.96dpi-1.png)
 
 ## 结论
 
