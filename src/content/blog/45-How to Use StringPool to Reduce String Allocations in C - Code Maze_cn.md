@@ -293,7 +293,3 @@ public IList<string> UseStringBuilder()
 ## 结论
 
 在本文中，我们深入探讨了 C# 中 `StringPool` 的概念以及**我们如何使用 StringPool 来减少字符串分配，从而提高内存效率。**通过掌握 C# 中字符串管理的细节并有效地使用 StringPool，我们可以显著提升我们应用程序的性能，尤其是**在重复使用字符串值的情况下。**
-
-```
-
-```
