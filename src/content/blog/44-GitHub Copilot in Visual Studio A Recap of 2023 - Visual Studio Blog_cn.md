@@ -4,14 +4,14 @@ tags: []
 source: https://devblogs.microsoft.com/visualstudio/github-copilot-in-visual-studio-a-recap-of-2023/
 author: Amy Nguyen
 title: Visual Studio中的GitHub Copilot：2023年回顾 - Visual Studio博客
-description: 在迅速发展的软件开发世界中，保持领先是至关重要的。AI在Visual Studio中的引入，特别是GitHub Copilot，已经彻底改变了开发者编码的方式。通过将Copilot集成到Visual Studio中，你可以利用AI来简化你的工作流程，
+description: 在迅速发展的软件开发世界中，保持领先是至关重要的。AI在Visual Studio中的引入，特别是GitHub Copilot，已经彻底改变了开发者编码的方式。通过将Copilot集成到Visual Studio中，你可以利用AI来简化你的工作流程。
 ---
 
 # Visual Studio中的GitHub Copilot：2023年回顾 - Visual Studio博客
 
 > ## 摘录
 >
-> 在迅速发展的软件开发世界中，保持领先是至关重要的。AI在Visual Studio中的引入，特别是GitHub Copilot，已经彻底改变了开发者编码的方式。通过将Copilot集成到Visual Studio中，你可以利用AI来简化你的工作流程，
+> 在迅速发展的软件开发世界中，保持领先是至关重要的。AI在Visual Studio中的引入，特别是GitHub Copilot，已经彻底改变了开发者编码的方式。通过将Copilot集成到Visual Studio中，你可以利用AI来简化你的工作流程。
 >
 > 原文 [GitHub Copilot in Visual Studio: A Recap of 2023](https://devblogs.microsoft.com/visualstudio/github-copilot-in-visual-studio-a-recap-of-2023/)
 
