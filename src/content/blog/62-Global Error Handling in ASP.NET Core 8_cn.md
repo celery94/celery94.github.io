@@ -7,8 +7,6 @@ title: ASP.NET Core 8中的全局错误处理
 description: 异常用于处理异常情况。但它们在您的应用程序中不可避免地会发生，您需要处理这些异常。您可以实现全局异常处理机制或只处理特定的异常。ASP.NET Core为您提供了几种实现这一点的选项。那么您应该选择哪一种呢？今天，我想向您展示在ASP.NET Core 8中处理异常的旧方法和新方法。
 ---
 
-# ASP.NET Core 8中的全局错误处理
-
 > ## 摘要
 >
 > 异常用于处理异常情况。但它们在您的应用程序中不可避免地会发生，您需要处理这些异常。您可以实现全局异常处理机制或只处理特定的异常。ASP.NET Core为您提供了几种实现这一点的选项。那么您应该选择哪一种呢？今天，我想向您展示在ASP.NET Core 8中处理异常的旧方法和新方法。
@@ -27,7 +25,7 @@ ASP.NET Core为您提供了几种实现这一点的选项。那么您应该选�
 
 今天，我想向您展示ASP.NET Core 8中处理异常的*旧*方法和*新*方法。
 
-## [旧方法：异常处理中间件](https://www.milanjovanovic.tech/blog/global-error-handling-in-aspnetcore-8?utm_source=Twitter&utm_medium=social&utm_campaign=18.03.2024#old-way-exception-handling-midleware)
+## 旧方法：异常处理中间件
 
 在ASP.NET Core中实现异常处理的标准是使用中间件。中间件允许您在执行HTTP请求之前或之后引入逻辑。您可以轻松扩展这一点来实现异常处理。在中间件中添加`try-catch`语句并返回错误HTTP响应。
 
@@ -89,7 +87,7 @@ public class ExceptionHandlingMiddleware
 app.UseMiddleware<ExceptionHandlingMiddleware>();
 ```
 
-## [新方法：IExceptionHandler](https://www.milanjovanovic.tech/blog/global-error-handling-in-aspnetcore-8?utm_source=Twitter&utm_medium=social&utm_campaign=18.03.2024#new-way-iexceptionhandler)
+## 新方法：IExceptionHandler
 
 [ASP.NET Core 8](https://learn.microsoft.com/en-us/aspnet/core/introduction-to-aspnet-core?view=aspnetcore-8.0)引入了一个新的[`IExceptionHandler`](https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.diagnostics.iexceptionhandler?view=aspnetcore-8.0)抽象，用于管理异常。内置的异常处理中间件使用`IExceptionHandler`实现来处理异常。
 
@@ -133,7 +131,7 @@ internal sealed class GlobalExceptionHandler : IExceptionHandler
 }
 ```
 
-## [配置IExceptionHandler实现](https://www.milanjovanovic.tech/blog/global-error-handling-in-aspnetcore-8?utm_source=Twitter&utm_medium=social&utm_campaign=18.03.2024#configuring-iexceptionhandler-implementations)
+## 配置IExceptionHandler实现
 
 您需要两件事来将`IExceptionHandler`实现添加到ASP.NET Core请求管道中：
 
@@ -154,7 +152,7 @@ builder.Services.AddExceptionHandler<GlobalExceptionHandler>(); builder.Services
 app.UseExceptionHandler();
 ```
 
-## [链接异常处理器](https://www.milanjovanovic.tech/blog/global-error-handling-in-aspnetcore-8?utm_source=Twitter&utm_medium=social&utm_campaign=18.03.2024#chaining-exception-handlers)
+## 链接异常处理器
 
 您可以添加多个`IExceptionHandler`实现，并按照注册的顺序调用它们。这可能的用例是使用异常进行流程控制。
 
@@ -256,7 +254,7 @@ builder.Services.AddExceptionHandler<BadRequestExceptionHandler>(); builder.Serv
 
 `BadRequestExceptionHandler`将首先执行并尝试处理异常。如果异常未被处理，`NotFoundExceptionHandler`将接着执行并尝试处理异常。
 
-## [要点](https://www.milanjovanovic.tech/blog/global-error-handling-in-aspnetcore-8?utm_source=Twitter&utm_medium=social&utm_campaign=18.03.2024#takeaway)
+## 要点
 
 在ASP.NET Core中使用中间件进行异常处理是一个很好的解决方案。不过，使用`IExceptionHandler`接口的新选项也很棒。我会在ASP.NET Core 8项目中使用新方法。
 
@@ -267,7 +265,3 @@ builder.Services.AddExceptionHandler<BadRequestExceptionHandler>(); builder.Serv
 ![](../../assets/57/fowler_comment.png)
 
 如果您想在您的代码中摆脱异常，[**请查看这个视频。**](https://youtu.be/WCCkEe_Hy2Y)
-
-感谢阅读，保持卓越！
-
----
