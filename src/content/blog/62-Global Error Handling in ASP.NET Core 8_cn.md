@@ -1,7 +1,7 @@
 ---
 pubDatetime: 2024-03-25
 tags: [".NET", "ASP.NET Core", "Error Handling"]
-source: https://www.milanjovanovic.tech/blog/global-error-handling-in-aspnetcore-8?utm_source=Twitter&utm_medium=social&utm_campaign=18.03.2024
+source: https://www.milanjovanovic.tech/blog/global-error-handling-in-aspnetcore-8
 author: Milan Jovanović
 title: ASP.NET Core 8中的全局错误处理
 description: 异常用于处理异常情况。但它们在您的应用程序中不可避免地会发生，您需要处理这些异常。您可以实现全局异常处理机制或只处理特定的异常。ASP.NET Core为您提供了几种实现这一点的选项。那么您应该选择哪一种呢？今天，我想向您展示在ASP.NET Core 8中处理异常的旧方法和新方法。
@@ -11,7 +11,7 @@ description: 异常用于处理异常情况。但它们在您的应用程序中�
 >
 > 异常用于处理异常情况。但它们在您的应用程序中不可避免地会发生，您需要处理这些异常。您可以实现全局异常处理机制或只处理特定的异常。ASP.NET Core为您提供了几种实现这一点的选项。那么您应该选择哪一种呢？今天，我想向您展示在ASP.NET Core 8中处理异常的旧方法和新方法。
 >
-> 原文 [Global Error Handling in ASP.NET Core 8](https://www.milanjovanovic.tech/blog/global-error-handling-in-aspnetcore-8?utm_source=Twitter&utm_medium=social&utm_campaign=18.03.2024) 由 [Milan Jovanović](https://www.milanjovanovic.tech/) 发表。
+> 原文 [Global Error Handling in ASP.NET Core 8](https://www.milanjovanovic.tech/blog/global-error-handling-in-aspnetcore-8) 由 [Milan Jovanović](https://www.milanjovanovic.tech/) 发表。
 
 ---
 
