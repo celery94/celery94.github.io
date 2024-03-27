@@ -15,7 +15,7 @@ tags:
   ]
 source: https://www.devleader.ca/2024/03/25/how-to-update-mongodb-documents-in-c-what-you-need-to-know/
 author: Nick Cosentino
-title: 如何在C#中更新MongoDB文档 你需要知道的
+title: 如何在C#中更新MongoDB文档
 description: 查看如何在C#中更新MongoDB文档的代码示例。本文介绍了你可以用来更新记录的不同方法的基础知识。
 ---
 
