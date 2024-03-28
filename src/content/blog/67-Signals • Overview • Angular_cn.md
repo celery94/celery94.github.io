@@ -120,17 +120,19 @@ Effects 总是以**异步方式执行**，在变更检测过程中。
 - 添加无法用模板语法表达的自定义 DOM 行为。
 - 对 `<canvas>`、图表库或其他第三方 UI 库执行自定义渲染。
 
-<docs-callout critical title="何时不使用 effects">
+> [!WARNING]
+>
+> 何时不使用 effects
+
 避免使用 effects 来传播状态变化。这可能导致 `ExpressionChangedAfterItHasBeenChecked` 错误、无限循环更新或不必要的变更检测周期。
 
 因为这些风险，Angular 默认情况下阻止您在 effects 中设置 signals。如果绝对必要，可以通过在创建 effect 时设置 `allowSignalWrites` 标志来启用它。
 
 相反地，使用 `computed` signals 来模型化依赖于其他状态的状态。
-</docs-callout>
 
 ### 注入上下文
 
-默认情况下，您只能在[注入上下文](https://angular.dev/guide/di/dependency-injection-context)中创建一个 `effect()`（在有 `inject` 函数的地方）。满足此要求的最简单方法是在组件、指令或服务的 `constructor` 中调用 `effect`：
+默认情况下，您只能在[依赖注入上下文](https://angular.dev/guide/di/dependency-injection-context)中创建一个 `effect()`（在有 `inject` 函数的地方）。满足此要求的最简单方法是在组件、指令或服务的 `constructor` 中调用 `effect`：
 
 ```ts
 @Component({...})
