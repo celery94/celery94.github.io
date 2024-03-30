@@ -24,8 +24,6 @@ title: C# MongoDB插入基准测试 - 你需要知道的
 description: 对C# MongoDB插入基准测试感到好奇吗？在这篇文章中，我将向你展示BenchmarkDotNet代码及多种插入数据变体的结果！
 ---
 
-# C# MongoDB插入基准测试 - 你需要知道的
-
 > ## 摘要
 >
 > 对C# MongoDB插入基准测试感到好奇吗？在这篇文章中，我将向你展示BenchmarkDotNet代码及多种插入数据变体的结果！
@@ -248,7 +246,7 @@ public class InsertBenchmarks
 
 准备好鼓掌了吗！是时候看看我们的MongoDB基准测试结果并进行一些分析了：
 
-[C# MongoDB Insert Benchmarks from BenchmarkDotNet](../../assets/73/mongodb-insert-benchmarks-1024x371.webp)
+![C# MongoDB Insert Benchmarks from BenchmarkDotNet](../../assets/73/mongodb-insert-benchmarks-1024x371.webp)
 
 以下是我从上述基准测试数据中得出的结论：
 
