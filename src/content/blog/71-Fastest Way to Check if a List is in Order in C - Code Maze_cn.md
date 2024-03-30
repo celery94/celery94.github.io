@@ -1,9 +1,6 @@
 ---
 pubDatetime: 2024-03-29
-标签:
-  - C#
-  - .NET
-  - 性能
+标签: [C#, Performance]
 来源: https://code-maze.com/csharp-fastest-way-to-check-if-a-list-is-in-order/
 作者: Jeff Shergalis
 标题: C#中检查列表排序的最快方法
