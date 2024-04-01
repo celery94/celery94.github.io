@@ -3,7 +3,7 @@ pubDatetime: 2024-04-01
 tags: [C#, .NET, Diagnostics, Tracing, Debugging]
 source: https://dev.to/turalsuleymani/implementing-diagnostings-in-net-applications-23ab
 author: Tural Suleymani
-title: 在 .NET 应用程序中实现诊断
+title: 在 .NET 应用程序中实现Tracing（跟踪）
 description: Tracing（跟踪）使我们能够看到关于正在运行的程序的各种信息性数据。如同往常，我们在...
 ---
 
