@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-04-01
-tags: [CSharp, DotNet, 编程, 诊断, 软件, 编码, 开发, 工程, 包容性, 社区]
+tags: [C#, .NET, Diagnostics, Tracing, Debugging]
 source: https://dev.to/turalsuleymani/implementing-diagnostings-in-net-applications-23ab
 author: Tural Suleymani
 title: 在 .NET 应用程序中实现诊断
