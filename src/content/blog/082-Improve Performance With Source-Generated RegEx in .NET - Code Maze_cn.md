@@ -1,15 +1,15 @@
 ---
 pubDatetime: 2024-04-06
-tags: []
+tags: [C#, .NET, RegEx, Source-Generated, Performance]
 source: https://code-maze.com/csharp-improve-performance-with-source-generated-regex/
 author: Ivan Gechev
-title: 使用源生成的RegEx在.NET中提高性能
-description: 在本文中，我们将探讨代码生成的RegEx及其如何在我们的.NET应用程序中提高性能。
+title: 使用Source-Generated的RegEx在.NET中提高性能
+description: 在本文中，我们将探讨Source-Generated的RegEx及其如何在我们的.NET应用程序中提高性能。
 ---
 
 > ## 摘录
 >
-> 在本文中，我们将探讨代码生成的RegEx及其如何在我们的.NET应用程序中提高性能。
+> 在本文中，我们将探讨Source-Generated的RegEx及其如何在我们的.NET应用程序中提高性能。
 >
 > 原文 [Improve Performance With Source-Generated RegEx in .NET](https://code-maze.com/csharp-improve-performance-with-source-generated-regex/)
 
