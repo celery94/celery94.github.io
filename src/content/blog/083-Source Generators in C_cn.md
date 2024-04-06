@@ -1,13 +1,11 @@
 ---
 pubDatetime: 2024-04-06
-tags: []
+tags: [C#, Source-Generated]
 source: https://code-maze.com/csharp-source-generators/
 author: Code Maze
 title: C# 中的源代码生成器
 description: 在本文中，我们将讨论 C# 中的 Source Generators。我们将讨论背景以及如何在项目中使用它。
 ---
-
-# C# 中的源代码生成器
 
 > ## 摘要
 >
