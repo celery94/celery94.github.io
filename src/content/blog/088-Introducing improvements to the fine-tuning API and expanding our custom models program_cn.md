@@ -1,8 +1,8 @@
 ---
 pubDatetime: 2024-04-07
-tags: []
+tags: [OpenAI]
 source: https://openai.com/blog/introducing-improvements-to-the-fine-tuning-api-and-expanding-our-custom-models-program
-author: 作者
+author: OpenAI
 title: 介绍对微调 API 的改进以及扩展我们的自定义模型程序
 description: 我们正在添加新功能以帮助开发者更好地控制微调，并宣布与 OpenAI 一起构建自定义模型的新方法。
 ---
