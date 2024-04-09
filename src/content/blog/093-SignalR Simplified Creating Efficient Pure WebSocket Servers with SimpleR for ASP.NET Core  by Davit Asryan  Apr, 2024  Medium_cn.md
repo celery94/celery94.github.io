@@ -212,9 +212,9 @@ app.Run();
 
 就这么简单！
 
-你可以在[这里](<http://simpler/examples%20at%20master%20%C2%B7%20vadrsa/SimpleR%20(github.com)>)找到服务器的源代码以及一个简单的客户端。
+你可以在[这里](https://github.com/vadrsa/SimpleR/tree/master/examples)找到服务器的源代码以及一个简单的客户端。
 
-要探索 SimpleR 的所有功能，请查看 [Github 仓库](<http://vadrsa/SimpleR:%20High%20Performance%20Pure%20WebSocket%20Server%20Library%20based%20on%20SignalR%20(github.com)>)中的文档。如果你觉得它有用，请不要忘记给我们的仓库打个星标。这对我们很重要，并且有助于其他人找到我们。
+要探索 SimpleR 的所有功能，请查看 [Github 仓库](https://github.com/vadrsa/SimpleR)中的文档。如果你觉得它有用，请不要忘记给我们的仓库打个星标。这对我们很重要，并且有助于其他人找到我们。
 
 ## 结论
 
