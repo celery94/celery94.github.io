@@ -1,5 +1,5 @@
 ---
-pubDatetime: 2024年4月11日
+pubDatetime: 2024-04-11
 tags: [C#, efcore]
 source: https://www.milanjovanovic.tech/blog/using-multiple-ef-core-dbcontext-in-single-application
 author: Milan Jovanović
