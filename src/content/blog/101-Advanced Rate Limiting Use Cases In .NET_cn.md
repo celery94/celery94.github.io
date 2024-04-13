@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-04-13
-tags: []
+tags: ["Rate Limiting", "ASP.NET Core"]
 source: https://www.milanjovanovic.tech/blog/advanced-rate-limiting-use-cases-in-dotnet?utm_source=Twitter&utm_medium=social&utm_campaign=08.04.2024
 author: Milan Jovanović
 title: 在 .NET 中高级限流应用场景
