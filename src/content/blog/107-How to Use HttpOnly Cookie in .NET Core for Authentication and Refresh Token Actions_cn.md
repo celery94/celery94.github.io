@@ -11,6 +11,8 @@ description: 在本文中，我们将向您展示在 .NET Core 应用中如何�
 >
 > 在本文中，我们将向您展示在 .NET Core 应用中如何使用 HttpOnly Cookie 来保护我们的 JWT (JSON Web Tokens)，当实现认证和刷新令牌操作时。
 >
+> HttpOnly Cookie 是一种特殊的网络 Cookie，其特点是只能通过 HTTP 协议被访问，不能通过客户端脚本（如 JavaScript）直接访问。这种设置可以增强安全性，因为它限制了通过脚本访问敏感信息的可能性，从而有助于防止跨站脚本（XSS）攻击。当设置了 HttpOnly 属性的 Cookie 时，即使网站遭到 XSS 攻击，攻击者也无法通过脚本获取 Cookie 中的数据。
+>
 > 原文 [How to Use HttpOnly Cookie in .NET Core for Authentication and Refresh Token Actions](https://code-maze.com/how-to-use-httponly-cookie-in-net-core-for-authentication-and-refresh-token-actions/) 由 Marinko Spasojević 撰写。
 
 ---
