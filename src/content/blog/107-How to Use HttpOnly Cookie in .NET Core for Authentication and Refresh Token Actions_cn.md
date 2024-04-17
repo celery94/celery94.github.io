@@ -23,7 +23,7 @@ description: 在本文中，我们将向您展示在 .NET Core 应用中如何�
 
 当我们遵循 JWTs 的通常流程时：
 
-![jwt access token flow](../../assets/107/jwt-access-token-flow-e1592744064613.png)]
+![jwt access token flow](../../assets/107/jwt-access-token-flow-e1592744064613.png)
 
 我们可以看到，一旦客户端发送身份验证请求，他们将得到访问令牌，我们通常将其存储在本地或会话存储中。
 
@@ -41,7 +41,7 @@ HttpOnly Cookie 是我们添加到浏览器 cookie 的一个标签，以防止�
 
 现在，我们已经有了一个实现了认证和刷新动作的项目：
 
-![Project solution for Using HttpOnly Cookie in .NET Core apps](../../assets/107/Project-solution-for-Using-HttpOnly-Cookie-in-.NET-Core-apps.png)]
+![Project solution for Using HttpOnly Cookie in .NET Core apps](../../assets/107/Project-solution-for-Using-HttpOnly-Cookie-in-.NET-Core-apps.png)
 
 这里，我们正在使用常规方式，令牌通过响应体发送给客户端：
 
@@ -228,10 +228,11 @@ https://localhost:5001/api/test
 
 现在，让我们向认证动作发送请求：
 
-![POST actions that will trigger adding the HttpOnly cookie in .NET](../../assets/107/POST-Authentication-Request.png)]
+![POST actions that will trigger adding the HttpOnly cookie in .NET](../../assets/107/POST-Authentication-Request.png)
+
 我们得到了 200 OK 的结果，但如果我们检查 Cookies 链接：
 
-![C:\Users\a\Desktop\HttpOnly Cookies in .NET stored in Postman.png](../../assets/107/HttpOnly-Cookies-in-.NET-stored-in-Postman.png)]
+![C:\Users\a\Desktop\HttpOnly Cookies in .NET stored in Postman.png](../../assets/107/HttpOnly-Cookies-in-.NET-stored-in-Postman.png)
 
 我们可以看到这里有两个令牌。你可以检查每个令牌以找到两个令牌的值和我们在 cookie 选项类中设置的其他属性。
 
