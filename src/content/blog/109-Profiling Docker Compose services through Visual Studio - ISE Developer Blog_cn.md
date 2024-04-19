@@ -88,7 +88,7 @@ dotnet-trace collect --process-id <dotnet process ID> --providers Microsoft-DotN
 
 将它全部集成在一个名为 ‘MessageProcessing’ 的项目中，过程看起来像这样：
 
-![](../../assets/109/vs_profiling.gif)
+![](https://devblogs.microsoft.com/ise/wp-content/uploads/sites/55/2024/04/vs_profiling.gif)
 
 当运行 dotnet-trace 时，它将自动开始采样正在运行的服务。一旦你收集了足够的数据，你可以使用 `Ctrl+C` 停止跟踪。这将把跟踪保存到一个文件中。
 
