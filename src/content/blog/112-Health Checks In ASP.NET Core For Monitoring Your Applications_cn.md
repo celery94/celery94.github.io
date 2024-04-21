@@ -10,6 +10,8 @@ description: 我们都希望构建能够无限扩展并处理任意数量请求�
 # 在ASP.NET Core中使用健康检查监控您的应用程序
 
 > ## 摘要
+>
+> 原文 [Health Checks In ASP.NET Core For Monitoring Your Applications](https://www.milanjovanovic.tech/blog/health-checks-in-asp.net-core?utm_source=Twitter&utm_medium=social&utm_campaign=15.04.2024) 由 [Milan Jovanović](https://www.milanjovanovic.tech/) 发表。
 
 ---
 
