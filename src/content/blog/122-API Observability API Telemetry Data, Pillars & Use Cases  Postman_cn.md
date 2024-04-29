@@ -2,7 +2,7 @@
 pubDatetime: 2024-04-29
 tags: ["API", "Postman"]
 source: https://www.postman.com/api-platform/api-observability/
-author:
+author: Postman
 title: API 可观察性, API 遥测数据、支柱与用例
 description: 了解 API 可观察性如何帮助团队监控 API 性能、排查问题、理解使用模式以及识别优化机会。
 ---
