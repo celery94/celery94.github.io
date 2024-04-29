@@ -1,17 +1,17 @@
 ---
 pubDatetime: 2024-04-29
-tags: []
+tags: ["API", "Postman"]
 source: https://www.postman.com/api-platform/api-monitoring/
 author:
-title: 什么是API监控？用例、工具和最佳实践 | Postman
+title: 什么是API监控？用例、工具和最佳实践
 description: 了解什么是API监控，以及它如何帮助团队发现API相关问题——比如错误、延迟和安全漏洞——在问题升级前。
 ---
-
-# 什么是API监控？用例、工具和最佳实践 | Postman
 
 > ## 摘录
 >
 > 了解什么是API监控，以及它如何帮助团队发现API相关问题——比如错误、延迟和安全漏洞——在问题升级前。
+>
+> 原文 [What is API Monitoring? Use Cases, Tools & Best Practices | Postman](https://www.postman.com/api-platform/api-monitoring/)
 
 ---
 
