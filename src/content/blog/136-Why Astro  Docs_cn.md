@@ -1,8 +1,8 @@
 ---
 pubDatetime: 2024年5月10日
-tags: []
+tags: [Astro]
 source: https://docs.astro.build/en/concepts/why-astro/
-author:
+author: Astro
 title: 为什么选择Astro？ | 文档
 description: Astro是用于构建以内容为中心的网站如博客、营销和电子商务的网络框架。了解为什么Astro可能是您下一个网站的好选择。
 ---
