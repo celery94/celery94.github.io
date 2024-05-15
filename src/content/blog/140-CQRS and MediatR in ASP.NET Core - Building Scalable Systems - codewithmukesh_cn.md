@@ -105,7 +105,7 @@ PS - 我们不会使用任何高级架构模式，但让我们尝试保持代码
 
 通过包管理器控制台将以下包安装到您的 API 项目中。
 
-```
+```bash
 Install-Package Microsoft.EntityFrameworkCore
 Install-Package Microsoft.EntityFrameworkCore.InMemory
 Install-Package MediatR
@@ -119,7 +119,7 @@ Install-Package MediatR
 
 首先，让我们创建领域模型。添加一个名为 `Domain` 的新文件夹，并创建一个名为 `Product` 的 C# 类。
 
-```
+```csharp
 public class Product
 {
     public Guid Id { get; set; }
@@ -147,7 +147,7 @@ public class Product
 
 创建一个名为 `Persistence` 的新文件夹，并添加一个名为 `AppDbContext` 的新类。
 
-```
+```csharp
 public class AppDbContext : DbContext
 {
     public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
@@ -209,7 +209,7 @@ MediatR 是一个流行的库，帮助在 .NET 中无依赖地实现中介者模
 
 由于我们已经将所需的包安装到我们的应用程序中，让我们将 MediatR 处理程序注册到应用程序的 DI 容器中。打开 `Program.cs` 文件。
 
-```
+```csharp
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
 ```
 
@@ -233,7 +233,7 @@ CRUD 本质上代表创建(Create)、读取(Read)、更新(Update)和删除(Dele
 
 我们的查询 API，`Get` 和 `List` 将返回与以下 DTO 相关的记录。在 `Features/Product/DTOs` 下，创建一个名为 `ProductDto` 的新类。
 
-```
+```csharp
 public record ProductDto(Guid Id, string Name, string Description, decimal Price);
 ```
 
@@ -249,7 +249,7 @@ public record ProductDto(Guid Id, string Name, string Description, decimal Price
 
 在 `Features/Product/Queries/List/` 文件夹下，创建两个名为 `ListProductsQuery` 和 `ListProductsQueryHandler` 的类。
 
-```
+```csharp
 public record ListProductsQuery : IRequest<List<ProductDto>>;
 ```
 
@@ -257,7 +257,7 @@ public record ListProductsQuery : IRequest<List<ProductDto>>;
 
 接下来，我们需要为我们的查询提供处理程序。这就是 `ListProductsQueryHandler` 发挥作用的地方。请注意，每当我们的 LIST 端点被触发时，这个处理程序就会被触发。
 
-```
+```csharp
 public class ListProductsQueryHandler(AppDbContext context) : IRequestHandler<ListProductsQuery, List<ProductDto>>
 {
     public async Task<List<ProductDto>> Handle(ListProductsQuery request, CancellationToken cancellationToken)
@@ -279,13 +279,13 @@ public class ListProductsQueryHandler(AppDbContext context) : IRequestHandler<Li
 
 在 `Features/Product/Queries/Get/` 文件夹下，创建两个名为 `GetProductQuery` 和 `GetProductQueryHandler` 的类。
 
-```
+```csharp
 public record GetProductQuery(Guid Id) : IRequest<ProductDto>;
 ```
 
 这条记录查询将有一个 GUID 参数，由客户端传递。这个 ID 将用于在数据库中查询产品。
 
-```
+```csharp
 public class GetProductQueryHandler(AppDbContext context)
     : IRequestHandler<GetProductQuery, ProductDto?>
 {
@@ -311,13 +311,13 @@ public class GetProductQueryHandler(AppDbContext context)
 
 同样，在 `Features/Product/Commands/Create/` 文件夹下，创建以下两个文件。
 
-```
+```csharp
 public record CreateProductCommand(string Name, string Description, decimal Price) : IRequest<Guid>;
 ```
 
 首先是命令本身，它接受名称、描述和价格。请注意，这个命令对象预期将返回新创建的产品的 ID。
 
-```
+```csharp
 public class CreateProductCommandHandler(AppDbContext context) : IRequestHandler<CreateProductCommand, Guid>
 {
     public async Task<Guid> Handle(CreateProductCommand command, CancellationToken cancellationToken)
@@ -336,13 +336,13 @@ public class CreateProductCommandHandler(AppDbContext context) : IRequestHandler
 
 接下来，我们将有一个通过指定 ID 删除产品的功能。为此，在 `Features/Product/Command/Delete/` 下创建以下类。
 
-```
+```csharp
 public record DeleteProductCommand(Guid Id) : IRequest;
 ```
 
 删除处理程序将接收 ID，从数据库中获取记录并尝试移除它。如果未找到具有提及 ID 的产品，则简单地退出处理程序代码。
 
-```
+```csharp
 public class DeleteProductCommandHandler(AppDbContext context) : IRequestHandler<DeleteProductCommand>
 {
     public async Task Handle(DeleteProductCommand request, CancellationToken cancellationToken)
@@ -365,7 +365,7 @@ public class DeleteProductCommandHandler(AppDbContext context) : IRequestHandler
 
 打开 `Program.cs` 并添加以下端点映射。
 
-```
+```csharp
 app.MapGet("/products/{id:guid}", async (Guid id, ISender mediatr) =>
 {
     var product = await mediatr.Send(new GetProductQuery(id));
@@ -412,7 +412,7 @@ app.MapDelete("/products/{id:guid}", async (Guid id, ISender mediatr) =>
 
 让我们测试我们的每一个端点。首先是 LIST 端点。这可以测试以验证我们是否拥有预期的初始种子数据。
 
-```
+```json
 [
   {
     "id": "c2537bef-235d-4a72-9aaf-f5cf1ff2d080",
@@ -437,7 +437,7 @@ app.MapDelete("/products/{id:guid}", async (Guid id, ISender mediatr) =>
 
 接下来，让我创建一个新产品。这是产品负载。
 
-```
+```json
 {
   "name": "Tesla Model Y",
   "description": "特斯拉 Model Y",
@@ -447,7 +447,7 @@ app.MapDelete("/products/{id:guid}", async (Guid id, ISender mediatr) =>
 
 这里是响应。
 
-```
+```json
 {
   "id": "4eb60a75-1dfa-401d-8f65-c4750457d19d"
 }
@@ -455,7 +455,7 @@ app.MapDelete("/products/{id:guid}", async (Guid id, ISender mediatr) =>
 
 让我们使用这个产品 ID 来测试 `按 ID 获取` 端点。
 
-```
+```json
 {
   "id": "4eb60a75-1dfa-401d-8f65-c4750457d19d",
   "name": "Tesla Model Y",
@@ -476,7 +476,7 @@ app.MapDelete("/products/{id:guid}", async (Guid id, ISender mediatr) =>
 
 首先，创建一个名为 `Notifications` 的新文件夹，并添加以下记录。
 
-```
+```csharp
 public record ProductCreatedNotification(Guid Id) : INotification;
 ```
 
@@ -484,7 +484,7 @@ public record ProductCreatedNotification(Guid Id) : INotification;
 
 如上所述，我们将创建两个处理程序，它们将订阅这个通知。在同一个文件夹下，添加这些文件。
 
-```
+```csharp
 public class StockAssignedHandler(ILogger<StockAssignedHandler> logger) : INotificationHandler<ProductCreatedNotification>
 {
     public Task Handle(ProductCreatedNotification notification, CancellationToken cancellationToken)
@@ -495,7 +495,7 @@ public class StockAssignedHandler(ILogger<StockAssignedHandler> logger) : INotif
 }
 ```
 
-```
+```csharp
 public class RandomHandler(ILogger<RandomHandler> logger) : INotificationHandler<ProductCreatedNotification>
 {
     public Task Handle(ProductCreatedNotification notification, CancellationToken cancellationToken)
@@ -510,7 +510,7 @@ public class RandomHandler(ILogger<RandomHandler> logger) : INotificationHandler
 
 为了发布通知，我将按如下方式修改我们的 POST 端点代码。
 
-```
+```csharp
 app.MapPost("/products", async (CreateProductCommand command, IMediator mediatr) =>
 {
     var productId = await mediatr.Send(command);
