@@ -1,10 +1,10 @@
 ---
-发布日期：2024-05-16
-标签：[sql,nosql]
-来源：https://www.ml4devs.com/articles/datastore-choices-sql-vs-nosql-database/
-作者：Satish Chandra Gupta
-标题：SQL vs. NoSQL数据库：何时使用，如何选择 - 针对开发者的机器学习
-描述： SQL和NoSQL数据库的区别。何时选择NoSQL数据库取代SQL数据库。决策树选择关系型数据库，键值对数据库，宽列数据库，文档数据库和图数据库。
+pubDatetime: 2024-05-16
+tags: [sql, nosql]
+source: https://www.ml4devs.com/articles/datastore-choices-sql-vs-nosql-database/
+author: Satish Chandra Gupta
+title: SQL vs. NoSQL数据库：何时使用，如何选择 - 针对开发者的机器学习
+description: SQL和NoSQL数据库的区别。何时选择NoSQL数据库取代SQL数据库。决策树选择关系型数据库，键值对数据库，宽列数据库，文档数据库和图数据库。
 ---
 
 # 针对开发者的SQL vs. NoSQL数据库：何时使用，如何选择

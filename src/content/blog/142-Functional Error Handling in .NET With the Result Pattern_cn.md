@@ -1,10 +1,10 @@
 ---
-发布时间: 2024-05-16
-标签: []
-来源: https://www.milanjovanovic.tech/blog/functional-error-handling-in-dotnet-with-the-result-pattern?utm_source=Twitter&utm_medium=social&utm_campaign=13.05.2024
-作者: Milan Jovanović
-标题: 用Result Pattern在.NET中进行功能性错误处理
-描述: 你应该如何处理代码中的错误呢？这个问题引发了很多讨论，我想分享我的观点。
+pubDatetime: 2024-05-16
+tags: []
+source: https://www.milanjovanovic.tech/blog/functional-error-handling-in-dotnet-with-the-result-pattern?utm_source=Twitter&utm_medium=social&utm_campaign=13.05.2024
+author: Milan Jovanović
+title: 用Result Pattern在.NET中进行功能性错误处理
+description: 你应该如何处理代码中的错误呢？这个问题引发了很多讨论，我想分享我的观点。
 ---
 
 # 用Result Pattern在.NET中进行功能性错误处理
