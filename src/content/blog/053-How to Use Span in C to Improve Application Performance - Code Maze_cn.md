@@ -7,13 +7,13 @@ title: 如何使用 C# 中的 Span 来提升应用程序性能
 description: 在本文中，我们将学习如何在 C# 中使用 Span 来替换字符串和集合，以提升我们应用程序的性能
 ---
 
-# 如何使用 C# 中的 Span 来提升应用程序性能 - Code Maze
+# 如何使用 C# 中的 Span 来提升应用程序性能
 
 > ## 摘要
 >
 > 在本文中，我们将学习如何在 C# 中使用 Span 来替换字符串和集合，以提升我们应用程序的性能
 >
-> 原文地址：[How to Use Span in C# to Improve Application Performance - Code Maze](https://code-maze.com/csharp-span-to-improve-application-performance/)
+> 原文地址：[How to Use Span in C# to Improve Application Performance](https://code-maze.com/csharp-span-to-improve-application-performance/)
 
 ---
 

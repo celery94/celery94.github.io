@@ -3,17 +3,17 @@ pubDatetime: 2024-02-26T16:33:52
 tags: [EF Core, IHostedService, IServiceScopeFactory, IDbContextFactory]
 source: https://code-maze.com/efcore-inject-dbcontext-instance-into-ihostedservice/
 author: Ivan Gechev
-title: 如何将DbContext实例注入到IHostedService - Code Maze
+title: 如何将DbContext实例注入到IHostedService
 description: 在这篇文章中，我们将探讨如何将DbContext实例注入到IHostedService，以及在这个过程中需要了解的一些重要概念。
 ---
 
-# 如何将DbContext实例注入到IHostedService - Code Maze
+# 如何将DbContext实例注入到IHostedService
 
 > ## 摘要
 >
 > 在这篇文章中，我们将探讨如何将DbContext实例注入到IHostedService，以及在这个过程中需要了解的一些重要概念。
 >
-> 本文翻译自[How to Inject a DbContext Instance Into an IHostedService - Code Maze](https://code-maze.com/efcore-inject-dbcontext-instance-into-ihostedservice/)。
+> 本文翻译自[How to Inject a DbContext Instance Into an IHostedService](https://code-maze.com/efcore-inject-dbcontext-instance-into-ihostedservice/)。
 
 ---
 

@@ -3,17 +3,17 @@ pubDatetime: 2024-03-15
 tags: [C#, StringPool]
 source: https://code-maze.com/csharp-use-stringpool-to-reduce-string-allocations/
 author: Osman Sokuoglu
-title: 如何在 C# 中使用 StringPool 来减少字符串分配 - Code Maze
+title: 如何在 C# 中使用 StringPool 来减少字符串分配
 description: 本文探讨了如何使用 C# 中的 StringPool 来减少字符串分配，包括示例代码和基准测试部分。
 ---
 
-# 如何在 C# 中使用 StringPool 来减少字符串分配 - Code Maze
+# 如何在 C# 中使用 StringPool 来减少字符串分配
 
 > ## 摘录
 >
 > 本文探讨了如何使用 C# 中的 StringPool 来减少字符串分配，包括示例代码和基准测试部分。
 >
-> 原文 [How to Use StringPool to Reduce String Allocations in C# - Code Maze](https://code-maze.com/csharp-use-stringpool-to-reduce-string-allocations/)
+> 原文 [How to Use StringPool to Reduce String Allocations in C#](https://code-maze.com/csharp-use-stringpool-to-reduce-string-allocations/)
 
 ---
 

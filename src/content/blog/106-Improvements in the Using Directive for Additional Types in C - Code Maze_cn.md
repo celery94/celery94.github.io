@@ -3,7 +3,7 @@ pubDatetime: 2024-04-16
 tags: []
 source: https://code-maze.com/csharp-improvements-in-the-using-directive-for-additional-types/
 author: Georgios Panagopoulos
-title: 在 C# 中 `using` 指令的额外类型改进 - Code Maze
+title: 在 C# 中 `using` 指令的额外类型改进
 description: 在 C# 中，`using` 指令帮助我们减少了样板代码。让我们看看 C# 12 是如何提升 `using` 指令以用于额外的类型的。
 ---
 

@@ -8,7 +8,7 @@ title: Parallel.ForEachAsync() 和 Task.Run() 结合 When.All 在 C# 中的应�
 description: 在本文中，我们比较了两种不同的方法，Parallel.ForEachAsync 和 Task.WhenAll，用于并行执行重复的异步方法。
 ---
 
-# Parallel.ForEachAsync() 和 Task.Run() 结合 When.All 在 C# 中的应用 - Code Maze
+# Parallel.ForEachAsync() 和 Task.Run() 结合 When.All 在 C# 中的应用
 
 > ## 摘录
 >

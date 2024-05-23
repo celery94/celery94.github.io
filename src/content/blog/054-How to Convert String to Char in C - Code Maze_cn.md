@@ -11,7 +11,7 @@ description: 在C#开发中，处理字符串和字符是基本工作。本文�
 >
 > 在C#开发中，处理字符串和字符是基本工作。本文探讨了如何将字符串转换为char数组。
 >
-> 原文链接：[How to Convert String to Char in C# - Code Maze](https://code-maze.com/csharp-how-to-convert-string-to-char/)
+> 原文链接：[How to Convert String to Char in C#](https://code-maze.com/csharp-how-to-convert-string-to-char/)
 
 ---
 

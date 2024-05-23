@@ -13,7 +13,7 @@ description: 在本文中，我们将探索如何使用XML注释在Swagger中添
 >
 > 在本文中，我们将探索如何使用XML注释在Swagger中添加查询参数，并在.NET项目中设置XML文档。
 >
-> 原文 [How to Show Query Parameters in Swagger in ASP.NET Core - Code Maze](https://code-maze.com/aspnetcore-show-query-parameters-in-swagger/)
+> 原文 [How to Show Query Parameters in Swagger in ASP.NET Core](https://code-maze.com/aspnetcore-show-query-parameters-in-swagger/)
 
 ---
 

@@ -3,7 +3,7 @@ pubDatetime: 2024-03-15
 tags: [".NET", "Minimal API", "C#"]
 source: https://code-maze.com/aspnetcore-automatic-registration-of-minimal-api-endpoints/
 author: Ivan Gechev
-title: 在 .NET 中自动注册 Minimal API 端点 - Code Maze
+title: 在 .NET 中自动注册 Minimal API 端点
 description: 在本文中，我们将探讨如何通过自动注册改进我们的 .NET Minimal API 端点。
 ---
 
@@ -11,7 +11,7 @@ description: 在本文中，我们将探讨如何通过自动注册改进我们�
 >
 > 在本文中，我们将探讨如何通过自动注册改进我们的 .NET Minimal API 端点。
 >
-> 原文 [Automatic Registration of Minimal API Endpoints in .NET - Code Maze](https://code-maze.com/aspnetcore-automatic-registration-of-minimal-api-endpoints/)
+> 原文 [Automatic Registration of Minimal API Endpoints in .NET](https://code-maze.com/aspnetcore-automatic-registration-of-minimal-api-endpoints/)
 
 ---
 

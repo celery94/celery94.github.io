@@ -11,7 +11,7 @@ description: 探索创建内存中 Zip 文件的选项，并使用 REST 协议�
 >
 > 探索创建内存中 Zip 文件的选项，并使用 REST 协议传输它们，以写入数据库。
 >
-> 原文链接：[How to Create a Zip File in Memory In C# - Code Maze](https://code-maze.com/csharp-create-a-zip-file-in-memory/)
+> 原文链接：[How to Create a Zip File in Memory In C#](https://code-maze.com/csharp-create-a-zip-file-in-memory/)
 
 ---
 

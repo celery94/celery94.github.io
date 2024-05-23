@@ -3,17 +3,17 @@ pubDatetime: 2024-05-22
 tags: []
 source: https://code-maze.com/aspnetcore-set-global-default-json-serialization-options/
 author: Karthikeyan N S
-title: .NET中如何设置全局默认的JSON序列化选项 - Code Maze
+title: .NET中如何设置全局默认的JSON序列化选项
 description: 在这篇文章中，我们将探讨在ASP.NET Core Web API中设置全局默认JSON序列化选项的各种方法。
 ---
 
-# .NET中如何设置全局默认的JSON序列化选项 - Code Maze
+# .NET中如何设置全局默认的JSON序列化选项
 
 > ## 摘要
 >
 > 在这篇文章中，我们将探讨在ASP.NET Core Web API中设置全局默认JSON序列化选项的各种方法。
 >
-> 原文 [How to Set Global Default JSON Serialization Options in .NET - Code Maze](https://code-maze.com/aspnetcore-set-global-default-json-serialization-options/)
+> 原文 [How to Set Global Default JSON Serialization Options in .NET](https://code-maze.com/aspnetcore-set-global-default-json-serialization-options/)
 
 ---
 

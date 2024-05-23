@@ -3,11 +3,11 @@ pubDatetime: 2024-02-23T13:13:05
 tags: [.NET, Clean Architecture]
 source: https://code-maze.com/dotnet-clean-architecture/
 author: Muhammed Saleem
-title: 在 .NET中使用洁净架构 - Code Maze
+title: 在 .NET中使用洁净架构
 description: 洁净架构是一种旨在构建我们可以轻松维护、扩展和测试的应用程序的架构模式。
 ---
 
-# 在 .NET中使用洁净架构 - Code Maze
+# 在 .NET中使用洁净架构
 
 > ## 摘录
 >

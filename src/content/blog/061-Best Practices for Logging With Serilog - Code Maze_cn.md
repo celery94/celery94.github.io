@@ -11,7 +11,7 @@ description: 在本文中，我们将仔细看看在 .NET 中使用 Serilog 进�
 >
 > 在本文中，我们将仔细看看在 .NET 中使用 Serilog 进行日志记录时的一些最佳实践。
 >
-> 原文 [Best Practices for Logging With Serilog - Code Maze](https://code-maze.com/dotnet-best-practices-for-logging-with-serilog/)
+> 原文 [Best Practices for Logging With Serilog](https://code-maze.com/dotnet-best-practices-for-logging-with-serilog/)
 
 ---
 

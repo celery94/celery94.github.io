@@ -3,11 +3,11 @@ pubDatetime: 2024-03-13
 tags: [".NET", "ASP.NET Core", "API", "Versioning"]
 source: https://code-maze.com/aspnetcore-api-versioning/
 author: Code Maze
-title: ASP.NET Core 中的 API 版本控制 - Code Maze
+title: ASP.NET Core 中的 API 版本控制
 description: 我们将讨论对 Rest API 进行版本控制，并探索 Asp.net Core 中我们拥有的不同版本控制方案。
 ---
 
-# ASP.NET Core 中的 API 版本控制 - Code Maze
+# ASP.NET Core 中的 API 版本控制
 
 > ## 摘要
 >

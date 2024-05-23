@@ -7,13 +7,13 @@ title: 使用 ImageMagick 在 C# 中生成图片
 description: 在本文中，我们将学习如何使用 ImageMagick 在 C# 中生成图片，提供图片创建和操作的示例。
 ---
 
-# 使用 ImageMagick 在 C# 中生成图片 - Code Maze
+# 使用 ImageMagick 在 C# 中生成图片
 
 > ## 摘要
 >
 > 在本文中，我们将学习如何使用 ImageMagick 在 C# 中生成图片，提供图片创建和操作的示例。
 >
-> 原文 [Generate Images in C# Using ImageMagick - Code Maze](https://code-maze.com/csharp-generate-images-using-imagemagick/)
+> 原文 [Generate Images in C# Using ImageMagick](https://code-maze.com/csharp-generate-images-using-imagemagick/)
 
 ---
 

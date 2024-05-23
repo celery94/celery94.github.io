@@ -7,7 +7,7 @@ title: ASP.NET Core 中引入 Carter
 description: 在这篇文章中，我们将深入探讨 Carter 库以及如何在我们的 ASP.NET Core 项目中使用它。
 ---
 
-# ASP.NET Core 中引入 Carter - Code Maze
+# ASP.NET Core 中引入 Carter
 
 > ## 摘录
 >

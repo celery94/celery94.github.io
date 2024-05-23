@@ -3,17 +3,17 @@ pubDatetime: 2024-03-17
 tags: ["C#"]
 source: https://code-maze.com/csharp-avoid-await-in-loop/
 author: Anaedobe Nneka
-title: 为什么我们应该避免在C#循环中使用Await - Code Maze
+title: 为什么我们应该避免在C#循环中使用Await
 description: 在本文中，我们将探讨在循环中使用await关键字适当的场景以及不适当的场景。
 ---
 
-# 为什么我们应该避免在C#循环中使用Await - Code Maze
+# 为什么我们应该避免在C#循环中使用Await
 
 > ## 摘录
 >
 > 在本文中，我们将探讨在循环中使用await关键字适当的场景以及不适当的场景。
 >
-> 原文 [Why Should We Avoid Using Await in a Loop in C# - Code Maze](https://code-maze.com/csharp-avoid-await-in-loop/)
+> 原文 [Why Should We Avoid Using Await in a Loop in C#](https://code-maze.com/csharp-avoid-await-in-loop/)
 
 ---
 

@@ -3,11 +3,11 @@ pubDatetime: 2024-05-11
 tags: [QR码, .NET, QRCoder, C#]
 source: https://code-maze.com/aspnetcore-generate-qr-codes-with-qrcoder/
 author: Ryan Miranda
-title: 使用QRCoder在.NET中生成QR码 - Code Maze
+title: 使用QRCoder在.NET中生成QR码
 description: 通过.NET库QRCoder可以轻松生成QR码。让我们使用负载生成器生成一些基本的和自定义的QR码。
 ---
 
-# 使用QRCoder在.NET中生成QR码 - Code Maze
+# 使用QRCoder在.NET中生成QR码
 
 > ## 摘要
 >

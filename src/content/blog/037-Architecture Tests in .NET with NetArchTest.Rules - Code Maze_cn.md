@@ -3,11 +3,11 @@ pubDatetime: 2024-03-08
 tags: [".NET", "架构", "测试"]
 source: https://code-maze.com/csharp-architecture-tests-with-netarchtest-rules/
 author: Ivan Gechev
-title: 使用 NetArchTest.Rules 在 .NET 中进行架构测试 - Code Maze
+title: 使用 NetArchTest.Rules 在 .NET 中进行架构测试
 description: 在本文中，我们将探索如何使用 NetArchTest.Rules 库为我们的 .NET 应用编写架构测试。
 ---
 
-# 使用 NetArchTest.Rules 在 .NET 中进行架构测试 - Code Maze
+# 使用 NetArchTest.Rules 在 .NET 中进行架构测试
 
 > ## 摘录
 >

@@ -3,11 +3,11 @@ pubDatetime: 2024-05-17
 tags: []
 source: https://code-maze.com/aspnetcore-using-source-generators-to-validate-ioptions/
 author: Ivan Gechev
-title: 在ASP.NET Core中使用Source Generators验证IOptions - Code Maze
+title: 在ASP.NET Core中使用Source Generators验证IOptions
 description: 在本文中，我们将探讨如何使用Source Generators来验证IOptions，确保它们满足所需的配置期望。
 ---
 
-# 在ASP.NET Core中使用Source Generators验证IOptions - Code Maze
+# 在ASP.NET Core中使用Source Generators验证IOptions
 
 > ## 摘要
 >
