@@ -91,8 +91,6 @@ public class CommentService
 
 注意我们 `GetSingleUserComment()` 方法中的代码行，以及 `userId` 是如何被传递而不是 `commentId`。这是故意做的，以检查程序在编译期间是否会抛出错误。
 
-这段代码对你有帮助吗？请考虑订阅，并获取 **ASP.NET Core Web API Best Practices** 电子书 [免费！](https://code-maze.com/free-ebook-aspnetcore-webapi-best-practices/)
-
 不幸的是，这段代码成功编译，并且在运行时没有抛出任何错误，这不是我们希望在程序中看到的行为。
 
 现在让我们看看如何解决这个问题，使用 StronglyTypedId 包来修改我们的 `User` 和 `Comment` 类：
@@ -153,8 +151,6 @@ public class CommentService
 
 虽然基本用法展示了核心功能，但 StronglyTypedId 包提供了额外的功能，增强了 ID 的灵活性和定制性。让我们看看其中的一些功能。
 
-这段代码对你有帮助吗？请考虑订阅，并获取 **ASP.NET Core Web API Best Practices** 电子书 [免费！](https://code-maze.com/free-ebook-aspnetcore-webapi-best-practices/)
-
 ### 使用不同类型作为 ID 的后备字段
 
 该包的主要功能之一是能够使用不同的数据类型作为 ID 的后备字段。默认情况下，**该包使用 `Guid` 类型作为底层标识符，但也允许我们选择最合适的数据类型来存储 ID 值**。我们可以使用 `string`、`long` 和 `int` 类型来指定后备字段。
@@ -189,8 +185,6 @@ public partial struct CommentId { }
 ```
 
 在这里，我们一次性使用 `StronglyTypedIdDefaults` 汇编属性，将每个 ID 的默认后备字段更改为 `string` 类型。
-
-这段代码对你有帮助吗？请考虑订阅，并获取 **ASP.NET Core Web API Best Practices** 电子书 [免费！](https://code-maze.com/free-ebook-aspnetcore-webapi-best-practices/)
 
 我们可以通过为任何 `StronglyTypedId` 属性提供后备字段类型来覆盖全局默认值，正如我们之前所做的那样。
 
