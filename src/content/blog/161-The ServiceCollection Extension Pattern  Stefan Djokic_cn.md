@@ -2,7 +2,7 @@
 pubDatetime: 2024-06-07
 tags: []
 source: https://stefandjokic.tech/posts/the-service-collection-extension-pattern
-author:
+author: stefandjokic
 title: The ServiceCollection Extension Pattern
 description: The IServiceCollection interface represents a contract for a collection of service descriptors, providing an abstraction to add, remove, and retrieve services.
 ---
