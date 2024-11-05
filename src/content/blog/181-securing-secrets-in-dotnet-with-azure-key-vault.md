@@ -1,8 +1,8 @@
 ---
-pubDatetime: Nov 04 202
+pubDatetime: 2024-11-04
 tags: []
 source: https://thecodeman.net/posts/securing-secrets-in-dotnet-with-azure-key-vault?utm_source=newsletter&utm_medium=email&utm_campaign=TheCodeMan%20Newsletter%20-%20Securing%20Secrets%20in%20.NET%208%20with%20Azure%20Key%20Vault
-author: null
+author: TheCodeMan
 title: Securing Secrets in .NET 8 with Azure Key Vault | TheCodeMan
 description: Learn how to securely manage and access secrets in .NET 8 applications using Azure Key Vault. This guide covers best practices for storing sensitive data, setting up Key Vault, and integrating it with .NET for secure and scalable applications.
 ---
