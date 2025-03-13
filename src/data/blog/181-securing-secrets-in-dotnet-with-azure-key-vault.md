@@ -4,7 +4,7 @@ tags: []
 source: https://thecodeman.net/posts/securing-secrets-in-dotnet-with-azure-key-vault?utm_source=newsletter&utm_medium=email&utm_campaign=TheCodeMan%20Newsletter%20-%20Securing%20Secrets%20in%20.NET%208%20with%20Azure%20Key%20Vault
 author: TheCodeMan
 title: 在 .NET 8 中使用 Azure 密钥保管库保护机密
-description: Learn how to securely manage and access secrets in .NET 8 applications using Azure Key Vault. This guide covers best practices for storing sensitive data, setting up Key Vault, and integrating it with .NET for secure and scalable applications.
+description: 了解如何使用 Azure 密钥保管库在 .NET 8 应用程序中安全地管理和访问机密。本指南涵盖了存储敏感数据的最佳实践、设置密钥保管库以及将其与 .NET 集成以实现安全和可扩展的应用程序。
 ---
 
 ### 背景

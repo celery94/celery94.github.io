@@ -4,7 +4,7 @@ tags: []
 source: https://www.milanjovanovic.tech/blog/hybrid-cache-in-aspnetcore-new-caching-library
 author: Milan Jovanović
 title: ASP.NET Core中的混合缓存 - 新的缓存库
-description: HybridCache in .NET 9 combines fast in-memory caching with distributed caching, solving common problems like cache stampede while adding features like tag-based invalidation. This guide shows you how to use HybridCache in your applications, from basic setup to real-world usage patterns with Entity Framework Core and minimal APIs.
+description: .NET 9 中的混合缓存结合了快速的内存缓存和分布式缓存，解决了诸如缓存雪崩等常见问题，同时增加了基于标签的失效等功能。本指南向您展示了如何在应用程序中使用混合缓存，从基本设置到与 Entity Framework Core 和最小 API 的实际使用模式。
 ---
 
 # ASP.NET Core中的混合缓存 - 新的缓存库
