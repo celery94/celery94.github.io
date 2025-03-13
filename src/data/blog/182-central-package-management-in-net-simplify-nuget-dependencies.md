@@ -3,7 +3,7 @@ pubDatetime: 2024-12-07
 tags: []
 source: https://www.milanjovanovic.tech/blog/central-package-management-in-net-simplify-nuget-dependencies
 author: Milan Jovanović
-title: Central Package Management in .NET - Simplify NuGet Dependencies
+title: .NET中的中央包管理 - 简化NuGet依赖
 description: Managing NuGet packages across multiple .NET projects used to be a nightmare of version mismatches and maintenance headaches, but Central Package Management (CPM) offers a powerful solution by letting you control all package versions from a single source of truth. Learn how CPM can simplify your dependency management, prevent version conflicts, and make your .NET development workflow smoother.
 ---
 

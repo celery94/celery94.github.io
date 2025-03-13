@@ -3,7 +3,7 @@ pubDatetime: 2024-11-16
 tags: []
 source: https://www.milanjovanovic.tech/blog/hybrid-cache-in-aspnetcore-new-caching-library
 author: Milan Jovanović
-title: HybridCache in ASP.NET Core - New Caching Library
+title: ASP.NET Core中的混合缓存 - 新的缓存库
 description: HybridCache in .NET 9 combines fast in-memory caching with distributed caching, solving common problems like cache stampede while adding features like tag-based invalidation. This guide shows you how to use HybridCache in your applications, from basic setup to real-world usage patterns with Entity Framework Core and minimal APIs.
 ---
 
