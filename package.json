@@ -1,6 +1,5 @@
 {
   "name": "astro-paper",
-  "type": "module",
   "version": "5.0.1",
   "scripts": {
     "dev": "astro dev",
