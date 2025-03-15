@@ -1,5 +1,5 @@
 ---
-pubDatetime: 2023-10-11
+pubDatetime: 2025-03-15
 tags: [前端性能优化, Web开发, 技术干货]
 slug: frontend-performance-tips
 source: ByteByteGo
