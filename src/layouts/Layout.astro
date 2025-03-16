@@ -3,6 +3,7 @@ import { ClientRouter } from "astro:transitions";
 import { SITE } from "@/config";
 import { LOCALE } from "@/constants";
 import "@/styles/global.css";
+import GoogleAnalytics from '../components/GoogleAnalytics.astro';
 
 const googleSiteVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION;
 
@@ -130,6 +131,7 @@ const structuredData = {
     }
 
     <ClientRouter />
+    <GoogleAnalytics />
 
     <script is:inline src="/toggle-theme.js" async></script>
   </head>
