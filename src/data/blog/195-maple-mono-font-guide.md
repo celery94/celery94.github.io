@@ -1,5 +1,5 @@
 ---
-pubDatetime:
+pubDatetime: 2025-03-16
 tags: [开源字体, 编程, 技术指南, 字体设计, 软件开发]
 slug: maple-mono-font-guide
 source: https://github.com/subframe7536/maple-font
