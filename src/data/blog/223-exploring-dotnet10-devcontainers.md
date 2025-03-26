@@ -3,11 +3,11 @@ pubDatetime: 2025-03-26 13:30:09
 tags: [开发容器, .NET 10, Docker, Visual Studio Code, 技术教程]
 slug: exploring-dotnet10-devcontainers
 source: https://devblogs.microsoft.com/dotnet/dotnet-in-dev-container/?hide_banner=true
-title: 🚀探索最新.NET 10：使用开发容器实现高效实验
+title: 🚀探索最新.NET 10：使用开发容器实现高效环境隔离
 description: 学习如何使用开发容器（Dev Containers）快速、安全地尝试最新的 .NET 10 预览版本，同时保持本地环境的清洁。详细教程带你掌握设置步骤、配置选项以及相关工具。
 ---
 
-# 🚀探索最新.NET 10：使用开发容器实现高效实验
+# 🚀探索最新.NET 10：使用开发容器实现高效环境隔离
 
 .NET 团队刚刚发布了 .NET 10 的第二个预览版本，其中包含了一系列令人期待的新功能和改进✨。如果你想尝试这些新特性，但又不想对本地开发环境造成影响，那么 **开发容器（Dev Containers）** 将是你的理想选择！本教程将带你一步步设置和使用开发容器，快速开始尝试最新的 .NET 技术。
 
