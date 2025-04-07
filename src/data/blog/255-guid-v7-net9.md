@@ -3,7 +3,7 @@ pubDatetime: 2025-04-07 20:54:06
 tags: [.NET, Guid, 技术干货, 编程]
 slug: guid-v7-net9
 source: okyry1chuk.dev
-author:
+author: Celery
 title: 深入解析 Guid V7 在 .NET 9 中的应用 🚀
 description: 本文深入解析了 .NET 9 中新增的 Guid V7，详细介绍其技术细节、作用以及与传统 Guid V4 的区别。
 ---
