@@ -4,6 +4,7 @@ import { SITE } from "@/config";
 import { LOCALE } from "@/constants";
 import "@/styles/global.css";
 import GoogleAnalytics from '../components/GoogleAnalytics.astro';
+import PerformanceOptimizer from '../components/PerformanceOptimizer.astro';
 
 const googleSiteVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION;
 
@@ -17,6 +18,7 @@ export interface Props {
   pubDatetime?: Date;
   modDatetime?: Date | null;
   scrollSmooth?: boolean;
+  keywords?: string;
 }
 
 const {
@@ -29,25 +31,53 @@ const {
   pubDatetime,
   modDatetime,
   scrollSmooth = false,
+  keywords = "AI assistants, software development, technology, programming, tech blog",
 } = Astro.props;
 
 const socialImageURL = new URL(ogImage, Astro.url);
 
-const structuredData = {
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  headline: `${title}`,
-  image: `${socialImageURL}`,
-  datePublished: `${pubDatetime?.toISOString()}`,
-  ...(modDatetime && { dateModified: modDatetime.toISOString() }),
-  author: [
-    {
-      "@type": "Person",
-      name: `${author}`,
-      ...(profile && { url: profile }),
-    },
-  ],
-};
+const structuredData = pubDatetime
+  ? {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      headline: `${title}`,
+      image: [`${socialImageURL}`],
+      datePublished: `${pubDatetime?.toISOString()}`,
+      ...(modDatetime && { dateModified: modDatetime.toISOString() }),
+      author: [
+        {
+          "@type": "Person",
+          name: `${author}`,
+          ...(profile && { url: profile }),
+        },
+      ],
+      description: `${description}`,
+      keywords: `${keywords}`,
+      publisher: {
+        "@type": "Organization",
+        name: "Assistant Hub",
+        logo: {
+          "@type": "ImageObject",
+          url: new URL("/logo.png", Astro.site).toString()
+        }
+      },
+      mainEntityOfPage: {
+        "@type": "WebPage",
+        "@id": canonicalURL
+      }
+    }
+  : {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      name: SITE.title,
+      url: SITE.website,
+      description: SITE.desc,
+      author: {
+        "@type": "Person",
+        name: SITE.author,
+        ...(SITE.profile && { url: SITE.profile }),
+      }
+    };
 ---
 
 <!doctype html>
@@ -57,7 +87,7 @@ const structuredData = {
 >
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/png" href="/logo.png" />
     <link rel="canonical" href={canonicalURL} />
     <meta name="generator" content={Astro.generator} />
@@ -67,13 +97,21 @@ const structuredData = {
     <meta name="title" content={title} />
     <meta name="description" content={description} />
     <meta name="author" content={author} />
+    <meta name="keywords" content={keywords} />
     <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <!-- Mobile Specific Metas -->
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:image" content={socialImageURL} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content={LOCALE.langTag ?? "en_US"} />
 
     <!-- Article Published/Modified time -->
     {
@@ -99,6 +137,7 @@ const structuredData = {
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={socialImageURL} />
+    <meta name="twitter:creator" content="@celery94" />
 
     <!-- Google JSON-LD Structured data -->
     <script
@@ -108,7 +147,6 @@ const structuredData = {
     />
 
     <!-- Enable RSS feed auto-discovery  -->
-    <!-- https://docs.astro.build/en/recipes/rss/#enabling-rss-feed-auto-discovery -->
     <link
       rel="alternate"
       type="application/rss+xml"
@@ -116,12 +154,7 @@ const structuredData = {
       href={new URL("rss.xml", Astro.site)}
     />
 
-    <meta name="theme-color" content="" />
-
     {
-      // If PUBLIC_GOOGLE_SITE_VERIFICATION is set in the environment variable,
-      // include google-site-verification tag in the heading
-      // Learn more: https://support.google.com/webmasters/answer/9008080#meta_tag_verification&zippy=%2Chtml-tag
       googleSiteVerification && (
         <meta
           name="google-site-verification"
@@ -130,6 +163,7 @@ const structuredData = {
       )
     }
 
+    <PerformanceOptimizer />
     <ClientRouter />
     <GoogleAnalytics />
 

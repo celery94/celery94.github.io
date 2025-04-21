@@ -18,8 +18,10 @@
     "@tailwindcss/vite": "^4.0.12",
     "astro": "^5.4.2",
     "lodash.kebabcase": "^4.1.1",
+    "marked": "^15.0.8",
     "remark-collapse": "^0.1.2",
     "remark-toc": "^9.0.0",
+    "sanitize-html": "^2.16.0",
     "satori": "^0.12.1",
     "sharp": "^0.33.5",
     "tailwindcss": "^4.0.12"

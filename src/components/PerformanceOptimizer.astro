@@ -1,0 +1,86 @@
+---
+// 用于预加载关键资源和优化网站性能的组件
+---
+
+<!-- 预连接到关键域名 -->
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<!-- 预加载关键CSS -->
+<link rel="preload" href="/styles/global.css" as="style">
+
+<!-- DNS预取 -->
+<link rel="dns-prefetch" href="https://fonts.googleapis.com">
+<link rel="dns-prefetch" href="https://fonts.gstatic.com">
+
+<!-- 资源提示 -->
+<link rel="preload" href="/logo.png" as="image">
+<link rel="modulepreload" href="/toggle-theme.js">
+
+<!-- 添加Core Web Vitals的性能优化 -->
+<script type="module">
+  // 使用Intersection Observer延迟加载非关键资源
+  document.addEventListener('DOMContentLoaded', () => {
+    if ('IntersectionObserver' in window) {
+      const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+      
+      const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const img = entry.target as HTMLImageElement;
+            img.src = img.dataset.src || img.src;
+            img.classList.add('loaded');
+            imageObserver.unobserve(img);
+          }
+        });
+      });
+
+      lazyImages.forEach(img => imageObserver.observe(img));
+    }
+  });
+  
+  // 注册性能测量
+  if ('performance' in window && 'PerformanceObserver' in window) {
+    // 监控LCP (Largest Contentful Paint)
+    new PerformanceObserver((entryList) => {
+      const entries = entryList.getEntries();
+      const lastEntry = entries[entries.length - 1];
+      console.log('LCP:', lastEntry.startTime);
+      // 这里可以将性能数据发送到分析服务
+    }).observe({type: 'largest-contentful-paint', buffered: true});
+    
+    // 监控FID (First Input Delay)
+    new PerformanceObserver((entryList) => {
+      const entries = entryList.getEntries();
+      entries.forEach(entry => {
+        console.log('FID:', entry.processingStart - entry.startTime);
+      });
+    }).observe({type: 'first-input', buffered: true});
+    
+    // 监控CLS (Cumulative Layout Shift)
+    new PerformanceObserver((entryList) => {
+      const entries = entryList.getEntries();
+      entries.forEach(entry => {
+        if (!entry.hadRecentInput) {
+          console.log('CLS:', entry.value);
+        }
+      });
+    }).observe({type: 'layout-shift', buffered: true});
+  }
+</script>
+
+<!-- 为搜索引擎提供页面内容的提示 -->
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "url": "https://celery94.github.io/",
+    "name": "Assistant Hub",
+    "description": "A technical blog focused on AI assistants, software development, and technology insights by Celery Liu",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://celery94.github.io/search?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+</script>

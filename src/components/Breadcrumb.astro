@@ -21,6 +21,31 @@ if (breadcrumbList[0] === "tags" && !isNaN(Number(breadcrumbList[2]))) {
     `${breadcrumbList[1]} ${Number(breadcrumbList[2]) === 1 ? "" : "(page " + breadcrumbList[2] + ")"}`
   );
 }
+
+// Create breadcrumb schema for SEO
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": new URL("/", Astro.url).toString()
+    }
+  ]
+};
+
+// Add each breadcrumb to the schema
+breadcrumbList.forEach((breadcrumb, index) => {
+  const path = breadcrumbList.slice(0, index + 1).join("/");
+  breadcrumbSchema.itemListElement.push({
+    "@type": "ListItem",
+    "position": index + 2, // +2 because we already have Home at position 1
+    "name": decodeURIComponent(breadcrumb),
+    "item": new URL(`/${path}/`, Astro.url).toString()
+  });
+});
 ---
 
 <nav class="mx-auto mt-8 mb-1 w-full max-w-3xl px-4" aria-label="breadcrumb">
@@ -55,3 +80,6 @@ if (breadcrumbList[0] === "tags" && !isNaN(Number(breadcrumbList[2]))) {
     }
   </ul>
 </nav>
+
+<!-- Add Schema.org structured data for breadcrumbs -->
+<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />

@@ -1,0 +1,31 @@
+---
+/**
+ * FAQ Schema组件，用于添加结构化常见问题数据
+ * 这将帮助搜索引擎在结果页面中显示FAQ框
+ */
+export interface Props {
+  faqs: Array<{
+    question: string;
+    answer: string;
+  }>;
+}
+
+const { faqs } = Astro.props;
+
+// 创建FAQ Schema
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer
+    }
+  }))
+};
+---
+
+<!-- 不显示任何内容，只添加结构化数据 -->
+<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />

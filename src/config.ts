@@ -2,7 +2,7 @@ export const SITE = {
   website: "https://celery94.github.io/", // replace this with your deployed domain
   author: "Celery Liu",
   profile: "https://celery94.github.io/",
-  desc: "Celery's blog",
+  desc: "Assistant Hub - A technical blog focused on AI assistants, software development, and technology insights by Celery Liu",
   title: "Assistant Hub",
   ogImage: "astropaper-og.jpg",
   lightAndDarkMode: true,
