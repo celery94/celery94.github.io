@@ -27,6 +27,8 @@ MCP（Model Context Protocol）是Anthropic提出的一种开放协议，旨在�
 - **MCP Client**：连接到指定的MCP Server，作为中间人协调AI与Server的通信（例如Cursor IDE）。
 - **MCP Host**：最终消费这些服务的应用（如Claude Desktop、IDE等）。
 
+![](../../assets/279/279.png)
+
 ---
 
 ## 二、为何需要 MCP？来看个实际例子
