@@ -18,7 +18,7 @@
 <link rel="modulepreload" href="/toggle-theme.js">
 
 <!-- 添加Core Web Vitals的性能优化 -->
-<script type="module">
+<script is:inline type="module">
   // 使用Intersection Observer延迟加载非关键资源
   document.addEventListener('DOMContentLoaded', () => {
     if ('IntersectionObserver' in window) {
@@ -72,7 +72,7 @@
 </script>
 
 <!-- 为搜索引擎提供页面内容的提示 -->
-<script type="application/ld+json">
+<script is:inline type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
