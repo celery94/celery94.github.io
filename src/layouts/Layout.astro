@@ -3,8 +3,7 @@ import { ClientRouter } from "astro:transitions";
 import { SITE } from "@/config";
 import { LOCALE } from "@/constants";
 import "@/styles/global.css";
-import GoogleAnalytics from '../components/GoogleAnalytics.astro';
-import PerformanceOptimizer from '../components/PerformanceOptimizer.astro';
+import PerformanceOptimizer from "../components/PerformanceOptimizer.astro";
 
 const googleSiteVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION;
 
@@ -58,13 +57,13 @@ const structuredData = pubDatetime
         name: "Assistant Hub",
         logo: {
           "@type": "ImageObject",
-          url: new URL("/logo.png", Astro.site).toString()
-        }
+          url: new URL("/logo.png", Astro.site).toString(),
+        },
       },
       mainEntityOfPage: {
         "@type": "WebPage",
-        "@id": canonicalURL
-      }
+        "@id": canonicalURL,
+      },
     }
   : {
       "@context": "https://schema.org",
@@ -76,7 +75,7 @@ const structuredData = pubDatetime
         "@type": "Person",
         name: SITE.author,
         ...(SITE.profile && { url: SITE.profile }),
-      }
+      },
     };
 ---
 
@@ -86,6 +85,10 @@ const structuredData = pubDatetime
   class={`${scrollSmooth && "scroll-smooth"}`}
 >
   <head>
+    <!-- Google tag (gtag.js) -->
+    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-SZ54NBS9FN"></script>
+    <script is:inline src="/gtag.js" async></script>
+    
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/png" href="/logo.png" />
@@ -165,7 +168,6 @@ const structuredData = pubDatetime
 
     <PerformanceOptimizer />
     <ClientRouter />
-    <GoogleAnalytics />
 
     <script is:inline src="/toggle-theme.js" async></script>
   </head>
