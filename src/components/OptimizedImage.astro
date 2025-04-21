@@ -2,7 +2,7 @@
 import { Image } from "astro:assets";
 
 export interface Props {
-  src: string | ImageMetadata;
+  src: string | any; // Using 'any' for ImageMetadata compatibility
   alt: string;
   width?: number;
   height?: number;
@@ -26,14 +26,14 @@ const {
 
 <figure class="image-container">
   <Image
-    src={src}
-    alt={alt}
-    width={width}
-    height={height}
-    loading={loading}
-    decoding={decoding}
+    {src}
+    {alt}
+    {width}
+    {height}
+    {loading}
+    {decoding}
     class={`optimized-image ${className}`}
-    sizes={sizes}
+    {sizes}
   />
   {alt && <figcaption class="sr-only">{alt}</figcaption>}
 </figure>

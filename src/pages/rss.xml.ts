@@ -15,8 +15,9 @@ export async function GET() {
     site: SITE.website,
     items: await Promise.all(
       sortedPosts.map(async ({ data, body, id }) => {
-        // 将Markdown转换为HTML提供更丰富的内容
-        const content = sanitizeHtml(marked.parse(body));
+        // Make sure body is defined before parsing and await the result
+        const parsedContent = body ? await marked.parse(body) : "";
+        const content = sanitizeHtml(parsedContent);
         
         return {
           link: `posts/${id}/`,

@@ -24,11 +24,13 @@
     if ('IntersectionObserver' in window) {
       const lazyImages = document.querySelectorAll('img[loading="lazy"]');
       
-      const imageObserver = new IntersectionObserver((entries, observer) => {
+      const imageObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
-            const img = entry.target as HTMLImageElement;
-            img.src = img.dataset.src || img.src;
+            const img = entry.target;
+            if (img instanceof HTMLImageElement && img.dataset.src) {
+              img.src = img.dataset.src;
+            }
             img.classList.add('loaded');
             imageObserver.unobserve(img);
           }

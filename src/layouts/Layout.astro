@@ -111,7 +111,7 @@ const structuredData = pubDatetime
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:image" content={socialImageURL} />
     <meta property="og:type" content="website" />
-    <meta property="og:locale" content={LOCALE.langTag ?? "en_US"} />
+    <meta property="og:locale" content={LOCALE.langTag?.[0] ?? "en_US"} />
 
     <!-- Article Published/Modified time -->
     {
