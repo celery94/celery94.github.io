@@ -151,7 +151,7 @@
                   <xsl:attribute name="href">
                     <xsl:value-of select="link"/>
                   </xsl:attribute>
-                  阅读全文 &rarr;
+                  阅读全文 →
                 </a>
               </p>
             </article>
