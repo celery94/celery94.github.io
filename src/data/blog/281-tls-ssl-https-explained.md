@@ -1,5 +1,5 @@
 ---
-pubDatetime: 2025-04-22 06:57:19
+pubDatetime: 2025-04-22
 tags: [HTTPS, TLS, SSL, 网络安全, 加密通信, 互联网协议]
 slug: tls-ssl-https-explained
 source: twitter
