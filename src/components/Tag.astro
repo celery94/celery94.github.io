@@ -1,5 +1,6 @@
 ---
 import IconHash from "@/assets/icons/IconHash.svg";
+import { slugifyStr } from "@/utils/slugify";
 
 export interface Props {
   tag: string;
@@ -8,6 +9,15 @@ export interface Props {
 }
 
 const { tag, tagName, size = "sm" } = Astro.props;
+
+// 生成一致的标签颜色
+const getTagColor = (tag: string) => {
+  const colors = ["primary", "secondary", "success", "info", "warning", "danger", "accent"];
+  const hash = tag.split("").reduce((acc, char) => char.charCodeAt(0) + acc, 0);
+  return colors[hash % colors.length];
+};
+
+const tagColor = getTagColor(tag);
 ---
 
 <li
@@ -20,17 +30,30 @@ const { tag, tagName, size = "sm" } = Astro.props;
     href={`/tags/${tag}/`}
     transition:name={tag}
     class:list={[
-      "relative pr-2 text-lg underline decoration-dashed group-hover:-top-0.5 group-hover:text-accent focus-visible:p-1",
+      "relative pr-2 underline decoration-dashed hover:no-underline focus-visible:p-1",
       { "text-sm": size === "sm" },
+      { "text-base": size === "lg" },
     ]}
   >
-    <IconHash
-      class:list={[
-        "inline-block opacity-80",
-        { "-mr-3.5 size-4": size === "sm" },
-        { "-mr-5 size-6": size === "lg" },
-      ]}
-    />
-    &nbsp;<span>{tagName}</span>
+    <span class={`tag-${tagColor} tag px-3 py-1 rounded-full transition-all duration-200 hover:shadow-md hover:-translate-y-0.5`}>
+      <IconHash
+        class:list={[
+          "inline-block",
+          { "size-3 mr-1": size === "sm" },
+          { "size-4 mr-1.5": size === "lg" },
+        ]}
+      />
+      <span>{tagName}</span>
+    </span>
   </a>
 </li>
+
+<style define:vars={{ tagColor }}>
+  .tag-primary { background-color: var(--color-primary); color: var(--color-background); }
+  .tag-secondary { background-color: var(--color-secondary); color: var(--color-background); }
+  .tag-success { background-color: var(--color-success); color: var(--color-background); }
+  .tag-info { background-color: var(--color-info); color: var(--color-background); }
+  .tag-warning { background-color: var(--color-warning); color: var(--color-background); }
+  .tag-danger { background-color: var(--color-danger); color: var(--color-background); }
+  .tag-accent { background-color: var(--color-accent); color: var(--color-background); }
+</style>

@@ -11,15 +11,25 @@ export interface Props {
 
 const { href, frontmatter, secHeading = true } = Astro.props;
 
-const { title, pubDatetime, modDatetime, description } = frontmatter;
+const { title, pubDatetime, modDatetime, description, tags } = frontmatter;
 
 const headerProps = {
   style: { viewTransitionName: slugifyStr(title) },
   class: "text-lg font-medium decoration-dashed hover:underline",
 };
+
+// 从标签生成随机颜色
+const getCardAccent = (title: string) => {
+  const colors = ["primary", "secondary", "success", "info", "warning", "danger", "accent"];
+  const hash = title.split("").reduce((acc, char) => char.charCodeAt(0) + acc, 0);
+  return colors[hash % colors.length];
+};
+
+const cardAccentClass = `card-accent-${getCardAccent(title)}`;
 ---
 
-<li class="my-6">
+<li class="my-6 card rounded-lg p-5 relative overflow-hidden">
+  <div class={`absolute top-0 left-0 w-1 h-full bg-${getCardAccent(title)}`}></div>
   <a
     href={href}
     class="inline-block text-lg font-medium text-accent decoration-dashed underline-offset-4 focus-visible:no-underline focus-visible:underline-offset-0"
@@ -33,5 +43,25 @@ const headerProps = {
     }
   </a>
   <Datetime pubDatetime={pubDatetime} modDatetime={modDatetime} />
-  <p>{description}</p>
+  <p class="mt-2">{description}</p>
+  
+  {tags && (
+    <div class="mt-3 flex flex-wrap gap-2">
+      {tags.map(tag => (
+        <a href={`/tags/${slugifyStr(tag)}/`} class="tag">
+          #{tag}
+        </a>
+      ))}
+    </div>
+  )}
 </li>
+
+<style>
+  .card-accent-primary { border-left: 3px solid var(--color-primary); }
+  .card-accent-secondary { border-left: 3px solid var(--color-secondary); }
+  .card-accent-success { border-left: 3px solid var(--color-success); }
+  .card-accent-info { border-left: 3px solid var(--color-info); }
+  .card-accent-warning { border-left: 3px solid var(--color-warning); }
+  .card-accent-danger { border-left: 3px solid var(--color-danger); }
+  .card-accent-accent { border-left: 3px solid var(--color-accent); }
+</style>

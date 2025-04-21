@@ -23,47 +23,50 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
 <Layout>
   <Header />
   <main id="main-content" data-layout="index">
-    <section id="hero" class="pt-8 pb-6">
-      <h1 class="my-4 inline-block text-4xl font-bold sm:my-8 sm:text-5xl">
-        Assistant Hub
-      </h1>
-      <a
-        target="_blank"
-        href="/rss.xml"
-        class="inline-block"
-        aria-label="rss feed"
-        title="RSS Feed"
-      >
-        <IconRss
-          width={20}
-          height={20}
-          class="scale-125 stroke-accent stroke-3"
-        />
-        <span class="sr-only">RSS Feed</span>
-      </a>
+    <section id="hero" class="pt-8 pb-6 bg-gradient-to-br from-background to-muted rounded-lg">
+      <div class="relative overflow-hidden">
+        <div class="absolute -top-10 -right-10 w-32 h-32 rounded-full bg-primary opacity-10 blur-2xl"></div>
+        <div class="absolute -bottom-12 -left-12 w-40 h-40 rounded-full bg-secondary opacity-10 blur-2xl"></div>
+        <h1 class="my-4 inline-block text-4xl font-bold sm:my-8 sm:text-5xl bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent">
+          Assistant Hub
+        </h1>
+        <a
+          target="_blank"
+          href="/rss.xml"
+          class="inline-block"
+          aria-label="rss feed"
+          title="RSS Feed"
+        >
+          <IconRss
+            width={20}
+            height={20}
+            class="scale-125 stroke-accent stroke-3"
+          />
+          <span class="sr-only">RSS Feed</span>
+        </a>
 
-      <p>
-        欢迎来到 Assistant Hub ——
-        一个专注于分享各种工具、知识和编程相关内容的知识平台。无论你是编程新手，还是希望扩展你的技术栈的资深开发者，这里都有适合你的资源。
-      </p>
-      {
-        // only display if at least one social link is enabled
-        SOCIALS.length > 0 && (
-          <div class="mt-4 flex flex-col sm:flex-row sm:items-center">
-            <div class="mr-2 mb-1 whitespace-nowrap sm:mb-0">Social Links:</div>
-            <Socials />
-          </div>
-        )
-      }
+        <p class="text-lg leading-relaxed">
+          欢迎来到 <span class="text-primary font-semibold">Assistant Hub</span> —— 一个专注于分享各种工具、知识和编程相关内容的知识平台。无论你是<span class="text-secondary">编程新手</span>，还是希望扩展你的技术栈的<span class="text-accent">资深开发者</span>，这里都有适合你的资源。
+        </p>
+        {
+          // only display if at least one social link is enabled
+          SOCIALS.length > 0 && (
+            <div class="mt-4 flex flex-col sm:flex-row sm:items-center">
+              <div class="mr-2 mb-1 whitespace-nowrap sm:mb-0">Social Links:</div>
+              <Socials />
+            </div>
+          )
+        }
+      </div>
     </section>
 
-    <Hr />
+    <hr class="rainbow-hr my-8" />
 
     {
       featuredPosts.length > 0 && (
         <>
-          <section id="featured" class="pt-12 pb-6">
-            <h2 class="text-2xl font-semibold tracking-wide">Featured</h2>
+          <section id="featured" class="pt-8 pb-6 rounded-lg">
+            <h2 class="text-2xl font-semibold tracking-wide bg-clip-text text-transparent bg-gradient-to-r from-warning to-danger mb-6">Featured</h2>
             <ul>
               {featuredPosts.map(({ data, id }) => (
                 <Card
@@ -74,15 +77,18 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
               ))}
             </ul>
           </section>
-          {recentPosts.length > 0 && <Hr />}
+          {recentPosts.length > 0 && <hr class="rainbow-hr my-8" />}
         </>
       )
     }
 
     {
       recentPosts.length > 0 && (
-        <section id="recent-posts" class="pt-12 pb-6">
-          <h2 class="text-2xl font-semibold tracking-wide">Recent Posts</h2>
+        <section id="recent-posts" class="pt-8 pb-6">
+          <div class="flex items-center mb-6">
+            <div class="w-2 h-8 bg-secondary mr-3 rounded"></div>
+            <h2 class="text-2xl font-semibold tracking-wide bg-clip-text text-transparent bg-gradient-to-r from-info to-secondary">Recent Posts</h2>
+          </div>
           <ul>
             {recentPosts.map(
               ({ data, id }, index) =>
@@ -100,9 +106,9 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
     }
 
     <div class="my-8 text-center">
-      <LinkButton href="/posts/">
+      <LinkButton href="/posts/" class="bg-accent hover:bg-accent/80 text-background px-6 py-3 rounded-full transition-all transform hover:scale-105 hover:shadow-lg">
         All Posts
-        <IconArrowRight class="inline-block" />
+        <IconArrowRight class="inline-block ml-2" />
       </LinkButton>
     </div>
   </main>
@@ -118,3 +124,24 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
     }
   });
 </script>
+
+<style>
+  /* 动态背景动画 */
+  @keyframes gradientAnimation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  #hero {
+    position: relative;
+    animation: gradientAnimation 15s ease infinite;
+    background-size: 200% 200%;
+  }
+</style>

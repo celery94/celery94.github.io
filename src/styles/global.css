@@ -10,6 +10,17 @@ html[data-theme="light"] {
   --accent: #006cac;
   --muted: #e6e6e6;
   --border: #ece9e9;
+  
+  /* 新增彩色变量 */
+  --primary: #3490dc;
+  --secondary: #38b2ac;
+  --success: #47bb78;
+  --info: #4299e1;
+  --warning: #ecc94b;
+  --danger: #e53e3e;
+  --card-gradient: linear-gradient(145deg, #ffffff, #f0f0f0);
+  --featured-gradient: linear-gradient(135deg, rgba(52, 144, 220, 0.1), rgba(56, 178, 172, 0.1));
+  --tag-bg: #edf2f7;
 }
 
 html[data-theme="dark"] {
@@ -18,6 +29,17 @@ html[data-theme="dark"] {
   --accent: #ff6b01;
   --muted: #343f60bf;
   --border: #ab4b08;
+  
+  /* 新增彩色变量 */
+  --primary: #63b3ed;
+  --secondary: #4fd1c5;
+  --success: #68d391;
+  --info: #63b3ed;
+  --warning: #f6e05e;
+  --danger: #fc8181;
+  --card-gradient: linear-gradient(145deg, #242e42, #1e2735);
+  --featured-gradient: linear-gradient(135deg, rgba(255, 107, 1, 0.2), rgba(99, 179, 237, 0.2));
+  --tag-bg: #2d3748;
 }
 
 @theme inline {
@@ -26,6 +48,15 @@ html[data-theme="dark"] {
   --color-accent: var(--accent);
   --color-muted: var(--muted);
   --color-border: var(--border);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-success: var(--success);
+  --color-info: var(--info);
+  --color-warning: var(--warning);
+  --color-danger: var(--danger);
+  --card-gradient: var(--card-gradient);
+  --featured-gradient: var(--featured-gradient);
+  --color-tag-bg: var(--tag-bg);
 }
 
 @layer base {
@@ -56,4 +87,54 @@ html[data-theme="dark"] {
 
 .active-nav {
   @apply underline decoration-wavy decoration-2 underline-offset-4;
+}
+
+/* 新增卡片样式 */
+.card {
+  background: var(--card-gradient);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* 特色内容区块样式 */
+#featured {
+  background: var(--featured-gradient);
+  border-radius: 1rem;
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* 标签样式 */
+.tag {
+  background-color: var(--color-tag-bg);
+  color: var(--color-foreground);
+  border-radius: 9999px;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  transition: all 0.2s ease;
+}
+
+.tag:hover {
+  background-color: var(--color-accent);
+  color: var(--color-background);
+}
+
+/* 彩色分隔线 */
+.rainbow-hr {
+  height: 4px;
+  background: linear-gradient(
+    to right,
+    var(--color-primary),
+    var(--color-secondary),
+    var(--color-success),
+    var(--color-warning),
+    var(--color-danger)
+  );
+  border: none;
+  border-radius: 2px;
+  margin: 2rem 0;
 }
