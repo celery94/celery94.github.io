@@ -1,9 +1,9 @@
 ---
 pubDatetime: 2025-04-27
-tags: 可视化工具, 代码生成, 技术图表, 开发效率, 软件工程
+tags: [可视化工具, 代码生成, 技术图表, 开发效率, 软件工程]
 slug: top-6-tools-turn-code-beautiful-diagrams
-source:
-author:
+source: ByteByteGo
+author: ByteByteGo
 title: 🚀六大神器 | 将代码变成精美技术图表的工具盘点
 description: 本文详细解析六款主流代码转图表工具，涵盖其技术原理、主要功能和适用场景，助力开发者和技术团队高效构建专业可视化文档。
 ---
