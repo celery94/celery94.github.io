@@ -1,5 +1,5 @@
 ---
-pubDatetime: 2025‑05‑07 14:00
+pubDatetime: 2025‑05‑07
 tags: [移动开发, Expo, React Native]
 slug: expo-intro
 source: ChatGPT
