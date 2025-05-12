@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-05-12
-tags: 邮件协议, SMTP, IMAP, POP3, 安全协议, 网络基础
+tags: [邮件协议, SMTP, IMAP, POP3, 安全协议, 网络基础]
 slug: email-protocols-tech-details
 source: sysxplore.com
 author:
