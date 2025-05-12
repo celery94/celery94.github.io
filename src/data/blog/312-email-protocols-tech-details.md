@@ -3,7 +3,7 @@ pubDatetime: 2025-05-12
 tags: [邮件协议, SMTP, IMAP, POP3, 安全协议, 网络基础]
 slug: email-protocols-tech-details
 source: sysxplore.com
-author:
+author: sysxplore
 title: 📧 深入解析邮件协议的技术细节与工作原理
 description: 一文详解邮件收发流程、核心协议（SMTP、IMAP、POP3）及相关安全机制，让你全面掌握电子邮件系统的底层逻辑与实现方式。
 ---
