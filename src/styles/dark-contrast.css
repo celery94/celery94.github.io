@@ -1,0 +1,49 @@
+/* Extra dark mode contrast enhancements */
+@layer utilities {
+  .dark\:text-white {
+    color: white !important;
+  }
+  
+  .dark\:text-opacity-90 {
+    opacity: 0.9 !important;
+  }
+  
+  .dark\:text-accent {
+    color: var(--color-accent) !important;
+  }
+  
+  .dark\:shadow-glow {
+    box-shadow: 0 0 15px rgba(var(--accent-rgb), 0.15) !important;
+  }
+}
+
+/* Ensure dark mode text contrast for custom components */
+html[data-theme="dark"] h1,
+html[data-theme="dark"] h2,
+html[data-theme="dark"] h3,
+html[data-theme="dark"] h4,
+html[data-theme="dark"] h5,
+html[data-theme="dark"] h6 {
+  color: white;
+}
+
+html[data-theme="dark"] p {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+html[data-theme="dark"] button,
+html[data-theme="dark"] .button {
+  color: white;
+}
+
+/* Fix for any remaining low-contrast text */
+html[data-theme="dark"] [class*="text-foreground"],
+html[data-theme="dark"] [class*="text-gray"],
+html[data-theme="dark"] [class*="text-slate"] {
+  color: white !important;
+}
+
+/* Fix color for any auto-generated content */
+html[data-theme="dark"] article *:not(a, code, pre *, .tag, button, .button) {
+  color: rgba(255, 255, 255, 0.9);
+}

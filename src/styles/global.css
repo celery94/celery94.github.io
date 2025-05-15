@@ -2,14 +2,14 @@
 @import "./typography.css";
 @import "./custom-effects.css";
 @import "./animations.css";
-
-@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+@import "./dark-contrast.css";
 
 :root,
 html[data-theme="light"] {
   --background: #fdfdfd;
   --foreground: #282728;
   --accent: #0284c7;
+  --accent-rgb: 2, 132, 199;
   --muted: #e6e6e6;
   --border: #ece9e9;
   
@@ -29,25 +29,55 @@ html[data-theme="light"] {
 }
 
 html[data-theme="dark"] {
-  --background: #0f172a;
-  --foreground: #e2e8f0;
-  --accent: #f97316;
-  --muted: #334155;
+  --background: #111827;
+  --foreground: #f8fafc; /* Lighter for better contrast */
+  --accent: #fb923c; /* Slightly brighter orange for better visibility */
+  --accent-rgb: 251, 146, 60;
+  --muted: #2d3748;
   --border: #1e293b;
   
-  /* Enhanced dark theme color variables */
-  --primary: #3b82f6;
-  --secondary: #a78bfa;
-  --success: #34d399;
-  --info: #60a5fa;
-  --warning: #fbbf24;
-  --danger: #f87171;
-  --card-gradient: linear-gradient(145deg, #1e293b, #0f172a);
-  --featured-gradient: linear-gradient(135deg, rgba(249, 115, 22, 0.2), rgba(59, 130, 246, 0.2));
-  --tag-bg: #334155;
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+  /* Enhanced dark theme color variables with better contrast */
+  --primary: #60a5fa; /* Brighter blue */
+  --secondary: #c4b5fd; /* Lighter purple */
+  --success: #34d399; /* Brighter green */
+  --info: #93c5fd; /* Lighter blue */
+  --warning: #fcd34d; /* Brighter yellow */
+  --danger: #f87171; /* Brighter red */
+  --card-gradient: linear-gradient(145deg, #1e2937, #0f172a);
+  --featured-gradient: linear-gradient(135deg, rgba(249, 115, 22, 0.25), rgba(59, 130, 246, 0.25));
+  --tag-bg: #374151;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4);
   --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+  --glow: 0 0 15px rgba(249, 115, 22, 0.15);
+  
+  /* Enhanced scrollbar for dark mode */
+  scrollbar-color: var(--color-accent) var(--color-muted);
+
+  /* Enhance paragraph contrast */
+  --text-opacity-high: 1;
+  --text-opacity-medium: 0.85;
+  --text-opacity-low: 0.7;
+}
+
+html[data-theme="dark"] ::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+html[data-theme="dark"] ::-webkit-scrollbar-track {
+  background: var(--color-muted);
+}
+
+html[data-theme="dark"] ::-webkit-scrollbar-thumb {
+  background: var(--color-accent);
+  border-radius: 5px;
+}
+
+/* Enhanced progress bar for dark mode */
+html[data-theme="dark"] .progress-bar {
+  background: linear-gradient(to right, var(--color-accent), var(--color-primary));
+  box-shadow: 0 0 10px rgba(249, 115, 22, 0.4);
 }
 
 @layer base {
@@ -137,6 +167,31 @@ html[data-theme="dark"] {
   box-shadow: var(--shadow-lg);
 }
 
+/* Dark mode specific card enhancements */
+html[data-theme="dark"] .card {
+  border: 1px solid rgba(249, 115, 22, 0.1);
+}
+
+html[data-theme="dark"] .card:hover {
+  box-shadow: var(--shadow-lg), var(--glow);
+}
+
+/* Improve card text contrast in dark mode */
+html[data-theme="dark"] .card h2,
+html[data-theme="dark"] .card h3 {
+  color: var(--color-foreground);
+  font-weight: 600;
+}
+
+html[data-theme="dark"] .card p {
+  color: rgba(var(--foreground), var(--text-opacity-medium));
+  line-height: 1.6;
+}
+
+html[data-theme="dark"] .card a.text-accent {
+  text-shadow: 0 0 3px rgba(var(--accent-rgb), 0.3);
+}
+
 /* Featured content block styles */
 #featured {
   background: var(--featured-gradient);
@@ -145,6 +200,12 @@ html[data-theme="dark"] {
   margin-bottom: 2rem;
   border: 1px solid color-mix(in srgb, var(--color-accent) 15%, transparent);
   box-shadow: var(--shadow);
+}
+
+/* Enhanced featured block for dark mode */
+html[data-theme="dark"] #featured {
+  border: 1px solid rgba(249, 115, 22, 0.2);
+  box-shadow: var(--shadow), var(--glow);
 }
 
 /* Tag styles */
@@ -165,6 +226,30 @@ html[data-theme="dark"] {
   transform: translateY(-1px);
 }
 
+/* Enhanced tag styles for dark mode */
+html[data-theme="dark"] .tag {
+  box-shadow: 0 0 0 1px rgba(249, 115, 22, 0.2);
+}
+
+/* Improve tag text contrast in dark mode */
+html[data-theme="dark"] .tag {
+  color: var(--color-background);
+  background-color: rgba(var(--accent-rgb), 0.2);
+  font-weight: 500;
+  text-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(var(--accent-rgb), 0.3);
+}
+
+html[data-theme="dark"] .tag:hover {
+  color: var(--color-background);
+  background-color: var(--color-accent);
+  text-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+}
+
+html[data-theme="dark"] .tag:hover {
+  box-shadow: 0 0 10px rgba(249, 115, 22, 0.4);
+}
+
 /* Rainbow divider */
 .rainbow-hr {
   height: 4px;
@@ -180,4 +265,73 @@ html[data-theme="dark"] {
   border-radius: 2px;
   margin: 2rem 0;
   opacity: 0.8;
+}
+
+/* Enhanced dark mode link hover effects */
+html[data-theme="dark"] a:not(.tag):hover {
+  color: var(--color-accent);
+  text-shadow: 0 0 8px rgba(249, 115, 22, 0.3);
+  transition: color 0.2s ease, text-shadow 0.2s ease;
+}
+
+/* Enhanced button styles for dark mode */
+html[data-theme="dark"] button.focus-outline:hover,
+html[data-theme="dark"] .py-1:hover {
+  color: var(--color-accent);
+  transform: translateY(-1px);
+  transition: all 0.2s ease;
+}
+
+/* Enhanced focus styles for dark mode */
+html[data-theme="dark"] a:focus-visible,
+html[data-theme="dark"] button:focus-visible {
+  outline-color: var(--color-accent);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 3px rgba(var(--accent-rgb), 0.3);
+}
+
+/* Improve paragraph readability */
+html[data-theme="dark"] p {
+  color: var(--color-foreground);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+/* Improve muted text in dark mode */
+html[data-theme="dark"] .opacity-80,
+html[data-theme="dark"] .text-foreground\/80,
+html[data-theme="dark"] .text-foreground\/70 {
+  color: rgba(var(--foreground), var(--text-opacity-high));
+}
+
+/* Stronger accent color text for dark backgrounds */
+html[data-theme="dark"] .text-accent\/85,
+html[data-theme="dark"] .text-accent\/75 {
+  color: var(--color-accent);
+}
+
+/* Metadata text improvement */
+html[data-theme="dark"] time,
+html[data-theme="dark"] .text-sm {
+  color: rgba(var(--foreground), var(--text-opacity-medium));
+}
+
+/* Improve datetime display in dark mode */
+html[data-theme="dark"] time,
+html[data-theme="dark"] .flex.items-end {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Improve metadata text in dark mode */
+html[data-theme="dark"] .opacity-80 {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Improve post navigation text contrast in dark mode */
+html[data-theme="dark"] [data-pagefind-ignore] a {
+  color: white;
+}
+
+html[data-theme="dark"] [data-pagefind-ignore] a .text-sm {
+  color: var(--color-accent);
 }

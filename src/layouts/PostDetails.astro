@@ -92,6 +92,7 @@ const nextPost =
     <h1
       transition:name={slugifyStr(title)}
       class="inline-block text-2xl font-bold text-accent sm:text-3xl"
+      style="text-shadow: 0 0 10px rgba(var(--accent-rgb, 0, 0, 0), 0.25);"
     >
       {title}
     </h1>
@@ -107,6 +108,14 @@ const nextPost =
     <article id="article" class="mx-auto prose mt-8 max-w-3xl">
       <Content />
     </article>
+    
+    <style>
+      /* Enhanced dark mode article styling */
+      :global(html[data-theme="dark"] #article) {
+        line-height: 1.8;
+        letter-spacing: 0.01em;
+      }
+    </style>
 
     <hr class="my-8 border-dashed" />
 
@@ -124,6 +133,7 @@ const nextPost =
       <button
         id="back-to-top"
         class="focus-outline py-1 whitespace-nowrap hover:opacity-75"
+        style="transition: transform 0.3s ease, text-shadow 0.3s ease;"
       >
         <IconChevronLeft class="inline-block rotate-90" />
         <span>Back to Top</span>
@@ -138,7 +148,7 @@ const nextPost =
         prevPost && (
           <a
             href={`/posts/${prevPost.slug}`}
-            class="flex w-full gap-1 hover:opacity-75"
+            class="flex w-full gap-1 hover:opacity-75 transition-all duration-300 hover:transform hover:-translate-x-1"
           >
             <IconChevronLeft class="inline-block flex-none" />
             <div>
@@ -152,7 +162,7 @@ const nextPost =
         nextPost && (
           <a
             href={`/posts/${nextPost.slug}`}
-            class="flex w-full justify-end gap-1 text-right hover:opacity-75 sm:col-start-2"
+            class="flex w-full justify-end gap-1 text-right hover:opacity-75 transition-all duration-300 hover:transform hover:translate-x-1 sm:col-start-2"
           >
             <div>
               <span>Next Post</span>
