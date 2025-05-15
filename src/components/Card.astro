@@ -27,8 +27,9 @@ const getCardAccent = (title: string) => {
 
 ---
 
-<li class="my-6 card rounded-lg p-5 relative overflow-hidden">
+<li class="my-6 card rounded-lg p-6 relative overflow-hidden backdrop-blur-sm transition-all">
   <div class={`absolute top-0 left-0 w-1 h-full bg-${getCardAccent(title)}`}></div>
+  <div class="relative z-10">
   <a
     href={href}
     class="inline-block text-lg font-medium text-accent decoration-dashed underline-offset-4 focus-visible:no-underline focus-visible:underline-offset-0"
@@ -41,6 +42,7 @@ const getCardAccent = (title: string) => {
       )
     }
   </a>
+  </div>
   <Datetime pubDatetime={pubDatetime} modDatetime={modDatetime} />
   <p class="mt-2">{description}</p>
   
@@ -56,6 +58,7 @@ const getCardAccent = (title: string) => {
 </li>
 
 <style>
+  /* Enhanced card accent styles */
   .card-accent-primary { border-left: 3px solid var(--color-primary); }
   .card-accent-secondary { border-left: 3px solid var(--color-secondary); }
   .card-accent-success { border-left: 3px solid var(--color-success); }
@@ -63,4 +66,18 @@ const getCardAccent = (title: string) => {
   .card-accent-warning { border-left: 3px solid var(--color-warning); }
   .card-accent-danger { border-left: 3px solid var(--color-danger); }
   .card-accent-accent { border-left: 3px solid var(--color-accent); }
+  
+  /* Card hover effects */
+  li {
+    transition: all 0.3s ease;
+  }
+  
+  li:hover h3 {
+    color: var(--color-accent);
+  }
+  
+  .tag {
+    box-shadow: var(--shadow-sm);
+    letter-spacing: 0.025em;
+  }
 </style>

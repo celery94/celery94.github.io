@@ -1,0 +1,150 @@
+/* Advanced animations for enhanced UI experiences */
+
+/* Blinking cursor effect for code blocks */
+.blink-cursor::after {
+  content: '|';
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  from, to { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Animated list items */
+.animate-list-item {
+  transform: translateX(-20px);
+  opacity: 0;
+  animation: slideIn 0.4s ease forwards;
+}
+
+@keyframes slideIn {
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Apply animation with delay to list items */
+.animate-list-item:nth-child(1) { animation-delay: 0.1s; }
+.animate-list-item:nth-child(2) { animation-delay: 0.2s; }
+.animate-list-item:nth-child(3) { animation-delay: 0.3s; }
+.animate-list-item:nth-child(4) { animation-delay: 0.4s; }
+.animate-list-item:nth-child(5) { animation-delay: 0.5s; }
+.animate-list-item:nth-child(6) { animation-delay: 0.6s; }
+.animate-list-item:nth-child(7) { animation-delay: 0.7s; }
+.animate-list-item:nth-child(8) { animation-delay: 0.8s; }
+.animate-list-item:nth-child(9) { animation-delay: 0.9s; }
+.animate-list-item:nth-child(10) { animation-delay: 1.0s; }
+
+/* Scrolling animations - use with IntersectionObserver */
+.fade-up {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Animated gradient text */
+.animated-gradient-text {
+  background: linear-gradient(to right, 
+    var(--color-primary), 
+    var(--color-secondary), 
+    var(--color-accent), 
+    var(--color-primary)
+  );
+  background-size: 300% 300%;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientMove 8s ease infinite;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Rotating cards */
+.card-3d {
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+}
+
+.card-3d:hover {
+  transform: rotateY(10deg) rotateX(5deg);
+}
+
+/* Focus ring animation */
+.focus-ring {
+  position: relative;
+}
+
+.focus-ring::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border-radius: inherit;
+  border: 2px solid transparent;
+  pointer-events: none;
+}
+
+.focus-ring:focus-within::after {
+  border-color: var(--color-accent);
+  animation: pulseFocus 1.5s infinite;
+}
+
+@keyframes pulseFocus {
+  0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-accent) 40%, transparent); }
+  70% { box-shadow: 0 0 0 6px color-mix(in srgb, var(--color-accent) 0%, transparent); }
+  100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-accent) 0%, transparent); }
+}
+
+/* Typewriter effect */
+.typewriter {
+  overflow: hidden;
+  border-right: 0.15em solid var(--color-accent);
+  white-space: nowrap;
+  margin: 0 auto;
+  animation: 
+    typing 3.5s steps(40, end),
+    blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: var(--color-accent) }
+}
+
+/* Ripple effect for buttons */
+.ripple-button {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple-button .ripple {
+  position: absolute;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  transform: scale(0);
+  animation: ripple 0.6s linear;
+}
+
+@keyframes ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}

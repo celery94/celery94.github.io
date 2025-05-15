@@ -1,5 +1,7 @@
 @import "tailwindcss";
 @import "./typography.css";
+@import "./custom-effects.css";
+@import "./animations.css";
 
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
@@ -7,73 +9,99 @@
 html[data-theme="light"] {
   --background: #fdfdfd;
   --foreground: #282728;
-  --accent: #006cac;
+  --accent: #0284c7;
   --muted: #e6e6e6;
   --border: #ece9e9;
   
-  /* 新增彩色变量 */
+  /* Enhanced color variables */
   --primary: #3490dc;
-  --secondary: #38b2ac;
-  --success: #47bb78;
+  --secondary: #8b5cf6;
+  --success: #10b981;
   --info: #4299e1;
-  --warning: #ecc94b;
-  --danger: #e53e3e;
+  --warning: #f59e0b;
+  --danger: #ef4444;
   --card-gradient: linear-gradient(145deg, #ffffff, #f0f0f0);
-  --featured-gradient: linear-gradient(135deg, rgba(52, 144, 220, 0.1), rgba(56, 178, 172, 0.1));
+  --featured-gradient: linear-gradient(135deg, rgba(2, 132, 199, 0.1), rgba(139, 92, 246, 0.1));
   --tag-bg: #edf2f7;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
 html[data-theme="dark"] {
-  --background: #212737;
-  --foreground: #eaedf3;
-  --accent: #ff6b01;
-  --muted: #343f60bf;
-  --border: #ab4b08;
+  --background: #0f172a;
+  --foreground: #e2e8f0;
+  --accent: #f97316;
+  --muted: #334155;
+  --border: #1e293b;
   
-  /* 新增彩色变量 */
-  --primary: #63b3ed;
-  --secondary: #4fd1c5;
-  --success: #68d391;
-  --info: #63b3ed;
-  --warning: #f6e05e;
-  --danger: #fc8181;
-  --card-gradient: linear-gradient(145deg, #242e42, #1e2735);
-  --featured-gradient: linear-gradient(135deg, rgba(255, 107, 1, 0.2), rgba(99, 179, 237, 0.2));
-  --tag-bg: #2d3748;
+  /* Enhanced dark theme color variables */
+  --primary: #3b82f6;
+  --secondary: #a78bfa;
+  --success: #34d399;
+  --info: #60a5fa;
+  --warning: #fbbf24;
+  --danger: #f87171;
+  --card-gradient: linear-gradient(145deg, #1e293b, #0f172a);
+  --featured-gradient: linear-gradient(135deg, rgba(249, 115, 22, 0.2), rgba(59, 130, 246, 0.2));
+  --tag-bg: #334155;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-accent: var(--accent);
-  --color-muted: var(--muted);
-  --color-border: var(--border);
-  --color-primary: var(--primary);
-  --color-secondary: var(--secondary);
-  --color-success: var(--success);
-  --color-info: var(--info);
-  --color-warning: var(--warning);
-  --color-danger: var(--danger);
-  --card-gradient: var(--card-gradient);
-  --featured-gradient: var(--featured-gradient);
-  --color-tag-bg: var(--tag-bg);
+@layer base {
+  :root {
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --color-accent: var(--accent);
+    --color-muted: var(--muted);
+    --color-border: var(--border);
+    --color-primary: var(--primary);
+    --color-secondary: var(--secondary);
+    --color-success: var(--success);
+    --color-info: var(--info);
+    --color-warning: var(--warning);
+    --color-danger: var(--danger);
+    --card-gradient: var(--card-gradient);
+    --featured-gradient: var(--featured-gradient);
+    --color-tag-bg: var(--tag-bg);
+  }
 }
 
 @layer base {
   * {
-    @apply border-border outline-accent/75;
+    border-color: var(--color-border);
+    outline-color: color-mix(in srgb, var(--color-accent) 75%, transparent);
     scrollbar-width: auto;
     scrollbar-color: var(--color-muted) transparent;
   }
   html {
-    @apply overflow-y-scroll scroll-smooth;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
   }
   body {
-    @apply flex min-h-svh flex-col bg-background font-mono text-foreground selection:bg-accent/75 selection:text-background;
+    display: flex;
+    min-height: 100svh;
+    flex-direction: column;
+    background-color: var(--color-background);
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    color: var(--color-foreground);
+  }
+  body ::selection {
+    background-color: color-mix(in srgb, var(--color-accent) 75%, transparent);
+    color: var(--color-background);
   }
   a,
   button {
-    @apply outline-offset-1 outline-accent focus-visible:no-underline focus-visible:outline-2 focus-visible:outline-dashed;
+    outline-offset: 1px;
+    outline-color: var(--color-accent);
+  }
+  a:focus-visible,
+  button:focus-visible {
+    text-decoration: none;
+    outline-width: 2px;
+    outline-style: dashed;
   }
   button:not(:disabled),
   [role="button"]:not(:disabled) {
@@ -81,49 +109,63 @@ html[data-theme="dark"] {
   }
   section,
   footer {
-    @apply mx-auto max-w-3xl px-4;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 48rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 }
 
 .active-nav {
-  @apply underline decoration-wavy decoration-2 underline-offset-4;
+  text-decoration: underline;
+  text-decoration-style: wavy;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
 }
 
-/* 新增卡片样式 */
+/* Enhanced card styles */
 .card {
   background: var(--card-gradient);
+  border-radius: 0.5rem;
+  box-shadow: var(--shadow);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-lg);
 }
 
-/* 特色内容区块样式 */
+/* Featured content block styles */
 #featured {
   background: var(--featured-gradient);
   border-radius: 1rem;
   padding: 2rem;
   margin-bottom: 2rem;
+  border: 1px solid color-mix(in srgb, var(--color-accent) 15%, transparent);
+  box-shadow: var(--shadow);
 }
 
-/* 标签样式 */
+/* Tag styles */
 .tag {
   background-color: var(--color-tag-bg);
   color: var(--color-foreground);
   border-radius: 9999px;
   padding: 0.25rem 0.75rem;
   font-size: 0.75rem;
+  font-weight: 500;
   transition: all 0.2s ease;
+  display: inline-block;
 }
 
 .tag:hover {
   background-color: var(--color-accent);
   color: var(--color-background);
+  transform: translateY(-1px);
 }
 
-/* 彩色分隔线 */
+/* Rainbow divider */
 .rainbow-hr {
   height: 4px;
   background: linear-gradient(
@@ -137,4 +179,5 @@ html[data-theme="dark"] {
   border: none;
   border-radius: 2px;
   margin: 2rem 0;
+  opacity: 0.8;
 }

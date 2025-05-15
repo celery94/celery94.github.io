@@ -29,12 +29,12 @@ const tagColor = getTagColor(tag);
     href={`/tags/${tag}/`}
     transition:name={tag}
     class:list={[
-      "relative pr-2 underline decoration-dashed hover:no-underline focus-visible:p-1",
+      "relative pr-2 hover:no-underline focus-visible:p-1",
       { "text-sm": size === "sm" },
       { "text-base": size === "lg" },
     ]}
   >
-    <span class={`tag-${tagColor} tag px-3 py-1 rounded-full transition-all duration-200 hover:shadow-md hover:-translate-y-0.5`}>
+    <span class={`animated-tag bg-${tagColor}/10 border border-${tagColor}/30 text-${tagColor}`}>
       <IconHash
         class:list={[
           "inline-block",
@@ -47,12 +47,29 @@ const tagColor = getTagColor(tag);
   </a>
 </li>
 
-<style define:vars={{ tagColor }}>
-  .tag-primary { background-color: var(--color-primary); color: var(--color-background); }
-  .tag-secondary { background-color: var(--color-secondary); color: var(--color-background); }
-  .tag-success { background-color: var(--color-success); color: var(--color-background); }
-  .tag-info { background-color: var(--color-info); color: var(--color-background); }
-  .tag-warning { background-color: var(--color-warning); color: var(--color-background); }
-  .tag-danger { background-color: var(--color-danger); color: var(--color-background); }
-  .tag-accent { background-color: var(--color-accent); color: var(--color-background); }
+<style>
+  /* Enhanced tag styles with color variables */
+  .bg-primary\/10 { background-color: color-mix(in srgb, var(--color-primary) 10%, transparent); }
+  .bg-secondary\/10 { background-color: color-mix(in srgb, var(--color-secondary) 10%, transparent); }
+  .bg-success\/10 { background-color: color-mix(in srgb, var(--color-success) 10%, transparent); }
+  .bg-info\/10 { background-color: color-mix(in srgb, var(--color-info) 10%, transparent); }
+  .bg-warning\/10 { background-color: color-mix(in srgb, var(--color-warning) 10%, transparent); }
+  .bg-danger\/10 { background-color: color-mix(in srgb, var(--color-danger) 10%, transparent); }
+  .bg-accent\/10 { background-color: color-mix(in srgb, var(--color-accent) 10%, transparent); }
+  
+  .border-primary\/30 { border-color: color-mix(in srgb, var(--color-primary) 30%, transparent); }
+  .border-secondary\/30 { border-color: color-mix(in srgb, var(--color-secondary) 30%, transparent); }
+  .border-success\/30 { border-color: color-mix(in srgb, var(--color-success) 30%, transparent); }
+  .border-info\/30 { border-color: color-mix(in srgb, var(--color-info) 30%, transparent); }
+  .border-warning\/30 { border-color: color-mix(in srgb, var(--color-warning) 30%, transparent); }
+  .border-danger\/30 { border-color: color-mix(in srgb, var(--color-danger) 30%, transparent); }
+  .border-accent\/30 { border-color: color-mix(in srgb, var(--color-accent) 30%, transparent); }
+  
+  .text-primary { color: var(--color-primary); }
+  .text-secondary { color: var(--color-secondary); }
+  .text-success { color: var(--color-success); }
+  .text-info { color: var(--color-info); }
+  .text-warning { color: var(--color-warning); }
+  .text-danger { color: var(--color-danger); }
+  .text-accent { color: var(--color-accent); }
 </style>
