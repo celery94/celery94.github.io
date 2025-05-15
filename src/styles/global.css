@@ -3,6 +3,8 @@
 @import "./custom-effects.css";
 @import "./animations.css";
 @import "./dark-contrast.css";
+@import "./dark-theme-enhanced.css";
+@import "./dark-code-highlight.css";
 
 :root,
 html[data-theme="light"] {
@@ -29,23 +31,29 @@ html[data-theme="light"] {
 }
 
 html[data-theme="dark"] {
-  --background: #111827;
-  --foreground: #f8fafc; /* Lighter for better contrast */
-  --accent: #fb923c; /* Slightly brighter orange for better visibility */
+  --background: #0f172a; /* Deeper blue-black for better contrast */
+  --foreground: #ffffff; /* Pure white for optimal contrast */
+  --accent: #fb923c; /* Bright orange for better visibility */
   --accent-rgb: 251, 146, 60;
-  --muted: #2d3748;
-  --border: #1e293b;
+  --muted: #1e293b; /* Slightly darker for better contrast with text */
+  --border: #334155; /* Slightly lighter for better visibility */
   
-  /* Enhanced dark theme color variables with better contrast */
-  --primary: #60a5fa; /* Brighter blue */
-  --secondary: #c4b5fd; /* Lighter purple */
-  --success: #34d399; /* Brighter green */
-  --info: #93c5fd; /* Lighter blue */
-  --warning: #fcd34d; /* Brighter yellow */
-  --danger: #f87171; /* Brighter red */
-  --card-gradient: linear-gradient(145deg, #1e2937, #0f172a);
-  --featured-gradient: linear-gradient(135deg, rgba(249, 115, 22, 0.25), rgba(59, 130, 246, 0.25));
-  --tag-bg: #374151;
+  /* Enhanced dark theme color variables with improved contrast */
+  --primary: #60a5fa; /* Bright blue */
+  --secondary: #c4b5fd; /* Vibrant purple */
+  --success: #4ade80; /* Brighter green for better visibility */
+  --info: #93c5fd; /* Bright blue for informational elements */
+  --warning: #fcd34d; /* Bright yellow for warnings */
+  --danger: #f87171; /* Vibrant red for dangerous actions */
+  --card-gradient: linear-gradient(145deg, #1e293b, #0f172a);
+  --featured-gradient: linear-gradient(135deg, rgba(251, 146, 60, 0.15), rgba(96, 165, 250, 0.15));
+  --tag-bg: #334155; /* Slightly lighter for better contrast */
+  
+  /* Additional dark theme variables for enhanced reading experience */
+  --heading-color: #ffffff; /* Pure white for headings */
+  --link-hover: #fd923c; /* Slightly brighter orange on hover */
+  --code-bg: #1a1b26; /* Tokyo Night inspired code background */
+  --inline-code-bg: rgba(251, 146, 60, 0.15); /* Orange-tinted code background */
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4);
   --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
