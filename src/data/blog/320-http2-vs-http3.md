@@ -1,9 +1,9 @@
 ---
 pubDatetime: 2025-05-16
-tags:
-slug:
-source:
-author:
+tags: [HTTP/2, HTTP/3, QUIC, Web性能优化, 网络协议]
+slug: http2-vs-http3
+source: https://example.com
+author: Jane Doe
 title: HTTP/2 vs HTTP/3全方位技术对比详解 🚀
 description: 深入剖析HTTP/2与HTTP/3协议的核心区别，从协议特性、性能表现、握手流程到实际部署配置，助力开发者全面理解和选择合适的Web传输协议。
 ---
