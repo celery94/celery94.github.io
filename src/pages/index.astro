@@ -21,8 +21,8 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
 
 <Layout>
   <Header />
-  <main id="main-content" data-layout="index">
-    <section id="hero" class="pt-10 pb-8 glass rounded-xl shadow-lg">
+  <main id="main-content" data-layout="index" class="mx-auto w-full max-w-5xl px-6 pb-12">
+    <section id="hero" class="pt-10 pb-8 mt-8 glass rounded-xl shadow-lg">
       <div class="relative overflow-hidden p-2">
         <div class="absolute -top-10 -right-10 w-40 h-40 rounded-full bg-primary opacity-10 blur-3xl animate-pulse"></div>
         <div class="absolute -bottom-12 -left-12 w-48 h-48 rounded-full bg-secondary opacity-10 blur-3xl animate-pulse" style="animation-delay: 2s;"></div>
@@ -72,7 +72,7 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
               <div class="w-2 h-8 bg-warning mr-3 rounded shine-effect"></div>
               <h2 class="text-2xl font-bold tracking-wide animated-gradient-text">Featured Posts</h2>
             </div>
-            <ul class="space-y-6 animate-list">
+            <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 animate-list">
               {featuredPosts.map(({ data, id }) => (
                 <Card
                   href={`/posts/${id}/`}
@@ -89,12 +89,12 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
 
     {
       recentPosts.length > 0 && (
-        <section id="recent-posts" class="pt-8 pb-6 glass rounded-xl">
+        <section id="recent-posts" class="pt-8 pb-6 glass rounded-xl px-6">
           <div class="flex items-center mb-6 fade-up">
             <div class="w-2 h-8 bg-info mr-3 rounded shine-effect"></div>
             <h2 class="text-2xl font-bold tracking-wide animated-gradient-text">Recent Posts</h2>
           </div>
-          <ul class="space-y-6 animate-list">
+          <ul class="grid grid-cols-1 sm:grid-cols-2 gap-6 animate-list">
             {recentPosts.map(
               ({ data, id }, index) =>
                 index < SITE.postPerIndex && (

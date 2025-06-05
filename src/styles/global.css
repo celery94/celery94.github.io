@@ -14,7 +14,7 @@ html[data-theme="light"] {
   --accent-rgb: 2, 132, 199;
   --muted: #e6e6e6;
   --border: #ece9e9;
-  
+
   /* Enhanced color variables */
   --primary: #3490dc;
   --secondary: #8b5cf6;
@@ -23,11 +23,17 @@ html[data-theme="light"] {
   --warning: #f59e0b;
   --danger: #ef4444;
   --card-gradient: linear-gradient(145deg, #ffffff, #f0f0f0);
-  --featured-gradient: linear-gradient(135deg, rgba(2, 132, 199, 0.1), rgba(139, 92, 246, 0.1));
+  --featured-gradient: linear-gradient(
+    135deg,
+    rgba(2, 132, 199, 0.1),
+    rgba(139, 92, 246, 0.1)
+  );
   --tag-bg: #edf2f7;
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg:
+    0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
 html[data-theme="dark"] {
@@ -37,7 +43,7 @@ html[data-theme="dark"] {
   --accent-rgb: 251, 146, 60;
   --muted: #1e293b; /* Slightly darker for better contrast with text */
   --border: #334155; /* Slightly lighter for better visibility */
-  
+
   /* Enhanced dark theme color variables with improved contrast */
   --primary: #60a5fa; /* Bright blue */
   --secondary: #c4b5fd; /* Vibrant purple */
@@ -46,19 +52,30 @@ html[data-theme="dark"] {
   --warning: #fcd34d; /* Bright yellow for warnings */
   --danger: #f87171; /* Vibrant red for dangerous actions */
   --card-gradient: linear-gradient(145deg, #1e293b, #0f172a);
-  --featured-gradient: linear-gradient(135deg, rgba(251, 146, 60, 0.15), rgba(96, 165, 250, 0.15));
+  --featured-gradient: linear-gradient(
+    135deg,
+    rgba(251, 146, 60, 0.15),
+    rgba(96, 165, 250, 0.15)
+  );
   --tag-bg: #334155; /* Slightly lighter for better contrast */
-  
+
   /* Additional dark theme variables for enhanced reading experience */
   --heading-color: #ffffff; /* Pure white for headings */
   --link-hover: #fd923c; /* Slightly brighter orange on hover */
   --code-bg: #1a1b26; /* Tokyo Night inspired code background */
-  --inline-code-bg: rgba(251, 146, 60, 0.15); /* Orange-tinted code background */
+  --inline-code-bg: rgba(
+    251,
+    146,
+    60,
+    0.15
+  ); /* Orange-tinted code background */
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4);
-  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+  --shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+  --shadow-lg:
+    0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
   --glow: 0 0 15px rgba(249, 115, 22, 0.15);
-  
+
   /* Enhanced scrollbar for dark mode */
   scrollbar-color: var(--color-accent) var(--color-muted);
 
@@ -84,7 +101,11 @@ html[data-theme="dark"] ::-webkit-scrollbar-thumb {
 
 /* Enhanced progress bar for dark mode */
 html[data-theme="dark"] .progress-bar {
-  background: linear-gradient(to right, var(--color-accent), var(--color-primary));
+  background: linear-gradient(
+    to right,
+    var(--color-accent),
+    var(--color-primary)
+  );
   box-shadow: 0 0 10px rgba(249, 115, 22, 0.4);
 }
 
@@ -123,7 +144,9 @@ html[data-theme="dark"] .progress-bar {
     min-height: 100svh;
     flex-direction: column;
     background-color: var(--color-background);
-    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-family:
+      ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+      "Courier New", monospace;
     color: var(--color-foreground);
   }
   body ::selection {
@@ -149,7 +172,6 @@ html[data-theme="dark"] .progress-bar {
   footer {
     margin-left: auto;
     margin-right: auto;
-    max-width: 48rem;
     padding-left: 1rem;
     padding-right: 1rem;
   }
@@ -167,7 +189,9 @@ html[data-theme="dark"] .progress-bar {
   background: var(--card-gradient);
   border-radius: 0.5rem;
   box-shadow: var(--shadow);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .card:hover {
@@ -279,7 +303,9 @@ html[data-theme="dark"] .tag:hover {
 html[data-theme="dark"] a:not(.tag):hover {
   color: var(--color-accent);
   text-shadow: 0 0 8px rgba(249, 115, 22, 0.3);
-  transition: color 0.2s ease, text-shadow 0.2s ease;
+  transition:
+    color 0.2s ease,
+    text-shadow 0.2s ease;
 }
 
 /* Enhanced button styles for dark mode */
