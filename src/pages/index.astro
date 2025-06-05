@@ -22,12 +22,12 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
 <Layout>
   <Header />
   <main id="main-content" data-layout="index" class="mx-auto w-full max-w-5xl px-6 pb-12">
-    <section id="hero" class="pt-10 pb-8 mt-8 glass rounded-xl shadow-lg">
-      <div class="relative overflow-hidden p-2">
-        <div class="absolute -top-10 -right-10 w-40 h-40 rounded-full bg-primary opacity-10 blur-3xl animate-pulse"></div>
-        <div class="absolute -bottom-12 -left-12 w-48 h-48 rounded-full bg-secondary opacity-10 blur-3xl animate-pulse" style="animation-delay: 2s;"></div>
-        <div class="absolute top-20 left-20 w-24 h-24 rounded-full bg-accent opacity-10 blur-2xl animate-pulse" style="animation-delay: 1s;"></div>
-        <h1 class="my-4 inline-block text-4xl font-bold sm:my-8 sm:text-5xl gradient-text">
+    <section id="hero" class="pt-8 pb-6 mt-8 glass rounded-xl shadow-lg">
+      <div class="relative overflow-hidden px-4 py-6 sm:px-8 sm:py-10">
+        <div class="absolute -top-10 -right-10 w-32 h-32 sm:w-40 sm:h-40 rounded-full bg-primary opacity-10 blur-3xl animate-pulse hidden sm:block"></div>
+        <div class="absolute -bottom-12 -left-12 w-40 h-40 sm:w-48 sm:h-48 rounded-full bg-secondary opacity-10 blur-3xl animate-pulse hidden sm:block" style="animation-delay: 2s;"></div>
+        <div class="absolute top-20 left-20 w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-accent opacity-10 blur-2xl animate-pulse hidden sm:block" style="animation-delay: 1s;"></div>
+        <h1 class="my-4 inline-block text-3xl font-bold sm:my-8 sm:text-5xl gradient-text">
           Assistant Hub
         </h1>
         <a
