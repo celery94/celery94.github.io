@@ -309,4 +309,46 @@
     opacity: 0.9;
     line-height: 1.75;
   }
+
+  /* Comprehensive dark mode text fixes */
+  html[data-theme="dark"] #about h1 {
+    color: white !important;
+  }
+
+  html[data-theme="dark"] .prose {
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  /* Fix any remaining text elements */
+  html[data-theme="dark"] .prose :where(li, ul, ol) {
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  html[data-theme="dark"] .prose :where(em, i) {
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  html[data-theme="dark"] .prose :where(p) {
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  /* Ensure emoji and special characters are visible */
+  html[data-theme="dark"] .prose :where(h2, h3) {
+    color: white;
+  }
+
+  /* Enhanced bold text contrast for dark mode - highest priority */
+  html[data-theme="dark"] .prose :where(strong, b) {
+    color: white !important;
+    font-weight: 700 !important;
+  }
+
+  /* Additional bold text selectors to catch all cases */
+  html[data-theme="dark"] .prose strong,
+  html[data-theme="dark"] .prose b,
+  html[data-theme="dark"] strong,
+  html[data-theme="dark"] b {
+    color: white !important;
+    font-weight: 700 !important;
+  }
 }
