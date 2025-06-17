@@ -5,6 +5,7 @@ slug: apple-llm-reasoning-limits-analysis
 source: https://arxiv.org/abs/2406.03273
 title: 大语言模型推理能力的边界：来自Apple新研究的启示
 description: 深入解析Apple最新研究，剖析大语言模型（LLM）在复杂推理任务中的失效机制、根源及应对策略，适合AI开发者与产品经理参考。
+ogImage: "@/assets/cover/369.png"
 ---
 
 # 大语言模型推理能力的边界：来自Apple新研究的启示
