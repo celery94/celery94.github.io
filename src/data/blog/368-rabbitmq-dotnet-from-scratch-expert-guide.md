@@ -5,6 +5,7 @@ slug: rabbitmq-dotnet-from-scratch-expert-guide
 source: https://thecodeman.net/posts/rabbitmq-in-dotnet-from-scratch
 title: RabbitMQ 在 .NET 项目中的应用：原理、实践与架构优化
 description: 全面解析如何在 .NET 项目中高效集成 RabbitMQ，实现异步解耦、提升系统扩展性与可靠性，并结合代码案例深入剖析实际开发场景下的最佳实践。
+ogImage: "@/assets/What-is-gRPC-1024x664.png"
 ---
 
 # RabbitMQ 在 .NET 项目中的应用：原理、实践与架构优化
