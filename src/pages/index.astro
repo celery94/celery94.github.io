@@ -21,13 +21,30 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
 
 <Layout>
   <Header />
-  <main id="main-content" data-layout="index" class="mx-auto w-full max-w-5xl px-6 pb-12">
-    <section id="hero" class="pt-8 pb-6 mt-8 glass rounded-xl shadow-lg">
+  <main
+    id="main-content"
+    data-layout="index"
+    class="mx-auto w-full max-w-5xl px-6 pb-12"
+  >
+    <section id="hero" class="glass mt-8 rounded-xl pt-8 pb-6 shadow-lg">
       <div class="relative overflow-hidden px-4 py-6 sm:px-8 sm:py-10">
-        <div class="absolute -top-10 -right-10 w-32 h-32 sm:w-40 sm:h-40 rounded-full bg-primary opacity-10 blur-3xl animate-pulse hidden sm:block"></div>
-        <div class="absolute -bottom-12 -left-12 w-40 h-40 sm:w-48 sm:h-48 rounded-full bg-secondary opacity-10 blur-3xl animate-pulse hidden sm:block" style="animation-delay: 2s;"></div>
-        <div class="absolute top-20 left-20 w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-accent opacity-10 blur-2xl animate-pulse hidden sm:block" style="animation-delay: 1s;"></div>
-        <h1 class="my-4 inline-block text-3xl font-bold sm:my-8 sm:text-5xl gradient-text">
+        <div
+          class="bg-primary absolute -top-10 -right-10 hidden h-32 w-32 animate-pulse rounded-full opacity-10 blur-3xl sm:block sm:h-40 sm:w-40"
+        >
+        </div>
+        <div
+          class="bg-secondary absolute -bottom-12 -left-12 hidden h-40 w-40 animate-pulse rounded-full opacity-10 blur-3xl sm:block sm:h-48 sm:w-48"
+          style="animation-delay: 2s;"
+        >
+        </div>
+        <div
+          class="bg-accent absolute top-20 left-20 hidden h-20 w-20 animate-pulse rounded-full opacity-10 blur-2xl sm:block sm:h-24 sm:w-24"
+          style="animation-delay: 1s;"
+        >
+        </div>
+        <h1
+          class="gradient-text my-4 inline-block text-3xl font-bold sm:my-8 sm:text-5xl"
+        >
           Aide Hub
         </h1>
         <a
@@ -40,20 +57,30 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
           <IconRss
             width={20}
             height={20}
-            class="scale-125 stroke-accent stroke-3"
+            class="stroke-accent scale-125 stroke-3"
           />
           <span class="sr-only">RSS Feed</span>
         </a>
 
-        <p class="text-lg leading-relaxed mt-4 glass p-4 rounded-lg backdrop-blur-sm">
-          欢迎来到 <span class="text-primary font-bold">Aide Hub</span> —— 一个专注于分享各种工具、知识和编程相关内容的知识平台。无论你是<span class="text-secondary font-semibold animated-underline">编程新手</span>，还是希望扩展你的技术栈的<span class="text-accent font-semibold animated-underline">资深开发者</span>，这里都有适合你的资源。
+        <p
+          class="glass mt-4 rounded-lg p-4 text-lg leading-relaxed backdrop-blur-sm"
+        >
+          欢迎来到 <span class="text-primary font-bold">Aide Hub</span> —— 一个专注于分享各种工具、知识和编程相关内容的知识平台。无论你是<span
+            class="text-secondary animated-underline font-semibold"
+            >编程新手</span
+          >，还是希望扩展你的技术栈的<span
+            class="text-accent animated-underline font-semibold"
+            >资深开发者</span
+          >，这里都有适合你的资源。
         </p>
         {
           // only display if at least one social link is enabled
           SOCIALS.length > 0 && (
-            <div class="mt-6 glass p-4 rounded-lg backdrop-blur-sm">
+            <div class="glass mt-6 rounded-lg p-4 backdrop-blur-sm">
               <div class="flex flex-col sm:flex-row sm:items-center">
-                <div class="mr-4 mb-2 whitespace-nowrap sm:mb-0 font-semibold gradient-text">Connect With Me:</div>
+                <div class="gradient-text mr-4 mb-2 font-semibold whitespace-nowrap sm:mb-0">
+                  Connect With Me:
+                </div>
                 <Socials />
               </div>
             </div>
@@ -67,12 +94,14 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
     {
       featuredPosts.length > 0 && (
         <>
-          <section id="featured" class="pt-8 pb-6 rounded-xl glass">
-            <div class="flex items-center mb-6 fade-up">
-              <div class="w-2 h-8 bg-warning mr-3 rounded shine-effect"></div>
-              <h2 class="text-2xl font-bold tracking-wide animated-gradient-text">Featured Posts</h2>
+          <section id="featured" class="glass rounded-xl pt-8 pb-6">
+            <div class="fade-up mb-6 flex items-center">
+              <div class="bg-warning shine-effect mr-3 h-8 w-2 rounded" />
+              <h2 class="animated-gradient-text text-2xl font-bold tracking-wide">
+                Featured Posts
+              </h2>
             </div>
-            <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 animate-list">
+            <ul class="animate-list grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {featuredPosts.map(({ data, id }) => (
                 <Card
                   href={`/posts/${id}/`}
@@ -89,12 +118,14 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
 
     {
       recentPosts.length > 0 && (
-        <section id="recent-posts" class="pt-8 pb-6 glass rounded-xl px-6">
-          <div class="flex items-center mb-6 fade-up">
-            <div class="w-2 h-8 bg-info mr-3 rounded shine-effect"></div>
-            <h2 class="text-2xl font-bold tracking-wide animated-gradient-text">Recent Posts</h2>
+        <section id="recent-posts" class="glass rounded-xl px-4 pt-4 pb-4">
+          <div class="fade-up mb-6 flex items-center">
+            <div class="bg-info shine-effect mr-3 h-8 w-2 rounded" />
+            <h2 class="animated-gradient-text text-2xl font-bold tracking-wide">
+              Recent Posts
+            </h2>
           </div>
-          <ul class="grid grid-cols-1 sm:grid-cols-2 gap-6 animate-list">
+          <ul class="animate-list grid grid-cols-1 gap-2">
             {recentPosts.map(
               ({ data, id }, index) =>
                 index < SITE.postPerIndex && (
@@ -110,10 +141,13 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
       )
     }
 
-    <div class="my-12 text-center fade-up">
-      <LinkButton href="/posts/" class="ripple-button bg-gradient-to-r from-primary to-accent text-background px-8 py-4 rounded-full transition-all transform hover:scale-105 hover:shadow-lg font-medium">
+    <div class="fade-up my-12 text-center">
+      <LinkButton
+        href="/posts/"
+        class="ripple-button from-primary to-accent text-background transform rounded-full bg-gradient-to-r px-8 py-4 font-medium transition-all hover:scale-105 hover:shadow-lg"
+      >
         View All Posts
-        <IconArrowRight class="inline-block ml-2" />
+        <IconArrowRight class="ml-2 inline-block" />
       </LinkButton>
     </div>
   </main>
@@ -143,7 +177,7 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
       background-position: 0% 50%;
     }
   }
-  
+
   @keyframes floatAnimation {
     0% {
       transform: translateY(0px);
@@ -155,28 +189,34 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
       transform: translateY(0px);
     }
   }
-  
+
   #hero {
     position: relative;
     animation: gradientAnimation 15s ease infinite;
     background-size: 200% 200%;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   }
-  
+
   #hero h1 {
     animation: floatAnimation 5s ease-in-out infinite;
   }
-  
+
   /* Enhance page transitions */
   @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
-  
+
   #main-content {
     animation: fadeIn 0.6s ease-out forwards;
   }
-  
+
   /* Custom RSS icon animation */
   a[title="RSS Feed"]:hover svg {
     transform: scale(1.3) rotate(5deg);
