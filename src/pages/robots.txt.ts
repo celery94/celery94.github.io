@@ -1,7 +1,7 @@
 import type { APIRoute } from "astro";
 
 const getRobotsTxt = (sitemapURL: URL) => `
-# robots.txt for Assistant Hub
+# robots.txt for Aide Hub
 # https://celery94.github.io/
 
 User-agent: *

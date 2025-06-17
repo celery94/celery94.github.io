@@ -3,13 +3,13 @@ layout: ../layouts/AboutLayout.astro
 title: "我的公众号"
 ---
 
-# 欢迎关注「Assistant Hub」
+# 欢迎关注「Aide Hub」
 
 ![微信公众号二维码](../assets/wechat.jpg)
 
 ## 🚀 关于我们
 
-Assistant Hub 是一个专注于**AI助手、软件开发和技术洞察**的技术博客平台。我们致力于分享：
+Aide Hub 是一个专注于**AI助手、软件开发和技术洞察**的技术博客平台。我们致力于分享：
 
 - 🔧 实用的开发工具和技巧
 - 📚 清晰的编程教程和指南

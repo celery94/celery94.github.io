@@ -1,8 +1,8 @@
-# Assistant Hub
+# Aide Hub
 
-欢迎来到 Assistant Hub —— 一个专注于分享各种工具、知识和编程相关内容的知识平台。无论你是编程新手，还是希望扩展你的技术栈的资深开发者，这里都有适合你的资源。
+欢迎来到 Aide Hub —— 一个专注于分享各种工具、知识和编程相关内容的知识平台。无论你是编程新手，还是希望扩展你的技术栈的资深开发者，这里都有适合你的资源。
 
-Welcome to Assistant Hub — a knowledge platform dedicated to sharing various tools, knowledge, and programming-related content. Whether you're new to programming or an experienced developer looking to expand your tech stack, you'll find resources here that suit your needs.
+Welcome to Aide Hub — a knowledge platform dedicated to sharing various tools, knowledge, and programming-related content. Whether you're new to programming or an experienced developer looking to expand your tech stack, you'll find resources here that suit your needs.
 
 ## 关于本站 | About
 
@@ -53,8 +53,8 @@ This is an open-source knowledge sharing platform committed to:
 - 在GitHub上提交Issue
 - 关注我们的社交媒体账号获取最新更新
 
-感谢您访问 Assistant Hub！
+感谢您访问 Aide Hub！
 
 ---
 
-© 2025 Assistant Hub. 基于开源协议。
+© 2025 Aide Hub. 基于开源协议。
