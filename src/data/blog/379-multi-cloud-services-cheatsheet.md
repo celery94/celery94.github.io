@@ -2,7 +2,7 @@
 pubDatetime: 2025-06-21
 tags: [云计算, 多云, AWS, Azure, GCP, OCI, 技术对比]
 slug: multi-cloud-services-cheatsheet
-source:
+source: AideHub
 title: 一张图看懂主流云服务商核心服务 —— 多云环境下的对比与选型
 description: 本文梳理并对比AWS、Azure、GCP、OCI等主流云服务商的核心产品，结合实际案例和常见问题，帮助技术人员快速理解多云架构下的服务选型与应用实践。
 ---
