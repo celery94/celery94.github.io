@@ -41,27 +41,25 @@
   // 注册性能测量
   if ('performance' in window && 'PerformanceObserver' in window) {
     // 监控LCP (Largest Contentful Paint)
-    new PerformanceObserver((entryList) => {
-      const entries = entryList.getEntries();
-      const lastEntry = entries[entries.length - 1];
-      console.log('LCP:', lastEntry.startTime);
+    new PerformanceObserver(() => {
+      // const entries = entryList.getEntries();
+      // const lastEntry = entries[entries.length - 1];
+      // console.log('LCP:', lastEntry.startTime); // Removed for production
       // 这里可以将性能数据发送到分析服务
     }).observe({type: 'largest-contentful-paint', buffered: true});
     
     // 监控FID (First Input Delay)
     new PerformanceObserver((entryList) => {
-      const entries = entryList.getEntries();
-      entries.forEach(entry => {
-        console.log('FID:', entry.processingStart - entry.startTime);
+      entryList.getEntries().forEach(() => {
+        // console.log('FID:', entry.processingStart - entry.startTime);
       });
     }).observe({type: 'first-input', buffered: true});
     
     // 监控CLS (Cumulative Layout Shift)
     new PerformanceObserver((entryList) => {
-      const entries = entryList.getEntries();
-      entries.forEach(entry => {
+      entryList.getEntries().forEach((entry) => {
         if (!entry.hadRecentInput) {
-          console.log('CLS:', entry.value);
+          // console.log('CLS:', entry.value);
         }
       });
     }).observe({type: 'layout-shift', buffered: true});

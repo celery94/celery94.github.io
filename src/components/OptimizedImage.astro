@@ -1,8 +1,8 @@
 ---
-import { Image } from "astro:assets";
+import { Image, type ImageMetadata } from "astro:assets";
 
 export interface Props {
-  src: string | any; // Using 'any' for ImageMetadata compatibility
+  src: string | ImageMetadata;
   alt: string;
   width?: number;
   height?: number;

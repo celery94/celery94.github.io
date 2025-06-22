@@ -41,7 +41,7 @@ const getCardAccent = (title: string) => {
   <div class={`absolute top-0 left-0 w-1 h-full accent-bar accent-${getCardAccent(title)}
     group-hover:scale-y-105 transition-all duration-500 group-hover:glow-sm z-50`}></div>
   
-  <div class={`h-40 ${imageSrc ? 'grid grid-cols-1 sm:grid-cols-[auto_1fr]' : 'flex items-center'}`}>
+  <div class={`${imageSrc ? 'grid grid-cols-1 sm:grid-cols-[auto_1fr] sm:h-40' : 'flex items-center sm:h-40'}`}>
     <!-- Cover Image Section -->
     {imageSrc && (
       <div class="w-full h-40 sm:w-40 sm:h-40 relative overflow-hidden rounded-xl group/image bg-gradient-to-br from-muted/20 to-muted/40 sm:ml-3">
@@ -337,8 +337,10 @@ const getCardAccent = (title: string) => {
   }
   
   /* Simple vertical centering */
-  .card .flex.items-center {
-    min-height: 160px;
+  @media (min-width: 640px) {
+    .card .flex.items-center {
+      min-height: 160px;
+    }
   }
   
   /* Ensure proper spacing between accent bar and content */
