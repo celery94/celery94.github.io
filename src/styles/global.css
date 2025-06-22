@@ -369,3 +369,47 @@ html[data-theme="dark"] [data-pagefind-ignore] a {
 html[data-theme="dark"] [data-pagefind-ignore] a .text-sm {
   color: var(--color-accent);
 }
+
+/* Mobile-specific improvements */
+@media (max-width: 640px) {
+  /* Ensure proper spacing on mobile */
+  .mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  /* Better card spacing on mobile */
+  .card {
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Improve text readability on mobile */
+  h1, h2, h3 {
+    line-height: 1.3;
+  }
+  
+  /* Better touch targets */
+  a, button {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+  
+  /* Prevent horizontal scroll */
+  body {
+    overflow-x: hidden;
+  }
+  
+  /* Better image handling on mobile */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+/* Responsive image containers */
+@media (max-width: 640px) {
+  .group\/image {
+    height: 200px !important;
+  }
+}

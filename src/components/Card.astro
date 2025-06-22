@@ -41,10 +41,10 @@ const getCardAccent = (title: string) => {
   <div class={`absolute top-0 left-0 w-1 h-full accent-bar accent-${getCardAccent(title)}
     group-hover:scale-y-105 transition-all duration-500 group-hover:glow-sm z-50`}></div>
   
-  <div class={`${imageSrc ? 'grid grid-cols-1 sm:grid-cols-[auto_1fr] sm:h-40' : 'flex items-center h-40'}`}>
+  <div class={`${imageSrc ? 'grid grid-cols-1 sm:grid-cols-[auto_1fr] min-h-0' : 'flex items-center min-h-[160px]'}`}>
     <!-- Cover Image Section -->
     {imageSrc && (
-      <div class="w-full h-40 sm:w-40 sm:h-40 relative overflow-hidden rounded-xl group/image bg-gradient-to-br from-muted/20 to-muted/40 sm:ml-3">
+      <div class="w-full h-48 sm:w-40 sm:h-40 relative overflow-hidden rounded-xl group/image bg-gradient-to-br from-muted/20 to-muted/40 sm:ml-3">
         <!-- Loading placeholder -->
         <div class="absolute inset-0 bg-gradient-to-br from-muted/30 to-muted/60 animate-pulse"></div>
         
@@ -76,33 +76,32 @@ const getCardAccent = (title: string) => {
     )}
     
     <!-- Content Section -->
-    <div class={`relative z-10 ${imageSrc ? 'p-6 flex items-center' : 'p-6 sm:pl-9 w-full'}`}>
-      <div class="w-full space-y-2">
+    <div class={`relative z-10 ${imageSrc ? 'p-4 sm:p-6 flex items-center' : 'p-4 sm:p-6 sm:pl-9 w-full'}`}>
+      <div class="w-full space-y-2 sm:space-y-3">
         <a
           href={href}
-          class="inline-block text-lg font-medium text-accent decoration-dashed underline-offset-4 
+          class="inline-block text-base sm:text-lg font-medium text-accent decoration-dashed underline-offset-4 
             focus-visible:no-underline focus-visible:underline-offset-0 transition-all duration-300 
             group-hover:text-accent group-hover:scale-[1.02] transform origin-left"
-        >
-          {
-            secHeading ? (
-              <h2 {...headerProps} class="group-hover:text-accent transition-colors duration-300">{title}</h2>
-            ) : (
-              <h3 {...headerProps} class="group-hover:text-accent transition-colors duration-300">{title}</h3>
-            )
-          }
-        </a>
-        
-        <Datetime pubDatetime={pubDatetime} modDatetime={modDatetime} />
-        <p class="text-foreground/90 group-hover:text-foreground transition-colors duration-300">{description}</p>
-        
-        {tags && (
-          <ul class="flex flex-wrap gap-2">
-            {tags.map(tag => (
-              <Tag tag={slugifyStr(tag)} tagName={tag} />
-            ))}
-          </ul>
-        )}
+        >        {
+          secHeading ? (
+            <h2 {...headerProps} class="group-hover:text-accent transition-colors duration-300 text-base sm:text-lg leading-tight">{title}</h2>
+          ) : (
+            <h3 {...headerProps} class="group-hover:text-accent transition-colors duration-300 text-base sm:text-lg leading-tight">{title}</h3>
+          )
+        }
+      </a>
+      
+      <Datetime pubDatetime={pubDatetime} modDatetime={modDatetime} />
+      <p class="text-sm sm:text-base text-foreground/90 group-hover:text-foreground transition-colors duration-300 line-clamp-2 sm:line-clamp-3">{description}</p>
+      
+      {tags && (
+        <ul class="flex flex-wrap gap-1 sm:gap-2 mt-2">
+          {tags.map(tag => (
+            <Tag tag={slugifyStr(tag)} tagName={tag} />
+          ))}
+        </ul>
+      )}
       </div>
     </div>
   </div>
@@ -151,222 +150,32 @@ const getCardAccent = (title: string) => {
   }
   
   .group\/image:hover img {
-    filter: contrast(1.1) saturate(1.2) brightness(1.05);
+    filter: contrast(1.1) saturate(1.15) brightness(1.05);
   }
   
-  /* Corner accent dot styles */
-  .group\/image .accent-primary {
-    background: radial-gradient(circle, var(--color-primary), color-mix(in srgb, var(--color-primary) 60%, transparent));
+  /* Text clamping for mobile responsiveness */
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
   
-  .group\/image .accent-secondary {
-    background: radial-gradient(circle, var(--color-secondary), color-mix(in srgb, var(--color-secondary) 60%, transparent));
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
   
-  .group\/image .accent-success {
-    background: radial-gradient(circle, var(--color-success), color-mix(in srgb, var(--color-success) 60%, transparent));
-  }
-  
-  .group\/image .accent-info {
-    background: radial-gradient(circle, var(--color-info), color-mix(in srgb, var(--color-info) 60%, transparent));
-  }
-  
-  .group\/image .accent-warning {
-    background: radial-gradient(circle, var(--color-warning), color-mix(in srgb, var(--color-warning) 60%, transparent));
-  }
-  
-  .group\/image .accent-danger {
-    background: radial-gradient(circle, var(--color-danger), color-mix(in srgb, var(--color-danger) 60%, transparent));
-  }
-  
-  .group\/image .accent-accent {
-    background: radial-gradient(circle, var(--color-accent), color-mix(in srgb, var(--color-accent) 60%, transparent));
-  }
-  
-  /* Accent bars with enhanced visuals */
-  .accent-bar {
-    background: linear-gradient(to bottom, var(--color-accent), color-mix(in srgb, var(--color-accent) 70%, transparent));
-  }
-  
-  .accent-primary {
-    background: linear-gradient(to bottom, var(--color-primary), color-mix(in srgb, var(--color-primary) 70%, transparent));
-  }
-  
-  .accent-secondary {
-    background: linear-gradient(to bottom, var(--color-secondary), color-mix(in srgb, var(--color-secondary) 70%, transparent));
-  }
-  
-  .accent-success {
-    background: linear-gradient(to bottom, var(--color-success), color-mix(in srgb, var(--color-success) 70%, transparent));
-  }
-  
-  .accent-info {
-    background: linear-gradient(to bottom, var(--color-info), color-mix(in srgb, var(--color-info) 70%, transparent));
-  }
-  
-  .accent-warning {
-    background: linear-gradient(to bottom, var(--color-warning), color-mix(in srgb, var(--color-warning) 70%, transparent));
-  }
-  
-  .accent-danger {
-    background: linear-gradient(to bottom, var(--color-danger), color-mix(in srgb, var(--color-danger) 70%, transparent));
-  }
-  
-  .accent-accent {
-    background: linear-gradient(to bottom, var(--color-accent), color-mix(in srgb, var(--color-accent) 70%, transparent));
-  }
-  
-  /* Glow effects */
-  .glow-sm {
-    box-shadow: 0 0 15px var(--color-accent);
-  }
-  
-  /* Card entry animation */
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  .animate-fade-in {
-    animation: fadeIn 0.5s ease-out forwards;
-    animation-delay: calc(var(--animation-index, 0) * 100ms);
-  }
-  
-  /* Apply animation delay to cards based on position */
-  li:nth-child(1) { --animation-index: 1; }
-  li:nth-child(2) { --animation-index: 2; }
-  li:nth-child(3) { --animation-index: 3; }
-  li:nth-child(4) { --animation-index: 4; }
-  li:nth-child(5) { --animation-index: 5; }
-  li:nth-child(n+6) { --animation-index: 6; }
-  
-  /* Enhanced image loading and interaction effects */
-  .group\/image::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      135deg,
-      rgba(255, 255, 255, 0.1) 0%,
-      transparent 30%,
-      transparent 70%,
-      rgba(0, 0, 0, 0.05) 100%
-    );
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    z-index: 5;
-    pointer-events: none;
-  }
-  
-  .group\/image:hover::before {
-    opacity: 1;
-  }
-  
-  /* Smooth loading animation */
-  @keyframes imageLoad {
-    from { opacity: 0; transform: scale(1.1); }
-    to { opacity: 1; transform: scale(1); }
-  }
-  
-  .group\/image img {
-    animation: imageLoad 0.6s ease-out;
-  }
-  
-  /* Enhanced shimmer effect */
-  .group\/image .shimmer {
-    background: linear-gradient(
-      90deg,
-      transparent 25%,
-      rgba(255, 255, 255, 0.2) 50%,
-      transparent 75%
-    );
-    background-size: 200% 100%;
-  }
-  
-  /* Responsive image optimizations */
+  /* Responsive improvements */
   @media (max-width: 640px) {
-    .group\/image {
-      min-height: 160px;
-    }
-  }
-  
-  /* Dark mode optimizations */
-  @media (prefers-color-scheme: dark) {
-    .group\/image {
-      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.03);
+    .card {
+      margin: 0.5rem 0;
     }
     
-    .group\/image:hover {
-      box-shadow: 
-        inset 0 0 0 1px rgba(255, 255, 255, 0.08),
-        0 8px 32px rgba(0, 0, 0, 0.3);
+    /* Ensure mobile images don't get too tall */
+    .group\/image {
+      max-height: 200px;
     }
-    
-    /* Image overlay label styles */
-    .group\/image .image-label {
-      backdrop-filter: blur(8px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-  }
-  
-  /* Enhanced focus states for accessibility */
-  .group\/image:focus-within {
-    outline: 2px solid var(--color-accent);
-    outline-offset: 2px;
-  }
-  
-  /* Performance optimizations */
-  .group\/image {
-    contain: layout style paint;
-    will-change: transform;
-  }
-  
-  .group\/image img {
-    will-change: transform, filter;
-  }
-  
-  /* Layout fixes for image and accent bar alignment */
-  .card {
-    position: relative;
-  }
-  
-  /* Simple vertical centering */
-  .card .flex.items-center {
-    min-height: 160px;
-  }
-  
-  /* Ensure proper spacing between accent bar and content */
-  @media (min-width: 640px) {
-    .card .h-40 {
-      padding-left: 0.125rem; /* 2px space for accent bar */
-    }
-  }
 </style>
-
-<script>
-  // Add intersection observer to trigger animations when cards come into view
-  document.addEventListener('astro:page-load', () => {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('animate-fade-in');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1 });
-    
-    document.querySelectorAll('.card').forEach(card => {
-      observer.observe(card);
-      // Initially hide cards until they come into view
-      if (card instanceof HTMLElement) {
-        card.style.opacity = '0';
-      }
-    });
-  });
-</script>
