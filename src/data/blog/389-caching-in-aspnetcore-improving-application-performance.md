@@ -14,6 +14,7 @@ tags:
 slug: caching-in-aspnetcore-improving-application-performance
 source: https://www.milanjovanovic.tech/blog/caching-in-aspnetcore-improving-application-performance
 title: ASP.NET Core 中的缓存：提升应用性能的关键技术
+description: 了解如何在 ASP.NET Core 应用程序中实现缓存，提升性能和可伸缩性。本文涵盖了缓存的类型、策略以及解决缓存相关问题的方法。
 ---
 
 # ASP.NET Core 中的缓存：提升应用性能的关键技术
