@@ -2,60 +2,75 @@
 
 ## Project Overview
 
-- Astro v5.7 static site generator with TypeScript for a knowledge-sharing blog (Aide Hub).
-- Entry configuration: `astro.config.ts` (site URL, markdown plugins, Tailwind integration via `@tailwindcss/vite`).
+- **Aide Hub**: Astro v5.7 static site generator with TypeScript for a bilingual technical blog (Chinese/English)
+- **Core Purpose**: Knowledge sharing platform for software development, AI tools, and programming content
+- **Author**: Celery Liu - focused on .NET, Azure, AI assistants, and modern development practices
 
-## Directory & Architecture
+## Architecture & Key Patterns
 
-- `src/pages/`: routes and endpoints (`index.astro`, `search.astro`, dynamic folders under `archives/`, `posts/`, `tags/`).
-- `src/layouts/`: reusable page wrappers (`Layout.astro`, `Main.astro`, `PostDetails.astro`, `AboutLayout.astro`).
-- `src/components/`: UI components (`Header.astro`, `Card.astro`, `Pagination.astro`, `EditPost.astro`, etc.).
-- `src/data/blog/`: Markdown posts; `src/content.config.ts` defines Zod schema for frontmatter.
-- `styles/`: global CSS with Tailwind directives (`global.css`), custom effects, typography and dark-mode styles.
+### Content Management Strategy
+- **Blog Posts**: All content in `src/data/blog/` as numbered markdown files (001-xxx.md, 002-xxx.md)
+- **Content Schema**: Zod validation in `src/content.config.ts` enforces `author`, `pubDatetime`, `tags`, `draft`, `description`, `ogImage`
+- **Frontmatter Pattern**: Required fields include `pubDatetime` (Date), `title`, `description`, `tags` array
+- **Asset Organization**: Images stored in `src/assets/` with numbered subdirectories matching post numbers
 
-## Styling with Tailwind CSS v4
+### Routing & URL Structure
+- **Posts**: `/posts/[slug]/` via `src/pages/posts/[slug]/index.astro` 
+- **Dynamic Pages**: Collections use `getStaticPaths()` with slug-based routing from filename
+- **Archives**: Time-based pagination in `/archives/[...page].astro`
+- **Tags**: Category filtering via `/tags/[tag]/[...page].astro`
 
-- Configured in `vite.plugins` via `tailwindcss()` in `astro.config.ts`.
-- Use `@import "tailwindcss/base"`, `@import "tailwindcss/components"`, `@import "tailwindcss/utilities"` in `styles/global.css`.
-- Additional Tailwind plugins: `@tailwindcss/typography` (configured via Vite plugin).
+### Styling Architecture
+- **Tailwind CSS v4**: Configured via Vite plugin, not traditional config file
+- **CSS Imports**: `@import "tailwindcss"` in `src/styles/global.css` (no separate base/components/utilities)
+- **Theme System**: CSS custom properties for light/dark modes with enhanced contrast ratios
+- **Modular Styles**: Separate files for typography, animations, dark themes, code highlighting
 
-## Build & Development Workflow
+## Essential Development Commands
 
-- `npm run dev`: starts Astro dev server.
-- `npm run build`: runs `astro check && astro build`, then `pagefind --site dist` to index search and copies output to `public/pagefind/`.
-- `npm run preview`: preview production build.
-- Lint: `npm run lint` (ESLint with `eslint-plugin-astro`, TypeScript parser).
-- Format: `npm run format` / `npm run format:check` (Prettier with Astro & Tailwind plugins).
+```bash
+# Development with TypeScript checking
+npm run dev
+
+# Production build with search indexing
+npm run build  # Runs: astro check && astro build && pagefind --site dist && cp -r dist/pagefind public/
+
+# Format code (Prettier + Astro + Tailwind plugins)
+npm run format
+
+# Lint with Astro-specific rules
+npm run lint
+```
+
+## Critical Build Dependencies
+
+- **Search**: `pagefind` generates client-side search index, requires build step to copy to `public/pagefind/`
+- **OG Images**: Dynamic generation using `@resvg/resvg-js` + `satori` with custom templates in `src/utils/og-templates/`
+- **Markdown**: `remark-toc` + `remark-collapse` for table of contents and collapsible sections
+
+## Content Utilities & Helpers
+
+- **Post Sorting**: `getSortedPosts()` - filters drafts, sorts by `modDatetime` or `pubDatetime`
+- **Tag Filtering**: `getPostsByTag()` and `getPostsByGroupCondition()` for category pages
+- **Slug Generation**: Uses filename as slug via Astro's content collection loader
+
+## SEO & Performance
+
+- **Structured Data**: BlogPosting schema in `Layout.astro` with dynamic fields
+- **Responsive Images**: Astro's experimental responsive images enabled
+- **Meta Tags**: Dynamic generation based on post frontmatter and SITE config
+- **Sitemap**: Auto-generated with archive page filtering based on `SITE.showArchives`
+
+## Development Patterns
+
+- **Import Aliases**: Use `@/` prefix for all src imports (configured in `tsconfig.json`)
+- **Component Props**: Always export interface Props for type safety in Astro components
+- **Asset References**: Use `src/assets/` for images, reference via frontmatter `ogImage` field
+- **Config Management**: Centralized in `src/config.ts` with SITE object for all global settings
 
 ## Deployment & CI
 
-- GitHub Actions workflow in `.github/workflows/static.yml`:
-  - Build with `withastro/action@v2` on Node.js (default 18).
-  - Deploy to GitHub Pages via `actions/deploy-pages@v4`.
-- Ensure branch is `main` or adjust workflow triggers accordingly.
-
-## Content & Data Patterns
-
-- Posts loaded from `src/data/blog/` via `astro:content` loader; schema enforces `author`, `pubDatetime`, `tags`, `draft`, `description`, etc.
-- Slug-based routing maps filenames to URLs under `/posts/:slug`.
-- Pagination and tag filtering using utilities in `src/utils/` (`getSortedPosts.ts`, `getPostsByTag.ts`, `getPostsByGroupCondition.ts`).
-
-## Open Graph & SEO
-
-- Dynamic OG image generation in `src/utils/generateOgImages.ts`, using `@resvg/resvg-js` and `satori` with templates in `src/utils/og-templates`.
-- OG image endpoints: `src/pages/og.png.ts` and dynamic handlers for each post.
-- Sitemap and RSS via `@astrojs/sitemap` and `@astrojs/rss`, configured in `astro.config.ts`.
-
-## TypeScript & Aliases
-
-- `tsconfig.json` maps `@/*` to `src/*`; import modules with `@/path/to/file`.
-- All `.astro` and `.ts` files use strict typing; catch type errors via `astro check` in build script.
-
-## Search & Indexing
-
-- `pagefind` powered on-site search: invoked in `npm run build`, output placed in `public/pagefind`.
-- Search UI provided by `@pagefind/default-ui` (imported in layouts).
-
----
-
-_Review these instructions and suggest additions or clarifications for any missing project-specific patterns._
+- **Platform**: GitHub Pages via Actions workflow
+- **Trigger**: Push to `main` branch or manual dispatch
+- **Build Tool**: `withastro/action@v2` handles Node.js setup and build process
+- **Static Output**: All content pre-rendered at build time
