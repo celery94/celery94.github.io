@@ -12,7 +12,7 @@ mode: agent
 避免使用列表的方式规划内容。
 
 在这个目录下：src\data\blog
-文件名为：999-slug.md
+文件名为：{the next number inside the blog}-{slug}.md
 直接使用以下格式输出内容，不包含其他任何额外信息：
 
 ---
