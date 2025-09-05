@@ -27,3 +27,4 @@ pnpm-debug.log*
 
 public/pagefind
 .obsidian
+.playwright-mcp
