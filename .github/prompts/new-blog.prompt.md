@@ -2,27 +2,73 @@
 mode: agent
 ---
 
-接收用户发送的Url，使用工具获取页面的主要内容。
-随后，将内容重新梳理、补充，整理为一篇结构清晰、内容丰富、图文并茂的技术分享文章。
-整体风格正式、专业，有条理，适合用于博客或知识分享平台。
+目标
 
-在这个目录下：src\data\blog
-文件名为：{the next number inside the blog}-{slug}.md
-直接使用以下格式输出内容，不包含其他任何额外信息：
+- 接收用户提供的网页 URL，使用工具获取该页面的主要内容（正文、标题、关键代码/图示）。
+- 在充分理解的基础上进行深度改写与扩展：重组结构、补充背景/原理/对比/最佳实践与示例，输出一篇可发布的高质量技术分享文章。
+- 语言：中文，风格正式、专业、清晰，适合博客发布；尽量避免“流水账式”或“堆砌式”表述。
+- 禁止整段复制粘贴原文；必须用自己的话重述与总结，确保不侵犯版权；保留专有名词的英文表述。
+
+文件与资源规范
+
+- 文章保存路径：src\data\blog
+- 文件名规则：{下一个自增编号}-{slug}.md（slug 用小写 kebab-case，仅含字母/数字/连字符；尽量英文，长度 < 60）
+- 图片资源：若需插图，请将图片保存到 src\assets\{编号}\ 下，并在正文中以相对路径引用该目录下的图片；使用 Markdown 图片语法，并为每张图片提供有意义的 alt 文本。
+- 图片来源与授权：仅使用自制、开源可用或允许转载的图片；若使用对方图示，请在文末“参考资料”中标注来源链接与作者。
+
+Frontmatter 要求（与站点校验一致）
+
+- 必填：pubDatetime（YYYY-MM-DD）、title、description（80-160 字）、tags（2-6 个）
+- 可选：draft（默认 false）、featured（默认 false）、ogImage（留空则使用站点动态 OG）、canonicalURL（可选）、source（原文链接，强烈建议填写）
+- author 不必填写（会使用站点默认）
+
+写作与结构
+
+- 避免“列表堆砌”的写法，正文以段落阐述为主；如确有必要，可在局部使用小段落列表，但不要让整篇文章变成清单。
+- 建议结构：
+  1.  背景与问题
+  2.  核心概念与原理（对比相近概念）
+  3.  实战与代码示例（可分步骤说明）
+  4.  常见陷阱、性能/安全考虑、最佳实践
+  5.  总结与延伸阅读（参考资料，注明来源与作者）
+- 代码块需可复制运行或最小可验证；必要处添加注释与输入/输出说明。
+
+SEO 与可读性
+
+- title 准确凝练，不夸张；slug 与 title 语义一致。
+- description 概括主题与价值，避免口号化；控制在 80-160 汉字。
+- tags 选择领域相关、常用的标签（如 .NET、Azure、AI、Clean Architecture、Security、DevOps 等）。
+
+输出要求
+
+- 直接输出以下模板中的内容，不包含任何额外解释或多余文本。
+- 模板中的字段顺序与示例格式需保持一致；未使用的可选字段可省略。
 
 ---
 
 pubDatetime: yyyy-MM-dd
+title: 标题
+description: 简短而完整的摘要（80-160 字）
 tags: ["tag1", "tag2"]
-slug: slug
-source: http://someurl
-title: title
-description: description
+slug: slug-in-kebab-case
+source: https://original-article-url
+draft: false
+featured: false
+
+# ogImage: ../../assets/{编号}/cover.png # 可选，使用本地相对路径或省略以启用动态 OG
+
+# canonicalURL: https://your-canonical-url # 可选
 
 ---
 
 # 标题
 
-## 二级标题
+## 背景与问题
 
-## 二级标题
+## 核心概念与原理
+
+## 实战与代码示例
+
+## 常见陷阱与最佳实践
+
+## 总结与参考资料
