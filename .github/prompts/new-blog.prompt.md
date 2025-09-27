@@ -19,18 +19,10 @@ mode: agent
 Frontmatter 要求（与站点校验一致）
 
 - 必填：pubDatetime（YYYY-MM-DD）、title、description（80-160 字）、tags（2-6 个）
-- 可选：draft（默认 false）、featured（默认 false）、ogImage（留空则使用站点动态 OG）、canonicalURL（可选）、source（原文链接，强烈建议填写）
-- author 不必填写（会使用站点默认）
 
 写作与结构
 
 - 避免“列表堆砌”的写法，正文以段落阐述为主；如确有必要，可在局部使用小段落列表，但不要让整篇文章变成清单。
-- 建议结构：
-  1.  背景与问题
-  2.  核心概念与原理（对比相近概念）
-  3.  实战与代码示例（可分步骤说明）
-  4.  常见陷阱、性能/安全考虑、最佳实践
-  5.  总结与延伸阅读（参考资料，注明来源与作者）
 - 代码块需可复制运行或最小可验证；必要处添加注释与输入/输出说明。
 
 SEO 与可读性
@@ -42,33 +34,18 @@ SEO 与可读性
 输出要求
 
 - 直接输出以下模板中的内容，不包含任何额外解释或多余文本。
-- 模板中的字段顺序与示例格式需保持一致；未使用的可选字段可省略。
 
 ---
-
 pubDatetime: yyyy-MM-dd
 title: 标题
 description: 简短而完整的摘要（80-160 字）
 tags: ["tag1", "tag2"]
 slug: slug-in-kebab-case
 source: https://original-article-url
-draft: false
-featured: false
-
-# ogImage: ../../assets/{编号}/cover.png # 可选，使用本地相对路径或省略以启用动态 OG
-
-# canonicalURL: https://your-canonical-url # 可选
-
 ---
 
 # 标题
 
-## 背景与问题
+## 子标题 1
 
-## 核心概念与原理
-
-## 实战与代码示例
-
-## 常见陷阱与最佳实践
-
-## 总结与参考资料
+## 子标题 2
