@@ -40,19 +40,26 @@
   
   // 注册性能测量
   if ('performance' in window && 'PerformanceObserver' in window) {
+    const emitMetric = (name, detail) => {
+      window.dispatchEvent(new CustomEvent(`performance:${name}`, { detail }));
+    };
+
     // 监控LCP (Largest Contentful Paint)
     new PerformanceObserver((entryList) => {
       const entries = entryList.getEntries();
       const lastEntry = entries[entries.length - 1];
-      console.log('LCP:', lastEntry.startTime);
-      // 这里可以将性能数据发送到分析服务
+      emitMetric('lcp', { value: lastEntry.startTime, entries });
+      // 可以在外部监听 performance:lcp 事件并上报分析服务
     }).observe({type: 'largest-contentful-paint', buffered: true});
     
     // 监控FID (First Input Delay)
     new PerformanceObserver((entryList) => {
       const entries = entryList.getEntries();
       entries.forEach(entry => {
-        console.log('FID:', entry.processingStart - entry.startTime);
+        emitMetric('fid', {
+          value: entry.processingStart - entry.startTime,
+          entry
+        });
       });
     }).observe({type: 'first-input', buffered: true});
     
@@ -61,7 +68,7 @@
       const entries = entryList.getEntries();
       entries.forEach(entry => {
         if (!entry.hadRecentInput) {
-          console.log('CLS:', entry.value);
+          emitMetric('cls', { value: entry.value, entry });
         }
       });
     }).observe({type: 'layout-shift', buffered: true});

@@ -1,8 +1,9 @@
 ---
 import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
 
 export interface Props {
-  src: string | any; // Using 'any' for ImageMetadata compatibility
+  src: string | ImageMetadata;
   alt: string;
   width?: number;
   height?: number;
@@ -22,19 +23,34 @@ const {
   decoding = "async",
   sizes = "100vw",
 } = Astro.props;
+
+const isImageMetadata = typeof src === "object" && src !== null && "src" in src;
 ---
 
 <figure class="image-container">
-  <Image
-    {src}
-    {alt}
-    {width}
-    {height}
-    {loading}
-    {decoding}
-    class={`optimized-image ${className}`}
-    {sizes}
-  />
+  {isImageMetadata ? (
+    <Image
+      src={src as ImageMetadata}
+      alt={alt}
+      width={width}
+      height={height}
+      loading={loading}
+      decoding={decoding}
+      class={`optimized-image ${className}`}
+      sizes={sizes}
+    />
+  ) : (
+    <img
+      src={src as string}
+      alt={alt}
+      width={width}
+      height={height}
+      loading={loading}
+      decoding={decoding}
+      class={`optimized-image ${className}`}
+      sizes={sizes}
+    />
+  )}
   {alt && <figcaption class="sr-only">{alt}</figcaption>}
 </figure>
 
