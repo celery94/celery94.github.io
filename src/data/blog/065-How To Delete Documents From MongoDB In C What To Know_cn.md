@@ -1,19 +1,6 @@
 ---
 pubDatetime: 2024-03-27
 tags: [".NET", "C#"]
-  [
-    .net,
-    c#,
-    code,
-    coding,
-    csharp,
-    数据库,
-    dotnet,
-    dotnet core,
-    mongodb,
-    编程,
-    软件工程,
-  ]
 source: https://www.devleader.ca/2024/03/26/how-to-delete-documents-from-mongodb-in-c-what-you-need-to-know/
 author: Nick Cosentino
 title: 如何在C#中从MongoDB删除文档

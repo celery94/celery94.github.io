@@ -1,21 +1,6 @@
 ---
 pubDatetime: 2024-03-30
 tags: [".NET", "C#", "AI", "Testing"]
-  [
-    .net,
-    c#,
-    code,
-    coding,
-    csharp,
-    databases,
-    docker,
-    dotnet,
-    dotnet core,
-    mongodb,
-    programming,
-    software engineering,
-    testcontainers,
-  ]
 source: https://www.devleader.ca/2024/03/27/c-testcontainers-for-mongodb-how-to-easily-run-local-databases/
 author: Nick Cosentino
 title: C# Testcontainers 对于 MongoDB - 轻松运行本地数据库

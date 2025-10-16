@@ -1,16 +1,6 @@
 ---
 pubDatetime: 2025-06-26
 tags: [".NET", "ASP.NET Core", "Performance"]
-  [
-    "ASP.NET Core",
-    "Caching",
-    "Performance",
-    "IMemoryCache",
-    "IDistributedCache",
-    "Redis",
-    "Cache-Aside Pattern",
-    "HybridCache",
-  ]
 slug: caching-in-aspnetcore-improving-application-performance
 source: https://www.milanjovanovic.tech/blog/caching-in-aspnetcore-improving-application-performance
 title: ASP.NET Core 中的缓存：提升应用性能的关键技术

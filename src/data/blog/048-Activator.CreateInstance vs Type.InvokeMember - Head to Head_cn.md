@@ -1,18 +1,6 @@
 ---
 pubDatetime: 2024-03-15
 tags: ["Productivity", "Tools"]
-  [
-    .net,
-    c#,
-    code,
-    coding,
-    csharp,
-    dotnet,
-    programming,
-    reflection,
-    benchmarkdotnet,
-    software engineering,
-  ]
 source: https://www.devleader.ca/2024/03/14/activator-createinstance-vs-type-invokemember-a-clear-winner/
 author: Nick Cosentino
 title: Activator.CreateInstance 与 Type.InvokeMember – 明显的赢家？

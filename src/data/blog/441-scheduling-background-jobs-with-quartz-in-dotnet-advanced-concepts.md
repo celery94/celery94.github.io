@@ -1,16 +1,6 @@
 ---
 pubDatetime: 2025-08-19
 tags: [".NET", "Architecture"]
-  [
-    "dotnet",
-    "quartz",
-    "background-jobs",
-    "scheduling",
-    "aspnet-core",
-    "postgresql",
-    "cron",
-    "opentelemetry",
-  ]
 slug: scheduling-background-jobs-with-quartz-in-dotnet-advanced-concepts
 source: https://www.milanjovanovic.tech/blog/scheduling-background-jobs-with-quartz-in-dotnet-advanced-concepts
 title: 使用 Quartz.NET 在 .NET 中调度后台任务的高级概念

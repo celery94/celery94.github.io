@@ -1,18 +1,6 @@
 ---
 pubDatetime: 2024-03-26
 tags: [".NET", "C#"]
-  [
-    .net,
-    c#,
-    code,
-    coding,
-    csharp,
-    databases,
-    dotnet,
-    dotnet core,
-    mongodb,
-    programming,
-  ]
 source: https://www.devleader.ca/2024/03/24/mongodb-filtering-in-c-beginners-guide-for-easy-filters/
 author: Nick Cosentino
 title: MongoDB在C#中的过滤 – 初学者易用过滤指南

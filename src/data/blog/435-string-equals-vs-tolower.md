@@ -1,14 +1,6 @@
 ---
 pubDatetime: 2025-08-17
 tags: [".NET", "Architecture"]
-  [
-    "C#",
-    ".NET",
-    "string comparison",
-    "performance",
-    "best practices",
-    "StringComparison",
-  ]
 slug: string-equals-vs-tolower-best-practices
 source: local-image
 title: .NET 字符串比较最佳实践：为何 string.Equals 完胜 ToLower

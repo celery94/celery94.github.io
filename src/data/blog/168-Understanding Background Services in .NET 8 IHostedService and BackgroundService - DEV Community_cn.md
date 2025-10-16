@@ -1,17 +1,6 @@
 ---
 pubDatetime: 2024-07-18
 tags: [".NET", "Architecture"]
-  [
-    dotnetcore,
-    aspdotnet,
-    dotnet,
-    software,
-    coding,
-    development,
-    engineering,
-    inclusive,
-    community,
-  ]
 source: https://dev.to/moh_moh701/understanding-background-services-in-net-8-ihostedservice-and-backgroundservice-2eoh
 author: mohamed Tayel
 title: Understanding Background Services in .NET 8 IHostedService and BackgroundService - DEV Community

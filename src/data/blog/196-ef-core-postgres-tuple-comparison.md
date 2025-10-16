@@ -1,13 +1,6 @@
 ---
 pubDatetime: 2025-03-16
 tags: ["Productivity", "Tools", "Database"]
-  [
-    EF Core,
-    PostgreSQL,
-    Tuple Comparison,
-    Database Optimization,
-    Query Performance,
-  ]
 slug: ef-core-postgres-tuple-comparison
 source: milanjovanovic.tech
 author: Milan Jovanović

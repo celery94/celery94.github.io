@@ -1,14 +1,6 @@
 ---
 pubDatetime: 2025-08-27
 tags: ["Productivity", "Tools", "Database"]
-  [
-    "Entity Framework Core",
-    "EF Core",
-    "Query Filters",
-    "Database",
-    "C#",
-    ".NET",
-  ]
 slug: ef-core-10-named-query-filters-multiple-filters-per-entity
 source: https://www.milanjovanovic.tech/blog/named-query-filters-in-ef-10-multiple-query-filters-per-entity
 title: EF Core 10 中的命名查询过滤器：每个实体支持多个查询过滤器

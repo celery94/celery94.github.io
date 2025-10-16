@@ -1,23 +1,6 @@
 ---
 pubDatetime: 2024-03-30
 tags: [".NET", "C#"]
-  [
-    .net,
-    benchmark,
-    benchmarkdotnet,
-    benchmarking,
-    c#,
-    code,
-    coding,
-    csharp,
-    databases,
-    dotnet,
-    dotnet core,
-    mongodb,
-    performance,
-    programming,
-    software engineering,
-  ]
 source: https://www.devleader.ca/2024/03/28/c-mongodb-insert-benchmarks-what-you-need-to-know/
 author: Nick Cosentino
 title: C# MongoDB插入基准测试 - 你需要知道的

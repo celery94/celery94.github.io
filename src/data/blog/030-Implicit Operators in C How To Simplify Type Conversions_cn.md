@@ -1,22 +1,6 @@
 ---
 pubDatetime: 2024-03-06
 tags: [".NET", "C#"]
-  [
-    .net,
-    c#,
-    casting,
-    code,
-    code examples,
-    coding,
-    csharp,
-    dotnet,
-    dotnet core,
-    implicit operators,
-    programming,
-    software engineering,
-    type casting,
-    codeproject,
-  ]
 source: https://www.devleader.ca/2024/03/04/implicit-operators-in-c-how-to-simplify-type-conversions/
 author: Nick Cosentino
 title: C#中的隐式操作符，如何简化类型转换

@@ -1,25 +1,6 @@
 ---
 pubDatetime: 2024-03-01
 tags: [".NET", "C#"]
-  [
-    asp,
-    asp.net,
-    asp.net core,
-    autofac,
-    c#,
-    csharp,
-    dependency injection,
-    di,
-    di frameworks,
-    dotnet,
-    dotnet core,
-    inversion of control,
-    iservicecollection,
-    simple injector,
-    c# / .net / dotnet,
-    programming,
-    software engineering,
-  ]
 source: https://www.devleader.ca/2024/02/21/iservicecollection-in-c-simplified-beginners-guide-for-dependency-injection/
 author: Nick Cosentino
 title: C# 中的 IServiceCollection - 简化版初学者指南

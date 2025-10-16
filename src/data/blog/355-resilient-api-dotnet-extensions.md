@@ -1,14 +1,6 @@
 ---
 pubDatetime: 2025-06-09
 tags: [".NET", "ASP.NET Core"]
-  [
-    ".NET",
-    "微服务",
-    "API韧性",
-    "分布式系统",
-    "Microsoft.Extensions.Resilience",
-    "云原生",
-  ]
 slug: resilient-api-dotnet-extensions
 source: https://thecodeman.net/posts/building-resilient-api-in-aspnet-core-9
 title: .NET 9 原生 API 韧性策略全解析：现代微服务的高可用秘籍

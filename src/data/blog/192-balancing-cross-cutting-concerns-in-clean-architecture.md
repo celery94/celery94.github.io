@@ -1,13 +1,6 @@
 ---
 pubDatetime: 2024-01-20
 tags: ["Architecture", "DevOps"]
-  [
-    Clean Architecture,
-    Cross-Cutting Concerns,
-    Software Development,
-    ASP.NET Core,
-    MediatR,
-  ]
 slug: balancing-cross-cutting-concerns-in-clean-architecture
 source: https://www.milanjovanovic.tech/blog/balancing-cross-cutting-concerns-in-clean-architecture
 title: 在 Clean Architecture 中平衡跨切关注点：实现高效的软件架构

@@ -1,17 +1,6 @@
 ---
 pubDatetime: 2025-05-18
 tags: [".NET", "ASP.NET Core", "C#", "AI"]
-  [
-    C#,
-    ASP.NET Core,
-    Claims,
-    Identity,
-    Extension Members,
-    .NET 10,
-    C# 14,
-    可维护性,
-    测试性,
-  ]
 slug: stop-using-firstordefault-claims-dotnet
 source: https://itnext.io/stop-using-firstordefault-for-claims-in-net-71add18db5a2
 title: 告别 FirstOrDefault！用 C# 14 扩展成员优雅访问 Claims（ASP.NET Core 实战）

@@ -1,18 +1,6 @@
 ---
 pubDatetime: 2024-03-27
 tags: [".NET", "C#"]
-  [
-    .net,
-    c#,
-    code,
-    coding,
-    csharp,
-    databases,
-    dotnet,
-    dotnet core,
-    mongodb,
-    programming,
-  ]
 source: https://www.devleader.ca/2024/03/25/how-to-update-mongodb-documents-in-c-what-you-need-to-know/
 author: Nick Cosentino
 title: 如何在C#中更新MongoDB文档

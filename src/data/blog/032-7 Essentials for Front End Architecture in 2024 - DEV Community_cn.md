@@ -1,18 +1,6 @@
 ---
 pubDatetime: 2024-03-07
 tags: ["Productivity", "Tools"]
-  [
-    webdev,
-    javascript,
-    beginners,
-    frontend,
-    software,
-    coding,
-    development,
-    engineering,
-    inclusive,
-    community,
-  ]
 source: https://dev.to/benajaero/7-essentials-for-front-end-architecture-in-2024-m29
 author: ben ajaero
 title: 2024年前端架构的7个要点 - DEV 社区

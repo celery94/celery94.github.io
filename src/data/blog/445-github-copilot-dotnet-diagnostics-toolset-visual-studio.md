@@ -1,15 +1,6 @@
 ---
 pubDatetime: 2025-08-21
 tags: [".NET", "AI", "Productivity", "Tools"]
-  [
-    "GitHub Copilot",
-    "Visual Studio",
-    ".NET",
-    "调试",
-    "性能分析",
-    "AI",
-    "开发工具",
-  ]
 slug: github-copilot-dotnet-diagnostics-toolset-visual-studio
 source: https://devblogs.microsoft.com/dotnet/github-copilot-diagnostics-toolset-for-dotnet-in-visual-studio
 title: GitHub Copilot 诊断工具集：革命性提升 .NET 开发调试与性能分析体验

@@ -1,22 +1,6 @@
 ---
 pubDatetime: 2024-03-04
 tags: [".NET", "C#"]
-  [
-    .net,
-    c#,
-    csharp,
-    dotnet,
-    dotnet core,
-    fault handling,
-    polly,
-    programming,
-    retry mechanisms,
-    retry policies,
-    software architecture,
-    software engineering,
-    c# / .net / dotnet,
-    tutorial,
-  ]
 source: https://www.devleader.ca/2024/03/03/how-to-use-polly-in-c-easily-handle-faults-and-retries/
 author: Nick Cosentino
 title: 如何在C#中使用Polly：轻松处理故障和重试

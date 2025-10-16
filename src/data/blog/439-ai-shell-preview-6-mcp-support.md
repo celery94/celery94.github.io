@@ -1,14 +1,6 @@
 ---
 pubDatetime: 2025-08-18
 tags: ["AI", "Productivity"]
-  [
-    "AI",
-    "PowerShell",
-    "MCP",
-    "Azure",
-    "Command-Line",
-    "Artificial Intelligence",
-  ]
 slug: ai-shell-preview-6-mcp-support
 source: https://devblogs.microsoft.com/powershell/preview-6-ai-shell
 title: AI Shell Preview 6：引入 MCP 支持，革命性的命令行 AI 体验

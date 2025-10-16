@@ -1,18 +1,6 @@
 ---
 pubDatetime: 2024-03-18
 tags: [".NET", "Architecture"]
-  [
-    .net,
-    c#,
-    code,
-    coding,
-    constructorinfo,
-    csharp,
-    dotnet,
-    dotnet core,
-    programming,
-    reflection,
-  ]
 source: https://www.devleader.ca/2024/03/17/constructorinfo-how-to-make-reflection-in-dotnet-faster-for-instantiation/
 author: Nick Cosentino
 title: ConstructorInfo：使用DotNet反射进行更快的实例化

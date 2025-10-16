@@ -1,18 +1,6 @@
 ---
 pubDatetime: 2024-08-02
 tags: ["Productivity", "Tools"]
-  [
-    Vulnerability,
-    Application security,
-    data,
-    Web application,
-    measure,
-    Database,
-    File system,
-    injection,
-    XML,
-    IT,
-  ]
 source: https://dzone.com/articles/owasp-and-its-10-vulnerabilities
 author: Crumb Peter
 title: OWASP and Its 10 Vulnerabilities - DZone

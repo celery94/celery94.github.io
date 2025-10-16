@@ -1,14 +1,6 @@
 ---
 pubDatetime: 2025-07-26
 tags: ["Productivity", "Tools", "Database"]
-  [
-    "Entity Framework Core",
-    "EF 10",
-    "Query Filters",
-    "Soft Deletion",
-    "Multi-Tenancy",
-    ".NET",
-  ]
 slug: ef-core-10-named-query-filters
 source: https://www.milanjovanovic.tech/blog/named-query-filters-in-ef-10-multiple-query-filters-per-entity
 title: EF Core 10 Named Query Filters：每个实体多条件过滤的新时代

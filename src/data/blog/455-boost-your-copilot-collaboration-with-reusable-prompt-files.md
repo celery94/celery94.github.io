@@ -1,7 +1,6 @@
 ---
 pubDatetime: 2025-09-04
 tags: ["AI", "Productivity"]
-  ["copilot", "visual-studio", "prompts", "collaboration", "ai", "productivity"]
 slug: boost-your-copilot-collaboration-with-reusable-prompt-files
 source: https://devblogs.microsoft.com/visualstudio/boost-your-copilot-collaboration-with-reusable-prompt-files
 title: 使用可重用提示文件增强 Copilot 协作

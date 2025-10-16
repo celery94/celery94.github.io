@@ -1,20 +1,6 @@
 ---
 pubDatetime: 2024-03-01
 tags: [".NET", "C#"]
-  [
-    .net,
-    c#,
-    code,
-    coding,
-    csharp,
-    development,
-    dotnet,
-    dotnet core,
-    programming,
-    refactor,
-    refactoring,
-    software engineering,
-  ]
 source: https://www.devleader.ca/2024/02/29/refactoring-c-code-4-essential-techniques-simplified/
 author: Nick Cosentino
 title: 重构 C# 代码 - 4 种基本技术简化版

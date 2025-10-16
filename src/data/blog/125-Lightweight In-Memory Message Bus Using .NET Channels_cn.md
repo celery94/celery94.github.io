@@ -1,17 +1,6 @@
 ---
 pubDatetime: 2024-05-02
 tags: [".NET", "Architecture"]
-  [
-    .net,
-    c#,
-    messaging,
-    integration-events,
-    mediatr,
-    channels,
-    in-memory,
-    message-bus,
-    modular-monolith,
-  ]
 source: https://www.milanjovanovic.tech/blog/lightweight-in-memory-message-bus-using-dotnet-channels
 author: Milan Jovanović
 title: 使用.NET Channels构建轻量级内存中消息总线

@@ -1,14 +1,6 @@
 ---
 pubDatetime: 2024-05-20
 tags: ["Architecture", "Productivity", "Tools"]
-  [
-    ".NET",
-    "Clean Architecture",
-    "Cross-Cutting Concerns",
-    "Logging",
-    "Validation",
-    "Caching",
-  ]
 source: https://www.milanjovanovic.tech/blog/balancing-cross-cutting-concerns-in-clean-architecture?utm_source=Twitter&utm_medium=social&utm_campaign=13.05.2024
 author: Milan Jovanović
 title: 在Clean Architecture中平衡横切关注点

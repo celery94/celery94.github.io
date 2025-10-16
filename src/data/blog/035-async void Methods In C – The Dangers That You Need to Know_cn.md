@@ -1,21 +1,6 @@
 ---
 pubDatetime: 2024-03-08
 tags: [".NET", "C#"]
-  [
-    .net,
-    async await,
-    async void,
-    c#,
-    code,
-    coding,
-    csharp,
-    dotnet,
-    dotnet core,
-    event handlers,
-    programming,
-    c# / .net / dotnet,
-    software engineering,
-  ]
 source: https://www.devleader.ca/2024/03/07/async-void-methods-in-c-the-dangers-that-you-need-to-know/
 author: Nick Cosentino
 title: C#中的async void方法 - 你需要了解的危险

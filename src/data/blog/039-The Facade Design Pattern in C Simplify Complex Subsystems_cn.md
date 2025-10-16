@@ -1,20 +1,6 @@
 ---
 pubDatetime: 2024-03-10
 tags: [".NET", "C#"]
-  [
-    c#,
-    code,
-    coding,
-    csharp,
-    design patterns,
-    dotnet,
-    facade,
-    facade design pattern,
-    facade pattern,
-    facades,
-    programming,
-    software engineering,
-  ]
 source: https://www.devleader.ca/2024/03/08/the-facade-design-pattern-in-c-how-to-simplify-complex-subsystems/#aioseo-section-1-what-is-the-facade-design-pattern
 author: Nick Cosentino
 title: C#中的外观设计模式：简化复杂子系统

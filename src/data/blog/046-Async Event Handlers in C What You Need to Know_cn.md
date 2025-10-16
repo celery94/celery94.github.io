@@ -1,21 +1,6 @@
 ---
 pubDatetime: 2024-03-15
 tags: [".NET", "C#"]
-  [
-    .net,
-    async,
-    async await,
-    c#,
-    code,
-    coding,
-    csharp,
-    dotnet,
-    dotnet core,
-    event handlers,
-    events,
-    programming,
-    software engineering,
-  ]
 source: https://www.devleader.ca/2024/03/13/async-event-handlers-in-c-what-you-need-to-know/
 author: Nick Cosentino
 title: C# 中的异步事件处理程序：你需要知道的事情

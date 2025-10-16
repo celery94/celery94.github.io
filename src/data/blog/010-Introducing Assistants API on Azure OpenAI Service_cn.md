@@ -1,18 +1,6 @@
 ---
 pubDatetime: 2024-02-18T16:10:18
 tags: ["AI", "Productivity"]
-  [
-    Azure,
-    OpenAI,
-    AI,
-    Assistants,
-    API,
-    GPT,
-    Text-to-Speech,
-    TTS,
-    Embeddings,
-    Fine-tuning,
-  ]
 source: https://techcommunity.microsoft.com/t5/ai-azure-ai-services-blog/azure-openai-service-announces-assistants-api-new-models-for/ba-p/4049940
 author: monalisawhalin
 title: 在 Azure OpenAI 服务上引入 Assistants API。

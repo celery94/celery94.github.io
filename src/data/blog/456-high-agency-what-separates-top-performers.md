@@ -1,7 +1,6 @@
 ---
 pubDatetime: 2025-09-05
 tags: ["Productivity", "Tools"]
-  ["leadership", "productivity", "career", "mindset", "personal-development"]
 slug: high-agency-what-separates-top-performers
 source: https://newsletter.techworld-with-milan.com/p/high-agency-what-separates-top-performers
 title: 如何培养高主观能动性：顶尖人才的成功密码

@@ -1,23 +1,6 @@
 ---
 pubDatetime: 2024-03-13
 tags: [".NET", "C#"]
-  [
-    .net,
-    autofac,
-    c#,
-    code,
-    coding,
-    csharp,
-    design patterns,
-    dotnet,
-    dotnet core,
-    plugin,
-    plugin architecture,
-    plugins,
-    programming,
-    reflection,
-    software architecture,
-  ]
 source: https://www.devleader.ca/2024/03/12/plugin-architecture-in-c-for-improved-software-design/
 author: Nick Cosentino
 title: 在 C# 中使用插件架构以改善软件设计
