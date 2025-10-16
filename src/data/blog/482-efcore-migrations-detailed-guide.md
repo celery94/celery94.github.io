@@ -96,20 +96,20 @@ public partial class Create_Database : Migration
             columns: table => new
             {
                 Id = table.Column<int>(type: "integer", nullable: false)
-                    .Annotation("Npgsql:ValueGenerationStrategy", 
+                    .Annotation("Npgsql:ValueGenerationStrategy",
                         NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                 Name = table.Column<string>(
-                    type: "character varying(100)", 
-                    maxLength: 100, 
+                    type: "character varying(100)",
+                    maxLength: 100,
                     nullable: false),
                 Description = table.Column<string>(
-                    type: "character varying(1000)", 
-                    maxLength: 1000, 
+                    type: "character varying(1000)",
+                    maxLength: 1000,
                     nullable: true),
                 Price = table.Column<decimal>(
-                    type: "numeric(18,2)", 
-                    precision: 18, 
-                    scale: 2, 
+                    type: "numeric(18,2)",
+                    precision: 18,
+                    scale: 2,
                     nullable: false)
             },
             constraints: table =>
@@ -175,13 +175,13 @@ public partial class Update_Products : Migration
     {
         // 执行自定义 SQL，例如数据迁移
         migrationBuilder.Sql(@"
-            UPDATE Products 
-            SET Description = CONCAT('Product: ', Name) 
+            UPDATE Products
+            SET Description = CONCAT('Product: ', Name)
             WHERE Description IS NULL");
-        
+
         // 创建复杂索引
         migrationBuilder.Sql(@"
-            CREATE INDEX IX_Products_Price_Name 
+            CREATE INDEX IX_Products_Price_Name
             ON Products (Price DESC, Name ASC)");
     }
 
@@ -269,7 +269,7 @@ START TRANSACTION;
 DO $EF$
 BEGIN
     IF NOT EXISTS(
-        SELECT 1 FROM "__EFMigrationsHistory" 
+        SELECT 1 FROM "__EFMigrationsHistory"
         WHERE "MigrationId" = '20240516095344_Create_Database'
     ) THEN
         CREATE TABLE "Products" (
@@ -286,7 +286,7 @@ END $EF$;
 DO $EF$
 BEGIN
     IF NOT EXISTS(
-        SELECT 1 FROM "__EFMigrationsHistory" 
+        SELECT 1 FROM "__EFMigrationsHistory"
         WHERE "MigrationId" = '20240516095344_Create_Database'
     ) THEN
         CREATE UNIQUE INDEX "IX_Products_Name" ON "Products" ("Name");
@@ -296,7 +296,7 @@ END $EF$;
 DO $EF$
 BEGIN
     IF NOT EXISTS(
-        SELECT 1 FROM "__EFMigrationsHistory" 
+        SELECT 1 FROM "__EFMigrationsHistory"
         WHERE "MigrationId" = '20240516095344_Create_Database'
     ) THEN
         INSERT INTO "__EFMigrationsHistory" ("MigrationId", "ProductVersion")
@@ -421,6 +421,7 @@ Bundle-Migration -Connection <ConnectionString>
 在将迁移应用到生产环境之前，在开发或预发环境中进行测试。开发和预发环境应尽可能接近生产设置，这将有助于在影响真实用户之前捕获任何意外问题或数据丢失风险。
 
 测试应包括：
+
 - 正向迁移（Up）的执行
 - 回滚操作（Down）的验证
 - 数据完整性检查
@@ -431,6 +432,7 @@ Bundle-Migration -Connection <ConnectionString>
 某些操作（如删除列或表）可能导致不可逆的数据丢失。在将这些变更包含在迁移中之前，仔细考虑其后果。提供迁移数据的方式或创建备份计划。
 
 对于破坏性变更，考虑采用多阶段方法：
+
 1. 第一个迁移：添加新列/表，保留旧的
 2. 部署应用程序，同时写入新旧两处
 3. 数据迁移脚本：将数据从旧结构复制到新结构
@@ -444,6 +446,7 @@ Bundle-Migration -Connection <ConnectionString>
 解决 EF 迁移快照的合并冲突可能是一件令人头疼的事情。在创建许多数据库迁移的团队中工作时要注意这一点。建议在创建新迁移之前始终与最新的迁移保持同步，这应该能最大程度地减少产生合并冲突的机会。
 
 如果确实遇到合并冲突，可以考虑：
+
 - 删除冲突的迁移
 - 拉取最新的代码
 - 重新创建迁移
@@ -467,6 +470,7 @@ Bundle-Migration -Connection <ConnectionString>
 EF Core 迁移是管理数据库架构变更的强大工具，它将数据库版本控制与代码版本控制统一起来。通过本文的深入探讨，我们涵盖了从基础的迁移创建到高级的自定义场景，从 SQL 脚本生成到多种应用方式，以及在实际项目中积累的最佳实践经验。
 
 关键要点包括：
+
 - 使用有意义的迁移名称，保持迁移小而专注
 - 仔细审查自动生成的迁移，必要时进行自定义
 - 利用 SQL 脚本在生产环境中提供额外的安全保障
