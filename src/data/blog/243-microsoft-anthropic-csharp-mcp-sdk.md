@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-04-03 08:43:46
-tags: [技术博客, 人工智能, C#, 开源项目, SDK]
+tags: [".NET", "C#"]
 slug: microsoft-anthropic-csharp-mcp-sdk
 source: https://devblogs.microsoft.com/blog/microsoft-partners-with-anthropic-to-create-official-c-sdk-for-model-context-protocol
 title: 微软携手Anthropic，推出适用于C#的Model Context Protocol官方SDK

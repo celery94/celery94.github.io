@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-03-16
-tags: [C#, AES, Encryption, Data Security, Key Management]
+tags: [".NET", "C#"]
 slug: implementing-aes-encryption-csharp
 source: milanjovanovic.tech
 title: 在C#中实现安全的AES加密：保护敏感数据的终极指南

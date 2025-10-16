@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-06-11
-tags: []
+tags: [".NET", "C#"]
 source: https://code-maze.com/csharp-weak-events/
 author: Satya Prakash
 title: Weak Events in C#

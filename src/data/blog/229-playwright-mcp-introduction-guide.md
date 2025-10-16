@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-03-28 22:05:51
-tags: [Playwright, 浏览器自动化, 自动化测试, AI工具, Web开发]
+tags: ["AI", "Testing"]
 slug: playwright-mcp-introduction-guide
 source: https://github.com/microsoft/playwright-mcp
 title: 探索Playwright MCP：下一代浏览器自动化与AI交互工具

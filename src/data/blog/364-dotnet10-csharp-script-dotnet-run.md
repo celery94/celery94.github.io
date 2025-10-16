@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-06-15
-tags: [C#, .NET, 脚本, 开发效率, 新特性]
+tags: [".NET", "C#"]
 slug: dotnet10-csharp-script-dotnet-run
 source: https://www.milanjovanovic.tech/blog/run-csharp-scripts-with-dotnet-run-app-no-project-files-needed
 title: 彻底释放C#脚本力：.NET 10新特性dotnet run app.cs无项目文件直接运行！

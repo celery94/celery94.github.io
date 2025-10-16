@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-02-20T15:06:39
-tags:
+tags: [".NET", "C#"]
   [.net, parallel-foreachasync, task-run, when-all, async, parallel-programming]
 source: https://code-maze.com/csharp-parallel-foreachasync-and-task-run-with-when-all/
 author: Aneta Muslic

@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-04-06
-tags: [.net, c#, code, coding, csharp, dotnet, programming, regex, beginner]
+tags: [".NET", "C#"]
 source: https://www.devleader.ca/2024/04/01/regex-options-in-csharp-beginners-guide-to-powerful-pattern-matching/
 author: Nick Cosentino
 title: C#中的Regex选项，模式匹配的初学者指南

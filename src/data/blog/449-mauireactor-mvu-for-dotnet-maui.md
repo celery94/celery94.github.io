@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-08-26
-tags: [".NET MAUI", "MauiReactor", "MVU", "跨平台开发", "移动开发", "UI 框架"]
+tags: [".NET", "Frontend"]
 slug: mauireactor-mvu-for-dotnet-maui
 source: https://devblogs.microsoft.com/dotnet/mauireactor-mvu-for-dotnet-maui
 title: MauiReactor：为 .NET MAUI 带来 MVU 架构模式

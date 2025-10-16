@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-05-07
-tags: [".NET", "SignalR"]
+tags: [".NET", "ASP.NET Core", "Architecture"]
 source: https://www.milanjovanovic.tech/blog/adding-real-time-functionality-to-dotnet-applications-with-signalr?utm_source=Twitter&utm_medium=social&utm_campaign=06.05.2024
 author: Milan Jovanović
 title: 为 .NET 应用添加实时功能使用SignalR

@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-04-22
-tags: [AI编程, 开发工具, 软件工程, 代码生成, 项目管理]
+tags: ["AI", "Productivity"]
 slug: cursor-best-practices
 source: AideHub
 title: 高效使用Cursor：让AI成为你的代码利器，而不是“意大利面”制造机

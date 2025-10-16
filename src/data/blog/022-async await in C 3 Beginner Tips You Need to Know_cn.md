@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-02-29
-tags: [C#, async, await, 异步编程, 异常处理, 死锁, ConfigureAwait, Task]
+tags: [".NET", "C#", "AI"]
 source: https://www.devleader.ca/2024/02/27/async-await-in-c-3-beginner-tips-you-need-to-know/
 author: Nick Cosentino
 title: async await 在 C# 中：3 个初学者必知的提示

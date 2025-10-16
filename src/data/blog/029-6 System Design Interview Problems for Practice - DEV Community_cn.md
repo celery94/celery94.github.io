@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-03-06
-tags: ["interview", "system design", "practice"]
+tags: ["Productivity", "Tools"]
 source: https://dev.to/somadevtoo/6-system-design-interview-problems-for-practice-4fl8
 title: 6个系统设计面试问题练习 - DEV 社区
 description: 面试中经常问到的系统设计问题

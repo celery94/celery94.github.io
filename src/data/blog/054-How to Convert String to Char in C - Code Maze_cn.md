@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-03-21
-tags: ["C#", "String", "Char", "StringBuilder", "ReadOnlySpan"]
+tags: [".NET", "C#", "Performance"]
 source: https://code-maze.com/csharp-how-to-convert-string-to-char/
 author: Samuel Lawal
 title: 如何在C#中将String转换为Char

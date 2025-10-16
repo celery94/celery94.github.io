@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-05-06
-tags: [".NET", "ASP.NET Core", "Swagger"]
+tags: [".NET", "ASP.NET Core"]
 source: https://code-maze.com/aspnetcore-show-query-parameters-in-swagger/
 author: Aneta Muslić
 title: 如何在ASP.NET Core中的Swagger显示查询参数

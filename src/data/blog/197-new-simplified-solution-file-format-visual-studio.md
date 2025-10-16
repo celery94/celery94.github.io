@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-03-13
-tags: [Visual Studio, 软件开发, 项目管理, 技术优化]
+tags: ["Productivity", "Tools"]
 slug: new-simplified-solution-file-format-visual-studio
 source: https://devblogs.microsoft.com/visualstudio/new-simpler-solution-file-format/
 title: Visual Studio新解决方案文件格式：简化你的开发流程🚀

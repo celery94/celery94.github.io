@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-06-19
-tags: [C#, IAsyncEnumerable, LINQPad, 数据流, .NET, Streaming API]
+tags: [".NET", "C#"]
 slug: linqpad-iasyncenumerable-streaming-guide
 source: https://www.learninglinqpad.com/blog/2025/06/17/linqpad-iasyncenumerable-how-and-when-to-use/
 title: IAsyncEnumerable在C#中的实战应用：高效流式API的实现与最佳实践

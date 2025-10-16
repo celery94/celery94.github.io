@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-04-02
-tags: [ASP.NET, DotNetCore]
+tags: [".NET", "Testing"]
 source: https://www.hanselman.com/blog/
 author: Scott Hanselman
 title: 更新到 .NET 8，更新到 IHostBuilder，并在任何操作系统上无头或有头运行 NUnit 中的 Playwright 测试

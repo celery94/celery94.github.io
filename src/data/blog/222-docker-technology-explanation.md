@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-03-25
-tags: [Docker, Containerization, DevOps]
+tags: ["DevOps", "Productivity"]
 slug: docker-technology-explanation
 source: 自媒体
 author: Bytebytego Team

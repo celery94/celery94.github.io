@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-05-05
-tags: [EFCore, .NET, 性能优化, 数据访问, 开发效率]
+tags: [".NET", "Database"]
 slug: 5-ef-core-features-you-must-know
 source: https://www.milanjovanovic.tech/blog/5-ef-core-features-you-need-to-know?utm_source=X&utm_medium=social&utm_campaign=05.05.2025
 title: 你必须掌握的5个EF Core特性：.NET开发者高效进阶指南

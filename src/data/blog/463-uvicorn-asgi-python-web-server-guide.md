@@ -2,7 +2,7 @@
 pubDatetime: 2025-09-24
 title: Uvicorn：现代 Python Web 应用的高性能 ASGI 服务器
 description: 深入了解 Uvicorn 这款高性能 ASGI 服务器，探索其核心特性、最佳实践以及在现代 Python Web 开发中的重要作用。从基础概念到生产部署，全方位掌握 Uvicorn 的使用技巧。
-tags: ["Python", "ASGI", "Web Server", "Performance", "FastAPI", "WebSocket"]
+tags: ["Performance", "Productivity", "Tools"]
 slug: uvicorn-asgi-python-web-server-guide
 source: https://github.com/Kludex/uvicorn
 draft: false

@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-03-02
-tags: [typescript]
+tags: ["Productivity", "Tools", "Frontend"]
 title: 如何在 TypeScript 中定义类型，以及接口、类型别名和类的区别
 description: 在 TypeScript 中，定义类型可以通过多种方式，主要包括以下几种方法：基础类型注解、接口、类型别名、类、枚举、联合类型、交叉类型、泛型、元组等。本文将介绍这些方法的使用场景、特性和示例，以及接口、类型别名和类的区别。
 ---

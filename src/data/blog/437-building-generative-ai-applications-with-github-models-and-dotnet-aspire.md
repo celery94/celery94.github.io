@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-08-28
-tags: ["Generative AI", ".NET", "GitHub Models", "Aspire", "AI Development"]
+tags: [".NET", "AI", "DevOps"]
 slug: building-generative-ai-applications-with-github-models-and-dotnet-aspire
 source: https://www.milanjovanovic.tech/blog/building-generative-ai-applications-with-github-models-and-dotnet-aspire
 title: Building Generative AI Applications with GitHub Models and .NET Aspire

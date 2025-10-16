@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-05-14
-tags: []
+tags: [".NET", "ASP.NET Core"]
 source: https://code-maze.com/aspnetcore-result-pattern/
 author: Sławomir Świętoniowski
 title: 在 .NET Web API 中使用Result Pattern

@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-04-21
-tags: [EF Core, 性能优化, .NET开发, ORM, 数据库]
+tags: [".NET", "Performance", "Database"]
 slug: ef-core-performance-pitfalls
 source: https://okyrylchuk.dev/blog/how-to-avoid-common-ef-core-performance-pitfalls/
 title: 避开常见的EF Core性能陷阱：中高级.NET开发者必备优化指南

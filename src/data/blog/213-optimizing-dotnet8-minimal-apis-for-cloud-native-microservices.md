@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-03-20
-tags: [dotnet, csharp, api, cloud, microservices, docker, kubernetes]
+tags: [".NET", "ASP.NET Core", "Performance"]
 slug: optimizing-dotnet8-minimal-apis-for-cloud-native-microservices
 source: https://dev.to/leandroveiga/optimizing-net-8-minimal-apis-for-cloud-native-microservices-docker-kubernetes-best-practices-24f9
 title: 迈向云原生：优化.NET 8最小化API的最佳实践指南 🌐🚀

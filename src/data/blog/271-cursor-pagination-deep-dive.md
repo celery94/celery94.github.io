@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-04-17 11:27:13
-tags: [后端开发, 数据库, PostgreSQL, 游标分页, 性能优化, 分页技术]
+tags: ["Productivity", "Tools", "Database"]
 slug: postgres-cursor-pagination-deep-dive
 source: https://www.milanjovanovic.tech/blog/understanding-cursor-pagination-and-why-its-so-fast-deep-dive
 title: 深入理解游标分页：PostgreSQL高性能分页的原理与实战

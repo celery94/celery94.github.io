@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-03-10
-tags:
+tags: [".NET", "C#"]
   [
     c#,
     code,

@@ -2,7 +2,7 @@
 pubDatetime: 2025-09-29
 title: 迎接 .NET 10 垃圾回收：DATAS 策略的评估与调优指南
 description: DATAS 在 .NET 10 成为默认 Server GC 策略，将明显改变托管堆的容量与吞吐权衡。本文梳理设计原则、监控指标、关停条件与调优步骤，并给出容器与自托管环境的实用配置示例，帮助团队在升级前完成验证。
-tags: [".NET", "GC", "Performance"]
+tags: [".NET", "Performance"]
 slug: preparing-dotnet10-gc-datas
 source: https://maoni0.medium.com/preparing-for-the-net-10-gc-88718b261ef2
 ---

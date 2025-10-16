@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-03-30 18:52:03
-tags: [领域驱动设计, 系统架构, 分布式系统, EF Core, MediatR]
+tags: ["AI", "Productivity"]
 slug: domain-events-loosely-coupled-systems
 source: 自媒体原创
 title: 从领域事件到松耦合系统：如何用EF Core和MediatR构建高效架构

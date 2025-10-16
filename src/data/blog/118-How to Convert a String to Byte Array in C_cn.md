@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-04-24
-tags: [.net, ascii, c#]
+tags: [".NET", "C#"]
 source: https://www.devleader.ca/2024/04/21/how-to-convert-a-string-to-byte-array-in-c-encoding-and-decoding-simplified/
 author: Nick Cosentino
 title: 如何在C#中将字符串转换为字节数组

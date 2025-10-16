@@ -1,11 +1,10 @@
 ---
 pubDatetime: 2025-08-29
-tags: ["GitHub Copilot", "MCP", "AI", "Visual Studio Code", "Docker"]
+tags: [".NET", "AI", "DevOps", "Productivity"]
 slug: announcing-awesome-copilot-mcp-server
 source: https://devblogs.microsoft.com/blog/announcing-awesome-copilot-mcp-server
 title: 发布 Awesome Copilot MCP Server：通过 MCP 服务器搜索和保存 GitHub Copilot 自定义配置
 description: 微软宣布推出 Awesome Copilot MCP Server，这是一个简单的方式来搜索 GitHub Copilot 自定义配置并直接保存到您的代码库中。这个 MCP 服务器帮助开发者从数百个聊天模式、指令和提示中发现最适合的配置。
-
 ---
 
 # 发布 Awesome Copilot MCP Server：通过 MCP 服务器搜索和保存 GitHub Copilot 自定义配置

@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-09-11
-tags: [".NET", "performance", "optimization", "JIT", "compiler"]
+tags: [".NET", "Performance"]
 slug: net10-performance-improvements
 source: https://devblogs.microsoft.com/dotnet/performance-improvements-in-net-10
 title: .NET 10 性能改进：数百项优化带来的革命性提升

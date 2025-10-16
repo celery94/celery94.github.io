@@ -2,7 +2,7 @@
 pubDatetime: 2025-09-30
 title: 在 ASP.NET Core 中构建基于权限的授权体系：从角色到细粒度访问控制
 description: 深入探讨如何在 ASP.NET Core 中实现基于角色的访问控制（RBAC），通过自定义授权处理器、权限声明转换和扩展方法，构建灵活、可维护的企业级授权系统，避免硬编码角色检查带来的维护噩梦。
-tags:
+tags: [".NET", "ASP.NET Core", "Security"]
   [".NET", "ASP.NET Core", "Security", "Authorization", "Clean Architecture"]
 slug: aspnetcore-rbac-permission-based-authorization
 source: https://www.milanjovanovic.tech/blog/building-secure-apis-with-role-based-access-control-in-aspnetcore

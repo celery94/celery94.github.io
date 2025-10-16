@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-08-07
-tags: ["Entity Framework", "EF Core 10", "多租户", "软删除", "数据过滤"]
+tags: [".NET", "Database"]
 slug: ef10-named-query-filters
 source: https://www.milanjovanovic.tech/blog/named-query-filters-in-ef-10-multiple-query-filters-per-entity
 title: EF Core 10中的命名查询过滤器：多过滤条件的突破与实践

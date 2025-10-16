@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-04-15 22:07:24
-tags: [.NET, C#, 编程, 软件开发, 技术文章]
+tags: [".NET", "Architecture"]
 slug: dotnet10-extension-keyword
 source: https://thecodeman.net/posts/dotnet10-extension
 title: 🚀揭开.NET 10的新篇章：`extension`关键字让扩展方法更强大！

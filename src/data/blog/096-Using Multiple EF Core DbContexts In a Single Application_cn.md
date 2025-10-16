@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-04-11
-tags: [C#, efcore]
+tags: ["Productivity", "Tools"]
 source: https://www.milanjovanovic.tech/blog/using-multiple-ef-core-dbcontext-in-single-application
 author: Milan Jovanović
 title: 在单个应用程序中使用多个EF Core DbContext

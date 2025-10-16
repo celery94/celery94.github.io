@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-09-09
-tags: []
+tags: ["Productivity", "Tools"]
 source: https://www.milanjovanovic.tech/blog/5-ef-core-features-you-need-to-know
 author: Milan Jovanović
 title: 你需要知道的5个EF Core特性

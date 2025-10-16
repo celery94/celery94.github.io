@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-04-25
-tags: [".NET", "ASP.NET Core", "HSTS", "HTTPS"]
+tags: [".NET", "ASP.NET Core", "Security"]
 source: https://code-maze.com/aspnetcore-hsts-header-implementation/
 author: Muhammed Saleem
 title: 在 ASP.NET Core 中实现 HSTS 头

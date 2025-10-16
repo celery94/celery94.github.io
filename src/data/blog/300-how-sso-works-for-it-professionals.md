@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-04-30
-tags: [单点登录, SSO, 身份认证, IT基础架构, 信息安全]
+tags: ["Productivity", "Tools"]
 slug: how-sso-works-for-it-professionals
 source:
 title: 单点登录（SSO）原理全解析：一把钥匙解锁N个系统，企业信息化的“通行证”

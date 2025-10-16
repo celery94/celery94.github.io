@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-05-13
-tags: [API, 协议, 架构模式, 后端开发, 技术干货]
+tags: ["Productivity", "Tools"]
 slug: api-protocols-cheatsheet
 source: ByteByteGo × Postman 海报“API Protocols”
 author: ChatGPT

@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-04-22
-tags: [EF Core, SQL, Dapper]
+tags: ["Productivity", "Tools"]
 source: https://www.milanjovanovic.tech/blog/ef-core-raw-sql-queries
 author: Milan Jovanović
 title: EF Core 原生 SQL 查询

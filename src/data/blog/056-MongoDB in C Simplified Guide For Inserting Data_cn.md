@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-03-24
-tags: ["C#", "MongoDB"]
+tags: [".NET", "C#", "Database"]
 source: https://www.devleader.ca/2024/03/22/mongodb-in-c-simplified-guide-for-inserting-data/
 author: Nick Cosentino
 title: C#中使用MongoDB-简化数据插入指南

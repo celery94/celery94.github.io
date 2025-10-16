@@ -2,7 +2,7 @@
 pubDatetime: 2025-10-16
 title: "PowerToys 0.95 发布：Light Switch、更快的命令面板与空格键 Peek"
 description: "PowerToys 0.95 版本带来了全新的 Light Switch 工具、显著提速的命令面板、空格键激活 Peek 功能以及多项体验优化，进一步提升了 Windows 用户的生产力。"
-tags: ["PowerToys", "Windows", "Productivity", "DevTools"]
+tags: ["Productivity", "Tools"]
 slug: powertoys-0-95-release-highlights
 source: https://devblogs.microsoft.com/commandline/powertoys-0-95-is-here-new-light-switch-utility-faster-command-palette-and-peek-with-spacebar
 ---

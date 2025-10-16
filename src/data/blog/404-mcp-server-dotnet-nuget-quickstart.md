@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-07-15
-tags: [".NET", "NuGet", "MCP", "AI", "C#"]
+tags: [".NET", "C#", "AI", "DevOps"]
 slug: mcp-server-dotnet-nuget-quickstart
 source: https://devblogs.microsoft.com/dotnet/mcp-server-dotnet-nuget-quickstart
 title: 用 .NET 10 构建首个 MCP Server 并发布至 NuGet 的实践详解

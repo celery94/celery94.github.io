@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-11-02
-tags: []
+tags: ["Architecture", "Productivity", "Tools"]
 source: https://www.milanjovanovic.tech/blog/clean-architecture-the-missing-chapter?utm_source=newsletter&utm_medium=email&utm_campaign=tnw114
 author: Milan Jovanović
 title: Clean Architecture, 缺失的一章

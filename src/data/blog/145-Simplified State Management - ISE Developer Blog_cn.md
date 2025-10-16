@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-05-18
-tags: []
+tags: ["Productivity", "Tools"]
 source: https://devblogs.microsoft.com/ise/simplified-state-management/
 author: Peter Lasne
 title: 简化状态管理 - ISE 开发者博客

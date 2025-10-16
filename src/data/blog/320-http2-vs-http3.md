@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-05-16
-tags: [HTTP/2, HTTP/3, QUIC, Web性能优化, 网络协议]
+tags: ["Productivity", "Tools"]
 slug: http2-vs-http3
 source: https://example.com
 author: Jane Doe

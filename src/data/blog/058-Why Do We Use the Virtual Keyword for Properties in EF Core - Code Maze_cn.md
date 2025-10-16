@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-03-25
-tags: [".NET", "C#", "Entity Framework Core", "延迟加载", "virtual"]
+tags: [".NET", "C#", "Database"]
 source: https://code-maze.com/efcore-why-do-we-use-the-virtual-keyword-for-class-properties/
 author: Daniel Laurens
 title: 为什么我们在EF Core中为属性使用Virtual关键字？

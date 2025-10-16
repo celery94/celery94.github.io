@@ -2,7 +2,7 @@
 pubDatetime: 2025-10-07
 title: 在 EF Core 与 PostgreSQL 中使用存储过程和函数
 description: 深入探讨如何在 Entity Framework Core 与 PostgreSQL 环境中高效使用存储过程和函数，包括标量函数、表值函数和复杂存储过程的实现，以及何时选择原生 SQL 而非 LINQ 查询的最佳实践。
-tags: ["EF Core", ".NET", "PostgreSQL", "Database", "Performance"]
+tags: [".NET", "Performance", "Database"]
 slug: ef-core-postgresql-stored-procedures-functions
 source: https://www.milanjovanovic.tech/blog/using-stored-procedures-and-functions-with-ef-core-and-postgresql
 ---

@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-06-03
-tags: [分布式系统, 消息队列, 架构设计, 软件开发, 幂等性]
+tags: ["Productivity", "Tools"]
 slug: idempotent-consumer-handling-duplicate-messages
 source: https://www.milanjovanovic.tech/blog/idempotent-consumer-handling-duplicate-messages
 title: 幂等性消费者模式：如何优雅应对分布式消息重复处理？

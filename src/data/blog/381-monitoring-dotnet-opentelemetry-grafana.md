@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-06-21
-tags: [OpenTelemetry, .NET, Grafana, Observability, Monitoring]
+tags: [".NET", "Architecture"]
 slug: monitoring-dotnet-opentelemetry-grafana
 source: https://www.milanjovanovic.tech/blog/monitoring-dotnet-applications-with-opentelemetry-and-grafana
 title: 利用 OpenTelemetry 和 Grafana 监控 .NET 应用实践详解

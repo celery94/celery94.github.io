@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-06-05
-tags: []
+tags: ["Productivity", "Tools"]
 source: https://devblogs.microsoft.com/dotnet/array-mapping-in-ef-core-8/
 author: Arthur Vickers
 title: EF Core 8 中数组映射的初学者指南

@@ -2,7 +2,7 @@
 pubDatetime: 2025-10-13
 title: EF Core 迁移完全指南：从基础到最佳实践
 description: 深入探讨 Entity Framework Core 数据库迁移的完整实践，涵盖迁移创建、自定义、SQL 脚本生成、多种应用方式及生产环境最佳实践，帮助开发者构建可靠的数据库版本管理体系。
-tags: ["EF Core", ".NET", "Database", "Migration", "Best Practices"]
+tags: [".NET", "AI", "Architecture", "Productivity"]
 slug: efcore-migrations-detailed-guide
 source: https://www.milanjovanovic.tech/blog/efcore-migrations-a-detailed-guide
 ---

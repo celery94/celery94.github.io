@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-06-01
-tags: [Clean Architecture, 项目结构, 软件架构, 分层设计]
+tags: ["Architecture", "Productivity", "Tools"]
 slug: clean-architecture-project-structure-analysis
 source: tech
 author: Celery

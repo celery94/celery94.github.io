@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-08-05
-tags: [".NET", "Dependabot", "NuGet", "CI/CD", "包管理", "自动化"]
+tags: [".NET", "DevOps"]
 slug: new-dependabot-nuget-updater
 source: https://devblogs.microsoft.com/dotnet/the-new-dependabot-nuget-updater
 title: 全新 Dependabot NuGet Updater 深度解析：65% 性能提升与原生.NET集成

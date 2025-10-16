@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-07-14
-tags: ["ASP.NET Core", "Middleware", "Web API", "技术分享"]
+tags: [".NET", "ASP.NET Core"]
 slug: aspnetcore-webapi-top10-middleware
 source: https://codingsonata.com/top-10-middleware-in-asp-net-core-web-api/
 title: 深入剖析 ASP.NET Core Web API 的十大核心中间件

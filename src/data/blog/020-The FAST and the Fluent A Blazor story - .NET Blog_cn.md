@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-02-27
-tags: [Blazor, Web Components, Fluent Design]
+tags: [".NET", "Architecture"]
 source: https://devblogs.microsoft.com/dotnet/the-fast-and-the-fluent-a-blazor-story/
 author: Vincent Baaij
 title: FAST与Fluent：一个Blazor故事 - .NET博客

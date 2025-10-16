@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-04-15 12:34:22
-tags: [PostgreSQL, 数据库, 架构设计, 技术详解]
+tags: ["Productivity", "Tools", "Database"]
 slug: how-postgresql-works
 source: ByteByteGo
 author: 技术解析团队

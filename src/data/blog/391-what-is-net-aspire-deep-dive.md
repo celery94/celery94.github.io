@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-06-27
-tags: [".NET Aspire", "云原生", "微服务", "分布式系统", "开发工具"]
+tags: [".NET", "Productivity", "Tools"]
 slug: what-is-net-aspire-deep-dive
 source: https://www.telerik.com/blogs/net-aspire-1-what-is-net-aspire
 title: 深入解读 .NET Aspire：云原生开发的利器

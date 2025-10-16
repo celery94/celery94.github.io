@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-03-17
-tags: ["C#"]
+tags: [".NET", "C#", "AI"]
 source: https://code-maze.com/csharp-avoid-await-in-loop/
 author: Anaedobe Nneka
 title: 为什么我们应该避免在C#循环中使用Await

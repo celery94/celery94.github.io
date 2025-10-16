@@ -2,7 +2,7 @@
 pubDatetime: 2025-10-13
 title: 如何真正成为 .NET 专家：系统化学习路径指南
 description: 本文深入探讨如何系统化地成为 .NET 专家，涵盖核心原理、性能优化、关键库掌握及实用工具，帮助开发者建立扎实的技术基础，避免盲目追逐技术热点。
-tags: [".NET", "C#", "Performance", "Best Practices", "Learning Path"]
+tags: [".NET", "C#", "Architecture", "Performance"]
 slug: how-to-become-dotnet-expert
 source: https://mijailovic.net/2025/09/07/dotnet
 ---

@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-03-15
-tags: [C#, StringPool]
+tags: [".NET", "C#"]
 source: https://code-maze.com/csharp-use-stringpool-to-reduce-string-allocations/
 author: Osman Sokuoglu
 title: 如何在 C# 中使用 StringPool 来减少字符串分配

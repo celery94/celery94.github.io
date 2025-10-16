@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-07-01
-tags: ["C#", ".NET", "Source Generators", "Roslyn", "代码生成"]
+tags: [".NET", "C#"]
 slug: source-generators-deep-dive
 source: https://thecodeman.net/posts/source-generators-deep-dive
 title: 深入理解 C# Source Generators：原理、实战与最佳实践

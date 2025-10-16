@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-08-18
-tags:
+tags: ["AI", "Productivity"]
   [
     "AI",
     "PowerShell",

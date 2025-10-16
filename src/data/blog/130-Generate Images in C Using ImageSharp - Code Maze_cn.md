@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-05-06
-tags: [".NET", "C#", "ImageSharp", "图像处理"]
+tags: [".NET", "C#"]
 source: https://code-maze.com/csharp-generate-images-using-imagesharp/
 author: Emmanuel Adom
 title: 使用ImageSharp在C#中生成图像

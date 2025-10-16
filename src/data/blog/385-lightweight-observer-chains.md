@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-06-23
-tags: [.NET, C#, observable, reactive, 性能优化, 设计模式]
+tags: [".NET", "AI"]
 slug: lightweight-observer-chains
 source: https://yoh.dev/lightweight-observer-chains
 title: 轻量级观察者链在.NET中的实现与优化

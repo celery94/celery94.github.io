@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-05-30
-tags: [ASP.NET Core, 依赖注入, 服务生命周期, 后端开发, .NET]
+tags: [".NET", "ASP.NET Core"]
 slug: aspnetcore-singleton-scoped-services-best-practice
 source: https://www.milanjovanovic.tech/blog/using-scoped-services-from-singletons-in-aspnetcore
 title: ASP.NET Core单例中安全使用Scoped服务的实用指南

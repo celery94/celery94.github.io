@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-04-29
-tags: ["API", "Postman"]
+tags: [".NET", "ASP.NET Core"]
 source: https://www.postman.com/api-platform/api-observability/
 author: Postman
 title: API 可观察性, API 遥测数据、支柱与用例

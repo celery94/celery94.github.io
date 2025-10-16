@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-04-07 20:58:48
-tags: [JavaScript, 编程技巧, 错误处理, 异步编程]
+tags: ["Productivity", "Tools"]
 slug: javascript-common-mistakes-to-avoid
 source: sevalla.com
 author: Sevalla Hosting

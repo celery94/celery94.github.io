@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-04-03 12:32:57
-tags: [数据库, SQL, JOIN操作, 数据分析]
+tags: ["Productivity", "Tools"]
 slug: sql-join-types
 source: None
 author: Celery Liu

@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-03-20
-tags: [AI技术, 软件开发, 自动化, DevOps]
+tags: ["AI", "Productivity"]
 slug: ai-speeds-up-software-development
 source: levelupcoding.com
 author: Nikki Siapno

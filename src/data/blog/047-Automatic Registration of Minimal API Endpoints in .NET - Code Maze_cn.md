@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-03-15
-tags: [".NET", "Minimal API", "C#"]
+tags: [".NET", "ASP.NET Core", "C#"]
 source: https://code-maze.com/aspnetcore-automatic-registration-of-minimal-api-endpoints/
 author: Ivan Gechev
 title: 在 .NET 中自动注册 Minimal API 端点

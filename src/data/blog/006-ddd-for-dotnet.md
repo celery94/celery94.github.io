@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-02-04
-tags: [ddd, dotnet]
+tags: [".NET", "Architecture"]
 author: Celery Liu
 title: 领域驱动设计（DDD）中的实体，值类型和聚合根在DOTNET中的实践
 

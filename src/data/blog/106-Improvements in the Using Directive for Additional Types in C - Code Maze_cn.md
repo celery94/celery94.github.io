@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-04-16
-tags: []
+tags: [".NET", "C#"]
 source: https://code-maze.com/csharp-improvements-in-the-using-directive-for-additional-types/
 author: Georgios Panagopoulos
 title: 在 C# 中 `using` 指令的额外类型改进

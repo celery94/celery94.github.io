@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-04-28
-tags: ["ASP.NET Core", "Server-Sent Events", "Realtime Updates"]
+tags: [".NET", "ASP.NET Core", "Architecture"]
 source: https://code-maze.com/aspnetcore-using-server-sent-events-for-realtime-updates/
 author: Thages Wilson de Almeida
 title: 在 ASP.NET Core 中使用Server-Sent Events进行实时更新

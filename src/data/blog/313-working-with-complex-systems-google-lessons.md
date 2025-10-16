@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-05-12
-tags: [复杂系统, SRE, 系统架构, Google, 运维实践, 软件工程]
+tags: ["Productivity", "Tools"]
 slug: working-with-complex-systems-google-lessons
 source: https://www.thecoder.cafe/p/complex-systems
 title: 拆解复杂系统：在Google工作的经验与实用应对模式

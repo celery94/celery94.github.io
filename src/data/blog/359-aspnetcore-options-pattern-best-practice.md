@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-06-11
-tags: [ASP.NET Core, Options Pattern, .NET 配置, 依赖注入, 技术干货]
+tags: [".NET", "ASP.NET Core"]
 slug: aspnetcore-options-pattern-best-practice
 source: https://www.milanjovanovic.tech/blog/how-to-use-the-options-pattern-in-asp-net-core-7
 title: ASP.NET Core 7 Options模式实战详解：配置、注入与最佳实践

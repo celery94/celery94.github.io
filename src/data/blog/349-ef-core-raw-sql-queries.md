@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-06-01
-tags: [EF Core, .NET, 数据库, 后端开发, 性能优化]
+tags: ["Productivity", "Tools", "Database"]
 slug: ef-core-raw-sql-queries
 source: https://www.milanjovanovic.tech/blog/ef-core-raw-sql-queries
 title: EF Core 8新特性：原生SQL查询与未映射类型支持全解析

@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-09-11
-tags: ["ASP.NET Core", "Serilog", "Logging", "Structured Logging", "C#", ".NET"]
+tags: [".NET", "ASP.NET Core", "C#", "DevOps"]
 slug: structured-logging-aspnet-core
 source: https://codingsonata.com/structured-logging-in-asp-net-core/
 title: ASP.NET Core 中的结构化日志记录：使用 Serilog 实现高效日志管理

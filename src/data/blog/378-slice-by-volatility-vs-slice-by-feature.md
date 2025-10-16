@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-06-20
-tags: [软件架构, 系统设计, 微服务, iDesign方法, 架构演进]
+tags: ["Productivity", "Tools"]
 slug: slice-by-volatility-vs-slice-by-feature
 source: AideHub
 title: 别再按功能切分系统了！用“易变性分层”实现敏捷稳健的架构设计

@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-08-08
-tags: ["Angular", "前端框架", "Zoneless", "Signals"]
+tags: ["Productivity", "Tools", "Frontend"]
 slug: angular-20-2-zoneless-signals
 source: 本文基于 Angular 官方更新内容与社区讨论整理
 title: Angular 20.2 稳定发布 Zoneless 模式，Signals 全面接管异步变更检测

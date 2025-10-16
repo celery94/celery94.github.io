@@ -1,11 +1,10 @@
 ---
 pubDatetime: 2025-09-05
-tags: ["Visual Studio", "GitHub Copilot", "AI", "开发工具", "调试", "输出窗口"]
+tags: [".NET", "AI", "DevOps", "Productivity"]
 slug: make-sense-of-your-output-window-with-copilot
 source: https://devblogs.microsoft.com/visualstudio/make-sense-of-your-output-window-with-copilot
 title: 使用 Copilot 理解你的 Visual Studio 输出窗口
 description: Visual Studio 17.14 的新功能：Copilot 现在可以读取输出窗口内容，帮助开发者快速理解构建和调试日志，提供智能解释和解决方案建议。
-
 ---
 
 你是否曾经盯着 Visual Studio 的输出窗口，被无穷无尽的日志和神秘的错误消息搞得不知所措？你并不孤单！多年来，开发者一直依赖输出窗口获取关键的构建和调试信息。但是理解这些信息并将其转化为行动一直是个挑战。现在，如果你能够立即询问有关日志的问题并在不离开工作流程的情况下采取行动会怎么样？现在你可以做到了，感谢 Copilot 的新输出窗口上下文功能！

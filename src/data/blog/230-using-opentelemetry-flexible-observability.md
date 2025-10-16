@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-03-28 22:38:08
-tags: [OpenTelemetry, Azure Monitor, Grafana, 系统监控, 可观测性]
+tags: ["Productivity", "Tools"]
 slug: using-opentelemetry-flexible-observability
 source: https://devblogs.microsoft.com/ise/using-opentelemetry-for-flexible-observability
 title: 使用OpenTelemetry实现灵活可观测性：连接与断网环境中的系统监控

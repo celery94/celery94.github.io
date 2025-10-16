@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-09-03
-tags: ["performance", "api", "optimization", "csharp", "dotnet", "database", "async"]
+tags: [".NET", "ASP.NET Core", "C#", "Performance"]
 slug: how-i-optimized-an-api-endpoint-to-make-it-15x-faster
 source: https://www.milanjovanovic.tech/blog/how-i-optimized-an-api-endpoint-to-make-it-15x-faster
 title: 如何将 API 端点性能优化 15 倍

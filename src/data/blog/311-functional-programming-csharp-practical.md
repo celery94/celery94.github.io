@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-05-10
-tags: [C#, 函数式编程, 编程模式, 软件工程, 代码质量]
+tags: [".NET", "C#"]
 slug: functional-programming-csharp-practical
 source: https://www.milanjovanovic.tech/blog/functional-programming-in-csharp-the-practical-parts
 title: C#实用函数式编程：让代码更安全、可维护的五大技巧

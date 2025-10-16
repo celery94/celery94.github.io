@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-03-17
-tags: [Testcontainers, Docker, .NET, 集成测试, 软件开发, CI/CD]
+tags: [".NET", "AI", "DevOps", "Testing"]
 slug: testcontainers-docker-dotnet-integration-testing
 source: https://www.milanjovanovic.tech/blog/testcontainers-integration-testing-using-docker-in-dotnet
 title: 🐳 利用 Testcontainers 和 Docker 提升 .NET 应用的集成测试质量

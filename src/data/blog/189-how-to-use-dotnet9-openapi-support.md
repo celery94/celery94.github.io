@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-03-11
-tags: [.NET, OpenAPI, Swagger, API Development, Software Development]
+tags: [".NET", "ASP.NET Core"]
 slug: how-to-use-dotnet9-openapi-support
 source: https://www.telerik.com/blogs/how-use-net-9-openapi-support-document-web-api
 title: 探索.NET 9：内置OpenAPI支持助力Web API文档生成

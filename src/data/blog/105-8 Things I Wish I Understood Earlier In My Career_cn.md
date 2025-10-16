@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-04-16
-tags: [软件]
+tags: ["Productivity", "Tools"]
 source: https://www.devleader.ca/2024/04/15/8-things-i-wish-i-understood-earlier-in-my-career/
 author: Nick Cosentino
 title: 职业生涯早期我希望理解的8件事

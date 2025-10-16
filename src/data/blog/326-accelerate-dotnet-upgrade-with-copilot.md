@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-05-20
-tags: [.NET, GitHub Copilot, AI, 应用现代化, 自动化升级, Visual Studio]
+tags: [".NET", "AI", "Productivity"]
 slug: accelerate-dotnet-upgrade-with-copilot
 source: https://devblogs.microsoft.com/dotnet/github-copilot-upgrade-dotnet
 title: 利用 GitHub Copilot 加速 .NET 应用升级 —— 企业与开发团队的现代化利器

@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-05-25
-tags: []
+tags: [".NET", "Architecture"]
 source: https://code-maze.com/dotnet-introduction-to-stronglytypedid-package/
 author: Caleb Okechukwu
 title: 介绍 .NET 中的 StronglyTypedId 包

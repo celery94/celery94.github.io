@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-06-26
-tags:
+tags: [".NET", "ASP.NET Core", "Performance"]
   [
     "ASP.NET Core",
     "Caching",

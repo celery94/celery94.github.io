@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-08-08
-tags: ["ASP.NET Core", "缓存优化", "应用性能", "Redis", "HybridCache"]
+tags: [".NET", "ASP.NET Core", "Architecture", "Performance"]
 slug: caching-in-aspnetcore-improving-application-performance
 source: https://www.milanjovanovic.tech/blog/caching-in-aspnetcore-improving-application-performance
 title: 在 ASP.NET Core 中实现缓存：提升应用性能的实用指南

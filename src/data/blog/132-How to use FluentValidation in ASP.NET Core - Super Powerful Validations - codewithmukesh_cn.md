@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-05-07
-tags: [ASP.NET Core, FluentValidation, 验证]
+tags: [".NET", "ASP.NET Core"]
 source: https://codewithmukesh.com/blog/fluentvalidation-in-aspnet-core/
 author: Mukesh Murugan
 title: 如何在ASP.NET Core中使用 FluentValidation - 超强大的验证

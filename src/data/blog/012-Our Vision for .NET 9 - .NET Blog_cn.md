@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-02-19T12:38:15
-tags: [.net, .net-9, cloud-native, ai]
+tags: [".NET", "Architecture"]
 source: https://devblogs.microsoft.com/dotnet/our-vision-for-dotnet-9/
 title: 我们对 .NET 9 的愿景 - .NET 博客
 description: 欢迎来到 .NET 9！了解我们如何在各种应用程序中改进 .NET，特别关注云原生、AI 和性能。

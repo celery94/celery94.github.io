@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-04-18 08:13:11
-tags: [Azure, AI代理, 云开发, MCP, DevOps, 大模型, 智能工作流]
+tags: ["AI", "Productivity"]
 slug: azure-mcp-server-introduction-for-ai-cloud-dev
 source: https://devblogs.microsoft.com/azure-sdk/introducing-the-azure-mcp-server
 title: Azure MCP Server 公测发布：AI 代理无缝对接云原生资源的新时代

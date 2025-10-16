@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-02-21T16:10:06
-tags: [REST, API, HTTP, Web]
+tags: ["Productivity", "Tools"]
 source: https://blog.postman.com/rest-api-interview-questions/
 author: The Postman Team
 title: 关于REST API 的一些基础问题 | Postman 博客

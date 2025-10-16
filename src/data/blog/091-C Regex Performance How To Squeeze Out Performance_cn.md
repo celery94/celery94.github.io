@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-04-09
-tags: [.net, benchmark, c#, csharp, dotnet, dotnet core, performance, regex]
+tags: [".NET", "C#"]
 source: https://www.devleader.ca/2024/04/08/csharp-regex-performance-how-to-squeeze-out-performance/
 author: Nick Cosentino
 title: C#正则表达式性能：如何提升性能

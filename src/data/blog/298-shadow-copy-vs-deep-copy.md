@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-04-29
-tags: [复制, JavaScript, 深拷贝, 浅拷贝]
+tags: ["Productivity", "Tools"]
 slug: shadow-copy-vs-deep-copy
 source: sevalla
 author: Celery Liu

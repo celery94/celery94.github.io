@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-06-25
-tags: [Clean Architecture, Use Case, .NET, 软件设计, 架构实践]
+tags: ["Architecture", "Productivity", "Tools"]
 slug: building-use-case-clean-architecture
 source: https://www.milanjovanovic.tech/blog/building-your-first-use-case-with-clean-architecture
 title: 使用 Clean Architecture 构建你的第一个用例 —— 用户注册实战详解

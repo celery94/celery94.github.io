@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-06-11
-tags: [gRPC, Protocol Buffers, 后端开发, 分布式系统, 微服务]
+tags: ["Productivity", "Tools"]
 slug: why-backend-engineers-should-learn-grpc
 source: aidehub
 title: 为什么高性能后端工程师都在关注 gRPC？深度解析原理与优势

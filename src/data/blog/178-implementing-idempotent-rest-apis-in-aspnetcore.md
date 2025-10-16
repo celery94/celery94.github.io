@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-10-26
-tags: []
+tags: [".NET", "ASP.NET Core"]
 source: https://www.milanjovanovic.tech/blog/implementing-idempotent-rest-apis-in-aspnetcore?utm_source=newsletter&utm_medium=email&utm_campaign=tnw113
 author: Milan Jovanović
 title: 在ASP.NET Core中实现幂等性REST API

@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-05-02
-tags: [".NET", "ASP.NET Core", "Claim", "Authorization", "RBAC"]
+tags: [".NET", "ASP.NET Core", "AI", "Security"]
 source: https://www.milanjovanovic.tech/blog/master-claims-transformation-for-flexible-aspnetcore-authorization?utm_source=LinkedIn&utm_medium=social&utm_campaign=29.04.2024
 author: Milan Jovanović
 title: 掌握 ASP.NET Core 的灵活授权的声明变换

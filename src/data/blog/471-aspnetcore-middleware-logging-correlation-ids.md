@@ -2,7 +2,7 @@
 pubDatetime: 2025-09-30
 title: ASP.NET Core 中间件实战：构建高效的日志追踪与关联 ID 系统
 description: 深入探讨 ASP.NET Core 中间件机制，通过实际案例展示如何构建请求计时中间件和关联 ID 中间件，提升应用的可观测性与调试能力。掌握中间件管道原理、单一职责设计原则，以及分布式系统中的请求追踪最佳实践。
-tags: [".NET", "ASP.NET Core", "Middleware", "Logging", "Observability"]
+tags: [".NET", "ASP.NET Core", "DevOps"]
 slug: aspnetcore-middleware-logging-correlation-ids
 source: https://www.ottorinobruni.com/getting-started-with-asp-net-core-middleware-for-better-logging-and-correlation-ids/
 ---

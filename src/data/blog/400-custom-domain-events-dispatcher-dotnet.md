@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-07-07
-tags: [".NET", "Domain Events", "DDD", "事件驱动", "架构设计"]
+tags: [".NET", "AI", "Architecture", "Frontend"]
 slug: custom-domain-events-dispatcher-dotnet
 source: https://www.milanjovanovic.tech/blog/building-a-custom-domain-events-dispatcher-in-dotnet
 title: 在 .NET 中构建自定义领域事件分发器

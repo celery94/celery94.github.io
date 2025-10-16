@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-03-24
-tags: [网络安全, 软件开发, Web认证, Cookies, Tokens]
+tags: ["Productivity", "Tools"]
 slug: difference-between-session-cookies-and-tokens
 source:
 title: 探索Web认证的核心：会话Cookies与Tokens的对决 🔍

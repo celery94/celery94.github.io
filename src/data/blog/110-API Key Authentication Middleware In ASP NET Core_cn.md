@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-04-19
-tags: [.net, asp.net core, c#, middleware]
+tags: [".NET", "ASP.NET Core"]
 source: https://www.devleader.ca/2024/04/18/api-key-authentication-middleware-in-asp-net-core-a-how-to-guide/
 author: Nick Cosentino
 title: ASP.NET Core 中的 API 密钥验证中间件

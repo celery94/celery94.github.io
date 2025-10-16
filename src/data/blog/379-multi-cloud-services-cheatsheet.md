@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-06-21
-tags: [云计算, 多云, AWS, Azure, GCP, OCI, 技术对比]
+tags: ["Productivity", "Tools"]
 slug: multi-cloud-services-cheatsheet
 source: AideHub
 title: 一张图看懂主流云服务商核心服务 —— 多云环境下的对比与选型

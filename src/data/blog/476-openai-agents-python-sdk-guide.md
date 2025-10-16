@@ -2,7 +2,7 @@
 pubDatetime: 2025-10-09
 title: OpenAI Agents SDK：构建生产级多智能体系统的 Python 框架
 description: 深入探索 OpenAI Agents SDK for Python，一个轻量级但功能强大的多智能体编排框架。学习如何通过 Agent、Handoff、Guardrail 和 Session 等核心组件构建复杂的 AI 应用，掌握工具集成、会话管理、实时语音交互等生产实践技巧。
-tags: ["AI", "Python", "OpenAI", "Agents", "LLM"]
+tags: ["AI", "Productivity"]
 slug: openai-agents-python-sdk-guide
 source: https://github.com/openai/openai-agents-python
 ---

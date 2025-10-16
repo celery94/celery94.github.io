@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-04-12 11:26:25
-tags: [SignalR, 集成测试, TDD, 软件开发]
+tags: ["Productivity", "Tools", "Testing"]
 slug: testing-signalr-applications-with-integration-tests
 source: https://www.jocheojeda.com/2025/04/02/testing-signalr-applications-with-integration-tests/
 title: 🚀通过集成测试全面测试SignalR应用程序：从设置到验证的完整指南

@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-04-09
-tags: [C#, SignalR]
+tags: [".NET", "ASP.NET Core"]
 source: https://medium.com/@vadrsa/signalr-simplified-creating-efficient-pure-websocket-servers-with-simpler-for-asp-net-core-dcac0535ff66
 author: Davit Asryan
 title: SignalR 简化：使用 SimpleR 为 ASP.NET Core 创建高效的纯 WebSocket 服务器

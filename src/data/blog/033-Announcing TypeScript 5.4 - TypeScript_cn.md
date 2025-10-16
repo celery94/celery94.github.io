@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-03-07
-tags: ["TypeScript"]
+tags: ["Productivity", "Tools", "Frontend"]
 source: https://devblogs.microsoft.com/typescript/announcing-typescript-5-4/
 author: Daniel Rosenwasser
 title: 宣布TypeScript 5.4 - TypeScript

@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-06-15
-tags: []
+tags: ["Productivity", "Tools"]
 source: https://devblogs.microsoft.com/dotnet/refactor-your-code-using-alias-any-type/
 author: David Pine
 title: Refactor your code using alias any type

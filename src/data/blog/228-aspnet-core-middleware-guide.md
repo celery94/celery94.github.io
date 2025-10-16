@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-03-28 08:14:28
-tags: [ASP.NET Core, 中间件, Web开发, 技术学习]
+tags: [".NET", "ASP.NET Core"]
 slug: aspnet-core-middleware-guide
 source: https://codewithmukesh.com/blog/middlewares-in-aspnet-core/
 title: 掌握ASP.NET Core中间件的核心原理与最佳实践，一文全解析！

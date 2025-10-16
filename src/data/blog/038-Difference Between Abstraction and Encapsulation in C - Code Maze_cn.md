@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-03-09
-tags: ["C#", "Abstraction", "Encapsulation", "OOP"]
+tags: [".NET", "C#"]
 source: https://code-maze.com/csharp-difference-between-abstraction-and-encapsulation/
 author: Almir Tihak
 title: C#中抽象与封装的区别

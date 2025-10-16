@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-03-28
-tags: ["Angular", "Signals"]
+tags: ["Productivity", "Tools", "Frontend"]
 source: https://blog.angular-university.io/angular-signals/
 author: Angular University
 title: Angular Signals 完全指南

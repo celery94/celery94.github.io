@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-04-09
-tags: []
+tags: ["AI", "Productivity", "Tools", "Testing"]
 source: https://devblogs.microsoft.com/microsoft365dev/building-custom-copilots-in-microsoft-teams-with-teams-app-test-tool-and-dev-proxy/
 author: Garry Trinder
 title: 使用 Teams App Test Tool 和 Dev Proxy 在 Microsoft Teams 中构建自定义copilots

@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-03-13
-tags: [ASP.NET Core, Middleware, Web Development, C#]
+tags: [".NET", "ASP.NET Core"]
 slug: create-custom-middleware-asp-net-core
 source: https://www.milanjovanovic.tech/blog/3-ways-to-create-middleware-in-asp-net-core
 title: 如何在ASP.NET Core中创建自定义中间件：三种实现方法

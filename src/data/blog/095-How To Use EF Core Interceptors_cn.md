@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-04-10
-tags: [C#, efcore]
+tags: ["Productivity", "Tools"]
 source: https://www.milanjovanovic.tech/blog/how-to-use-ef-core-interceptors?utm_source=Twitter&utm_medium=social&utm_campaign=08.04.2024
 author: Milan Jovanović
 title: 如何使用 EF Core 拦截器

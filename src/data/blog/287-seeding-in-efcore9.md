@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-04-26
-tags: [.NET, EFCore, 数据库, 后端开发]
+tags: ["Productivity", "Tools"]
 slug: seeding-in-efcore9
 source: twitter
 author: Celery Liu

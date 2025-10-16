@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-03-13
-tags:
+tags: [".NET", "C#"]
   [
     .net,
     autofac,

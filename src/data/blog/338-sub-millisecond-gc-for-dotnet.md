@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-05-26
-tags: [.NET, 性能优化, 垃圾回收, Satori, 高性能计算]
+tags: [".NET", "Architecture"]
 slug: sub-millisecond-gc-for-dotnet
 source: https://blog.applied-algorithms.tech/a-sub-millisecond-gc-for-net
 title: .NET迈入亚毫秒级：Satori低延迟GC带来的性能革命

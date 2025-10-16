@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-05-26
-tags: [.NET 9, ASP.NET Core, 性能优化, 静态文件, Web开发]
+tags: [".NET", "ASP.NET Core"]
 slug: aspnetcore-9-static-file-handling
 source: https://bartwullems.blogspot.com/2025/05/static-file-handling-in-aspnet-core-90.html
 title: ASP.NET Core 9.0 静态文件处理新特性全解：MapStaticAssets 与 UseStaticFiles 对比

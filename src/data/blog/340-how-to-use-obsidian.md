@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-05-28
-tags: [Obsidian, 知识管理, 数字笔记, 个人成长, 效率工具]
+tags: ["Productivity", "Tools"]
 slug: obsidian-vault-best-practice
 source: https://stephango.com/vault
 title: Obsidian高效知识库实践：精简、链接与混沌中的秩序

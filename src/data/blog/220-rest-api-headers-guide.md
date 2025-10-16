@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-03-24
-tags: [REST API, 请求头, 开发者指南, 编程, 技术]
+tags: ["Productivity", "Tools"]
 slug: rest-api-headers-guide
 source: 自媒体
 title: 解密REST API请求头：开发者不可错过的技术指南

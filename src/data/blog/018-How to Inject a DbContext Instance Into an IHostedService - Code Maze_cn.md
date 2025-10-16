@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-02-26T16:33:52
-tags: [EF Core, IHostedService, IServiceScopeFactory, IDbContextFactory]
+tags: ["Productivity", "Tools"]
 source: https://code-maze.com/efcore-inject-dbcontext-instance-into-ihostedservice/
 author: Ivan Gechev
 title: 如何将DbContext实例注入到IHostedService

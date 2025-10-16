@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-05-09
-tags: [C# 12, refactoring, C#, .NET]
+tags: [".NET", "C#"]
 source: https://devblogs.microsoft.com/dotnet/refactor-your-code-with-collection-expressions/
 author: David Pine
 title: 使用C#集合表达式重构您的代码 - .NET博客

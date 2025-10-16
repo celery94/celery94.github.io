@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-03-04
-tags: [ai, software, coding, development, engineering, inclusive, community]
+tags: ["Productivity", "Tools"]
 source: https://dev.to/mikeyoung44/how-sora-actually-works-ch5
 author: Mike Young
 title: Sora（实际上）是如何工作的

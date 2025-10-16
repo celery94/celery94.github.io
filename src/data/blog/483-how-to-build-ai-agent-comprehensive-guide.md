@@ -2,7 +2,7 @@
 pubDatetime: 2025-10-15
 title: 如何构建 AI Agent：从感知到自主学习的完整架构指南
 description: 深入探讨 AI Agent 的核心组件与构建流程，涵盖感知模块、推理决策、行动执行、记忆学习等关键环节，帮助开发者掌握智能代理系统的设计原理与实践方法。
-tags: ["AI", "Agent", "Machine Learning", "Architecture", "Deep Learning"]
+tags: ["AI", "Architecture", "Productivity"]
 slug: how-to-build-ai-agent-comprehensive-guide
 ---
 

@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-05-06
-tags: [Nginx, Web服务器, 反向代理, 负载均衡, SSL, 缓存]
+tags: ["Productivity", "Tools"]
 slug: why-nginx-so-popular-tech-analysis
 title: 🚀为什么Nginx如此受欢迎？一图详解核心技术原理
 description: 通过图解深度剖析Nginx受欢迎背后的架构设计、性能优势、反向代理与负载均衡、SSL终止与内容缓存等关键技术细节，助你全面理解Nginx的技术魅力！

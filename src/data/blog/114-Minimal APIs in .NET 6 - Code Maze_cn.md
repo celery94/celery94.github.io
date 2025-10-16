@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-04-22
-tags: [".NET", "Minimal API", "ASP.NET Core"]
+tags: [".NET", "ASP.NET Core"]
 source: https://code-maze.com/dotnet-minimal-api/
 author: Code Maze
 title: .NET 6 中的最小化 API

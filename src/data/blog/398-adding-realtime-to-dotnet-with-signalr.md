@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-07-06
-tags: [" .NET", "SignalR", "实时通讯", "WebSocket"]
+tags: [".NET", "ASP.NET Core", "Architecture"]
 slug: adding-realtime-to-dotnet-with-signalr
 source: https://www.milanjovanovic.tech/blog/adding-real-time-functionality-to-dotnet-applications-with-signalr
 title: 为.NET应用添加实时功能：深入理解SignalR

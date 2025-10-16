@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-08-25
-tags: [".NET", "软件架构", "抽象", "最佳实践", "性能优化", "代码质量"]
+tags: [".NET", "Architecture", "Performance", "Productivity"]
 slug: the-real-cost-of-abstractions-in-dotnet
 source: https://www.milanjovanovic.tech/blog/the-real-cost-of-abstractions-in-dotnet
 title: .NET中抽象的真实成本：何时抽象是财富，何时是技术债务

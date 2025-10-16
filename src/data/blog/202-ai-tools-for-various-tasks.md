@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-03-18
-tags: [AI工具, OCR, 代码生成, 文案创作, 图像生成, 视频生成, 音频处理, 开源技术]
+tags: ["AI", "Productivity", "Tools"]
 slug: ai-tools-for-various-tasks
 source: 用户上传图片
 author: 技术分析助手

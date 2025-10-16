@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-04-19
-tags: [.net, c#, dotnet, middleware, programming]
+tags: [".NET", "ASP.NET Core"]
 source: https://www.devleader.ca/2024/01/31/custom-middleware-in-asp-net-core-how-to-harness-the-power/
 author: Nick Cosentino
 title: 在ASP.NET Core中使用自定义Middleware - 如何发挥其强大作用

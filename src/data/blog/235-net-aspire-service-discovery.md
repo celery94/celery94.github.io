@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-03-31 21:27:24
-tags: [云原生开发, .NET技术, 微服务架构, 服务发现]
+tags: [".NET", "Architecture"]
 slug: net-aspire-service-discovery
 source: https://www.milanjovanovic.tech/blog/how-dotnet-aspire-simplifies-service-discovery
 title: 🚀利用.NET Aspire简化服务发现：分布式应用开发的新革命

@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-04-30
-tags: [EF Core, 多租户, .NET, 架构设计, 开发实践]
+tags: ["Productivity", "Tools", "Database"]
 slug: ef-core-multi-tenant-best-practices
 source: https://www.milanjovanovic.tech/blog/multi-tenant-applications-with-ef-core?utm_source=X&utm_medium=social&utm_campaign=28.04.2025
 title: EF Core多租户架构实战：单库与分库实现全解析

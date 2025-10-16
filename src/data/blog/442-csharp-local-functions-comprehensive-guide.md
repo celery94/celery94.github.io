@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-08-19
-tags: ["csharp", "dotnet", "programming", "methods", "performance"]
+tags: [".NET", "C#", "Performance"]
 slug: csharp-local-functions-comprehensive-guide
 source: https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/local-functions
 title: C# 本地函数深度解析：从语法到性能优化的完整指南

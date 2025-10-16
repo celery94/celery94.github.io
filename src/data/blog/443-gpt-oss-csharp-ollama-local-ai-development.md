@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-08-20
-tags: ["dotnet", "ai", "gpt-oss", "ollama", "csharp", "本地ai"]
+tags: [".NET", "C#", "AI"]
 slug: gpt-oss-csharp-ollama-local-ai-development
 source: https://devblogs.microsoft.com/dotnet/gpt-oss-csharp-ollama
 title: GPT-OSS 与 C# 开发指南：基于 Ollama 的本地 AI 应用构建完整实战

@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-05-21
-tags: [.net, c#, dapper]
+tags: ["Productivity", "Tools"]
 source: https://www.devleader.ca/2024/05/20/dapper-and-strongly-typed-ids-how-to-dynamically-register-mappings/
 author: Nick Cosentino
 title: Dapper与强类型ID：动态注册映射

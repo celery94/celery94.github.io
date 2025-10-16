@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-05-27
-tags: []
+tags: [".NET", "Architecture"]
 source: https://www.milanjovanovic.tech/blog/scheduling-background-jobs-with-quartz-net?utm_source=Twitter&utm_medium=social&utm_campaign=27.05.2024
 author: Milan Jovanović
 title: 使用 Quartz.NET 调度后台作业

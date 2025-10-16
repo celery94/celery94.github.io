@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-06-16
-tags: [Web安全, 认证机制, JWT, Session, 架构设计]
+tags: ["Security", "Productivity", "Tools"]
 slug: difference-between-session-based-auth-and-jwt
 source: AideHub
 title: Session-Based Auth 与 JWT 的区别与应用解析

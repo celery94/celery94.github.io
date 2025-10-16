@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-05-07
-tags: [移动开发, Expo, React Native]
+tags: ["Productivity", "Tools"]
 slug: expo-intro
 source: ChatGPT
 title: Expo——快速构建跨平台 App 的最佳实践

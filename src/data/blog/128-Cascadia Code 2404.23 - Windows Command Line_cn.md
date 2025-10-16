@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-05-03
-tags: []
+tags: ["Productivity", "Tools"]
 source: https://devblogs.microsoft.com/commandline/cascadia-code-2404-23/
 author: Christopher Nguyen
 title: Cascadia Code 2404.23 - Windows 命令行

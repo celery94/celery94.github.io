@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-03-13
-tags: [".NET", "ASP.NET Core", "API", "Versioning"]
+tags: [".NET", "ASP.NET Core"]
 source: https://code-maze.com/aspnetcore-api-versioning/
 author: Code Maze
 title: ASP.NET Core 中的 API 版本控制

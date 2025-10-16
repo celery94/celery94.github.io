@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-05-22
-tags: [.NET, 微服务, HTTP, 高可用, 后端开发, Polly, Resilience]
+tags: [".NET", "Architecture"]
 slug: resilient-http-dotnet-practices
 source: https://learn.microsoft.com/en-us/dotnet/core/resilience/http-resilience?tabs=dotnet-cli
 title: .NET打造高可用HTTP应用：Resilience关键实践全解

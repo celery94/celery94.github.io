@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-07-29
-tags: ["C#", ".NET", "yield", "IEnumerable", "异步编程"]
+tags: [".NET", "C#"]
 slug: csharp-yield-return-statement
 source: https://www.milanjovanovic.tech/blog/csharp-yield-return-statement
 title: 深入理解C#中的yield return语句：原理、用法与最佳实践

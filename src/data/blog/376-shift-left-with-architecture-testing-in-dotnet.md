@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-06-19
-tags: [.NET, 软件架构, 架构测试, CI/CD, 技术债务]
+tags: [".NET", "Architecture", "Testing"]
 slug: shift-left-with-architecture-testing-in-dotnet
 source: https://www.milanjovanovic.tech/blog/shift-left-with-architecture-testing-in-dotnet
 title: Shift Left With Architecture Testing in .NET —— 用架构测试守护你的代码质量

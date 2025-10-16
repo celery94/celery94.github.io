@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-06-06
-tags: [微服务, 分布式系统, 设计模式, OutboxPattern, 可靠消息]
+tags: ["Productivity", "Tools"]
 slug: outbox-pattern-reliable-messaging
 source: Excerpts from "Outbox Pattern For Reliable Microservices Messaging"
 title: 微服务架构下的可靠消息利器：深入浅出 Outbox Pattern 🚀

@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-07-24
-tags: ["Windows", "同步机制", "系统编程", "COM"]
+tags: ["AI", "Productivity"]
 slug: wait-for-named-mutex-creation
 source: https://devblogs.microsoft.com/oldnewthing/20250724-00/?p=111406
 title: 如何优雅地等待一个命名对象（如 Mutex）被创建？——Windows 系统同步机制深入解析

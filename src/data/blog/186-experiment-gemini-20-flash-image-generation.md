@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-03-12
-tags: [AI, Image Generation, Gemini 2.0 Flash, Google AI Studio]
+tags: ["Productivity", "Tools"]
 slug: experiment-gemini-20-flash-image-generation
 source: https://developers.googleblog.com/en/experiment-with-gemini-20-flash-native-image-generation/?linkId=13408348
 title: 探索Gemini 2.0 Flash的原生图像生成能力

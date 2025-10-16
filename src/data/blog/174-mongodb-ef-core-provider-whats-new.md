@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-10-21
-tags: []
+tags: [".NET", "Architecture"]
 source: https://devblogs.microsoft.com/dotnet/mongodb-ef-core-provider-whats-new/
 author: Rishit Bhatia
 title: MongoDB EF Core Provider 有哪些新功能？ - .NET 博客

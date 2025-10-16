@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-07-30
-tags: [".NET", "Carter", "API", "Minimal API", "FluentValidation", "Mapster"]
+tags: [".NET", "ASP.NET Core"]
 slug: building-clean-minimal-api-with-carter
 source: https://thecodeman.net/posts/building-clean-minimal-api-with-carter
 title: 构建干净且极简的 .NET API —— 探索 Carter 实践

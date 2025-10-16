@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-08-15
-tags: ["Entity Framework", "EF Core", "性能优化", "数据库"]
+tags: [".NET", "Performance", "Database"]
 slug: ef-core-performance-tips
 source: https://thecodeman.net/posts/4-entity-framework-tips-to-improve-performances
 title: 提升EF Core性能的4个实用技巧

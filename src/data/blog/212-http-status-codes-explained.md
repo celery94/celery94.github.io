@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-03-20
-tags: [网络协议, HTTP状态码, Web开发]
+tags: ["AI", "Productivity"]
 slug: http-status-codes-explained
 source: ByteByteGo.com
 author: AI技术干货助手

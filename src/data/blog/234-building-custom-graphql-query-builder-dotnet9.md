@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-03-31 21:25:37
-tags: [GraphQL, .NET, 后端开发, 编程技巧, 动态查询]
+tags: [".NET", "Architecture"]
 slug: building-custom-graphql-query-builder-dotnet9
 source: https://thecodeman.net/posts/building-custom-graphql-query-builder-in-dotnet9
 title: 在.NET 9中打造自定义GraphQL查询构建器：最佳实践与完整实现

@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-10-15
-tags: []
+tags: [".NET", "ASP.NET Core"]
 source: ""
 author: Celery Liu
 title: 在 ASP.NET Core 中使用 Options Pattern 配置

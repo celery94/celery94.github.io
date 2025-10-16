@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-06-21
-tags: [Entity Framework, .NET, 数据库异常处理, 实用工具, 技术分享]
+tags: ["Productivity", "Tools"]
 slug: entityframework-exceptions-intro
 source: https://www.giorgi.dev/entity-framework/introducing-entityframework-exceptions/
 title: 高效优雅地处理 Entity Framework Core 数据库异常 —— EntityFramework.Exceptions 深度解析

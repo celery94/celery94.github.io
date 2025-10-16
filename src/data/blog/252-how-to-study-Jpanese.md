@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-04-06
-tags: []
+tags: ["Productivity", "Tools"]
 slug: how-to-study-Jpanese
 source: OpenAI
 author: Celery Liu

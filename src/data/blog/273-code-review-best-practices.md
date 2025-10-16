@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-04-17 18:18:51
-tags: [代码审查, 团队协作, 软件开发, 代码质量, 开发流程]
+tags: ["Productivity", "Tools"]
 slug: code-review-best-practices
 source: https://newsletter.techworld-with-milan.com/p/how-to-do-code-reviews-properly
 title: 高效代码审查：打造高质量团队协作与开发流程指南

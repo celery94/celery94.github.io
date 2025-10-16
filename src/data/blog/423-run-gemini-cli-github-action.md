@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-08-07
-tags: ["GitHub Actions", "AI", "Gemini", "CI/CD", "自动化"]
+tags: ["AI", "DevOps"]
 slug: run-gemini-cli-github-action
 source: https://github.com/google-github-actions/run-gemini-cli
 title: 深度解读 Google Run Gemini CLI GitHub Action：AI 驱动的自动化开发与代码审查

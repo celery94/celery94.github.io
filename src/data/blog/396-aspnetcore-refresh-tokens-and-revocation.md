@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-07-01
-tags: ["ASP.NET Core", "JWT", "Token", "安全"]
+tags: [".NET", "ASP.NET Core", "Security"]
 slug: aspnetcore-refresh-tokens-and-revocation
 source: https://antondevtips.com/blog/how-to-implement-refresh-tokens-and-token-revocation-in-aspnetcore
 title: ASP.NET Core中实现Refresh Token与Token撤销的完整实践

@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-08-14
-tags: ["ASP.NET Core", "Rate Limiting", "C#"]
+tags: [".NET", "ASP.NET Core", "C#"]
 slug: aspnet-core-rate-limiting-strategies
 source: N/A
 title: ASP.NET Core 中的四种限流策略详解与代码实现

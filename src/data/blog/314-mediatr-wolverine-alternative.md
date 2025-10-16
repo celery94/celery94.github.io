@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-05-13
-tags: [CQRS, .NET, MediatR, Wolverine, 架构实践, 微服务, 编程, 后端开发]
+tags: [".NET", "Architecture"]
 slug: mediatr-wolverine-alternative
 source: https://thecodeman.net/posts/mediatr-alternative-wolverine
 title: MediatR商业化，Wolverine崛起——.NET CQRS消息中间件最佳实践对比

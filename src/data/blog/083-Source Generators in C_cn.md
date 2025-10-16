@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-04-06
-tags: [C#, Source-Generated]
+tags: [".NET", "C#"]
 source: https://code-maze.com/csharp-source-generators/
 author: Code Maze
 title: C# 中的源代码生成器

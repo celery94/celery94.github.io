@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-03-19
-tags: [人工智能, 生成式AI, 开发者, 数据科学]
+tags: ["AI", "Productivity"]
 slug: aisuite-introduction
 source: https://github.com/andrewyng/aisuite
 title: 来自吴恩达，解锁多生成式AI提供商的潜力：AISuite，您的终极接口工具

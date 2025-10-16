@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-11-04
-tags: []
+tags: [".NET", "Architecture"]
 source: https://thecodeman.net/posts/securing-secrets-in-dotnet-with-azure-key-vault?utm_source=newsletter&utm_medium=email&utm_campaign=TheCodeMan%20Newsletter%20-%20Securing%20Secrets%20in%20.NET%208%20with%20Azure%20Key%20Vault
 author: TheCodeMan
 title: 在 .NET 8 中使用 Azure 密钥保管库保护机密

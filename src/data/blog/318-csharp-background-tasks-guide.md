@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-05-14
-tags: [dotnet, csharp, webdev, 后台任务, 编程技巧]
+tags: [".NET", "C#"]
 slug: csharp-background-tasks-guide
 source: https://dev.to/adrianbailador/background-tasks-in-c-5ph
 title: C#后台任务实战指南：高效实现异步与后台处理

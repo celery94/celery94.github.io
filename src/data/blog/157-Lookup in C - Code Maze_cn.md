@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-05-30
-tags: []
+tags: [".NET", "C#"]
 source: https://code-maze.com/csharp-lookup/
 author: Januarius Njoku
 title: Lookup in C#

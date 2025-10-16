@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-04-27
-tags: [C#, .NET, Base64, 安全, 编码, 性能优化, 编程技巧]
+tags: [".NET", "Architecture"]
 slug: mastering-url-safe-encoding-dotnet9-base64url
 source: https://dev.to/leandroveiga/mastering-url-safe-encoding-with-net-9s-base64url-class-examples-best-practices-2pp0
 title: 玩转.NET 9 的 Base64Url：URL 安全编码实战与最佳实践

@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-05-22
-tags: []
+tags: [".NET", "Architecture"]
 source: https://code-maze.com/aspnetcore-set-global-default-json-serialization-options/
 author: Karthikeyan N S
 title: .NET中如何设置全局默认的JSON序列化选项

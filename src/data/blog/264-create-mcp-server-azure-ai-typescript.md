@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-04-13 09:12:16
-tags: [Azure AI, TypeScript, MCP协议, Claude Desktop, 技术指南]
+tags: ["AI", "Frontend"]
 slug: create-mcp-server-azure-ai-typescript
 source: https://devblogs.microsoft.com/foundry/integrating-azure-ai-agents-mcp-typescript/
 title: 🔗 用TypeScript打造Azure AI Agents的MCP服务器，轻松连接Claude Desktop！

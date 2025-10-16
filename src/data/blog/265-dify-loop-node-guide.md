@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-04-14 12:10:10
-tags: [Dify, AI工作流, 技术指南, 自动化, 循环节点]
+tags: ["AI", "Productivity"]
 slug: dify-loop-node-guide
 source: https://docs.dify.ai/guides/workflow/node/loop
 title: 🚀如何用Dify循环节点优化AI工作流！快速上手教程

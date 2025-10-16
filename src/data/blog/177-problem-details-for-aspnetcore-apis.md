@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-10-19
-tags: []
+tags: [".NET", "ASP.NET Core"]
 source: https://www.milanjovanovic.tech/blog/problem-details-for-aspnetcore-apis
 author: Milan Jovanović
 title: ASP.NET Core API 的问题详情

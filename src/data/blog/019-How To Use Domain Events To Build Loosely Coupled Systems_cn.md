@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-02-25T18:00:14
-tags: [DDD, EF Core, MediatR, Domain Events]
+tags: ["Productivity", "Tools"]
 source: https://www.milanjovanovic.tech/blog/how-to-use-domain-events-to-build-loosely-coupled-systems
 author: Milan Jovanović
 title: 如何使用领域事件构建松耦合系统

@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-04-30
-tags: ["C#", "Kafka"]
+tags: [".NET", "ASP.NET Core", "C#"]
 source: https://code-maze.com/aspnetcore-using-kafka-in-a-web-api/
 author: Karthikeyan N S
 title: 在 ASP.NET Core Web API 中使用 Kafka

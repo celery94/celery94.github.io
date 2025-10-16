@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-08-11
-tags:
+tags: ["Productivity", "Tools", "Database"]
   ["EF Core", "DbContext", ".NET", "Entity Framework", "Database Architecture"]
 slug: using-multiple-ef-core-dbcontext-in-single-application
 source: https://www.milanjovanovic.tech/blog/using-multiple-ef-core-dbcontext-in-single-application

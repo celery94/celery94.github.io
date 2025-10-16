@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-03-27
-tags: ["Angular", "Signals", "Overview"]
+tags: ["Productivity", "Tools", "Frontend"]
 author: Angular
 title: Signals • 概览 • Angular
 description: Angular Signals 是一个系统，它可以精细地跟踪应用程序中的状态如何以及在何处被使用，从而允许框架优化渲染更新。

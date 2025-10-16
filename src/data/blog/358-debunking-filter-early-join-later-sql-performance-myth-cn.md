@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-06-09
-tags: [SQL, 数据库优化, 性能调优, 查询优化, 软件开发]
+tags: ["Performance", "Productivity", "Tools"]
 slug: debunking-filter-early-join-later-sql-performance-myth-cn
 source: https://www.milanjovanovic.tech/blog/debunking-the-filter-early-join-later-sql-performance-myth
 title: 深度揭秘：“先过滤再JOIN”SQL性能优化神话

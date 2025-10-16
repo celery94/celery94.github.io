@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-05-16
-tags: [.NET, Redis, 分布式系统, 消息通信, 后端开发]
+tags: [".NET", "Architecture"]
 slug: dotnet-redis-pubsub-messaging
 source: https://www.milanjovanovic.tech/blog/simple-messaging-in-dotnet-with-redis-pubsub
 title: 在.NET中用Redis Pub/Sub实现简单高效的消息通信

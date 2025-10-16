@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-05-14
-tags: [CQRS, MediatR]
+tags: [".NET", "ASP.NET Core"]
 source: https://codewithmukesh.com/blog/cqrs-and-mediatr-in-aspnet-core/
 author: 麦克什·穆鲁干
 title: ASP.NET Core 中的 CQRS 和 MediatR - 构建可扩展系统 - codewithmukesh

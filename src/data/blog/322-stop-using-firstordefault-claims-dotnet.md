@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-05-18
-tags:
+tags: [".NET", "ASP.NET Core", "C#", "AI"]
   [
     C#,
     ASP.NET Core,

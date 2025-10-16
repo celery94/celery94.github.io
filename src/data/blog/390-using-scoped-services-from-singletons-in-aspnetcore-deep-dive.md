@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-06-27
-tags: [ASP.NET Core, 依赖注入, 后台服务, 中间件, IServiceScopeFactory]
+tags: [".NET", "ASP.NET Core"]
 slug: using-scoped-services-from-singletons-in-aspnetcore-deep-dive
 source: https://www.milanjovanovic.tech/blog/using-scoped-services-from-singletons-in-aspnetcore
 title: ASP.NET Core中如何在Singleton中安全地使用Scoped服务：原理、实战与最佳实践

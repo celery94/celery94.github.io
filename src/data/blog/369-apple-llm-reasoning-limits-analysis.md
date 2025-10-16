@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-06-17
-tags: [大模型, LLM, 推理能力, AI安全, 技术评测]
+tags: ["AI", "Productivity"]
 slug: apple-llm-reasoning-limits-analysis
 source: https://arxiv.org/abs/2406.03273
 title: 大语言模型推理能力的边界：来自Apple新研究的启示

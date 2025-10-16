@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-03-08
-tags: ["onion-architecture", "aspnet-core", "csharp", "dotnet"]
+tags: [".NET", "ASP.NET Core", "C#", "Architecture"]
 source: https://code-maze.com/onion-architecture-in-aspnetcore/
 author: Code Maze
 title: ASP.NET Core 中的洋葱架构

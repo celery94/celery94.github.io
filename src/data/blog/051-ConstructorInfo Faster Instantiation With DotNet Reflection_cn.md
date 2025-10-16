@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-03-18
-tags:
+tags: [".NET", "Architecture"]
   [
     .net,
     c#,

@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-07-26
-tags:
+tags: ["Productivity", "Tools", "Database"]
   [
     "Entity Framework Core",
     "EF 10",

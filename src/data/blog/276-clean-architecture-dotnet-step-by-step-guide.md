@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-04-18 12:10:12
-tags: [.NET, Clean Architecture, 软件架构, 开发实践, 后端开发]
+tags: [".NET", "Architecture"]
 slug: clean-architecture-dotnet-step-by-step-guide
 source: https://dev.to/ravivis13370227/clean-architecture-in-net-application-step-by-step-2ol0
 title: Clean Architecture在.NET应用中的实践指南：分层解耦与项目落地全解析

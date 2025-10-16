@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-05-25
-tags: []
+tags: ["Productivity", "Tools"]
 author: Celery Liu
 title: 如何使用ChatGPT画UML图 -- PlantUML
 description: 本文介绍如何使用ChatGPT画UML图 -- PlantUML

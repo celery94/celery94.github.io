@@ -2,7 +2,7 @@
 pubDatetime: 2025-10-08
 title: 开发者与 AI 代码审查：如何有效审查 AI 生成的 .NET 代码
 description: 深入探讨如何成为一名优秀的 AI 代码审查者，掌握审查 AI 生成代码的关键技能和最佳实践，确保代码质量、可靠性与可维护性，提升团队整体生产力。
-tags: [".NET", "AI", "Code Review", "GitHub Copilot", "Best Practices"]
+tags: [".NET", "AI", "Architecture", "DevOps"]
 slug: reviewing-ai-generated-code-in-dotnet
 source: https://devblogs.microsoft.com/dotnet/developer-and-ai-code-reviewer-reviewing-ai-generated-code-in-dotnet
 ---

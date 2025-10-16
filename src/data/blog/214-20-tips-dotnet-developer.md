@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-03-21
-tags: [程序员, .NET 开发, 编程技巧, 技术提升]
+tags: [".NET", "Architecture"]
 slug: 20-tips-dotnet-developer
 source: codewithmukesh.com
 title: 程序员必读：20 个提升 .NET 开发技能的实用技巧

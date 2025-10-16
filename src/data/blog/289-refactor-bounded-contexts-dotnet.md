@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-04-26 16:25:55
-tags: [模块化单体, .NET, 架构重构, Bounded Context, 系统设计]
+tags: [".NET", "Architecture"]
 slug: refactor-bounded-contexts-dotnet
 source: https://www.milanjovanovic.tech/blog/refactoring-overgrown-bounded-contexts-in-modular-monoliths
 title: 拆解臃肿的Bounded Context：.NET模块化单体架构重构实战

@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-03-24
-tags: [ASP.NET Core, FluentValidation, Options Pattern, 微服务, 配置验证]
+tags: [".NET", "ASP.NET Core"]
 slug: aspnet-core-fluentvalidation-options-pattern
 source: https://www.milanjovanovic.tech/blog/options-pattern-validation-in-aspnetcore-with-fluentvalidation
 title: 🚀 提升ASP.NET Core配置验证的利器：FluentValidation与Options Pattern的完美结合

@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-04-01 12:55:40
-tags: [JavaScript, ES6, 面向对象编程, 原型, 类]
+tags: ["Productivity", "Tools"]
 slug: prototype-vs-class
 source: sevalla.com
 author: Sevalla Hosting

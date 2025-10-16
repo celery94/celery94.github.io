@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-03-18
-tags: [正则表达式, 编程, 数据处理, 技术干货]
+tags: ["Productivity", "Tools"]
 slug: regular-expression-essentials
 source: sysxplore.com
 author: AI技术助手

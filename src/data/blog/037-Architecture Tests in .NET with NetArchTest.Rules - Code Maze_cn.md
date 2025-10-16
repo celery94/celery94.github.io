@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-03-08
-tags: [".NET", "架构", "测试"]
+tags: [".NET", "Architecture", "Testing"]
 source: https://code-maze.com/csharp-architecture-tests-with-netarchtest-rules/
 author: Ivan Gechev
 title: 使用 NetArchTest.Rules 在 .NET 中进行架构测试

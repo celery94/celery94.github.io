@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-07-31
-tags: ["Angular", "前端开发", "JavaScript", "Web框架"]
+tags: ["Productivity", "Tools", "Frontend"]
 slug: angular-v20-announcement
 source: https://blog.angular.dev/announcing-angular-v20-b5c9c06cf301
 title: Angular v20重磅发布：新特性全解析与生态展望

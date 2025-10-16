@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-05-18
-tags: [日语, JLPT, N2, 自学, 备考计划]
+tags: ["Productivity", "Tools"]
 slug: jlpt-n2-self-study-plan-6-months
 source: 自学
 title: 6个月日语能力考N2自学备考计划

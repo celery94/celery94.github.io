@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-06-09
-tags:
+tags: [".NET", "ASP.NET Core"]
   [
     ".NET",
     "微服务",

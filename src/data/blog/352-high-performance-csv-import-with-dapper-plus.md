@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-06-03
-tags: [.NET, C#, Dapper, Dapper Plus, 数据导入, 性能优化, 开发经验]
+tags: [".NET", "Performance"]
 slug: high-performance-csv-import-with-dapper-plus
 source: https://thecodeman.net/posts/building-high-performance-import-feature-with-dapper-plus
 title: .NET大批量数据高性能导入实践：Dapper Plus全流程实战与性能对比

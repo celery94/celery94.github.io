@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-05-13
-tags: [".NET", "Clean Architecture", "C#"]
+tags: [".NET", "C#", "Architecture"]
 source: https://www.milanjovanovic.tech/blog/getting-the-current-user-in-clean-architecture?utm_source=Twitter&utm_medium=social&utm_campaign=06.05.2024
 author: Milan Jovanović
 title: 在 Clean Architecture 中获取当前用户

@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-05-20
-tags: [".NET", "ASP.NET Core", "HttpClient", "Cookie"]
+tags: [".NET", "ASP.NET Core"]
 source: https://code-maze.com/aspnetcore-add-a-cookie-to-an-httpclient-request-response/
 author: Alin Troncea
 title: 在ASP.NET Core中向HttpClient请求/响应添加Cookie

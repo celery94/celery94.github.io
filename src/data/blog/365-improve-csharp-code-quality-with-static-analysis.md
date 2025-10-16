@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-06-15
-tags: [C#, .NET, 静态代码分析, 代码质量, 开发实践]
+tags: [".NET", "C#"]
 slug: improve-csharp-code-quality-with-static-analysis
 source: https://www.milanjovanovic.tech/blog/improving-code-quality-in-csharp-with-static-code-analysis
 title: 用静态代码分析提升C#/.NET代码质量与安全性实战指南

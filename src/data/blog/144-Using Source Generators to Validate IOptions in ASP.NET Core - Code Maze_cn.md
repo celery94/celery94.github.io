@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-05-17
-tags: []
+tags: [".NET", "ASP.NET Core"]
 source: https://code-maze.com/aspnetcore-using-source-generators-to-validate-ioptions/
 author: Ivan Gechev
 title: 在ASP.NET Core中使用Source Generators验证IOptions

@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-04-06
-tags: [C#, .NET, RegEx, Source-Generated, Performance]
+tags: [".NET", "Architecture"]
 source: https://code-maze.com/csharp-improve-performance-with-source-generated-regex/
 author: Ivan Gechev
 title: 使用Source-Generated的RegEx在.NET中提高性能

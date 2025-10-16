@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-05-14
-tags: [事务, .NET, 数据库, 开发, 架构]
+tags: ["Productivity", "Tools"]
 slug: ambient-transaction-under-the-hood
 source: https://dev.to/eveissim/how-to-ambient-transaction-work-under-the-hood-5e55
 title: 深入浅出Ambient Transaction：原理揭秘与底层实现解析

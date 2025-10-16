@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-05-20
-tags:
+tags: ["Architecture", "Productivity", "Tools"]
   [
     ".NET",
     "Clean Architecture",

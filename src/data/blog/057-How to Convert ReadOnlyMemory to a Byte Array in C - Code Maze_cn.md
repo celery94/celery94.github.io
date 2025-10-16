@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-03-25
-tags: [".NET", "C#", "Memory", "ReadOnlyMemory", "MemoryMarshal", "byte array"]
+tags: [".NET", "C#", "Performance"]
 source: https://code-maze.com/csharp-how-to-convert-readonlymemory-to-a-byte-array/
 author: Robinson Small
 title: 如何在C#中将ReadOnlyMemory转换为字节数组

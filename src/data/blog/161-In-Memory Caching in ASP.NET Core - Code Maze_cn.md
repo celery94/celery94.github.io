@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-06-09
-tags: []
+tags: [".NET", "ASP.NET Core"]
 source: https://code-maze.com/aspnetcore-in-memory-caching/
 author: Muhammed Saleem
 title: In-Memory Caching in ASP.NET Core

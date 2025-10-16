@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-02-06
-tags: [css, sass, angular, material, theme]
+tags: ["Productivity", "Tools", "Frontend"]
 title: 如何创建多样式主题 -- Angular Material Theme, Part II
 description: 为 Angular Material 创建多个自定义主题涉及几个关键步骤。Angular Material 的主题系统基于 Google 的 Material Design 构建，允许你为你的应用制定一个反映你品牌的视觉语言。以下是为你的 Angular Material 应用创建多个自定义主题的方法：
 ---

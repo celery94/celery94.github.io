@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-04-24 15:50:32
-tags: [C#, 多线程, 锁机制, 并发控制, 异步编程]
+tags: [".NET", "C#"]
 slug: csharp-locks-interview-guide
 source:
 title: 【C#多线程面试必备】锁机制与异步陷阱，你真的会用Lock吗？

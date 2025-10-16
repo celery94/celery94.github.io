@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-05-31
-tags: [ASP.NET Core, Minimal API, 自动注册, 后端架构, 代码维护]
+tags: [".NET", "ASP.NET Core"]
 slug: auto-register-minimal-apis-aspnetcore
 source: https://www.milanjovanovic.tech/blog/automatically-register-minimal-apis-in-aspnetcore
 title: ASP.NET Core Minimal API 自动注册实践：优雅、高效、可维护的项目架构

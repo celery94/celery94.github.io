@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-03-18
-tags: [HTTP/2, HTTP/3, 网络协议, QUIC, Web技术]
+tags: ["Productivity", "Tools"]
 slug: http2-vs-http3-analysis
 source: levelupcoding.com
 author: Nikki Siapno

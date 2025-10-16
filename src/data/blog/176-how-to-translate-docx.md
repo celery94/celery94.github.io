@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-10-23
-tags: []
+tags: ["Productivity", "Tools"]
 source: ""
 author: Celery Liu
 title: 利用 Python 自动翻译 Word 多语言对比 文档, 基于 Dify 的 REST API 解决方案

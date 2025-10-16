@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-05-22
-tags: [人工智能, 智能体, 人机交互, 研究前沿, 开源项目]
+tags: ["Productivity", "Tools"]
 slug: magentic-ui-human-centered-web-agent
 source: https://www.microsoft.com/en-us/research/blog/magentic-ui-an-experimental-human-centered-web-agent/
 title: Magentic-UI：迈向以人为中心的下一代智能体协作范式

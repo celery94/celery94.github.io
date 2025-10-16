@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-08-02
-tags:
+tags: ["Productivity", "Tools"]
   [
     Vulnerability,
     Application security,

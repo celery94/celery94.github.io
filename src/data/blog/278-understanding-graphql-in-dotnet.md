@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-04-21 09:41:24
-tags: [GraphQL, .NET, ASP.NET Core, API设计, HotChocolate, 开发实践]
+tags: [".NET", "Architecture"]
 slug: understanding-graphql-in-dotnet
 source: https://blog.elmah.io/understanding-graphql-in-net-when-and-why-to-use-it/?utm_source=bonobopress&utm_medium=newsletter&utm_campaign=2040
 title: GraphQL在.NET中的实践与优势：为什么越来越多开发者选择它？

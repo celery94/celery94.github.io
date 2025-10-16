@@ -2,7 +2,7 @@
 pubDatetime: 2025-10-13
 title: 在 AWS Lambda 上使用 Minimal APIs 构建高性能无服务器 API
 description: 深入探讨如何将 ASP.NET Core Minimal APIs 部署到 AWS Lambda，包括配置步骤、性能测试、冷启动优化和实际应用场景分析，帮助开发者理解无服务器架构的优势与权衡。
-tags: ["dotnet", "aws", "serverless", "lambda", "minimal-apis", "cloud"]
+tags: [".NET", "ASP.NET Core", "Architecture", "DevOps"]
 slug: building-fast-serverless-apis-minimal-apis-aws-lambda
 source: https://www.milanjovanovic.tech/blog/building-fast-serverless-apis-with-minimal-apis-on-aws-lambda
 ---

@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-04-20 14:37:07
-tags: [微服务, 架构, .NET, 企业开发, 系统设计]
+tags: [".NET", "Architecture"]
 slug: microservices-core-concepts-benefits-dotnet
 source: https://www.milanjovanovic.tech/blog/understanding-microservices-core-concepts-and-benefits
 title: .NET企业开发者必读：微服务架构核心理念与价值深度解析

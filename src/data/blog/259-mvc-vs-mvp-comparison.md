@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-04-08 11:54:45
-tags: [MVC, MVP, 软件架构, 技术干货]
+tags: ["Productivity", "Tools"]
 slug: mvc-vs-mvp-comparison
 source: levelupcoding.com
 author: Nikki Siapno

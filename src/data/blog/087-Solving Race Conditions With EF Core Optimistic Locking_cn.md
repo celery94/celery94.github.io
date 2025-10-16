@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-04-06
-tags: []
+tags: ["Productivity", "Tools"]
 source: https://www.milanjovanovic.tech/blog/solving-race-conditions-with-ef-core-optimistic-locking
 author: Milan Jovanović
 title: 使用 EF Core 乐观锁解决竞态条件

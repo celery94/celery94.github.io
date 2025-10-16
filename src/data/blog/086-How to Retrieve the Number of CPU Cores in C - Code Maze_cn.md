@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-04-06
-tags: [C#]
+tags: [".NET", "C#"]
 source: https://code-maze.com/csharp-retrieve-the-number-of-cpu-cores/
 author: Lennart Pries
 title: 如何在C#中检索CPU核心数量

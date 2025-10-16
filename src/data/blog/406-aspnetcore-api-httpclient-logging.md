@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-07-16
-tags: ["ASP.NET Core", "Logging", "HttpClient", "中间件", "安全"]
+tags: [".NET", "ASP.NET Core", "Security", "DevOps"]
 slug: aspnetcore-api-httpclient-logging
 source: https://antondevtips.com/blog/logging-requests-and-responses-for-api-requests-and-httpclient-in-aspnetcore
 title: 深入 ASP.NET Core：高效实现 API 请求与 HttpClient 的请求响应日志记录

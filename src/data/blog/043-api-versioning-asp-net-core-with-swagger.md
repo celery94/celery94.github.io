@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-03-14
-tags: [".NET", "ASP.NET Core", "API", "Versioning", "swagger"]
+tags: [".NET", "ASP.NET Core"]
 author: Celery Liu
 title: ASP.NET Core Web API with swagger中基于URL的API版本控制
 description: 在这篇文章中，我们将讨论如何在 ASP.NET Core Web API 中实现基于 URL 的 API 版本控制。我们将使用 `Asp.Versioning.Mvc` NuGet 包来实现版本控制。我们还将使用 `Asp.Versioning.Mvc.ApiExplorer` NuGet 包来集成 swagger。

@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-02-19T12:09:32
-tags: [azure, container, .net, aspire, azure-container-apps]
+tags: [".NET", "Architecture"]
 source: https://devblogs.microsoft.com/dotnet/how-to-deploy-dotnet-aspire-apps-to-azure-container-apps/
 author: Jiachen Jiang
 title: 如何将 .NET Aspire 应用部署到 Azure 容器应用 - .NET 博客

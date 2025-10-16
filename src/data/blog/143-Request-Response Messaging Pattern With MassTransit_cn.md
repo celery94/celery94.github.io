@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-05-17
-tags: []
+tags: ["Productivity", "Tools"]
 source: https://www.milanjovanovic.tech/blog/request-response-messaging-pattern-with-masstransit?utm_source=Twitter&utm_medium=social&utm_campaign=13.05.2024
 author: Milan Jovanović
 title: 使用 MassTransit 的请求-响应消息模式

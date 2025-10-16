@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-06-07
-tags: []
+tags: ["Productivity", "Tools"]
 source: https://stefandjokic.tech/posts/the-service-collection-extension-pattern
 author: stefandjokic
 title: The ServiceCollection Extension Pattern

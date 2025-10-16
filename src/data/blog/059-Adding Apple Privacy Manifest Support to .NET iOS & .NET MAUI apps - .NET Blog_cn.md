@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-03-26
-tags: [".NET", "iOS", "MAUI", "Apple", "Privacy"]
+tags: [".NET", "Architecture"]
 source: https://devblogs.microsoft.com/dotnet/apple-privacy-manifest-support/
 author: Gerald Versluis
 title: 为 .NET iOS & .NET MAUI 应用添加苹果隐私声明支持

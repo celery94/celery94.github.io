@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-06-09
-tags: [NET, HttpClient, 分布式系统, 云原生, Resilience, Polly]
+tags: [".NET", "Architecture"]
 slug: overriding-http-resilience-handlers-dotnet
 source: https://www.milanjovanovic.tech/blog/overriding-default-http-resilience-handlers-in-dotnet
 title: 深度解析：如何在.NET中覆盖默认HTTP Resilience策略，构建高可用后端服务

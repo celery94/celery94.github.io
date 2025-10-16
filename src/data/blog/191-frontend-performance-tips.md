@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-03-15
-tags: [前端性能优化, Web开发, 技术干货]
+tags: ["Performance", "Frontend"]
 slug: frontend-performance-tips
 source: ByteByteGo
 author: AI助手

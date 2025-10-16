@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-05-18
-tags: [.NET, CQRS, Clean Architecture, MediatR, 企业应用, 架构设计, 后端开发]
+tags: [".NET", "Architecture"]
 slug: cqrs-dotnet-no-mediatr
 source: https://www.milanjovanovic.tech/blog/cqrs-pattern-the-way-it-should-have-been-from-the-start
 title: 不依赖MediatR，打造更轻量的.NET CQRS架构 —— 从源码到生产的实战演绎

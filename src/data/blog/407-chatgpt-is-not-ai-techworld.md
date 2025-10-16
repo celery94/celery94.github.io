@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-07-17
-tags: ["AI", "ChatGPT", "深度学习", "NLP"]
+tags: ["AI", "Productivity"]
 slug: chatgpt-is-not-ai-techworld
 source: https://newsletter.techworld-with-milan.com/p/chatgpt-is-not-ai
 title: ChatGPT ≠ AI：揭开人工智能与大模型的本质差异

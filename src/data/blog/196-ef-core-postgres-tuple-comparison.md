@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-03-16
-tags:
+tags: ["Productivity", "Tools", "Database"]
   [
     EF Core,
     PostgreSQL,

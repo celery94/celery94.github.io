@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-06-20
-tags: [分布式系统, 数据库, 架构设计, 技术读书, DDIA, 数据密集型应用]
+tags: ["Productivity", "Tools"]
 slug: what-i-learned-from-designing-data-intensive-applications
 source: https://newsletter.techworld-with-milan.com/p/what-i-learned-from-the-book-designing?publication_id=1219834&post_id=158354418&isFreemail=true&r=264euj&triedRedirect=true
 title: 《Designing Data-Intensive Applications》深度解析与技术实践分享

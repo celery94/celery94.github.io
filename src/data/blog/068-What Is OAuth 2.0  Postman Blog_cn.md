@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-03-28
-tags: [api, oauth]
+tags: ["Security", "Productivity", "Tools"]
 source: https://blog.postman.com/what-is-oauth-2-0/
 author: Gbadebo Bello
 title: OAuth 2.0是什么？

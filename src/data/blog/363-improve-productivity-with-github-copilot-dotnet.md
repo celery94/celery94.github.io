@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-06-13
-tags: [GitHub Copilot, .NET, Visual Studio, C#, AI 编程, 开发效率]
+tags: [".NET", "C#", "AI", "Productivity"]
 slug: improve-productivity-with-github-copilot-dotnet
 source: https://devblogs.microsoft.com/dotnet/improve-productivity-with-github-copilot-dotnet
 title: .NET/C#开发者必看：GitHub Copilot 全新功能助你高效开发

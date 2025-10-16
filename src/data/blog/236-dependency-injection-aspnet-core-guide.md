@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-04-01 12:00:04
-tags: [ASP.NET Core, 依赖注入, 软件架构, 编程实践]
+tags: [".NET", "ASP.NET Core"]
 slug: dependency-injection-aspnet-core-guide
 source: https://codewithmukesh.com/blog/dependency-injection-in-aspnet-core-explained/
 title: 深入浅出ASP.NET Core依赖注入：构建高效、可扩展的应用

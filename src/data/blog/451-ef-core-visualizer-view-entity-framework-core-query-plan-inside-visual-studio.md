@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-08-28
-tags: [".NET", "Entity Framework", "Visual Studio", "Performance", "Debugging"]
+tags: [".NET", "Performance", "Productivity", "Tools"]
 slug: ef-core-visualizer-view-entity-framework-core-query-plan-inside-visual-studio
 source: https://devblogs.microsoft.com/dotnet/ef-core-visualizer-view-entity-framework-core-query-plan-inside-visual-studio
 title: EFCore.Visualizer – 在 Visual Studio 中查看 Entity Framework Core 查询计划

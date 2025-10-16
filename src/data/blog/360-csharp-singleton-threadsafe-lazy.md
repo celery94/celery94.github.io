@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-06-11
-tags: [C#, 设计模式, 多线程, 单例, 编程技巧]
+tags: [".NET", "C#"]
 slug: csharp-singleton-threadsafe-lazy
 source: assistantHub
 title: C#多线程下的Singleton最佳实践：为什么推荐用Lazy？【附图解】

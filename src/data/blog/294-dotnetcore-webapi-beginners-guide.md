@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-04-27
-tags: [C#, .NET Core, Web API, 入门, 实践, 后端开发]
+tags: [".NET", "ASP.NET Core"]
 slug: dotnetcore-webapi-beginners-guide
 source: https://dev.to/gaurav-nandankar/building-a-robust-net-core-web-api-a-beginners-guide-4733
 title: 零基础入门：一步步打造健壮的 .NET Core Web API（实战图文教程）

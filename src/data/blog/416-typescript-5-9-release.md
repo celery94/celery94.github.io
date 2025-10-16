@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-08-04
-tags: ["TypeScript", "前端开发", "JavaScript", "编程语言", "版本发布"]
+tags: ["Productivity", "Tools", "Frontend"]
 slug: typescript-5-9-release
 source: https://devblogs.microsoft.com/typescript/announcing-typescript-5-9/
 title: TypeScript 5.9 正式发布：新特性、优化与升级详解

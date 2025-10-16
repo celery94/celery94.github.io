@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-04-02
-tags: []
+tags: [".NET", "ASP.NET Core"]
 source: https://www.milanjovanovic.tech/blog/horizontally-scaling-aspnetcore-apis-with-yarp-load-balancing
 author: Milan Jovanović
 title: 使用YARP负载均衡实现ASP.NET Core APIs的水平扩展

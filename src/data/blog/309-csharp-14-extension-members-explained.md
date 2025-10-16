@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-05-09
-tags: [C#, .NET, 新特性, 扩展成员, 编程语言]
+tags: [".NET", "C#", "AI"]
 slug: csharp-14-extension-members-explained
 source: https://devblogs.microsoft.com/dotnet/csharp-exploring-extension-members
 title: C# 14扩展成员重磅来袭：让你的扩展方法更强大、更优雅！

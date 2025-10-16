@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-04-12
-tags: [gRPC]
+tags: [".NET", "ASP.NET Core"]
 source: https://code-maze.com/aspnetcore-test-grpc-services/
 author: Aneta Muslić
 title: 如何在 ASP.NET Core 中测试 gRPC 服务

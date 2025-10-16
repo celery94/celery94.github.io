@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-05-22
-tags: [AI工作流, 深度研究, Dify, 智能自动化, 信息检索]
+tags: ["AI", "Productivity", "Tools"]
 slug: dify-deep-research-workflow-guide
 source: https://dify.ai/blog/deep-research-workflow-in-dify-a-step-by-step-guide
 title: 打造AI智能深度研究引擎：Dify工作流实战指南（附图详解）

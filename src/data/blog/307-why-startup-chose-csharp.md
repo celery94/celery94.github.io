@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-05-08
-tags: [C#, .NET, SaaS, 后端开发, 技术选型, 创业, 云原生, 安全产品]
+tags: [".NET", "C#"]
 slug: why-startup-chose-csharp
 source: https://devblogs.microsoft.com/dotnet/why-we-built-our-startup-in-csharp/
 title: 为什么我们选择用C#打造B2B SaaS安全产品？——来自Tracebit CTO的一线实践分享

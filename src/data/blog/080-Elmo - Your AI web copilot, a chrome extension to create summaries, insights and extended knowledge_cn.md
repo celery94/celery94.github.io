@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-04-02
-tags: [elmo, ai, web, copilot, assistant, summary, insight, chrome extension]
+tags: ["AI", "Productivity"]
 source: https://www.elmo.chat/
 author: Elmo
 title: Elmo - Your AI web copilot，一个用于创建摘要、洞见和拓展知识的Chrome扩展

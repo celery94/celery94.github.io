@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-03-21
-tags: [Angular, TypeScript, RxJS]
+tags: ["Productivity", "Tools", "Frontend"]
 source: https://mirzaleka.medium.com/10-angular-dos-donts-395696d97391
 author: Mirza Leka
 title: 10 Angular Dos & Don’ts

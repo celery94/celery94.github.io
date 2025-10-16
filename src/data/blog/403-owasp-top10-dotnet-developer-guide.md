@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-07-01
-tags: ["OWASP", ".NET", "安全", "应用安全", "架构实践"]
+tags: [".NET", "Architecture", "Security"]
 slug: owasp-top10-dotnet-developer-guide
 source: https://t.co/Zw4uhCvhMD
 title: .NET开发者必读：OWASP Top 10安全风险实战与架构应对

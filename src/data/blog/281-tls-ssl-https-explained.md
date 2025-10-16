@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-04-22
-tags: [HTTPS, TLS, SSL, 网络安全, 加密通信, 互联网协议]
+tags: ["AI", "Productivity"]
 slug: tls-ssl-https-explained
 source: twitter
 title: 从HTTP到HTTPS：一文彻底搞懂TLS、SSL与加密通信原理

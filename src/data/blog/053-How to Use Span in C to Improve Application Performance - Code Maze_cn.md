@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-03-20
-tags: [".NET", "C#", "Span", "内存管理", "性能优化"]
+tags: [".NET", "C#", "Performance"]
 source: https://code-maze.com/csharp-span-to-improve-application-performance/
 author: Code Maze
 title: 如何使用 C# 中的 Span 来提升应用程序性能

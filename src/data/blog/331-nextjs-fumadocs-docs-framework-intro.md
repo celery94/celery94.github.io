@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-05-22
-tags: [Next.js, Fumadocs, 前端开发, 文档站点, UI组件, 开发效率]
+tags: ["Productivity", "Tools"]
 slug: nextjs-fumadocs-docs-framework-intro
 source: https://fumadocs.dev/
 title: Fumadocs：让你用 Next.js 快速构建高颜值文档站点的秘密武器

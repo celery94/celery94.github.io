@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-03-25
-tags: [cache, web development, database, technology]
+tags: ["Productivity", "Tools"]
 slug: cache-usage-techniques
 source: Bytebytego Blog
 author: Bytebytego Team

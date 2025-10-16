@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-03-27 14:40:16
-tags: [Visual Studio, LINQ查询, AI辅助开发, Debugging]
+tags: ["AI", "Productivity"]
 slug: visual-studio-ai-ienumerable-visualizer
 source: https://devblogs.microsoft.com/visualstudio/debugging-with-the-ai-powered-ienumerable-visualizer/
 title: 揭秘 Visual Studio 2022 全新 AI 功能，彻底改变 LINQ 调试体验

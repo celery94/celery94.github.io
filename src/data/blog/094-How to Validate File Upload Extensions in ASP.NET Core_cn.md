@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-04-10
-tags: ["ASP.NET Core", C#]
+tags: [".NET", "ASP.NET Core"]
 source: https://code-maze.com/aspnetcore-how-to-validate-file-upload-extensions/
 author: Ehab Shaker
 title: 如何在ASP.NET Core中验证文件上传扩展名

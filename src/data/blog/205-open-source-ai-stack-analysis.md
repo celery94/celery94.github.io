@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-03-18
-tags: ["开源技术", "AI技术栈", "人工智能", "软件架构"]
+tags: ["AI", "Architecture"]
 slug: open-source-ai-stack-analysis
 source: ByteByteGo
 author: AI技术团队

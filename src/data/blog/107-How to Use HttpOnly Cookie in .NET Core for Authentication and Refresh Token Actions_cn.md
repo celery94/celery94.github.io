@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-04-16
-tags: ["asp.net core", "jwt"]
+tags: [".NET", "ASP.NET Core", "Security"]
 source: https://code-maze.com/how-to-use-httponly-cookie-in-net-core-for-authentication-and-refresh-token-actions/
 author: Marinko Spasojević
 title: 在 .NET Core 中使用 HttpOnly Cookie 进行身份验证和刷新令牌操作的方法

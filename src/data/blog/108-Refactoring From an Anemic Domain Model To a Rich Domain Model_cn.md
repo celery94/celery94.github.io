@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-04-18
-tags: []
+tags: ["Productivity", "Tools"]
 source: https://www.milanjovanovic.tech/blog/refactoring-from-an-anemic-domain-model-to-a-rich-domain-model?utm_source=Twitter&utm_medium=social&utm_campaign=15.04.2024
 author: Milan Jovanović
 title: 从贫血模型到富模型的重构

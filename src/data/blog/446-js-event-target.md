@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-08-22
-tags: ["JavaScript", "DOM", "event-handling"]
+tags: ["Productivity", "Tools", "Frontend"]
 slug: js-event-target
 source: null
 title: 深入理解 JavaScript 的 event.target

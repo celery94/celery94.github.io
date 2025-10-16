@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-05-19
-tags: [CQRS, MediatR, FluentValidation, Validation]
+tags: ["Productivity", "Tools"]
 source: https://www.milanjovanovic.tech/blog/cqrs-validation-with-mediatr-pipeline-and-fluentvalidation?utm_source=Twitter&utm_medium=social&utm_campaign=13.06.2024
 author: Milan Jovanović
 title: 使用MediatR Pipeline和FluentValidation进行CQRS校验

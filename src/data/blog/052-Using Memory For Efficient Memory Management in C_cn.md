@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-03-20
-tags: [".NET", "C#", "Memory", "Span", "内存管理", "性能优化"]
+tags: [".NET", "C#", "Performance"]
 source: https://code-maze.com/csharp-using-memory/
 author: Muhammad Afzal Qureshi
 title: 在 C# 中使用 Memory 实现高效的内存管理

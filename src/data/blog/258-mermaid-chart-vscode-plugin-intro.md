@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-04-08 11:34:01
-tags: [开发工具, 软件架构, VS Code插件, Mermaid.js, 可视化工作流]
+tags: ["AI", "Productivity"]
 slug: mermaid-chart-vscode-plugin-intro
 source: https://docs.mermaidchart.com/blog/posts/mermaid-chart-vs-code-plugin-create-and-edit-mermaid-js-diagrams-in-visual-studio-code
 title: 🚀提高开发效率！Mermaid Chart VS Code插件，让代码与图表完美结合

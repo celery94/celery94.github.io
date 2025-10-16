@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-04-01
-tags: [".NET", "C#", "NewId", "Unique ID", "Sortable Unique ID"]
+tags: [".NET", "C#"]
 source: https://code-maze.com/dotnet-generate-sortable-unique-ids-with-the-newid-library/
 author: Ivan Gechev
 title: 使用 NewId 库在 .NET 中生成可排序的唯一ID

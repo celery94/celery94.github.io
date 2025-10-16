@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-05-16
-tags: [sql, nosql]
+tags: ["Productivity", "Tools"]
 source: https://www.ml4devs.com/articles/datastore-choices-sql-vs-nosql-database/
 author: Satish Chandra Gupta
 title: SQL vs. NoSQL数据库：何时使用，如何选择 - 针对开发者的机器学习

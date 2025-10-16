@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-03-13
-tags: [api, api version]
+tags: ["Productivity", "Tools"]
 source: https://www.postman.com/api-platform/api-versioning/
 author: Postman
 title: API版本控制是什么？益处、类型和最佳实践 | Postman

@@ -2,7 +2,7 @@
 pubDatetime: 2025-09-29
 title: 在 C# 中掌握 Expression Trees：构建可运行时组装的 LINQ 查询
 description: Expression Tree 让 C# 在运行时拼装表达式，本篇从语法树结构、LINQ 翻译流程、动态查询工厂到性能调优与治理策略，帮助你落地企业级筛选与规则引擎并避开常见陷阱。
-tags: [".NET", "C#", "LINQ", "Architecture"]
+tags: [".NET", "C#", "Architecture", "Database"]
 slug: expression-trees-dynamic-linq
 source: https://blog.elmah.io/expression-trees-in-c-building-dynamic-linq-queries-at-runtime/
 ---

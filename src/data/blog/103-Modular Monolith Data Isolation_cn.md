@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-04-15
-tags: [efcore]
+tags: ["Productivity", "Tools"]
 source: https://www.milanjovanovic.tech/blog/modular-monolith-data-isolation?utm_source=Twitter&utm_medium=social&utm_campaign=08.04.2024
 author: Milan Jovanović
 title: 模块化单体应用的数据隔离

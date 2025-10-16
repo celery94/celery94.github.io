@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-09-05
-tags:
+tags: ["Productivity", "Tools"]
   ["leadership", "productivity", "career", "mindset", "personal-development"]
 slug: high-agency-what-separates-top-performers
 source: https://newsletter.techworld-with-milan.com/p/high-agency-what-separates-top-performers

@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-04-13
-tags: ["Rate Limiting", "ASP.NET Core"]
+tags: [".NET", "ASP.NET Core"]
 source: https://www.milanjovanovic.tech/blog/how-to-use-rate-limiting-in-aspnet-core
 author: Milan Jovanović
 title: 如何在 ASP.NET Core 中使用速率限制

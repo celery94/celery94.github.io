@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-06-18
-tags: [EF Core, 并发控制, 乐观锁, .NET, 软件架构]
+tags: ["Productivity", "Tools", "Database"]
 slug: ef-core-optimistic-locking-race-condition
 source: https://www.milanjovanovic.tech/blog/solving-race-conditions-with-ef-core-optimistic-locking
 title: 使用 EF Core 乐观锁定机制解决并发冲突与竞态条件

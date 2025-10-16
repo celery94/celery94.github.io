@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-05-26
-tags: [Windows AI, OCR, WinUI3, C#, 桌面开发, 技术教程]
+tags: ["AI", "Productivity"]
 slug: windows-ai-ocr-image-to-table
 source: https://blog.revolution.com.br/2025/05/21/transforming-an-image-into-a-table-with-windows-ocr/
 title: 利用Windows AI和OCR功能：从图片到可编辑表格的高效实践

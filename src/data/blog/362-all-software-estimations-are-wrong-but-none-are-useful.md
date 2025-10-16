@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-06-13
-tags: [软件估算, 敏捷开发, Scrum, 项目管理, IT管理, 敏捷实践]
+tags: ["Productivity", "Tools"]
 slug: all-software-estimations-are-wrong-but-none-are-useful
 source:
 title: 所有软件估算都是错的，但都不是没用的？Scrum团队如何理性看待与改进估算

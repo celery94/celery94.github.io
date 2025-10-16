@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-04-01 12:03:40
-tags: [".NET开发", "服务生命周期", "技术分享", "编程最佳实践", "依赖注入"]
+tags: [".NET", "Architecture", "Productivity"]
 slug: dotnet-service-lifetimes
 source: https://codewithmukesh.com/blog/when-to-use-transient-scoped-singleton-dotnet/
 title: 探索.NET服务生命周期：如何正确使用Transient、Scoped和Singleton

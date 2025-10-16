@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-03-16
-tags: [开源字体, 编程, 技术指南, 字体设计, 软件开发]
+tags: ["Productivity", "Tools"]
 slug: maple-mono-font-guide
 source: https://github.com/subframe7536/maple-font
 title: 提升编码体验的利器：Maple Mono 开源字体详解与使用指南

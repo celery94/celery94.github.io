@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-03-19
-tags: [DevOps, 技术路线图, 软件开发, 系统运维]
+tags: ["DevOps", "Productivity"]
 slug: devops-roadmap-2025
 source: TechWorld
 author: TechWorld Editorial Team

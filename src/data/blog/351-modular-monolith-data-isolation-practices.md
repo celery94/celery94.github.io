@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-06-01
-tags: [软件架构, 模块化单体, 数据隔离, 企业级开发, 架构实践]
+tags: ["Productivity", "Tools"]
 slug: modular-monolith-data-isolation-practices
 source: https://www.milanjovanovic.tech/blog/modular-monolith-data-isolation
 title: 模块化单体架构中的数据隔离实践：四大模式深度解析

@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-05-31
-tags: [Minimal APIs, .NET, API架构, 后端开发, 项目结构]
+tags: [".NET", "ASP.NET Core"]
 slug: how-to-structure-minimal-apis-cn
 source: https://www.milanjovanovic.tech/blog/how-to-structure-minimal-apis
 title: .NET Minimal APIs 项目结构最佳实践：从入门到进阶

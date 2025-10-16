@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-12-07
-tags: []
+tags: [".NET", "Architecture"]
 source: https://www.milanjovanovic.tech/blog/central-package-management-in-net-simplify-nuget-dependencies
 author: Milan Jovanović
 title: .NET中的中央包管理 - 简化NuGet依赖

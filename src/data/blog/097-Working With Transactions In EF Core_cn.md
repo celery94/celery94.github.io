@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-04-11
-tags: [C#, efcore]
+tags: ["Productivity", "Tools"]
 source: https://www.milanjovanovic.tech/blog/working-with-transactions-in-ef-core#using-existing-transactions-with-ef-core
 author: Milan Jovanović
 title: 在 EF Core 中处理事务

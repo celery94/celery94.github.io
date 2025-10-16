@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-03-27
-tags: [.NET, ASP.NET Core, Error Handling]
+tags: ["Productivity", "Tools"]
 author: ajcvickers
 title: Hierarchical Data (层次化数据) in the SQL Server EF Core Provider
 description: 使用层次化数据与 Entity Framework Core Microsoft SQL Server 数据库提供者

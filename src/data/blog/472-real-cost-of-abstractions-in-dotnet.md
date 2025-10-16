@@ -2,7 +2,7 @@
 pubDatetime: 2025-10-06
 title: .NET 中抽象的真实代价：何时使用，何时避免
 description: 深入探讨在 .NET 开发中使用抽象的利弊权衡。通过实际案例分析接口、仓储模式和服务包装器等抽象手段的适用场景，帮助开发者做出更明智的架构决策，避免过度设计带来的技术债务。
-tags: [".NET", "Software Architecture", "Clean Architecture", "Design Patterns", "Performance"]
+tags: [".NET", "Architecture", "Performance"]
 slug: real-cost-of-abstractions-in-dotnet
 source: https://www.milanjovanovic.tech/blog/the-real-cost-of-abstractions-in-dotnet
 ---

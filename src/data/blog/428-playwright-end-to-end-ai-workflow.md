@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-08-11
-tags: ["Playwright", "测试自动化", "AI", "端到端测试", "GitHub Copilot", "MCP"]
+tags: ["AI", "DevOps", "Productivity", "Tools"]
 slug: playwright-end-to-end-ai-workflow
 source: https://devblogs.microsoft.com/blog/the-complete-playwright-end-to-end-story-tools-ai-and-real-world-workflows
 title: 全面解读 Playwright 端到端测试：工具、AI 与真实工作流

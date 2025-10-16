@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-10-06
-tags: []
+tags: [".NET", "AI"]
 source: https://developmentwithadot.blogspot.com/2024/10/domain-events-with-net.html
 author: Ricardo Peres
 title: Domain Events with .NET

@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-03-17
-tags: ["C#"]
+tags: [".NET", "C#", "AI"]
 source: https://code-maze.com/csharp-difference-between-await-and-task-wait/
 author: Georgios Panagopoulos
 title: C#中await和Task.Wait的区别

@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-05-26
-tags: [C#, .NET, DDD, Clean Architecture, 微服务, 架构, 领域事件, 实践]
+tags: [".NET", "AI"]
 slug: domain-events-dispatcher-dotnet-guide
 source: https://www.milanjovanovic.tech/blog/building-a-custom-domain-events-dispatcher-in-dotnet
 title: .NET领域事件解耦实战：手把手教你构建自定义事件分发器

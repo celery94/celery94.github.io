@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-04-29
-tags: [HTTPS, 加密, 网络安全, SSL/TLS, 数据传输]
+tags: ["Productivity", "Tools"]
 slug: how-https-works-tech-analysis
 source: ByteByteGo
 author: Celery Liu

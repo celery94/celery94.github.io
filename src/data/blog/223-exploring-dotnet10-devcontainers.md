@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-03-26 13:30:09
-tags: [开发容器, .NET 10, Docker, Visual Studio Code, 技术教程]
+tags: [".NET", "AI"]
 slug: exploring-dotnet10-devcontainers
 source: https://devblogs.microsoft.com/dotnet/dotnet-in-dev-container/?hide_banner=true
 title: 🚀探索最新.NET 10：使用开发容器实现高效环境隔离

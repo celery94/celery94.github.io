@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-08-13
-tags: [SQLite]
+tags: ["Productivity", "Tools"]
 source: https://www.sqlite.org/datatype3.html
 author: SQLite
 title: SQLite中的数据类型

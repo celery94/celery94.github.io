@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-03-10T17:29:00+00:00
-tags: [人工智能, 技术突破, Ilya Sutskever, Safe Superintelligence, ChatGPT]
+tags: ["AI", "Productivity"]
 slug: ilya-sutskever-ai-breakthrough
 source: https://bgr.com/tech/ilya-sutskever-might-have-found-a-secret-new-way-to-make-ai-smarter-than-chatgpt/
 title: Ilya Sutskever发现让AI超越ChatGPT的秘密新方法

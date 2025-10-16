@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-08-11
-tags: ["Angular", "Frontend", "Animations", "Web Development"]
+tags: ["Productivity", "Tools", "Frontend"]
 slug: angular-20-2-native-animations
 source: none
 title: Angular 20.2 引入 Native Animations：更轻量、更现代的动画方式

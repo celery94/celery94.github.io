@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-04-26
-tags: [JavaScript, 异步编程, 前端开发, Promise, AsyncAwait]
+tags: ["AI", "Productivity"]
 slug: fetch-vs-async-await-javascript
 source: Sevalla
 author: Celery Liu

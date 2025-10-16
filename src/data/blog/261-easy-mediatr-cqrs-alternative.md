@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-04-10 12:37:03
-tags: [C#, .NET, CQRS, Mediator, 开发者工具]
+tags: [".NET", "C#"]
 slug: easy-mediatr-cqrs-alternative
 source: https://dev.to/criscoelho/developing-your-easy-alternative-to-the-mediatr-library-in-c-1og2
 title: 为C#/.NET项目开发一个简单的MediatR替代方案：实现CQRS模式

@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-04-03
-tags: [C#, GUID]
+tags: [".NET", "C#"]
 source: https://code-maze.com/csharp-how-to-validate-a-guid/
 author: Osman Sokuoglu
 title: 如何在 C# 中验证 GUID

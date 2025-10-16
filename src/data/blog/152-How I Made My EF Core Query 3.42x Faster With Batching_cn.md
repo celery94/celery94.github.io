@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-05-25
-tags: []
+tags: ["Productivity", "Tools"]
 source: https://www.milanjovanovic.tech/blog/how-i-made-my-efcore-query-faster-with-batching?utm_source=Twitter&utm_medium=social&utm_campaign=20.05.2024
 author: Milan Jovanović
 title: 如何通过批处理让我的 EF Core 查询快 3.42 倍

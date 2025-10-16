@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-04-23
-tags: [Coravel, .NET, 后台任务, 开源工具, 设计模式]
+tags: [".NET", "Architecture"]
 slug: job-scheduling-with-coravel
 source: https://thecodeman.net/posts/job-scheduling-with-coravel
 title: 轻松搞定.NET后台任务：Coravel实战详解

@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-05-19
-tags: [middleware]
+tags: [".NET", "ASP.NET Core"]
 source: https://www.milanjovanovic.tech/blog/3-ways-to-create-middleware-in-asp-net-core
 author: Milan Jovanović
 title: ASP.NET Core中创建中间件的3种方式

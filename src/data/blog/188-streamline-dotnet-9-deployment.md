@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-03-15
-tags: [CI/CD, .NET, GitHub Actions, Azure, Software Development]
+tags: [".NET", "Architecture"]
 slug: streamline-dotnet-9-deployment
 source: https://www.milanjovanovic.tech/blog/streamlining-dotnet-9-deployment-with-github-actions-and-azure
 title: 🚀 简化.NET 9 部署：使用GitHub Actions和Azure实现自动化

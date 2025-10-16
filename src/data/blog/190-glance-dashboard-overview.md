@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-03-13
-tags: [技术, 开源, 自托管, 仪表板, 信息整合]
+tags: ["Productivity", "Tools"]
 slug: glance-dashboard-overview
 source: GitHub
 title: 一站式信息整合神器：Glance 自托管仪表板解析

@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-04-13
-tags: [efcore]
+tags: ["Productivity", "Tools"]
 source: https://www.milanjovanovic.tech/blog/a-clever-way-to-implement-pessimistic-locking-in-ef-core?utm_source=newsletter&utm_medium=email&utm_campaign=tnw85
 author: Milan Jovanović
 title: 在 EF Core 中实现悲观锁定的巧妙方法

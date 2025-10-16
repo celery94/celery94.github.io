@@ -2,7 +2,7 @@
 pubDatetime: 2025-09-27
 title: 构建安全的 ASP.NET Core API：角色与权限协同的实践指南
 description: 本文从授权体系的设计原则入手，详细解析如何在 ASP.NET Core 中实现基于角色与权限的多层 RBAC，涵盖数据建模、令牌签发、最小 API 集成与生产级扩展策略，帮助团队构建安全、可维护的 API。
-tags: [".NET", "ASP.NET Core", "Security", "Authorization"]
+tags: [".NET", "ASP.NET Core", "Security"]
 slug: secure-aspnetcore-rbac-apis
 source: https://www.milanjovanovic.tech/blog/building-secure-apis-with-role-based-access-control-in-aspnetcore
 ---

@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-04-08
-tags: [C#, JSON]
+tags: [".NET", "Architecture"]
 source: https://code-maze.com/aspnetcore-handling-circular-references-when-working-with-json/
 author: Georgios Panagopoulos
 title: 在 .NET 中处理 JSON 的循环引用

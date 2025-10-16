@@ -2,12 +2,11 @@
 pubDatetime: 2025-09-25
 title: Mindcraft：用多智能体 LLM 驱动 Minecraft 协作实验平台
 description: Mindcraft 通过 Mineflayer 与多家 LLM 服务，把多智能体带入 Minecraft，支持任务评测、代码扩展与 Docker 沙箱。本文梳理核心组件、部署流程、安全要点与常见陷阱，帮助研发团队构建具身智能实验平台。
-tags: ["AI", "Agents", "Minecraft", "Node.js", "LLM"]
+tags: ["AI", "Productivity"]
 slug: mindcraft-llm-minecraft-platform
 source: https://github.com/mindcraft-bots/mindcraft
 draft: false
 featured: false
-
 ---
 
 ## 背景与问题

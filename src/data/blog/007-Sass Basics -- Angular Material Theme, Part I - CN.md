@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-02-05T16:53:06
-tags: [css, sass, angular, material, theme]
+tags: ["Productivity", "Tools", "Frontend"]
 source: https://sass-lang.com/guide/
 title: Sass：Sass 基础 -- Angular Material Theme, Part I
 description: Angular Material 的主题 API 是用 Sass 构建的。你可以通过使用下面描述的预构建主题来不使用 Sass 而使用 Angular Material。然而，直接使用 Sass API 可以让你对应用程序中的样式拥有最大的控制权。

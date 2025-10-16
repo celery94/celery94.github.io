@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-02-01T20:33:54
-tags: [.NET, DDD]
+tags: [".NET", "Architecture"]
 source: https://www.milanjovanovic.tech/blog/value-objects-in-dotnet-ddd-fundamentals
 author: Milan Jovanović
 title: .NET 中的值对象（领域驱动设计基础）

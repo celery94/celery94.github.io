@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-08-26
-tags: ["EF Core", "审计日志", "ASP.NET Core", ".NET", "数据库设计"]
+tags: [".NET", "ASP.NET Core", "DevOps", "Database"]
 slug: implementing-audit-logs-ef-core-without-polluting-entities
 source: https://blog.elmah.io/implementing-audit-logs-in-ef-core-without-polluting-your-entities/
 title: 在 EF Core 中实现审计日志，无需污染实体

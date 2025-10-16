@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-09-02
-tags:
+tags: [".NET", "ASP.NET Core", "AI", "Security"]
   [
     "ASP.NET Core",
     "Authorization",

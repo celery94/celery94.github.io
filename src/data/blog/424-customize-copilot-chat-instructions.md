@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-08-07
-tags: ["GitHub Copilot", "VS Code", "AI定制", "Prompt Engineering"]
+tags: [".NET", "AI", "DevOps", "Productivity"]
 slug: customize-copilot-chat-instructions
 source: https://example.com/your-url
 title: 深入解析：在 VS Code 中定制 GitHub Copilot Chat 响应

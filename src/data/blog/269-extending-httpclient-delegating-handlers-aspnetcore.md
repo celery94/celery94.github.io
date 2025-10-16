@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-04-16 10:51:13
-tags:
+tags: [".NET", "ASP.NET Core"]
   [ASP.NET Core, HttpClient, Delegating Handlers, 日志记录, 重试策略, 身份验证]
 slug: extending-httpclient-delegating-handlers-aspnetcore
 source: https://www.milanjovanovic.tech/blog/extending-httpclient-with-delegating-handlers-in-aspnetcore

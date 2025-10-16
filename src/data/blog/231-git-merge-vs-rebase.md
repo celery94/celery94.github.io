@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-03-30 14:54:49
-tags: [Git, Merge, Rebase, 技术分享, 版本控制]
+tags: ["Productivity", "Tools"]
 slug: git-merge-vs-rebase
 source: techblog
 title: Git中的合并与变基：你真的选对了吗？

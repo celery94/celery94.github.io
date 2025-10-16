@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-05-22
-tags: [".NET", "API", "高可用", "Resilience", "分布式系统", "C#", "后端开发"]
+tags: [".NET", "ASP.NET Core", "C#", "Architecture"]
 slug: resilient-api-dotnet9
 source: https://thecodeman.net/posts/building-resilient-api-in-aspnet-core-9
 title: ASP.NET Core 9高可用API设计：全面解读Microsoft.Extensions.Resilience实战

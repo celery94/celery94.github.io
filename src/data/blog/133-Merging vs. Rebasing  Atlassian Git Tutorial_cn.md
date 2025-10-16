@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-05-09
-tags: [git, rebase, merge]
+tags: ["Productivity", "Tools"]
 source: https://www.atlassian.com/git/tutorials/merging-vs-rebasing
 author: Atlassian
 title: 合并 vs 变基 | Atlassian Git 教程

@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-03-17
-tags: [JavaScript, Web Development, LocalStorage, SessionStorage]
+tags: ["Productivity", "Tools"]
 slug: localstorage-vs-sessionstorage
 source: sevalla.com
 author: Sevalla Hosting

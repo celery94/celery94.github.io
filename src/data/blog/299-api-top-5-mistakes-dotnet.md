@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-04-30
-tags: [.NET, API, RESTful, 后端开发, 编码规范, 系统架构]
+tags: [".NET", "ASP.NET Core"]
 slug: api-top-5-mistakes-dotnet
 source: https://thecodeman.net/posts/building-apis-top-5-mistakes
 title: .NET开发者必读：API开发中最常见的5大致命错误及最佳实践

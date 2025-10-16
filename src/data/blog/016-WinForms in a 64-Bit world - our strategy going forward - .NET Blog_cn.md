@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-02-23T16:18:00
-tags: [WinForms, Visual Studio, .NET 6]
+tags: [".NET", "Architecture"]
 source: https://devblogs.microsoft.com/dotnet/winforms-designer-64-bit-path-forward/
 author: Klaus Loeffelmann
 title: WinForms 在64位世界的策略发展 - .NET Blog

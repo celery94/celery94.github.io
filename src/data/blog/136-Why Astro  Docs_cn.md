@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-05-10
-tags: [Astro]
+tags: ["Productivity", "Tools"]
 source: https://docs.astro.build/en/concepts/why-astro/
 author: Astro
 title: 为什么选择Astro？

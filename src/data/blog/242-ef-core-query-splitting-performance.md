@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-04-01 22:15:49
-tags: [EF Core, 数据库优化, Query Splitting, 性能提升, 后端开发]
+tags: ["Performance", "Database"]
 slug: ef-core-query-splitting-performance
 source: AI Research
 author: Celery Liu

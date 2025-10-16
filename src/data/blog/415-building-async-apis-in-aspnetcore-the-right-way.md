@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-08-04
-tags: ["ASP.NET Core", "异步API", "后端开发", "架构设计", "高性能"]
+tags: [".NET", "ASP.NET Core", "Architecture", "Performance"]
 slug: building-async-apis-in-aspnetcore-the-right-way
 source: https://www.milanjovanovic.tech/blog/building-async-apis-in-aspnetcore-the-right-way
 title: 在ASP.NET Core中构建高效异步API的最佳实践

@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-04-14 12:54:16
-tags: [NuGet, .NET 9, 性能优化, 算法重构, 开发工具]
+tags: [".NET", "Architecture"]
 slug: rewriting-nuget-restore-dotnet-9
 source: https://devblogs.microsoft.com/dotnet/rewriting-nuget-restore-in-dotnet-9/
 title: NuGet Restore算法的华丽重生：性能提升16倍，团队效率爆炸性增长！

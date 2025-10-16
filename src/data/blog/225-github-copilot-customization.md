@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-03-27 12:21:22
-tags: [GitHub Copilot, VS Code, 编程技巧, 人工智能]
+tags: ["AI", "Productivity"]
 slug: github-copilot-customization
 source: https://code.visualstudio.com/blogs/2025/03/26/custom-instructions
 title: 从智能到超智能！深度揭秘 GitHub Copilot 自定义指令的魔法🎩

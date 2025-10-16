@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-06-22
-tags: [管理, 技术领导力, 团队建设, 职业发展]
+tags: ["Productivity", "Tools"]
 slug: how-to-identify-and-become-a-great-manager
 source:
 title: 如何识别并成为一名优秀的技术管理者

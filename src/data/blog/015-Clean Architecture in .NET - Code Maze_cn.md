@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-02-23T13:13:05
-tags: [.NET, Clean Architecture]
+tags: [".NET", "Architecture"]
 source: https://code-maze.com/dotnet-clean-architecture/
 author: Muhammed Saleem
 title: 在 .NET中使用洁净架构

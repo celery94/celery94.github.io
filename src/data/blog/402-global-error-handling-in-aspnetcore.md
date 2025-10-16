@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-07-12
-tags: ["ASP.NET Core", "异常处理", "中间件", "后端开发"]
+tags: [".NET", "ASP.NET Core", "Architecture"]
 slug: global-error-handling-in-aspnetcore
 source: https://www.milanjovanovic.tech/blog/global-error-handling-in-aspnetcore-from-middleware-to-modern-handlers
 title: ASP.NET Core 全局异常处理实践：从中间件到现代异常处理器

@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-03-24
-tags: [用户认证, Cookies, Sessions, Tokens, 网络安全, Web开发]
+tags: ["Security", "Productivity", "Tools"]
 slug: user-authentication-comparison
 source: 综合自多篇英文技术博客
 title: 🌐网络应用中的用户认证：Cookies、Sessions与Tokens

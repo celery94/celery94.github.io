@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-05-06
-tags: [代码规范, 编程实践, 软件工程, Clean Code, 程序设计]
+tags: ["Productivity", "Tools"]
 slug: clean-code-tips-analysis
 title: 🧹 9个实用Clean Code技巧解析：让你的代码更优雅高效
 description: 本文详细解析9个Clean Code（整洁代码）常用技巧，通过具体代码示例和原理讲解，帮助开发者养成良好的编码习惯，提高代码质量和可维护性。

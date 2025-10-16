@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-03-15
-tags: []
+tags: ["AI", "Productivity"]
 source: https://devblogs.microsoft.com/visualstudio/github-copilot-in-visual-studio-a-recap-of-2023/
 author: Amy Nguyen
 title: Visual Studio中的GitHub Copilot：2023年回顾 - Visual Studio博客

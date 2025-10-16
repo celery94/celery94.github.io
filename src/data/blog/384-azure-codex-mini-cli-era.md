@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-06-23
-tags: [Azure OpenAI, codex-mini, CLI, 代码生成, 自动化, AI开发]
+tags: ["Productivity", "Tools"]
 slug: azure-codex-mini-cli-era
 source: https://devblogs.microsoft.com/foundry/codex-mini-fast-scalable-code-generation-for-the-cli-era
 title: codex-mini：面向CLI时代的快速可扩展代码生成技术深度解析

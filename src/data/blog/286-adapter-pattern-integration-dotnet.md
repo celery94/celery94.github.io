@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-04-24 21:03:22
-tags: [设计模式, .NET, Adapter, 系统集成, 架构]
+tags: [".NET", "Architecture"]
 slug: adapter-pattern-integration-dotnet
 source: https://thecodeman.net/posts/simplifying-integration-with-adapter-pattern
 title: .NET开发中的适配器模式：让系统集成更丝滑的秘密武器

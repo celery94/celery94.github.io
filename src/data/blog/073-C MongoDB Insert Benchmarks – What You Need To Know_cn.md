@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-03-30
-tags:
+tags: [".NET", "C#"]
   [
     .net,
     benchmark,

@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-04-05
-tags: []
+tags: ["AI", "Productivity"]
 slug: vibe-coding
 source: AI Research
 author: Celery Liu

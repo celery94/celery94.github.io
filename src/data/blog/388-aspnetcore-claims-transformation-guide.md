@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-06-26
-tags: [ASP.NET Core, Claims, 授权, RBAC, 安全]
+tags: [".NET", "ASP.NET Core", "AI"]
 slug: aspnetcore-claims-transformation-guide
 source: https://www.milanjovanovic.tech/blog/master-claims-transformation-for-flexible-aspnetcore-authorization
 title: 深入理解ASP.NET Core中的Claims Transformation与灵活授权机制

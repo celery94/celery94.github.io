@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-05-31
-tags: [.NET, YARP, Nginx, 性能对比, API网关, 反向代理, 架构]
+tags: [".NET", "Performance"]
 slug: yarp-vs-nginx-performance-comparison
 source: https://www.milanjovanovic.tech/blog/yarp-vs-nginx-a-quick-performance-comparison
 title: YARP vs Nginx——.NET高性能API网关实战对比

@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-06-27
-tags: ["ASP.NET Core", ".NET 9", "Rate Limiting", "Backend Security"]
+tags: [".NET", "ASP.NET Core", "Architecture", "Security"]
 slug: aspnetcore-net9-rate-limiting-guide
 source: https://dev.to/extinctsion/implement-rate-limiting-in-aspnet-core-net9-2725
 title: ASP.NET Core (.NET 9) 实现限流机制权威指南

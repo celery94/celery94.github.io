@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-08-17
-tags: ["C#", "性能优化", "LINQ", "数据库查询", "架构模式"]
+tags: [".NET", "C#", "Architecture", "Performance"]
 slug: from-n-plus-one-to-batch-processing-a-modern-take-on-linq-optimization
 source: null
 title: "从 N+1 到批量化：LINQ 查询性能优化的现代视角"

@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-04-27 08:59:51
-tags: [dotnet, aspnetcore, sse, minimal-apis, .NET10, 实时推送, 后端开发]
+tags: [".NET", "ASP.NET Core"]
 slug: server-sent-events-dotnet10-aspnetcore
 source: https://khalidabuhakmeh.com/server-sent-events-in-aspnet-core-and-dotnet-10
 title: .NET 10 新特性：ASP.NET Core Minimal API 实现 Server-Sent Events（SSE）实时推送详解

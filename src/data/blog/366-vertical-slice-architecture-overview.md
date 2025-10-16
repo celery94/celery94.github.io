@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-06-16
-tags: [架构, 设计模式, 微服务, 软件工程, .NET]
+tags: ["Architecture", "Productivity", "Tools"]
 slug: vertical-slice-architecture-overview
 source: https://www.milanjovanovic.tech/blog/vertical-slice-architecture-structuring-vertical-slices
 title: 纵向切片架构：构建高内聚、易维护的现代应用

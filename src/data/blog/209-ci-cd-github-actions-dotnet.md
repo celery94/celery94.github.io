@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-03-20
-tags: [CI/CD, GitHub Actions, .NET, Azure, 软件开发]
+tags: [".NET", "DevOps"]
 slug: ci-cd-github-actions-dotnet
 source: https://www.milanjovanovic.tech/blog/how-to-build-ci-cd-pipeline-with-github-actions-and-dotnet
 title: 🚀从零开始，使用GitHub Actions和.NET构建CI/CD管道

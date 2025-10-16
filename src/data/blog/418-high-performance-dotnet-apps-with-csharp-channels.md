@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-08-06
-tags: [".NET", "C#", "高性能", "异步编程", "Channels"]
+tags: [".NET", "C#", "Performance"]
 slug: high-performance-dotnet-apps-with-csharp-channels
 source: https://antondevtips.com/blog/building-high-performance-dotnet-apps-with-csharp-channels
 title: 利用C# Channels打造高性能.NET应用

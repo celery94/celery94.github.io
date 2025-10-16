@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-06-19
-tags:
+tags: [".NET", "Architecture"]
   [dotnet, devops, ci-cd, observability, docker, editorconfig, static-analysis]
 slug: dotnet-project-setup-best-practices
 source: aidehub

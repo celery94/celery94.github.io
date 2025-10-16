@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-04-01 12:15:57
-tags: [开源, Gogs, Git服务, 自托管]
+tags: ["AI", "Productivity"]
 slug: painless-git-service-gogs
 source: https://github.com/gogs/gogs
 title: 🌟 打造属于你的自托管Git服务：全方位了解开源项目Gogs

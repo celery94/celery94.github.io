@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-04-05 22:00:57
-tags: [GitHub, MCP服务器, 技术工具, 自动化, Docker]
+tags: ["Productivity", "Tools"]
 slug: github-mcp-server-introduction
 source: https://github.com/github/github-mcp-server
 title: 探索GitHub MCP服务器：从安装到高效自动化，全面指南

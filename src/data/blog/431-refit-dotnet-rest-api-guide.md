@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-08-13
-tags: ["dotnet", "refit", "rest-api", "csharp"]
+tags: [".NET", "ASP.NET Core", "C#"]
 slug: refit-dotnet-rest-api-guide
 source: https://thecodeman.net/posts/refit-the-dotnet-rest-api-you-should-know-about
 title: Refit：让 .NET REST API 调用更简单高效的利器

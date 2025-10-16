@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-07-06
-tags: []
+tags: [".NET", "Architecture"]
 source: https://www.milanjovanovic.tech/blog/service-discovery-in-microservices-with-net-and-consul
 author: Milan Jovanović
 title: 使用.NET和Consul实现微服务中的服务发现

@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-05-29
-tags: [AI开发, VSCode, Azure, 快速原型, 软件工程]
+tags: ["AI", "Productivity", "Tools"]
 slug: azure-ai-foundry-vscode-workflow
 source: https://devblogs.microsoft.com/foundry/open-in-vscode
 title: 一键加速AI原型验证：Azure AI Foundry Playground与VS Code无缝集成体验

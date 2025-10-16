@@ -2,7 +2,7 @@
 pubDatetime: 2025-10-10
 title: Git Submodules 深度解析：跨仓库依赖管理的最佳实践
 description: 深入探讨如何使用 Git Submodules 在多仓库项目中管理依赖关系，包括添加、更新、版本控制以及通过 GitHub Actions 实现自动化的完整指南
-tags: ["Git", "DevOps", "GitHub", "CI/CD"]
+tags: ["DevOps", "Productivity"]
 slug: git-submodules-managing-dependencies
 source: https://devblogs.microsoft.com/ise/git-submodules-and-dependencies
 ---

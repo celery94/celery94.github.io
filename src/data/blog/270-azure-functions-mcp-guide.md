@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-04-17 08:23:06
-tags: [Azure Functions, MCP, AI, GitHub Copilot, 云计算]
+tags: ["Productivity", "Tools"]
 slug: azure-functions-mcp-guide
 source: https://devblogs.microsoft.com/dotnet/build-mcp-remote-servers-with-azure-functions/
 title: 🔥让MCP服务器轻松上云！Azure Functions最新实验功能全解析

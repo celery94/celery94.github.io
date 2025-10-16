@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-05-31
-tags: [.NET, 架构设计, 模块化单体, 微服务, 后端开发]
+tags: ["Productivity", "Tools"]
 slug: modular-monolith-internal-vs-public-apis
 source: https://www.milanjovanovic.tech/blog/internal-vs-public-apis-in-modular-monoliths
 title: 模块化单体架构中的内部与公共 API：控制混乱，成就高质量系统

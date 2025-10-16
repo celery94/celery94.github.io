@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-08-02
-tags: []
+tags: [".NET", "Architecture"]
 source: https://www.milanjovanovic.tech/blog/building-resilient-cloud-applications-with-dotnet?utm_source=Twitter&utm_medium=social&utm_campaign=29.07.2024
 author: Milan Jovanović
 title: 使用 .NET 构建高可用云应用程序

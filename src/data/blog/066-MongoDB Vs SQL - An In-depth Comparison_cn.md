@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-03-27
-tags: [mongodb, sql, 数据库, 分析]
+tags: ["Productivity", "Tools"]
 source: https://www.knowi.com/blog/mongodb-vs-sql/
 author: Jay Gopalakrishnan
 title: MongoDB Vs SQL - 深入比较

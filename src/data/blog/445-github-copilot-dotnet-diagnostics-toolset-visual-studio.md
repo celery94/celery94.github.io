@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-08-21
-tags:
+tags: [".NET", "AI", "Productivity", "Tools"]
   [
     "GitHub Copilot",
     "Visual Studio",

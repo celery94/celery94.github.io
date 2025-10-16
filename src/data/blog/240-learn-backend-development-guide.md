@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-04-01 12:51:16
-tags: [Backend Development, Programming, API, Server Hosting, DevOps]
+tags: ["Productivity", "Tools"]
 slug: backend-development-guide
 source: ByteByteGo
 author: ByteByteGo

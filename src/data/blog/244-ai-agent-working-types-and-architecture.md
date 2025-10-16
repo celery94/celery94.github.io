@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-04-03 12:25:01
-tags: [AI Agent, Artificial Intelligence, Machine Learning, System Architecture]
+tags: ["AI", "Architecture"]
 slug: ai-agent-working-types-and-architecture
 source: ByteByteGo
 author: Tech Enthusiast

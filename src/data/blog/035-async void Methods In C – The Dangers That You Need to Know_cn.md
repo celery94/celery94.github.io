@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-03-08
-tags:
+tags: [".NET", "C#"]
   [
     .net,
     async await,

@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-03-07
-tags: ["API", "REST", "GraphQL", "gRPC"]
+tags: [".NET", "ASP.NET Core", "Architecture"]
 source: https://blog.postman.com/best-practices-for-api-error-handling/
 author: Gbadebo Bello
 title: API错误处理的最佳实践 | Postman 博客

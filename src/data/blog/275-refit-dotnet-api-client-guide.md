@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-04-18 11:59:31
-tags: [C#, .NET, API, Refit, 微服务, 编码技巧, 后端开发]
+tags: [".NET", "C#"]
 slug: refit-dotnet-api-client-guide
 source: https://www.milanjovanovic.tech/blog/refit-in-dotnet-building-robust-api-clients-in-csharp
 title: Refit助力.NET：用C#打造高效强类型API客户端（含实战与最佳实践）

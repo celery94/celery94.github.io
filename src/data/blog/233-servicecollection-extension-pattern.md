@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-03-31 20:07:30
-tags: [技术教程, ASP.NET Core, 设计模式, 后端开发, 服务注册]
+tags: [".NET", "ASP.NET Core"]
 slug: servicecollection-extension-pattern
 source: https://thecodeman.net/posts/the-service-collection-extension-pattern
 title: 【ASP.NET Core】用ServiceCollection Extension Pattern简化服务注册，提升代码质量！

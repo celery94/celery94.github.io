@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-08-11
-tags: ["REST API", "API设计", "软件架构", "后端开发"]
+tags: [".NET", "ASP.NET Core", "Architecture"]
 slug: rest-api-design-mistakes
 source: https://www.milanjovanovic.tech/blog/the-5-most-common-rest-api-design-mistakes-and-how-to-avoid-them
 title: 五大常见REST API设计错误及其实战改进方案

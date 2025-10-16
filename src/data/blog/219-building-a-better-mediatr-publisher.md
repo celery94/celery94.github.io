@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-03-24
-tags: [技术, 编程, C#, .NET, 分布式系统, 性能优化]
+tags: ["Productivity", "Tools"]
 slug: building-a-better-mediatr-publisher
 source: https://www.milanjovanovic.tech/blog/building-a-better-mediatr-publisher-with-channels-and-why-you-shouldnt
 title: 深入解析MediatR通知发布机制：挑战与解决方案

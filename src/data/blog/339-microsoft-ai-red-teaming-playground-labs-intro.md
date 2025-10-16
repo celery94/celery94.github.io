@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-05-26
-tags: [AI红队, 网络安全, 攻防实训, Prompt Injection, Playground, 实战, CTF]
+tags: ["AI", "Productivity"]
 slug: microsoft-ai-red-teaming-playground-labs-intro
 source: https://github.com/microsoft/AI-Red-Teaming-Playground-Labs
 title: Microsoft AI Red Teaming Playground Labs：AI攻防实战演练新利器解析

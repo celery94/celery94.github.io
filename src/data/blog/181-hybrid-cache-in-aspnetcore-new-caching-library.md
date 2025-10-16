@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-11-16
-tags: []
+tags: [".NET", "ASP.NET Core"]
 source: https://www.milanjovanovic.tech/blog/hybrid-cache-in-aspnetcore-new-caching-library
 author: Milan Jovanović
 title: ASP.NET Core中的混合缓存 - 新的缓存库

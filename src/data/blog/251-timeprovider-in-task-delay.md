@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-04-05 22:08:46
-tags: [.NET, C#, Task.Delay, TimeProvider, 异步编程]
+tags: ["Productivity", "Tools"]
 slug: timeprovider-in-task-delay
 source: okyrylchuk.dev
 author: okyrylchuk

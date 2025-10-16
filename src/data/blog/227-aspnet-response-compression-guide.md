@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-03-27 15:01:24
-tags: [ASP.NET, .NET, API优化, 响应压缩, 性能优化]
+tags: [".NET", "ASP.NET Core"]
 slug: aspnet-response-compression-guide
 source: https://thecodeman.net/posts/response-compression-in-aspnet
 title: 解析ASP.NET中的响应压缩技术：优化.NET API性能的秘密武器 🚀

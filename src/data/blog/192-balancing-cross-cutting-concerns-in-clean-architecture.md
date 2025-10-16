@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-01-20
-tags:
+tags: ["Architecture", "DevOps"]
   [
     Clean Architecture,
     Cross-Cutting Concerns,

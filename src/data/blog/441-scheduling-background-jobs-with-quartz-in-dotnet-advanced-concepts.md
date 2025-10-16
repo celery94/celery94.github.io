@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-08-19
-tags:
+tags: [".NET", "Architecture"]
   [
     "dotnet",
     "quartz",

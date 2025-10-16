@@ -2,7 +2,7 @@
 pubDatetime: 2025-10-10
 title: Vibe Coding：用 GitHub Copilot 五分钟构建应用的完整指南
 description: 探索"Vibe Coding"这一全新开发方式，借助 GitHub Copilot 与 Claude Sonnet 4.5 的深度推理能力，从想法到生产环境部署仅需 5 分钟。本文通过构建播客数据分析平台的实际案例，详解如何与 AI 协作进行架构设计、代码实现与问题调试。
-tags: ["AI", "GitHub Copilot", "VS Code", "React", "TypeScript"]
+tags: [".NET", "AI", "DevOps", "Productivity"]
 slug: vibe-coding-guide-with-github-copilot
 source: https://devblogs.microsoft.com/blog/complete-beginners-guide-to-vibe-coding-an-app-in-5-minutes
 ---

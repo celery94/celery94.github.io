@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-05-28
-tags: []
+tags: [".NET", "ASP.NET Core"]
 source: https://code-maze.com/aspnetcore-default-asp-net-core-identity-password-hasher/
 author: Michal Kaminski
 title: How the Default ASP.NET Core Identity Password Hasher Works

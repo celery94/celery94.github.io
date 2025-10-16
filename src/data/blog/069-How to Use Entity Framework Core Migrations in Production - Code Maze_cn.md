@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-03-28
-tags: []
+tags: ["Productivity", "Tools"]
 source: https://code-maze.com/efcore-how-to-use-entity-framework-core-migrations-in-production/
 author: Gergő Vándor
 title: 如何在生产环境中使用Entity Framework Core Migrations

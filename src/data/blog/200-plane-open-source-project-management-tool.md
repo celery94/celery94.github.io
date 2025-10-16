@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-03-17
-tags: [开源, 项目管理, Plane, JIRA替代]
+tags: ["Productivity", "Tools"]
 slug: plane-open-source-project-management-tool
 source: https://github.com/makeplane/plane
 title: 🔥 开源项目管理工具Plane：JIRA、Linear和Asana的终极替代方案

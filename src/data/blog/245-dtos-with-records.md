@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-04-03 12:29:15
-tags: [C#, DTOs, Records, .NET, Software Development]
+tags: [".NET", "C#"]
 slug: dtos-with-records
 source: none
 author: Celery Liu

@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-04-19
-tags: []
+tags: [".NET", "ASP.NET Core"]
 source: https://www.milanjovanovic.tech/blog/health-checks-in-asp-net-core?utm_source=Twitter&utm_medium=social&utm_campaign=15.04.2024
 author: Milan Jovanović
 title: 在ASP.NET Core中使用健康检查监控您的应用程序

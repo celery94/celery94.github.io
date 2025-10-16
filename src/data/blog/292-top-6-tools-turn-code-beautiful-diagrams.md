@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-04-27
-tags: [可视化工具, 代码生成, 技术图表, 开发效率, 软件工程]
+tags: ["Productivity", "Tools"]
 slug: top-6-tools-turn-code-beautiful-diagrams
 source: ByteByteGo
 author: ByteByteGo

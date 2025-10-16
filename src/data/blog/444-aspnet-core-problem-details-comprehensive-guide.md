@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-08-20
-tags:
+tags: [".NET", "ASP.NET Core", "AI"]
   ["aspnetcore", "dotnet", "api", "problemdetails", "error-handling", "web-api"]
 slug: aspnet-core-problem-details-comprehensive-guide
 source: https://www.milanjovanovic.tech/blog/problem-details-for-aspnetcore-apis

@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-07-18
-tags:
+tags: [".NET", "Architecture"]
   [
     dotnetcore,
     aspdotnet,

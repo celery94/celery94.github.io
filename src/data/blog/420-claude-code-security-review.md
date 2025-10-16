@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-08-07
-tags: ["AI", "安全", "代码审查", "GitHub Actions", "Claude"]
+tags: ["AI", "Security", "DevOps", "Productivity"]
 slug: claude-code-security-review
 source: https://github.com/anthropics/claude-code-security-review
 title: 利用Claude驱动的AI代码安全审查GitHub Action实战解析

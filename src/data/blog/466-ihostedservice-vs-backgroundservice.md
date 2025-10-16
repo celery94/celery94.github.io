@@ -2,7 +2,7 @@
 pubDatetime: 2025-09-27
 title: 深入对比 IHostedService 与 BackgroundService：启动行为、适用场景与最佳实践
 description: IHostedService 与 BackgroundService 常被并列提及，却在启动等待、生命周期语义、异常传播与依赖顺序上存在本质差异。本文系统拆解二者工作机制、典型应用场景、常见陷阱（如迁移执行顺序、无限循环与取消、异常策略）并给出面向生产环境的实践清单，帮助你为短任务初始化与长期后台协作各取所长。
-tags: [".NET", "ASP.NET Core", "Background Services", "Architecture"]
+tags: [".NET", "ASP.NET Core", "Architecture"]
 slug: ihostedservice-vs-backgroundservice
 source: https://shahab-the-guy.dev/blogPost/e4e8947c-2c42-44af-b6ea-4a90c1735628
 draft: false

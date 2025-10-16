@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-07-21
-tags: [".NET", "GitHub Copilot", "AI", "开发效率", "Visual Studio"]
+tags: [".NET", "AI", "DevOps", "Productivity"]
 slug: ask-mode-vs-agent-mode
 source: https://devblogs.microsoft.com/dotnet/ask-mode-vs-agent-mode
 title: Ask Mode vs Agent Mode：为.NET开发者选择最优Copilot体验

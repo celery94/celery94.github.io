@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-05-28
-tags: [RAG, AI系统, 检索增强生成, 向量数据库, 技术架构]
+tags: ["Productivity", "Tools"]
 slug: rag-production-challenges
 title: 构建“可用”RAG系统：你想不到的那些坑与工程细节
 description: 深度解析生产级RAG（检索增强生成）系统架构的核心挑战、关键模块及工程实践建议，助力AI工程师与技术决策者打造高效、稳定的AI应用。

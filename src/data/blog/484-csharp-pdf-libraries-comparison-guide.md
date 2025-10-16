@@ -2,7 +2,7 @@
 pubDatetime: 2025-10-16
 title: "C# PDF 库完全对比指南：IronPDF、QuestPDF 与 PuppeteerSharp 深度解析"
 description: "全面对比三大 C# PDF 库的特性、性能与使用场景。深入分析 IronPDF 的企业级功能、QuestPDF 的流畅 API 设计，以及 PuppeteerSharp 的浏览器渲染能力，帮助开发者选择最适合的 PDF 解决方案。"
-tags: [".NET", "PDF", "C#", "IronPDF", "QuestPDF", "PuppeteerSharp"]
+tags: [".NET", "C#"]
 slug: csharp-pdf-libraries-comparison-guide
 source: https://antondevtips.com/blog/the-3-csharp-pdf-libraries-every-developer-must-know
 ---

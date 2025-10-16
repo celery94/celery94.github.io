@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-06-19
-tags: [.NET, Aspire, Service Discovery, 微服务, YARP, API网关, 云原生]
+tags: [".NET", "ASP.NET Core"]
 slug: dotnet-aspire-service-discovery
 source: https://www.milanjovanovic.tech/blog/how-dotnet-aspire-simplifies-service-discovery
 title: .NET Aspire如何简化服务发现：原理、实践与API网关集成全解析

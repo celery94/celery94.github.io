@@ -2,7 +2,7 @@
 pubDatetime: 2025-10-16
 title: ASP.NET Core 认证与授权完全指南：从 JWT 到属性化授权
 description: 系统化学习 ASP.NET Core 中的认证授权机制，涵盖 JWT、基于角色、基于声明和属性化授权四种模式，附完整代码示例和最佳实践。
-tags: ["ASP.NET Core", "Security", "Authentication", "Authorization", "JWT"]
+tags: [".NET", "ASP.NET Core", "Security"]
 slug: aspnetcore-authentication-authorization-comprehensive-guide
 source: https://antondevtips.com/blog/authentication-and-authorization-best-practices-in-aspnetcore
 ---

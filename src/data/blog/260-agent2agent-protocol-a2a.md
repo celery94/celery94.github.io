@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-04-10 09:07:06
-tags: [AI, A2A协议, 多代理互操作性, 企业自动化]
+tags: ["AI", "Productivity"]
 slug: agent2agent-protocol-a2a
 source: https://developers.googleblog.com/zh-hans/a2a-a-new-era-of-agent-interoperability/
 title: Google发布Agent2Agent协议：开启AI代理互操作性新时代

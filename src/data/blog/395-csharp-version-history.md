@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-06-28
-tags: ["C#", ".NET", "编程语言", "版本历史"]
+tags: [".NET", "C#"]
 slug: csharp-version-history
 source: https://learn.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-version-history
 title: C#语言版本发展全史与核心特性纵览

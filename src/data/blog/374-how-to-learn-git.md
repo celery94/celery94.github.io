@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-06-19
-tags: [Git, 版本控制, 开发工具, 软件工程, 实践经验]
+tags: ["Productivity", "Tools"]
 slug: how-to-learn-git
 source: https://newsletter.techworld-with-milan.com/p/how-to-learn-git
 title: 如何系统高效地学习 Git：原理、实践与工具全解析

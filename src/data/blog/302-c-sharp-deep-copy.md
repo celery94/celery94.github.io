@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-04-30
-tags: [deep-copy, csharp, dotnet]
+tags: [".NET", "C#"]
 slug: deep-copy-csharp
 source: openai
 title: .NET Framework 4.6.2 安全深拷贝实现方案研究

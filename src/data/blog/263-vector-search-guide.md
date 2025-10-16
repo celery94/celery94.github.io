@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-04-12 17:32:23
-tags: [AI技术, 向量搜索, 数据库, 信息检索, 技术科普]
+tags: ["Productivity", "Tools"]
 slug: vector-search-guide
 source: https://www.milanjovanovic.tech/blog/what-is-vector-search-a-concise-guide
 title: 向量搜索：开启智能信息检索新时代 🌟

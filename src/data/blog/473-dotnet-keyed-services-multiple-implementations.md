@@ -2,7 +2,7 @@
 pubDatetime: 2025-10-06
 title: .NET Keyed Services：优雅解决同接口多实现的注册与选择
 description: 深入探讨.NET 8引入的Keyed Services特性，通过实际案例展示如何优雅地注册和使用同一接口的多个实现，告别繁琐的工厂模式和条件判断。
-tags: [".NET", "依赖注入", "设计模式", "最佳实践"]
+tags: [".NET", "Architecture", "Productivity"]
 slug: dotnet-keyed-services-multiple-implementations
 ---
 

@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-08-28
-tags: ["C#", ".NET", "Coding Standards", "Best Practices", "代码规范"]
+tags: [".NET", "C#", "Architecture", "Productivity"]
 slug: workleap-dotnet-coding-standards
 source: https://anthonysimmon.com/workleap-dotnet-coding-standards
 title: Workleap 的 .NET 代码规范与最佳实践详解

@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-04-22
-tags: [.NET, Docker, Testing]
+tags: [".NET", "AI", "DevOps", "Testing"]
 source: https://www.milanjovanovic.tech/blog/testcontainers-integration-testing-using-docker-in-dotnet?utm_source=Twitter&utm_medium=social&utm_campaign=15.04.2024
 author: Milan Jovanović
 title: Testcontainers - 使用 Docker 在 .NET 中进行集成测试

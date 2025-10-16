@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-02-18T16:10:18
-tags:
+tags: ["AI", "Productivity"]
   [
     Azure,
     OpenAI,

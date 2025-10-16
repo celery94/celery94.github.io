@@ -1,8 +1,6 @@
 ---
 pubDatetime: 2024-02-07T08:00:51
-tags:
-  - dotnet
-  - architechture
+tags: [".NET", "Architecture"]
 source: https://juliocasal.com/blog/Clean-Architecture
 author: Julio Casal
 title: 在DOTNET开发中保持整洁的架构

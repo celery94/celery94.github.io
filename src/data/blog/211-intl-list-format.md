@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-03-20
-tags: [JavaScript, Intl API, Web Development]
+tags: ["Productivity", "Tools"]
 slug: intl-list-format
 source: User-provided image
 author: TechInsightsAI

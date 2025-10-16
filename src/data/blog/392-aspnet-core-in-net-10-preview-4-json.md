@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-06-27
-tags: ["ASP.NET Core", ".NET 10", "System.Text.Json", "JsonPatch", "Web API"]
+tags: [".NET", "ASP.NET Core"]
 slug: aspnet-core-in-net-10-preview-4-json
 source: https://jaliyaudagedara.blogspot.com/2025/06/aspnet-core-in-net-10-preview-4-json.html
 title: ASP.NET Core在.NET 10 Preview 4中的JSON Patch支持：迈向原生System.Text.Json集成

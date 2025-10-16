@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-05-03
-tags: [C#, ImageMagick]
+tags: [".NET", "C#"]
 source: https://code-maze.com/csharp-generate-images-using-imagemagick/
 author: Emmanuel Adom
 title: 使用 ImageMagick 在 C# 中生成图片

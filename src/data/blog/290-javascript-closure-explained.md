@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-04-26
-tags: [JavaScript, 闭包, 编程基础, 前端开发]
+tags: ["AI", "Productivity"]
 slug: javascript-closure-explained
 source: twitter
 author: Celery Liu

@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-04-07 06:49:17
-tags: [ASP.NET Core, Filters, Web API, 后端开发, 编程技巧]
+tags: [".NET", "ASP.NET Core"]
 slug: filters-in-aspnet-core
 source: Code with Mukesh
 title: 玩转 ASP.NET Core 中的过滤器（Filters）：从入门到实战！

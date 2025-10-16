@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-04-08
-tags: [C#, HttpClient]
+tags: [".NET", "ASP.NET Core"]
 source: https://www.milanjovanovic.tech/blog/extending-httpclient-with-delegating-handlers-in-aspnetcore?utm_source=Twitter&utm_medium=social&utm_campaign=01.04.2024
 author: Milan Jovanović
 title: 在 ASP.NET Core 中通过 Delegating Handlers 扩展 HttpClient

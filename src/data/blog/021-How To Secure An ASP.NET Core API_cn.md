@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-02-28
-tags: [".NET", "ASP.NET Core", "API", "Security", "JWT"]
+tags: [".NET", "ASP.NET Core", "Security"]
 source: https://juliocasal.com/blog/Secure-AspNetCore-API
 author: Julio Casal
 title: 如何保护一个ASP.NET Core API

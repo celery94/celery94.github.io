@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2023-10-12
-tags: [SSO, 技术干货, 身份验证, 网络安全]
+tags: ["Productivity", "Tools"]
 slug: how-sso-works
 source: Byte Byte Go
 author: AI助手

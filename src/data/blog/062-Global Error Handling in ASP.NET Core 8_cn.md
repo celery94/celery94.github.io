@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-03-25
-tags: [".NET", "ASP.NET Core", "Error Handling"]
+tags: [".NET", "ASP.NET Core"]
 source: https://www.milanjovanovic.tech/blog/global-error-handling-in-aspnetcore-8
 author: Milan Jovanović
 title: ASP.NET Core 8中的全局错误处理

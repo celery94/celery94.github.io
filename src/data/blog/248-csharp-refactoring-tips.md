@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-04-05 17:39:29
-tags: [C#编程, 代码重构, 开发技巧, 软件工程]
+tags: [".NET", "C#"]
 slug: csharp-refactoring-tips
 source: https://www.milanjovanovic.tech/blog/5-awesome-csharp-refactoring-tips
 title: 💡 5种C#代码重构技巧，带你解锁更优雅的编程方式！

@@ -4,8 +4,7 @@ pubDatetime: 2024-01-26
 slug: what-is-api-design
 featured: false
 draft: false
-tags:
-  - RestAPI
+tags: [".NET", "ASP.NET Core"]
 description: 了解API设计是什么，以及它如何帮助团队交付适应性强、可测试且文档齐全的API给使用者。
 ---
 

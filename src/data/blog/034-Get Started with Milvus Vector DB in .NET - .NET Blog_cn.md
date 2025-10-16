@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-03-07
-tags: [.NET]
+tags: [".NET", "Architecture"]
 source: https://devblogs.microsoft.com/dotnet/get-started-milvus-vector-db-dotnet/
 author: Luis Quintanilla
 title: 在 .NET 中开始使用 Milvus 向量数据库 - .NET 博客

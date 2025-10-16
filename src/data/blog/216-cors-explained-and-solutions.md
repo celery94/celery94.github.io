@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-03-24
-tags: [CORS, 网络安全, API开发, 后端技术, 代理服务器]
+tags: ["AI", "Productivity"]
 slug: cors-explained-and-solutions
 source: 自创
 title: 了解跨来源资源共享（CORS）及其解决方案

@@ -2,7 +2,7 @@
 pubDatetime: 2025-09-24
 title: GPT-5-Codex 提示工程实践指南：最小化提示、工具协作与 Anti-Prompting
 description: 系统梳理 GPT-5-Codex 在交互式与代理型编码场景下的最小化提示原则、工具调用模式、apply_patch 用法与 Anti-Prompting 策略，结合示例与最佳实践，帮助工程团队构建高质量、可控与高效的自动化开发工作流。
-tags: ["AI", "prompt-engineering", "LLM", "developer-tools", "productivity"]
+tags: ["AI", "Productivity", "Tools"]
 slug: gpt5-codex-prompting-guide
 source: https://cookbook.openai.com/examples/gpt-5-codex_prompting_guide
 draft: false

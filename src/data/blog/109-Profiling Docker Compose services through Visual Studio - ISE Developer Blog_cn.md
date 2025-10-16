@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-04-19
-tags: [docker]
+tags: ["DevOps", "Productivity"]
 source: https://devblogs.microsoft.com/ise/profiling-docker-compose-services-through-visual-studio/
 author: Andrew Cardy
 title: 通过 Visual Studio 对 Docker Compose 服务进行性能分析

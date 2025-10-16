@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-06-28
-tags: [".NET", "Testcontainers", "Integration Testing", "Docker", "测试实践"]
+tags: [".NET", "AI", "DevOps", "Testing"]
 slug: testcontainers-dotnet-integration-testing-best-practices
 source: https://www.milanjovanovic.tech/blog/testcontainers-best-practices-dotnet-integration-testing
 title: Testcontainers 在 .NET 集成测试中的最佳实践

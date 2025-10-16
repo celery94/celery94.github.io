@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-05-26
-tags: [EF Core, JSON, 数据库, .NET, 后端开发, PostgreSQL, SQL Server, MySQL]
+tags: ["Productivity", "Tools", "Database"]
 slug: efcore-json-relational-database-guide
 source: https://blog.elmah.io/storing-json-data-in-relational-databases-using-ef-core/
 title: EF Core 玩转 JSON：在 PostgreSQL、SQL Server 和 MySQL 中高效存储与查询 JSON 数据

@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-05-10
-tags: [.NET, DDD, 重构, 企业级开发, 软件架构]
+tags: ["AI", "Productivity"]
 slug: refactoring-transaction-scripts-to-domain-models
 source: https://www.milanjovanovic.tech/blog/from-transaction-scripts-to-domain-models-a-refactoring-journey
 title: 从事务脚本到领域模型：一次重构的进化之旅

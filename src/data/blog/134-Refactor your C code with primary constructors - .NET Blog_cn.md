@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-05-09
-tags: [C#, .NET, 重构, 主构造器]
+tags: [".NET", "C#"]
 source: https://devblogs.microsoft.com/dotnet/csharp-primary-constructors-refactoring/
 author: David Pine
 title: 使用C#主构造器重构你的代码 - .NET博客

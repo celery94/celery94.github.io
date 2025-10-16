@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-04-01
-tags: [C#, EF Core, SQL, Dapper, Bulk Insert, SQL Server, Performance]
+tags: [".NET", "C#"]
 source: https://www.milanjovanovic.tech/blog/fast-sql-bulk-inserts-with-csharp-and-ef-core?utm_source=Twitter&utm_medium=social&utm_campaign=01.04.2024
 author: Milan Jovanović
 title: 使用C#和EF Core进行快速SQL批量插入

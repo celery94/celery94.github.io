@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-07-16
-tags: ["CORS", "Web Security", "Backend", "API"]
+tags: [".NET", "ASP.NET Core", "Architecture", "Security"]
 slug: what-is-cors
 source: N/A
 title: 什么是跨域资源共享（CORS）？

@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-06-21
-tags: []
+tags: ["Architecture", "Productivity", "Tools"]
 source: https://newsletter.techworld-with-milan.com/p/documenting-software-architectures
 author: Dr Milan Milanović
 title: Documenting Software Architectures - by Dr Milan Milanović

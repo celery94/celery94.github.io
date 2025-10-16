@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-06-01
-tags: []
+tags: [".NET", "ASP.NET Core"]
 source: https://code-maze.com/aspnetcore-easycaching/
 author: Daniel Laurens
 title: EasyCaching library in ASP.NET Core

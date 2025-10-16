@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-04-29
-tags: ["API", "Postman"]
+tags: [".NET", "ASP.NET Core"]
 source: https://www.postman.com/api-platform/api-monitoring/
 author: Postman
 title: 什么是API监控？用例、工具和最佳实践

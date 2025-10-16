@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-06-18
-tags: [向量数据库, 机器学习, 向量检索, ANN, 数据存储, 技术分享]
+tags: ["Productivity", "Tools", "Database"]
 slug: fundamentals-of-vector-database
 source: aidehub
 title: 向量数据库原理与应用：机器学习时代的数据检索利器

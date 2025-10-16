@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-06-17
-tags: [RabbitMQ, .NET, 微服务, 消息队列, 架构设计]
+tags: [".NET", "Architecture"]
 slug: rabbitmq-dotnet-from-scratch-expert-guide
 source: https://thecodeman.net/posts/rabbitmq-in-dotnet-from-scratch
 title: RabbitMQ 在 .NET 项目中的应用：原理、实践与架构优化

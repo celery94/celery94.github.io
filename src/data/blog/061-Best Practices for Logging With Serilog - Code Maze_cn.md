@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-03-26
-tags: [".NET", "Serilog"]
+tags: [".NET", "DevOps"]
 source: https://code-maze.com/dotnet-best-practices-for-logging-with-serilog/
 author: Ivan Gechev
 title: 使用 Serilog 进行日志记录的最佳实践

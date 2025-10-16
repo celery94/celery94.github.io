@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-09-18
-tags: ["copilot", "prompts", "instructions", "productivity", ".NET"]
+tags: [".NET", "AI", "Productivity", "Tools"]
 slug: prompt-files-and-instructions-files-explained
 source: https://devblogs.microsoft.com/dotnet/prompt-files-and-instructions-files-explained
 title: Prompt 文件与 Instructions 文件详解：为 Copilot 提供长期规则与一次性任务上下文

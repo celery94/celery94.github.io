@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-04-17 12:08:46
-tags: [dotnet, 架构, 软件工程, 垂直切片, 微服务, 模块化单体]
+tags: [".NET", "Architecture"]
 slug: modular-monolith-vertical-slice-dotnet
 source: https://dev.to/antonmartyniuk/building-a-modular-monolith-with-vertical-slice-architecture-in-net-2jj7
 title: 从零搭建.NET模块化单体：垂直切片架构的最佳实践

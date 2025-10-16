@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-06-18
-tags: []
+tags: [".NET", "Architecture"]
 source: https://devblogs.microsoft.com/dotnet/refactor-your-code-with-default-lambda-parameters/
 author: David Pine
 title: 使用默认 lambda 参数重构你的代码 - .NET 博客

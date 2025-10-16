@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-05-15
-tags:
+tags: ["Productivity", "Tools"]
   [AI算法, 自动化, 计算机科学, 大模型, AlphaEvolve, Google DeepMind, 算法优化]
 slug: alphaevolve-gemini-powered-coding-agent
 source: https://deepmind.google/discover/blog/alphaevolve-a-gemini-powered-coding-agent-for-designing-advanced-algorithms/

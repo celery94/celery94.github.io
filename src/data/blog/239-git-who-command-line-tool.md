@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-04-01 12:26:21
-tags: [Git, 开源工具, 编程效率, 软件开发]
+tags: ["Productivity", "Tools"]
 slug: git-who-command-line-tool
 source: https://github.com/sinclairtarget/git-who
 title: 🚀 深度解读 `git-who`：一个比 `git blame` 更强大的代码分析工具

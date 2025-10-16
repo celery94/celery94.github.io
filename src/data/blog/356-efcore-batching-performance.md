@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-06-09
-tags: [EF Core, .NET, 性能优化, Batching, 后端开发]
+tags: ["Performance", "Productivity", "Tools"]
 slug: efcore-batching-performance
 source: https://www.milanjovanovic.tech/blog/how-i-made-my-efcore-query-faster-with-batching
 title: EF Core查询性能优化实战：如何用批处理让查询提速3.4倍

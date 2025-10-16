@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-04-23 22:24:54
-tags: [C#, EF Core, SQL, 性能优化, .NET, 批量插入, 数据库]
+tags: [".NET", "C#"]
 slug: fast-sql-bulk-inserts-dotnet-efcore
 source: https://www.milanjovanovic.tech/blog/fast-sql-bulk-inserts-with-csharp-and-ef-core?utm_source=X&utm_medium=social&utm_campaign=21.04.2025
 title: 用C#和EF Core实现高性能SQL批量插入全攻略

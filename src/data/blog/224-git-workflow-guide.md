@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-03-26 21:03:10
-tags: [Git, 编程工具, 软件开发, 初学者指南]
+tags: ["Productivity", "Tools"]
 slug: git-workflow-guide
 source: https://www.example.com/git-workflow-guide
 title: 从零开始掌握Git：代码管理的必备神器！✨

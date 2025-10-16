@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-08-07
-tags: ["ASP.NET Core", "Server-Sent Events", "实时推送", "Web开发", ".NET 10"]
+tags: [".NET", "ASP.NET Core", "Architecture", "Frontend"]
 slug: real-time-server-sent-events-in-aspnetcore
 source: https://antondevtips.com/blog/real-time-server-sent-events-in-asp-net-core
 title: ASP.NET Core 与 .NET 10 中的实时 Server-Sent Events 技术详解

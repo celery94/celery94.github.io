@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-07-24
-tags: ["VSCode", "AI Agent", "Prompt Engineering", "Copilot", "开发效率"]
+tags: [".NET", "AI", "Productivity", "Tools"]
 slug: beastmode-vscode-agent
 source: https://gist.github.com/burkeholland/88af0249c4b6aff3820bf37898c8bacf
 title: VSCode Beast Mode 工作流与深度定制：打造更高效的 AI 编程助手

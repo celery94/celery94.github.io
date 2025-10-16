@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-04-24
-tags: [.net, ascii, c#]
+tags: [".NET", "C#", "DevOps"]
 source: https://www.devleader.ca/2023/08/25/generate-ascii-art-a-simple-how-to-in-c/
 author: Nick Cosentino
 title: 使用C#将图片转换为 ASCII 艺术品

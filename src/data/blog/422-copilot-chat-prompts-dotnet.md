@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-08-07
-tags: [".NET", "Copilot", "AI开发助手", "C#", "开发效率"]
+tags: [".NET", "C#", "AI", "Productivity"]
 slug: copilot-chat-prompts-dotnet
 source: https://devblogs.microsoft.com/dotnet/5-copilot-chat-prompts-dotnet-devs-should-steal-today
 title: 5个 .NET 开发者必备的 Copilot Chat 提示词与实践解读

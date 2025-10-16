@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-04-28
-tags: [".NET", "性能优化", "内存管理", "高效编程"]
+tags: [".NET", "Performance"]
 slug: modern-dotnet-memory-optimizations
 source: https://mijailovic.net/2025/04/10/memory-optimizations/?utm_source=bonobopress&utm_medium=newsletter&utm_campaign=2044
 title: 用现代.NET特性优化你的内存管理：开发者必备实战指南

@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-04-07 20:54:06
-tags: [.NET, Guid, 技术干货, 编程]
+tags: [".NET", "Architecture"]
 slug: guid-v7-net9
 source: okyry1chuk.dev
 author: Celery

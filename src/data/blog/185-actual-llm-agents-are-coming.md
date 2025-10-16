@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-03-15
-tags: [AI, LLM, Agents, Reinforcement Learning, Technology]
+tags: ["AI", "Productivity"]
 slug: actual-llm-agents-are-coming
 source: https://vintagedata.org/blog/posts/designing-llm-agents
 title: 实际的LLM代理即将到来：探索人工智能的新前沿

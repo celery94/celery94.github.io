@@ -2,7 +2,7 @@
 pubDatetime: 2025-10-09
 title: 前端开发技术路线 2025：从基础到专业化的完整指南
 description: 深入探讨 2025 年前端开发的完整技术路线，涵盖 HTML/CSS 基础、JavaScript 框架、状态管理、构建工具、性能优化、测试策略、部署流程及可观测性实践，为开发者提供系统性的技能提升路径。
-tags: ["Frontend", "JavaScript", "TypeScript", "React", "DevOps", "Performance"]
+tags: ["Performance", "DevOps", "Frontend"]
 slug: frontend-development-roadmap-2025
 ---
 

@@ -2,7 +2,7 @@
 pubDatetime: 2025-09-29
 title: ".NET 分布式锁定：多实例协调工作的实用指南"
 description: "深入探讨 .NET 环境下的分布式锁定机制，包括 PostgreSQL Advisory Locks 和 DistributedLock 库的实现方案，帮助解决多实例环境中的并发访问问题。"
-tags: [".NET", "分布式系统", "并发控制", "PostgreSQL", "Redis"]
+tags: [".NET", "C#", "Architecture", "Database"]
 slug: distributed-locking-dotnet-coordination
 source: https://www.milanjovanovic.tech/blog/distributed-locking-in-dotnet-coordinating-work-across-multiple-instances
 ---

@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-04-07 21:01:38
-tags: [JWT, 认证机制, 分布式系统, 网络安全, Web开发]
+tags: ["Security", "Productivity", "Tools"]
 slug: json-web-tokens-introduction
 source: X
 title: 解决分布式身份认证难题，深度解析JSON Web Tokens（JWT）

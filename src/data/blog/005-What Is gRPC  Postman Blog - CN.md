@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-02-01T20:39:58
-tags: [gRPC, RestAPI]
+tags: ["Productivity", "Tools"]
 source: https://blog.postman.com/what-is-grpc/
 author: The Postman Team
 title: 什么是 gRPC?

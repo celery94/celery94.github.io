@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-05-29
-tags: [C#, .NET, dotnet, 编程入门, 脚本开发, 新特性, 微软]
+tags: [".NET", "C#"]
 slug: dotnet-run-app-cs-easy-csharp
 source: https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app
 title: 终于来了！“dotnet run app.cs”：C#/.NET 10最轻量的新玩法，开发者必看！

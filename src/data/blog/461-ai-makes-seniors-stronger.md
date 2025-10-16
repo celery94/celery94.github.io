@@ -2,7 +2,7 @@
 pubDatetime: 2025-09-22
 title: AI 原本该让初级发光，为什么反而让资深更强？
 description: 过去两年，许多人以为“AI + 初级开发者”能替代资深工程师。但现实却恰好相反：AI 让资深开发者的产能和影响力进一步放大，而对初级的帮助常常被误解。本文从工程化认知、架构与质量、非确定性与校验、组织期望与人才培养等维度，系统梳理 AI 在软件开发中的正确位置与边界，并给出可落地的实践建议。
-tags: ["AI", "Software Engineering", "Career", "Mentoring"]
+tags: ["AI", "Architecture", "Productivity"]
 slug: ai-makes-seniors-stronger
 source: https://elma.dev/notes/ai-makes-seniors-stronger/
 draft: false

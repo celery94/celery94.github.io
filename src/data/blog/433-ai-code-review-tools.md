@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-08-14
-tags: ["AI Code Review", "Software Engineering"]
+tags: ["AI", "Architecture", "Productivity", "Tools"]
 slug: ai-code-review-tools
 source: https://newsletter.techworld-with-milan.com/p/how-to-do-code-reviews-with-ai-tools
 title: 如何使用AI工具进行高效代码审查

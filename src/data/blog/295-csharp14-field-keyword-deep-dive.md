@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-04-28
-tags: [C#, .NET, C#14, field关键字, 语言新特性, 编程范式, 代码可维护性]
+tags: [".NET", "C#"]
 slug: csharp14-field-keyword-deep-dive
 source: https://mareks-082.medium.com/behind-the-scenes-of-the-new-field-keyword-in-c-14-cb792c0a4edc
 title: C# 14 新特性：field 关键字深度解析与实用场景

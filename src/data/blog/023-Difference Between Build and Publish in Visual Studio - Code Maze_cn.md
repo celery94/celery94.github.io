@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-02-29
-tags: [.NET, Visual Studio, build, publish]
+tags: ["Productivity", "Tools"]
 source: https://code-maze.com/visual-studio-difference-between-build-and-publish/
 author: Ansa Baby
 title: Visual Studio 中 Build 和 Publish 之间的区别

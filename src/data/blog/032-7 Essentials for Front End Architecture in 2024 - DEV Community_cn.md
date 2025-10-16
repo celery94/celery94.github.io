@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-03-07
-tags:
+tags: ["Productivity", "Tools"]
   [
     webdev,
     javascript,

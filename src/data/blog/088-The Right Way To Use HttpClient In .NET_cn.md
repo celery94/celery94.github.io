@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-04-08
-tags: [C#, HttpClient]
+tags: [".NET", "Architecture"]
 source: https://www.milanjovanovic.tech/blog/the-right-way-to-use-httpclient-in-dotnet?utm_source=Twitter&utm_medium=social&utm_campaign=01.04.2024
 author: Milan Jovanović
 title: 在 .NET 中正确使用 HttpClient 的方式

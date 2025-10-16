@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-03-30
-tags: [.NET, Bing]
+tags: [".NET", "Architecture"]
 source: https://devblogs.microsoft.com/dotnet/bing-on-dotnet-8-the-impact-of-dynamic-pgo/
 author: Ben Watson
 title: Bing 在 .NET 8 上 - 动态 PGO 的影响 - .NET 博客

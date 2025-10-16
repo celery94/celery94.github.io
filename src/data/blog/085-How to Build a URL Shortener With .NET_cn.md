@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-04-06
-tags: [C#]
+tags: [".NET", "Architecture"]
 source: https://www.milanjovanovic.tech/blog/how-to-build-a-url-shortener-with-dotnet
 author: Milan Jovanović
 title: 如何用 .NET 构建一个 URL 缩短器

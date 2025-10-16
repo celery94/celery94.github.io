@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-06-04
-tags: [vector database, AI, application, generative AI, large language model]
+tags: ["Productivity", "Tools"]
 source: https://dzone.com/articles/how-to-build-a-basic-rag-app
 author: Roger Oriol
 title: 如何构建一个基础的RAG应用

@@ -4,10 +4,7 @@ pubDatetime: 2024-01-26
 slug: cqrs-pattern-with-mediatr
 featured: false
 draft: false
-tags:
-  - ASP.NET Core
-  - CQRS
-  - MediatR
+tags: [".NET", "ASP.NET Core", "Architecture"]
 source: https://www.milanjovanovic.tech/blog/cqrs-pattern-with-mediatr
 description: 如何使用 CQRS 模式来构建快速且可扩展的应用程序。
 ---

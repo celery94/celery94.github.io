@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-05-16
-tags: []
+tags: [".NET", "Architecture"]
 source: https://www.milanjovanovic.tech/blog/functional-error-handling-in-dotnet-with-the-result-pattern?utm_source=Twitter&utm_medium=social&utm_campaign=13.05.2024
 author: Milan Jovanović
 title: 用Result Pattern在.NET中进行功能性错误处理

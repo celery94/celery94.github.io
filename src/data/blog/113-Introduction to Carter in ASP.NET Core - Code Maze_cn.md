@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-04-22
-tags: [".NET", "Carter", "ASP.NET Core"]
+tags: [".NET", "ASP.NET Core"]
 source: https://code-maze.com/aspnetcore-introduction-to-carter/
 author: Ivan Gechev
 title: ASP.NET Core 中引入 Carter

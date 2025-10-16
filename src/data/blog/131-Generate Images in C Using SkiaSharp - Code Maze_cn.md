@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-05-06
-tags: [C#, SkiaSharp, Image]
+tags: [".NET", "C#"]
 source: https://code-maze.com/csharp-generate-images-using-skiasharp/
 author: Emmanuel Adom
 title: 使用 SkiaSharp 在 C# 中生成图像

@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-04-01
-tags: [C#, .NET, Diagnostics, Tracing, Debugging]
+tags: [".NET", "DevOps"]
 source: https://dev.to/turalsuleymani/implementing-diagnostings-in-net-applications-23ab
 author: Tural Suleymani
 title: 在 .NET 应用程序中实现Tracing（跟踪）

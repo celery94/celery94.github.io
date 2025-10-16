@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-04-16
-tags: [.net8, docker]
+tags: [".NET", "Architecture"]
 source: https://devblogs.microsoft.com/dotnet/streamline-container-build-dotnet-8/
 author: Richard Lander
 title: 使用 .NET 8 简化容器构建和发布

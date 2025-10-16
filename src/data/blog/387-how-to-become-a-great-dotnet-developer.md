@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-06-26
-tags: [.NET, C#, 性能优化, 架构设计, DevOps, 技术分享]
+tags: [".NET", "Architecture"]
 slug: how-to-become-a-great-dotnet-developer
 source: AideHub
 title: 如何成为优秀的.NET开发者：从源码到生产的十步进阶指南

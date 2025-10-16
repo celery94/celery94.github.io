@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-04-30
-tags: [C#, Zip]
+tags: [".NET", "C#"]
 source: https://code-maze.com/csharp-create-a-zip-file-in-memory/
 author: Matjaz Prtenjak
 title: 如何在 C# 中创建内存中的 Zip 文件

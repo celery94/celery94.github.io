@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-05-13
-tags: [软件工程, 工程思维, 团队管理, 问题解决, 系统设计]
+tags: ["Productivity", "Tools"]
 slug: we-are-software-engineers-not-developers
 source:
 title: 我们是软件工程师，不只是开发者：高效团队的工程思维指南

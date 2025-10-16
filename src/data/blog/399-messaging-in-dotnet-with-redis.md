@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-07-07
-tags: [".NET", "Redis", "消息中间件", "分布式系统"]
+tags: [".NET", "Architecture", "Database"]
 slug: messaging-in-dotnet-with-redis
 source: https://thecodeman.net/posts/messaging-in-dotnet-with-redis
 title: 在 .NET 中利用 Redis 实现高效消息通信

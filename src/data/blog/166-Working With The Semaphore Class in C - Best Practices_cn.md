@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-06-21
-tags: []
+tags: [".NET", "C#"]
 source: https://code-maze.com/semaphore-introduction-csharp/
 author: Georgios Panagopoulos
 title: Working With The Semaphore Class in C# - Best Practices

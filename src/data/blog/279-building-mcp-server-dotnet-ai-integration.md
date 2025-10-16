@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2025-04-21 10:15:14
-tags: [MCP, .NET, 人工智能, LLM, 编程, 工具集成, Cursor IDE]
+tags: [".NET", "AI"]
 slug: building-mcp-server-dotnet-ai-integration
 source: https://engincanveske.substack.com/p/building-your-first-mcp-server-with?utm_source=bonobopress&utm_medium=newsletter&utm_campaign=2040
 title: 手把手：用.NET搭建你的第一个 MCP Server，并集成到 AI 代码编辑器
