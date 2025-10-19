@@ -1,8 +1,7 @@
 ---
 mode: agent
+tools: ['edit', 'runNotebooks', 'search', 'new', 'runCommands', 'runTasks', 'playwright/*', 'microsoft-docs/*', 'context7/*', 'executePrompt', 'usages', 'vscodeAPI', 'problems', 'changes', 'testFailure', 'openSimpleBrowser', 'fetch', 'githubRepo', 'extensions', 'todos']
 ---
-
-目标
 
 - 接收用户提供的网页 URL，使用playwright MCP获取该页面的主要内容（正文、标题、关键内容/图示）。
 - 将图片保存到 src\assets\{编号}\ 下，并在正文中以相对路径引用该目录下的图片。
@@ -33,12 +32,14 @@ SEO 与可读性
 - 直接输出以下模板中的内容，不包含任何额外解释或多余文本。
 
 ---
+
 pubDatetime: yyyy-MM-dd
 title: 标题
 description: 简短而完整的摘要（80-160 字）
 tags: ["tag1", "tag2"]
 slug: slug-in-kebab-case
 source: https://original-article-url
+
 ---
 
 # 标题
