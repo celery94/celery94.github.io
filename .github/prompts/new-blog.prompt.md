@@ -1,11 +1,12 @@
 ---
 mode: agent
-tools: ['edit', 'runNotebooks', 'search', 'new', 'runCommands', 'runTasks', 'upstash/context7/*', 'microsoftdocs/mcp/*', 'microsoft/playwright-mcp/*', 'executePrompt', 'usages', 'vscodeAPI', 'problems', 'changes', 'testFailure', 'openSimpleBrowser', 'fetch', 'githubRepo', 'extensions', 'todos', 'runTests']
+tools: ['edit', 'runNotebooks', 'search', 'new', 'runCommands', 'runTasks', 'microsoft/playwright-mcp/*', 'microsoftdocs/mcp/*', 'upstash/context7/*', 'runSubagent', 'usages', 'vscodeAPI', 'problems', 'changes', 'testFailure', 'openSimpleBrowser', 'fetch', 'githubRepo', 'extensions', 'todos', 'runTests']
 ---
 
 - 接收用户提供的网页 URL，使用playwright MCP获取该页面的主要内容（正文、标题、关键内容/图示）。
 - 将图片保存到 src\assets\{编号}\ 下，并在正文中以相对路径引用该目录下的图片。
 - 在充分理解的基础上进行深度改写与扩展：重组结构、补充背景/原理/对比/最佳实践与示例，输出一篇可发布的高质量技术分享文章。
+- 使用context7 MCP进行内容理解与改写，确保内容准确且专业。
 - 语言：中文，风格正式、专业、清晰，适合博客发布；尽量避免“流水账式”或“堆砌式”表述。
 - 禁止整段复制粘贴原文；必须用自己的话重述与总结，确保不侵犯版权；保留专有名词的英文表述。
 - 避免“列表堆砌”的写法，正文以段落阐述为主；如确有必要，可在局部使用小段落列表，但不要让整篇文章变成清单。
