@@ -496,6 +496,8 @@ const heroStats = [
     font-weight: 600;
     text-decoration: none;
     transition: transform 0.35s ease, box-shadow 0.35s ease, background 0.35s ease, border-color 0.35s ease;
+    white-space: nowrap;
+    flex-wrap: nowrap;
   }
 
   .hero-primary-btn {
@@ -725,7 +727,7 @@ const heroStats = [
 
     .hero-primary-btn,
     .hero-secondary-btn {
-      width: 100%;
+      max-width: 100%;
     }
 
     .hero-stat-card {

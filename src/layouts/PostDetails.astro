@@ -91,8 +91,8 @@ const nextPost =
   >
     <h1
       transition:name={slugifyStr(title)}
-      class="inline-block text-2xl font-bold text-accent sm:text-3xl"
-      style="text-shadow: 0 0 10px rgba(var(--accent-rgb, 0, 0, 0), 0.25);"
+      class="inline-block text-3xl font-extrabold text-accent sm:text-4xl md:text-5xl leading-tight mb-4"
+      style="text-shadow: 0 2px 20px rgba(var(--accent-rgb, 0, 0, 0), 0.3); letter-spacing: -0.025em;"
     >
       {title}
     </h1>
@@ -105,24 +105,37 @@ const nextPost =
       />
       <EditPost class="max-sm:hidden" editPost={editPost} postId={post.id} />
     </div>
-    <article id="article" class="mx-auto prose mt-8 max-w-5xl">
+    <article id="article" class="mx-auto prose prose-lg mt-12 max-w-4xl">
       <Content />
     </article>
     
     <style>
       /* Enhanced dark mode article styling */
       :global(html[data-theme="dark"] #article) {
-        line-height: 1.8;
-        letter-spacing: 0.01em;
+        line-height: 1.85;
+        letter-spacing: 0.015em;
         color-scheme: dark;
-        font-weight: 350;
+        font-weight: 400;
+        font-size: 1.0625rem;
       }
 
       /* Improved dark mode paragraph styling */
       :global(html[data-theme="dark"] #article p) {
-        color: rgba(255, 255, 255, 0.95);
-        margin-bottom: 1.5em;
-        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        color: rgba(255, 255, 255, 0.92);
+        margin-bottom: 1.75em;
+        line-height: 1.9;
+      }
+      
+      :global(html[data-theme="light"] #article) {
+        line-height: 1.85;
+        letter-spacing: 0.01em;
+        font-size: 1.0625rem;
+      }
+      
+      :global(html[data-theme="light"] #article p) {
+        color: rgba(0, 0, 0, 0.85);
+        margin-bottom: 1.75em;
+        line-height: 1.9;
       }
 
       /* Enhanced headings contrast and style */
@@ -131,87 +144,203 @@ const nextPost =
       :global(html[data-theme="dark"] #article h3),
       :global(html[data-theme="dark"] #article h4) {
         color: white;
-        letter-spacing: -0.01em;
-        font-weight: 700;
-        margin-top: 2rem;
-        text-shadow: 0 0 10px rgba(var(--accent-rgb), 0.3);
+        letter-spacing: -0.02em;
+        font-weight: 800;
+        margin-top: 2.5rem;
+        margin-bottom: 1.25rem;
+        line-height: 1.3;
+        background: linear-gradient(135deg, white 0%, rgba(255, 255, 255, 0.9) 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        text-shadow: 0 2px 15px rgba(var(--accent-rgb), 0.25);
+      }
+      
+      :global(html[data-theme="dark"] #article h2) {
+        font-size: 1.875rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid rgba(var(--accent-rgb), 0.2);
+      }
+      
+      :global(html[data-theme="dark"] #article h3) {
+        font-size: 1.5rem;
+        color: rgba(255, 255, 255, 0.95);
+      }
+      
+      :global(html[data-theme="light"] #article h1),
+      :global(html[data-theme="light"] #article h2),
+      :global(html[data-theme="light"] #article h3),
+      :global(html[data-theme="light"] #article h4) {
+        letter-spacing: -0.02em;
+        font-weight: 800;
+        margin-top: 2.5rem;
+        margin-bottom: 1.25rem;
+        line-height: 1.3;
+        color: rgba(0, 0, 0, 0.9);
+      }
+      
+      :global(html[data-theme="light"] #article h2) {
+        font-size: 1.875rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+      }
+      
+      :global(html[data-theme="light"] #article h3) {
+        font-size: 1.5rem;
       }
 
       /* Enhanced list styling */
       :global(html[data-theme="dark"] #article ul),
       :global(html[data-theme="dark"] #article ol) {
-        padding-left: 1.5rem;
+        padding-left: 1.75rem;
+        margin: 1.5em 0;
       }
 
       :global(html[data-theme="dark"] #article li) {
         color: rgba(255, 255, 255, 0.9);
-        margin-bottom: 0.5em;
+        margin-bottom: 0.75em;
+        line-height: 1.8;
       }
 
       :global(html[data-theme="dark"] #article li::marker) {
         color: var(--color-accent);
+        font-weight: 600;
+      }
+      
+      :global(html[data-theme="light"] #article ul),
+      :global(html[data-theme="light"] #article ol) {
+        padding-left: 1.75rem;
+        margin: 1.5em 0;
+      }
+      
+      :global(html[data-theme="light"] #article li) {
+        color: rgba(0, 0, 0, 0.8);
+        margin-bottom: 0.75em;
+        line-height: 1.8;
+      }
+      
+      :global(html[data-theme="light"] #article li::marker) {
+        color: var(--color-accent);
+        font-weight: 600;
       }
 
       /* Enhanced link styling */
       :global(html[data-theme="dark"] #article a) {
         color: var(--color-accent);
-        text-decoration-color: rgba(var(--accent-rgb), 0.4);
-        text-decoration-thickness: 1px;
-        text-underline-offset: 2px;
-        transition: all 0.2s ease;
+        text-decoration: underline;
+        text-decoration-color: rgba(var(--accent-rgb), 0.3);
+        text-decoration-thickness: 2px;
+        text-underline-offset: 3px;
+        transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        font-weight: 500;
       }
 
       :global(html[data-theme="dark"] #article a:hover) {
         text-decoration-color: var(--color-accent);
         text-decoration-thickness: 2px;
-        text-shadow: 0 0 8px rgba(var(--accent-rgb), 0.5);
+        text-shadow: 0 0 12px rgba(var(--accent-rgb), 0.6);
+        transform: translateY(-1px);
+      }
+      
+      :global(html[data-theme="light"] #article a) {
+        color: var(--color-accent);
+        text-decoration: underline;
+        text-decoration-color: rgba(2, 132, 199, 0.4);
+        text-decoration-thickness: 2px;
+        text-underline-offset: 3px;
+        transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        font-weight: 500;
+      }
+      
+      :global(html[data-theme="light"] #article a:hover) {
+        text-decoration-color: var(--color-accent);
+        text-decoration-thickness: 2px;
+        transform: translateY(-1px);
       }
 
       /* Enhanced blockquote styling */
       :global(html[data-theme="dark"] #article blockquote) {
-        background-color: rgba(var(--accent-rgb), 0.08);
-        border-left: 4px solid rgba(var(--accent-rgb), 0.6);
-        padding: 1rem 1.5rem;
-        border-radius: 0 0.25rem 0.25rem 0;
+        background: linear-gradient(135deg, rgba(var(--accent-rgb), 0.1) 0%, rgba(var(--accent-rgb), 0.05) 100%);
+        border-left: 5px solid rgba(var(--accent-rgb), 0.7);
+        padding: 1.5rem 2rem;
+        border-radius: 0 0.5rem 0.5rem 0;
         font-style: italic;
-        margin: 1.5rem 0;
-        box-shadow: var(--shadow-sm);
+        margin: 2rem 0;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        position: relative;
+      }
+      
+      :global(html[data-theme="dark"] #article blockquote::before) {
+        content: '\201C';
+        position: absolute;
+        top: 0.5rem;
+        left: 0.5rem;
+        font-size: 3rem;
+        color: rgba(var(--accent-rgb), 0.3);
+        line-height: 1;
       }
 
       :global(html[data-theme="dark"] #article blockquote p) {
         color: rgba(255, 255, 255, 0.95);
+        margin-bottom: 0.75em;
+      }
+      
+      :global(html[data-theme="light"] #article blockquote) {
+        background: linear-gradient(135deg, rgba(2, 132, 199, 0.08) 0%, rgba(2, 132, 199, 0.03) 100%);
+        border-left: 5px solid rgba(2, 132, 199, 0.6);
+        padding: 1.5rem 2rem;
+        border-radius: 0 0.5rem 0.5rem 0;
+        font-style: italic;
+        margin: 2rem 0;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        position: relative;
+      }
+      
+      :global(html[data-theme="light"] #article blockquote::before) {
+        content: '\201C';
+        position: absolute;
+        top: 0.5rem;
+        left: 0.5rem;
+        font-size: 3rem;
+        color: rgba(2, 132, 199, 0.2);
+        line-height: 1;
+      }
+      
+      :global(html[data-theme="light"] #article blockquote p) {
+        color: rgba(0, 0, 0, 0.85);
+        margin-bottom: 0.75em;
       }
 
       /* Enhanced code blocks */
       :global(#article pre) {
-        border-radius: 0.75rem;
-        margin: 2rem 0;
+        border-radius: 1rem;
+        margin: 2.5rem 0;
         padding: 0;
         overflow-x: auto;
         position: relative;
-        font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-        /* 自定义滚动条 */
+        font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'SF Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
         scrollbar-width: thin;
+        font-size: 0.9375rem;
+        line-height: 1.7;
       }
       
       :global(html[data-theme="dark"] #article pre) {
-        border: 1px solid rgba(55, 65, 81, 0.8);
+        border: 1px solid rgba(99, 102, 241, 0.2);
         box-shadow: 
-          0 10px 25px -5px rgba(0, 0, 0, 0.3),
-          0 4px 6px -2px rgba(0, 0, 0, 0.1),
+          0 20px 40px -10px rgba(0, 0, 0, 0.4),
+          0 8px 16px -4px rgba(0, 0, 0, 0.2),
           inset 0 1px 0 rgba(255, 255, 255, 0.05);
-        background: linear-gradient(145deg, #1a1b26 0%, #16161e 100%);
-        scrollbar-color: #6366f1 #2a2e3a;
+        background: linear-gradient(145deg, #16161e 0%, #1a1b26 50%, #16161e 100%);
+        scrollbar-color: rgba(99, 102, 241, 0.6) rgba(42, 46, 58, 0.5);
       }
       
       :global(html[data-theme="light"] #article pre) {
-        border: 1px solid rgba(203, 213, 225, 0.8);
+        border: 1px solid rgba(203, 213, 225, 0.5);
         box-shadow: 
-          0 10px 25px -5px rgba(0, 0, 0, 0.1),
-          0 4px 6px -2px rgba(0, 0, 0, 0.05),
-          inset 0 1px 0 rgba(255, 255, 255, 0.9);
-        background: linear-gradient(145deg, #f8fafc 0%, #f1f5f9 100%);
-        scrollbar-color: #6366f1 #e2e8f0;
+          0 20px 40px -10px rgba(0, 0, 0, 0.12),
+          0 8px 16px -4px rgba(0, 0, 0, 0.08),
+          inset 0 1px 0 rgba(255, 255, 255, 0.95);
+        background: linear-gradient(145deg, #f8fafc 0%, #ffffff 50%, #f8fafc 100%);
+        scrollbar-color: rgba(99, 102, 241, 0.5) rgba(226, 232, 240, 0.5);
       }
 
       /* Webkit 滚动条样式 */
@@ -244,20 +373,21 @@ const nextPost =
 
       :global(#article pre code) {
         display: block;
-        padding: 1.5rem;
+        padding: 1.75rem 2rem;
         font-family: inherit;
-        font-size: 0.875rem;
-        line-height: 1.7;
+        font-size: 0.9375rem;
+        line-height: 1.75;
         font-weight: 400;
-        letter-spacing: 0.025em;
+        letter-spacing: 0.01em;
         background: transparent !important;
         border: none;
         outline: none;
+        tab-size: 2;
       }
 
       :global(html[data-theme="dark"] #article pre code) {
         color: #e2e8f0;
-        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
         background: transparent !important;
       }
       
@@ -353,25 +483,27 @@ const nextPost =
 
       /* 内联代码样式 */
       :global(html[data-theme="dark"] #article code:not(pre code)) {
-        color: #f1f5f9;
-        background: linear-gradient(135deg, rgba(var(--accent-rgb), 0.2), rgba(var(--accent-rgb), 0.1));
-        padding: 0.25rem 0.5rem;
-        border-radius: 0.375rem;
+        color: #fbbf24;
+        background: linear-gradient(135deg, rgba(251, 191, 36, 0.15), rgba(251, 191, 36, 0.08));
+        padding: 0.25em 0.6em;
+        border-radius: 0.4rem;
         font-weight: 600;
-        font-size: 0.875em;
-        border: 1px solid rgba(var(--accent-rgb), 0.3);
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+        font-size: 0.9em;
+        border: 1px solid rgba(251, 191, 36, 0.25);
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+        white-space: nowrap;
       }
       
       :global(html[data-theme="light"] #article code:not(pre code)) {
         color: #dc2626;
-        background: linear-gradient(135deg, rgba(220, 38, 38, 0.1), rgba(220, 38, 38, 0.05));
-        padding: 0.25rem 0.5rem;
-        border-radius: 0.375rem;
+        background: linear-gradient(135deg, rgba(220, 38, 38, 0.12), rgba(220, 38, 38, 0.06));
+        padding: 0.25em 0.6em;
+        border-radius: 0.4rem;
         font-weight: 600;
-        font-size: 0.875em;
+        font-size: 0.9em;
         border: 1px solid rgba(220, 38, 38, 0.2);
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+        white-space: nowrap;
       }
 
       /* 代码块语言标签（如果存在） */
@@ -405,19 +537,27 @@ const nextPost =
 
       /* 代码块悬停效果 */
       :global(html[data-theme="dark"] #article pre:hover) {
-        border-color: rgba(var(--accent-rgb), 0.4);
+        border-color: rgba(99, 102, 241, 0.4);
         box-shadow: 
-          0 20px 35px -5px rgba(0, 0, 0, 0.4),
-          0 10px 10px -5px rgba(0, 0, 0, 0.2),
+          0 25px 50px -12px rgba(0, 0, 0, 0.5),
+          0 12px 20px -8px rgba(99, 102, 241, 0.3),
           inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        transform: translateY(-2px);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       }
       
       :global(html[data-theme="light"] #article pre:hover) {
-        border-color: rgba(99, 102, 241, 0.3);
+        border-color: rgba(99, 102, 241, 0.4);
         box-shadow: 
-          0 20px 35px -5px rgba(0, 0, 0, 0.15),
-          0 10px 10px -5px rgba(0, 0, 0, 0.1),
+          0 25px 50px -12px rgba(0, 0, 0, 0.18),
+          0 12px 20px -8px rgba(99, 102, 241, 0.2),
           inset 0 1px 0 rgba(255, 255, 255, 1);
+        transform: translateY(-2px);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      
+      :global(#article pre) {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       }
 
       /* Enhanced table styling */
@@ -425,35 +565,193 @@ const nextPost =
         border-collapse: separate;
         border-spacing: 0;
         width: 100%;
-        box-shadow: var(--shadow-sm);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         overflow: hidden;
-        border-radius: 0.375rem;
-        border: 1px solid var(--color-border);
-        margin: 1.5rem 0;
+        border-radius: 0.75rem;
+        border: 1px solid rgba(99, 102, 241, 0.2);
+        margin: 2rem 0;
       }
 
       :global(html[data-theme="dark"] #article thead) {
-        background-color: rgba(var(--accent-rgb), 0.1);
+        background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(139, 92, 246, 0.1));
       }
 
       :global(html[data-theme="dark"] #article th) {
         color: white;
-        font-weight: 600;
+        font-weight: 700;
         text-transform: uppercase;
         letter-spacing: 0.05em;
-        padding: 0.75rem 1rem;
-        border-bottom: 2px solid rgba(var(--accent-rgb), 0.4);
+        padding: 1rem 1.5rem;
+        border-bottom: 2px solid rgba(99, 102, 241, 0.4);
+        font-size: 0.875rem;
       }
 
       :global(html[data-theme="dark"] #article td) {
-        padding: 0.75rem 1rem;
-        border-top: 1px solid rgba(var(--accent-rgb), 0.1);
-        color: white;
-        opacity: 0.9;
+        padding: 1rem 1.5rem;
+        border-top: 1px solid rgba(99, 102, 241, 0.1);
+        color: rgba(255, 255, 255, 0.9);
       }
 
       :global(html[data-theme="dark"] #article tbody tr:hover) {
-        background-color: rgba(var(--accent-rgb), 0.05);
+        background-color: rgba(99, 102, 241, 0.08);
+        transition: background-color 0.2s ease;
+      }
+      
+      :global(html[data-theme="light"] #article table) {
+        border-collapse: separate;
+        border-spacing: 0;
+        width: 100%;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        border-radius: 0.75rem;
+        border: 1px solid rgba(203, 213, 225, 0.5);
+        margin: 2rem 0;
+      }
+      
+      :global(html[data-theme="light"] #article thead) {
+        background: linear-gradient(135deg, rgba(99, 102, 241, 0.08), rgba(139, 92, 246, 0.05));
+      }
+      
+      :global(html[data-theme="light"] #article th) {
+        color: rgba(0, 0, 0, 0.9);
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        padding: 1rem 1.5rem;
+        border-bottom: 2px solid rgba(99, 102, 241, 0.3);
+        font-size: 0.875rem;
+      }
+      
+      :global(html[data-theme="light"] #article td) {
+        padding: 1rem 1.5rem;
+        border-top: 1px solid rgba(203, 213, 225, 0.3);
+        color: rgba(0, 0, 0, 0.8);
+      }
+      
+      :global(html[data-theme="light"] #article tbody tr:hover) {
+        background-color: rgba(99, 102, 241, 0.05);
+        transition: background-color 0.2s ease;
+      }
+      /* Enhanced image styling */
+      :global(html[data-theme="dark"] #article img) {
+        border-radius: 0.75rem;
+        border: 1px solid rgba(99, 102, 241, 0.2);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        margin: 2rem auto;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        cursor: zoom-in;
+      }
+      
+      :global(html[data-theme="dark"] #article img:hover) {
+        transform: scale(1.02) translateY(-4px);
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 20px rgba(99, 102, 241, 0.3);
+      }
+      
+      :global(html[data-theme="light"] #article img) {
+        border-radius: 0.75rem;
+        border: 1px solid rgba(203, 213, 225, 0.4);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        margin: 2rem auto;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        cursor: zoom-in;
+      }
+      
+      :global(html[data-theme="light"] #article img:hover) {
+        transform: scale(1.02) translateY(-4px);
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2), 0 0 20px rgba(99, 102, 241, 0.2);
+      }
+      
+      /* Strong/Bold text enhancement */
+      :global(html[data-theme="dark"] #article strong),
+      :global(html[data-theme="dark"] #article b) {
+        color: white;
+        font-weight: 700;
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+      }
+      
+      :global(html[data-theme="light"] #article strong),
+      :global(html[data-theme="light"] #article b) {
+        color: rgba(0, 0, 0, 0.95);
+        font-weight: 700;
+      }
+      
+      /* Horizontal rule styling */
+      :global(html[data-theme="dark"] #article hr) {
+        border: none;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, rgba(var(--accent-rgb), 0.5), transparent);
+        margin: 3rem 0;
+      }
+      
+      :global(html[data-theme="light"] #article hr) {
+        border: none;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.3), transparent);
+        margin: 3rem 0;
+      }
+      
+      /* Keyboard key styling */
+      :global(#article kbd) {
+        background: linear-gradient(145deg, #f3f4f6, #e5e7eb);
+        border: 1px solid #d1d5db;
+        border-radius: 0.375rem;
+        padding: 0.125rem 0.5rem;
+        font-family: inherit;
+        font-size: 0.875em;
+        box-shadow: 0 2px 0 #d1d5db, inset 0 0 0 1px #fff;
+        font-weight: 600;
+        white-space: nowrap;
+      }
+      
+      :global(html[data-theme="dark"] #article kbd) {
+        background: linear-gradient(145deg, #374151, #1f2937);
+        border: 1px solid #4b5563;
+        color: white;
+        box-shadow: 0 2px 0 #4b5563, inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+      }
+      
+      /* Definition list styling */
+      :global(html[data-theme="dark"] #article dt) {
+        color: white;
+        font-weight: 700;
+        margin-top: 1.5rem;
+      }
+      
+      :global(html[data-theme="dark"] #article dd) {
+        color: rgba(255, 255, 255, 0.9);
+        margin-left: 2rem;
+        margin-top: 0.5rem;
+      }
+      
+      :global(html[data-theme="light"] #article dt) {
+        color: rgba(0, 0, 0, 0.95);
+        font-weight: 700;
+        margin-top: 1.5rem;
+      }
+      
+      :global(html[data-theme="light"] #article dd) {
+        color: rgba(0, 0, 0, 0.8);
+        margin-left: 2rem;
+        margin-top: 0.5rem;
+      }
+      
+      /* Selection styling */
+      :global(#article ::selection) {
+        background-color: rgba(var(--accent-rgb), 0.3);
+        color: inherit;
+      }
+      
+      /* Smooth scrolling for anchor links */
+      :global(html) {
+        scroll-behavior: smooth;
+      }
+      
+      /* Focus visible enhancement */
+      :global(#article a:focus-visible),
+      :global(#article button:focus-visible) {
+        outline: 2px solid var(--color-accent);
+        outline-offset: 3px;
+        border-radius: 0.25rem;
       }
     </style>
 
@@ -472,10 +770,10 @@ const nextPost =
 
       <button
         id="back-to-top"
-        class="focus-outline py-1 whitespace-nowrap hover:opacity-75"
-        style="transition: transform 0.3s ease, text-shadow 0.3s ease;"
+        class="focus-outline py-2 px-4 whitespace-nowrap hover:opacity-75 rounded-lg bg-gradient-to-r from-accent to-purple-500 text-white font-medium shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2"
+        style="transition: transform 0.3s ease, box-shadow 0.3s ease;"
       >
-        <IconChevronLeft class="inline-block rotate-90" />
+        <IconChevronLeft class="inline-block rotate-90 w-4 h-4" />
         <span>Back to Top</span>
       </button>
     </div>
@@ -488,12 +786,12 @@ const nextPost =
         prevPost && (
           <a
             href={`/posts/${prevPost.slug}`}
-            class="flex w-full gap-1 hover:opacity-75 transition-all duration-300 hover:transform hover:-translate-x-1"
+            class="flex w-full gap-3 p-4 rounded-lg border border-accent/20 bg-gradient-to-br from-accent/5 to-transparent hover:from-accent/10 hover:border-accent/40 transition-all duration-300 hover:transform hover:-translate-x-2 hover:shadow-lg group"
           >
-            <IconChevronLeft class="inline-block flex-none" />
-            <div>
-              <span>Previous Post</span>
-              <div class="text-sm text-accent/85">{prevPost.title}</div>
+            <IconChevronLeft class="inline-block flex-none mt-1 group-hover:-translate-x-1 transition-transform" />
+            <div class="flex-1">
+              <span class="text-sm font-semibold text-accent uppercase tracking-wide">Previous Post</span>
+              <div class="text-base font-medium mt-1 group-hover:text-accent transition-colors">{prevPost.title}</div>
             </div>
           </a>
         )
@@ -502,13 +800,13 @@ const nextPost =
         nextPost && (
           <a
             href={`/posts/${nextPost.slug}`}
-            class="flex w-full justify-end gap-1 text-right hover:opacity-75 transition-all duration-300 hover:transform hover:translate-x-1 sm:col-start-2"
+            class="flex w-full justify-end gap-3 p-4 rounded-lg border border-accent/20 bg-gradient-to-bl from-accent/5 to-transparent hover:from-accent/10 hover:border-accent/40 text-right transition-all duration-300 hover:transform hover:translate-x-2 hover:shadow-lg sm:col-start-2 group"
           >
-            <div>
-              <span>Next Post</span>
-              <div class="text-sm text-accent/85">{nextPost.title}</div>
+            <div class="flex-1">
+              <span class="text-sm font-semibold text-accent uppercase tracking-wide">Next Post</span>
+              <div class="text-base font-medium mt-1 group-hover:text-accent transition-colors">{nextPost.title}</div>
             </div>
-            <IconChevronRight class="inline-block flex-none" />
+            <IconChevronRight class="inline-block flex-none mt-1 group-hover:translate-x-1 transition-transform" />
           </a>
         )
       }
@@ -602,8 +900,13 @@ const nextPost =
       // Create and append the copy button to the wrapper (not the code block)
       const copyButton = document.createElement("button");
       copyButton.className =
-        "absolute right-3 -top-3 rounded-md bg-zinc-700/90 hover:bg-zinc-600 px-2.5 py-1 text-xs font-medium text-white shadow-md transition-all duration-200 hover:scale-105 hover:shadow-lg";
-      copyButton.innerHTML = copyButtonLabel;
+        "absolute right-4 top-4 rounded-lg bg-gradient-to-br from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 px-3 py-2 text-xs font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl backdrop-blur-sm border border-white/20 flex items-center gap-2";
+      copyButton.innerHTML = `
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+        </svg>
+        <span>${copyButtonLabel}</span>
+      `;
       wrapper.appendChild(copyButton);
 
       copyButton.addEventListener("click", async () => {
@@ -618,15 +921,25 @@ const nextPost =
       await navigator.clipboard.writeText(text ?? "");
 
       // Visual feedback that task is completed
-      button.innerText = "复制成功!";
-      button.classList.add("bg-emerald-600"); 
-      button.classList.add("scale-105");
+      button.innerHTML = `
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+        </svg>
+        <span>复制成功!</span>
+      `;
+      button.classList.add("from-emerald-600", "to-emerald-500");
+      button.classList.remove("from-indigo-600", "to-purple-600");
 
       setTimeout(() => {
-        button.innerText = copyButtonLabel;
-        button.classList.remove("bg-emerald-600");
-        button.classList.remove("scale-105");
-      }, 1000);
+        button.innerHTML = `
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+          </svg>
+          <span>${copyButtonLabel}</span>
+        `;
+        button.classList.remove("from-emerald-600", "to-emerald-500");
+        button.classList.add("from-indigo-600", "to-purple-600");
+      }, 2000);
     }
   }
   attachCopyButtons();
@@ -634,9 +947,22 @@ const nextPost =
   /** Scrolls the document to the top when
    * the "Back to Top" button is clicked. */
   function backToTop() {
-    document.querySelector("#back-to-top")?.addEventListener("click", () => {
-      document.body.scrollTop = 0; // For Safari
-      document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    const backToTopButton = document.querySelector("#back-to-top");
+    backToTopButton?.addEventListener("click", () => {
+      window.scrollTo({ 
+        top: 0, 
+        left: 0, 
+        behavior: "smooth" 
+      });
+    });
+    
+    // Add hover effect
+    backToTopButton?.addEventListener("mouseenter", () => {
+      backToTopButton.style.transform = "translateY(-3px) scale(1.05)";
+    });
+    
+    backToTopButton?.addEventListener("mouseleave", () => {
+      backToTopButton.style.transform = "translateY(0) scale(1)";
     });
   }
   backToTop();
