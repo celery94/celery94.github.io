@@ -1,6 +1,29 @@
 ---
 mode: agent
-tools: ['edit', 'runNotebooks', 'search', 'new', 'runCommands', 'runTasks', 'microsoft/playwright-mcp/*', 'microsoftdocs/mcp/*', 'upstash/context7/*', 'runSubagent', 'usages', 'vscodeAPI', 'problems', 'changes', 'testFailure', 'openSimpleBrowser', 'fetch', 'githubRepo', 'extensions', 'todos', 'runTests']
+tools:
+  [
+    "edit",
+    "runNotebooks",
+    "search",
+    "new",
+    "runCommands",
+    "runTasks",
+    "microsoft/playwright-mcp/*",
+    "microsoftdocs/mcp/*",
+    "upstash/context7/*",
+    "runSubagent",
+    "usages",
+    "vscodeAPI",
+    "problems",
+    "changes",
+    "testFailure",
+    "openSimpleBrowser",
+    "fetch",
+    "githubRepo",
+    "extensions",
+    "todos",
+    "runTests",
+  ]
 ---
 
 - 接收用户提供的网页 URL，使用playwright MCP获取该页面的主要内容（正文、标题、关键内容/图示）。

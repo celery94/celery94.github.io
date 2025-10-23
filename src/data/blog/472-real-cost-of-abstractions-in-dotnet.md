@@ -145,13 +145,13 @@ public interface IUserRepository
 public class UserService(IUserRepository userRepository)
 {
     // 只是转发调用，没有增加任何价值
-    public Task<User?> GetByIdAsync(Guid id) => 
+    public Task<User?> GetByIdAsync(Guid id) =>
         userRepository.GetByIdAsync(id);
-    
-    public Task<IEnumerable<User>> GetAllAsync() => 
+
+    public Task<IEnumerable<User>> GetAllAsync() =>
         userRepository.GetAllAsync();
-    
-    public Task SaveAsync(User user) => 
+
+    public Task SaveAsync(User user) =>
         userRepository.SaveAsync(user);
 }
 ```

@@ -10,14 +10,23 @@ export interface Props {
 const { noMarginTop = false } = Astro.props;
 ---
 
-<footer class:list={["mx-auto w-full max-w-5xl px-6 glass mt-16", { "mt-auto": !noMarginTop }]}>
+<footer
+  class:list={[
+    "glass mx-auto mt-16 w-full max-w-5xl px-6",
+    { "mt-auto": !noMarginTop },
+  ]}
+>
   <div class="rainbow-hr my-0"></div>
   <div
-    class="flex flex-col items-center justify-between py-8 px-6 sm:flex-row-reverse sm:py-6"
+    class="flex flex-col items-center justify-between px-6 py-8 sm:flex-row-reverse sm:py-6"
   >
     <Socials centered />
-    <div class="my-4 flex flex-col items-center whitespace-nowrap sm:flex-row sm:my-0">
-      <span class="gradient-text font-semibold">Copyright &#169; {currentYear}</span>
+    <div
+      class="my-4 flex flex-col items-center whitespace-nowrap sm:my-0 sm:flex-row"
+    >
+      <span class="gradient-text font-semibold"
+        >Copyright &#169; {currentYear}</span
+      >
       <span class="hidden sm:inline">&nbsp;|&nbsp;</span>
       <span>All rights reserved.</span>
     </div>

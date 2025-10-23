@@ -61,9 +61,9 @@ using (var connection = new SqlConnection(connectionString))
     var sql = @"
         SELECT * FROM Users WHERE Id = @UserId;
         SELECT * FROM Orders WHERE UserId = @UserId;
-        SELECT * FROM OrderItems WHERE OrderId IN 
+        SELECT * FROM OrderItems WHERE OrderId IN
             (SELECT Id FROM Orders WHERE UserId = @UserId);";
-    
+
     using (var multi = connection.QueryMultiple(sql, new { UserId = userId }))
     {
         var user = multi.Read<User>().Single();
@@ -155,26 +155,26 @@ public class UserService
 {
     private readonly IMemoryCache _cache;
     private readonly IUserRepository _userRepository;
-    
+
     public UserService(IMemoryCache cache, IUserRepository userRepository)
     {
         _cache = cache;
         _userRepository = userRepository;
     }
-    
+
     public async Task<User> GetUserAsync(int userId)
     {
         var cacheKey = $"user_{userId}";
-        
+
         if (_cache.TryGetValue(cacheKey, out User cachedUser))
         {
             return cachedUser;
         }
-        
+
         var user = await _userRepository.GetByIdAsync(userId);
-        
+
         _cache.Set(cacheKey, user, TimeSpan.FromMinutes(15));
-        
+
         return user;
     }
 }
@@ -189,25 +189,25 @@ public class UserService
 {
     private readonly IDistributedCache _cache;
     private readonly IUserRepository _userRepository;
-    
+
     public async Task<User> GetUserAsync(int userId)
     {
         var cacheKey = $"user_{userId}";
         var cachedUser = await _cache.GetStringAsync(cacheKey);
-        
+
         if (cachedUser != null)
         {
             return JsonSerializer.Deserialize<User>(cachedUser);
         }
-        
+
         var user = await _userRepository.GetByIdAsync(userId);
-        
+
         await _cache.SetStringAsync(cacheKey, JsonSerializer.Serialize(user),
             new DistributedCacheEntryOptions
             {
                 AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(15)
             });
-        
+
         return user;
     }
 }

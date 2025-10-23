@@ -16,16 +16,20 @@ const { faqs } = Astro.props;
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  "mainEntity": faqs.map(faq => ({
+  mainEntity: faqs.map(faq => ({
     "@type": "Question",
-    "name": faq.question,
-    "acceptedAnswer": {
+    name: faq.question,
+    acceptedAnswer: {
       "@type": "Answer",
-      "text": faq.answer
-    }
-  }))
+      text: faq.answer,
+    },
+  })),
 };
 ---
 
 <!-- 不显示任何内容，只添加结构化数据 -->
-<script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+<script
+  is:inline
+  type="application/ld+json"
+  set:html={JSON.stringify(faqSchema)}
+/>

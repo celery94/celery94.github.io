@@ -9,18 +9,21 @@
 ## Architecture & Key Patterns
 
 ### Content Management Strategy
+
 - **Blog Posts**: All content in `src/data/blog/` as numbered markdown files (001-xxx.md, 002-xxx.md)
 - **Content Schema**: Zod validation in `src/content.config.ts` enforces `author`, `pubDatetime`, `tags`, `draft`, `description`, `ogImage`
 - **Frontmatter Pattern**: Required fields include `pubDatetime` (Date), `title`, `description`, `tags` array
 - **Asset Organization**: Images stored in `src/assets/` with numbered subdirectories matching post numbers
 
 ### Routing & URL Structure
-- **Posts**: `/posts/[slug]/` via `src/pages/posts/[slug]/index.astro` 
+
+- **Posts**: `/posts/[slug]/` via `src/pages/posts/[slug]/index.astro`
 - **Dynamic Pages**: Collections use `getStaticPaths()` with slug-based routing from filename
 - **Archives**: Time-based pagination in `/archives/[...page].astro`
 - **Tags**: Category filtering via `/tags/[tag]/[...page].astro`
 
 ### Styling Architecture
+
 - **Tailwind CSS v4**: Configured via Vite plugin, not traditional config file
 - **CSS Imports**: `@import "tailwindcss"` in `src/styles/global.css` (no separate base/components/utilities)
 - **Theme System**: CSS custom properties for light/dark modes with enhanced contrast ratios

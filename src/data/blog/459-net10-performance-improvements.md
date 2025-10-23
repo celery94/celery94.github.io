@@ -66,6 +66,7 @@ private int DoubleResult(Func<int, int> func, int arg)
 ```
 
 **性能对比：**
+
 - .NET 9: 19.530 ns, 88 B 分配
 - .NET 10: 6.685 ns, 24 B 分配（67% 性能提升，73% 内存减少）
 
@@ -89,6 +90,7 @@ static void Process(string[] inputs)
 ```
 
 **性能对比：**
+
 - .NET 9: 11.580 ns, 48 B 分配
 - .NET 10: 3.960 ns, 0 B 分配（66% 性能提升，100% 内存减少）
 
@@ -107,6 +109,7 @@ public TimeSpan WithStartNew()
 ```
 
 **性能对比：**
+
 - .NET 9: 38.62 ns, 40 B 分配
 - .NET 10: 28.21 ns, 0 B 分配（27% 性能提升，100% 内存减少）
 
@@ -130,6 +133,7 @@ public string Interpolate()
 ```
 
 **性能对比：**
+
 - .NET 9: 34.21 ns
 - .NET 10: 29.47 ns（14% 性能提升）
 
@@ -150,6 +154,7 @@ public void Hash()
 ```
 
 **性能对比（Linux/OpenSSL）：**
+
 - .NET 9: 1,206.8 ns
 - .NET 10: 960.6 ns（20% 性能提升）
 

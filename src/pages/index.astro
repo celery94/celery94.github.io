@@ -55,9 +55,7 @@ const trendingTags = Object.entries(tagFrequency)
 
 const earliestPostTimestamp = sortedPosts.length
   ? Math.min(
-      ...sortedPosts.map(({ data }) =>
-        new Date(data.pubDatetime).getTime()
-      )
+      ...sortedPosts.map(({ data }) => new Date(data.pubDatetime).getTime())
     )
   : undefined;
 
@@ -94,11 +92,11 @@ const heroStats = [
   <main
     id="main-content"
     data-layout="index"
-    class="mx-auto w-full max-w-5xl px-4 sm:px-6 pb-12"
+    class="mx-auto w-full max-w-5xl px-4 pb-12 sm:px-6"
   >
     <section
       id="hero"
-      class="hero-surface mt-10 overflow-hidden rounded-3xl border border-white/10 shadow-xl shadow-accent/10"
+      class="hero-surface shadow-accent/10 mt-10 overflow-hidden rounded-3xl border border-white/10 shadow-xl"
     >
       <div class="relative px-5 py-8 sm:px-10 sm:py-12">
         <div class="hero-orb hero-orb--primary" aria-hidden="true"></div>
@@ -109,13 +107,17 @@ const heroStats = [
           class="relative z-10 grid gap-10 lg:grid-cols-[minmax(0,1fr)_320px] xl:grid-cols-[minmax(0,1fr)_360px]"
         >
           <div class="space-y-6">
-            <div class="flex flex-wrap items-center justify-between gap-4 text-sm">
-              {lastUpdatedDisplay && (
-                <span class="hero-badge">
-                  <span class="hero-badge__dot" aria-hidden="true"></span>
-                  最近更新 · {lastUpdatedDisplay}
-                </span>
-              )}
+            <div
+              class="flex flex-wrap items-center justify-between gap-4 text-sm"
+            >
+              {
+                lastUpdatedDisplay && (
+                  <span class="hero-badge">
+                    <span class="hero-badge__dot" aria-hidden="true" />
+                    最近更新 · {lastUpdatedDisplay}
+                  </span>
+                )
+              }
               <a
                 target="_blank"
                 rel="noopener noreferrer"
@@ -131,15 +133,19 @@ const heroStats = [
 
             <div class="space-y-4">
               <h1
-                class="hero-title gradient-text text-3xl font-bold leading-tight sm:text-5xl xl:text-6xl"
+                class="hero-title gradient-text text-3xl leading-tight font-bold sm:text-5xl xl:text-6xl"
               >
                 Aide Hub
               </h1>
-              <p class="hero-subtitle text-base text-foreground/70 sm:text-lg">
-                Empowering developers with AI copilots, clean architecture, and modern .NET practices.
+              <p class="hero-subtitle text-foreground/70 text-base sm:text-lg">
+                Empowering developers with AI copilots, clean architecture, and
+                modern .NET practices.
               </p>
-              <p class="hero-description text-base leading-relaxed text-foreground/90 sm:text-lg">
-                欢迎来到 <span class="text-primary font-semibold">Aide Hub</span> —— 一个聚焦 AI 助手、云原生与现代开发实践的知识平台。无论你是
+              <p
+                class="hero-description text-foreground/90 text-base leading-relaxed sm:text-lg"
+              >
+                欢迎来到 <span class="text-primary font-semibold">Aide Hub</span
+                > —— 一个聚焦 AI 助手、云原生与现代开发实践的知识平台。无论你是
                 <span class="text-secondary font-semibold">编程新手</span>
                 还是希望拓展技术视野的
                 <span class="text-accent font-semibold">资深开发者</span>
@@ -161,90 +167,102 @@ const heroStats = [
             </div>
 
             <dl class="hero-stats grid gap-4 sm:grid-cols-3">
-              {heroStats.map((stat) => (
-                <div class="hero-stat-card">
-                  <dt>{stat.label}</dt>
-                  <dd>{stat.value}</dd>
-                  <p>{stat.description}</p>
-                </div>
-              ))}
+              {
+                heroStats.map(stat => (
+                  <div class="hero-stat-card">
+                    <dt>{stat.label}</dt>
+                    <dd>{stat.value}</dd>
+                    <p>{stat.description}</p>
+                  </div>
+                ))
+              }
             </dl>
 
-            {SOCIALS.length > 0 && (
-              <div class="hero-socials glass mt-6 flex flex-col gap-3 rounded-2xl border border-white/10 p-4 backdrop-blur-lg lg:hidden">
-                <div class="text-sm font-semibold uppercase tracking-[0.2em] text-foreground/70">
-                  Connect With Me
-                </div>
-                <Socials />
-              </div>
-            )}
-          </div>
-
-          {latestPost && (
-            <aside class="hero-side-card glass flex h-full flex-col justify-between rounded-2xl border border-white/10 p-6 backdrop-blur-lg">
-              <div class="space-y-4">
-                <div class="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.35em] text-foreground/60">
-                  <span class="hero-side-card__icon" aria-hidden="true">✨</span>
-                  最新文章
-                </div>
-                <a
-                  href={`/posts/${latestPost.id}/`}
-                  class="hero-side-card__link group inline-flex items-start justify-between gap-4 text-left text-lg font-semibold text-foreground transition-all duration-300 hover:text-accent"
-                >
-                  <span class="leading-snug">{latestPost.data.title}</span>
-                  <IconArrowRight class="hero-side-card__icon-arrow" />
-                </a>
-                <p class="text-sm leading-relaxed text-foreground/80">
-                  {latestPost.data.description}
-                </p>
-                {lastUpdatedDisplay && (
-                  <p class="text-xs uppercase tracking-[0.35em] text-foreground/50">
-                    更新 · {lastUpdatedDisplay}
-                  </p>
-                )}
-                {latestPost.data.tags?.length > 0 && (
-                  <ul class="hero-side-card__tags mt-4 flex flex-wrap gap-2">
-                    {latestPost.data.tags.slice(0, 4).map((tag) => (
-                      <Tag tag={slugifyStr(tag)} tagName={tag} />
-                    ))}
-                  </ul>
-                )}
-              </div>
-              {SOCIALS.length > 0 && (
-                <div class="hero-socials hidden flex-col gap-3 rounded-2xl border border-white/10 p-4 backdrop-blur-lg lg:flex">
-                  <div class="text-xs font-semibold uppercase tracking-[0.35em] text-foreground/60">
-                    保持联系
+            {
+              SOCIALS.length > 0 && (
+                <div class="hero-socials glass mt-6 flex flex-col gap-3 rounded-2xl border border-white/10 p-4 backdrop-blur-lg lg:hidden">
+                  <div class="text-foreground/70 text-sm font-semibold tracking-[0.2em] uppercase">
+                    Connect With Me
                   </div>
                   <Socials />
                 </div>
-              )}
-            </aside>
-          )}
+              )
+            }
+          </div>
+
+          {
+            latestPost && (
+              <aside class="hero-side-card glass flex h-full flex-col justify-between rounded-2xl border border-white/10 p-6 backdrop-blur-lg">
+                <div class="space-y-4">
+                  <div class="text-foreground/60 flex items-center gap-2 text-xs font-semibold tracking-[0.35em] uppercase">
+                    <span class="hero-side-card__icon" aria-hidden="true">
+                      ✨
+                    </span>
+                    最新文章
+                  </div>
+                  <a
+                    href={`/posts/${latestPost.id}/`}
+                    class="hero-side-card__link group text-foreground hover:text-accent inline-flex items-start justify-between gap-4 text-left text-lg font-semibold transition-all duration-300"
+                  >
+                    <span class="leading-snug">{latestPost.data.title}</span>
+                    <IconArrowRight class="hero-side-card__icon-arrow" />
+                  </a>
+                  <p class="text-foreground/80 text-sm leading-relaxed">
+                    {latestPost.data.description}
+                  </p>
+                  {lastUpdatedDisplay && (
+                    <p class="text-foreground/50 text-xs tracking-[0.35em] uppercase">
+                      更新 · {lastUpdatedDisplay}
+                    </p>
+                  )}
+                  {latestPost.data.tags?.length > 0 && (
+                    <ul class="hero-side-card__tags mt-4 flex flex-wrap gap-2">
+                      {latestPost.data.tags.slice(0, 4).map(tag => (
+                        <Tag tag={slugifyStr(tag)} tagName={tag} />
+                      ))}
+                    </ul>
+                  )}
+                </div>
+                {SOCIALS.length > 0 && (
+                  <div class="hero-socials hidden flex-col gap-3 rounded-2xl border border-white/10 p-4 backdrop-blur-lg lg:flex">
+                    <div class="text-foreground/60 text-xs font-semibold tracking-[0.35em] uppercase">
+                      保持联系
+                    </div>
+                    <Socials />
+                  </div>
+                )}
+              </aside>
+            )
+          }
         </div>
       </div>
     </section>
 
-    {trendingTags.length > 0 && (
-      <section
-        id="trending-topics"
-        class="trending-section glass mt-10 rounded-3xl border border-white/10 p-6 sm:p-8"
-      >
-        <div class="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-          <div>
-            <h2 class="text-xl font-semibold text-foreground">热门主题</h2>
-            <p class="text-sm text-foreground/70">根据最近发布的文章自动整理</p>
+    {
+      trendingTags.length > 0 && (
+        <section
+          id="trending-topics"
+          class="trending-section glass mt-10 rounded-3xl border border-white/10 p-6 sm:p-8"
+        >
+          <div class="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <h2 class="text-foreground text-xl font-semibold">热门主题</h2>
+              <p class="text-foreground/70 text-sm">
+                根据最近发布的文章自动整理
+              </p>
+            </div>
+            <LinkButton href="/tags/" class="hero-secondary-btn">
+              浏览所有标签
+            </LinkButton>
           </div>
-          <LinkButton href="/tags/" class="hero-secondary-btn">
-            浏览所有标签
-          </LinkButton>
-        </div>
-        <ul class="mt-6 flex flex-wrap gap-3">
-          {trendingTags.map(({ name, slug, count }) => (
-            <Tag tag={slug} tagName={`${name} · ${count}`} size="lg" />
-          ))}
-        </ul>
-      </section>
-    )}
+          <ul class="mt-6 flex flex-wrap gap-3">
+            {trendingTags.map(({ name, slug, count }) => (
+              <Tag tag={slug} tagName={`${name} · ${count}`} size="lg" />
+            ))}
+          </ul>
+        </section>
+      )
+    }
 
     <hr class="rainbow-hr my-12" />
 
@@ -253,16 +271,16 @@ const heroStats = [
         <>
           <section
             id="featured"
-            class="featured-section glass rounded-3xl border border-white/10 px-6 py-8 shadow-xl shadow-accent/10"
+            class="featured-section glass shadow-accent/10 rounded-3xl border border-white/10 px-6 py-8 shadow-xl"
           >
             <div class="fade-up mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
               <div class="flex items-center gap-3">
-                <span class="featured-marker" aria-hidden="true"></span>
+                <span class="featured-marker" aria-hidden="true" />
                 <div>
                   <h2 class="animated-gradient-text text-2xl font-bold tracking-wide">
                     精选推荐
                   </h2>
-                  <p class="text-sm text-foreground/70">
+                  <p class="text-foreground/70 text-sm">
                     深入剖析值得反复阅读的文章
                   </p>
                 </div>
@@ -294,12 +312,12 @@ const heroStats = [
         >
           <div class="fade-up mb-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <div class="flex items-center gap-3">
-              <span class="recent-marker" aria-hidden="true"></span>
+              <span class="recent-marker" aria-hidden="true" />
               <h2 class="animated-gradient-text text-2xl font-bold tracking-wide">
                 最新更新
               </h2>
             </div>
-            <p class="text-xs uppercase tracking-[0.3em] text-foreground/60">
+            <p class="text-foreground/60 text-xs tracking-[0.3em] uppercase">
               持续为你带来新发现
             </p>
           </div>
@@ -320,7 +338,10 @@ const heroStats = [
     }
 
     <div class="fade-up my-14 text-center">
-      <LinkButton href="/posts/" class="hero-primary-btn hero-primary-btn--large">
+      <LinkButton
+        href="/posts/"
+        class="hero-primary-btn hero-primary-btn--large"
+      >
         浏览全部文章
         <IconArrowRight class="hero-primary-btn__icon" />
       </LinkButton>
@@ -448,7 +469,8 @@ const heroStats = [
     padding: 0.45rem 1rem;
     border-radius: 999px;
     background: color-mix(in srgb, var(--color-background) 70%, transparent);
-    border: 1px solid color-mix(in srgb, var(--color-foreground) 12%, transparent);
+    border: 1px solid
+      color-mix(in srgb, var(--color-foreground) 12%, transparent);
     font-size: 0.75rem;
     letter-spacing: 0.25em;
     text-transform: uppercase;
@@ -462,7 +484,8 @@ const heroStats = [
     height: 0.55rem;
     border-radius: 999px;
     background: var(--color-accent);
-    box-shadow: 0 0 16px color-mix(in srgb, var(--color-accent) 60%, transparent);
+    box-shadow: 0 0 16px
+      color-mix(in srgb, var(--color-accent) 60%, transparent);
     animation: badgePulse 2.6s infinite ease-in-out;
   }
 
@@ -474,15 +497,20 @@ const heroStats = [
     height: 2.5rem;
     border-radius: 999px;
     background: color-mix(in srgb, var(--color-background) 60%, transparent);
-    border: 1px solid color-mix(in srgb, var(--color-foreground) 10%, transparent);
-    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid
+      color-mix(in srgb, var(--color-foreground) 10%, transparent);
+    transition:
+      transform 0.3s ease,
+      border-color 0.3s ease,
+      box-shadow 0.3s ease;
     color: var(--color-accent);
   }
 
   .hero-rss:hover {
     transform: translateY(-2px) scale(1.05);
     border-color: color-mix(in srgb, var(--color-accent) 50%, transparent);
-    box-shadow: 0 10px 30px color-mix(in srgb, var(--color-accent) 16%, transparent);
+    box-shadow: 0 10px 30px
+      color-mix(in srgb, var(--color-accent) 16%, transparent);
   }
 
   .hero-primary-btn,
@@ -495,21 +523,31 @@ const heroStats = [
     border-radius: 999px;
     font-weight: 600;
     text-decoration: none;
-    transition: transform 0.35s ease, box-shadow 0.35s ease, background 0.35s ease, border-color 0.35s ease;
+    transition:
+      transform 0.35s ease,
+      box-shadow 0.35s ease,
+      background 0.35s ease,
+      border-color 0.35s ease;
     white-space: nowrap;
     flex-wrap: nowrap;
   }
 
   .hero-primary-btn {
-    background: linear-gradient(120deg, var(--color-primary), var(--color-accent));
+    background: linear-gradient(
+      120deg,
+      var(--color-primary),
+      var(--color-accent)
+    );
     color: var(--color-background) !important;
-    box-shadow: 0 15px 40px color-mix(in srgb, var(--color-accent) 26%, transparent);
+    box-shadow: 0 15px 40px
+      color-mix(in srgb, var(--color-accent) 26%, transparent);
   }
 
   .hero-primary-btn:hover {
     transform: translateY(-4px);
     filter: brightness(1.05);
-    box-shadow: 0 22px 50px color-mix(in srgb, var(--color-accent) 32%, transparent);
+    box-shadow: 0 22px 50px
+      color-mix(in srgb, var(--color-accent) 32%, transparent);
   }
 
   .hero-primary-btn__icon {
@@ -527,9 +565,14 @@ const heroStats = [
   }
 
   .hero-secondary-btn {
-    border: 1px solid color-mix(in srgb, var(--color-foreground) 16%, transparent);
+    border: 1px solid
+      color-mix(in srgb, var(--color-foreground) 16%, transparent);
     background: color-mix(in srgb, var(--color-background) 75%, transparent);
-    color: color-mix(in srgb, var(--color-foreground) 90%, transparent) !important;
+    color: color-mix(
+      in srgb,
+      var(--color-foreground) 90%,
+      transparent
+    ) !important;
   }
 
   .hero-secondary-btn:hover {
@@ -548,10 +591,15 @@ const heroStats = [
     padding: 1.25rem 1.5rem;
     border-radius: 1.25rem;
     background: color-mix(in srgb, var(--color-background) 78%, transparent);
-    border: 1px solid color-mix(in srgb, var(--color-foreground) 10%, transparent);
-    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--color-foreground) 4%, transparent);
+    border: 1px solid
+      color-mix(in srgb, var(--color-foreground) 10%, transparent);
+    box-shadow: inset 0 0 0 1px
+      color-mix(in srgb, var(--color-foreground) 4%, transparent);
     backdrop-filter: blur(14px);
-    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    transition:
+      transform 0.3s ease,
+      border-color 0.3s ease,
+      box-shadow 0.3s ease;
   }
 
   .hero-stat-card::after {
@@ -566,7 +614,9 @@ const heroStats = [
         color-mix(in srgb, var(--color-accent) 28%, transparent)
       )
       border-box;
-    mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+    mask:
+      linear-gradient(#fff 0 0) padding-box,
+      linear-gradient(#fff 0 0);
     mask-composite: exclude;
     opacity: 0;
     transition: opacity 0.3s ease;
@@ -575,7 +625,8 @@ const heroStats = [
   .hero-stat-card:hover {
     transform: translateY(-6px);
     border-color: color-mix(in srgb, var(--color-accent) 35%, transparent);
-    box-shadow: 0 20px 40px color-mix(in srgb, var(--color-accent) 14%, transparent);
+    box-shadow: 0 20px 40px
+      color-mix(in srgb, var(--color-accent) 14%, transparent);
   }
 
   .hero-stat-card:hover::after {
@@ -606,7 +657,8 @@ const heroStats = [
   .hero-side-card {
     position: relative;
     overflow: hidden;
-    box-shadow: 0 20px 45px color-mix(in srgb, var(--color-foreground) 12%, transparent);
+    box-shadow: 0 20px 45px
+      color-mix(in srgb, var(--color-foreground) 12%, transparent);
   }
 
   .hero-side-card::before {
@@ -655,13 +707,15 @@ const heroStats = [
 
   .hero-socials {
     background: color-mix(in srgb, var(--color-background) 70%, transparent);
-    border: 1px solid color-mix(in srgb, var(--color-foreground) 12%, transparent);
+    border: 1px solid
+      color-mix(in srgb, var(--color-foreground) 12%, transparent);
   }
 
   .trending-section {
     background: color-mix(in srgb, var(--color-background) 80%, transparent);
     backdrop-filter: blur(16px);
-    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--color-foreground) 6%, transparent);
+    box-shadow: inset 0 0 0 1px
+      color-mix(in srgb, var(--color-foreground) 6%, transparent);
   }
 
   .featured-marker,
@@ -675,7 +729,8 @@ const heroStats = [
       color-mix(in srgb, var(--color-primary) 45%, transparent),
       color-mix(in srgb, var(--color-accent) 30%, transparent)
     );
-    box-shadow: 0 8px 24px color-mix(in srgb, var(--color-accent) 22%, transparent);
+    box-shadow: 0 8px 24px
+      color-mix(in srgb, var(--color-accent) 22%, transparent);
   }
 
   .recent-marker {
@@ -713,11 +768,13 @@ const heroStats = [
   }
 
   .hero-primary-btn.hero-primary-btn--large {
-    box-shadow: 0 18px 50px color-mix(in srgb, var(--color-accent) 28%, transparent);
+    box-shadow: 0 18px 50px
+      color-mix(in srgb, var(--color-accent) 28%, transparent);
   }
 
   .hero-primary-btn.hero-primary-btn--large:hover {
-    box-shadow: 0 24px 60px color-mix(in srgb, var(--color-accent) 36%, transparent);
+    box-shadow: 0 24px 60px
+      color-mix(in srgb, var(--color-accent) 36%, transparent);
   }
 
   @media (max-width: 768px) {

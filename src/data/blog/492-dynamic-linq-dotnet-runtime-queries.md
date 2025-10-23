@@ -124,7 +124,7 @@ var list = await context.Customers
 你不必将所有值都以字面量形式注入到字符串中。可以传递一个上下文对象（匿名类型、字典、ExpandoObject 或普通类），并在表达式内部通过名称引用其成员：
 
 ```csharp
-var context = new 
+var context = new
 {
     IsActive = CustomerStatus.IsActive,
     LastMonth = DateTime.Now.AddMonths(-1)
@@ -171,8 +171,8 @@ var projections = selectedColumns
     .Select(c => c.Trim())
     .Where(c => allowedCols.Contains(c));
 
-var selectExpr = "x => new { " + 
-    string.Join(", ", projections.Select(c => $"{c} = x.{c}")) + 
+var selectExpr = "x => new { " +
+    string.Join(", ", projections.Select(c => $"{c} = x.{c}")) +
     " }";
 
 var rows = await context.Customers
@@ -199,16 +199,16 @@ var customer = await context.Customers
 如果你确实需要在单个动态字符串中执行多个 LINQ 步骤（筛选 → 排序 → 投影 → 物化），可以使用 `Execute` API：
 
 ```csharp
-var env = new 
-{ 
-    IsActive = CustomerStatus.IsActive, 
-    LastMonth = DateTime.Now.AddMonths(-1) 
+var env = new
+{
+    IsActive = CustomerStatus.IsActive,
+    LastMonth = DateTime.Now.AddMonths(-1)
 };
 
 var result = context.Customers.Execute<IEnumerable>(
     "Where(x => x.Status == IsActive && x.LastLogon >= LastMonth)" +
     ".Select(x => new { x.CustomerID, x.Name })" +
-    ".OrderBy(x => x.CustomerID).ToList()", 
+    ".OrderBy(x => x.CustomerID).ToList()",
     env);
 ```
 
@@ -229,11 +229,11 @@ var result = context.Customers.Execute<IEnumerable>(
 ```csharp
 public class QueryBuilder
 {
-    private readonly HashSet<string> _allowedFields = new() 
-    { 
-        "Status", "LastLogon", "Name", "Email", "Country" 
+    private readonly HashSet<string> _allowedFields = new()
+    {
+        "Status", "LastLogon", "Name", "Email", "Country"
     };
-    
+
     private readonly Dictionary<string, string> _operatorMap = new()
     {
         ["equals"] = "==",
@@ -243,24 +243,24 @@ public class QueryBuilder
     };
 
     public async Task<List<Customer>> BuildQuery(
-        DbContext context, 
+        DbContext context,
         List<QueryCondition> conditions)
     {
         var filters = new List<string>();
-        
+
         foreach (var condition in conditions)
         {
             if (!_allowedFields.Contains(condition.Field))
                 continue;
-                
+
             var op = _operatorMap.GetValueOrDefault(condition.Operator, "==");
             filters.Add($"x.{condition.Field} {op} {FormatValue(condition.Value)}");
         }
-        
-        var filter = filters.Any() 
+
+        var filter = filters.Any()
             ? "x => " + string.Join(" && ", filters)
             : "x => true";
-            
+
         return await context.Customers
             .WhereDynamic(filter)
             .ToListAsync();
@@ -280,18 +280,18 @@ public class QueryBuilder
 public class SegmentManager
 {
     public async Task<List<Customer>> ApplySegment(
-        DbContext context, 
+        DbContext context,
         string segmentRule)
     {
         // 从数据库加载保存的细分规则
         // 示例规则："x.Status == 1 && x.Country == \"DE\" && x.LastPurchase >= DateTime.Now.AddDays(-90)"
-        
+
         return await context.Customers
             .WhereDynamic(segmentRule)
             .OrderBy(x => x.CustomerID)
             .ToListAsync();
     }
-    
+
     public async Task SaveSegment(string name, string rule)
     {
         // 验证规则语法
@@ -312,19 +312,19 @@ public class SegmentManager
 public class TenantQueryService
 {
     public async Task<List<Customer>> GetCustomers(
-        DbContext context, 
+        DbContext context,
         int tenantId)
     {
         // 从配置加载租户特定的筛选规则
         var tenantRules = await LoadTenantRules(tenantId);
-        
+
         var baseFilter = "x => x.TenantId == " + tenantId;
-        
+
         if (!string.IsNullOrEmpty(tenantRules.AdditionalFilter))
         {
             baseFilter += " && " + tenantRules.AdditionalFilter;
         }
-        
+
         return await context.Customers
             .WhereDynamic(baseFilter)
             .ToListAsync();
@@ -364,10 +364,10 @@ public bool ValidateExpression(string expression)
 {
     // 检查是否包含危险的方法调用
     var dangerousPatterns = new[] { "System.", "File.", "Directory.", "Process." };
-    
+
     if (dangerousPatterns.Any(p => expression.Contains(p)))
         return false;
-    
+
     // 可以添加更多验证逻辑
     return true;
 }
@@ -420,14 +420,14 @@ public async Task SavedSegment_ReturnsExpectedResults()
     // Arrange
     var context = CreateTestContext();
     var segmentRule = "x => x.Status == 1 && x.Country == \"DE\"";
-    
+
     // Act
     var results = await context.Customers
         .WhereDynamic(segmentRule)
         .ToListAsync();
-    
+
     // Assert
-    Assert.All(results, c => 
+    Assert.All(results, c =>
     {
         Assert.Equal(1, (int)c.Status);
         Assert.Equal("DE", c.Country);
@@ -443,14 +443,14 @@ public async Task SavedSegment_ReturnsExpectedResults()
 public class FilterBuilder
 {
     private readonly List<string> _conditions = new();
-    
+
     public FilterBuilder AddCondition(string condition)
     {
         if (!string.IsNullOrWhiteSpace(condition))
             _conditions.Add(condition);
         return this;
     }
-    
+
     public string Build()
     {
         return _conditions.Any()

@@ -91,7 +91,7 @@ const nextPost =
   >
     <h1
       transition:name={slugifyStr(title)}
-      class="inline-block text-3xl font-extrabold text-accent sm:text-4xl md:text-5xl leading-tight mb-4"
+      class="text-accent mb-4 inline-block text-3xl leading-tight font-extrabold sm:text-4xl md:text-5xl"
       style="text-shadow: 0 2px 20px rgba(var(--accent-rgb, 0, 0, 0), 0.3); letter-spacing: -0.025em;"
     >
       {title}
@@ -108,7 +108,7 @@ const nextPost =
     <article id="article" class="mx-auto prose prose-lg mt-12 max-w-4xl">
       <Content />
     </article>
-    
+
     <style>
       /* Enhanced dark mode article styling */
       :global(html[data-theme="dark"] #article) {
@@ -125,13 +125,13 @@ const nextPost =
         margin-bottom: 1.75em;
         line-height: 1.9;
       }
-      
+
       :global(html[data-theme="light"] #article) {
         line-height: 1.85;
         letter-spacing: 0.01em;
         font-size: 1.0625rem;
       }
-      
+
       :global(html[data-theme="light"] #article p) {
         color: rgba(0, 0, 0, 0.85);
         margin-bottom: 1.75em;
@@ -149,23 +149,27 @@ const nextPost =
         margin-top: 2.5rem;
         margin-bottom: 1.25rem;
         line-height: 1.3;
-        background: linear-gradient(135deg, white 0%, rgba(255, 255, 255, 0.9) 100%);
+        background: linear-gradient(
+          135deg,
+          white 0%,
+          rgba(255, 255, 255, 0.9) 100%
+        );
         -webkit-background-clip: text;
         background-clip: text;
         text-shadow: 0 2px 15px rgba(var(--accent-rgb), 0.25);
       }
-      
+
       :global(html[data-theme="dark"] #article h2) {
         font-size: 1.875rem;
         padding-bottom: 0.5rem;
         border-bottom: 2px solid rgba(var(--accent-rgb), 0.2);
       }
-      
+
       :global(html[data-theme="dark"] #article h3) {
         font-size: 1.5rem;
         color: rgba(255, 255, 255, 0.95);
       }
-      
+
       :global(html[data-theme="light"] #article h1),
       :global(html[data-theme="light"] #article h2),
       :global(html[data-theme="light"] #article h3),
@@ -177,13 +181,13 @@ const nextPost =
         line-height: 1.3;
         color: rgba(0, 0, 0, 0.9);
       }
-      
+
       :global(html[data-theme="light"] #article h2) {
         font-size: 1.875rem;
         padding-bottom: 0.5rem;
         border-bottom: 2px solid rgba(0, 0, 0, 0.1);
       }
-      
+
       :global(html[data-theme="light"] #article h3) {
         font-size: 1.5rem;
       }
@@ -205,19 +209,19 @@ const nextPost =
         color: var(--color-accent);
         font-weight: 600;
       }
-      
+
       :global(html[data-theme="light"] #article ul),
       :global(html[data-theme="light"] #article ol) {
         padding-left: 1.75rem;
         margin: 1.5em 0;
       }
-      
+
       :global(html[data-theme="light"] #article li) {
         color: rgba(0, 0, 0, 0.8);
         margin-bottom: 0.75em;
         line-height: 1.8;
       }
-      
+
       :global(html[data-theme="light"] #article li::marker) {
         color: var(--color-accent);
         font-weight: 600;
@@ -240,7 +244,7 @@ const nextPost =
         text-shadow: 0 0 12px rgba(var(--accent-rgb), 0.6);
         transform: translateY(-1px);
       }
-      
+
       :global(html[data-theme="light"] #article a) {
         color: var(--color-accent);
         text-decoration: underline;
@@ -250,7 +254,7 @@ const nextPost =
         transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
         font-weight: 500;
       }
-      
+
       :global(html[data-theme="light"] #article a:hover) {
         text-decoration-color: var(--color-accent);
         text-decoration-thickness: 2px;
@@ -259,7 +263,11 @@ const nextPost =
 
       /* Enhanced blockquote styling */
       :global(html[data-theme="dark"] #article blockquote) {
-        background: linear-gradient(135deg, rgba(var(--accent-rgb), 0.1) 0%, rgba(var(--accent-rgb), 0.05) 100%);
+        background: linear-gradient(
+          135deg,
+          rgba(var(--accent-rgb), 0.1) 0%,
+          rgba(var(--accent-rgb), 0.05) 100%
+        );
         border-left: 5px solid rgba(var(--accent-rgb), 0.7);
         padding: 1.5rem 2rem;
         border-radius: 0 0.5rem 0.5rem 0;
@@ -268,9 +276,9 @@ const nextPost =
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         position: relative;
       }
-      
+
       :global(html[data-theme="dark"] #article blockquote::before) {
-        content: '\201C';
+        content: "\201C";
         position: absolute;
         top: 0.5rem;
         left: 0.5rem;
@@ -283,9 +291,13 @@ const nextPost =
         color: rgba(255, 255, 255, 0.95);
         margin-bottom: 0.75em;
       }
-      
+
       :global(html[data-theme="light"] #article blockquote) {
-        background: linear-gradient(135deg, rgba(2, 132, 199, 0.08) 0%, rgba(2, 132, 199, 0.03) 100%);
+        background: linear-gradient(
+          135deg,
+          rgba(2, 132, 199, 0.08) 0%,
+          rgba(2, 132, 199, 0.03) 100%
+        );
         border-left: 5px solid rgba(2, 132, 199, 0.6);
         padding: 1.5rem 2rem;
         border-radius: 0 0.5rem 0.5rem 0;
@@ -294,9 +306,9 @@ const nextPost =
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
         position: relative;
       }
-      
+
       :global(html[data-theme="light"] #article blockquote::before) {
-        content: '\201C';
+        content: "\201C";
         position: absolute;
         top: 0.5rem;
         left: 0.5rem;
@@ -304,7 +316,7 @@ const nextPost =
         color: rgba(2, 132, 199, 0.2);
         line-height: 1;
       }
-      
+
       :global(html[data-theme="light"] #article blockquote p) {
         color: rgba(0, 0, 0, 0.85);
         margin-bottom: 0.75em;
@@ -317,29 +329,42 @@ const nextPost =
         padding: 0;
         overflow-x: auto;
         position: relative;
-        font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'SF Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        font-family:
+          "JetBrains Mono", "Fira Code", "Cascadia Code", "SF Mono",
+          ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+          "Liberation Mono", "Courier New", monospace;
         scrollbar-width: thin;
         font-size: 0.9375rem;
         line-height: 1.7;
       }
-      
+
       :global(html[data-theme="dark"] #article pre) {
         border: 1px solid rgba(99, 102, 241, 0.2);
-        box-shadow: 
+        box-shadow:
           0 20px 40px -10px rgba(0, 0, 0, 0.4),
           0 8px 16px -4px rgba(0, 0, 0, 0.2),
           inset 0 1px 0 rgba(255, 255, 255, 0.05);
-        background: linear-gradient(145deg, #16161e 0%, #1a1b26 50%, #16161e 100%);
+        background: linear-gradient(
+          145deg,
+          #16161e 0%,
+          #1a1b26 50%,
+          #16161e 100%
+        );
         scrollbar-color: rgba(99, 102, 241, 0.6) rgba(42, 46, 58, 0.5);
       }
-      
+
       :global(html[data-theme="light"] #article pre) {
         border: 1px solid rgba(203, 213, 225, 0.5);
-        box-shadow: 
+        box-shadow:
           0 20px 40px -10px rgba(0, 0, 0, 0.12),
           0 8px 16px -4px rgba(0, 0, 0, 0.08),
           inset 0 1px 0 rgba(255, 255, 255, 0.95);
-        background: linear-gradient(145deg, #f8fafc 0%, #ffffff 50%, #f8fafc 100%);
+        background: linear-gradient(
+          145deg,
+          #f8fafc 0%,
+          #ffffff 50%,
+          #f8fafc 100%
+        );
         scrollbar-color: rgba(99, 102, 241, 0.5) rgba(226, 232, 240, 0.5);
       }
 
@@ -348,23 +373,23 @@ const nextPost =
         height: 8px;
         width: 8px;
       }
-      
+
       :global(html[data-theme="dark"] #article pre::-webkit-scrollbar-track) {
         background: #2a2e3a;
         border-radius: 4px;
       }
-      
+
       :global(html[data-theme="dark"] #article pre::-webkit-scrollbar-thumb) {
         background: linear-gradient(90deg, #6366f1, #8b5cf6);
         border-radius: 4px;
         border: 1px solid #374151;
       }
-      
+
       :global(html[data-theme="light"] #article pre::-webkit-scrollbar-track) {
         background: #e2e8f0;
         border-radius: 4px;
       }
-      
+
       :global(html[data-theme="light"] #article pre::-webkit-scrollbar-thumb) {
         background: linear-gradient(90deg, #6366f1, #8b5cf6);
         border-radius: 4px;
@@ -390,7 +415,7 @@ const nextPost =
         text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
         background: transparent !important;
       }
-      
+
       :global(html[data-theme="light"] #article pre code) {
         color: #334155;
         background: transparent !important;
@@ -400,7 +425,7 @@ const nextPost =
       :global(#article pre code .line) {
         background: transparent !important;
       }
-      
+
       :global(#article pre code span) {
         background: transparent !important;
       }
@@ -484,7 +509,11 @@ const nextPost =
       /* 内联代码样式 */
       :global(html[data-theme="dark"] #article code:not(pre code)) {
         color: #fbbf24;
-        background: linear-gradient(135deg, rgba(251, 191, 36, 0.15), rgba(251, 191, 36, 0.08));
+        background: linear-gradient(
+          135deg,
+          rgba(251, 191, 36, 0.15),
+          rgba(251, 191, 36, 0.08)
+        );
         padding: 0.25em 0.6em;
         border-radius: 0.4rem;
         font-weight: 600;
@@ -493,10 +522,14 @@ const nextPost =
         box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
         white-space: nowrap;
       }
-      
+
       :global(html[data-theme="light"] #article code:not(pre code)) {
         color: #dc2626;
-        background: linear-gradient(135deg, rgba(220, 38, 38, 0.12), rgba(220, 38, 38, 0.06));
+        background: linear-gradient(
+          135deg,
+          rgba(220, 38, 38, 0.12),
+          rgba(220, 38, 38, 0.06)
+        );
         padding: 0.25em 0.6em;
         border-radius: 0.4rem;
         font-weight: 600;
@@ -522,14 +555,18 @@ const nextPost =
         pointer-events: none;
         opacity: 0.8;
       }
-      
-      :global(html[data-theme="dark"] #article pre[class*="language-"])::before {
+
+      :global(
+          html[data-theme="dark"] #article pre[class*="language-"]
+        )::before {
         color: #a5b4fc;
         background: rgba(15, 23, 42, 0.9);
         border: 1px solid rgba(99, 102, 241, 0.3);
       }
-      
-      :global(html[data-theme="light"] #article pre[class*="language-"])::before {
+
+      :global(
+          html[data-theme="light"] #article pre[class*="language-"]
+        )::before {
         color: #6366f1;
         background: rgba(248, 250, 252, 0.9);
         border: 1px solid rgba(99, 102, 241, 0.2);
@@ -538,24 +575,24 @@ const nextPost =
       /* 代码块悬停效果 */
       :global(html[data-theme="dark"] #article pre:hover) {
         border-color: rgba(99, 102, 241, 0.4);
-        box-shadow: 
+        box-shadow:
           0 25px 50px -12px rgba(0, 0, 0, 0.5),
           0 12px 20px -8px rgba(99, 102, 241, 0.3),
           inset 0 1px 0 rgba(255, 255, 255, 0.1);
         transform: translateY(-2px);
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       }
-      
+
       :global(html[data-theme="light"] #article pre:hover) {
         border-color: rgba(99, 102, 241, 0.4);
-        box-shadow: 
+        box-shadow:
           0 25px 50px -12px rgba(0, 0, 0, 0.18),
           0 12px 20px -8px rgba(99, 102, 241, 0.2),
           inset 0 1px 0 rgba(255, 255, 255, 1);
         transform: translateY(-2px);
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       }
-      
+
       :global(#article pre) {
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       }
@@ -573,7 +610,11 @@ const nextPost =
       }
 
       :global(html[data-theme="dark"] #article thead) {
-        background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(139, 92, 246, 0.1));
+        background: linear-gradient(
+          135deg,
+          rgba(99, 102, 241, 0.15),
+          rgba(139, 92, 246, 0.1)
+        );
       }
 
       :global(html[data-theme="dark"] #article th) {
@@ -596,7 +637,7 @@ const nextPost =
         background-color: rgba(99, 102, 241, 0.08);
         transition: background-color 0.2s ease;
       }
-      
+
       :global(html[data-theme="light"] #article table) {
         border-collapse: separate;
         border-spacing: 0;
@@ -607,11 +648,15 @@ const nextPost =
         border: 1px solid rgba(203, 213, 225, 0.5);
         margin: 2rem 0;
       }
-      
+
       :global(html[data-theme="light"] #article thead) {
-        background: linear-gradient(135deg, rgba(99, 102, 241, 0.08), rgba(139, 92, 246, 0.05));
+        background: linear-gradient(
+          135deg,
+          rgba(99, 102, 241, 0.08),
+          rgba(139, 92, 246, 0.05)
+        );
       }
-      
+
       :global(html[data-theme="light"] #article th) {
         color: rgba(0, 0, 0, 0.9);
         font-weight: 700;
@@ -621,13 +666,13 @@ const nextPost =
         border-bottom: 2px solid rgba(99, 102, 241, 0.3);
         font-size: 0.875rem;
       }
-      
+
       :global(html[data-theme="light"] #article td) {
         padding: 1rem 1.5rem;
         border-top: 1px solid rgba(203, 213, 225, 0.3);
         color: rgba(0, 0, 0, 0.8);
       }
-      
+
       :global(html[data-theme="light"] #article tbody tr:hover) {
         background-color: rgba(99, 102, 241, 0.05);
         transition: background-color 0.2s ease;
@@ -641,12 +686,14 @@ const nextPost =
         transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         cursor: zoom-in;
       }
-      
+
       :global(html[data-theme="dark"] #article img:hover) {
         transform: scale(1.02) translateY(-4px);
-        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 20px rgba(99, 102, 241, 0.3);
+        box-shadow:
+          0 20px 50px rgba(0, 0, 0, 0.5),
+          0 0 20px rgba(99, 102, 241, 0.3);
       }
-      
+
       :global(html[data-theme="light"] #article img) {
         border-radius: 0.75rem;
         border: 1px solid rgba(203, 213, 225, 0.4);
@@ -655,12 +702,14 @@ const nextPost =
         transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         cursor: zoom-in;
       }
-      
+
       :global(html[data-theme="light"] #article img:hover) {
         transform: scale(1.02) translateY(-4px);
-        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2), 0 0 20px rgba(99, 102, 241, 0.2);
+        box-shadow:
+          0 20px 50px rgba(0, 0, 0, 0.2),
+          0 0 20px rgba(99, 102, 241, 0.2);
       }
-      
+
       /* Strong/Bold text enhancement */
       :global(html[data-theme="dark"] #article strong),
       :global(html[data-theme="dark"] #article b) {
@@ -668,28 +717,38 @@ const nextPost =
         font-weight: 700;
         text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
       }
-      
+
       :global(html[data-theme="light"] #article strong),
       :global(html[data-theme="light"] #article b) {
         color: rgba(0, 0, 0, 0.95);
         font-weight: 700;
       }
-      
+
       /* Horizontal rule styling */
       :global(html[data-theme="dark"] #article hr) {
         border: none;
         height: 2px;
-        background: linear-gradient(90deg, transparent, rgba(var(--accent-rgb), 0.5), transparent);
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(var(--accent-rgb), 0.5),
+          transparent
+        );
         margin: 3rem 0;
       }
-      
+
       :global(html[data-theme="light"] #article hr) {
         border: none;
         height: 2px;
-        background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.3), transparent);
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(99, 102, 241, 0.3),
+          transparent
+        );
         margin: 3rem 0;
       }
-      
+
       /* Keyboard key styling */
       :global(#article kbd) {
         background: linear-gradient(145deg, #f3f4f6, #e5e7eb);
@@ -698,54 +757,58 @@ const nextPost =
         padding: 0.125rem 0.5rem;
         font-family: inherit;
         font-size: 0.875em;
-        box-shadow: 0 2px 0 #d1d5db, inset 0 0 0 1px #fff;
+        box-shadow:
+          0 2px 0 #d1d5db,
+          inset 0 0 0 1px #fff;
         font-weight: 600;
         white-space: nowrap;
       }
-      
+
       :global(html[data-theme="dark"] #article kbd) {
         background: linear-gradient(145deg, #374151, #1f2937);
         border: 1px solid #4b5563;
         color: white;
-        box-shadow: 0 2px 0 #4b5563, inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+        box-shadow:
+          0 2px 0 #4b5563,
+          inset 0 0 0 1px rgba(255, 255, 255, 0.1);
       }
-      
+
       /* Definition list styling */
       :global(html[data-theme="dark"] #article dt) {
         color: white;
         font-weight: 700;
         margin-top: 1.5rem;
       }
-      
+
       :global(html[data-theme="dark"] #article dd) {
         color: rgba(255, 255, 255, 0.9);
         margin-left: 2rem;
         margin-top: 0.5rem;
       }
-      
+
       :global(html[data-theme="light"] #article dt) {
         color: rgba(0, 0, 0, 0.95);
         font-weight: 700;
         margin-top: 1.5rem;
       }
-      
+
       :global(html[data-theme="light"] #article dd) {
         color: rgba(0, 0, 0, 0.8);
         margin-left: 2rem;
         margin-top: 0.5rem;
       }
-      
+
       /* Selection styling */
       :global(#article ::selection) {
         background-color: rgba(var(--accent-rgb), 0.3);
         color: inherit;
       }
-      
+
       /* Smooth scrolling for anchor links */
       :global(html) {
         scroll-behavior: smooth;
       }
-      
+
       /* Focus visible enhancement */
       :global(#article a:focus-visible),
       :global(#article button:focus-visible) {
@@ -770,10 +833,10 @@ const nextPost =
 
       <button
         id="back-to-top"
-        class="focus-outline py-2 px-4 whitespace-nowrap hover:opacity-75 rounded-lg bg-gradient-to-r from-accent to-purple-500 text-white font-medium shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2"
+        class="focus-outline from-accent flex items-center gap-2 rounded-lg bg-gradient-to-r to-purple-500 px-4 py-2 font-medium whitespace-nowrap text-white shadow-lg transition-all duration-300 hover:opacity-75 hover:shadow-xl"
         style="transition: transform 0.3s ease, box-shadow 0.3s ease;"
       >
-        <IconChevronLeft class="inline-block rotate-90 w-4 h-4" />
+        <IconChevronLeft class="inline-block h-4 w-4 rotate-90" />
         <span>Back to Top</span>
       </button>
     </div>
@@ -786,12 +849,16 @@ const nextPost =
         prevPost && (
           <a
             href={`/posts/${prevPost.slug}`}
-            class="flex w-full gap-3 p-4 rounded-lg border border-accent/20 bg-gradient-to-br from-accent/5 to-transparent hover:from-accent/10 hover:border-accent/40 transition-all duration-300 hover:transform hover:-translate-x-2 hover:shadow-lg group"
+            class="border-accent/20 from-accent/5 hover:from-accent/10 hover:border-accent/40 group flex w-full gap-3 rounded-lg border bg-gradient-to-br to-transparent p-4 transition-all duration-300 hover:-translate-x-2 hover:transform hover:shadow-lg"
           >
-            <IconChevronLeft class="inline-block flex-none mt-1 group-hover:-translate-x-1 transition-transform" />
+            <IconChevronLeft class="mt-1 inline-block flex-none transition-transform group-hover:-translate-x-1" />
             <div class="flex-1">
-              <span class="text-sm font-semibold text-accent uppercase tracking-wide">Previous Post</span>
-              <div class="text-base font-medium mt-1 group-hover:text-accent transition-colors">{prevPost.title}</div>
+              <span class="text-accent text-sm font-semibold tracking-wide uppercase">
+                Previous Post
+              </span>
+              <div class="group-hover:text-accent mt-1 text-base font-medium transition-colors">
+                {prevPost.title}
+              </div>
             </div>
           </a>
         )
@@ -800,13 +867,17 @@ const nextPost =
         nextPost && (
           <a
             href={`/posts/${nextPost.slug}`}
-            class="flex w-full justify-end gap-3 p-4 rounded-lg border border-accent/20 bg-gradient-to-bl from-accent/5 to-transparent hover:from-accent/10 hover:border-accent/40 text-right transition-all duration-300 hover:transform hover:translate-x-2 hover:shadow-lg sm:col-start-2 group"
+            class="border-accent/20 from-accent/5 hover:from-accent/10 hover:border-accent/40 group flex w-full justify-end gap-3 rounded-lg border bg-gradient-to-bl to-transparent p-4 text-right transition-all duration-300 hover:translate-x-2 hover:transform hover:shadow-lg sm:col-start-2"
           >
             <div class="flex-1">
-              <span class="text-sm font-semibold text-accent uppercase tracking-wide">Next Post</span>
-              <div class="text-base font-medium mt-1 group-hover:text-accent transition-colors">{nextPost.title}</div>
+              <span class="text-accent text-sm font-semibold tracking-wide uppercase">
+                Next Post
+              </span>
+              <div class="group-hover:text-accent mt-1 text-base font-medium transition-colors">
+                {nextPost.title}
+              </div>
             </div>
-            <IconChevronRight class="inline-block flex-none mt-1 group-hover:translate-x-1 transition-transform" />
+            <IconChevronRight class="mt-1 inline-block flex-none transition-transform group-hover:translate-x-1" />
           </a>
         )
       }
@@ -892,11 +963,11 @@ const nextPost =
 
       // Set the code block to be focusable
       codeBlock.setAttribute("tabindex", "0");
-      
+
       // Wrap the code block with the relative parent element
       codeBlock?.parentNode?.insertBefore(wrapper, codeBlock);
       wrapper.appendChild(codeBlock);
-      
+
       // Create and append the copy button to the wrapper (not the code block)
       const copyButton = document.createElement("button");
       copyButton.className =
@@ -949,18 +1020,18 @@ const nextPost =
   function backToTop() {
     const backToTopButton = document.querySelector("#back-to-top");
     backToTopButton?.addEventListener("click", () => {
-      window.scrollTo({ 
-        top: 0, 
-        left: 0, 
-        behavior: "smooth" 
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: "smooth",
       });
     });
-    
+
     // Add hover effect
     backToTopButton?.addEventListener("mouseenter", () => {
       backToTopButton.style.transform = "translateY(-3px) scale(1.05)";
     });
-    
+
     backToTopButton?.addEventListener("mouseleave", () => {
       backToTopButton.style.transform = "translateY(0) scale(1)";
     });

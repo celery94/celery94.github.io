@@ -3,32 +3,32 @@
 ---
 
 <!-- 预连接到关键域名 -->
-<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
 <!-- DNS预取 -->
-<link rel="dns-prefetch" href="https://fonts.googleapis.com">
-<link rel="dns-prefetch" href="https://fonts.gstatic.com">
+<link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+<link rel="dns-prefetch" href="https://fonts.gstatic.com" />
 
 <!-- 资源提示 -->
-<link rel="preload" href="/logo.png" as="image">
-<link rel="modulepreload" href="/toggle-theme.js">
+<link rel="preload" href="/logo.png" as="image" />
+<link rel="modulepreload" href="/toggle-theme.js" />
 
 <!-- 添加Core Web Vitals的性能优化 -->
 <script is:inline type="module">
   // 使用Intersection Observer延迟加载非关键资源
-  document.addEventListener('DOMContentLoaded', () => {
-    if ('IntersectionObserver' in window) {
+  document.addEventListener("DOMContentLoaded", () => {
+    if ("IntersectionObserver" in window) {
       const lazyImages = document.querySelectorAll('img[loading="lazy"]');
-      
-      const imageObserver = new IntersectionObserver((entries) => {
+
+      const imageObserver = new IntersectionObserver(entries => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             const img = entry.target;
             if (img instanceof HTMLImageElement && img.dataset.src) {
               img.src = img.dataset.src;
             }
-            img.classList.add('loaded');
+            img.classList.add("loaded");
             imageObserver.unobserve(img);
           }
         });
@@ -37,41 +37,41 @@
       lazyImages.forEach(img => imageObserver.observe(img));
     }
   });
-  
+
   // 注册性能测量
-  if ('performance' in window && 'PerformanceObserver' in window) {
+  if ("performance" in window && "PerformanceObserver" in window) {
     const emitMetric = (name, detail) => {
       window.dispatchEvent(new CustomEvent(`performance:${name}`, { detail }));
     };
 
     // 监控LCP (Largest Contentful Paint)
-    new PerformanceObserver((entryList) => {
+    new PerformanceObserver(entryList => {
       const entries = entryList.getEntries();
       const lastEntry = entries[entries.length - 1];
-      emitMetric('lcp', { value: lastEntry.startTime, entries });
+      emitMetric("lcp", { value: lastEntry.startTime, entries });
       // 可以在外部监听 performance:lcp 事件并上报分析服务
-    }).observe({type: 'largest-contentful-paint', buffered: true});
-    
+    }).observe({ type: "largest-contentful-paint", buffered: true });
+
     // 监控FID (First Input Delay)
-    new PerformanceObserver((entryList) => {
+    new PerformanceObserver(entryList => {
       const entries = entryList.getEntries();
       entries.forEach(entry => {
-        emitMetric('fid', {
+        emitMetric("fid", {
           value: entry.processingStart - entry.startTime,
-          entry
+          entry,
         });
       });
-    }).observe({type: 'first-input', buffered: true});
-    
+    }).observe({ type: "first-input", buffered: true });
+
     // 监控CLS (Cumulative Layout Shift)
-    new PerformanceObserver((entryList) => {
+    new PerformanceObserver(entryList => {
       const entries = entryList.getEntries();
       entries.forEach(entry => {
         if (!entry.hadRecentInput) {
-          emitMetric('cls', { value: entry.value, entry });
+          emitMetric("cls", { value: entry.value, entry });
         }
       });
-    }).observe({type: 'layout-shift', buffered: true});
+    }).observe({ type: "layout-shift", buffered: true });
   }
 </script>
 

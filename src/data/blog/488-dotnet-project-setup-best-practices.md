@@ -116,14 +116,14 @@ csharp_prefer_braces = true
   <PropertyGroup>
     <!-- 目标框架 -->
     <TargetFramework>net10.0</TargetFramework>
-    
+
     <!-- C# 语言特性 -->
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    
+
     <!-- 构建行为 -->
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-    
+
     <!-- 输出配置 -->
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
@@ -254,16 +254,16 @@ csharp_prefer_braces = true
 <PropertyGroup>
   <!-- 将警告视为错误 -->
   <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-  
+
   <!-- 使用最新的分析规则 -->
   <AnalysisLevel>latest</AnalysisLevel>
-  
+
   <!-- 启用所有分析规则 -->
   <AnalysisMode>All</AnalysisMode>
-  
+
   <!-- 将代码分析警告视为错误 -->
   <CodeAnalysisTreatWarningsAsErrors>true</CodeAnalysisTreatWarningsAsErrors>
-  
+
   <!-- 在构建时强制执行代码风格规则 -->
   <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
 </PropertyGroup>
@@ -342,7 +342,7 @@ Docker Compose 提供了一种声明式的方式来定义和运行多容器应�
 典型的 `docker-compose.yml` 文件：
 
 ```yaml
-version: '3.8'
+version: "3.8"
 
 services:
   # 应用服务
@@ -421,14 +421,14 @@ Aspire 会自动：
 
 ### Docker Compose 与 Aspire 的对比选择
 
-| 特性 | Docker Compose | .NET Aspire |
-|-----|---------------|-------------|
-| 学习曲线 | 低 | 中等 |
-| .NET 集成 | 需要手动配置 | 深度集成 |
-| 服务发现 | 需要手动实现 | 自动配置 |
-| 遥测支持 | 需要手动集成 | 内置支持 |
-| 跨平台 | 支持 | 支持 |
-| 适用场景 | 通用容器编排 | .NET 应用专用 |
+| 特性      | Docker Compose | .NET Aspire   |
+| --------- | -------------- | ------------- |
+| 学习曲线  | 低             | 中等          |
+| .NET 集成 | 需要手动配置   | 深度集成      |
+| 服务发现  | 需要手动实现   | 自动配置      |
+| 遥测支持  | 需要手动集成   | 内置支持      |
+| 跨平台    | 支持           | 支持          |
+| 适用场景  | 通用容器编排   | .NET 应用专用 |
 
 **推荐策略**：
 

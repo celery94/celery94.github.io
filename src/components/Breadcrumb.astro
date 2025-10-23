@@ -26,14 +26,14 @@ if (breadcrumbList[0] === "tags" && !isNaN(Number(breadcrumbList[2]))) {
 const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
-  "itemListElement": [
+  itemListElement: [
     {
       "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": new URL("/", Astro.url).toString()
-    }
-  ]
+      position: 1,
+      name: "Home",
+      item: new URL("/", Astro.url).toString(),
+    },
+  ],
 };
 
 // Add each breadcrumb to the schema
@@ -41,9 +41,9 @@ breadcrumbList.forEach((breadcrumb, index) => {
   const path = breadcrumbList.slice(0, index + 1).join("/");
   breadcrumbSchema.itemListElement.push({
     "@type": "ListItem",
-    "position": index + 2, // +2 because we already have Home at position 1
-    "name": decodeURIComponent(breadcrumb),
-    "item": new URL(`/${path}/`, Astro.url).toString()
+    position: index + 2, // +2 because we already have Home at position 1
+    name: decodeURIComponent(breadcrumb),
+    item: new URL(`/${path}/`, Astro.url).toString(),
   });
 });
 ---
@@ -82,4 +82,8 @@ breadcrumbList.forEach((breadcrumb, index) => {
 </nav>
 
 <!-- Add Schema.org structured data for breadcrumbs -->
-<script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+<script
+  is:inline
+  type="application/ld+json"
+  set:html={JSON.stringify(breadcrumbSchema)}
+/>

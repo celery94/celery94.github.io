@@ -65,7 +65,7 @@ app.Use(async (context, next) =>
     if (context.User.Identity?.IsAuthenticated == true)
     {
         var scopeClaim = context.User.FindFirst("scp")?.Value;
-        if (string.IsNullOrEmpty(scopeClaim) || 
+        if (string.IsNullOrEmpty(scopeClaim) ||
             !scopeClaim.Contains("mcp:tools"))
         {
             context.Response.StatusCode = 403;
@@ -103,7 +103,7 @@ private static async Task<string> SignInUserAndGetTokenUsingMSAL(
         .Build();
 
     AuthenticationResult result;
-    
+
     try
     {
         // 首先尝试静默获取令牌（使用缓存的账户）
@@ -153,22 +153,22 @@ private static PublicClientApplicationOptions? appConfiguration = null;
 private static IPublicClientApplication? application;
 
 public static async Task<IClientTransport> CreateMcpTransportAsync(
-    HttpClient httpClient, 
+    HttpClient httpClient,
     IConfigurationRoot configuration)
 {
     // 加载应用配置
     appConfiguration = configuration.Get<PublicClientApplicationOptions>();
-    
+
     // 定义请求的权限作用域
     string[] scopes = ["api://96b0f495-3b65-4c8f-a0c6-c3767c3365ed/mcp:tools"];
 
     // 使用 MSAL 进行用户登录并获取访问令牌
     var accessToken = await SignInUserAndGetTokenUsingMSAL(
-        appConfiguration!, 
+        appConfiguration!,
         scopes);
 
     // 将令牌设置到 HttpClient 的默认请求头中
-    httpClient.DefaultRequestHeaders.Authorization = 
+    httpClient.DefaultRequestHeaders.Authorization =
         new AuthenticationHeaderValue("Bearer", accessToken);
 
     // 获取 MCP 服务器 URL 配置
@@ -194,6 +194,7 @@ api://{resource-identifier}/{permission-name}
 ```
 
 其中：
+
 - `{resource-identifier}`：MCP 服务器在 Entra ID 中注册的应用程序 ID
 - `{permission-name}`：自定义的权限名称，如 `mcp:tools`
 
@@ -227,12 +228,14 @@ Model Context Protocol 规范中提到了动态客户端注册（Dynamic Client 
 本文介绍的方案强制使用用户委托访问令牌（Delegated Access Token），而非应用访问令牌（Application Access Token）。这种设计选择基于以下安全原则：
 
 **用户委托访问模式**：
+
 - 所有操作均在已认证用户的上下文中执行
 - 访问权限受用户角色和权限约束
 - 审计日志可追溯到具体用户
 - 符合最小权限原则
 
 **应用访问模式**（不推荐用于桌面客户端）：
+
 - 应用以自身身份执行操作，无法关联到具体用户
 - 需要客户端密钥，桌面应用无法安全存储
 - 权限通常过于宽泛，违反最小权限原则

@@ -62,8 +62,8 @@ ActivityIndicator()
 或者：
 
 ```csharp
-State.IsBusy 
-    ? ActivityIndicator() 
+State.IsBusy
+    ? ActivityIndicator()
     : null
 ```
 
@@ -88,15 +88,15 @@ class CounterPage : Component<CounterPageState>
                 Button("Click To Increment", () =>
                     SetState(s => s.Counter++))
             )
-        );    
+        );
 }
 ```
 
 为了对比，这是 React Native 中的计数器，演示了类似的 MVU 实现：
 
 ```javascript
-import React, { useState } from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import React, { useState } from "react";
+import { View, Text, TouchableOpacity } from "react-native";
 
 const Counter = () => {
   const [count, setCount] = useState(0);
@@ -208,7 +208,7 @@ public class AppTheme : Theme
             .TextColor(Black);
 
         LabelStyles.Themes["Title"] = _ => _
-            .FontSize(20);            
+            .FontSize(20);
     }
 }
 ```
@@ -240,11 +240,11 @@ class LoginPage : Component<LoginPageState>
 {
     public override VisualNode Render()
         => ContentPage(
-            State.IsLoggingIn ? 
+            State.IsLoggingIn ?
             RenderBusyUI()
             :
             RenderLoginUI()
-        );    
+        );
 }
 ```
 
@@ -263,7 +263,7 @@ class HomePage : Component
                 RenderBody(),
 
                 RenderFooter()
-        );    
+        );
 }
 ```
 

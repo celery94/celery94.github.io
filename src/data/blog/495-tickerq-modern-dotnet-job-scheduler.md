@@ -101,7 +101,7 @@ public class ReportGenerationJob
 
     // 构造函数注入，完全支持
     public ReportGenerationJob(
-        ReportDbContext dbContext, 
+        ReportDbContext dbContext,
         ILogger<ReportGenerationJob> logger)
     {
         _dbContext = dbContext;
@@ -111,14 +111,14 @@ public class ReportGenerationJob
     // 使用特性标注定义周期性任务
     // 此任务每小时执行一次
     [TickerFunction(
-        functionName: "Generate Hourly Report", 
+        functionName: "Generate Hourly Report",
         cronExpression: "0 * * * *")]
     public async Task GenerateHourlyReport(
-        TickerFunctionContext context, 
+        TickerFunctionContext context,
         CancellationToken cancellationToken)
     {
         _logger.LogInformation(
-            "开始生成报表，任务 ID: {TickerId}", 
+            "开始生成报表，任务 ID: {TickerId}",
             context.TickerId);
 
         var report = new Report
@@ -155,10 +155,10 @@ TickerQ 支持从配置文件中读取 Cron 表达式，便于环境差异化配
 
 ```csharp
 [TickerFunction(
-    functionName: "Scheduled Task", 
+    functionName: "Scheduled Task",
     cronExpression: "%CronSchedule:HourlyTask%")]
-public void ExecuteTask() 
-{ 
+public void ExecuteTask()
+{
     // 任务逻辑
 }
 ```
@@ -189,16 +189,16 @@ public async Task ProcessData(TickerFunctionContext context, CancellationToken c
         // 获取任务信息
         var tickerId = context.TickerId;
         var executionTime = context.ExecutionTime;
-        
+
         // 执行业务逻辑
         await PerformDataProcessing(cancellationToken);
-        
+
         // 根据条件取消未来的执行
         if (ShouldStopRecurring())
         {
             context.CancelTicker();
         }
-        
+
         // 或完全删除任务
         // await context.DeleteAsync();
     }
@@ -218,15 +218,15 @@ TickerQ 允许你实现全局异常处理器，统一处理任务执行中的错
 public class GlobalTickerExceptionHandler : ITickerExceptionHandler
 {
     private readonly ILogger<GlobalTickerExceptionHandler> _logger;
-    
+
     public GlobalTickerExceptionHandler(ILogger<GlobalTickerExceptionHandler> logger)
     {
         _logger = logger;
     }
 
     public async Task HandleExceptionAsync(
-        Exception exception, 
-        Guid tickerId, 
+        Exception exception,
+        Guid tickerId,
         TickerType tickerType)
     {
         _logger.LogError(
@@ -234,14 +234,14 @@ public class GlobalTickerExceptionHandler : ITickerExceptionHandler
             "任务执行失败 - ID: {TickerId}, 类型: {TickerType}",
             tickerId,
             tickerType);
-        
+
         // 发送告警通知
         await SendAlertNotification(exception, tickerId);
     }
 
     public async Task HandleCanceledExceptionAsync(
-        Exception exception, 
-        Guid tickerId, 
+        Exception exception,
+        Guid tickerId,
         TickerType tickerType)
     {
         _logger.LogWarning(
@@ -249,7 +249,7 @@ public class GlobalTickerExceptionHandler : ITickerExceptionHandler
             tickerId,
             exception.Message);
     }
-    
+
     private async Task SendAlertNotification(Exception ex, Guid tickerId)
     {
         // 实现告警逻辑，如发送邮件或推送通知
@@ -286,21 +286,21 @@ builder.Services.AddTickerQ(options =>
 {
     // 配置错过任务的检查延迟
     options.UpdateMissedJobCheckDelay(TimeSpan.FromSeconds(10));
-    
+
     // 设置实例标识符（用于多实例部署）
     options.SetInstanceIdentifier("TickerQ-Instance-1");
-    
+
     // 添加 EF Core 操作存储
     options.AddOperationalStore<ReportDbContext>(efCoreOptions =>
     {
         // 在设计时（迁移）应用模型自定义
         // 运行时模型不受影响
         efCoreOptions.UseModelCustomizerForMigrations();
-        
+
         // 应用启动时取消异常状态的任务
         // 防止崩溃后重复执行
         efCoreOptions.CancelMissedTickersOnAppStart();
-        
+
         // 忽略特性定义的 Cron 任务的自动种子
         // 如果你希望仅在运行时管理这些任务
         // efCoreOptions.IgnoreSeedMemoryCronTickers();
@@ -334,7 +334,7 @@ efCoreOptions.UseModelCustomizerForMigrations();
 ```csharp
 public class ReportDbContext : DbContext
 {
-    public ReportDbContext(DbContextOptions<ReportDbContext> options) 
+    public ReportDbContext(DbContextOptions<ReportDbContext> options)
         : base(options) { }
 
     public DbSet<Report> Reports { get; set; } = null!;
@@ -403,7 +403,7 @@ efCoreOptions.UseTickerSeeder(
             Function = "Generate Daily Report",
             Description = "每日报表生成任务"
         });
-        
+
         await cronTicker.AddAsync(new CronTicker
         {
             Id = Guid.NewGuid(),
@@ -427,17 +427,17 @@ efCoreOptions.UseTickerSeeder(
 
 ```csharp
 public record NotificationRequest(
-    string Title, 
-    string Content, 
+    string Title,
+    string Content,
     DateTime ScheduledTime);
 
 public record NotificationJobContext(
-    string Title, 
+    string Title,
     string Content);
 
-app.MapPost("/api/schedule-notification", 
+app.MapPost("/api/schedule-notification",
     async (
-        NotificationRequest request, 
+        NotificationRequest request,
         ITimeTickerManager<TimeTicker> timeTickerManager) =>
 {
     // 验证时间
@@ -448,7 +448,7 @@ app.MapPost("/api/schedule-notification",
 
     // 创建任务上下文数据
     var jobData = new NotificationJobContext(
-        request.Title, 
+        request.Title,
         request.Content);
 
     // 动态注册任务
@@ -458,7 +458,7 @@ app.MapPost("/api/schedule-notification",
         ExecutionTime = request.ScheduledTime.ToUniversalTime(),
         Request = TickerHelper.CreateTickerRequest(jobData),
         Description = $"用户预约通知：{request.Title}",
-        
+
         // 配置重试策略
         Retries = 3,
         RetryIntervals = new[] { 30, 60, 120 } // 30秒、1分钟、2分钟后重试
@@ -484,7 +484,7 @@ public class NotificationJob
     private readonly ILogger<NotificationJob> _logger;
 
     public NotificationJob(
-        IEmailService emailService, 
+        IEmailService emailService,
         ILogger<NotificationJob> logger)
     {
         _emailService = emailService;
@@ -493,7 +493,7 @@ public class NotificationJob
 
     [TickerFunction(functionName: "Send Notification")]
     public async Task Execute(
-        TickerFunctionContext<NotificationJobContext> context, 
+        TickerFunctionContext<NotificationJobContext> context,
         CancellationToken cancellationToken)
     {
         // 从上下文中提取数据
@@ -509,8 +509,8 @@ public class NotificationJob
         {
             // 执行实际的通知发送
             await _emailService.SendNotificationAsync(
-                title, 
-                content, 
+                title,
+                content,
                 cancellationToken);
 
             _logger.LogInformation(
@@ -523,7 +523,7 @@ public class NotificationJob
                 ex,
                 "通知发送失败 - 任务 ID: {TickerId}",
                 context.TickerId);
-            
+
             // 异常会触发重试机制
             throw;
         }
@@ -538,13 +538,13 @@ public class NotificationJob
 同样地，你可以动态创建基于 Cron 表达式的周期性任务：
 
 ```csharp
-app.MapPost("/api/schedule-recurring-task", 
+app.MapPost("/api/schedule-recurring-task",
     async (
-        RecurringTaskRequest request, 
+        RecurringTaskRequest request,
         ICronTickerManager<CronTicker> cronTickerManager) =>
 {
-    var jobData = new { 
-        Description = request.Description 
+    var jobData = new {
+        Description = request.Description
     };
 
     var result = await cronTickerManager.AddAsync(new CronTicker
@@ -553,7 +553,7 @@ app.MapPost("/api/schedule-recurring-task",
         Expression = request.CronExpression,
         Request = TickerHelper.CreateTickerRequest(jobData),
         Description = request.Description,
-        
+
         // 重试配置
         Retries = 3,
         RetryIntervals = new[] { 30, 60, 120 }
@@ -573,9 +573,9 @@ TickerQ 提供了灵活的任务管理 API：
 
 ```csharp
 // 更新 Cron 任务
-app.MapPut("/api/cron-ticker/{id:guid}", 
+app.MapPut("/api/cron-ticker/{id:guid}",
     async (
-        Guid id, 
+        Guid id,
         UpdateCronTickerRequest request,
         ICronTickerManager<CronTicker> cronTickerManager) =>
 {
@@ -590,9 +590,9 @@ app.MapPut("/api/cron-ticker/{id:guid}",
 });
 
 // 删除任务
-app.MapDelete("/api/cron-ticker/{id:guid}", 
+app.MapDelete("/api/cron-ticker/{id:guid}",
     async (
-        Guid id, 
+        Guid id,
         ICronTickerManager<CronTicker> cronTickerManager) =>
 {
     await cronTickerManager.DeleteAsync(id);
@@ -600,9 +600,9 @@ app.MapDelete("/api/cron-ticker/{id:guid}",
 });
 
 // 批量删除
-app.MapPost("/api/cron-ticker/batch-delete", 
+app.MapPost("/api/cron-ticker/batch-delete",
     async (
-        List<Guid> ids, 
+        List<Guid> ids,
         ICronTickerManager<CronTicker> cronTickerManager) =>
 {
     foreach (var id in ids)
@@ -618,12 +618,12 @@ app.MapPost("/api/cron-ticker/batch-delete",
 你还可以查询任务的当前状态和执行历史：
 
 ```csharp
-app.MapGet("/api/ticker/{id:guid}/status", 
+app.MapGet("/api/ticker/{id:guid}/status",
     async (Guid id, ReportDbContext dbContext) =>
 {
     var timeTicker = await dbContext.Set<TimeTicker>()
         .FirstOrDefaultAsync(t => t.Id == id);
-    
+
     if (timeTicker != null)
     {
         return Results.Ok(new
@@ -640,7 +640,7 @@ app.MapGet("/api/ticker/{id:guid}/status",
     var cronTicker = await dbContext.Set<CronTicker>()
         .Include(c => c.Occurrences)
         .FirstOrDefaultAsync(c => c.Id == id);
-    
+
     if (cronTicker != null)
     {
         return Results.Ok(new
@@ -677,12 +677,12 @@ dotnet add package TickerQ.Dashboard
 builder.Services.AddTickerQ(options =>
 {
     // ... 其他配置
-    
+
     options.AddDashboard(dashboardOptions =>
     {
         // 设置仪表板访问路径
         dashboardOptions.BasePath = "/tickerq-dashboard";
-        
+
         // 启用基本身份验证
         dashboardOptions.EnableBasicAuth = true;
     });
@@ -747,7 +747,7 @@ services.AddQuartz(q =>
 {
     var jobKey = new JobKey("ReportJob");
     q.AddJob<ReportJob>(opts => opts.WithIdentity(jobKey));
-    
+
     q.AddTrigger(opts => opts
         .ForJob(jobKey)
         .WithIdentity("ReportJob-trigger")
@@ -781,7 +781,7 @@ public class ReportJob
 {
     private readonly IDbContext _db;
     private readonly IEmailService _email;
-    
+
     // 构造函数注入自动工作
     public ReportJob(IDbContext db, IEmailService email)
     {
@@ -804,7 +804,7 @@ dotnet add package Quartz.Extensions.DependencyInjection
 **TickerQ** 原生支持：
 
 ```csharp
-options.AddOperationalStore<MyDbContext>(efOptions => 
+options.AddOperationalStore<MyDbContext>(efOptions =>
 {
     efOptions.UseModelCustomizerForMigrations();
 });
@@ -828,13 +828,13 @@ public async Task GenerateWeeklySalesReport(CancellationToken cancellationToken)
 {
     var startDate = DateTime.Now.AddDays(-7);
     var endDate = DateTime.Now;
-    
+
     var salesData = await _dbContext.Sales
         .Where(s => s.Date >= startDate && s.Date < endDate)
         .ToListAsync(cancellationToken);
-    
+
     var report = await _reportGenerator.GenerateAsync(salesData);
-    
+
     await _emailService.SendReportAsync(report, "team@company.com");
 }
 ```
@@ -849,9 +849,9 @@ public async Task SyncExternalData(CancellationToken cancellationToken)
         .OrderByDescending(l => l.Timestamp)
         .Select(l => l.Timestamp)
         .FirstOrDefaultAsync(cancellationToken);
-    
+
     var newData = await _externalApiClient.GetDataAsync(lastSyncTime);
-    
+
     _dbContext.ExternalData.AddRange(newData);
     await _dbContext.SaveChangesAsync(cancellationToken);
 }
@@ -866,14 +866,14 @@ app.MapPost("/api/reminders", async (
     ITimeTickerManager<TimeTicker> tickerManager) =>
 {
     var jobData = new ReminderJobContext(request.UserId, request.Message);
-    
+
     await tickerManager.AddAsync(new TimeTicker
     {
         Function = "Send User Reminder",
         ExecutionTime = request.ReminderTime.ToUniversalTime(),
         Request = TickerHelper.CreateTickerRequest(jobData)
     });
-    
+
     return Results.Ok();
 });
 
@@ -916,17 +916,17 @@ public async Task ProcessOrder(
     CancellationToken cancellationToken)
 {
     var orderId = context.Request.OrderId;
-    
+
     // 检查是否已处理
     var order = await _dbContext.Orders
         .FirstOrDefaultAsync(o => o.Id == orderId, cancellationToken);
-    
+
     if (order.Status == OrderStatus.Processed)
     {
         // 已处理，直接返回
         return;
     }
-    
+
     // 执行处理逻辑
     await ProcessOrderInternal(order, cancellationToken);
 }
@@ -941,7 +941,7 @@ public async Task ProcessOrder(
 public async Task PerformHealthCheck(CancellationToken cancellationToken)
 {
     var metrics = await _metricsCollector.CollectAsync(cancellationToken);
-    
+
     if (metrics.ErrorRate > 0.05) // 错误率超过 5%
     {
         await _alertService.SendAlertAsync(
@@ -976,7 +976,7 @@ public async Task ExecuteLongTask(CancellationToken cancellationToken)
     {
         // 定期检查取消令牌
         cancellationToken.ThrowIfCancellationRequested();
-        
+
         await ProcessBatchAsync(i, cancellationToken);
     }
 }

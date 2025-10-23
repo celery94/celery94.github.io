@@ -9,9 +9,11 @@ const { noPadding = false, ariaHidden = true, type = "default" } = Astro.props;
 ---
 
 <div class={`max-w-5xl mx-auto ${noPadding ? "px-0" : "px-4"}`}>
-  {type === "default" ? (
-    <hr class="border-border" aria-hidden={ariaHidden} />
-  ) : (
-    <hr class="rainbow-hr" aria-hidden={ariaHidden} />
-  )}
+  {
+    type === "default" ? (
+      <hr class="border-border" aria-hidden={ariaHidden} />
+    ) : (
+      <hr class="rainbow-hr" aria-hidden={ariaHidden} />
+    )
+  }
 </div>

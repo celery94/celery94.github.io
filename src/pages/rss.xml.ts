@@ -8,7 +8,7 @@ import { marked } from "marked";
 export async function GET() {
   const posts = await getCollection("blog");
   const sortedPosts = getSortedPosts(posts);
-  
+
   return rss({
     title: SITE.title,
     description: SITE.desc,
@@ -18,7 +18,7 @@ export async function GET() {
         // Make sure body is defined before parsing and await the result
         const parsedContent = body ? await marked.parse(body) : "";
         const content = sanitizeHtml(parsedContent);
-        
+
         return {
           link: `posts/${id}/`,
           title: data.title,
@@ -31,9 +31,9 @@ export async function GET() {
           categories: data.tags || [],
           // 添加自定义数据
           customData: `
-            ${data.ogImage ? `<media:content url="${new URL(`/posts/${id}/${data.ogImage}`, SITE.website)}" medium="image" />` : ''}
+            ${data.ogImage ? `<media:content url="${new URL(`/posts/${id}/${data.ogImage}`, SITE.website)}" medium="image" />` : ""}
             <language>zh-cn</language>
-          `
+          `,
         };
       })
     ),
@@ -42,13 +42,13 @@ export async function GET() {
       <language>zh-cn</language>
       <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
       <image>
-        <url>${new URL('/logo.png', SITE.website)}</url>
+        <url>${new URL("/logo.png", SITE.website)}</url>
         <title>${SITE.title}</title>
         <link>${SITE.website}</link>
       </image>
       <copyright>Copyright ${new Date().getFullYear()} ${SITE.author}</copyright>
       <ttl>60</ttl>
     `,
-    stylesheet: '/rss/styles.xsl',
+    stylesheet: "/rss/styles.xsl",
   });
 }

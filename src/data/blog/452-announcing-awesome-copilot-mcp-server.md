@@ -20,12 +20,15 @@ description: 微软宣布推出 Awesome Copilot MCP Server，这是一个简单�
 ## 什么是聊天模式、指令和提示？
 
 ### 自定义聊天模式
+
 自定义聊天模式定义聊天如何操作、可以使用哪些工具以及如何与代码库交互。每个聊天提示都在聊天模式的边界内运行，无需为每个请求配置工具和指令。通过这些自定义聊天模式，您可以创建前端开发人员聊天模式，其中 AI 只能生成和修改与前端应用程序开发相关的代码。
 
 ### 自定义指令
+
 自定义指令定义生成代码、执行代码审查或生成提交消息等任务的常见指导原则或规则。自定义指令描述 AI 应该执行操作的条件——**如何**完成任务。通过这些自定义指令，您可以指定编码实践、首选技术或项目要求，确保生成的代码遵循您的标准。
 
 ### 提示
+
 提示定义常见任务（如生成代码或执行代码审查）的可重用提示。提示是您可以直接在聊天中运行的独立提示。它们描述要执行的任务——**做什么**。可选地，您可以在提示中包含任务特定的指导原则，或者在提示文件中引用自定义指令。通过这些自定义提示，您可以为常见编码任务创建可重用的提示，如搭建新组件、API 路由或生成测试。
 
 如果您对这些概念不熟悉，可以查看 VS Code 文档中关于[聊天模式](https://code.visualstudio.com/docs/copilot/chat/chat-modes)、[自定义指令](https://code.visualstudio.com/docs/copilot/copilot-customization#_custom-instructions)和[提示文件](https://code.visualstudio.com/docs/copilot/copilot-customization#_prompt-files-experimental)的内容。
@@ -35,6 +38,7 @@ Awesome Copilot 代码库中有数百个这样的自定义聊天模式、指令�
 ## 安装 Awesome Copilot MCP Server
 
 ### 前置要求
+
 安装需要 Docker Desktop 已安装并运行，因为该服务器在容器中运行。
 
 ### 安装步骤
@@ -70,16 +74,19 @@ Awesome Copilot 代码库中有数百个这样的自定义聊天模式、指令�
 这个 MCP 服务器提供两个工具和一个提示：
 
 ### 工具
+
 - `#search_instructions`：基于提供的关键词搜索 GitHub Copilot 自定义配置
 - `#load_instruction`：加载特定的 GitHub Copilot 自定义配置
 
 ### 提示
+
 - `/mcp.awesome-copilot.get_search_prompt`：提供搜索 GitHub Copilot 自定义配置的提示
 
 ### 使用步骤
 
 1. **启动搜索提示**
    安装并运行此 MCP 服务器后，在 GitHub Copilot Chat 窗口中调用提示：
+
    ```
    /mcp.awesome-copilot.get_search_prompt
    ```
@@ -91,6 +98,7 @@ Awesome Copilot 代码库中有数百个这样的自定义聊天模式、指令�
    系统会生成以下格式的提示，并连接到 MCP 服务器进行搜索：
 
    > 请搜索所有与搜索关键词 `python` 相关的聊天模式、指令和提示。以下是要遵循的流程：
+   >
    > 1. 使用 `awesome-copilot` MCP 服务器
    > 2. 搜索提供关键词的所有聊天模式、指令和提示
    > 3. 在用户要求之前，不要从 MCP 服务器加载任何聊天模式、指令或提示
@@ -101,11 +109,11 @@ Awesome Copilot 代码库中有数百个这样的自定义聊天模式、指令�
 4. **查看结果表格**
    搜索结果将以表格格式显示：
 
-   | 存在 | 模式 | 文件名 | 标题 | 描述 |
-   |------|------|--------|------|------|
-   | ✅ | chatmodes | chatmode1.json | 聊天模式1 | 描述1 |
-   | ❌ | instructions | instruction1.json | 指令1 | 描述1 |
-   | ✅ | prompts | prompt1.json | 提示1 | 描述1 |
+   | 存在 | 模式         | 文件名            | 标题      | 描述  |
+   | ---- | ------------ | ----------------- | --------- | ----- |
+   | ✅   | chatmodes    | chatmode1.json    | 聊天模式1 | 描述1 |
+   | ❌   | instructions | instruction1.json | 指令1     | 描述1 |
+   | ✅   | prompts      | prompt1.json      | 提示1     | 描述1 |
 
    其中 ✅ 表示该项目已存在于代码库中，❌ 表示不存在。
 

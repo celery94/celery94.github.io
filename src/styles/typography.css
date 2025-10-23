@@ -10,7 +10,11 @@
     --tw-prose-bullets: var(--color-accent);
     --tw-prose-hr: var(--color-border);
     --tw-prose-quotes: var(--color-foreground);
-    --tw-prose-quote-borders: color-mix(in srgb, var(--color-accent) 50%, transparent);
+    --tw-prose-quote-borders: color-mix(
+      in srgb,
+      var(--color-accent) 50%,
+      transparent
+    );
     --tw-prose-captions: var(--color-foreground);
     --tw-prose-code: var(--color-foreground);
     --tw-prose-code-bg: color-mix(in srgb, var(--color-muted) 75%, transparent);
@@ -19,24 +23,24 @@
     --tw-prose-th-borders: var(--color-border);
     --tw-prose-td-borders: var(--color-border);
   }
-  
+
   .prose :where(h2, h3, h4, h5, h6) {
     margin-bottom: 0.75rem;
   }
-  
+
   .prose :where(h3) {
     font-style: italic;
   }
-  
+
   .prose :where(a) {
     text-decoration: dashed;
     text-underline-offset: 8px;
   }
-  
+
   .prose :where(a:hover) {
     color: var(--color-accent);
   }
-  
+
   .prose :where(blockquote) {
     border-left-color: color-mix(in srgb, var(--color-accent) 50%, transparent);
     opacity: 0.8;
@@ -50,54 +54,54 @@
     border-color: var(--color-border);
     border-radius: 0.25rem;
   }
-  
+
   .prose :where(code) {
     border-radius: 0.25rem;
     background-color: color-mix(in srgb, var(--color-muted) 75%, transparent);
     padding: 0.25rem;
   }
-  
-  .prose :where(code)::before, 
+
+  .prose :where(code)::before,
   .prose :where(code)::after {
     content: none;
   }
-  
+
   .prose a {
     overflow-wrap: break-word;
   }
-  
+
   .prose a:hover {
     color: var(--color-accent);
   }
-  
+
   .prose thead th:first-child,
   .prose tbody td:first-child,
   .prose tfoot td:first-child {
     padding-inline-start: 0.5714286em !important;
   }
-  
+
   .prose h2#table-of-contents {
     margin-bottom: 0.5rem;
   }
-  
+
   .prose details {
     display: inline-block;
     cursor: pointer;
     color: var(--color-foreground);
     user-select: none;
   }
-  
+
   .prose summary {
     outline-offset: 1px;
   }
-  
+
   .prose summary:focus-visible {
     text-decoration: none;
     outline-width: 2px;
     outline-style: dashed;
     outline-color: var(--color-accent);
   }
-  
+
   .prose h2#table-of-contents + p {
     display: none;
   }
@@ -108,7 +112,7 @@
     border-radius: 0.375rem;
     box-shadow: var(--shadow-sm);
   }
-  
+
   code,
   blockquote {
     word-wrap: break-word;
@@ -130,21 +134,21 @@
     font-weight: var(--shiki-dark-font-weight, normal) !important;
     text-decoration: var(--shiki-dark-text-decoration, none) !important;
   }
-  
+
   /* Enhanced code blocks in dark mode */
   html[data-theme="dark"] pre:has(code) {
     border: 1px solid rgba(249, 115, 22, 0.2);
     box-shadow: var(--glow);
   }
-  
+
   /* Enhanced code block appearance */
   pre:has(code) {
     position: relative;
     margin: 1.5rem 0;
   }
-  
+
   pre:has(code)::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;

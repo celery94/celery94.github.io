@@ -27,13 +27,13 @@ const isActive = (path: string) => {
   <a
     id="skip-to-content"
     href="#main-content"
-    class="absolute -top-full left-16 z-50 bg-background px-3 py-2 text-accent backdrop-blur-lg transition-all focus:top-4"
+    class="bg-background text-accent absolute -top-full left-16 z-50 px-3 py-2 backdrop-blur-lg transition-all focus:top-4"
   >
     Skip to content
   </a>
   <div
     id="nav-container"
-    class="mx-auto flex max-w-5xl flex-col items-center justify-between sm:flex-row backdrop-blur-sm bg-background/90 sticky top-0 z-30 border-b border-border"
+    class="bg-background/90 border-border sticky top-0 z-30 mx-auto flex max-w-5xl flex-col items-center justify-between border-b backdrop-blur-sm sm:flex-row"
   >
     <div
       id="top-nav-wrap"
@@ -41,7 +41,7 @@ const isActive = (path: string) => {
     >
       <a
         href="/"
-        class="absolute py-1 text-2xl leading-7 font-semibold whitespace-nowrap sm:static transition-colors duration-300 hover:text-accent"
+        class="hover:text-accent absolute py-1 text-2xl leading-7 font-semibold whitespace-nowrap transition-colors duration-300 sm:static"
       >
         {SITE.title}
       </a>
@@ -63,7 +63,7 @@ const isActive = (path: string) => {
           id="menu-items"
           class:list={[
             "mt-4 grid w-44 grid-cols-2 place-content-center gap-2",
-            "[&>li>a]:block [&>li>a]:px-4 [&>li>a]:py-3 [&>li>a]:text-center [&>li>a]:font-medium [&>li>a]:rounded-md [&>li>a]:transition-all [&>li>a]:duration-200 [&>li>a]:hover:bg-muted [&>li>a]:hover:text-accent sm:[&>li>a]:px-3 sm:[&>li>a]:py-2",
+            "[&>li>a]:hover:bg-muted [&>li>a]:hover:text-accent [&>li>a]:block [&>li>a]:rounded-md [&>li>a]:px-4 [&>li>a]:py-3 [&>li>a]:text-center [&>li>a]:font-medium [&>li>a]:transition-all [&>li>a]:duration-200 sm:[&>li>a]:px-3 sm:[&>li>a]:py-2",
             "hidden",
             "sm:mt-0 sm:ml-0 sm:flex sm:w-auto sm:gap-x-1 sm:gap-y-0",
           ]}
@@ -71,7 +71,26 @@ const isActive = (path: string) => {
           <li class="col-span-2">
             <a href="/posts" class:list={{ "active-nav": isActive("/posts") }}>
               <span class="flex items-center gap-1">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="feather"
+                  ><path
+                    d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                  ></path><polyline points="14 2 14 8 20 8"></polyline><line
+                    x1="16"
+                    y1="13"
+                    x2="8"
+                    y2="13"></line><line x1="16" y1="17" x2="8" y2="17"
+                  ></line><polyline points="10 9 9 9 8 9"></polyline></svg
+                >
                 Posts
               </span>
             </a>
@@ -79,7 +98,21 @@ const isActive = (path: string) => {
           <li class="col-span-2">
             <a href="/tags" class:list={{ "active-nav": isActive("/tags") }}>
               <span class="flex items-center gap-1">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="feather"
+                  ><path
+                    d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"
+                  ></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg
+                >
                 Tags
               </span>
             </a>
@@ -87,7 +120,24 @@ const isActive = (path: string) => {
           <li class="col-span-2">
             <a href="/about" class:list={{ "active-nav": isActive("/about") }}>
               <span class="flex items-center gap-1">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="feather"
+                  ><circle cx="12" cy="12" r="10"></circle><path
+                    d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line
+                    x1="12"
+                    y1="17"
+                    x2="12.01"
+                    y2="17"></line></svg
+                >
                 About
               </span>
             </a>
@@ -131,7 +181,7 @@ const isActive = (path: string) => {
               <li class="col-span-1 flex items-center justify-center">
                 <button
                   id="theme-btn"
-                  class="focus-outline relative size-12 p-4 sm:size-8 hover:[&>svg]:stroke-accent"
+                  class="focus-outline hover:[&>svg]:stroke-accent relative size-12 p-4 sm:size-8"
                   title="Toggles light & dark"
                   aria-label="auto"
                   aria-live="polite"

@@ -36,10 +36,10 @@ public interface IHostedService
 
 关键特征：
 
-1. 框架在构建与 `app.Run()` 之间依次调用所有注册的 `StartAsync`，并逐个等待其完成后才对外开放端点。  
-2. 典型用途是“必须在对外提供服务前完成”的一次性短任务：数据库迁移、预热缓存、编译模板、加载脱机配置、建立消息队列主题。  
-3. 若期间抛出未处理异常，宿主启动失败（可视为启动健康门槛）。  
-4. 适合“幂等且可重试”的初始化逻辑 —— 注意添加超时与幂等保护。  
+1. 框架在构建与 `app.Run()` 之间依次调用所有注册的 `StartAsync`，并逐个等待其完成后才对外开放端点。
+2. 典型用途是“必须在对外提供服务前完成”的一次性短任务：数据库迁移、预热缓存、编译模板、加载脱机配置、建立消息队列主题。
+3. 若期间抛出未处理异常，宿主启动失败（可视为启动健康门槛）。
+4. 适合“幂等且可重试”的初始化逻辑 —— 注意添加超时与幂等保护。
 
 最小示例（推荐封装实际逻辑而非内联）：
 
@@ -149,18 +149,18 @@ public sealed class MetricsFlushService : BackgroundService
 
 顺序策略：
 
-1. 所有“必须成功才能对外服务”的短任务（迁移、缓存预热）靠前集中注册。  
-2. 依赖上述资源的 `BackgroundService` 紧随其后。  
-3. 将“非关键且可延迟”的后台任务（遥测、低优先刷新）放在最后，或引入“就绪标志”与 `TaskCompletionSource` 控制真正执行时机。  
+1. 所有“必须成功才能对外服务”的短任务（迁移、缓存预热）靠前集中注册。
+2. 依赖上述资源的 `BackgroundService` 紧随其后。
+3. 将“非关键且可延迟”的后台任务（遥测、低优先刷新）放在最后，或引入“就绪标志”与 `TaskCompletionSource` 控制真正执行时机。
 
 ## 5. 异常处理与关闭行为
 
-| 维度 | IHostedService | BackgroundService |
-|------|----------------|------------------|
-| 启动等待 | 必须等待完成 | fire-and-forget，不等待主体 | 
-| 启动异常 | 阻止应用启动 | 记录日志；默认导致宿主停止（可配置） |
-| 关闭阶段 | 调用 `StopAsync` 并等待 | 取消令牌 + 等待循环退出 |
-| 适合任务 | 一次性、短、阻塞式初始化 | 持续、长运行、事件/时间驱动 |
+| 维度     | IHostedService           | BackgroundService                    |
+| -------- | ------------------------ | ------------------------------------ |
+| 启动等待 | 必须等待完成             | fire-and-forget，不等待主体          |
+| 启动异常 | 阻止应用启动             | 记录日志；默认导致宿主停止（可配置） |
+| 关闭阶段 | 调用 `StopAsync` 并等待  | 取消令牌 + 等待循环退出              |
+| 适合任务 | 一次性、短、阻塞式初始化 | 持续、长运行、事件/时间驱动          |
 
 可调整策略：
 
@@ -174,50 +174,50 @@ builder.Host.ConfigureHostOptions(o =>
 
 ## 6. 典型使用场景对比
 
-| 需求 | 推荐选择 | 核心理由 |
-|------|----------|----------|
-| EF Core 迁移 / 索引重建 | IHostedService | 必须完成后再对外提供服务 |
-| 消费消息队列 / Kafka Topic | BackgroundService | 长循环、持续消费 |
-| 周期性缓存刷新 | BackgroundService | 节奏控制、可取消 |
-| 启动加载配置 + 校验外部依赖 | IHostedService | 失败应阻止启动 |
-| 生成一次性启动数据种子 | IHostedService | 幂等短任务 |
-| 指标聚合 / 心跳上报 | BackgroundService | 无限或长期运行 |
+| 需求                        | 推荐选择          | 核心理由                 |
+| --------------------------- | ----------------- | ------------------------ |
+| EF Core 迁移 / 索引重建     | IHostedService    | 必须完成后再对外提供服务 |
+| 消费消息队列 / Kafka Topic  | BackgroundService | 长循环、持续消费         |
+| 周期性缓存刷新              | BackgroundService | 节奏控制、可取消         |
+| 启动加载配置 + 校验外部依赖 | IHostedService    | 失败应阻止启动           |
+| 生成一次性启动数据种子      | IHostedService    | 幂等短任务               |
+| 指标聚合 / 心跳上报         | BackgroundService | 无限或长期运行           |
 
 ## 7. 最佳实践清单（生产环境建议）
 
-1. 明确分类：启动必须完成 → `IHostedService`；持续运行 → `BackgroundService`。  
-2. 为所有初始化任务设置超时包装（`Task.WhenAny + CancellationTokenSource`）防止挂起。  
-3. 循环体内严守：尊重取消、捕获边界异常、避免无节制忙等。  
-4. 将共享依赖（如 DbContext）作用域化，每次循环 `CreateScope()`，避免内存泄露与上下文复用并发风险。  
-5. 使用 Channel / BlockingQueue 替代“固定延迟 + 轮询”以降低空转。  
-6. 日志区分：启动日志（Info）+ 重试日志（Warn）+ 异常（Error），便于可观测。  
-7. 建立“就绪信号”（如迁移完成后 `TaskCompletionSource.SetResult()`），让后台消费者在资源就绪后再真正处理。  
-8. 将长任务拆分为“取任务 + 处理 + 提交”原子步骤，失败可幂等重试。  
-9. 为可能抖动的外部依赖添加指数退避与熔断策略（Polly）。  
-10. 对 CPU 密集工作改为生产者/消费者 + 限制并发，避免阻塞线程池。  
+1. 明确分类：启动必须完成 → `IHostedService`；持续运行 → `BackgroundService`。
+2. 为所有初始化任务设置超时包装（`Task.WhenAny + CancellationTokenSource`）防止挂起。
+3. 循环体内严守：尊重取消、捕获边界异常、避免无节制忙等。
+4. 将共享依赖（如 DbContext）作用域化，每次循环 `CreateScope()`，避免内存泄露与上下文复用并发风险。
+5. 使用 Channel / BlockingQueue 替代“固定延迟 + 轮询”以降低空转。
+6. 日志区分：启动日志（Info）+ 重试日志（Warn）+ 异常（Error），便于可观测。
+7. 建立“就绪信号”（如迁移完成后 `TaskCompletionSource.SetResult()`），让后台消费者在资源就绪后再真正处理。
+8. 将长任务拆分为“取任务 + 处理 + 提交”原子步骤，失败可幂等重试。
+9. 为可能抖动的外部依赖添加指数退避与熔断策略（Polly）。
+10. 对 CPU 密集工作改为生产者/消费者 + 限制并发，避免阻塞线程池。
 
 ## 8. 常见误区与排查策略
 
-| 现象 | 根因 | 处置 |
-|------|------|------|
-| 应用启动缓慢 | 长耗时逻辑放在 `StartAsync` | 改为后台或异步预热；或显式记录阶段性日志 |
-| 后台循环静默中断 | 未捕获异常导致宿主停止或任务崩溃 | 顶层 try/catch + metrics + 警报 |
-| 部署滚动卡顿 | `StopAsync`/循环不响应取消 | 在等待/IO 处传递令牌；合理的 `Task.Delay` |
-| 表不存在/列缺失异常 | 资源依赖顺序错误 | 调整注册顺序 / 就绪信号 |
-| CPU 异常飙高 | 忙等循环无延迟 | 采用事件驱动 / 最小延迟 / `WaitToReadAsync` |
+| 现象                | 根因                             | 处置                                        |
+| ------------------- | -------------------------------- | ------------------------------------------- |
+| 应用启动缓慢        | 长耗时逻辑放在 `StartAsync`      | 改为后台或异步预热；或显式记录阶段性日志    |
+| 后台循环静默中断    | 未捕获异常导致宿主停止或任务崩溃 | 顶层 try/catch + metrics + 警报             |
+| 部署滚动卡顿        | `StopAsync`/循环不响应取消       | 在等待/IO 处传递令牌；合理的 `Task.Delay`   |
+| 表不存在/列缺失异常 | 资源依赖顺序错误                 | 调整注册顺序 / 就绪信号                     |
+| CPU 异常飙高        | 忙等循环无延迟                   | 采用事件驱动 / 最小延迟 / `WaitToReadAsync` |
 
 ## 9. 总结
 
-- `IHostedService` = 启动阶段“必须完成”的阻塞式一次性任务；失败即失败早暴露。  
-- `BackgroundService` = fire-and-forget 启动 + 可取消长期循环；需要你自己保证鲁棒。  
-- 选择标准：是否应阻塞启动 & 任务生命周期长度。  
-- 生产关键：注册顺序、异常策略、取消传递、幂等与可观测性。  
+- `IHostedService` = 启动阶段“必须完成”的阻塞式一次性任务；失败即失败早暴露。
+- `BackgroundService` = fire-and-forget 启动 + 可取消长期循环；需要你自己保证鲁棒。
+- 选择标准：是否应阻塞启动 & 任务生命周期长度。
+- 生产关键：注册顺序、异常策略、取消传递、幂等与可观测性。
 
 恰当拆分职责，能让应用启动快速又可靠，后台处理弹性、可恢复，从而提升整体运行韧性。
 
 ## 参考资料
 
 - 原始文章（英文）：IHostedService vs. BackgroundService（链接见 frontmatter）
-- Microsoft Docs：Background tasks with hosted services in ASP.NET Core  
-- Microsoft Docs：Unhandled exceptions from a BackgroundService  
+- Microsoft Docs：Background tasks with hosted services in ASP.NET Core
+- Microsoft Docs：Unhandled exceptions from a BackgroundService
 - 源码：`BackgroundService` 实现（`Microsoft.Extensions.Hosting.Abstractions`）

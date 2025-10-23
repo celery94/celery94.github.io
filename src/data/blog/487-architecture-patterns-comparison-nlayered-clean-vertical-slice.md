@@ -97,10 +97,10 @@ public class ShipmentRepository : IShipmentRepository
     {
         return await _dbContext.Shipments
             .Where(s => s.Id == id)
-            .Select(s => new ShipmentDto 
-            { 
-                Number = s.Number, 
-                OrderId = s.OrderId 
+            .Select(s => new ShipmentDto
+            {
+                Number = s.Number,
+                OrderId = s.OrderId
             })
             .FirstOrDefaultAsync();
     }
@@ -277,7 +277,7 @@ public class CreateShipmentEndpoint : IEndpoint
         CancellationToken cancellationToken)
     {
         var validationResult = await validator.ValidateAsync(request, cancellationToken);
-        
+
         if (!validationResult.IsValid)
         {
             return Results.ValidationProblem(validationResult.ToDictionary());
@@ -310,15 +310,15 @@ internal sealed class CreateShipmentCommandHandler(
         CancellationToken cancellationToken)
     {
         var shipmentAlreadyExists = await repository.ExistsByOrderIdAsync(
-            request.OrderId, 
+            request.OrderId,
             cancellationToken);
 
         if (shipmentAlreadyExists)
         {
             logger.LogInformation(
-                "Shipment for order '{OrderId}' is already created", 
+                "Shipment for order '{OrderId}' is already created",
                 request.OrderId);
-            
+
             return Error.Conflict(
                 $"Shipment for order '{request.OrderId}' is already created");
         }
@@ -369,9 +369,9 @@ internal sealed class CreateShipmentCommandHandler(
         if (shipmentAlreadyExists)
         {
             logger.LogInformation(
-                "Shipment for order '{OrderId}' is already created", 
+                "Shipment for order '{OrderId}' is already created",
                 request.OrderId);
-            
+
             return Error.Conflict(
                 $"Shipment for order '{request.OrderId}' is already created");
         }
@@ -442,8 +442,8 @@ public class Shipment
         string receiverEmail,
         List<ShipmentItem> items)
     {
-        var shipment = new Shipment 
-        { 
+        var shipment = new Shipment
+        {
             Id = Guid.NewGuid(),
             Number = number,
             OrderId = orderId,
@@ -453,7 +453,7 @@ public class Shipment
             Status = ShipmentStatus.Created,
             CreatedAt = DateTime.UtcNow
         };
-        
+
         shipment.AddItems(items);
         return shipment;
     }
@@ -646,7 +646,7 @@ public class CreateShipmentEndpoint : IEndpoint
         CancellationToken cancellationToken)
     {
         var validationResult = await validator.ValidateAsync(request, cancellationToken);
-        
+
         if (!validationResult.IsValid)
         {
             return Results.ValidationProblem(validationResult.ToDictionary());

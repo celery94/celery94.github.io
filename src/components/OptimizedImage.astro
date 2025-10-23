@@ -28,29 +28,31 @@ const isImageMetadata = typeof src === "object" && src !== null && "src" in src;
 ---
 
 <figure class="image-container">
-  {isImageMetadata ? (
-    <Image
-      src={src as ImageMetadata}
-      alt={alt}
-      width={width}
-      height={height}
-      loading={loading}
-      decoding={decoding}
-      class={`optimized-image ${className}`}
-      sizes={sizes}
-    />
-  ) : (
-    <img
-      src={src as string}
-      alt={alt}
-      width={width}
-      height={height}
-      loading={loading}
-      decoding={decoding}
-      class={`optimized-image ${className}`}
-      sizes={sizes}
-    />
-  )}
+  {
+    isImageMetadata ? (
+      <Image
+        src={src as ImageMetadata}
+        alt={alt}
+        width={width}
+        height={height}
+        loading={loading}
+        decoding={decoding}
+        class={`optimized-image ${className}`}
+        sizes={sizes}
+      />
+    ) : (
+      <img
+        src={src as string}
+        alt={alt}
+        width={width}
+        height={height}
+        loading={loading}
+        decoding={decoding}
+        class={`optimized-image ${className}`}
+        sizes={sizes}
+      />
+    )
+  }
   {alt && <figcaption class="sr-only">{alt}</figcaption>}
 </figure>
 
@@ -59,20 +61,20 @@ const isImageMetadata = typeof src === "object" && src !== null && "src" in src;
     margin: 1.5rem 0;
     position: relative;
   }
-  
+
   .optimized-image {
     width: 100%;
     height: auto;
     display: block;
     border-radius: 0.25rem;
   }
-  
+
   /* Fallback for older browsers or if JavaScript is disabled */
   .optimized-image.blur-up {
     filter: blur(5px);
     transition: filter 400ms;
   }
-  
+
   .optimized-image.blur-up.lazyloaded {
     filter: blur(0);
   }
@@ -83,12 +85,12 @@ const isImageMetadata = typeof src === "object" && src !== null && "src" in src;
   // This script will run only in the browser
   document.addEventListener("DOMContentLoaded", () => {
     const images = document.querySelectorAll(".optimized-image");
-    
-    if ('loading' in HTMLImageElement.prototype) {
+
+    if ("loading" in HTMLImageElement.prototype) {
       // Browser supports native lazy loading
       images.forEach(img => {
         if (img instanceof HTMLImageElement) {
-          img.loading = 'lazy';
+          img.loading = "lazy";
         }
       });
     } else {

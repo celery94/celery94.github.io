@@ -14,7 +14,7 @@ description: 深拷贝（deep clone）指的是创建一个对象的完整副本
 ## 深拷贝的安全性考量
 
 在讨论具体实现方案之前，需要明确为什么像 `BinaryFormatter` 这样的传统深拷贝手段是不安全的。Microsoft 明确指出：`BinaryFormatter.Deserialize` **无法保证安全**，不应在任何场景下使用（即使反序列化的数据被认为是可信的） ([Deserialization risks in use of BinaryFormatter and related types - .NET | Microsoft Learn](https://learn.microsoft.com/en-us/dotnet/standard/serialization/binaryformatter-security-guide#:~:text=The%20BinaryFormatter%20%20type%20is,and%20can%27t%20be%20made%20secure))。反序列化攻击已成为常见安全威胁，利用像 BinaryFormatter 这样的反序列化器，恶意输入可以触发任意代码执行、操纵程序流程或导致崩溃 ([Do not use BinaryFormatter as it is insecure and vulnerable
-](https://docs.datadoghq.com/security/code_security/static_analysis/static_analysis_rules/csharp-security/avoid-binary-formatter/#:~:text=This%20rule%20prevents%20the%20usage,execution%2C%20or%20induce%20application%20crashes)) ([Deserialization risks in use of BinaryFormatter and related types - .NET | Microsoft Learn](https://learn.microsoft.com/en-us/dotnet/standard/serialization/binaryformatter-security-guide#:~:text=Deserialization%20vulnerabilities%20are%20a%20threat,including%20C%2FC%2B%2B%2C%20Java%2C%20and%20C))。简而言之，调用 `BinaryFormatter.Deserialize` 等同于执行了输入提供的可执行代码 ([Deserialization risks in use of BinaryFormatter and related types - .NET | Microsoft Learn](https://learn.microsoft.com/en-us/dotnet/standard/serialization/binaryformatter-security-guide#:~:text=context%20of%20the%20target%20process))。因此，我们在实现深拷贝时**必须避免**使用 BinaryFormatter 及其相关类型（如 `SoapFormatter`、`NetDataContractSerializer` 等） ([Deserialization risks in use of BinaryFormatter and related types - .NET | Microsoft Learn](https://learn.microsoft.com/en-us/dotnet/standard/serialization/binaryformatter-security-guide#:~:text=This%20article%20applies%20to%20the,following%20types)) ([Deserialization risks in use of BinaryFormatter and related types - .NET | Microsoft Learn](https://learn.microsoft.com/en-us/dotnet/standard/serialization/binaryformatter-security-guide#:~:text=Caution))。  
+](https://docs.datadoghq.com/security/code_security/static_analysis/static_analysis_rules/csharp-security/avoid-binary-formatter/#:~:text=This%20rule%20prevents%20the%20usage,execution%2C%20or%20induce%20application%20crashes)) ([Deserialization risks in use of BinaryFormatter and related types - .NET | Microsoft Learn](https://learn.microsoft.com/en-us/dotnet/standard/serialization/binaryformatter-security-guide#:~:text=Deserialization%20vulnerabilities%20are%20a%20threat,including%20C%2FC%2B%2B%2C%20Java%2C%20and%20C))。简而言之，调用 `BinaryFormatter.Deserialize` 等同于执行了输入提供的可执行代码 ([Deserialization risks in use of BinaryFormatter and related types - .NET | Microsoft Learn](https://learn.microsoft.com/en-us/dotnet/standard/serialization/binaryformatter-security-guide#:~:text=context%20of%20the%20target%20process))。因此，我们在实现深拷贝时**必须避免**使用 BinaryFormatter 及其相关类型（如 `SoapFormatter`、`NetDataContractSerializer` 等） ([Deserialization risks in use of BinaryFormatter and related types - .NET | Microsoft Learn](https://learn.microsoft.com/en-us/dotnet/standard/serialization/binaryformatter-security-guide#:~:text=This%20article%20applies%20to%20the,following%20types)) ([Deserialization risks in use of BinaryFormatter and related types - .NET | Microsoft Learn](https://learn.microsoft.com/en-us/dotnet/standard/serialization/binaryformatter-security-guide#:~:text=Caution))。
 
 为了替代 BinaryFormatter，有多种更安全的方案可供选择，包括 JSON 序列化、XML 序列化、ProtoBuf、MessagePack 等 ([Do not use BinaryFormatter as it is insecure and vulnerable
 ](https://docs.datadoghq.com/security/code_security/static_analysis/static_analysis_rules/csharp-security/avoid-binary-formatter/#:~:text=This%20security%20risk%20makes%20it,net))。在接下来的小节中，我们将重点讨论四种满足安全要求且与 .NET Framework 4.6.2 兼容的深拷贝实现方式，并分析它们的安全性、性能、适用场景和许可证。
@@ -30,7 +30,7 @@ description: 深拷贝（deep clone）指的是创建一个对象的完整副本
 ```csharp
 using Newtonsoft.Json;
 
-public static class ObjectExtensions 
+public static class ObjectExtensions
 {
     public static T DeepClone<T>(this T source)
     {
@@ -46,9 +46,9 @@ public static class ObjectExtensions
 
 ```csharp
 MyType clone = (MyType)JsonConvert.DeserializeObject(
-                   JsonConvert.SerializeObject(sourceObj), 
+                   JsonConvert.SerializeObject(sourceObj),
                    sourceObj.GetType());
-``` 
+```
 
 Newtonsoft.Json 会将对象及其子对象全部序列化为文本，再根据 JSON 重建对象树，从而实现深拷贝。
 
@@ -73,8 +73,8 @@ JSON 序列化的主要缺点是**性能相对较慢**。序列化和反序列�
 
 除了速度，JSON 克隆还存在以下限制：
 
-- **类型要求**：待克隆的对象及其成员类型需要是可序列化为JSON的。例如，JSON.NET能够处理大多数公开的属性和字段，但对于某些特殊类型（如委托、某些接口等）会直接忽略或报错。  
-- **引用关系**：默认情况下，JSON 序列化会将对象引用按值复制。例如，如果对象 A 和 B 都引用了同一个子对象 X，序列化后会在 JSON 中把 X 重复两份，反序列化结果是得到两个独立的 X 实例。这意味着**无法保留对象图中的引用同一性**。虽然 Newtonsoft.Json 提供了 PreserveReferencesHandling 设置来保留引用（会在JSON中引入 `$id` 等元数据），但这主要用于防止循环引用导致的死循环，对于深拷贝一般无需启用。默认模式下，如果对象存在循环引用，Json.NET 会抛出异常以避免无限循环。可以通过设置 `ReferenceLoopHandling.Ignore` 来跳过，但跳过后某些引用将丢失。总的来说，使用 JSON 进行深拷贝适合树状的对象图，不共享子对象或无循环引用的场景。  
+- **类型要求**：待克隆的对象及其成员类型需要是可序列化为JSON的。例如，JSON.NET能够处理大多数公开的属性和字段，但对于某些特殊类型（如委托、某些接口等）会直接忽略或报错。
+- **引用关系**：默认情况下，JSON 序列化会将对象引用按值复制。例如，如果对象 A 和 B 都引用了同一个子对象 X，序列化后会在 JSON 中把 X 重复两份，反序列化结果是得到两个独立的 X 实例。这意味着**无法保留对象图中的引用同一性**。虽然 Newtonsoft.Json 提供了 PreserveReferencesHandling 设置来保留引用（会在JSON中引入 `$id` 等元数据），但这主要用于防止循环引用导致的死循环，对于深拷贝一般无需启用。默认模式下，如果对象存在循环引用，Json.NET 会抛出异常以避免无限循环。可以通过设置 `ReferenceLoopHandling.Ignore` 来跳过，但跳过后某些引用将丢失。总的来说，使用 JSON 进行深拷贝适合树状的对象图，不共享子对象或无循环引用的场景。
 - **私有字段**：JSON 序列化默认只处理公开的属性（或被 `[JsonProperty]` 标记的成员）。对象的私有字段或未暴露的状态不会被克隆。如果类的关键数据存储在私有字段且没有对应的公开属性，那么 JSON 方法可能无法完整复制对象状态。
 
 ### 适用场景总结
@@ -91,12 +91,12 @@ Newtonsoft.Json 方法胜在**实现简单**、对对象几乎**零侵入**（�
 ## 基于 Protobuf-net 的深拷贝
 
 **Protobuf-net** 是 .NET 平台上的 Protocol Buffers（二进制协议）序列化库，由 Marc Gravell 开发和维护。它以高效、小尺寸的二进制格式序列化对象，在网络传输和持久化方面经常被使用。同样地，这种序列化/反序列化过程也可以用于深拷贝对象。Protobuf-net **采用 Apache 2.0 许可证** ([
-        NuGet Gallery
-        | protobuf-net 3.2.30
-    ](https://www.nuget.org/packages/protobuf-net/3.2.30#:~:text=%2A%20Apache,party%20website%2C%20not%20controlled%20by))，符合友好许可证要求，并且明确支持 .NET Framework 4.6.2 ([
-        NuGet Gallery
-        | protobuf-net 3.2.30
-    ](https://www.nuget.org/packages/protobuf-net/3.2.30#:~:text=,with%20this%20framework%20or%20higher))。
+NuGet Gallery
+| protobuf-net 3.2.30
+](https://www.nuget.org/packages/protobuf-net/3.2.30#:~:text=%2A%20Apache,party%20website%2C%20not%20controlled%20by))，符合友好许可证要求，并且明确支持 .NET Framework 4.6.2 ([
+NuGet Gallery
+| protobuf-net 3.2.30
+](https://www.nuget.org/packages/protobuf-net/3.2.30#:~:text=,with%20this%20framework%20or%20higher))。
 
 ### 实现方式
 
@@ -107,7 +107,6 @@ Newtonsoft.Json 方法胜在**实现简单**、对对象几乎**零侵入**（�
    MyType clone = ProtoBuf.Serializer.DeepClone(originalObj);
    ```
    该方法会自动将对象序列化为二进制流并立即反序列化出一个新对象，相当于一次高效完成拷贝 ([protobuf-net/src/protobuf-net/Serializer.cs at main · protobuf-net/protobuf-net · GitHub](https://github.com/protobuf-net/protobuf-net/blob/main/src/protobuf-net/Serializer.cs#:~:text=public%20static%20object%20DeepClone))。需要注意，这要求类型 `MyType` 已被 Protobuf-net 支持（见下文要求）。
-   
 2. **手动序列化再反序列化**：等价地，可以先将对象序列化到 `MemoryStream`，再重置流指针进行反序列化。静态方法 DeepClone 实际上就是封装了这两个步骤，因此通常直接使用 `Serializer.DeepClone<T>` 最方便。
 
 ### 使用要求和限制
@@ -115,6 +114,7 @@ Newtonsoft.Json 方法胜在**实现简单**、对对象几乎**零侵入**（�
 为使 Protobuf-net 正常序列化对象类型，需要满足一定的**契约要求**：
 
 - **标记[ProtoContract]**：最好在类上加上 `[ProtoContract]` 特性，并对需要序列化的成员加上 `[ProtoMember(n)]` 特性编号。例如：
+
   ```csharp
   [ProtoContract]
   class Person {
@@ -122,14 +122,15 @@ Newtonsoft.Json 方法胜在**实现简单**、对对象几乎**零侵入**（�
       public string Name { get; set; }
       [ProtoMember(2)]
       public int Age { get; set; }
-      // ... 
+      // ...
   }
   ```
+
   Protobuf-net将按照标记的成员进行序列化和克隆。未标记的成员将被忽略，从而不会出现在副本中。
 
 - **隐式契约**：某些情况下，Protobuf-net 也支持隐式序列化（例如通过 `[DataContract]`/`[DataMember]` 或启用 Implicit Fields 来自动包含公共字段等）。但为了明确控制，显式标记更可靠。未被包含在契约里的字段相当于不参与克隆。
 
-- **支持类型**：Protobuf-net对**基本数据类型和常见集合**都有支持。但并非所有类型都能自动序列化。例如，**多维数组或嵌套集合**在旧版本 protobuf-net (v2) 中并不直接支持，需要封装为自定义类型。一些用户在使用 v3 时也遇到了 *“Nested or jagged lists not supported”* 的限制 ([DeepClone / Serializing a List<item> with protobuf-net V3](https://stackoverflow.com/questions/63703976/deepclone-serializing-a-listitem-with-protobuf-net-v3#:~:text=V3%20stackoverflow,and%20maps%20are%20not%20supported))。复杂的结构可能需要通过定义额外的 `[ProtoContract]` 类或自定义映射来处理。
+- **支持类型**：Protobuf-net对**基本数据类型和常见集合**都有支持。但并非所有类型都能自动序列化。例如，**多维数组或嵌套集合**在旧版本 protobuf-net (v2) 中并不直接支持，需要封装为自定义类型。一些用户在使用 v3 时也遇到了 _“Nested or jagged lists not supported”_ 的限制 ([DeepClone / Serializing a List<item> with protobuf-net V3](https://stackoverflow.com/questions/63703976/deepclone-serializing-a-listitem-with-protobuf-net-v3#:~:text=V3%20stackoverflow,and%20maps%20are%20not%20supported))。复杂的结构可能需要通过定义额外的 `[ProtoContract]` 类或自定义映射来处理。
 
 - **多态类型**：Protocol Buffers本身并不自带类型信息。如果对象实际类型是继承自契约类型的子类，必须通过 `[ProtoInclude]` 特性明确列出子类编号，否则反序列化时子类的信息会丢失或导致错误。因此，对于**继承层次**的对象图，需要在基类上预先声明可能的子类，保证克隆时不会因未知类型而出问题。
 
@@ -183,10 +184,12 @@ Protobuf-net 的序列化过程同样**不存在类似 BinaryFormatter 的安全
 ### 第三方库示例
 
 - **Force.DeepCloner**：这是一个流行的快速深拷贝库，支持 .NET 4.x 和 .NET Standard (MIT 许可证) ([GitHub - force-net/DeepCloner: Fast object cloner for .NET](https://github.com/force-net/DeepCloner#:~:text=DeepCloner%20works%20for%20,slower%20than%20standard%2C%20see%20Benchmarks)) ([GitHub - force-net/DeepCloner: Fast object cloner for .NET](https://github.com/force-net/DeepCloner#:~:text=))。它内部使用**运行时代码生成**来实现极快的克隆 ([GitHub - force-net/DeepCloner: Fast object cloner for .NET](https://github.com/force-net/DeepCloner#:~:text=Library%20with%20extenstion%20to%20clone,but%20object%20will%20be%20cloned))。根据其文档描述，相比 BinaryFormatter 序列化方式，它的速度提升可达到数倍以上 ([c# - Deep cloning objects - Stack Overflow](https://stackoverflow.com/questions/78536/deep-cloning-objects/73580774#:~:text=%3E%20This%20is%20a%20speed,object%20reflection%20results%20are%20cached)) ([c# - Deep cloning objects - Stack Overflow](https://stackoverflow.com/questions/78536/deep-cloning-objects/73580774#:~:text=bugs%20which%20are%20present%20in,enum%20and))。使用方式也很简单，引入包后，对任何对象调用 `object.DeepClone()` 扩展方法即可获取副本。例如：
+
   ```csharp
   using Force.DeepCloner;
   MyObject clone = original.DeepClone();
   ```
+
   DeepCloner 能自动处理循环引用并保持引用同一性，也无需对象[Serializable]标记或实现ICloneable接口 ([GitHub - force-net/DeepCloner: Fast object cloner for .NET](https://github.com/force-net/DeepCloner#:~:text=called%20for%20cloning%20objects,but%20object%20will%20be%20cloned)) ([GitHub - force-net/DeepCloner: Fast object cloner for .NET](https://github.com/force-net/DeepCloner#:~:text=Also%2C%20there%20is%20no%20requirement,be%20cloned%20without%20any%20errors))。需要注意，它**默认会克隆对象的所有字段（包括私有字段）** ([GitHub - force-net/DeepCloner: Fast object cloner for .NET](https://github.com/force-net/DeepCloner#:~:text=objects,but%20object%20will%20be%20cloned))。这确保了完整复制，但如果对象包含一些**非托管资源句柄或与原环境紧密关联的字段**，克隆它们可能不合适（例如克隆一个包含文件句柄的对象可能导致两个对象指向同一文件句柄） ([GitHub - force-net/DeepCloner: Fast object cloner for .NET](https://github.com/force-net/DeepCloner#:~:text=objects,but%20object%20will%20be%20cloned))。DeepCloner 文档也提醒不建议克隆绑定了本地资源的对象，以避免不可预测的问题。
 
 - **Baksteen.Extensions.DeepCopy**：这是另一个基于表达式树优化的深拷贝实现（MIT许可），由 Alexey Burtsev 的 net-object-deep-copy 项目演化而来 ([c# - Deep cloning objects - Stack Overflow](https://stackoverflow.com/questions/78536/deep-cloning-objects/73580774#:~:text=In%20the%20codebase%20I%20am,slow%20for%20larger%20object%20structures))。据报告，对大型对象图执行深拷贝，该库从原先耗时30分钟优化到了几乎瞬间完成 ([c# - Deep cloning objects - Stack Overflow](https://stackoverflow.com/questions/78536/deep-cloning-objects/73580774#:~:text=Instead%2C%20we%20found%20a%20fork,minutes%2C%20now%20feels%20almost%20instantaneous))。其主要优化手段也包括缓存反射结果、跳过不可变对象的拷贝以及编译Lambda调用 `MemberwiseClone` 等 ([c# - Deep cloning objects - Stack Overflow](https://stackoverflow.com/questions/78536/deep-cloning-objects/73580774#:~:text=,expression%20to%20call%20MemberwiseClone))。用法上提供了 `DeepCopy()` 扩展方法 ([c# - Deep cloning objects - Stack Overflow](https://stackoverflow.com/questions/78536/deep-cloning-objects/73580774#:~:text=,of%20the%20original%20object))。这种库的存在证明了通过精心设计，纯 C# 也能实现非常高效的深拷贝而不依赖不安全的反序列化。
@@ -231,12 +234,14 @@ AutoMapper 是 .NET 中广为使用的对象-对象映射库，通常用于将�
 使用 AutoMapper 进行深拷贝的典型步骤：
 
 1. **创建映射配置**：告知AutoMapper如何从类型映射到自身。例如：
+
    ```csharp
    var config = new MapperConfiguration(cfg => {
        cfg.CreateMap<Foo, Foo>();
    });
    IMapper mapper = config.CreateMapper();
    ```
+
    上述配置定义了类型 `Foo` 到 `Foo` 的映射规则，实际上等同于深拷贝需要的操作（即把源 Foo 的每个成员赋值到目标 Foo）。
 
 2. **执行映射克隆**：有了映射配置，就可以执行:
@@ -299,20 +304,20 @@ AutoMapper 的性能介于纯反射拷贝和高度优化的表达式树拷贝之
 - **易用性**：从零开始集成的难易度：Newtonsoft.Json 最简单，一两个方法搞定；AutoMapper 需要熟悉配置，但文档齐全且社区广泛，稍加学习也可用；Protobuf-net 则需要在模型上动手脚，初次工作量可能最大；反射克隆库需要引入依赖，但使用接口往往很简单（大多提供扩展方法直接调用）。如果团队成员对某个库已经很熟悉，那它的易用性就相对提升。在这一点上，Newtonsoft.Json 和 AutoMapper在社区中使用广，资料丰富，而深拷贝专用库相对小众，但它们通常API不复杂。
 
 - **开源许可证**：这几种方案中，Newtonsoft.Json 是 MIT ([Ionic Newton Jsoft license - PlayFab | Microsoft Learn](https://learn.microsoft.com/en-us/gaming/playfab/sdks/unity3d/licenses/newtonsoft-json-license#:~:text=https%3A%2F%2Fwww))、Protobuf-net 是 Apache 2.0 ([
-        NuGet Gallery
-        | protobuf-net 3.2.30
-    ](https://www.nuget.org/packages/protobuf-net/3.2.30#:~:text=%2A%20Apache,party%20website%2C%20not%20controlled%20by))、大部分反射深拷贝库如 Force.DeepCloner 等是 MIT ([GitHub - force-net/DeepCloner: Fast object cloner for .NET](https://github.com/force-net/DeepCloner#:~:text=))，都属于非常宽松的许可证，可以安心在商业项目中使用。AutoMapper 当前版本MIT ([AutoMapper/LICENSE.txt at master · AutoMapper/AutoMapper · GitHub](https://github.com/AutoMapper/AutoMapper/blob/master/LICENSE.txt#:~:text=The%20MIT%20License%20))但未来可能需要商业授权 ([About the AutoMapper License Change · Issue #22582 · abpframework/abp · GitHub](https://github.com/abpframework/abp/issues/22582#:~:text=I%20think%20most%20of%20the,than%20an%20open%20source%20project))。如果必须避免潜在的商业收费，那么应慎重考虑 AutoMapper 或准备在其转为收费后迁移到其他方案。
+  NuGet Gallery
+  | protobuf-net 3.2.30
+  ](https://www.nuget.org/packages/protobuf-net/3.2.30#:~:text=%2A%20Apache,party%20website%2C%20not%20controlled%20by))、大部分反射深拷贝库如 Force.DeepCloner 等是 MIT ([GitHub - force-net/DeepCloner: Fast object cloner for .NET](https://github.com/force-net/DeepCloner#:~:text=))，都属于非常宽松的许可证，可以安心在商业项目中使用。AutoMapper 当前版本MIT ([AutoMapper/LICENSE.txt at master · AutoMapper/AutoMapper · GitHub](https://github.com/AutoMapper/AutoMapper/blob/master/LICENSE.txt#:~:text=The%20MIT%20License%20))但未来可能需要商业授权 ([About the AutoMapper License Change · Issue #22582 · abpframework/abp · GitHub](https://github.com/abpframework/abp/issues/22582#:~:text=I%20think%20most%20of%20the,than%20an%20open%20source%20project))。如果必须避免潜在的商业收费，那么应慎重考虑 AutoMapper 或准备在其转为收费后迁移到其他方案。
 
 下表汇总了各方案的特点：
 
-| 深拷贝方案              | 安全性                           | 性能           | 通用性/限制                           | 开源许可证              |
-| ----------------------- | -------------------------------- | -------------- | ------------------------------------- | ----------------------- |
-| **Newtonsoft.Json**     | ✅ 无反序列化漏洞  | 较慢 ([GitHub - marcelltoth/ObjectCloner: Insanely fast and capable Deep Clone implementation for .NET based on Expression Trees](https://github.com/marcelltoth/ObjectCloner#:~:text=Custom%20Code%2088,89))    | 通用任意可序列化对象<br>不保留引用，同一对象会多份拷贝 | MIT ([Ionic Newton Jsoft license - PlayFab | Microsoft Learn](https://learn.microsoft.com/en-us/gaming/playfab/sdks/unity3d/licenses/newtonsoft-json-license#:~:text=https%3A%2F%2Fwww))        |
-| **Protobuf-net**        | ✅ 安全，高效二进制格式  | 快        | 需[ProtoContract]标记类型<br>不支持未标记的数据字段 | Apache 2.0    |
-| **表达式树/反射库**     | ✅ 安全，纯内存操作               | 很快 ([GitHub - marcelltoth/ObjectCloner: Insanely fast and capable Deep Clone implementation for .NET based on Expression Trees](https://github.com/marcelltoth/ObjectCloner#:~:text=Custom%20Code%2088,89))   | 通用任意对象，支持私有字段<br>保留对象图拓扑结构 | MIT（多数库） ([GitHub - force-net/DeepCloner: Fast object cloner for .NET](https://github.com/force-net/DeepCloner#:~:text=)) |
-| **AutoMapper**          | ✅ 安全，无外部输入               | 中等          | 需为类型配置映射<br>仅复制公共属性，可能不完整克隆 | MIT（未来可能商业） ([About the AutoMapper License Change · Issue #22582 · abpframework/abp · GitHub](https://github.com/abpframework/abp/issues/22582#:~:text=I%20think%20most%20of%20the,than%20an%20open%20source%20project)) |
+| 深拷贝方案          | 安全性                  | 性能                                                                                                                                                                                                          | 通用性/限制                                            | 开源许可证                                                                                                                                                                                                                       |
+| ------------------- | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Newtonsoft.Json** | ✅ 无反序列化漏洞       | 较慢 ([GitHub - marcelltoth/ObjectCloner: Insanely fast and capable Deep Clone implementation for .NET based on Expression Trees](https://github.com/marcelltoth/ObjectCloner#:~:text=Custom%20Code%2088,89)) | 通用任意可序列化对象<br>不保留引用，同一对象会多份拷贝 | MIT ([Ionic Newton Jsoft license - PlayFab                                                                                                                                                                                       | Microsoft Learn](https://learn.microsoft.com/en-us/gaming/playfab/sdks/unity3d/licenses/newtonsoft-json-license#:~:text=https%3A%2F%2Fwww)) |
+| **Protobuf-net**    | ✅ 安全，高效二进制格式 | 快                                                                                                                                                                                                            | 需[ProtoContract]标记类型<br>不支持未标记的数据字段    | Apache 2.0                                                                                                                                                                                                                       |
+| **表达式树/反射库** | ✅ 安全，纯内存操作     | 很快 ([GitHub - marcelltoth/ObjectCloner: Insanely fast and capable Deep Clone implementation for .NET based on Expression Trees](https://github.com/marcelltoth/ObjectCloner#:~:text=Custom%20Code%2088,89)) | 通用任意对象，支持私有字段<br>保留对象图拓扑结构       | MIT（多数库） ([GitHub - force-net/DeepCloner: Fast object cloner for .NET](https://github.com/force-net/DeepCloner#:~:text=))                                                                                                   |
+| **AutoMapper**      | ✅ 安全，无外部输入     | 中等                                                                                                                                                                                                          | 需为类型配置映射<br>仅复制公共属性，可能不完整克隆     | MIT（未来可能商业） ([About the AutoMapper License Change · Issue #22582 · abpframework/abp · GitHub](https://github.com/abpframework/abp/issues/22582#:~:text=I%20think%20most%20of%20the,than%20an%20open%20source%20project)) |
 
-*注：上述比较为一般情况，具体性能也取决于对象大小和复杂度。*
+_注：上述比较为一般情况，具体性能也取决于对象大小和复杂度。_
 
 ## 开源许可证与第三方库说明
 
@@ -335,14 +340,14 @@ AutoMapper 的性能介于纯反射拷贝和高度优化的表达式树拷贝之
 - **优先确保安全**：首先应杜绝使用任何不安全的反序列化机制（BinaryFormatter 及其变种）来实现深拷贝 ([Deserialization risks in use of BinaryFormatter and related types - .NET | Microsoft Learn](https://learn.microsoft.com/en-us/dotnet/standard/serialization/binaryformatter-security-guide#:~:text=The%20BinaryFormatter%20%20type%20is,and%20can%27t%20be%20made%20secure))。取而代之，选择本文讨论的安全方案都可以有效避免常见的反序列化攻击风险。
 
 - **根据对象特性选择方案**：如果对象结构简单、性能要求不高，使用 **Newtonsoft.Json** 是最省事的方案——几行代码即可完成深拷贝，安全可靠 ([Do not use BinaryFormatter as it is insecure and vulnerable
-](https://docs.datadoghq.com/security/code_security/static_analysis/static_analysis_rules/csharp-security/avoid-binary-formatter/#:~:text=susceptible%20to%20deserialization%20attacks%2C%20where,execution%2C%20or%20induce%20application%20crashes))。但要注意它不会克隆私有数据，且性能相对较低，故不宜在大量、大对象场景下使用。
+  ](https://docs.datadoghq.com/security/code_security/static_analysis/static_analysis_rules/csharp-security/avoid-binary-formatter/#:~:text=susceptible%20to%20deserialization%20attacks%2C%20where,execution%2C%20or%20induce%20application%20crashes))。但要注意它不会克隆私有数据，且性能相对较低，故不宜在大量、大对象场景下使用。
 
 - **追求性能和完整性**：对于性能敏感或需要完整克隆对象图的情况，推荐使用**反射/表达式树深拷贝库**。例如 **Force.DeepCloner** 提供了经过实战检验的高性能克隆，MIT 开源且兼容 .NET 4.6.2 ([GitHub - force-net/DeepCloner: Fast object cloner for .NET](https://github.com/force-net/DeepCloner#:~:text=DeepCloner%20works%20for%20,slower%20than%20standard%2C%20see%20Benchmarks))。它能应对复杂的对象引用关系并保持数据完整性，在安全性上也无需担心反序列化漏洞，非常适合通用性的深拷贝需求。
 
 - **结合序列化需求**：若深拷贝操作正好伴随跨进程传输或存储需求，那么 **protobuf-net** 是很有吸引力的方案。通过一次序列化/反序列化，既完成了对象克隆，又获得了高效的二进制表示，可谓一举两得。Protobuf-net 对 .NET 4.6.2 提供了良好支持 ([
-        NuGet Gallery
-        | protobuf-net 3.2.30
-    ](https://www.nuget.org/packages/protobuf-net/3.2.30#:~:text=,with%20this%20framework%20or%20higher))，前提是你愿意为类型加上必要的 [ProtoContract] 标记。它在安全和性能上都表现优秀，是企业级项目常用的组件之一。
+  NuGet Gallery
+  | protobuf-net 3.2.30
+  ](https://www.nuget.org/packages/protobuf-net/3.2.30#:~:text=,with%20this%20framework%20or%20higher))，前提是你愿意为类型加上必要的 [ProtoContract] 标记。它在安全和性能上都表现优秀，是企业级项目常用的组件之一。
 
 - **利用现有工具**：如果项目中已经大量使用 **AutoMapper** 做对象映射，而且深拷贝需求只是对已有类型的数据复制，那么继续用AutoMapper会很方便。配置 `CreateMap<T, T>()` 后即可获得深拷贝能力，不需再引入新库。只是要提醒团队注意AutoMapper今后的许可证变化，并准备好在必要时切换方案。
 
@@ -355,12 +360,11 @@ AutoMapper 的性能介于纯反射拷贝和高度优化的表达式树拷贝之
 
 **参考资料：**
 
-- Microsoft .NET 文档：避免使用 BinaryFormatter（介绍了其安全风险） ([Deserialization risks in use of BinaryFormatter and related types - .NET | Microsoft Learn](https://learn.microsoft.com/en-us/dotnet/standard/serialization/binaryformatter-security-guide#:~:text=Caution)) ([Deserialization risks in use of BinaryFormatter and related types - .NET | Microsoft Learn](https://learn.microsoft.com/en-us/dotnet/standard/serialization/binaryformatter-security-guide#:~:text=In%20,context%20of%20the%20target%20process))  
+- Microsoft .NET 文档：避免使用 BinaryFormatter（介绍了其安全风险） ([Deserialization risks in use of BinaryFormatter and related types - .NET | Microsoft Learn](https://learn.microsoft.com/en-us/dotnet/standard/serialization/binaryformatter-security-guide#:~:text=Caution)) ([Deserialization risks in use of BinaryFormatter and related types - .NET | Microsoft Learn](https://learn.microsoft.com/en-us/dotnet/standard/serialization/binaryformatter-security-guide#:~:text=In%20,context%20of%20the%20target%20process))
 - Datadog 安全指南：禁止使用 BinaryFormatter 的原因和替代方案 ([Do not use BinaryFormatter as it is insecure and vulnerable
-](https://docs.datadoghq.com/security/code_security/static_analysis/static_analysis_rules/csharp-security/avoid-binary-formatter/#:~:text=This%20rule%20prevents%20the%20usage,execution%2C%20or%20induce%20application%20crashes)) ([Do not use BinaryFormatter as it is insecure and vulnerable
-](https://docs.datadoghq.com/security/code_security/static_analysis/static_analysis_rules/csharp-security/avoid-binary-formatter/#:~:text=This%20security%20risk%20makes%20it,net))  
-- Newtonsoft.Json 官方许可声明（MIT License） ([Ionic Newton Jsoft license - PlayFab | Microsoft Learn](https://learn.microsoft.com/en-us/gaming/playfab/sdks/unity3d/licenses/newtonsoft-json-license#:~:text=https%3A%2F%2Fwww))  
-- protobuf-net 官方许可声明（Apache 2.0 License） ([protobuf-net/Licence.txt at main · protobuf-net/protobuf-net · GitHub](https://github.com/protobuf-net/protobuf-net/blob/main/Licence.txt#:~:text=Licensed%20under%20the%20Apache%20License%2C,License))  
-- AutoMapper 项目关于许可证更改的公告 ([About the AutoMapper License Change · Issue #22582 · abpframework/abp · GitHub](https://github.com/abpframework/abp/issues/22582#:~:text=I%20think%20most%20of%20the,than%20an%20open%20source%20project))  
+  ](https://docs.datadoghq.com/security/code_security/static_analysis/static_analysis_rules/csharp-security/avoid-binary-formatter/#:~:text=This%20rule%20prevents%20the%20usage,execution%2C%20or%20induce%20application%20crashes)) ([Do not use BinaryFormatter as it is insecure and vulnerable
+  ](https://docs.datadoghq.com/security/code_security/static_analysis/static_analysis_rules/csharp-security/avoid-binary-formatter/#:~:text=This%20security%20risk%20makes%20it,net))
+- Newtonsoft.Json 官方许可声明（MIT License） ([Ionic Newton Jsoft license - PlayFab | Microsoft Learn](https://learn.microsoft.com/en-us/gaming/playfab/sdks/unity3d/licenses/newtonsoft-json-license#:~:text=https%3A%2F%2Fwww))
+- protobuf-net 官方许可声明（Apache 2.0 License） ([protobuf-net/Licence.txt at main · protobuf-net/protobuf-net · GitHub](https://github.com/protobuf-net/protobuf-net/blob/main/Licence.txt#:~:text=Licensed%20under%20the%20Apache%20License%2C,License))
+- AutoMapper 项目关于许可证更改的公告 ([About the AutoMapper License Change · Issue #22582 · abpframework/abp · GitHub](https://github.com/abpframework/abp/issues/22582#:~:text=I%20think%20most%20of%20the,than%20an%20open%20source%20project))
 - 深拷贝性能对比基准 (ObjectCloner 项目) ([GitHub - marcelltoth/ObjectCloner: Insanely fast and capable Deep Clone implementation for .NET based on Expression Trees](https://github.com/marcelltoth/ObjectCloner#:~:text=In%20a%20benchmark%20cloning%20a,except%20custom%20written%20cloning%20code))
-

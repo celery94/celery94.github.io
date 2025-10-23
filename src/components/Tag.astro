@@ -11,7 +11,15 @@ const { tag, tagName, size = "sm" } = Astro.props;
 
 // 生成一致的标签颜色
 const getTagColor = (tag: string) => {
-  const colors = ["primary", "secondary", "success", "info", "warning", "danger", "accent"];
+  const colors = [
+    "primary",
+    "secondary",
+    "success",
+    "info",
+    "warning",
+    "danger",
+    "accent",
+  ];
   const hash = tag.split("").reduce((acc, char) => char.charCodeAt(0) + acc, 0);
   return colors[hash % colors.length];
 };
@@ -34,12 +42,14 @@ const tagColor = getTagColor(tag);
       { "text-sm sm:text-base": size === "lg" },
     ]}
   >
-    <span class={`animated-tag bg-${tagColor}/10 border border-${tagColor}/30 text-${tagColor}`}>
+    <span
+      class={`animated-tag bg-${tagColor}/10 border border-${tagColor}/30 text-${tagColor}`}
+    >
       <IconHash
         class:list={[
           "inline-block",
-          { "size-2.5 sm:size-3 mr-0.5 sm:mr-1": size === "sm" },
-          { "size-3 sm:size-4 mr-1 sm:mr-1.5": size === "lg" },
+          { "mr-0.5 size-2.5 sm:mr-1 sm:size-3": size === "sm" },
+          { "mr-1 size-3 sm:mr-1.5 sm:size-4": size === "lg" },
         ]}
       />
       <span>{tagName}</span>
@@ -49,30 +59,76 @@ const tagColor = getTagColor(tag);
 
 <style>
   /* Enhanced tag styles with color variables */
-  .bg-primary\/10 { background-color: color-mix(in srgb, var(--color-primary) 10%, transparent); }
-  .bg-secondary\/10 { background-color: color-mix(in srgb, var(--color-secondary) 10%, transparent); }
-  .bg-success\/10 { background-color: color-mix(in srgb, var(--color-success) 10%, transparent); }
-  .bg-info\/10 { background-color: color-mix(in srgb, var(--color-info) 10%, transparent); }
-  .bg-warning\/10 { background-color: color-mix(in srgb, var(--color-warning) 10%, transparent); }
-  .bg-danger\/10 { background-color: color-mix(in srgb, var(--color-danger) 10%, transparent); }
-  .bg-accent\/10 { background-color: color-mix(in srgb, var(--color-accent) 10%, transparent); }
-  
-  .border-primary\/30 { border-color: color-mix(in srgb, var(--color-primary) 30%, transparent); }
-  .border-secondary\/30 { border-color: color-mix(in srgb, var(--color-secondary) 30%, transparent); }
-  .border-success\/30 { border-color: color-mix(in srgb, var(--color-success) 30%, transparent); }
-  .border-info\/30 { border-color: color-mix(in srgb, var(--color-info) 30%, transparent); }
-  .border-warning\/30 { border-color: color-mix(in srgb, var(--color-warning) 30%, transparent); }
-  .border-danger\/30 { border-color: color-mix(in srgb, var(--color-danger) 30%, transparent); }
-  .border-accent\/30 { border-color: color-mix(in srgb, var(--color-accent) 30%, transparent); }
-  
-  .text-primary { color: var(--color-primary); }
-  .text-secondary { color: var(--color-secondary); }
-  .text-success { color: var(--color-success); }
-  .text-info { color: var(--color-info); }
-  .text-warning { color: var(--color-warning); }
-  .text-danger { color: var(--color-danger); }
-  .text-accent { color: var(--color-accent); }
-  
+  .bg-primary\/10 {
+    background-color: color-mix(in srgb, var(--color-primary) 10%, transparent);
+  }
+  .bg-secondary\/10 {
+    background-color: color-mix(
+      in srgb,
+      var(--color-secondary) 10%,
+      transparent
+    );
+  }
+  .bg-success\/10 {
+    background-color: color-mix(in srgb, var(--color-success) 10%, transparent);
+  }
+  .bg-info\/10 {
+    background-color: color-mix(in srgb, var(--color-info) 10%, transparent);
+  }
+  .bg-warning\/10 {
+    background-color: color-mix(in srgb, var(--color-warning) 10%, transparent);
+  }
+  .bg-danger\/10 {
+    background-color: color-mix(in srgb, var(--color-danger) 10%, transparent);
+  }
+  .bg-accent\/10 {
+    background-color: color-mix(in srgb, var(--color-accent) 10%, transparent);
+  }
+
+  .border-primary\/30 {
+    border-color: color-mix(in srgb, var(--color-primary) 30%, transparent);
+  }
+  .border-secondary\/30 {
+    border-color: color-mix(in srgb, var(--color-secondary) 30%, transparent);
+  }
+  .border-success\/30 {
+    border-color: color-mix(in srgb, var(--color-success) 30%, transparent);
+  }
+  .border-info\/30 {
+    border-color: color-mix(in srgb, var(--color-info) 30%, transparent);
+  }
+  .border-warning\/30 {
+    border-color: color-mix(in srgb, var(--color-warning) 30%, transparent);
+  }
+  .border-danger\/30 {
+    border-color: color-mix(in srgb, var(--color-danger) 30%, transparent);
+  }
+  .border-accent\/30 {
+    border-color: color-mix(in srgb, var(--color-accent) 30%, transparent);
+  }
+
+  .text-primary {
+    color: var(--color-primary);
+  }
+  .text-secondary {
+    color: var(--color-secondary);
+  }
+  .text-success {
+    color: var(--color-success);
+  }
+  .text-info {
+    color: var(--color-info);
+  }
+  .text-warning {
+    color: var(--color-warning);
+  }
+  .text-danger {
+    color: var(--color-danger);
+  }
+  .text-accent {
+    color: var(--color-accent);
+  }
+
   /* Mobile optimizations */
   @media (max-width: 640px) {
     .animated-tag {

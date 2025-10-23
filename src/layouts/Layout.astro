@@ -86,10 +86,16 @@ const structuredData = pubDatetime
 >
   <head>
     <!-- Google tag (gtag.js) -->
-    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-SZ54NBS9FN"></script>
+    <script
+      is:inline
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-SZ54NBS9FN"></script>
     <script is:inline src="/gtag.js" async></script>
-    <script is:inline async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5786030221199442"
-     crossorigin="anonymous"></script>
+    <script
+      is:inline
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5786030221199442"
+      crossorigin="anonymous"></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/png" href="/logo.png" />
@@ -190,27 +196,45 @@ const structuredData = pubDatetime
 
   /* Add a subtle animated gradient background to the entire site */
   html[data-theme="light"] body::before {
-    content: '';
+    content: "";
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle at 15% 50%, rgba(52, 144, 220, 0.03), transparent 25%),
-                radial-gradient(circle at 85% 30%, rgba(56, 178, 172, 0.03), transparent 25%);
+    background:
+      radial-gradient(
+        circle at 15% 50%,
+        rgba(52, 144, 220, 0.03),
+        transparent 25%
+      ),
+      radial-gradient(
+        circle at 85% 30%,
+        rgba(56, 178, 172, 0.03),
+        transparent 25%
+      );
     pointer-events: none;
     z-index: -1;
   }
 
   html[data-theme="dark"] body::before {
-    content: '';
+    content: "";
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle at 15% 50%, rgba(249, 115, 22, 0.05), transparent 25%),
-                radial-gradient(circle at 85% 30%, rgba(59, 130, 246, 0.05), transparent 25%);
+    background:
+      radial-gradient(
+        circle at 15% 50%,
+        rgba(249, 115, 22, 0.05),
+        transparent 25%
+      ),
+      radial-gradient(
+        circle at 85% 30%,
+        rgba(59, 130, 246, 0.05),
+        transparent 25%
+      );
     pointer-events: none;
     z-index: -1;
   }

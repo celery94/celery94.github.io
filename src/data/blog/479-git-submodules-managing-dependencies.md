@@ -45,6 +45,7 @@ git submodule add -b <branch> <repo-url> <path>
 ```
 
 参数说明：
+
 - `<branch>`：要跟踪的子模块分支（如 main、develop）
 - `<repo-url>`：子模块仓库的 URL
 - `<path>`：子模块在主仓库中的存放路径
@@ -73,6 +74,7 @@ git submodule update --init --recursive
 ```
 
 这个命令做了三件事：
+
 - 初始化本地配置文件
 - 从子模块仓库克隆内容
 - 递归处理嵌套的子模块（如果存在）
@@ -310,20 +312,24 @@ git submodule foreach --recursive 'git checkout main'
 ### 与 Git Subtree 对比
 
 **Git Submodules**：
+
 - 优点：保持仓库历史独立，适合多人协作
 - 缺点：需要额外的命令管理，学习曲线较陡
 
 **Git Subtree**：
+
 - 优点：对普通 Git 操作透明，更易使用
 - 缺点：历史记录会混合，难以区分来源
 
 ### 与包管理器对比
 
 **包管理器**（如 npm, NuGet）：
+
 - 优点：标准化的依赖管理，版本冲突解决
 - 缺点：需要发布流程，不适合快速迭代
 
 **Git Submodules**：
+
 - 优点：直接引用源码，便于同步开发
 - 缺点：不处理版本冲突，需要手动管理
 
@@ -336,6 +342,7 @@ git submodule foreach --recursive 'git checkout main'
 **原因**：克隆仓库时未初始化子模块。
 
 **解决**：
+
 ```bash
 git submodule update --init --recursive
 ```
@@ -345,6 +352,7 @@ git submodule update --init --recursive
 **原因**：子模块默认检出特定提交，不在任何分支上。
 
 **解决**：如需修改子模块，先切换到分支：
+
 ```bash
 cd lib/components
 git checkout main
@@ -355,6 +363,7 @@ git checkout main
 **原因**：忘记先在子模块仓库中推送，就更新了主仓库的引用。
 
 **解决**：
+
 ```bash
 cd lib/components
 git push origin main
