@@ -118,7 +118,7 @@ var app = builder.Build();
 
 // 启动时导入 PDF 文件
 await DataIngestor.IngestDataAsync(
-    app.Services, 
+    app.Services,
     new PDFDirectorySource(Path.Combine(builder.Environment.WebRootPath, "Data")));
 
 app.Run();
@@ -138,17 +138,17 @@ app.Run();
         messages.Add(userMessage);
         var responseText = new TextContent("");
         currentResponseMessage = new ChatMessage(ChatRole.Assistant, [responseText]);
-        
+
         await foreach (var update in ChatClient.GetStreamingResponseAsync(
-            messages.Skip(statefulMessageCount), 
-            chatOptions, 
+            messages.Skip(statefulMessageCount),
+            chatOptions,
             currentResponseCancellation.Token))
         {
             messages.AddMessages(update, filter: c => c is not TextContent);
             responseText.Text += update.Text;
             ChatMessageItem.NotifyChanged(currentResponseMessage);
         }
-        
+
         messages.Add(currentResponseMessage);
     }
 
@@ -158,7 +158,7 @@ app.Run();
         [Description("If possible, specify the filename to search.")] string? filenameFilter = null)
     {
         var results = await Search.SearchAsync(searchPhrase, filenameFilter, maxResults: 5);
-        return results.Select(result => 
+        return results.Select(result =>
             $"<result filename=\"{result.DocumentId}\" page_number=\"{result.PageNumber}\">{result.Text}</result>");
     }
 }
@@ -191,14 +191,14 @@ app.Run();
   <PackageReference Include="Microsoft.Extensions.AI.OpenAI" Version="9.10.0-preview.1.25513.3" />
   <PackageReference Include="Microsoft.Extensions.AI" Version="9.10.0" />
   <PackageReference Include="Microsoft.SemanticKernel.Core" Version="1.66.0" />
-  
+
   <!-- 添加 Microsoft Agent Framework 包 -->
   <PackageReference Include="Microsoft.Agents.AI" Version="1.0.0-preview.251009.1" />
   <PackageReference Include="Microsoft.Agents.AI.Abstractions" Version="1.0.0-preview.251009.1" />
   <PackageReference Include="Microsoft.Agents.AI.Hosting" Version="1.0.0-preview.251009.1" />
   <PackageReference Include="Microsoft.Agents.AI.Hosting.OpenAI" Version="1.0.0-alpha.251009.1" />
   <PackageReference Include="Microsoft.Agents.AI.OpenAI" Version="1.0.0-preview.251009.1" />
-  
+
   <!-- 保留其他现有包 -->
   <PackageReference Include="PdfPig" Version="0.1.12-alpha-20251015-255e7" />
   <PackageReference Include="System.Linq.Async" Version="7.0.0-preview.1.g24680b5469" />
@@ -238,14 +238,14 @@ public class SearchFunctions
     [Description("使用短语或关键词搜索信息")]
     public async Task<IEnumerable<string>> SearchAsync(
         [Description("要搜索的短语。")] string searchPhrase,
-        [Description("如果可能，指定要搜索的文件名。如果未提供或为空，则搜索所有文件。")] 
+        [Description("如果可能，指定要搜索的文件名。如果未提供或为空，则搜索所有文件。")]
         string? filenameFilter = null)
     {
         // 在导入的数据块上执行语义搜索
         var results = await _semanticSearch.SearchAsync(searchPhrase, filenameFilter, maxResults: 5);
-        
+
         // 将结果格式化为 XML 供代理使用
-        return results.Select(result => 
+        return results.Select(result =>
             $"<result filename=\"{result.DocumentId}\" page_number=\"{result.PageNumber}\">{result.Text}</result>");
     }
 }
@@ -287,7 +287,7 @@ builder.AddAIAgent("ChatAgent", (sp, key) =>
     // 获取所需的服务
     var logger = sp.GetRequiredService<ILogger<Program>>();
     logger.LogInformation("使用键 '{Key}' 为模型 '{Model}' 配置 AI 代理", key, "gpt-4o-mini");
-    
+
     var searchFunctions = sp.GetRequiredService<SearchFunctions>();
     var chatClient = sp.GetRequiredService<IChatClient>();
 
@@ -607,10 +607,10 @@ builder.AddAIAgent("ChatAgent", (sp, key) =>
     "返回带有文件名和页码的相关摘录以供引用。")]
 public async Task<IEnumerable<string>> SearchAsync(
     [Description("要搜索的特定短语、关键词或问题。" +
-        "要具体并包含相关上下文。")] 
+        "要具体并包含相关上下文。")]
     string searchPhrase,
     [Description("可选：要在其中搜索的确切文件名（例如，'ProductManual.pdf'）。" +
-        "留空以搜索所有文档。")] 
+        "留空以搜索所有文档。")]
     string? filenameFilter = null)
 {
     // 实现
@@ -633,11 +633,11 @@ public class SearchFunctionsTests
             .Setup(s => s.SearchAsync("test", null, 5))
             .ReturnsAsync(new List<IngestedChunk>
             {
-                new IngestedChunk 
-                { 
-                    DocumentId = "test.pdf", 
-                    PageNumber = 1, 
-                    Text = "test content" 
+                new IngestedChunk
+                {
+                    DocumentId = "test.pdf",
+                    PageNumber = 1,
+                    Text = "test content"
                 }
             });
 
