@@ -22,10 +22,16 @@
     --tw-prose-pre-bg: var(--color-muted);
     --tw-prose-th-borders: var(--color-border);
     --tw-prose-td-borders: var(--color-border);
+    
+    /* 优化文字渲染 */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
   }
 
   .prose :where(h2, h3, h4, h5, h6) {
-    margin-bottom: 0.75rem;
+    margin-bottom: 1rem;
+    scroll-margin-top: 5rem;
   }
 
   .prose :where(h3) {
@@ -33,12 +39,15 @@
   }
 
   .prose :where(a) {
-    text-decoration: dashed;
-    text-underline-offset: 8px;
+    text-decoration: underline;
+    text-decoration-style: solid;
+    text-underline-offset: 3px;
+    transition: all 0.25s ease;
   }
 
   .prose :where(a:hover) {
     color: var(--color-accent);
+    text-underline-offset: 5px;
   }
 
   .prose :where(blockquote) {
