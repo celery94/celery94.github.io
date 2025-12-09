@@ -5,7 +5,6 @@ description: "深入解析 Directory.Build.props 的强大功能，学习如何�
 tags: [".NET", "MSBuild", "Architecture", "Productivity"]
 slug: "mastering-directory-build-props-in-dotnet"
 source: "https://thecodeman.net/posts/mastering-directory-build-props-in-dotnet"
-draft: false
 ---
 
 # 在 .NET 中掌握 Directory.Build.props

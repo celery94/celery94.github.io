@@ -5,7 +5,6 @@ description: "深入解析 .NET 10 在网络领域的关键改进，包括 WinHt
 tags: [".NET 10", "Networking", "HTTP", "WebSockets", "Security"]
 slug: "dotnet-10-networking-improvements"
 source: "https://devblogs.microsoft.com/dotnet/dotnet-10-networking-improvements/"
-draft: false
 ---
 
 # .NET 10 网络功能改进深度解析

@@ -67,7 +67,6 @@ description: "文章摘要，概括核心价值（80-160字）"
 tags: ["Tag1", "Tag2"] # 2-6个相关标签，如 .NET, Azure, Architecture
 slug: "{slug}"
 source: "{original_url}" # 原文链接
-draft: false
 ---
 # {Title}
 
