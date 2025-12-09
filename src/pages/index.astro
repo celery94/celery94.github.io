@@ -3,16 +3,12 @@ import { getCollection } from "astro:content";
 import Layout from "@/layouts/Layout.astro";
 import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
-import Socials from "@/components/Socials.astro";
 import LinkButton from "@/components/LinkButton.astro";
 import Card from "@/components/Card.astro";
-import Tag from "@/components/Tag.astro";
 import getSortedPosts from "@/utils/getSortedPosts";
 import { slugifyStr } from "@/utils/slugify";
-import IconRss from "@/assets/icons/IconRss.svg";
 import IconArrowRight from "@/assets/icons/IconArrowRight.svg";
 import { SITE } from "@/config";
-import { SOCIALS } from "@/constants";
 
 const posts = await getCollection("blog");
 
@@ -21,19 +17,6 @@ const featuredPosts = sortedPosts.filter(({ data }) => data.featured);
 const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
 const latestPost = sortedPosts[0];
 
-const resolvePostDate = (post: (typeof sortedPosts)[number]) =>
-  new Date(post.data.modDatetime ?? post.data.pubDatetime);
-
-const lastUpdated = latestPost ? resolvePostDate(latestPost) : undefined;
-const lastUpdatedDisplay = lastUpdated
-  ? lastUpdated.toLocaleDateString("zh-CN", {
-      year: "numeric",
-      month: "short",
-      day: "numeric",
-    })
-  : undefined;
-
-const totalPosts = sortedPosts.length;
 const allTags = sortedPosts.flatMap(({ data }) => data.tags ?? []);
 const tagFrequency = allTags.reduce<Record<string, number>>((acc, rawTag) => {
   const tag = rawTag?.trim();
@@ -46,45 +29,14 @@ const tagFrequency = allTags.reduce<Record<string, number>>((acc, rawTag) => {
 
 const trendingTags = Object.entries(tagFrequency)
   .sort((a, b) => b[1] - a[1])
-  .slice(0, 6)
+  .slice(0, 10)
   .map(([name, count]) => ({
     name,
     count,
     slug: slugifyStr(name),
   }));
 
-const earliestPostTimestamp = sortedPosts.length
-  ? Math.min(
-      ...sortedPosts.map(({ data }) => new Date(data.pubDatetime).getTime())
-    )
-  : undefined;
 
-const yearsActive = earliestPostTimestamp
-  ? Math.max(
-      1,
-      new Date().getFullYear() -
-        new Date(earliestPostTimestamp).getFullYear() +
-        1
-    )
-  : 0;
-
-const heroStats = [
-  {
-    label: "文章数量",
-    value: totalPosts.toString(),
-    description: "精选技术洞见",
-  },
-  {
-    label: "覆盖主题",
-    value: `${Object.keys(tagFrequency).length}+`,
-    description: "聚焦 AI · .NET · 云原生",
-  },
-  {
-    label: "持续创作",
-    value: `${yearsActive} 年`,
-    description: "保持高质量更新",
-  },
-];
 ---
 
 <Layout>
@@ -92,260 +44,95 @@ const heroStats = [
   <main
     id="main-content"
     data-layout="index"
-    class="mx-auto w-full max-w-5xl px-4 pb-12 sm:px-6"
+    class="mx-auto w-full max-w-6xl px-4 pb-12 sm:px-6"
   >
-    <section
-      id="hero"
-      class="hero-surface shadow-accent/10 mt-10 overflow-hidden rounded-3xl border border-white/10 shadow-xl"
-    >
-      <div class="relative px-5 py-8 sm:px-10 sm:py-12">
-        <div class="hero-orb hero-orb--primary" aria-hidden="true"></div>
-        <div class="hero-orb hero-orb--secondary" aria-hidden="true"></div>
-        <div class="hero-orb hero-orb--accent" aria-hidden="true"></div>
 
-        <div
-          class="relative z-10 grid gap-10 lg:grid-cols-[minmax(0,1fr)_320px] xl:grid-cols-[minmax(0,1fr)_360px]"
-        >
-          <div class="space-y-6">
-            <div
-              class="flex flex-wrap items-center justify-between gap-4 text-sm"
-            >
-              {
-                lastUpdatedDisplay && (
-                  <span class="hero-badge">
-                    <span class="hero-badge__dot" aria-hidden="true" />
-                    最近更新 · {lastUpdatedDisplay}
-                  </span>
-                )
-              }
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-                href="/rss.xml"
-                class="hero-rss"
-                aria-label="RSS Feed"
-                title="RSS Feed"
-              >
-                <IconRss width={20} height={20} class="h-5 w-5" />
-                <span class="sr-only">RSS Feed</span>
-              </a>
-            </div>
 
-            <div class="space-y-4">
-              <h1
-                class="hero-title gradient-text text-3xl leading-tight font-bold sm:text-5xl xl:text-6xl"
-              >
-                Aide Hub
-              </h1>
-              <p class="hero-subtitle text-foreground/70 text-base sm:text-lg">
-                Empowering developers with AI copilots, clean architecture, and
-                modern .NET practices.
-              </p>
-              <p
-                class="hero-description text-foreground/90 text-base leading-relaxed sm:text-lg"
-              >
-                欢迎来到 <span class="text-primary font-semibold">Aide Hub</span
-                > —— 一个聚焦 AI 助手、云原生与现代开发实践的知识平台。无论你是
-                <span class="text-secondary font-semibold">编程新手</span>
-                还是希望拓展技术视野的
-                <span class="text-accent font-semibold">资深开发者</span>
-                ，都能在这里找到值得收藏的内容。
-              </p>
-            </div>
-
-            <div class="flex flex-wrap gap-3">
-              <LinkButton href="/posts/" class="hero-primary-btn">
-                浏览最新文章
-                <IconArrowRight class="hero-primary-btn__icon" />
-              </LinkButton>
-              <LinkButton href="/about/" class="hero-secondary-btn">
-                认识作者
-              </LinkButton>
-              <LinkButton href="/search/" class="hero-secondary-btn">
-                站内搜索
-              </LinkButton>
-            </div>
-
-            <dl class="hero-stats grid gap-4 sm:grid-cols-3">
-              {
-                heroStats.map(stat => (
-                  <div class="hero-stat-card">
-                    <dt>{stat.label}</dt>
-                    <dd>{stat.value}</dd>
-                    <p>{stat.description}</p>
-                  </div>
-                ))
-              }
-            </dl>
-
-            {
-              SOCIALS.length > 0 && (
-                <div class="hero-socials glass mt-6 flex flex-col gap-3 rounded-2xl border border-white/10 p-4 backdrop-blur-lg lg:hidden">
-                  <div class="text-foreground/70 text-sm font-semibold tracking-[0.2em] uppercase">
-                    Connect With Me
-                  </div>
-                  <Socials />
-                </div>
-              )
-            }
-          </div>
-
-          {
-            latestPost && (
-              <aside class="hero-side-card glass flex h-full flex-col justify-between rounded-2xl border border-white/10 p-6 backdrop-blur-lg">
-                <div class="space-y-4">
-                  <div class="text-foreground/60 flex items-center gap-2 text-xs font-semibold tracking-[0.35em] uppercase">
-                    <span class="hero-side-card__icon" aria-hidden="true">
-                      ✨
-                    </span>
-                    最新文章
-                  </div>
-                  <a
-                    href={`/posts/${latestPost.id}/`}
-                    class="hero-side-card__link group text-foreground hover:text-accent inline-flex items-start justify-between gap-4 text-left text-lg font-semibold transition-all duration-300"
-                  >
-                    <span class="leading-snug">{latestPost.data.title}</span>
-                    <IconArrowRight class="hero-side-card__icon-arrow" />
-                  </a>
-                  <p class="text-foreground/80 text-sm leading-relaxed">
-                    {latestPost.data.description}
-                  </p>
-                  {lastUpdatedDisplay && (
-                    <p class="text-foreground/50 text-xs tracking-[0.35em] uppercase">
-                      更新 · {lastUpdatedDisplay}
-                    </p>
-                  )}
-                  {latestPost.data.tags?.length > 0 && (
-                    <ul class="hero-side-card__tags mt-4 flex flex-wrap gap-2">
-                      {latestPost.data.tags.slice(0, 4).map(tag => (
-                        <Tag tag={slugifyStr(tag)} tagName={tag} />
-                      ))}
-                    </ul>
-                  )}
-                </div>
-                {SOCIALS.length > 0 && (
-                  <div class="hero-socials hidden flex-col gap-3 rounded-2xl border border-white/10 p-4 backdrop-blur-lg lg:flex">
-                    <div class="text-foreground/60 text-xs font-semibold tracking-[0.35em] uppercase">
-                      保持联系
-                    </div>
-                    <Socials />
-                  </div>
-                )}
-              </aside>
-            )
-          }
+    <!-- Trending Topics -->
+    {trendingTags.length > 0 && (
+      <section class="mt-16 mb-12">
+        <div class="flex items-center justify-between mb-6">
+          <h2 class="text-2xl font-bold flex items-center gap-2">
+            <span class="text-accent">#</span> 热门话题
+          </h2>
+          <a href="/tags/" class="text-sm font-medium text-foreground/60 hover:text-primary transition-colors flex items-center gap-1">
+            全部标签 <IconArrowRight class="w-4 h-4" />
+          </a>
         </div>
-      </div>
-    </section>
+        <div class="flex flex-wrap gap-3">
+          {trendingTags.map(({ name, slug, count }) => (
+            <a href={`/tags/${slug}/`} class="group relative px-4 py-2 rounded-xl bg-white/5 border border-white/10 hover:border-accent/30 hover:bg-accent/5 transition-all duration-300">
+              <span class="text-sm font-medium text-foreground/80 group-hover:text-accent transition-colors">
+                {name}
+              </span>
+              <span class="ml-2 text-xs text-foreground/40 group-hover:text-accent/60">
+                {count}
+              </span>
+            </a>
+          ))}
+        </div>
+      </section>
+    )}
 
-    {
-      trendingTags.length > 0 && (
-        <section
-          id="trending-topics"
-          class="trending-section glass mt-10 rounded-3xl border border-white/10 p-6 sm:p-8"
-        >
-          <div class="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-            <div>
-              <h2 class="text-foreground text-xl font-semibold">热门主题</h2>
-              <p class="text-foreground/70 text-sm">
-                根据最近发布的文章自动整理
-              </p>
-            </div>
-            <LinkButton href="/tags/" class="hero-secondary-btn">
-              浏览所有标签
-            </LinkButton>
+    <!-- Featured Posts -->
+    {featuredPosts.length > 0 && (
+      <section class="mb-20 relative">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-gradient-to-b from-transparent via-primary/5 to-transparent pointer-events-none blur-3xl -z-10"></div>
+        
+        <div class="flex items-end justify-between mb-8">
+          <div>
+            <h2 class="text-3xl font-bold mb-2">精选文章</h2>
+            <p class="text-foreground/60">值得反复阅读的深度内容</p>
           </div>
-          <ul class="mt-6 flex flex-wrap gap-3">
-            {trendingTags.map(({ name, slug, count }) => (
-              <Tag tag={slug} tagName={`${name} · ${count}`} size="lg" />
-            ))}
-          </ul>
-        </section>
-      )
-    }
+        </div>
 
-    <hr class="rainbow-hr my-12" />
-
-    {
-      featuredPosts.length > 0 && (
-        <>
-          <section
-            id="featured"
-            class="featured-section glass shadow-accent/10 rounded-3xl border border-white/10 px-6 py-8 shadow-xl"
-          >
-            <div class="fade-up mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-              <div class="flex items-center gap-3">
-                <span class="featured-marker" aria-hidden="true" />
-                <div>
-                  <h2 class="animated-gradient-text text-2xl font-bold tracking-wide">
-                    精选推荐
-                  </h2>
-                  <p class="text-foreground/70 text-sm">
-                    深入剖析值得反复阅读的文章
-                  </p>
-                </div>
-              </div>
-              <LinkButton href="/posts/" class="hero-secondary-btn">
-                查看更多
-              </LinkButton>
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {featuredPosts.map(({ data, id }, index) => (
+            <div class={`transform transition-all duration-500 hover:-translate-y-1 ${index === 0 ? 'lg:col-span-2' : ''}`}>
+              <Card
+                href={`/posts/${id}/`}
+                frontmatter={data}
+                secHeading={false}
+                coverImage={index === 0 && data.ogImage ? (typeof data.ogImage === 'string' ? data.ogImage : data.ogImage.src) : undefined}
+              />
             </div>
-            <ul class="animate-list grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-              {featuredPosts.map(({ data, id }) => (
+          ))}
+        </div>
+      </section>
+    )}
+
+    <!-- Recent Posts -->
+    {recentPosts.length > 0 && (
+      <section class="mb-16">
+        <div class="flex items-center gap-4 mb-8">
+          <h2 class="text-2xl font-bold">最新发布</h2>
+          <div class="h-px flex-1 bg-gradient-to-r from-border to-transparent"></div>
+        </div>
+        
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {recentPosts.map(
+            ({ data, id }, index) =>
+              index < SITE.postPerIndex && (
                 <Card
                   href={`/posts/${id}/`}
                   frontmatter={data}
                   secHeading={false}
                 />
-              ))}
-            </ul>
-          </section>
-          {recentPosts.length > 0 && <hr class="rainbow-hr my-8" />}
-        </>
-      )
-    }
+              )
+          )}
+        </div>
 
-    {
-      recentPosts.length > 0 && (
-        <section
-          id="recent-posts"
-          class="recent-section glass rounded-3xl border border-white/10 px-6 py-8"
-        >
-          <div class="fade-up mb-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-            <div class="flex items-center gap-3">
-              <span class="recent-marker" aria-hidden="true" />
-              <h2 class="animated-gradient-text text-2xl font-bold tracking-wide">
-                最新更新
-              </h2>
-            </div>
-            <p class="text-foreground/60 text-xs tracking-[0.3em] uppercase">
-              持续为你带来新发现
-            </p>
-          </div>
-          <ul class="animate-list grid grid-cols-1 gap-4 sm:grid-cols-2">
-            {recentPosts.map(
-              ({ data, id }, index) =>
-                index < SITE.postPerIndex && (
-                  <Card
-                    href={`/posts/${id}/`}
-                    frontmatter={data}
-                    secHeading={false}
-                  />
-                )
-            )}
-          </ul>
-        </section>
-      )
-    }
-
-    <div class="fade-up my-14 text-center">
-      <LinkButton
-        href="/posts/"
-        class="hero-primary-btn hero-primary-btn--large"
-      >
-        浏览全部文章
-        <IconArrowRight class="hero-primary-btn__icon" />
-      </LinkButton>
-    </div>
+        <div class="mt-12 text-center">
+          <LinkButton
+            href="/posts/"
+            class="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-surface border border-border hover:border-primary/50 hover:text-primary transition-all duration-300 shadow-sm hover:shadow-md"
+          >
+            浏览全部归档
+            <IconArrowRight class="w-4 h-4" />
+          </LinkButton>
+        </div>
+      </section>
+    )}
   </main>
   <Footer />
 </Layout>
@@ -361,444 +148,68 @@ const heroStats = [
 </script>
 
 <style>
-  @keyframes gradientAnimation {
-    0% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-    100% {
-      background-position: 0% 50%;
-    }
-  }
-
-  @keyframes floatAnimation {
-    0% {
-      transform: translateY(0px);
-    }
-    50% {
-      transform: translateY(-12px);
-    }
-    100% {
-      transform: translateY(0px);
-    }
-  }
-
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  @keyframes badgePulse {
-    0%,
-    100% {
-      transform: scale(1);
-      opacity: 0.9;
-    }
-    50% {
-      transform: scale(1.2);
-      opacity: 1;
-    }
-  }
-
-  #main-content {
-    animation: fadeIn 0.6s ease-out forwards;
-  }
-
-  #hero.hero-surface {
-    position: relative;
-    background: linear-gradient(
-      135deg,
-      color-mix(in srgb, var(--color-primary) 12%, transparent),
-      color-mix(in srgb, var(--color-accent) 8%, transparent)
-    );
-    backdrop-filter: blur(22px);
-    background-size: 200% 200%;
-    animation: gradientAnimation 22s ease infinite;
-  }
-
-  #hero .hero-title {
-    animation: floatAnimation 6s ease-in-out infinite;
-  }
-
-  .hero-orb {
-    position: absolute;
-    border-radius: 999px;
-    filter: blur(60px);
-    opacity: 0.35;
-    animation: floatAnimation 14s ease-in-out infinite;
-  }
-
-  .hero-orb--primary {
-    top: -60px;
-    right: -80px;
-    width: 240px;
-    height: 240px;
-    background: color-mix(in srgb, var(--color-primary) 45%, transparent);
-  }
-
-  .hero-orb--secondary {
-    bottom: -160px;
-    left: -120px;
-    width: 320px;
-    height: 320px;
-    background: color-mix(in srgb, var(--color-secondary) 35%, transparent);
-    animation-delay: 4s;
-  }
-
-  .hero-orb--accent {
-    top: 30%;
-    left: 60%;
-    width: 160px;
-    height: 160px;
-    background: color-mix(in srgb, var(--color-accent) 40%, transparent);
-    animation-delay: 2s;
-  }
-
-  .hero-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.45rem 1rem;
-    border-radius: 999px;
-    background: color-mix(in srgb, var(--color-background) 70%, transparent);
-    border: 1px solid
-      color-mix(in srgb, var(--color-foreground) 12%, transparent);
-    font-size: 0.75rem;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    font-weight: 600;
-    color: color-mix(in srgb, var(--color-foreground) 85%, transparent);
-    backdrop-filter: blur(12px);
-  }
-
-  .hero-badge__dot {
-    width: 0.55rem;
-    height: 0.55rem;
-    border-radius: 999px;
-    background: var(--color-accent);
-    box-shadow: 0 0 16px
-      color-mix(in srgb, var(--color-accent) 60%, transparent);
-    animation: badgePulse 2.6s infinite ease-in-out;
-  }
-
-  .hero-rss {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 2.5rem;
-    height: 2.5rem;
-    border-radius: 999px;
-    background: color-mix(in srgb, var(--color-background) 60%, transparent);
-    border: 1px solid
-      color-mix(in srgb, var(--color-foreground) 10%, transparent);
-    transition:
-      transform 0.3s ease,
-      border-color 0.3s ease,
-      box-shadow 0.3s ease;
-    color: var(--color-accent);
-  }
-
-  .hero-rss:hover {
-    transform: translateY(-2px) scale(1.05);
-    border-color: color-mix(in srgb, var(--color-accent) 50%, transparent);
-    box-shadow: 0 10px 30px
-      color-mix(in srgb, var(--color-accent) 16%, transparent);
-  }
-
-  .hero-primary-btn,
-  .hero-secondary-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.65rem;
-    padding: 0.8rem 1.75rem;
-    border-radius: 999px;
-    font-weight: 600;
-    text-decoration: none;
-    transition:
-      transform 0.35s ease,
-      box-shadow 0.35s ease,
-      background 0.35s ease,
-      border-color 0.35s ease;
-    white-space: nowrap;
-    flex-wrap: nowrap;
-  }
-
-  .hero-primary-btn {
-    background: linear-gradient(
-      120deg,
-      var(--color-primary),
-      var(--color-accent)
-    );
-    color: var(--color-background) !important;
-    box-shadow: 0 15px 40px
-      color-mix(in srgb, var(--color-accent) 26%, transparent);
-  }
-
-  .hero-primary-btn:hover {
-    transform: translateY(-4px);
-    filter: brightness(1.05);
-    box-shadow: 0 22px 50px
-      color-mix(in srgb, var(--color-accent) 32%, transparent);
-  }
-
-  .hero-primary-btn__icon {
-    width: 1rem;
-    height: 1rem;
-    transition: transform 0.3s ease;
-  }
-
-  .hero-primary-btn:hover .hero-primary-btn__icon {
-    transform: translateX(6px);
-  }
-
-  .hero-primary-btn--large {
-    padding: 0.9rem 2.5rem;
-  }
-
-  .hero-secondary-btn {
-    border: 1px solid
-      color-mix(in srgb, var(--color-foreground) 16%, transparent);
-    background: color-mix(in srgb, var(--color-background) 75%, transparent);
-    color: color-mix(
-      in srgb,
-      var(--color-foreground) 90%,
-      transparent
-    ) !important;
-  }
-
-  .hero-secondary-btn:hover {
-    transform: translateY(-2px);
-    border-color: color-mix(in srgb, var(--color-accent) 46%, transparent);
-    background: color-mix(in srgb, var(--color-accent) 20%, transparent);
-    color: var(--color-foreground) !important;
-  }
-
-  .hero-stats {
-    gap: 1.25rem;
-  }
-
-  .hero-stat-card {
-    position: relative;
-    padding: 1.25rem 1.5rem;
-    border-radius: 1.25rem;
-    background: color-mix(in srgb, var(--color-background) 78%, transparent);
-    border: 1px solid
-      color-mix(in srgb, var(--color-foreground) 10%, transparent);
-    box-shadow: inset 0 0 0 1px
-      color-mix(in srgb, var(--color-foreground) 4%, transparent);
-    backdrop-filter: blur(14px);
-    transition:
-      transform 0.3s ease,
-      border-color 0.3s ease,
-      box-shadow 0.3s ease;
-  }
-
-  .hero-stat-card::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    border: 1px solid transparent;
-    background: linear-gradient(
-        135deg,
-        color-mix(in srgb, var(--color-primary) 38%, transparent),
-        color-mix(in srgb, var(--color-accent) 28%, transparent)
-      )
-      border-box;
-    mask:
-      linear-gradient(#fff 0 0) padding-box,
-      linear-gradient(#fff 0 0);
-    mask-composite: exclude;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-
-  .hero-stat-card:hover {
-    transform: translateY(-6px);
-    border-color: color-mix(in srgb, var(--color-accent) 35%, transparent);
-    box-shadow: 0 20px 40px
-      color-mix(in srgb, var(--color-accent) 14%, transparent);
-  }
-
-  .hero-stat-card:hover::after {
-    opacity: 0.8;
-  }
-
-  .hero-stat-card dt {
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 0.32em;
-    color: color-mix(in srgb, var(--color-foreground) 55%, transparent);
-    margin-bottom: 0.5rem;
-  }
-
-  .hero-stat-card dd {
-    font-size: 1.75rem;
-    font-weight: 700;
-    color: var(--color-foreground);
-    margin: 0;
-  }
-
-  .hero-stat-card p {
-    margin: 0.35rem 0 0;
-    font-size: 0.85rem;
-    color: color-mix(in srgb, var(--color-foreground) 75%, transparent);
-  }
-
-  .hero-side-card {
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 20px 45px
-      color-mix(in srgb, var(--color-foreground) 12%, transparent);
-  }
-
-  .hero-side-card::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    background: linear-gradient(
-      160deg,
-      color-mix(in srgb, var(--color-primary) 16%, transparent),
-      color-mix(in srgb, var(--color-accent) 10%, transparent)
-    );
-    opacity: 0.28;
-  }
-
-  .hero-side-card > * {
-    position: relative;
-    z-index: 1;
-  }
-
-  .hero-side-card__icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 1.4rem;
-    height: 1.4rem;
-  }
-
-  .hero-side-card__link {
-    text-decoration: none;
-  }
-
-  .hero-side-card__icon-arrow {
-    width: 1rem;
-    height: 1rem;
-    transition: transform 0.3s ease;
-  }
-
-  .hero-side-card__link:hover .hero-side-card__icon-arrow {
-    transform: translateX(6px);
-  }
-
-  .hero-side-card__tags {
-    gap: 0.5rem;
-  }
-
-  .hero-socials {
-    background: color-mix(in srgb, var(--color-background) 70%, transparent);
-    border: 1px solid
-      color-mix(in srgb, var(--color-foreground) 12%, transparent);
-  }
-
-  .trending-section {
+  /* Custom Animations & Utilities */
+  .bg-surface {
     background: color-mix(in srgb, var(--color-background) 80%, transparent);
-    backdrop-filter: blur(16px);
-    box-shadow: inset 0 0 0 1px
-      color-mix(in srgb, var(--color-foreground) 6%, transparent);
+    backdrop-filter: blur(20px);
   }
 
-  .featured-marker,
-  .recent-marker {
-    display: inline-flex;
-    width: 0.75rem;
-    height: 2.5rem;
-    border-radius: 999px;
-    background: linear-gradient(
-      180deg,
-      color-mix(in srgb, var(--color-primary) 45%, transparent),
-      color-mix(in srgb, var(--color-accent) 30%, transparent)
-    );
-    box-shadow: 0 8px 24px
-      color-mix(in srgb, var(--color-accent) 22%, transparent);
+  .bg-grid-pattern {
+    background-image: 
+      linear-gradient(to right, rgba(128, 128, 128, 0.1) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(128, 128, 128, 0.1) 1px, transparent 1px);
+    background-size: 40px 40px;
   }
 
-  .recent-marker {
-    background: linear-gradient(
-      180deg,
-      color-mix(in srgb, var(--color-info) 50%, transparent),
-      color-mix(in srgb, var(--color-secondary) 30%, transparent)
-    );
+  .animate-pulse-slow {
+    animation: pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   }
 
-  .featured-section,
-  .recent-section {
-    backdrop-filter: blur(18px);
+  .animate-gradient-x {
+    background-size: 200% 200%;
+    animation: gradient-x 8s ease infinite;
   }
 
-  .hero-primary-btn__icon,
-  .hero-side-card__icon-arrow {
-    pointer-events: none;
+  @keyframes pulse {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.1); }
   }
 
-  .hero-side-card__tags li {
-    margin: 0;
+  @keyframes gradient-x {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
   }
 
-  .hero-side-card__tags li a {
-    transition: transform 0.3s ease;
+  .perspective-1000 {
+    perspective: 1000px;
   }
 
-  .hero-side-card__tags li a:hover {
+  .btn-primary {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+    box-shadow: 0 4px 14px 0 rgba(var(--accent-rgb), 0.39);
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(var(--accent-rgb), 0.23);
+    filter: brightness(1.1);
+  }
+
+  .btn-secondary {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--color-foreground);
+  }
+
+  .btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--color-foreground);
     transform: translateY(-2px);
   }
 
-  .hero-side-card__tags li span {
-    font-size: 0.75rem;
-  }
-
-  .hero-primary-btn.hero-primary-btn--large {
-    box-shadow: 0 18px 50px
-      color-mix(in srgb, var(--color-accent) 28%, transparent);
-  }
-
-  .hero-primary-btn.hero-primary-btn--large:hover {
-    box-shadow: 0 24px 60px
-      color-mix(in srgb, var(--color-accent) 36%, transparent);
-  }
-
-  @media (max-width: 768px) {
-    #hero.hero-surface {
-      border-radius: 1.5rem;
-    }
-
-    .hero-primary-btn,
-    .hero-secondary-btn {
-      max-width: 100%;
-    }
-
-    .hero-stat-card {
-      padding: 1rem 1.25rem;
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    #hero.hero-surface,
-    #hero .hero-title,
-    .hero-orb,
-    .hero-badge__dot,
-    #main-content {
-      animation: none !important;
-    }
+  /* Dark mode adjustments */
+  :global(.dark) .bg-surface {
+    background: rgba(15, 23, 42, 0.6);
   }
 </style>
