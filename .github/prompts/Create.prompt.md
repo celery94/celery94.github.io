@@ -1,5 +1,20 @@
 ---
-mode: agent
+agent: "agent"
+tools:
+  [
+    "vscode",
+    "execute",
+    "read",
+    "edit",
+    "search",
+    "web",
+    "playwright/*",
+    "microsoftdocs/mcp/*",
+    "upstash/context7/*",
+    "agent",
+    "memory",
+    "todo",
+  ]
 ---
 
 - 接收用户提供的网页 URL，使用playwright MCP获取该页面的主要内容（正文、标题、关键内容/图示）。
