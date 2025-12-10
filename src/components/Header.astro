@@ -41,9 +41,14 @@ const isActive = (path: string) => {
     >
       <a
         href="/"
-        class="hover:text-accent absolute py-1 text-2xl leading-7 font-semibold whitespace-nowrap transition-colors duration-300 sm:static"
+        class="hover:text-accent absolute py-1 flex items-center gap-3 text-2xl leading-7 font-semibold whitespace-nowrap transition-colors duration-300 sm:static group"
       >
-        {SITE.title}
+        <img 
+          src="/logo.png" 
+          alt={`${SITE.title} Logo`}
+          class="h-8 w-8 rounded-lg transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3"
+        />
+        <span class="hidden sm:inline">{SITE.title}</span>
       </a>
       <nav
         id="nav-menu"
