@@ -59,42 +59,42 @@ const topCategories = Object.entries(tagFrequency)
   <main
     id="main-content"
     data-layout="index"
-    class="mx-auto w-full max-w-6xl px-4 pb-12 sm:px-6"
+    class="mx-auto w-full max-w-6xl px-4 pb-8 sm:px-6"
   >
     <!-- Hero Section -->
-    <section class="relative py-20 mb-16 overflow-hidden">
+    <section class="relative py-12 mb-8 overflow-hidden">
       <!-- Background Effects -->
       <div class="absolute inset-0 bg-gradient-to-br from-primary/5 via-accent/5 to-transparent -z-10"></div>
       <div class="absolute top-20 right-20 w-72 h-72 bg-accent/10 rounded-full blur-3xl animate-pulse-slow -z-10"></div>
       <div class="absolute bottom-10 left-10 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse-slow animation-delay-2000 -z-10"></div>
       
       <div class="text-center max-w-4xl mx-auto">
-        <div class="mb-6 inline-block px-4 py-2 rounded-full bg-accent/10 border border-accent/20">
-          <span class="text-sm font-medium text-accent">欢迎来到 Aide Hub</span>
+        <div class="mb-4 inline-block px-3 py-1.5 rounded-full bg-accent/10 border border-accent/20">
+          <span class="text-xs font-medium text-accent">欢迎来到 Aide Hub</span>
         </div>
         
-        <h1 class="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent animate-gradient-x leading-tight">
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4 bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent animate-gradient-x leading-tight">
           {SITE.title}
         </h1>
         
-        <p class="text-xl sm:text-2xl text-foreground/80 mb-8 leading-relaxed max-w-2xl mx-auto">
+        <p class="text-lg sm:text-xl text-foreground/80 mb-4 leading-relaxed max-w-2xl mx-auto">
           探索 AI 工具、软件开发与技术洞察
         </p>
         
-        <p class="text-base text-foreground/60 mb-12 max-w-3xl mx-auto">
+        <p class="text-sm text-foreground/60 mb-8 max-w-3xl mx-auto">
           {SITE.desc}
         </p>
         
-        <div class="flex flex-wrap justify-center gap-4">
+        <div class="flex flex-wrap justify-center gap-3">
           <LinkButton
             href="/posts/"
-            class="btn-primary px-8 py-3 rounded-full text-white font-medium transition-all duration-300"
+            class="btn-primary px-6 py-2 rounded-full text-white text-sm font-medium transition-all duration-300"
           >
             开始阅读
           </LinkButton>
           <LinkButton
             href="/about/"
-            class="btn-secondary px-8 py-3 rounded-full font-medium transition-all duration-300"
+            class="btn-secondary px-6 py-2 rounded-full text-sm font-medium transition-all duration-300"
           >
             关于作者
           </LinkButton>
@@ -103,81 +103,78 @@ const topCategories = Object.entries(tagFrequency)
     </section>
 
     <!-- Statistics Section -->
-    <section class="mb-16">
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
-        <div class="stat-card group p-6 rounded-2xl bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/20 hover:border-primary/40 transition-all duration-300 hover:-translate-y-1">
-          <div class="flex items-center justify-between mb-4">
-            <div class="p-3 rounded-xl bg-primary/20 group-hover:scale-110 transition-transform">
-              <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <section class="mb-8">
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <div class="stat-card group p-4 rounded-xl bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/20 hover:border-primary/40 transition-all duration-300 hover:-translate-y-1">
+          <div class="flex items-center justify-between mb-2">
+            <div class="p-2 rounded-lg bg-primary/20 group-hover:scale-110 transition-transform">
+              <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
               </svg>
             </div>
-            <span class="text-3xl font-bold text-primary">{totalPosts}</span>
+            <span class="text-2xl font-bold text-primary">{totalPosts}</span>
           </div>
-          <h3 class="text-sm font-medium text-foreground/60">文章总数</h3>
-          <p class="text-xs text-foreground/40 mt-1">已发布的技术文章</p>
+          <h3 class="text-xs font-medium text-foreground/60">文章总数</h3>
         </div>
 
-        <div class="stat-card group p-6 rounded-2xl bg-gradient-to-br from-accent/10 to-accent/5 border border-accent/20 hover:border-accent/40 transition-all duration-300 hover:-translate-y-1">
-          <div class="flex items-center justify-between mb-4">
-            <div class="p-3 rounded-xl bg-accent/20 group-hover:scale-110 transition-transform">
-              <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div class="stat-card group p-4 rounded-xl bg-gradient-to-br from-accent/10 to-accent/5 border border-accent/20 hover:border-accent/40 transition-all duration-300 hover:-translate-y-1">
+          <div class="flex items-center justify-between mb-2">
+            <div class="p-2 rounded-lg bg-accent/20 group-hover:scale-110 transition-transform">
+              <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
               </svg>
             </div>
-            <span class="text-3xl font-bold text-accent">{totalTags}</span>
+            <span class="text-2xl font-bold text-accent">{totalTags}</span>
           </div>
-          <h3 class="text-sm font-medium text-foreground/60">标签数量</h3>
-          <p class="text-xs text-foreground/40 mt-1">涵盖的技术领域</p>
+          <h3 class="text-xs font-medium text-foreground/60">标签数量</h3>
         </div>
 
-        <div class="stat-card group p-6 rounded-2xl bg-gradient-to-br from-orange-500/10 to-orange-500/5 border border-orange-500/20 hover:border-orange-500/40 transition-all duration-300 hover:-translate-y-1">
-          <div class="flex items-center justify-between mb-4">
-            <div class="p-3 rounded-xl bg-orange-500/20 group-hover:scale-110 transition-transform">
-              <svg class="w-6 h-6 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div class="stat-card group p-4 rounded-xl bg-gradient-to-br from-orange-500/10 to-orange-500/5 border border-orange-500/20 hover:border-orange-500/40 transition-all duration-300 hover:-translate-y-1">
+          <div class="flex items-center justify-between mb-2">
+            <div class="p-2 rounded-lg bg-orange-500/20 group-hover:scale-110 transition-transform">
+              <svg class="w-5 h-5 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
               </svg>
             </div>
-            <span class="text-3xl font-bold text-orange-500">{totalFeatured}</span>
+            <span class="text-2xl font-bold text-orange-500">{totalFeatured}</span>
           </div>
-          <h3 class="text-sm font-medium text-foreground/60">精选文章</h3>
-          <p class="text-xs text-foreground/40 mt-1">深度优质内容</p>
+          <h3 class="text-xs font-medium text-foreground/60">精选文章</h3>
         </div>
       </div>
     </section>
 
     <!-- Latest Post Highlight -->
     {latestPost && (
-      <section class="mb-16">
-        <div class="relative group overflow-hidden rounded-3xl bg-gradient-to-br from-primary/5 via-accent/5 to-transparent border border-white/10 hover:border-primary/30 transition-all duration-500 p-8 sm:p-12">
+      <section class="mb-8">
+        <div class="relative group overflow-hidden rounded-2xl bg-gradient-to-br from-primary/5 via-accent/5 to-transparent border border-white/10 hover:border-primary/30 transition-all duration-500 p-6 sm:p-8">
           <div class="absolute top-0 right-0 w-64 h-64 bg-accent/20 rounded-full blur-3xl group-hover:scale-150 transition-transform duration-700 -z-10"></div>
           
-          <div class="flex items-start justify-between mb-6">
-            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/20 border border-accent/30">
-              <span class="relative flex h-2 w-2">
+          <div class="flex items-start justify-between mb-4">
+            <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-accent/20 border border-accent/30">
+              <span class="relative flex h-1.5 w-1.5">
                 <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
-                <span class="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
+                <span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-accent"></span>
               </span>
-              <span class="text-sm font-medium text-accent">最新发布</span>
+              <span class="text-xs font-medium text-accent">最新发布</span>
             </div>
-            <time class="text-sm text-foreground/40">{new Date(latestPost.data.modDatetime ?? latestPost.data.pubDatetime).toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric' })}</time>
+            <time class="text-xs text-foreground/40">{new Date(latestPost.data.modDatetime ?? latestPost.data.pubDatetime).toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric' })}</time>
           </div>
           
           <a href={`/posts/${latestPost.id}/`} class="block group-hover:translate-x-1 transition-transform duration-300">
-            <h3 class="text-3xl sm:text-4xl font-bold mb-4 group-hover:text-primary transition-colors">
+            <h3 class="text-2xl sm:text-3xl font-bold mb-3 group-hover:text-primary transition-colors">
               {latestPost.data.title}
             </h3>
-            <p class="text-lg text-foreground/70 mb-6 line-clamp-2">
+            <p class="text-base text-foreground/70 mb-4 line-clamp-2">
               {latestPost.data.description}
             </p>
-            <div class="flex flex-wrap gap-2 mb-6">
+            <div class="flex flex-wrap gap-1.5 mb-4">
               {latestPost.data.tags?.slice(0, 4).map(tag => (
-                <span class="px-3 py-1 text-xs rounded-full bg-white/5 border border-white/10 text-foreground/60">
+                <span class="px-2 py-0.5 text-xs rounded-full bg-white/5 border border-white/10 text-foreground/60">
                   {tag}
                 </span>
               ))}
             </div>
-            <span class="inline-flex items-center gap-2 text-primary font-medium group-hover:gap-3 transition-all">
+            <span class="inline-flex items-center gap-2 text-sm text-primary font-medium group-hover:gap-3 transition-all">
               阅读全文 
               <IconArrowRight class="w-5 h-5" />
             </span>
@@ -187,15 +184,15 @@ const topCategories = Object.entries(tagFrequency)
     )}
 
     <!-- Quick Navigation Categories -->
-    <section class="mb-16">
-      <h2 class="text-2xl font-bold mb-6 flex items-center gap-2">
+    <section class="mb-8">
+      <h2 class="text-xl font-bold mb-4 flex items-center gap-2">
         <span class="text-accent">📚</span> 热门分类
       </h2>
-      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
         {topCategories.map(({ name, slug, count }) => (
-          <a href={`/tags/${slug}/`} class="group p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-accent/30 hover:bg-accent/5 transition-all duration-300 hover:-translate-y-1 text-center">
-            <div class="text-2xl font-bold text-accent mb-2 group-hover:scale-110 transition-transform">{count}</div>
-            <div class="text-sm font-medium text-foreground/80 group-hover:text-accent transition-colors line-clamp-2">{name}</div>
+          <a href={`/tags/${slug}/`} class="group p-4 rounded-xl bg-white/5 border border-white/10 hover:border-accent/30 hover:bg-accent/5 transition-all duration-300 hover:-translate-y-1 text-center">
+            <div class="text-xl font-bold text-accent mb-1 group-hover:scale-110 transition-transform">{count}</div>
+            <div class="text-xs font-medium text-foreground/80 group-hover:text-accent transition-colors line-clamp-2">{name}</div>
           </a>
         ))}
       </div>
@@ -203,18 +200,18 @@ const topCategories = Object.entries(tagFrequency)
 
     <!-- Trending Topics -->
     {trendingTags.length > 0 && (
-      <section class="mt-16 mb-12">
-        <div class="flex items-center justify-between mb-6">
-          <h2 class="text-2xl font-bold flex items-center gap-2">
+      <section class="mt-8 mb-8">
+        <div class="flex items-center justify-between mb-4">
+          <h2 class="text-xl font-bold flex items-center gap-2">
             <span class="text-accent">#</span> 热门话题
           </h2>
-          <a href="/tags/" class="text-sm font-medium text-foreground/60 hover:text-primary transition-colors flex items-center gap-1">
-            全部标签 <IconArrowRight class="w-4 h-4" />
+          <a href="/tags/" class="text-xs font-medium text-foreground/60 hover:text-primary transition-colors flex items-center gap-1">
+            全部标签 <IconArrowRight class="w-3 h-3" />
           </a>
         </div>
-        <div class="flex flex-wrap gap-3">
+        <div class="flex flex-wrap gap-2">
           {trendingTags.map(({ name, slug, count }) => (
-            <a href={`/tags/${slug}/`} class="group relative px-4 py-2 rounded-xl bg-white/5 border border-white/10 hover:border-accent/30 hover:bg-accent/5 transition-all duration-300">
+            <a href={`/tags/${slug}/`} class="group relative px-3 py-1 rounded-lg bg-white/5 border border-white/10 hover:border-accent/30 hover:bg-accent/5 transition-all duration-300">
               <span class="text-sm font-medium text-foreground/80 group-hover:text-accent transition-colors">
                 {name}
               </span>
@@ -229,17 +226,17 @@ const topCategories = Object.entries(tagFrequency)
 
     <!-- Featured Posts -->
     {featuredPosts.length > 0 && (
-      <section class="mb-20 relative">
+      <section class="mb-8 relative">
         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-gradient-to-b from-transparent via-primary/5 to-transparent pointer-events-none blur-3xl -z-10"></div>
         
-        <div class="flex items-end justify-between mb-8">
+        <div class="flex items-end justify-between mb-4">
           <div>
-            <h2 class="text-3xl font-bold mb-2">精选文章</h2>
-            <p class="text-foreground/60">值得反复阅读的深度内容</p>
+            <h2 class="text-xl font-bold mb-1">精选文章</h2>
+            <p class="text-sm text-foreground/60">值得反复阅读的深度内容</p>
           </div>
         </div>
 
-        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {featuredPosts.map(({ data, id }, index) => (
             <div class={`transform transition-all duration-500 hover:-translate-y-1 ${index === 0 ? 'lg:col-span-2' : ''}`}>
               <Card
@@ -256,13 +253,13 @@ const topCategories = Object.entries(tagFrequency)
 
     <!-- Recent Posts -->
     {recentPosts.length > 0 && (
-      <section class="mb-16">
-        <div class="flex items-center gap-4 mb-8">
-          <h2 class="text-2xl font-bold">最新发布</h2>
+      <section class="mb-8">
+        <div class="flex items-center gap-4 mb-4">
+          <h2 class="text-xl font-bold">最新发布</h2>
           <div class="h-px flex-1 bg-gradient-to-r from-border to-transparent"></div>
         </div>
         
-        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {recentPosts.map(
             ({ data, id }, index) =>
               index < SITE.postPerIndex && (
@@ -275,10 +272,10 @@ const topCategories = Object.entries(tagFrequency)
           )}
         </div>
 
-        <div class="mt-12 text-center">
+        <div class="mt-8 text-center">
           <LinkButton
             href="/posts/"
-            class="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-surface border border-border hover:border-primary/50 hover:text-primary transition-all duration-300 shadow-sm hover:shadow-md"
+            class="inline-flex items-center gap-2 px-6 py-2 text-sm rounded-full bg-surface border border-border hover:border-primary/50 hover:text-primary transition-all duration-300 shadow-sm hover:shadow-md"
           >
             浏览全部归档
             <IconArrowRight class="w-4 h-4" />

@@ -6,7 +6,7 @@ export const SITE = {
   title: "Aide Hub",
   ogImage: "astropaper-og.jpg",
   lightAndDarkMode: true,
-  postPerIndex: 9,
+  postPerIndex: 12,
   postPerPage: 9,
   scheduledPostMargin: 15 * 60 * 1000, // 15 minutes
   showArchives: true,
