@@ -8,6 +8,7 @@ import Datetime from "@/components/Datetime.astro";
 import EditPost from "@/components/EditPost.astro";
 import ShareLinks from "@/components/ShareLinks.astro";
 import BackButton from "@/components/BackButton.astro";
+import TableOfContents from "@/components/TableOfContents.astro";
 import { slugifyStr } from "@/utils/slugify";
 import IconChevronLeft from "@/assets/icons/IconChevronLeft.svg";
 import IconChevronRight from "@/assets/icons/IconChevronRight.svg";
@@ -90,10 +91,14 @@ const nextPost =
 <Layout {...layoutProps}>
   <Header />
   <BackButton />
+  
+  <!-- Floating Table of Contents -->
+  <TableOfContents headings={headings} />
+  
   <main
     id="main-content"
     class:list={[
-      "mx-auto w-full max-w-5xl px-4 pb-12",
+      "mx-auto w-full max-w-4xl px-4 pb-12 xl:mr-[320px] xl:max-w-3xl 2xl:mr-auto 2xl:max-w-4xl",
       { "mt-8": !SITE.showBackButton },
     ]}
     data-pagefind-body
@@ -203,46 +208,6 @@ const nextPost =
       </div>
     </header>
 
-    <!-- Table of Contents -->
-    {
-      headings.length > 0 && (
-        <nav class="toc-nav border-accent/20 from-accent/5 to-accent/10 mb-10 rounded-2xl border bg-gradient-to-br p-6 backdrop-blur-sm">
-          <div class="mb-4 flex items-center gap-2">
-            <svg
-              class="text-accent h-5 w-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M4 6h16M4 12h16M4 18h7"
-              />
-            </svg>
-            <h2 class="text-accent text-lg font-bold">目录</h2>
-          </div>
-          <ul class="space-y-2">
-            {headings
-              .filter(h => h.depth <= 3)
-              .map(heading => (
-                <li class:list={["toc-item", `toc-depth-${heading.depth}`]}>
-                  <a
-                    href={`#${heading.slug}`}
-                    class="hover:bg-accent/10 hover:text-accent block rounded-lg px-3 py-2 text-sm transition-all duration-200 hover:translate-x-1"
-                    style={`padding-left: ${(heading.depth - 1) * 1}rem`}
-                  >
-                    <span class="toc-bullet text-accent mr-2">▸</span>
-                    {heading.text}
-                  </a>
-                </li>
-              ))}
-          </ul>
-        </nav>
-      )
-    }
-
     <article id="article" class="mx-auto prose prose-lg mt-8 max-w-4xl">
       <Content />
     </article>
@@ -267,41 +232,6 @@ const nextPost =
           var(--color-accent),
           var(--color-secondary)
         );
-      }
-
-      /* ===== Table of Contents ===== */
-      .toc-nav {
-        position: relative;
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-      }
-
-      .toc-item {
-        list-style: none;
-      }
-
-      .toc-bullet {
-        display: inline-block;
-        transition: transform 0.2s ease;
-      }
-
-      .toc-item a:hover .toc-bullet {
-        transform: translateX(4px);
-      }
-
-      .toc-depth-2 {
-        font-weight: 600;
-      }
-
-      .toc-depth-3 {
-        font-size: 0.9em;
-        opacity: 0.9;
-      }
-
-      /* Active TOC item highlighting */
-      .toc-item a.active {
-        background-color: rgba(var(--accent-rgb), 0.15);
-        color: var(--color-accent);
-        font-weight: 600;
       }
 
       /* ===== 基础排版优化 ===== */
@@ -1291,63 +1221,6 @@ const nextPost =
     });
   }
   backToTop();
-
-  /* Highlight active TOC item on scroll */
-  function activeTocOnScroll() {
-    const headings = Array.from(
-      document.querySelectorAll(
-        "#article h2[id], #article h3[id], #article h4[id]"
-      )
-    );
-    const tocLinks = Array.from(document.querySelectorAll(".toc-item a"));
-
-    if (headings.length === 0 || tocLinks.length === 0) return;
-
-    const observer = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const id = entry.target.getAttribute("id");
-            tocLinks.forEach(link => {
-              link.classList.remove("active");
-              if (link.getAttribute("href") === `#${id}`) {
-                link.classList.add("active");
-              }
-            });
-          }
-        });
-      },
-      {
-        rootMargin: "-100px 0px -66%",
-        threshold: 1.0,
-      }
-    );
-
-    headings.forEach(heading => observer.observe(heading));
-  }
-  activeTocOnScroll();
-
-  /* Smooth scroll for TOC links */
-  function smoothScrollToc() {
-    const tocLinks = document.querySelectorAll(".toc-item a");
-    tocLinks.forEach(link => {
-      link.addEventListener("click", e => {
-        e.preventDefault();
-        const targetId = link.getAttribute("href")?.substring(1);
-        const target = document.getElementById(targetId || "");
-        if (target) {
-          const offset = 100;
-          const targetPosition =
-            target.getBoundingClientRect().top + window.pageYOffset - offset;
-          window.scrollTo({
-            top: targetPosition,
-            behavior: "smooth",
-          });
-        }
-      });
-    });
-  }
-  smoothScrollToc();
 
   /* Add fade-in animation for article sections */
   function animateArticleSections() {
