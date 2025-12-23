@@ -2,9 +2,10 @@
 pubDatetime: 2025-12-20
 title: "Server-Sent Events in ASP.NET Core and .NET 10"
 description: "探索 .NET 10 中新增的原生 Server-Sent Events (SSE) API，学习如何在 ASP.NET Core 中实现轻量级的单向实时数据推送，以及何时选择 SSE 而非 SignalR。"
-tags: [".NET", "ASP.NET Core", "Real-time", "SSE"]
+tags: [".NET", "ASP.NET Core", "Real-time", "SSE", "WebSockets"]
 slug: "server-sent-events-in-aspnetcore-and-dotnet-10"
 source: "https://www.milanjovanovic.tech/blog/server-sent-events-in-aspnetcore-and-dotnet-10"
+ogImage: "../../assets/525/cover.png"
 ---
 
 # Server-Sent Events in ASP.NET Core and .NET 10
@@ -32,14 +33,20 @@ SignalR 是一个功能强大的框架，自动处理 WebSockets、长轮询和 
 
 ## 最简单的 SSE 端点
 
-.NET 10 SSE API 的优雅之处在于其简洁性。你可以使用新的 `Results.ServerSentEvents` 从任何 `IAsyncEnumerable<T>` 返回事件流：
+.NET 10 SSE API 的优雅之处在于其简洁性。你可以使用新的 `Results.ServerSentEvents` 从任何 `IAsyncEnumerable<T>` 返回事件流。
+
+因为 `IAsyncEnumerable` 代表可以随时间到达的数据流，服务器知道要保持 HTTP 连接打开，而不是在第一个数据块之后就关闭它。
+
+以下是一个流式传输实时订单的最小化 SSE 端点示例：
 
 ```csharp
 app.MapGet("orders/realtime", (
     ChannelReader<OrderPlacement> channelReader,
     CancellationToken cancellationToken) =>
 {
-    // IAsyncEnumerable 代表随时间到达的数据流
+    // 1. ReadAllAsync 返回一个 IAsyncEnumerable
+    // 2. Results.ServerSentEvents 告诉浏览器："保持此连接打开"
+    // 3. 新数据一进入 Channel 就立即推送到客户端
     return Results.ServerSentEvents(
         channelReader.ReadAllAsync(cancellationToken),
         eventType: "orders");
@@ -49,14 +56,22 @@ app.MapGet("orders/realtime", (
 当客户端访问此端点时：
 
 1. 服务器发送 `Content-Type: text/event-stream` 头
-2. 连接保持活动并等待数据
-3. 一旦有新订单进入 Channel，`IAsyncEnumerable` 产出该项，.NET 立即通过 HTTP 管道将其推送到浏览器
+2. 连接保持活动状态并在等待数据时处于空闲状态
+3. 一旦你的应用将订单推入 `Channel`，`IAsyncEnumerable` 产出该项，.NET 立即通过打开的 HTTP 管道将其刷新到浏览器
+
+这是一种极其高效的方式来处理"推送"通知，无需有状态协议的开销。
+
+> **注意**：这里使用 `Channel` 只是达到目的的一种手段。在真实应用中，你可能会有一个后台服务监听消息队列（如 RabbitMQ 或 Azure Service Bus）或数据库变更馈送，然后将新事件推入 Channel 供连接的客户端消费。
 
 ## 处理丢失的事件
 
-简单的端点虽然有效，但缺少弹性机制。当连接断开并重连时，可能会丢失一些事件。SSE 内置了解决方案：`Last-Event-ID` 头。浏览器重连时会将此 ID 发回服务器。
+我们刚刚构建的简单端点很棒，但它有一个弱点：缺少弹性机制。
 
-在 .NET 10 中，我们可以使用 `SseItem<T>` 类型为数据添加元数据（如 ID 和重试间隔）：
+实时流的最大挑战之一是连接断开。当浏览器自动重连时，可能已经发送并丢失了几个事件。为了解决这个问题，SSE 有一个内置机制：`Last-Event-ID` **头**。当浏览器重连时，它会将此 ID 发回服务器。
+
+在 .NET 10 中，我们可以使用 `SseItem<T>` 类型为数据添加元数据，如 ID 和重试间隔。
+
+通过结合简单的内存 `OrderEventBuffer` 和浏览器提供的 `Last-Event-ID`，我们可以在重连时"重放"丢失的消息：
 
 ```csharp
 app.MapGet("orders/realtime/with-replays", (
@@ -91,19 +106,20 @@ app.MapGet("orders/realtime/with-replays", (
 
 ## 按用户过滤事件
 
-SSE 构建在标准 HTTP 之上，因此你现有的基础设施"开箱即用"：
+Server-Sent Events 构建在标准 HTTP 之上。因为它是标准的 `GET` 请求，你现有的基础设施"开箱即用"：
 
 - **安全性**：可以在 `Authorization` 头中传递标准 JWT
-- **用户上下文**：可以访问 `HttpContext.User` 提取用户 ID 并过滤流
+- **用户上下文**：可以访问 `HttpContext.User` 提取用户 ID 并过滤流。你只向用户发送属于他们的数据
 
-以下是只向认证用户推送其自己订单的示例：
+以下是只向认证用户流式传输其自己订单的 SSE 端点示例：
 
 ```csharp
 app.MapGet("orders/realtime", (
     ChannelReader<OrderPlacement> channelReader,
-    IUserContext userContext,
+    IUserContext userContext, // 注入的包含用户元数据的上下文
     CancellationToken cancellationToken) =>
 {
+    // UserId 从 JWT 访问令牌中通过 IUserContext 提取
     var currentUserId = userContext.UserId;
 
     async IAsyncEnumerable<OrderPlacement> GetUserOrders()
@@ -120,17 +136,19 @@ app.MapGet("orders/realtime", (
 
     return Results.ServerSentEvents(GetUserOrders(), "orders");
 })
-.RequireAuthorization();
+.RequireAuthorization(); // 标准的 ASP.NET Core 授权
 ```
+
+> **注意**：当你向 `Channel` 写入消息时，它会广播到**所有**连接的客户端。这对于每用户流不太理想。对于生产环境，你可能需要使用更强大的方案。
 
 ## JavaScript 客户端实现
 
-客户端无需安装任何 npm 包。浏览器原生的 `EventSource` API 处理所有重连和 Last-Event-ID 逻辑：
+在客户端，你不需要安装任何 npm 包。浏览器原生的 `EventSource` API 处理所有重活，包括我们上面讨论的"重连并发送 Last-Event-ID"逻辑。
 
 ```javascript
 const eventSource = new EventSource("/orders/realtime/with-replays");
 
-// 监听特定的 'orders' 事件类型
+// 监听我们在 C# 中定义的特定 'orders' 事件类型
 eventSource.addEventListener("orders", event => {
   const payload = JSON.parse(event.data);
   console.log(`New Order ${event.lastEventId}:`, payload.data);
@@ -141,6 +159,11 @@ eventSource.onopen = () => {
   console.log("Connection opened");
 };
 
+// 处理通用消息（如果有的话）
+eventSource.onmessage = event => {
+  console.log("Received message:", event);
+};
+
 // 错误处理和重连
 eventSource.onerror = () => {
   if (eventSource.readyState === EventSource.CONNECTING) {
@@ -149,26 +172,12 @@ eventSource.onerror = () => {
 };
 ```
 
-## 实践建议
+## 总结
 
-**何时使用 SSE：**
+.NET 10 中的 SSE 是简单的单向更新的完美中间方案，如仪表板、通知提示和进度条。它轻量、基于 HTTP 原生协议，并且易于使用现有中间件保护。
 
-- 仪表板实时更新
-- 通知推送
-- 进度条更新
-- 简单的单向数据流
+然而，**SignalR** 仍然是复杂双向通信或需要后端支撑的大规模场景的强大、久经考验的选择。
 
-**何时使用 SignalR：**
+目标不是取代 SignalR，而是为更简单的工作提供更简单的工具。选择能解决你问题的最轻量的工具。
 
-- 需要双向通信
-- 复杂的实时应用
-- 需要大规模扩展和后端支撑
-
-**最佳实践：**
-
-1. 对于生产环境，使用更强大的消息分发机制而不是简单的 Channel 广播
-2. 实现事件缓冲来处理重连场景
-3. 使用标准的 ASP.NET Core 授权来保护端点
-4. 充分利用 `IAsyncEnumerable` 的流式特性
-
-.NET 10 中的 SSE 为简单的单向更新提供了完美的中间方案。它轻量、基于 HTTP 原生协议，并且易于使用现有中间件保护。选择最轻量的工具来解决你的问题——这正是优秀架构的体现。
+这就是今天的全部内容。希望对你有所帮助。
