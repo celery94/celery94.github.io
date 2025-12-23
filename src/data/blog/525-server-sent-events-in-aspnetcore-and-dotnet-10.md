@@ -5,7 +5,6 @@ description: "探索 .NET 10 中新增的原生 Server-Sent Events (SSE) API，�
 tags: [".NET", "ASP.NET Core", "Real-time", "SSE", "WebSockets"]
 slug: "server-sent-events-in-aspnetcore-and-dotnet-10"
 source: "https://www.milanjovanovic.tech/blog/server-sent-events-in-aspnetcore-and-dotnet-10"
-ogImage: "../../assets/525/cover.png"
 ---
 
 # Server-Sent Events in ASP.NET Core and .NET 10
