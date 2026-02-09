@@ -18,10 +18,10 @@ const filteredHeadings = headings.filter(h => h.depth <= 3);
       class="toc-aside hidden xl:block"
       aria-label="Table of Contents"
     >
-      <nav class="toc-nav border-accent/20 from-accent/5 to-accent/10 rounded-2xl border bg-gradient-to-br p-6 backdrop-blur-sm">
-        <div class="mb-4 flex items-center gap-2">
+      <nav class="toc-nav glass rounded-2xl border p-5">
+        <h2 class="font-display mb-4 flex items-center gap-2 text-base font-semibold">
           <svg
-            class="text-accent h-5 w-5 flex-shrink-0"
+            class="h-4 w-4 text-accent"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -33,18 +33,17 @@ const filteredHeadings = headings.filter(h => h.depth <= 3);
               d="M4 6h16M4 12h16M4 18h7"
             />
           </svg>
-          <h2 class="text-accent text-lg font-bold">目录</h2>
-        </div>
-        <ul class="toc-list space-y-2">
+          On This Page
+        </h2>
+        <ul class="space-y-1.5">
           {filteredHeadings.map(heading => (
             <li class:list={["toc-item", `toc-depth-${heading.depth}`]}>
               <a
                 href={`#${heading.slug}`}
-                class="toc-link hover:bg-accent/10 hover:text-accent block rounded-lg px-3 py-2 text-sm transition-all duration-200 hover:translate-x-1"
-                style={`padding-left: ${(heading.depth - 1) * 1}rem`}
+                class="toc-link focus-outline block rounded-lg px-3 py-2 text-sm text-foreground/80 transition-all duration-200 hover:bg-accent/8 hover:text-accent"
+                style={`padding-left: ${0.65 + (heading.depth - 1) * 0.85}rem`}
                 data-heading-id={heading.slug}
               >
-                <span class="toc-bullet text-accent mr-2">▸</span>
                 {heading.text}
               </a>
             </li>
@@ -56,79 +55,27 @@ const filteredHeadings = headings.filter(h => h.depth <= 3);
 }
 
 <style>
-  /* Fixed sidebar positioning */
   .toc-aside {
     position: fixed;
     top: 8rem;
-    right: 2rem;
-    width: 260px;
+    right: 1.8rem;
+    width: 280px;
     max-height: calc(100vh - 10rem);
     overflow-y: auto;
-    z-index: 10;
+    z-index: 15;
+    padding-right: 0.35rem;
   }
 
-  /* Ensure TOC stays at the rightmost edge on larger screens */
   @media (min-width: 1920px) {
     .toc-aside {
-      right: max(2rem, calc((100vw - 1536px) / 2));
-      width: 280px;
+      right: max(1.8rem, calc((100vw - 1536px) / 2));
     }
   }
 
-  /* Hide on smaller screens to avoid overlap */
-  @media (max-width: 1400px) {
+  @media (max-width: 1460px) {
     .toc-aside {
       display: none;
     }
-  }
-
-  /* Scrollbar styling for TOC */
-  .toc-aside::-webkit-scrollbar {
-    width: 6px;
-  }
-
-  .toc-aside::-webkit-scrollbar-track {
-    background: transparent;
-  }
-
-  :global(html[data-theme="dark"]) .toc-aside::-webkit-scrollbar-thumb {
-    background: rgba(99, 102, 241, 0.4);
-    border-radius: 3px;
-  }
-
-  :global(html[data-theme="dark"])
-    .toc-aside::-webkit-scrollbar-thumb:hover {
-    background: rgba(99, 102, 241, 0.6);
-  }
-
-  :global(html[data-theme="light"]) .toc-aside::-webkit-scrollbar-thumb {
-    background: rgba(99, 102, 241, 0.3);
-    border-radius: 3px;
-  }
-
-  :global(html[data-theme="light"])
-    .toc-aside::-webkit-scrollbar-thumb:hover {
-    background: rgba(99, 102, 241, 0.5);
-  }
-
-  /* TOC nav container */
-  .toc-nav {
-    position: relative;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  }
-
-  /* TOC items */
-  .toc-item {
-    list-style: none;
-  }
-
-  .toc-bullet {
-    display: inline-block;
-    transition: transform 0.2s ease;
-  }
-
-  .toc-item a:hover .toc-bullet {
-    transform: translateX(4px);
   }
 
   .toc-depth-2 {
@@ -136,21 +83,17 @@ const filteredHeadings = headings.filter(h => h.depth <= 3);
   }
 
   .toc-depth-3 {
-    font-size: 0.9em;
-    opacity: 0.9;
+    opacity: 0.92;
   }
 
-  /* Active TOC item highlighting */
   .toc-link.active {
-    background-color: rgba(var(--accent-rgb), 0.15);
     color: var(--color-accent);
-    font-weight: 600;
-    border-left: 3px solid var(--color-accent);
+    background: color-mix(in srgb, var(--color-accent) 14%, transparent);
+    box-shadow: inset 2px 0 0 color-mix(in srgb, var(--color-accent) 62%, transparent);
   }
 
-  /* Progress indicator on TOC items */
   .toc-link.read {
-    opacity: 0.6;
+    opacity: 0.72;
   }
 
   .toc-link.active.read {
@@ -161,9 +104,7 @@ const filteredHeadings = headings.filter(h => h.depth <= 3);
 <script>
   function initTableOfContents() {
     const headings = Array.from(
-      document.querySelectorAll(
-        "#article h2[id], #article h3[id], #article h4[id]"
-      )
+      document.querySelectorAll("#article h2[id], #article h3[id], #article h4[id]")
     );
     const tocLinks = Array.from(
       document.querySelectorAll(".toc-link")
@@ -171,87 +112,63 @@ const filteredHeadings = headings.filter(h => h.depth <= 3);
 
     if (headings.length === 0 || tocLinks.length === 0) return;
 
-    // Track which headings have been read
     const readHeadings = new Set<string>();
 
-    // Create intersection observer for active heading tracking
     const activeObserver = new IntersectionObserver(
       entries => {
         entries.forEach(entry => {
           const id = entry.target.getAttribute("id");
-          if (!id) return;
+          if (!id || !entry.isIntersecting) return;
 
-          if (entry.isIntersecting) {
-            // Mark as read
-            readHeadings.add(id);
+          readHeadings.add(id);
 
-            // Update active state
-            tocLinks.forEach(link => {
-              const linkId = link.getAttribute("data-heading-id");
-              link.classList.remove("active");
+          tocLinks.forEach(link => {
+            const linkId = link.getAttribute("data-heading-id");
+            link.classList.remove("active");
 
-              if (linkId === id) {
-                link.classList.add("active");
-              }
-
-              // Add read state
-              if (readHeadings.has(linkId || "")) {
-                link.classList.add("read");
-              }
-            });
-
-            // Scroll TOC to show active item
-            const activeLink = tocLinks.find(
-              link => link.getAttribute("data-heading-id") === id
-            );
-            if (activeLink) {
-              const tocAside = document.getElementById("toc-aside");
-              if (tocAside) {
-                const linkTop = activeLink.offsetTop;
-                const asideHeight = tocAside.clientHeight;
-                const linkHeight = activeLink.clientHeight;
-
-                // Center the active link in the viewport
-                tocAside.scrollTo({
-                  top: linkTop - asideHeight / 2 + linkHeight / 2,
-                  behavior: "smooth",
-                });
-              }
+            if (linkId === id) {
+              link.classList.add("active");
             }
+
+            if (readHeadings.has(linkId || "")) {
+              link.classList.add("read");
+            }
+          });
+
+          const activeLink = tocLinks.find(
+            link => link.getAttribute("data-heading-id") === id
+          );
+          const tocAside = document.getElementById("toc-aside");
+          if (activeLink && tocAside) {
+            tocAside.scrollTo({
+              top: activeLink.offsetTop - tocAside.clientHeight / 2 + activeLink.clientHeight / 2,
+              behavior: "smooth",
+            });
           }
         });
       },
       {
-        rootMargin: "-100px 0px -66%",
+        rootMargin: "-110px 0px -65%",
         threshold: 0.5,
       }
     );
 
-    // Observe all headings
     headings.forEach(heading => activeObserver.observe(heading));
 
-    // Smooth scroll for TOC links
     tocLinks.forEach(link => {
       link.addEventListener("click", e => {
         e.preventDefault();
         const targetId = link.getAttribute("data-heading-id");
         const target = document.getElementById(targetId || "");
-        if (target) {
-          const offset = 100;
-          const targetPosition =
-            target.getBoundingClientRect().top + window.pageYOffset - offset;
-          window.scrollTo({
-            top: targetPosition,
-            behavior: "smooth",
-          });
-        }
+        if (!target) return;
+
+        const offset = 96;
+        const position = target.getBoundingClientRect().top + window.pageYOffset - offset;
+        window.scrollTo({ top: position, behavior: "smooth" });
       });
     });
   }
 
-  // Initialize on page load
   initTableOfContents();
-
-  // Re-initialize after Astro page transitions
   document.addEventListener("astro:after-swap", initTableOfContents);
 </script>

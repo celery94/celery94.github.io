@@ -32,7 +32,10 @@ const {
     <a
       id={id}
       {href}
-      class:list={["group hover:text-accent inline-block", className]}
+      class:list={[
+        "focus-outline group inline-block transition-colors duration-200 hover:text-accent",
+        className,
+      ]}
       aria-label={ariaLabel}
       title={title}
     >

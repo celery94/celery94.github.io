@@ -14,21 +14,32 @@ const { page } = Astro.props;
 
 {
   page.lastPage > 1 && (
-    <nav class="mt-auto mb-8 flex justify-center" aria-label="Pagination">
+    <nav
+      class="glass mx-auto mt-auto mb-8 flex w-fit items-center justify-center gap-2 rounded-2xl border px-3 py-2 text-sm"
+      aria-label="Pagination"
+    >
       <LinkButton
         disabled={!page.url.prev}
         href={page.url.prev as string}
-        class:list={["mr-4 select-none", { "opacity-50": !page.url.prev }]}
+        class:list={[
+          "select-none rounded-lg px-3 py-1.5 font-medium",
+          { "opacity-45": !page.url.prev },
+        ]}
         ariaLabel="Previous"
       >
         <IconArrowLeft class="inline-block" />
         Prev
       </LinkButton>
-      {page.currentPage} / {page.lastPage}
+      <span class="min-w-16 text-center font-medium text-foreground/75">
+        {page.currentPage} / {page.lastPage}
+      </span>
       <LinkButton
         disabled={!page.url.next}
         href={page.url.next as string}
-        class:list={["ml-4 select-none", { "opacity-50": !page.url.next }]}
+        class:list={[
+          "select-none rounded-lg px-3 py-1.5 font-medium",
+          { "opacity-45": !page.url.next },
+        ]}
         ariaLabel="Next"
       >
         Next

@@ -9,132 +9,43 @@ export interface Props {
 
 const { tag, tagName, size = "sm" } = Astro.props;
 
-// 生成一致的标签颜色
-const getTagColor = (tag: string) => {
-  const colors = [
-    "primary",
-    "secondary",
-    "success",
-    "info",
-    "warning",
-    "danger",
-    "accent",
-  ];
-  const hash = tag.split("").reduce((acc, char) => char.charCodeAt(0) + acc, 0);
-  return colors[hash % colors.length];
-};
-
-const tagColor = getTagColor(tag);
+const hue = tag.split("").reduce((acc, char) => acc + char.charCodeAt(0), 0) % 360;
+const tint = `hsl(${hue} 64% 44%)`;
 ---
 
 <li
   class:list={[
-    "group inline-block group-hover:cursor-pointer",
-    size === "sm" ? "my-1 underline-offset-4" : "mx-1 my-3 underline-offset-8",
+    "inline-block",
+    size === "sm" ? "my-1" : "mx-1 my-2.5",
   ]}
+  style={`--tag-tint:${tint};`}
 >
   <a
     href={`/tags/${tag}/`}
     transition:name={tag}
     class:list={[
-      "relative pr-2 hover:no-underline focus-visible:p-1",
-      { "text-xs sm:text-sm": size === "sm" },
-      { "text-sm sm:text-base": size === "lg" },
+      "tag focus-outline inline-flex rounded-full no-underline",
+      size === "sm" ? "text-xs sm:text-sm" : "px-3 py-1.5 text-sm sm:text-base",
     ]}
   >
-    <span
-      class={`animated-tag bg-${tagColor}/10 border border-${tagColor}/30 text-${tagColor}`}
-    >
-      <IconHash
-        class:list={[
-          "inline-block",
-          { "mr-0.5 size-2.5 sm:mr-1 sm:size-3": size === "sm" },
-          { "mr-1 size-3 sm:mr-1.5 sm:size-4": size === "lg" },
-        ]}
-      />
-      <span>{tagName}</span>
-    </span>
+    <IconHash
+      class:list={[
+        "inline-block stroke-current",
+        size === "sm" ? "mr-0.5 size-3" : "mr-1 size-4",
+      ]}
+    />
+    <span>{tagName}</span>
   </a>
 </li>
 
 <style>
-  /* Enhanced tag styles with color variables */
-  .bg-primary\/10 {
-    background-color: color-mix(in srgb, var(--color-primary) 10%, transparent);
-  }
-  .bg-secondary\/10 {
-    background-color: color-mix(
-      in srgb,
-      var(--color-secondary) 10%,
-      transparent
-    );
-  }
-  .bg-success\/10 {
-    background-color: color-mix(in srgb, var(--color-success) 10%, transparent);
-  }
-  .bg-info\/10 {
-    background-color: color-mix(in srgb, var(--color-info) 10%, transparent);
-  }
-  .bg-warning\/10 {
-    background-color: color-mix(in srgb, var(--color-warning) 10%, transparent);
-  }
-  .bg-danger\/10 {
-    background-color: color-mix(in srgb, var(--color-danger) 10%, transparent);
-  }
-  .bg-accent\/10 {
-    background-color: color-mix(in srgb, var(--color-accent) 10%, transparent);
+  .tag {
+    border-color: color-mix(in srgb, var(--tag-tint) 35%, var(--color-border));
+    background: color-mix(in srgb, var(--tag-tint) 12%, transparent);
   }
 
-  .border-primary\/30 {
-    border-color: color-mix(in srgb, var(--color-primary) 30%, transparent);
-  }
-  .border-secondary\/30 {
-    border-color: color-mix(in srgb, var(--color-secondary) 30%, transparent);
-  }
-  .border-success\/30 {
-    border-color: color-mix(in srgb, var(--color-success) 30%, transparent);
-  }
-  .border-info\/30 {
-    border-color: color-mix(in srgb, var(--color-info) 30%, transparent);
-  }
-  .border-warning\/30 {
-    border-color: color-mix(in srgb, var(--color-warning) 30%, transparent);
-  }
-  .border-danger\/30 {
-    border-color: color-mix(in srgb, var(--color-danger) 30%, transparent);
-  }
-  .border-accent\/30 {
-    border-color: color-mix(in srgb, var(--color-accent) 30%, transparent);
-  }
-
-  .text-primary {
-    color: var(--color-primary);
-  }
-  .text-secondary {
-    color: var(--color-secondary);
-  }
-  .text-success {
-    color: var(--color-success);
-  }
-  .text-info {
-    color: var(--color-info);
-  }
-  .text-warning {
-    color: var(--color-warning);
-  }
-  .text-danger {
-    color: var(--color-danger);
-  }
-  .text-accent {
-    color: var(--color-accent);
-  }
-
-  /* Mobile optimizations */
-  @media (max-width: 640px) {
-    .animated-tag {
-      padding: 0.15rem 0.4rem;
-      border-radius: 0.25rem;
-      font-size: 0.75rem;
-    }
+  .tag:hover {
+    color: var(--tag-tint);
+    border-color: color-mix(in srgb, var(--tag-tint) 55%, var(--color-border));
   }
 </style>

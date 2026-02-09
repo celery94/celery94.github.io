@@ -194,15 +194,13 @@ const structuredData = pubDatetime
     margin: 0;
     width: 100%;
     height: 100%;
-    scroll-behavior: smooth;
   }
 
   body {
-    background-color: transparent;
     position: relative;
+    isolation: isolate;
   }
 
-  /* Enhanced background with noise texture and richer gradients */
   body::before {
     content: "";
     position: fixed;
@@ -212,86 +210,23 @@ const structuredData = pubDatetime
     height: 100%;
     pointer-events: none;
     z-index: -1;
-  }
-
-  html[data-theme="light"] body::before {
     background:
       radial-gradient(
-        circle at 15% 50%,
-        rgba(52, 144, 220, 0.08),
-        transparent 40%
+        circle at 8% 8%,
+        color-mix(in srgb, var(--color-accent) 12%, transparent),
+        transparent 38%
       ),
       radial-gradient(
-        circle at 85% 30%,
-        rgba(56, 178, 172, 0.08),
-        transparent 40%
+        circle at 88% 12%,
+        color-mix(in srgb, var(--color-secondary) 10%, transparent),
+        transparent 34%
       ),
       radial-gradient(
-        circle at 50% 80%,
-        rgba(139, 92, 246, 0.05),
-        transparent 40%
+        circle at 50% 100%,
+        color-mix(in srgb, var(--color-primary) 9%, transparent),
+        transparent 38%
       );
-    filter: blur(60px);
-  }
-
-  html[data-theme="dark"] body::before {
-    background:
-      radial-gradient(
-        circle at 15% 50%,
-        rgba(249, 115, 22, 0.08),
-        transparent 40%
-      ),
-      radial-gradient(
-        circle at 85% 30%,
-        rgba(59, 130, 246, 0.08),
-        transparent 40%
-      ),
-      radial-gradient(
-        circle at 50% 80%,
-        rgba(168, 85, 247, 0.06),
-        transparent 40%
-      );
-    filter: blur(60px);
-  }
-
-  /* Add a subtle noise texture */
-  body::after {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: -1;
-    opacity: 0.03;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-  }
-
-  html[data-theme="dark"] body::after {
-    opacity: 0.05;
-  }
-
-  /* Custom Scrollbar for Light Mode */
-  html[data-theme="light"] ::-webkit-scrollbar {
-    width: 10px;
-    height: 10px;
-  }
-
-  html[data-theme="light"] ::-webkit-scrollbar-track {
-    background: rgba(0, 0, 0, 0.05);
-  }
-
-  html[data-theme="light"] ::-webkit-scrollbar-thumb {
-    background: rgba(0, 0, 0, 0.2);
-    border-radius: 5px;
-    border: 2px solid transparent;
-    background-clip: content-box;
-  }
-
-  html[data-theme="light"] ::-webkit-scrollbar-thumb:hover {
-    background: rgba(0, 0, 0, 0.3);
-    border: 2px solid transparent;
-    background-clip: content-box;
+    filter: blur(56px);
+    opacity: 0.8;
   }
 </style>

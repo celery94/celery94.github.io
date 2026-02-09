@@ -27,36 +27,36 @@ const isActive = (path: string) => {
   <a
     id="skip-to-content"
     href="#main-content"
-    class="bg-background text-accent absolute -top-full left-16 z-50 px-3 py-2 backdrop-blur-lg transition-all focus:top-4"
+    class="absolute -top-full left-8 z-50 rounded-lg bg-background px-3 py-2 text-sm font-medium text-accent shadow-sm transition-all focus:top-4"
   >
     Skip to content
   </a>
   <div
     id="nav-container"
-    class="bg-background/90 border-border sticky top-0 z-30 mx-auto flex max-w-5xl flex-col items-center justify-between border-b backdrop-blur-sm sm:flex-row"
+    class="glass sticky top-5 z-30 mx-auto flex max-w-5xl flex-col items-center justify-between rounded-2xl border px-2 sm:flex-row sm:px-3"
   >
     <div
       id="top-nav-wrap"
-      class="relative flex w-full items-baseline justify-between bg-transparent p-4 sm:py-6"
+      class="relative flex w-full items-center justify-between px-3 py-3 sm:px-4"
     >
       <a
         href="/"
-        class="hover:text-accent absolute py-1 flex items-center gap-3 text-2xl leading-7 font-semibold whitespace-nowrap transition-colors duration-300 sm:static group"
+        class="group absolute flex items-center gap-3 py-1 text-xl leading-7 font-semibold whitespace-nowrap transition-colors duration-300 hover:text-accent sm:static sm:text-2xl"
       >
-        <img 
-          src="/logo.png" 
+        <img
+          src="/logo.png"
           alt={`${SITE.title} Logo`}
-          class="h-8 w-8 rounded-lg transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3"
+          class="h-8 w-8 rounded-xl border border-border/60 object-cover transition-transform duration-300 group-hover:scale-105"
         />
         <span class="hidden sm:inline">{SITE.title}</span>
       </a>
       <nav
         id="nav-menu"
-        class="flex w-full flex-col items-center sm:ml-2 sm:flex-row sm:justify-end sm:space-x-4 sm:py-0"
+        class="flex w-full flex-col items-center sm:ml-2 sm:flex-row sm:justify-end sm:space-x-3 sm:py-0"
       >
         <button
           id="menu-btn"
-          class="focus-outline self-end p-2 sm:hidden"
+          class="focus-outline self-end rounded-lg p-2 text-foreground/80 transition-colors hover:text-accent sm:hidden"
           aria-label="Open Menu"
           aria-expanded="false"
           aria-controls="menu-items"
@@ -67,8 +67,8 @@ const isActive = (path: string) => {
         <ul
           id="menu-items"
           class:list={[
-            "mt-4 grid w-44 grid-cols-2 place-content-center gap-2",
-            "[&>li>a]:hover:bg-muted [&>li>a]:hover:text-accent [&>li>a]:block [&>li>a]:rounded-md [&>li>a]:px-4 [&>li>a]:py-3 [&>li>a]:text-center [&>li>a]:font-medium [&>li>a]:transition-all [&>li>a]:duration-200 sm:[&>li>a]:px-3 sm:[&>li>a]:py-2",
+            "mt-3 grid w-full max-w-xs grid-cols-2 gap-2 rounded-xl border border-border/70 bg-surface/85 p-2 shadow-sm sm:w-auto sm:max-w-none sm:border-0 sm:bg-transparent sm:p-0 sm:shadow-none",
+            "[&>li>a]:block [&>li>a]:rounded-lg [&>li>a]:px-4 [&>li>a]:py-2.5 [&>li>a]:text-center [&>li>a]:font-medium [&>li>a]:transition-colors [&>li>a]:duration-200 [&>li>a]:hover:bg-surface-2/70 sm:[&>li>a]:px-3 sm:[&>li>a]:py-2",
             "hidden",
             "sm:mt-0 sm:ml-0 sm:flex sm:w-auto sm:gap-x-1 sm:gap-y-0",
           ]}
@@ -153,7 +153,7 @@ const isActive = (path: string) => {
                 <LinkButton
                   href="/archives"
                   class:list={[
-                    "focus-outline flex justify-center p-3 sm:p-1",
+                    "focus-outline flex justify-center rounded-lg p-3 sm:p-1.5",
                     {
                       "active-nav [&>svg]:stroke-accent": isActive("/archives"),
                     },
@@ -171,7 +171,7 @@ const isActive = (path: string) => {
             <LinkButton
               href="/search"
               class:list={[
-                "focus-outline flex p-3 sm:p-1",
+                "focus-outline flex rounded-lg p-3 sm:p-1.5",
                 { "[&>svg]:stroke-accent": isActive("/search") },
               ]}
               ariaLabel="search"
@@ -186,7 +186,7 @@ const isActive = (path: string) => {
               <li class="col-span-1 flex items-center justify-center">
                 <button
                   id="theme-btn"
-                  class="focus-outline hover:[&>svg]:stroke-accent relative size-12 p-4 sm:size-8"
+                  class="focus-outline relative size-12 rounded-lg p-4 text-foreground/85 transition-colors hover:[&>svg]:stroke-accent sm:size-8 sm:p-1.5"
                   title="Toggles light & dark"
                   aria-label="auto"
                   aria-live="polite"

@@ -35,33 +35,24 @@ const {
 
 const { Content, headings } = await render(post);
 
-// Calculate reading time
 const wordsPerMinute = 200;
-// post.body may be undefined — ensure we always have a string
 const textContent = post.body ?? "";
-// Trim and handle empty content to avoid counting an empty string as one word
 const trimmed = textContent.trim();
 const wordCount = trimmed.length === 0 ? 0 : trimmed.split(/\s+/).length;
 const readingTime = Math.ceil(wordCount / wordsPerMinute);
 
 let ogImageUrl: string | undefined;
-
-// Determine OG image source
 if (typeof initOgImage === "string") {
-  ogImageUrl = initOgImage; // Remote OG image (absolute URL)
+  ogImageUrl = initOgImage;
 } else if (initOgImage?.src) {
-  ogImageUrl = initOgImage.src; // Local asset
+  ogImageUrl = initOgImage.src;
 }
 
-// Use dynamic OG image if enabled and no remote|local ogImage
 if (!ogImageUrl && SITE.dynamicOgImage) {
   ogImageUrl = `/posts/${slugifyStr(title)}/index.png`;
 }
 
-// Resolve OG image URL (or fallback to SITE.ogImage / default `og.png`)
-const ogImage = ogImageUrl
-  ? new URL(ogImageUrl, Astro.url.origin).href
-  : undefined;
+const ogImage = ogImageUrl ? new URL(ogImageUrl, Astro.url.origin).href : undefined;
 
 const layoutProps = {
   title: `${title} | ${SITE.title}`,
@@ -74,57 +65,38 @@ const layoutProps = {
   scrollSmooth: true,
 };
 
-/* ========== Prev/Next Posts ========== */
-
-const allPosts = posts.map(({ data: { title }, id }) => ({
-  slug: id,
-  title,
-}));
-
+const allPosts = posts.map(({ data: { title }, id }) => ({ slug: id, title }));
 const currentPostIndex = allPosts.findIndex(a => a.slug === post.id);
-
 const prevPost = currentPostIndex !== 0 ? allPosts[currentPostIndex - 1] : null;
 const nextPost =
-  currentPostIndex !== allPosts.length ? allPosts[currentPostIndex + 1] : null;
+  currentPostIndex !== allPosts.length - 1 ? allPosts[currentPostIndex + 1] : null;
 ---
 
 <Layout {...layoutProps}>
   <Header />
   <BackButton />
-  
-  <!-- Floating Table of Contents -->
   <TableOfContents headings={headings} />
-  
+
   <main
     id="main-content"
     class:list={[
-      "mx-auto w-full max-w-4xl px-4 pb-12 xl:mr-[320px] xl:max-w-3xl 2xl:mr-auto 2xl:max-w-4xl",
+      "mx-auto w-full max-w-4xl px-4 pb-14 xl:mr-[320px] xl:max-w-3xl 2xl:mr-auto 2xl:max-w-4xl",
       { "mt-8": !SITE.showBackButton },
     ]}
     data-pagefind-body
   >
-    <!-- Article Header -->
-    <header class="mb-12">
+    <header class="mb-11">
       <h1
         transition:name={slugifyStr(title)}
-        class="text-accent mb-6 text-3xl leading-tight font-extrabold sm:text-4xl md:text-5xl lg:text-6xl"
-        style="text-shadow: 0 2px 20px rgba(var(--accent-rgb, 0, 0, 0), 0.3); letter-spacing: -0.025em; line-height: 1.2;"
+        class="font-display text-3xl leading-tight font-bold tracking-tight sm:text-4xl lg:text-5xl"
       >
         {title}
       </h1>
 
-      <!-- Article Meta Card -->
-      <div
-        class="article-meta-card border-border/50 from-background/80 to-muted/20 rounded-2xl border bg-gradient-to-br p-6 shadow-lg backdrop-blur-sm"
-      >
-        <div class="flex flex-wrap items-center gap-6">
+      <div class="surface-panel article-meta-card mt-6 p-5 sm:p-6">
+        <div class="flex flex-wrap items-center gap-x-5 gap-y-3 text-sm text-foreground/75">
           <div class="flex items-center gap-2">
-            <svg
-              class="text-accent h-5 w-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
+            <svg class="h-5 w-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path
                 stroke-linecap="round"
                 stroke-linejoin="round"
@@ -132,38 +104,23 @@ const nextPost =
                 d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
               ></path>
             </svg>
-            <Datetime
-              pubDatetime={pubDatetime}
-              modDatetime={modDatetime}
-              size="lg"
-            />
+            <Datetime pubDatetime={pubDatetime} modDatetime={modDatetime} size="lg" />
           </div>
 
           <div class="flex items-center gap-2">
-            <svg
-              class="text-accent h-5 w-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
+            <svg class="h-5 w-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path
                 stroke-linecap="round"
                 stroke-linejoin="round"
                 stroke-width="2"
-                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+              ></path>
             </svg>
-            <span class="text-foreground/80 text-sm font-medium"
-              >{readingTime} 分钟阅读</span
-            >
+            <span>{readingTime} min read</span>
           </div>
 
           <div class="flex items-center gap-2">
-            <svg
-              class="text-accent h-5 w-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
+            <svg class="h-5 w-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path
                 stroke-linecap="round"
                 stroke-linejoin="round"
@@ -171,18 +128,11 @@ const nextPost =
                 d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
               ></path>
             </svg>
-            <span class="text-foreground/80 text-sm font-medium"
-              >{wordCount} 字</span
-            >
+            <span>{wordCount} words</span>
           </div>
 
           <div class="flex items-center gap-2">
-            <svg
-              class="text-accent h-5 w-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
+            <svg class="h-5 w-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path
                 stroke-linecap="round"
                 stroke-linejoin="round"
@@ -190,7 +140,7 @@ const nextPost =
                 d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
               ></path>
             </svg>
-            <span class="text-foreground/80 text-sm font-medium">{author}</span>
+            <span>{author}</span>
           </div>
 
           <div class="ml-auto">
@@ -200,7 +150,7 @@ const nextPost =
 
         {
           description && (
-            <p class="border-border/30 text-foreground/70 mt-4 border-t pt-4 text-base leading-relaxed italic">
+            <p class="mt-4 border-t border-border/70 pt-4 text-sm leading-relaxed text-foreground/70 italic sm:text-base">
               {description}
             </p>
           )
@@ -208,836 +158,49 @@ const nextPost =
       </div>
     </header>
 
-    <article id="article" class="mx-auto prose prose-lg mt-8 max-w-4xl">
+    <article id="article" class="prose prose-lg mx-auto max-w-none">
       <Content />
     </article>
-
-    <style>
-      /* ===== Article Meta Card ===== */
-      .article-meta-card {
-        position: relative;
-        overflow: hidden;
-      }
-
-      .article-meta-card::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 3px;
-        background: linear-gradient(
-          90deg,
-          var(--color-primary),
-          var(--color-accent),
-          var(--color-secondary)
-        );
-      }
-
-      /* ===== 基础排版优化 ===== */
-      :global(#article) {
-        /* 更舒适的阅读字号和行高 */
-        font-size: 1.125rem;
-        line-height: 1.9;
-        letter-spacing: 0.01em;
-        word-spacing: 0.05em;
-        /* 优化字体渲染 */
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        text-rendering: optimizeLegibility;
-      }
-
-      /* Enhanced dark mode article styling */
-      :global(html[data-theme="dark"] #article) {
-        color-scheme: dark;
-        font-weight: 400;
-      }
-
-      :global(html[data-theme="light"] #article) {
-        font-weight: 400;
-      }
-
-      /* ===== 段落优化 - 更好的呼吸感 ===== */
-      :global(#article p) {
-        margin-top: 1.5em;
-        margin-bottom: 1.75em;
-        line-height: 1.85;
-        text-align: justify;
-        text-justify: inter-character;
-      }
-
-      :global(html[data-theme="dark"] #article p) {
-        color: rgba(255, 255, 255, 0.94);
-      }
-
-      :global(html[data-theme="light"] #article p) {
-        color: rgba(0, 0, 0, 0.87);
-      }
-
-      /* ===== 标题层级优化 - 清晰的视觉层次 ===== */
-      :global(html[data-theme="dark"] #article h1),
-      :global(html[data-theme="dark"] #article h2),
-      :global(html[data-theme="dark"] #article h3),
-      :global(html[data-theme="dark"] #article h4) {
-        color: white;
-        letter-spacing: -0.02em;
-        font-weight: 800;
-        margin-top: 3.5rem;
-        margin-bottom: 1.75rem;
-        line-height: 1.4;
-        scroll-margin-top: 5rem;
-        background: linear-gradient(
-          135deg,
-          white 0%,
-          rgba(255, 255, 255, 0.92) 100%
-        );
-        -webkit-background-clip: text;
-        background-clip: text;
-        text-shadow: 0 2px 20px rgba(var(--accent-rgb), 0.3);
-      }
-
-      :global(html[data-theme="dark"] #article h2) {
-        font-size: 2rem;
-        padding-bottom: 0.75rem;
-        border-bottom: 2px solid rgba(var(--accent-rgb), 0.25);
-        margin-top: 4rem;
-      }
-
-      :global(html[data-theme="dark"] #article h3) {
-        font-size: 1.625rem;
-        color: rgba(255, 255, 255, 0.96);
-        margin-top: 3rem;
-      }
-
-      :global(html[data-theme="dark"] #article h4) {
-        font-size: 1.375rem;
-        color: rgba(255, 255, 255, 0.93);
-        margin-top: 2.75rem;
-      }
-
-      :global(html[data-theme="light"] #article h1),
-      :global(html[data-theme="light"] #article h2),
-      :global(html[data-theme="light"] #article h3),
-      :global(html[data-theme="light"] #article h4) {
-        letter-spacing: -0.02em;
-        font-weight: 800;
-        margin-top: 3.5rem;
-        margin-bottom: 1.75rem;
-        line-height: 1.4;
-        color: rgba(0, 0, 0, 0.92);
-        scroll-margin-top: 5rem;
-      }
-
-      :global(html[data-theme="light"] #article h2) {
-        font-size: 2rem;
-        padding-bottom: 0.75rem;
-        border-bottom: 2px solid rgba(0, 0, 0, 0.12);
-        margin-top: 4rem;
-      }
-
-      :global(html[data-theme="light"] #article h3) {
-        font-size: 1.625rem;
-        margin-top: 3rem;
-      }
-
-      :global(html[data-theme="light"] #article h4) {
-        font-size: 1.375rem;
-        margin-top: 2.75rem;
-      }
-
-      /* ===== 列表样式优化 - 更好的视觉层次 ===== */
-      :global(html[data-theme="dark"] #article ul),
-      :global(html[data-theme="dark"] #article ol) {
-        padding-left: 2rem;
-        margin: 1.75em 0;
-      }
-
-      :global(html[data-theme="dark"] #article li) {
-        color: rgba(255, 255, 255, 0.92);
-        margin-bottom: 0.875em;
-        line-height: 1.85;
-        padding-left: 0.5rem;
-      }
-
-      :global(html[data-theme="dark"] #article li::marker) {
-        color: var(--color-accent);
-        font-weight: 700;
-      }
-
-      :global(html[data-theme="dark"] #article ul > li::marker) {
-        content: "▸ ";
-        font-size: 1.1em;
-      }
-
-      :global(html[data-theme="light"] #article ul),
-      :global(html[data-theme="light"] #article ol) {
-        padding-left: 2rem;
-        margin: 1.75em 0;
-      }
-
-      :global(html[data-theme="light"] #article li) {
-        color: rgba(0, 0, 0, 0.83);
-        margin-bottom: 0.875em;
-        line-height: 1.85;
-        padding-left: 0.5rem;
-      }
-
-      :global(html[data-theme="light"] #article li::marker) {
-        color: var(--color-accent);
-        font-weight: 700;
-      }
-
-      :global(html[data-theme="light"] #article ul > li::marker) {
-        content: "▸ ";
-        font-size: 1.1em;
-      }
-
-      /* 嵌套列表优化 */
-      :global(#article li > ul),
-      :global(#article li > ol) {
-        margin-top: 0.75em;
-        margin-bottom: 0.75em;
-      }
-
-      /* ===== 链接样式优化 - 更友好的交互反馈 ===== */
-      :global(html[data-theme="dark"] #article a) {
-        color: var(--color-accent);
-        text-decoration: underline;
-        text-decoration-color: rgba(var(--accent-rgb), 0.4);
-        text-decoration-thickness: 2px;
-        text-underline-offset: 4px;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        font-weight: 500;
-        position: relative;
-      }
-
-      :global(html[data-theme="dark"] #article a:hover) {
-        text-decoration-color: var(--color-accent);
-        text-decoration-thickness: 2.5px;
-        text-shadow: 0 0 15px rgba(var(--accent-rgb), 0.7);
-        transform: translateY(-1px);
-        color: rgba(var(--accent-rgb), 1.2);
-      }
-
-      :global(html[data-theme="light"] #article a) {
-        color: var(--color-accent);
-        text-decoration: underline;
-        text-decoration-color: rgba(2, 132, 199, 0.5);
-        text-decoration-thickness: 2px;
-        text-underline-offset: 4px;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        font-weight: 500;
-        position: relative;
-      }
-
-      :global(html[data-theme="light"] #article a:hover) {
-        text-decoration-color: var(--color-accent);
-        text-decoration-thickness: 2.5px;
-        transform: translateY(-1px);
-        filter: brightness(1.1);
-      }
-
-      /* ===== 引用块优化 - 更具吸引力的设计 ===== */
-      :global(html[data-theme="dark"] #article blockquote) {
-        background: linear-gradient(
-          135deg,
-          rgba(var(--accent-rgb), 0.08) 0%,
-          rgba(var(--accent-rgb), 0.04) 100%
-        );
-        border-left: 4px solid rgba(var(--accent-rgb), 0.6);
-        padding: 1.5rem 2rem;
-        border-radius: 0 0.75rem 0.75rem 0;
-        font-style: italic;
-        margin: 2.5rem 0;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-        position: relative;
-        backdrop-filter: blur(10px);
-      }
-
-      :global(html[data-theme="dark"] #article blockquote::before) {
-        content: "\201C";
-        position: absolute;
-        top: 0.5rem;
-        left: 0.75rem;
-        font-size: 3rem;
-        color: rgba(var(--accent-rgb), 0.25);
-        line-height: 1;
-        font-family: Georgia, serif;
-      }
-
-      :global(html[data-theme="dark"] #article blockquote p) {
-        color: rgba(255, 255, 255, 0.92);
-        margin-bottom: 0.75em;
-        line-height: 1.8;
-        position: relative;
-        z-index: 1;
-      }
-
-      :global(html[data-theme="light"] #article blockquote) {
-        background: linear-gradient(
-          135deg,
-          rgba(2, 132, 199, 0.08) 0%,
-          rgba(2, 132, 199, 0.03) 100%
-        );
-        border-left: 4px solid rgba(2, 132, 199, 0.5);
-        padding: 1.5rem 2rem;
-        border-radius: 0 0.75rem 0.75rem 0;
-        font-style: italic;
-        margin: 2.5rem 0;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-        position: relative;
-      }
-
-      :global(html[data-theme="light"] #article blockquote::before) {
-        content: "\201C";
-        position: absolute;
-        top: 0.5rem;
-        left: 0.75rem;
-        font-size: 3rem;
-        color: rgba(2, 132, 199, 0.2);
-        line-height: 1;
-        font-family: Georgia, serif;
-      }
-
-      :global(html[data-theme="light"] #article blockquote p) {
-        color: rgba(0, 0, 0, 0.85);
-        margin-bottom: 0.75em;
-        line-height: 1.8;
-        position: relative;
-        z-index: 1;
-      }
-
-      /* ===== 代码块优化 - 更专业的展示 ===== */
-      :global(#article pre) {
-        border-radius: 0.75rem;
-        margin: 2.5rem 0;
-        padding: 0;
-        overflow-x: auto;
-        position: relative;
-        font-family:
-          "JetBrains Mono", "Fira Code", "Cascadia Code", "SF Mono",
-          ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-          "Liberation Mono", "Courier New", monospace;
-        scrollbar-width: thin;
-        font-size: 0.9rem;
-        line-height: 1.7;
-      }
-
-      :global(html[data-theme="dark"] #article pre) {
-        border: 1px solid rgba(99, 102, 241, 0.25);
-        box-shadow:
-          0 24px 48px -12px rgba(0, 0, 0, 0.45),
-          0 10px 20px -5px rgba(0, 0, 0, 0.25),
-          inset 0 1px 0 rgba(255, 255, 255, 0.06);
-        background: linear-gradient(
-          145deg,
-          #16161e 0%,
-          #1a1b26 50%,
-          #16161e 100%
-        );
-        scrollbar-color: rgba(99, 102, 241, 0.7) rgba(42, 46, 58, 0.6);
-      }
-
-      :global(html[data-theme="light"] #article pre) {
-        border: 1px solid rgba(203, 213, 225, 0.6);
-        box-shadow:
-          0 24px 48px -12px rgba(0, 0, 0, 0.15),
-          0 10px 20px -5px rgba(0, 0, 0, 0.1),
-          inset 0 1px 0 rgba(255, 255, 255, 1);
-        background: linear-gradient(
-          145deg,
-          #f8fafc 0%,
-          #ffffff 50%,
-          #f8fafc 100%
-        );
-        scrollbar-color: rgba(99, 102, 241, 0.6) rgba(226, 232, 240, 0.6);
-      }
-
-      /* 代码块滚动条优化 */
-      :global(#article pre::-webkit-scrollbar) {
-        height: 10px;
-        width: 10px;
-      }
-
-      :global(html[data-theme="dark"] #article pre::-webkit-scrollbar-track) {
-        background: rgba(42, 46, 58, 0.8);
-        border-radius: 5px;
-      }
-
-      :global(html[data-theme="dark"] #article pre::-webkit-scrollbar-thumb) {
-        background: linear-gradient(90deg, #6366f1, #8b5cf6);
-        border-radius: 5px;
-        border: 1px solid #374151;
-      }
-
-      :global(
-        html[data-theme="dark"] #article pre::-webkit-scrollbar-thumb:hover
-      ) {
-        background: linear-gradient(90deg, #7c3aed, #a78bfa);
-      }
-
-      :global(html[data-theme="light"] #article pre::-webkit-scrollbar-track) {
-        background: rgba(226, 232, 240, 0.8);
-        border-radius: 5px;
-      }
-
-      :global(html[data-theme="light"] #article pre::-webkit-scrollbar-thumb) {
-        background: linear-gradient(90deg, #6366f1, #8b5cf6);
-        border-radius: 5px;
-        border: 1px solid #cbd5e1;
-      }
-
-      :global(
-        html[data-theme="light"] #article pre::-webkit-scrollbar-thumb:hover
-      ) {
-        background: linear-gradient(90deg, #4f46e5, #7c3aed);
-      }
-
-      :global(#article pre code) {
-        display: block;
-        padding: 1.5rem;
-        font-family: inherit;
-        font-size: 0.9rem;
-        line-height: 1.7;
-        font-weight: 400;
-        letter-spacing: 0;
-        background: transparent !important;
-        border: none;
-        outline: none;
-        tab-size: 2;
-      }
-
-      :global(html[data-theme="dark"] #article pre code) {
-        color: #e2e8f0;
-        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-      }
-
-      :global(html[data-theme="light"] #article pre code) {
-        color: #334155;
-      }
-
-      /* 清除Shiki代码高亮背景 */
-      :global(#article pre *) {
-        background: transparent !important;
-        background-color: transparent !important;
-        background-image: none !important;
-      }
-
-      /* 内联代码样式 */
-      :global(html[data-theme="dark"] #article code:not(pre code)) {
-        color: #fbbf24;
-        background: linear-gradient(
-          135deg,
-          rgba(251, 191, 36, 0.15),
-          rgba(251, 191, 36, 0.08)
-        );
-        padding: 0.25em 0.6em;
-        border-radius: 0.4rem;
-        font-weight: 600;
-        font-size: 0.9em;
-        border: 1px solid rgba(251, 191, 36, 0.25);
-        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
-        white-space: nowrap;
-      }
-
-      :global(html[data-theme="light"] #article code:not(pre code)) {
-        color: #dc2626;
-        background: linear-gradient(
-          135deg,
-          rgba(220, 38, 38, 0.12),
-          rgba(220, 38, 38, 0.06)
-        );
-        padding: 0.25em 0.6em;
-        border-radius: 0.4rem;
-        font-weight: 600;
-        font-size: 0.9em;
-        border: 1px solid rgba(220, 38, 38, 0.2);
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
-        white-space: nowrap;
-      }
-
-      /* 代码块悬停效果 */
-      :global(#article pre) {
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      }
-
-      :global(html[data-theme="dark"] #article pre:hover) {
-        border-color: rgba(99, 102, 241, 0.4);
-        box-shadow:
-          0 25px 50px -12px rgba(0, 0, 0, 0.5),
-          0 12px 20px -8px rgba(99, 102, 241, 0.3),
-          inset 0 1px 0 rgba(255, 255, 255, 0.1);
-        transform: translateY(-2px);
-      }
-
-      :global(html[data-theme="light"] #article pre:hover) {
-        border-color: rgba(99, 102, 241, 0.4);
-        box-shadow:
-          0 25px 50px -12px rgba(0, 0, 0, 0.18),
-          0 12px 20px -8px rgba(99, 102, 241, 0.2),
-          inset 0 1px 0 rgba(255, 255, 255, 1);
-        transform: translateY(-2px);
-      }
-
-      /* Enhanced table styling */
-      :global(#article table) {
-        border-collapse: separate;
-        border-spacing: 0;
-        width: 100%;
-        overflow: hidden;
-        border-radius: 0.75rem;
-        margin: 2rem 0;
-      }
-
-      :global(html[data-theme="dark"] #article table) {
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        border: 1px solid rgba(99, 102, 241, 0.2);
-      }
-
-      :global(html[data-theme="light"] #article table) {
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        border: 1px solid rgba(203, 213, 225, 0.5);
-      }
-
-      :global(#article thead) {
-        background: linear-gradient(
-          135deg,
-          rgba(99, 102, 241, 0.15),
-          rgba(139, 92, 246, 0.1)
-        );
-      }
-
-      :global(#article th) {
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-        padding: 1rem 1.5rem;
-        font-size: 0.875rem;
-      }
-
-      :global(html[data-theme="dark"] #article th) {
-        color: white;
-        border-bottom: 2px solid rgba(99, 102, 241, 0.4);
-      }
-
-      :global(html[data-theme="light"] #article th) {
-        color: rgba(0, 0, 0, 0.9);
-        border-bottom: 2px solid rgba(99, 102, 241, 0.3);
-      }
-
-      :global(#article td) {
-        padding: 1rem 1.5rem;
-      }
-
-      :global(html[data-theme="dark"] #article td) {
-        border-top: 1px solid rgba(99, 102, 241, 0.1);
-        color: rgba(255, 255, 255, 0.9);
-      }
-
-      :global(html[data-theme="light"] #article td) {
-        border-top: 1px solid rgba(203, 213, 225, 0.3);
-        color: rgba(0, 0, 0, 0.8);
-      }
-
-      :global(html[data-theme="dark"] #article tbody tr:hover) {
-        background-color: rgba(99, 102, 241, 0.08);
-        transition: background-color 0.2s ease;
-      }
-
-      :global(html[data-theme="light"] #article tbody tr:hover) {
-        background-color: rgba(99, 102, 241, 0.05);
-        transition: background-color 0.2s ease;
-      }
-
-      /* Enhanced image styling */
-      :global(#article img) {
-        border-radius: 0.75rem;
-        margin: 3rem auto;
-        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        cursor: zoom-in;
-      }
-
-      :global(html[data-theme="dark"] #article img) {
-        border: 1px solid rgba(99, 102, 241, 0.2);
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-      }
-
-      :global(html[data-theme="light"] #article img) {
-        border: 1px solid rgba(203, 213, 225, 0.4);
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-      }
-
-      :global(#article img:hover) {
-        transform: scale(1.01) translateY(-2px);
-      }
-
-      :global(html[data-theme="dark"] #article img:hover) {
-        box-shadow:
-          0 20px 50px rgba(0, 0, 0, 0.5),
-          0 0 20px rgba(99, 102, 241, 0.3);
-      }
-
-      :global(html[data-theme="light"] #article img:hover) {
-        box-shadow:
-          0 20px 50px rgba(0, 0, 0, 0.2),
-          0 0 20px rgba(99, 102, 241, 0.2);
-      }
-
-      /* Strong/Bold text enhancement */
-      :global(#article strong),
-      :global(#article b) {
-        font-weight: 700;
-      }
-
-      :global(html[data-theme="dark"] #article strong),
-      :global(html[data-theme="dark"] #article b) {
-        color: white;
-        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-      }
-
-      :global(html[data-theme="light"] #article strong),
-      :global(html[data-theme="light"] #article b) {
-        color: rgba(0, 0, 0, 0.95);
-      }
-
-      /* Horizontal rule styling */
-      :global(#article hr) {
-        border: none;
-        height: 2px;
-        margin: 3rem 0;
-      }
-      :global(html[data-theme="dark"] #article hr) {
-        background: linear-gradient(
-          90deg,
-          transparent,
-          rgba(var(--accent-rgb), 0.5),
-          transparent
-        );
-      }
-
-      :global(html[data-theme="light"] #article hr) {
-        background: linear-gradient(
-          90deg,
-          transparent,
-          rgba(99, 102, 241, 0.3),
-          transparent
-        );
-      }
-
-      /* Keyboard key styling */
-      :global(#article kbd) {
-        border-radius: 0.375rem;
-        padding: 0.125rem 0.5rem;
-        font-family: inherit;
-        font-size: 0.875em;
-        font-weight: 600;
-        white-space: nowrap;
-      }
-
-      :global(html[data-theme="dark"] #article kbd) {
-        background: linear-gradient(145deg, #374151, #1f2937);
-        border: 1px solid #4b5563;
-        color: white;
-        box-shadow:
-          0 2px 0 #4b5563,
-          inset 0 0 0 1px rgba(255, 255, 255, 0.1);
-      }
-
-      :global(html[data-theme="light"] #article kbd) {
-        background: linear-gradient(145deg, #f3f4f6, #e5e7eb);
-        border: 1px solid #d1d5db;
-        box-shadow:
-          0 2px 0 #d1d5db,
-          inset 0 0 0 1px #fff;
-      }
-
-      /* Definition list styling */
-      :global(#article dt) {
-        font-weight: 700;
-        margin-top: 1.5rem;
-      }
-
-      :global(#article dd) {
-        margin-left: 2rem;
-        margin-top: 0.5rem;
-      }
-
-      :global(html[data-theme="dark"] #article dt) {
-        color: white;
-      }
-
-      :global(html[data-theme="dark"] #article dd) {
-        color: rgba(255, 255, 255, 0.9);
-      }
-
-      :global(html[data-theme="light"] #article dt) {
-        color: rgba(0, 0, 0, 0.95);
-      }
-
-      :global(html[data-theme="light"] #article dd) {
-        color: rgba(0, 0, 0, 0.8);
-      }
-
-      /* Selection styling */
-      :global(#article ::selection) {
-        background-color: rgba(var(--accent-rgb), 0.3);
-        color: inherit;
-      }
-
-      /* Focus visible enhancement */
-      :global(#article a:focus-visible),
-      :global(#article button:focus-visible) {
-        outline: 2px solid var(--color-accent);
-        outline-offset: 3px;
-        border-radius: 0.25rem;
-      }
-
-      /* ===== Fade-in animations for article content ===== */
-      .fade-in {
-        opacity: 0;
-        transform: translateY(20px);
-        transition:
-          opacity 0.6s ease-out,
-          transform 0.6s ease-out;
-      }
-
-      .fade-in-visible {
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-      /* ===== Enhanced Progress Bar ===== */
-      .progress-bar {
-        transition:
-          width 0.1s ease-out,
-          box-shadow 0.3s ease;
-        background: linear-gradient(
-          90deg,
-          var(--color-primary),
-          var(--color-accent)
-        );
-      }
-
-      /* ===== Responsive improvements ===== */
-      @media (max-width: 768px) {
-        :global(#article) {
-          font-size: 1rem;
-        }
-
-        :global(html[data-theme="dark"] #article h2) {
-          font-size: 1.75rem;
-        }
-
-        :global(html[data-theme="dark"] #article h3) {
-          font-size: 1.5rem;
-        }
-
-        :global(html[data-theme="light"] #article h2) {
-          font-size: 1.75rem;
-        }
-
-        :global(html[data-theme="light"] #article h3) {
-          font-size: 1.5rem;
-        }
-
-        .article-meta-card {
-          padding: 1rem;
-        }
-
-        .toc-nav {
-          padding: 1rem;
-        }
-      }
-
-      /* ===== Print styles ===== */
-      @media print {
-        .article-meta-card,
-        .toc-nav,
-        #back-to-top,
-        .progress-container {
-          display: none;
-        }
-
-        :global(#article) {
-          max-width: 100%;
-          font-size: 12pt;
-          line-height: 1.6;
-        }
-
-        :global(#article a) {
-          text-decoration: underline;
-          color: #000;
-        }
-
-        :global(#article pre) {
-          page-break-inside: avoid;
-          border: 1px solid #ccc;
-        }
-      }
-    </style>
 
     <hr class="my-8 border-dashed" />
 
     <EditPost class="sm:hidden" editPost={editPost} postId={post.id} />
 
-    <!-- Tags Section -->
-    <div
-      class="border-accent/20 from-accent/5 my-8 rounded-xl border bg-gradient-to-br to-transparent p-6"
-    >
-      <div class="mb-4 flex items-center gap-2">
-        <svg
-          class="text-accent h-5 w-5"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"
-          ></path>
-        </svg>
-        <h3 class="text-accent text-lg font-bold">标签</h3>
-      </div>
-      <ul class="flex flex-wrap gap-2">
+    <section class="surface-panel my-8 rounded-xl p-5 sm:p-6">
+      <h2 class="font-display mb-3 text-lg font-semibold tracking-tight">Tags</h2>
+      <ul class="flex flex-wrap gap-1.5">
         {tags.map(tag => <Tag tag={slugifyStr(tag)} tagName={tag} />)}
       </ul>
-    </div>
+    </section>
 
-    <div
-      class="flex flex-col items-center justify-between gap-6 sm:flex-row sm:items-end sm:gap-4"
-    >
+    <div class="mt-8 flex flex-col items-center justify-between gap-6 sm:flex-row sm:items-end sm:gap-4">
       <ShareLinks />
 
       <button
         id="back-to-top"
-        class="focus-outline from-accent flex items-center gap-2 rounded-full bg-gradient-to-r to-purple-600 px-5 py-2.5 font-medium whitespace-nowrap text-white shadow-lg transition-all duration-300 hover:shadow-xl hover:brightness-110 active:scale-95"
-        style="transition: transform 0.3s ease, box-shadow 0.3s ease;"
+        class="focus-outline rounded-full border border-border/80 bg-surface px-4 py-2 text-sm font-medium text-foreground/80 transition-all duration-200 hover:-translate-y-0.5 hover:border-accent/50 hover:text-accent"
       >
-        <IconChevronLeft class="inline-block h-4 w-4 rotate-90" />
-        <span>Back to Top</span>
+        Back to Top
       </button>
     </div>
 
     <hr class="my-6 border-dashed" />
 
-    <!-- Previous/Next Post Buttons -->
-    <div data-pagefind-ignore class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+    <div data-pagefind-ignore class="grid grid-cols-1 gap-4 sm:grid-cols-2">
       {
         prevPost && (
           <a
             href={`/posts/${prevPost.slug}`}
-            class="border-accent/20 from-accent/5 hover:from-accent/10 hover:border-accent/40 group flex w-full gap-3 rounded-xl border bg-gradient-to-br to-transparent p-5 transition-all duration-300 hover:-translate-x-1 hover:shadow-md"
+            class="card group flex w-full items-start gap-3 rounded-xl p-4 transition-all duration-200 hover:-translate-x-0.5"
           >
-            <IconChevronLeft class="mt-1 inline-block flex-none transition-transform group-hover:-translate-x-1" />
-            <div class="flex-1">
-              <span class="text-accent text-sm font-semibold tracking-wide uppercase">
-                Previous Post
+            <IconChevronLeft class="mt-0.5 inline-block h-5 w-5 flex-none text-accent" />
+            <div class="min-w-0">
+              <span class="text-xs font-semibold tracking-wide text-foreground/55 uppercase">
+                Previous
               </span>
-              <div class="group-hover:text-accent mt-1 text-base font-medium transition-colors">
+              <p class="line-clamp-2 mt-1 text-sm font-medium text-foreground/80 group-hover:text-accent sm:text-base">
                 {prevPost.title}
-              </div>
+              </p>
             </div>
           </a>
         )
@@ -1046,17 +209,17 @@ const nextPost =
         nextPost && (
           <a
             href={`/posts/${nextPost.slug}`}
-            class="border-accent/20 from-accent/5 hover:from-accent/10 hover:border-accent/40 group flex w-full justify-end gap-3 rounded-xl border bg-gradient-to-bl to-transparent p-5 text-right transition-all duration-300 hover:translate-x-1 hover:shadow-md sm:col-start-2"
+            class="card group flex w-full items-start justify-end gap-3 rounded-xl p-4 text-right transition-all duration-200 hover:translate-x-0.5 sm:col-start-2"
           >
-            <div class="flex-1">
-              <span class="text-accent text-sm font-semibold tracking-wide uppercase">
-                Next Post
+            <div class="min-w-0">
+              <span class="text-xs font-semibold tracking-wide text-foreground/55 uppercase">
+                Next
               </span>
-              <div class="group-hover:text-accent mt-1 text-base font-medium transition-colors">
+              <p class="line-clamp-2 mt-1 text-sm font-medium text-foreground/80 group-hover:text-accent sm:text-base">
                 {nextPost.title}
-              </div>
+              </p>
             </div>
-            <IconChevronRight class="mt-1 inline-block flex-none transition-transform group-hover:translate-x-1" />
+            <IconChevronRight class="mt-0.5 inline-block h-5 w-5 flex-none text-accent" />
           </a>
         )
       }
@@ -1065,29 +228,84 @@ const nextPost =
   <Footer />
 </Layout>
 
+<style>
+  .article-meta-card {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .article-meta-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 2px;
+    background: linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--color-primary) 55%, transparent),
+      color-mix(in srgb, var(--color-accent) 70%, transparent),
+      color-mix(in srgb, var(--color-secondary) 55%, transparent)
+    );
+  }
+
+  :global(#article) {
+    max-width: 100%;
+  }
+
+  :global(#article p) {
+    text-wrap: pretty;
+  }
+
+  :global(#article img) {
+    cursor: zoom-in;
+    transition:
+      transform 0.25s ease,
+      box-shadow 0.25s ease;
+  }
+
+  :global(#article img:hover) {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+  }
+
+  .progress-container {
+    pointer-events: none;
+  }
+
+  .progress-bar {
+    background: linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--color-primary) 85%, var(--color-accent)),
+      var(--color-accent)
+    );
+  }
+
+  @media (max-width: 768px) {
+    :global(#article) {
+      font-size: 1rem;
+    }
+  }
+</style>
+
 <script is:inline data-astro-rerun>
-  /** Create a progress indicator
-   *  at the top */
   function createProgressBar() {
-    // Create the main container div
+    const existing = document.querySelector(".progress-container");
+    existing?.remove();
+
     const progressContainer = document.createElement("div");
     progressContainer.className =
-      "progress-container fixed top-0 z-10 h-1 w-full bg-background";
+      "progress-container fixed top-0 z-50 h-1 w-full bg-transparent";
 
-    // Create the progress bar div
     const progressBar = document.createElement("div");
-    progressBar.className = "progress-bar h-1 w-0 bg-accent";
+    progressBar.className = "progress-bar h-1 w-0";
     progressBar.id = "myBar";
 
-    // Append the progress bar to the progress container
     progressContainer.appendChild(progressBar);
-
-    // Append the progress container to the document body or any other desired parent element
     document.body.appendChild(progressContainer);
   }
   createProgressBar();
 
-  /** Update the progress bar when user scrolls */
   function updateScrollProgress() {
     const progressBar = document.getElementById("myBar");
     if (!progressBar) return;
@@ -1099,31 +317,21 @@ const nextPost =
         document.documentElement.scrollHeight -
         document.documentElement.clientHeight;
       const scrolled = (winScroll / height) * 100;
-
-      progressBar.style.width = scrolled + "%";
-
-      // Add glow effect when near completion
-      if (scrolled > 90) {
-        progressBar.style.boxShadow = "0 0 10px var(--color-accent)";
-      } else {
-        progressBar.style.boxShadow = "none";
-      }
+      progressBar.style.width = `${scrolled}%`;
     });
   }
   updateScrollProgress();
 
-  /** Attaches links to headings in the document,
-   *  allowing sharing of sections easily */
   function addHeadingLinks() {
-    const headings = Array.from(
-      document.querySelectorAll("h2, h3, h4, h5, h6")
-    );
+    const headings = Array.from(document.querySelectorAll("h2, h3, h4, h5, h6"));
     for (const heading of headings) {
+      if (!heading.id || heading.querySelector(".heading-link")) continue;
       heading.classList.add("group");
+
       const link = document.createElement("a");
       link.className =
-        "heading-link ml-2 opacity-0 group-hover:opacity-100 focus:opacity-100";
-      link.href = "#" + heading.id;
+        "heading-link ml-2 opacity-0 transition-opacity group-hover:opacity-100 focus:opacity-100";
+      link.href = `#${heading.id}`;
 
       const span = document.createElement("span");
       span.ariaHidden = "true";
@@ -1134,73 +342,38 @@ const nextPost =
   }
   addHeadingLinks();
 
-  /** Attaches copy buttons to code blocks in the document,
-   * allowing users to copy code easily. */
   function attachCopyButtons() {
-    const copyButtonLabel = "Copy";
-    const codeBlocks = Array.from(document.querySelectorAll("pre"));
+    const codeBlocks = Array.from(document.querySelectorAll("pre")).filter(
+      block => !block.parentElement?.classList.contains("code-shell")
+    );
 
     for (const codeBlock of codeBlocks) {
-      // First create a wrapper with relative positioning
       const wrapper = document.createElement("div");
-      wrapper.className = "relative"; // Using Tailwind v4 directly
-
-      // Set the code block to be focusable
+      wrapper.className = "code-shell relative";
       codeBlock.setAttribute("tabindex", "0");
-
-      // Wrap the code block with the relative parent element
-      codeBlock?.parentNode?.insertBefore(wrapper, codeBlock);
+      codeBlock.parentNode?.insertBefore(wrapper, codeBlock);
       wrapper.appendChild(codeBlock);
 
-      // Create and append the copy button to the wrapper (not the code block)
       const copyButton = document.createElement("button");
       copyButton.className =
-        "absolute right-4 top-4 rounded-lg bg-gradient-to-br from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 px-3 py-2 text-xs font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl backdrop-blur-sm border border-white/20 flex items-center gap-2";
-      copyButton.innerHTML = `
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
-        </svg>
-        <span>${copyButtonLabel}</span>
-      `;
+        "focus-outline absolute top-3 right-3 rounded-md border border-border/80 bg-surface px-2.5 py-1 text-xs font-medium text-foreground/75 transition-colors hover:text-accent";
+      copyButton.textContent = "Copy";
       wrapper.appendChild(copyButton);
 
       copyButton.addEventListener("click", async () => {
-        await copyCode(codeBlock, copyButton);
+        const code = codeBlock.querySelector("code");
+        const text = code?.innerText ?? "";
+        await navigator.clipboard.writeText(text);
+        copyButton.textContent = "Copied";
+
+        setTimeout(() => {
+          copyButton.textContent = "Copy";
+        }, 1600);
       });
-    }
-
-    async function copyCode(block, button) {
-      const code = block.querySelector("code");
-      const text = code?.innerText;
-
-      await navigator.clipboard.writeText(text ?? "");
-
-      // Visual feedback that task is completed
-      button.innerHTML = `
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-        </svg>
-        <span>复制成功!</span>
-      `;
-      button.classList.add("from-emerald-600", "to-emerald-500");
-      button.classList.remove("from-indigo-600", "to-purple-600");
-
-      setTimeout(() => {
-        button.innerHTML = `
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
-          </svg>
-          <span>${copyButtonLabel}</span>
-        `;
-        button.classList.remove("from-emerald-600", "to-emerald-500");
-        button.classList.add("from-indigo-600", "to-purple-600");
-      }, 2000);
     }
   }
   attachCopyButtons();
 
-  /** Scrolls the document to the top when
-   * the "Back to Top" button is clicked. */
   function backToTop() {
     const backToTopButton = document.querySelector("#back-to-top");
     backToTopButton?.addEventListener("click", () => {
@@ -1210,40 +383,29 @@ const nextPost =
         behavior: "smooth",
       });
     });
-
-    // Add hover effect
-    backToTopButton?.addEventListener("mouseenter", () => {
-      backToTopButton.style.transform = "translateY(-3px) scale(1.05)";
-    });
-
-    backToTopButton?.addEventListener("mouseleave", () => {
-      backToTopButton.style.transform = "translateY(0) scale(1)";
-    });
   }
   backToTop();
 
-  /* Add fade-in animation for article sections */
   function animateArticleSections() {
     const sections = document.querySelectorAll("#article > *");
     const observer = new IntersectionObserver(
       entries => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
-            entry.target.classList.add("fade-in-visible");
+            entry.target.classList.add("visible");
           }
         });
       },
-      { threshold: 0.1 }
+      { threshold: 0.08 }
     );
 
     sections.forEach(section => {
-      section.classList.add("fade-in");
+      section.classList.add("fade-up");
       observer.observe(section);
     });
   }
   animateArticleSections();
 
-  /* Go to page start after page swap */
   document.addEventListener("astro:after-swap", () =>
     window.scrollTo({ left: 0, top: 0, behavior: "instant" })
   );

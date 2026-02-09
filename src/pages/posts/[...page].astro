@@ -21,7 +21,7 @@ const { page } = Astro.props;
 <Layout title={`Posts | ${SITE.title}`}>
   <Header />
   <Main pageTitle="Posts" pageDesc="All the articles I've posted.">
-    <ul class="grid grid-cols-1 gap-1 sm:gap-2">
+    <ul class="grid grid-cols-1 gap-2 sm:gap-3">
       {
         page.data.map(({ data, id }) => (
           <Card href={`/posts/${id}`} frontmatter={data} />
