@@ -1,97 +1,97 @@
 ---
-title: 使用 MediatR 的 CQRS 模式
+title: 深度解析：使用 MediatR 实现 CQRS 模式
 pubDatetime: 2024-01-26
 slug: cqrs-pattern-with-mediatr
 featured: false
 draft: false
-tags: [".NET", "ASP.NET Core", "Architecture"]
+tags: [".NET", "ASP.NET Core", "Architecture", "Design Patterns"]
 source: https://www.milanjovanovic.tech/blog/cqrs-pattern-with-mediatr
-description: 如何使用 CQRS 模式来构建快速且可扩展的应用程序。
+description: 本文深入探讨 CQRS 模式的核心概念，解析其与 CQS 的区别，并详细演示如何利用 MediatR 在 .NET 应用程序中构建高性能、可扩展的读写分离架构。
 ---
 
-如何使用 **CQRS** 模式来构建快速且可扩展的应用程序。
+本文将深入探讨如何利用 **CQRS**（Command Query Responsibility Segregation，命令查询职责分离）模式构建高性能且具备高可扩展性的应用程序。
 
-CQRS 模式在应用程序中分离了写入和读取操作。
+CQRS 模式的核心理念在于将应用程序中的 **读取（Query）** 与 **写入（Command）** 操作在架构层面进行分离。
 
-这种分离可以是逻辑上的或物理上的，并带来了许多好处：
+这种分离既可以是逻辑层面的，也可以是物理层面的，它为系统带来了诸多显著优势：
 
-- 管理复杂性
-- 提升性能
-- 可扩展性
-- 灵活性
-- 安全性
+-   **降低复杂性**：通过关注点分离简化业务逻辑。
+-   **提升性能**：针对读写操作分别优化，消除瓶颈。
+-   **可扩展性**：读写负载不均衡时可独立扩展。
+-   **灵活性**：读写模型可独立演进，互不干扰。
+-   **安全性**：更细粒度地控制读写权限。
 
-我还会向你展示如何使用 MediatR 在你的应用程序中实现 CQRS。
+此外，我还将通过实例代码演示如何使用 **MediatR** 库在实际项目中优雅地落地 CQRS。
 
-但首先，我们必须了解 CQRS 是什么。
+但首先，我们需要透彻理解 CQRS 的本质。
 
-## [CQRS 到底是什么？](https://www.milanjovanovic.tech/blog/cqrs-pattern-with-mediatr#what-exactly-is-cqrs)
+## 什么是 CQRS？
 
-[CQRS](https://learn.microsoft.com/en-us/azure/architecture/patterns/cqrs) 代表 **命令查询责任隔离**。CQRS 模式使用分离的模型来读取和更新数据。使用 CQRS 的好处包括管理复杂性、提升性能、可扩展性和安全性。
+[CQRS](https://learn.microsoft.com/en-us/azure/architecture/patterns/cqrs) 全称为 **Command Query Responsibility Segregation**，即命令查询职责分离。该模式主张使用不同的模型来分别处理数据的读取和更新。
 
-与数据库交互的标准方法是使用相同的模型来查询和更新数据。这种方法简单，并且对大多数 CRUD 操作都很有效。然而，在更复杂的应用程序中，维护起来变得困难。在写入方面，你可能在模型中有复杂的业务逻辑和验证。在读取方面，你可能需要执行许多不同的查询。
+在传统的架构中，我们通常使用同一个数据模型来同时处理查询和更新操作。这种方法在简单的 CRUD（增删改查）应用中运作良好。然而，随着业务复杂度的提升，这种单一模型的方法会逐渐暴露出问题：
 
-还要考虑我们创建数据模型的方式。应用 SQL 数据建模的最佳实践将给你一个规范化的数据库。这通常是没问题的，但它是为写入优化的。
+-   **写入端**：可能涉及复杂的业务逻辑、状态校验和事务处理。
+-   **读取端**：可能需要执行复杂的联表查询、聚合统计，或者仅需要部分数据字段。
 
-对于命令和查询有分离的模型，允许你独立地扩展它们。这种分离可以是逻辑上的，同时使用同一个数据库。你可以将命令和查询的子系统分割成独立的服务。你甚至可以有针对写入或读取数据优化的多个数据库。
+如果在读取和写入时强行共用同一个模型，往往会导致模型变得臃肿且难以维护。此外，为了适应写入而设计的规范化数据库结构，往往并不适合高效的读取查询。
 
-## [它与 CQS 有何不同？](https://www.milanjovanovic.tech/blog/cqrs-pattern-with-mediatr#how-is-it-different-from-cqs)
+通过为“命令”和“查询”建立分离的模型，我们可以将被动适应转变为主动优化。这种分离可以从逻辑层面开始（共用同一个数据库），也可以发展到物理层面（读写分离数据库）。这使得我们能够将系统划分为独立的子系统，甚至针对读写特性采用不同的存储技术。
 
-[CQS](https://en.wikipedia.org/wiki/Command%E2%80%93query_separation) 代表 **命令查询分离**。这是 Bertrand Meyer 在他的书 [面向对象软件构造](https://en.wikipedia.org/wiki/Object-Oriented_Software_Construction) 中提出的术语。
+## 与 CQS 的区别
 
-CQS 的基本前提是将对象的方法分为 **命令** 和 **查询**。
+[CQS](https://en.wikipedia.org/wiki/Command%E2%80%93query_separation) 代表 **Command Query Separation**（命令查询分离），这是 Bertrand Meyer 在其著作《[面向对象软件构造](https://en.wikipedia.org/wiki/Object-Oriented_Software_Construction)》中提出的概念。
 
-- **命令**：改变系统的状态，但不返回值
-- **查询**：返回值，并且不改变系统的状态（无副作用）
+CQS 的基本前提是在**方法**或**类**的级别上将操作分为两类：
 
-这并不意味着命令永远不能返回值。一个典型的例子是从堆栈中弹出一个值。它返回一个值并改变系统的状态。但重要的是意图。
+-   **命令 (Command)**：改变系统状态（产生副作用），但不返回值（通常返回 void）。
+-   **查询 (Query)**：返回结果，但不改变系统状态（无副作用）。
 
-CQS 是一个 _原则_。如果这个原则有意义，你可以遵循它，但要务实。
+*注：这里的“不返回值”并非绝对。例如，从栈中 pop 元素既改变状态又返回值，但在 CQS 视角下，关键在于意图的区分。*
 
-CQRS 是 CQS 的演进。CQRS 在架构级别上工作。同时，CQS 在方法（或类）级别上工作。
+**核心区别在于：**
 
-## [CQRS 的多种形式](https://www.milanjovanovic.tech/blog/cqrs-pattern-with-mediatr#many-flavors-of-cqrs)
+-   **CQS** 是一个**编码原则**，作用于方法或类的微观层面。
+-   **CQRS** 是一种**架构模式**，作用于系统的宏观层面。CQRS 当作是 CQS 在架构设计上的演进和应用。
 
-这里是使用多个数据库的 CQRS 系统的高级概述。命令更新写数据库。然后，你需要将更新与读数据库同步。这为 CQRS 系统引入了最终一致性。
+## CQRS 的多种实现形态
 
-最终一致性显著增加了应用程序的复杂性。你必须考虑如果同步过程失败会发生什么，并具备容错策略。
+CQRS 的实现方式非常灵活，可以从简单的逻辑分离到复杂的多数据库架构。以下是一个典型的高级 CQRS 系统概览：
 
-<!-- ![image](../../assets/images/Pasted%20image%2020240126084758.png) -->
+1.  **命令端**：处理业务逻辑，更新“写数据库”。
+2.  **同步机制**：将变更同步到“读数据库”。
+3.  **查询端**：直接从高性能的“读数据库”获取数据。
 
-这种方法有很多种形式：
+这种架构引入了**最终一致性（Eventual Consistency）**，这也是 CQRS 系统中常见的权衡。你必须接受数据在某一短暂时刻可能不同步，并设计相应的容错和补偿策略。
 
-- 写入方面使用 SQL 数据库，读取方面使用 NoSQL 数据库（例如，[RavenDB](https://ravendb.net/)）
-- 写入方面使用事件溯源，读取方面使用 NoSQL 数据库
-- 读取方面使用 Redis 或其他分布式缓存
+常见的物理分离策略包括：
 
-为更新和读取数据分离模型，允许你为你的需求选择最佳数据库。
+-   **SQL + NoSQL**：写入使用关系型数据库（保证 ACID），读取使用 NoSQL（如 [RavenDB](https://ravendb.net/)、MongoDB）以提升查询速度。
+-   **事件溯源 (Event Sourcing)**：写入端仅记录事件流，读取端消费事件构建视图。
+-   **读侧缓存**：写入端更新主库，读取端使用 Redis 或 ElasticSearch 等进行加速。
 
-## [逻辑 CQRS 架构](https://www.milanjovanovic.tech/blog/cqrs-pattern-with-mediatr#logical-cqrs-architecture)
+## 逻辑 CQRS 架构
 
-你如何将 CQRS 模式应用于你的系统？我更喜欢使用 [MediatR](https://github.com/jbogard/MediatR)。
+如果不希望引入多数据库同步的复杂性，如何在单数据库应用中实践 CQRS？我推荐结合 [MediatR](https://github.com/jbogard/MediatR) 库来实现进程内的逻辑分离。
 
-MediatR 实现了 [中介者模式](https://refactoring.guru/design-patterns/mediator)来解决一个简单的问题 - 解耦消息的进程内发送和处理。
+MediatR 实现了[中介者模式 (Mediator Pattern)](https://refactoring.guru/design-patterns/mediator)，其核心价值在于解耦了请求的发起者和处理者。
 
-你可以通过自定义的 `ICommand` 和 `IQuery` 抽象扩展 MediatR 的 `IRequest` 接口。这允许你在系统中明确地定义命令和查询。
+通过扩展 MediatR 的 `IRequest` 接口，我们可以定义语义明确的 `ICommand` 和 `IQuery` 抽象。
 
-在写入方面，我通常使用 [EF Core](https://learn.microsoft.com/en-us/ef/core/) 和丰富的域模型来封装业务逻辑。命令流程使用 EF 将实体加载到内存中，执行域逻辑，并将更改保存到数据库。
+-   **写入端 (Command)**：通常使用 [EF Core](https://learn.microsoft.com/en-us/ef/core/) 和富领域模型（Rich Domain Model）。流程是：加载实体 -> 执行领域逻辑 -> 保存更改。这确保了业务规则的完整性。
+-   **读取端 (Query)**：追求极致性能，避免不必要的抽象。直接使用 [Dapper](https://github.com/DapperLib/Dapper) 编写原生 SQL，或者使用 EF Core 的 `AsNoTracking` 查询并投影到 DTO（数据传输对象），通常是最佳实践。
 
-在读取方面，我希望尽可能少的间接操作。使用 [Dapper](https://github.com/DapperLib/Dapper) 和原始 SQL 查询是一个很好的选择。你也可以在数据库中创建视图并查询它们。或者，你可以使用 EF Core 执行带有投影的查询。
+这种架构保留了 CQRS 的代码组织优势，同时避免了分布式系统的复杂性。
 
-<!-- ![image](./Pasted%20image%2020240126084826.png) -->
+## 使用 MediatR 落地 CQRS
 
-## [使用 MediatR 实现 CQRS](https://www.milanjovanovic.tech/blog/cqrs-pattern-with-mediatr#implementing-cqrs-with-mediatr)
+使用 MediatR 实现 CQRS 主要包含两个步骤：
+1.  定义 **Command** 或 **Query** 类（作为消息契约）。
+2.  实现对应的 **Handler** 类（作为业务逻辑）。
 
-使用 MediatR 实现 CQRS 包含两个组件：
+### 1. Controller 层
 
-- 定义你的命令或查询类
-- 实现相应的命令或查询处理程序
-
-我制作了一个深入解释这个过程的视频，你可以[在这里观看](https://youtu.be/vdi-p9StmG0)。
-
-你使用 `ISender` 接口来 `Send` 命令或查询。MediatR 负责将命令或查询路由到相应的处理程序。
-
-请求将通过 _请求管道_。它是每个请求的包装器，你可以使用 `IPipelineBehavior` 解决横切关注点。例如，你可以使用 [FluentValidation 实现命令的验证](https://www.milanjovanovic.tech/blog/cqrs-pattern-with-mediatrcqrs-validation-with-mediatr-pipeline-and-fluentvalidation)。
+在控制器中，我们注入 `ISender` 接口。MediatR 会根据请求类型自动路由到正确的 Handler。这种方式让 Controller 变得非常轻量（Thin Controller）。
 
 ```csharp
 [ApiController]
@@ -110,8 +110,10 @@ public class BookingsController : ControllerBase
         Guid id,
         CancellationToken cancellationToken)
     {
+        // 构造命令对象
         var command = new ConfirmBookingCommand(id);
 
+        // 发送命令，获取结果
         var result = await _sender.Send(command, cancellationToken);
 
         if (result.IsFailure)
@@ -124,7 +126,9 @@ public class BookingsController : ControllerBase
 }
 ```
 
-这是一个带有仓库和丰富域模型的命令处理程序示例：
+### 2. Command Handler（写入逻辑）
+
+这是处理具体业务的地方。注意这里使用了仓储模式（Repository）和工作单元（UnitOfWork）来封装数据访问，确保领域逻辑的纯净。
 
 ```csharp
 internal sealed class ConfirmBookingCommandHandler
@@ -148,6 +152,7 @@ internal sealed class ConfirmBookingCommandHandler
         ConfirmBookingCommand request,
         CancellationToken cancellationToken)
     {
+        // 1. 加载聚合根
         var booking = await _bookingRepository.GetByIdAsync(
             request.BookingId,
             cancellationToken);
@@ -157,6 +162,7 @@ internal sealed class ConfirmBookingCommandHandler
             return Result.Failure(BookingErrors.NotFound);
         }
 
+        // 2. 执行领域行为
         var result = booking.Confirm(_dateTimeProvider.UtcNow);
 
         if (result.IsFailure)
@@ -164,6 +170,7 @@ internal sealed class ConfirmBookingCommandHandler
             return result;
         }
 
+        // 3. 持久化更改
         await _unitOfWork.SaveChangesAsync(cancellationToken);
 
         return Result.Success();
@@ -171,7 +178,9 @@ internal sealed class ConfirmBookingCommandHandler
 }
 ```
 
-这是一个使用 Dapper 和原始 SQL 的查询处理程序示例：
+### 3. Query Handler（读取逻辑）
+
+查询处理程序绕过了领域模型，直接通过 Dapper 执行 SQL。这种“读写分离”策略允许你针对具体的查询需求进行精细化优化。
 
 ```csharp
 internal sealed class SearchApartmentsQueryHandler
@@ -201,6 +210,7 @@ internal sealed class SearchApartmentsQueryHandler
             return new List<ApartmentResponse>();
         }
 
+        // 使用 Dapper 直接查询数据库视图或表
         using var connection = _sqlConnectionFactory.CreateConnection();
 
         const string sql = """
@@ -234,16 +244,13 @@ internal sealed class SearchApartmentsQueryHandler
                 (apartment, address) =>
                 {
                     apartment.Address = address;
-
                     return apartment;
                 },
                 new
                 {
                     request.StartDate,
                     request.EndDate,
-
-
- ActiveBookingStatuses
+                    ActiveBookingStatuses
                 },
                 splitOn: "Country");
 
@@ -252,10 +259,16 @@ internal sealed class SearchApartmentsQueryHandler
 }
 ```
 
-## [结束语](https://www.milanjovanovic.tech/blog/cqrs-pattern-with-mediatr#closing-thoughts)
+### 管道行为 (Pipeline Behaviors)
 
-分离命令和查询可以在长期内提高性能和可扩展性。你可以根据需求不同地优化命令和查询。
+MediatR 的另一个强大功能是 **请求管道 (pipeline behaviors)**。它可以像 ASP.NET Core 中间件一样拦截请求，处理横切关注点。例如：日志记录、性能监控、事务管理，或者[使用 FluentValidation 进行请求参数验证](https://www.milanjovanovic.tech/blog/cqrs-pattern-with-mediatrcqrs-validation-with-mediatr-pipeline-and-fluentvalidation)。
 
-命令封装了复杂的业务逻辑和验证。使用 EF Core 和丰富的域模型是一个很好的解决方案。
+## 总结
 
-查询完全是关于性能，所以你想使用最快的方法。这可能是使用 Dapper 的原始 SQL 查询、EF Core 投影，或者 Redis。
+CQRS 是一种强大的模式，通过分离读写职责，为长期维护的项目提供了显著的性能和扩展性红利。
+
+-   **对于写入（Command）**：利用 EF Core 和富领域模型处理复杂的业务规则和一致性校验。
+-   **对于读取（Query）**：利用 Dapper 或原生 SQL 追求极致的查询速度和灵活性。
+
+虽然物理层面的读写分离（多数据库）会引入复杂性，但在逻辑层面（单数据库）应用 CQRS + MediatR 是一种性价比极高的架构升级方案，值得在现代 .NET 项目中广泛采用。
+
