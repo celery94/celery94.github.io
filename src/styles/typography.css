@@ -2,30 +2,30 @@
 
 @layer base {
   .prose {
-    --tw-prose-body: var(--color-foreground);
-    --tw-prose-headings: var(--color-foreground);
-    --tw-prose-links: var(--color-accent);
-    --tw-prose-bold: var(--color-foreground);
-    --tw-prose-counters: var(--color-accent);
-    --tw-prose-bullets: var(--color-accent);
-    --tw-prose-hr: var(--color-border);
-    --tw-prose-quotes: var(--color-foreground);
+    --tw-prose-body: var(--color-foreground) !important;
+    --tw-prose-headings: var(--color-foreground) !important;
+    --tw-prose-links: var(--color-accent) !important;
+    --tw-prose-bold: var(--color-foreground) !important;
+    --tw-prose-counters: var(--color-accent) !important;
+    --tw-prose-bullets: var(--color-accent) !important;
+    --tw-prose-hr: var(--color-border) !important;
+    --tw-prose-quotes: var(--color-foreground) !important;
     --tw-prose-quote-borders: color-mix(
       in srgb,
       var(--color-accent) 45%,
       transparent
-    );
-    --tw-prose-captions: var(--color-muted-foreground);
-    --tw-prose-code: var(--color-foreground);
+    ) !important;
+    --tw-prose-captions: var(--color-muted-foreground) !important;
+    --tw-prose-code: var(--color-foreground) !important;
     --tw-prose-code-bg: color-mix(
       in srgb,
       var(--color-surface-2) 55%,
       transparent
-    );
-    --tw-prose-pre-code: var(--color-foreground);
-    --tw-prose-pre-bg: color-mix(in srgb, var(--color-surface-2) 84%, transparent);
-    --tw-prose-th-borders: var(--color-border);
-    --tw-prose-td-borders: var(--color-border);
+    ) !important;
+    --tw-prose-pre-code: var(--color-foreground) !important;
+    --tw-prose-pre-bg: color-mix(in srgb, var(--color-surface-2) 84%, transparent) !important;
+    --tw-prose-th-borders: var(--color-border) !important;
+    --tw-prose-td-borders: var(--color-border) !important;
     font-family: var(--font-reading);
     font-size: 1.17rem;
     line-height: 1.85;
@@ -195,7 +195,7 @@
   }
 
   html[data-theme="dark"] .prose :where(h1, h2, h3, h4, h5, h6) {
-    color: #f3f8ff;
+    color: #f3f8ff !important;
     font-weight: 700;
   }
 
@@ -205,7 +205,7 @@
   }
 
   html[data-theme="dark"] .prose :where(thead th) {
-    color: #f3f8ff;
+    color: #f3f8ff !important;
     font-weight: 600;
     border-bottom: 1px solid color-mix(in srgb, var(--color-accent) 45%, transparent);
   }
@@ -216,7 +216,7 @@
 
   html[data-theme="dark"] .prose :where(tbody td) {
     border-top: 1px solid color-mix(in srgb, var(--color-border) 70%, transparent);
-    color: #dee7f7;
+    color: #dee7f7 !important;
   }
 
   html[data-theme="dark"] .prose :where(img) {
@@ -224,16 +224,16 @@
   }
 
   html[data-theme="dark"] .prose :where(code):not(pre code) {
-    color: #ebf5ff;
+    color: #ebf5ff !important;
     border-color: color-mix(in srgb, var(--color-accent) 35%, transparent);
     background-color: color-mix(in srgb, var(--color-accent) 18%, transparent);
   }
 
   html[data-theme="dark"] .prose :where(p, li, ul, ol, strong, b, em, i) {
-    color: #d5deef;
+    color: #d5deef !important;
   }
 
   html[data-theme="dark"] .prose :where(strong, b) {
-    color: #f8fbff;
+    color: #f8fbff !important;
   }
 }
