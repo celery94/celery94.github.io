@@ -11,8 +11,6 @@ source: "https://codewithmukesh.com/blog/containerize-dotnet-without-dockerfile/
 
 .NET SDK 早就提供了摆脱这些麻烦的方式。从 .NET 8.0.200 开始，不需要任何额外 NuGet 包，SDK 本身就能把你的应用打包成 OCI 标准容器镜像。`dotnet publish /t:PublishContainer` 这一条命令，负责选择基础镜像、创建镜像层、打标签、推送，全部搞定。
 
-![不写 Dockerfile 发布 .NET 容器镜像](../../assets/575/01-cover.png)
-
 ## .NET 内置容器支持到底是什么
 
 用一句话说：SDK 在 `dotnet publish` 阶段直接生成容器镜像，不需要你写 `FROM`、`COPY`、`RUN`、`ENTRYPOINT`。容器配置通过 `.csproj` 里的 MSBuild 属性完成，发布时 SDK 负责把这些属性翻译成镜像层。
