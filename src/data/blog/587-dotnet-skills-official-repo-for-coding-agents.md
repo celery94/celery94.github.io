@@ -13,8 +13,6 @@ source: "https://devblogs.microsoft.com/dotnet/extend-your-coding-agent-with-dot
 
 > 真正有用的 Skill，不是多给模型几段说明书，而是把已经被验证过的工作流，变成它随手可取的默认经验。
 
-![dotnet/skills 仓库预览图](../../assets/587/01-dotnet-skills-preview.webp)
-
 ## 这次放出来的，不只是几个提示词
 
 文章先把话说得很直接。所谓 Agent Skill，本质上就是一份轻量级能力包，里面装的是某类任务的意图、上下文和配套材料，让 agent 在处理具体问题时少走弯路。
@@ -63,11 +61,7 @@ source: "https://devblogs.microsoft.com/dotnet/extend-your-coding-agent-with-dot
 
 这件事看起来像“安装体验优化”，其实影响很大。因为 Skill 这类东西，真正的门槛通常不是写出来，而是被看见、被装上、被愿意试用。分发入口一旦顺手，采用率会完全不一样。
 
-![Copilot CLI 安装 dotnet skills 插件的演示](../../assets/587/02-copilot-cli-plugin-install.gif)
-
 文章里还提到，VS Code 也能把 `https://github.com/dotnet/skills` 配成 marketplace 来源，在扩展视图里浏览并安装，然后直接在 Copilot Chat 里执行对应 slash command。
-
-![在 VS Code 中浏览并安装 agent skills 的演示](../../assets/587/03-vscode-agent-plugins-marketplace.gif)
 
 这一步很关键。因为 Skill 真要进入日常工作流，最好别要求开发者切上下文、查文档、再回到工具里手敲一堆路径。能在原地发现、原地安装、原地调用，才有机会变成习惯。
 
