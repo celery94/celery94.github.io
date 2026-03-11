@@ -3,7 +3,7 @@
 Generate and edit images using OpenRouter API with various image generation models.
 
 Supports models like:
-- nanobanana2 (default; generation and editing)
+- google/gemini-3.1-flash-image-preview (default; generation and editing)
 - black-forest-labs/flux.2-pro (generation and editing)
 - black-forest-labs/flux.2-flex (generation)
 - And more image generation models available on OpenRouter
@@ -72,7 +72,7 @@ def save_base64_image(base64_data: str, output_path: str) -> None:
         f.write(image_data)
 
 
-DEFAULT_MODEL = "nanobanana2"
+DEFAULT_MODEL = "google/gemini-3.1-flash-image-preview"
 
 
 def generate_image(
@@ -87,7 +87,7 @@ def generate_image(
 
     Args:
         prompt: Text description of the image to generate, or editing instructions
-        model: OpenRouter model ID (default: nanobanana2)
+        model: OpenRouter model ID (default: google/gemini-3.1-flash-image-preview)
         output_path: Path to save the generated image
         api_key: OpenRouter API key (will check .env if not provided)
         input_image: Path to an input image for editing (optional)
@@ -215,7 +215,7 @@ def main():
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
-  # Generate with default model (nanobanana2)
+  # Generate with default model (google/gemini-3.1-flash-image-preview)
   python generate_image.py "A beautiful sunset over mountains"
 
   # Use a specific model
@@ -231,7 +231,7 @@ Examples:
   python generate_image.py "Add a hat to the person" --input portrait.png -m "black-forest-labs/flux.2-pro"
 
 Popular image models:
-  - nanobanana2 (default, normal quality, generation + editing)
+  - google/gemini-3.1-flash-image-preview (default, normal quality, generation + editing)
   - black-forest-labs/flux.2-pro (alternative, generation + editing)
   - black-forest-labs/flux.2-flex (development version)
         """

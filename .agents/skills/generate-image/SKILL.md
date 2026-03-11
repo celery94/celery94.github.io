@@ -1,11 +1,11 @@
 ---
 name: generate-image
-description: Generate or edit images using AI models, defaulting to nanobanana2 for standard-quality output. Use for general-purpose image generation including photos, illustrations, artwork, visual assets, concept art, and any image that isn't a technical diagram or schematic. For flowcharts, circuits, pathways, and technical diagrams, use the scientific-schematics skill instead.
+description: Generate or edit images using AI models, defaulting to google/gemini-3.1-flash-image-preview for standard-quality output. Use for general-purpose image generation including photos, illustrations, artwork, visual assets, concept art, and any image that isn't a technical diagram or schematic. For flowcharts, circuits, pathways, and technical diagrams, use the scientific-schematics skill instead.
 ---
 
 # Generate Image
 
-Generate and edit standard-quality images using OpenRouter's image generation models, defaulting to nanobanana2.
+Generate and edit standard-quality images using OpenRouter's image generation models, defaulting to google/gemini-3.1-flash-image-preview.
 
 ## When to Use This Skill
 
@@ -54,9 +54,9 @@ The script will automatically detect the `.env` file and provide clear error mes
 
 ## Model Selection
 
-**Default model**: `nanobanana2` (standard quality, recommended)
+**Default model**: `google/gemini-3.1-flash-image-preview` (standard quality, recommended)
 
-Use `nanobanana2` by default for both generation and editing. Treat this as the house default unless the user explicitly asks for a different model.
+Use `google/gemini-3.1-flash-image-preview` by default for both generation and editing. Treat this as the house default unless the user explicitly asks for a different model.
 
 **Alternative models**:
 - `black-forest-labs/flux.2-pro` - alternative option for generation + editing when the user explicitly requests it
@@ -73,7 +73,7 @@ python scripts/generate_image.py "Your prompt here"
 
 ### Specify model explicitly only when needed
 ```bash
-python scripts/generate_image.py "A cat in space" --model "nanobanana2"
+python scripts/generate_image.py "A cat in space" --model "google/gemini-3.1-flash-image-preview"
 ```
 
 ### Custom output path
@@ -88,7 +88,7 @@ python scripts/generate_image.py "Make the background blue" --input photo.jpg
 
 ### Edit with the default model explicitly
 ```bash
-python scripts/generate_image.py "Add sunglasses to the person" --input portrait.png --model "nanobanana2"
+python scripts/generate_image.py "Add sunglasses to the person" --input portrait.png --model "google/gemini-3.1-flash-image-preview"
 ```
 
 ### Edit with custom output
@@ -107,7 +107,7 @@ python scripts/generate_image.py "Image 2 description" --output image2.png
 
 - `prompt` (required): Text description of the image to generate, or editing instructions
 - `--input` or `-i`: Input image path for editing (enables edit mode)
-- `--model` or `-m`: OpenRouter model ID (default: nanobanana2; only override when the user explicitly asks)
+- `--model` or `-m`: OpenRouter model ID (default: google/gemini-3.1-flash-image-preview; only override when the user explicitly asks)
 - `--output` or `-o`: Output file path (default: generated_image.png)
 - `--api-key`: OpenRouter API key (overrides .env file)
 
