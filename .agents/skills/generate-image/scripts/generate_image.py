@@ -3,7 +3,7 @@
 Generate and edit images using OpenRouter API with various image generation models.
 
 Supports models like:
-- gemini-3.1-flash-image-preview (generation and editing)
+- nanobanana2 (default; generation and editing)
 - black-forest-labs/flux.2-pro (generation and editing)
 - black-forest-labs/flux.2-flex (generation)
 - And more image generation models available on OpenRouter
@@ -72,9 +72,12 @@ def save_base64_image(base64_data: str, output_path: str) -> None:
         f.write(image_data)
 
 
+DEFAULT_MODEL = "nanobanana2"
+
+
 def generate_image(
     prompt: str,
-    model: str = "gemini-3.1-flash-image-preview",
+    model: str = DEFAULT_MODEL,
     output_path: str = "generated_image.png",
     api_key: Optional[str] = None,
     input_image: Optional[str] = None
@@ -84,7 +87,7 @@ def generate_image(
 
     Args:
         prompt: Text description of the image to generate, or editing instructions
-        model: OpenRouter model ID (default: gemini-3.1-flash-image-preview)
+        model: OpenRouter model ID (default: nanobanana2)
         output_path: Path to save the generated image
         api_key: OpenRouter API key (will check .env if not provided)
         input_image: Path to an input image for editing (optional)
@@ -212,7 +215,7 @@ def main():
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
-  # Generate with default model (Gemini 3 Pro Image Preview)
+  # Generate with default model (nanobanana2)
   python generate_image.py "A beautiful sunset over mountains"
 
   # Use a specific model
@@ -228,8 +231,8 @@ Examples:
   python generate_image.py "Add a hat to the person" --input portrait.png -m "black-forest-labs/flux.2-pro"
 
 Popular image models:
-  - gemini-3.1-flash-image-preview (default, high quality, generation + editing)
-  - black-forest-labs/flux.2-pro (fast, high quality, generation + editing)
+  - nanobanana2 (default, normal quality, generation + editing)
+  - black-forest-labs/flux.2-pro (alternative, generation + editing)
   - black-forest-labs/flux.2-flex (development version)
         """
     )
@@ -243,8 +246,8 @@ Popular image models:
     parser.add_argument(
         "--model", "-m",
         type=str,
-        default="gemini-3.1-flash-image-preview",
-        help="OpenRouter model ID (default: gemini-3.1-flash-image-preview)"
+        default=DEFAULT_MODEL,
+        help=f"OpenRouter model ID (default: {DEFAULT_MODEL})"
     )
 
     parser.add_argument(

@@ -1,11 +1,11 @@
 ---
 name: generate-image
-description: Generate or edit images using AI models (FLUX, Gemini). Use for general-purpose image generation including photos, illustrations, artwork, visual assets, concept art, and any image that isn't a technical diagram or schematic. For flowcharts, circuits, pathways, and technical diagrams, use the scientific-schematics skill instead.
+description: Generate or edit images using AI models, defaulting to nanobanana2 for standard-quality output. Use for general-purpose image generation including photos, illustrations, artwork, visual assets, concept art, and any image that isn't a technical diagram or schematic. For flowcharts, circuits, pathways, and technical diagrams, use the scientific-schematics skill instead.
 ---
 
 # Generate Image
 
-Generate and edit high-quality images using OpenRouter's image generation models including FLUX.2 Pro and Gemini 3 Pro.
+Generate and edit standard-quality images using OpenRouter's image generation models, defaulting to nanobanana2.
 
 ## When to Use This Skill
 
@@ -54,19 +54,15 @@ The script will automatically detect the `.env` file and provide clear error mes
 
 ## Model Selection
 
-**Default model**: `google/gemini-3.1-flash-image-preview` (normal quality, recommended)
+**Default model**: `nanobanana2` (standard quality, recommended)
 
-**Available models for generation and editing**:
-- `google/gemini-3.1-flash-image-preview` - normal quality, supports generation + editing
-- `black-forest-labs/flux.2-pro` - Fast, normal quality, supports generation + editing
+Use `nanobanana2` by default for both generation and editing. Treat this as the house default unless the user explicitly asks for a different model.
 
-**Generation only**:
-- `black-forest-labs/flux.2-flex` - Fast and cheap, but not as normal quality as pro
+**Alternative models**:
+- `black-forest-labs/flux.2-pro` - alternative option for generation + editing when the user explicitly requests it
+- `black-forest-labs/flux.2-flex` - cheaper generation-only fallback when needed
 
-Select based on:
-- **Quality**: Use gemini-3-pro or flux.2-pro
-- **Editing**: Use gemini-3-pro or flux.2-pro (both support image editing)
-- **Cost**: Use flux.2-flex for generation only
+Default to standard quality. Do not optimize for premium/high-fidelity output unless the user explicitly asks for that.
 
 ## Common Usage Patterns
 
@@ -75,9 +71,9 @@ Select based on:
 python scripts/generate_image.py "Your prompt here"
 ```
 
-### Specify model
+### Specify model explicitly only when needed
 ```bash
-python scripts/generate_image.py "A cat in space" --model "black-forest-labs/flux.2-pro"
+python scripts/generate_image.py "A cat in space" --model "nanobanana2"
 ```
 
 ### Custom output path
@@ -90,9 +86,9 @@ python scripts/generate_image.py "Abstract art" --output artwork.png
 python scripts/generate_image.py "Make the background blue" --input photo.jpg
 ```
 
-### Edit with a specific model
+### Edit with the default model explicitly
 ```bash
-python scripts/generate_image.py "Add sunglasses to the person" --input portrait.png --model "black-forest-labs/flux.2-pro"
+python scripts/generate_image.py "Add sunglasses to the person" --input portrait.png --model "nanobanana2"
 ```
 
 ### Edit with custom output
@@ -111,7 +107,7 @@ python scripts/generate_image.py "Image 2 description" --output image2.png
 
 - `prompt` (required): Text description of the image to generate, or editing instructions
 - `--input` or `-i`: Input image path for editing (enables edit mode)
-- `--model` or `-m`: OpenRouter model ID (default: google/gemini-3.1-flash-image-preview)
+- `--model` or `-m`: OpenRouter model ID (default: nanobanana2; only override when the user explicitly asks)
 - `--output` or `-o`: Output file path (default: generated_image.png)
 - `--api-key`: OpenRouter API key (overrides .env file)
 
@@ -174,6 +170,7 @@ The image should only contain the requested visual content. Always include this 
 - Images are returned as base64-encoded data URLs and automatically saved as PNG files
 - The script supports both `images` and `content` response formats from different OpenRouter models
 - Generation time varies by model (typically 5-30 seconds)
+- Default to standard-quality output; avoid expensive premium settings unless requested
 - For image editing, the input image is encoded as base64 and sent to the model
 - Supported input image formats: PNG, JPEG, GIF, WebP
 - Check OpenRouter pricing for cost information: https://openrouter.ai/models
