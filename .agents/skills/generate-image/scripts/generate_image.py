@@ -72,6 +72,69 @@ def save_base64_image(base64_data: str, output_path: str) -> None:
         f.write(image_data)
 
 
+MAX_WIDTH = 500
+MAX_FILE_SIZE_KB = 500
+
+
+def resize_and_compress_image(output_path: str) -> str:
+    """
+    Resize image to max 500px width and compress if file size exceeds 500KB.
+    Returns the final output path (may change extension to .jpg if PNG is compressed).
+    """
+    try:
+        from PIL import Image
+        import io
+    except ImportError:
+        print("⚠️  Pillow not installed; skipping resize/compress. Install with: pip install Pillow")
+        return output_path
+
+    path = Path(output_path)
+    img = Image.open(path)
+
+    # Resize if wider than MAX_WIDTH
+    if img.width > MAX_WIDTH:
+        ratio = MAX_WIDTH / img.width
+        new_height = int(img.height * ratio)
+        img = img.resize((MAX_WIDTH, new_height), Image.LANCZOS)
+        print(f"📐 Resized to {MAX_WIDTH}x{new_height}")
+
+    # Save back (use JPEG for compression if needed)
+    ext = path.suffix.lower()
+    is_png = ext == '.png'
+
+    # First save attempt
+    img.save(output_path, optimize=True)
+    file_size_kb = path.stat().st_size / 1024
+
+    if file_size_kb <= MAX_FILE_SIZE_KB:
+        print(f"📦 File size: {file_size_kb:.1f}KB")
+        return output_path
+
+    # Need to compress further — use JPEG
+    jpeg_path = str(path.with_suffix('.jpg'))
+    if img.mode in ('RGBA', 'P'):
+        img = img.convert('RGB')
+
+    quality = 85
+    while quality >= 40:
+        buf = io.BytesIO()
+        img.save(buf, format='JPEG', quality=quality, optimize=True)
+        size_kb = len(buf.getvalue()) / 1024
+        if size_kb <= MAX_FILE_SIZE_KB:
+            break
+        quality -= 10
+
+    with open(jpeg_path, 'wb') as f:
+        f.write(buf.getvalue())
+    print(f"🗜️  Compressed to JPEG (quality={quality}): {size_kb:.1f}KB → {jpeg_path}")
+
+    # Remove original PNG if a new JPEG was created
+    if is_png and jpeg_path != output_path:
+        path.unlink()
+
+    return jpeg_path
+
+
 DEFAULT_MODEL = "google/gemini-3.1-flash-image-preview"
 
 
@@ -192,9 +255,11 @@ def generate_image(
             if "image_url" in image:
                 image_url = image["image_url"]["url"]
                 save_base64_image(image_url, output_path)
+                output_path = resize_and_compress_image(output_path)
                 print(f"✅ Image saved to: {output_path}")
             elif "url" in image:
                 save_base64_image(image["url"], output_path)
+                output_path = resize_and_compress_image(output_path)
                 print(f"✅ Image saved to: {output_path}")
             else:
                 print(f"⚠️ Unexpected image format: {image}")

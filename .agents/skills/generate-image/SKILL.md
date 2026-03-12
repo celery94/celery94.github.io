@@ -111,6 +111,18 @@ python scripts/generate_image.py "Image 2 description" --output image2.png
 - `--output` or `-o`: Output file path (default: generated_image.png)
 - `--api-key`: OpenRouter API key (overrides .env file)
 
+## Image Post-Processing
+
+After generation, the script automatically:
+1. **Resizes** the image to a maximum width of **500px** (aspect ratio preserved).
+2. **Compresses** if the file exceeds **500KB**: saves as JPEG with progressive quality reduction (85 → 40). If the original is a PNG, the PNG is replaced by a `.jpg` file.
+
+This keeps output lightweight and suitable for blog use. The `Pillow` library is required for post-processing:
+```bash
+pip install Pillow
+```
+If Pillow is not installed, a warning is printed and post-processing is skipped.
+
 ## Example Use Cases
 
 ### For Scientific Documents
