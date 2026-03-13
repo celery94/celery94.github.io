@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2026-03-13T08:27:29+00:00
-title: "当终端里的 AI 不再只靠聊天，slash commands 才开始让 Copilot CLI 真像一个可控工具"
+title: "GitHub Copilot CLI 的 Slash Commands 有什么用"
 description: "GitHub 这篇 Copilot CLI slash commands cheat sheet 表面上是在列命令，真正值得带走的是另一层变化：它把终端里的 AI 交互从模糊自然语言，往更显式、更可预测、更可审计的工作流接口推进了一步。/clear、/cwd、/add-dir、/model、/delegate 这些命令真正解决的，不只是方便，而是让上下文、范围、权限和自动化都变得更可控。"
 tags: ["GitHub Copilot", "CLI", "Developer Workflow", "AI Coding"]
 slug: "copilot-cli-slash-commands"

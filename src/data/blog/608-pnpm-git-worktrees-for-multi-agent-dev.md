@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2026-03-13T06:24:03+00:00
-title: "当多个 coding agent 同时啃一个 monorepo，真正先扛不住的往往不是 Git，而是 node_modules：pnpm + worktree 这套为什么值钱"
+title: "pnpm 如何用 Git Worktree 支持多 Agent 并行开发"
 description: "pnpm 这篇关于 git worktrees 的文档，表面上是在教你怎么开多个 worktree，真正更重要的是它把多 agent 并行开发里一个很现实的问题说透了：每个 agent 都需要隔离工作区和可运行的 node_modules，但如果你靠重复 clone 和重复安装，磁盘、时间和依赖管理很快就爆炸。git worktree 解决代码副本，pnpm 的 global virtual store 解决依赖副本，两者叠起来，才让多 agent 并行在 monorepo 里变得真正可持续。"
 tags: ["pnpm", "Git Worktree", "Monorepo", "AI Coding"]
 slug: "pnpm-git-worktrees-for-multi-agent-dev"

@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2026-03-13T07:43:32+00:00
-title: "当代码本身不再是最稀缺的东西，工程团队开始转向 harness engineering：写得更少，设计得更多"
+title: "OpenAI 如何看待 Agent-first 时代的 Harness Engineering"
 description: "OpenAI 这篇 Harness Engineering 真正有冲击力的地方，不是“0 行手写代码”这种标题，而是它把 agent-first 工程的重心说透了：当 Codex 负责生成和迭代代码，工程师最核心的工作就会转向设计环境、搭知识结构、做验证回路、约束架构和管理吞吐。真正决定产出的，不再只是 prompt 多会写，而是 harness 设计得够不够好。"
 tags: ["AI Coding", "Harness Engineering", "Codex", "Software Engineering"]
 slug: "harness-engineering-agent-first"
