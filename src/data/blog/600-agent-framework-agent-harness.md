@@ -2,7 +2,7 @@
 pubDatetime: 2026-03-13T00:15:15+00:00
 title: "Agent Harness 到底在补哪块：Microsoft Agent Framework 正在把 agent 从会说话，推到真能干活"
 description: "Microsoft 这篇关于 Agent Harness 的文章，真正有意思的不是又多了一个术语，而是它把 agent 落地时最容易被忽视的三层能力摊开了：shell / filesystem 执行、approval 控制、长会话 compaction。模型负责推理，harness 负责把推理安全地接到现实执行上。"
-tags: ["Agent Framework", "AI Agents", "Microsoft", "Developer Tools"]
+tags: ["Agent Framework", "AI Agents", "Microsoft", "Developer Tools", "Microsoft Agent Framework"]
 slug: "agent-framework-agent-harness"
 ogImage: "../../assets/600/01-cover.png"
 source: "https://devblogs.microsoft.com/agent-framework/agent-harness-in-agent-framework"

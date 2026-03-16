@@ -2,7 +2,7 @@
 pubDatetime: 2025-10-23
 title: Microsoft Agent Framework：构建企业级 AI 智能体的全面框架
 description: 深入探索 Microsoft Agent Framework，一个支持 Python 和 .NET 的多语言 AI 智能体开发框架。了解其核心架构、工作流编排、多智能体协作等企业级特性，以及如何快速上手构建生产级 AI 应用。
-tags: ["AI", "Agent", ".NET", "Python", "Azure", "Orchestration"]
+tags: ["AI", "Agent", ".NET", "Python", "Azure", "Orchestration", "Microsoft Agent Framework"]
 slug: microsoft-agent-framework-introduction
 source: https://github.com/microsoft/agent-framework
 ---

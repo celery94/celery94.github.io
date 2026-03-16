@@ -2,7 +2,7 @@
 pubDatetime: 2025-10-24
 title: 深度解析 Microsoft Agent Framework：企业级多智能体编排架构与实践
 description: 全面探讨 Microsoft Agent Framework 的多智能体编排能力，深入解析 Sequential、Concurrent 和 Conditional 三大工作流模式，以及如何通过 DevUI 和 Tracing 实现生产级可观测性，帮助开发者构建复杂的企业 AI 系统。
-tags: [".NET", "AI", "Azure", "Agent Framework", "Multi-Agent", "Python"]
+tags: [".NET", "AI", "Azure", "Agent Framework", "Multi-Agent", "Python", "Microsoft Agent Framework"]
 slug: microsoft-agent-framework-multi-agent-orchestration-patterns
 source: https://devblogs.microsoft.com/semantic-kernel/unlocking-enterprise-ai-complexity-multi-agent-orchestration-with-the-microsoft-agent-framework
 ---

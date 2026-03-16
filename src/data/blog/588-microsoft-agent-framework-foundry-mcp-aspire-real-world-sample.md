@@ -2,7 +2,7 @@
 pubDatetime: 2026-03-10
 title: "微软把 Agent 应用真正拼起来了：Agent Framework、Foundry、MCP 和 Aspire 的实战样板"
 description: "微软新放出的 Interview Coach 样板，不是在演示“怎么调一个大模型”，而是在回答另一个更难的问题：当 Agent 真要进入真实应用，怎么把多 Agent 协作、工具接入、状态存储、本地运行和云端部署串成一套能落地的工程结构。"
-tags: [".NET", "AI Agents", "MCP", "Aspire", "Azure"]
+tags: [".NET", "AI Agents", "MCP", "Aspire", "Azure", "Microsoft Agent Framework"]
 slug: "microsoft-agent-framework-foundry-mcp-aspire-real-world-sample"
 source: "https://devblogs.microsoft.com/blog/build-a-real-world-example-with-microsoft-agent-framework-microsoft-foundry-mcp-and-aspire"
 ---

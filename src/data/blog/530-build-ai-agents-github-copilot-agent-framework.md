@@ -2,7 +2,7 @@
 pubDatetime: 2026-01-28
 title: "使用 GitHub Copilot SDK 和 Microsoft Agent Framework 构建 AI 代理"
 description: "Microsoft Agent Framework 现已集成 GitHub Copilot SDK，使开发者能够构建功能强大的 AI 代理。本文介绍如何利用这一集成在 .NET 和 Python 中创建智能代理应用。"
-tags: ["AI", ".NET", "Python", "GitHub Copilot", "Agent Framework"]
+tags: ["AI", ".NET", "Python", "GitHub Copilot", "Agent Framework", "Microsoft Agent Framework"]
 slug: "build-ai-agents-github-copilot-agent-framework"
 source: "https://devblogs.microsoft.com/semantic-kernel/build-ai-agents-with-github-copilot-sdk-and-microsoft-agent-framework"
 ---

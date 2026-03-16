@@ -2,7 +2,7 @@
 pubDatetime: 2025-10-24
 title: 在 .NET AI 聊天应用中升级到 Microsoft Agent Framework
 description: 探索如何将基于 .NET AI 模板创建的标准聊天应用升级为功能完整的智能代理系统，通过 Microsoft Agent Framework 实现推理、工具调用和复杂工作流编排。本文详细介绍从项目搭建到高级场景的完整实践。
-tags: [".NET", "AI", "Agent Framework", "Azure", "Blazor", "Aspire"]
+tags: [".NET", "AI", "Agent Framework", "Azure", "Blazor", "Aspire", "Microsoft Agent Framework"]
 slug: upgrading-to-microsoft-agent-framework-in-dotnet-ai-chat-app
 source: https://devblogs.microsoft.com/dotnet/upgrading-to-microsoft-agent-framework-in-your-dotnet-ai-chat-app
 ---

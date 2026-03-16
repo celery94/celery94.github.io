@@ -2,7 +2,7 @@
 pubDatetime: 2026-01-30
 title: "使用 Claude Agent SDK 和 Microsoft Agent Framework 构建 AI 代理"
 description: "Microsoft Agent Framework 现已集成 Claude Agent SDK，支持使用 Claude 的完整代理能力构建 AI 代理。本文介绍如何通过统一的代理抽象，结合内置工具、函数调用、流式响应、多轮对话和 MCP 服务器集成等功能，在 Python 中构建强大的 AI 代理系统。"
-tags: ["AI", "Claude", "Agent", "Python", "Microsoft"]
+tags: ["AI", "Claude", "Agent", "Python", "Microsoft", "Microsoft Agent Framework"]
 slug: "build-ai-agents-claude-sdk-microsoft-agent-framework"
 source: "https://devblogs.microsoft.com/semantic-kernel/build-ai-agents-with-claude-agent-sdk-and-microsoft-agent-framework/"
 ---
