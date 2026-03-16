@@ -132,9 +132,9 @@ python .agents/skills/generate-image-azure/scripts/generate_image_azure.py "A st
 
 After generation, the script automatically:
 1. **Resizes** the image to a maximum width of **500px** while preserving aspect ratio.
-2. **Compresses** the file if it exceeds **500KB**.
+2. **Compresses** the file toward roughly **200KB** (current threshold: **220KB**).
 
-This keeps output lightweight and suitable for blog usage. If `Pillow` is not installed, the script prints a warning and skips post-processing.
+This keeps output lightweight and suitable for blog usage. For AideHub article covers, treat this ~200KB target as the default unless the user explicitly asks for higher fidelity. If `Pillow` is not installed, the script prints a warning and skips post-processing.
 
 ## Error Handling
 
