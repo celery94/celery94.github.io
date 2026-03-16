@@ -92,8 +92,8 @@ const structuredData = pubDatetime
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-SZ54NBS9FN"></script>
     <script is:inline>
       window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
+      function gtag(...args) {
+        dataLayer.push(args);
       }
       gtag("js", new Date());
       gtag("config", "G-SZ54NBS9FN");
@@ -114,6 +114,7 @@ const structuredData = pubDatetime
 
     <!-- Mobile Specific Metas -->
     <meta name="theme-color" content="#ffffff" />
+    <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
 
