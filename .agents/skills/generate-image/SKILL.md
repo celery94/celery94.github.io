@@ -115,13 +115,27 @@ python scripts/generate_image.py "Image 2 description" --output image2.png
 
 After generation, the script automatically:
 1. **Resizes** the image to a maximum width of **500px** (aspect ratio preserved).
-2. **Compresses** if the file exceeds **500KB**: saves as JPEG with progressive quality reduction (85 → 40). If the original is a PNG, the PNG is replaced by a `.jpg` file.
+2. **Targets blog-cover-friendly file sizes**: aims for roughly **200KB** and keeps the final file at about **220KB or less** when possible.
+3. **Chooses the delivery format automatically** for blog-cover usage:
+   - **WebP** for simpler/cleaner illustrations, graphics, or images with transparency.
+   - **JPEG** for more texture-heavy, photo-like, or high-complexity images.
+4. **Compresses aggressively when needed**: adjusts quality and, if necessary, slightly reduces dimensions further. If the generated PNG is replaced during post-processing, the final output will usually become a `.webp` or `.jpg` file.
 
-This keeps output lightweight and suitable for blog use. The `Pillow` library is required for post-processing:
+This keeps cover images lightweight and suitable for blog use without leaving oversized assets behind. The `Pillow` library is required for post-processing:
 ```bash
 pip install Pillow
 ```
 If Pillow is not installed, a warning is printed and post-processing is skipped.
+
+## Cover Image Guidance
+
+When using this skill for blog cover images or social preview artwork:
+
+- Prefer concise, visually strong compositions that still look good after resizing.
+- Assume the final asset should land **around 200KB** on disk.
+- Expect the script to return a **post-processed `.webp` or `.jpg` path** rather than preserving the original PNG extension.
+- After generation, verify the saved file size and use the post-processed output path returned by the script.
+- If an image still ends up larger than expected, rerun with a simpler composition or fewer high-frequency details.
 
 ## Example Use Cases
 
@@ -179,7 +193,7 @@ The image should only contain the requested visual content. Always include this 
 
 ## Notes
 
-- Images are returned as base64-encoded data URLs and automatically saved as PNG files
+- Images are returned as base64-encoded data URLs and are then post-processed into blog-friendly output, usually `.webp` or `.jpg`
 - The script supports both `images` and `content` response formats from different OpenRouter models
 - Generation time varies by model (typically 5-30 seconds)
 - Default to standard-quality output; avoid expensive premium settings unless requested

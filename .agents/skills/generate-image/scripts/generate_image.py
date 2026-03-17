@@ -15,6 +15,7 @@ import sys
 import json
 import base64
 import argparse
+import io
 from pathlib import Path
 from typing import Optional
 
@@ -73,20 +74,135 @@ def save_base64_image(base64_data: str, output_path: str) -> None:
 
 
 MAX_WIDTH = 500
-MAX_FILE_SIZE_KB = 500
+TARGET_FILE_SIZE_KB = 200
+MAX_FILE_SIZE_KB = 220
+MIN_JPEG_QUALITY = 25
+MIN_WEBP_QUALITY = 35
+QUALITY_STEP = 5
+RESIZE_SCALE_STEP = 0.9
+MIN_WIDTH = 320
+COMPLEXITY_WEBP_THRESHOLD = 0.42
 
 
 def resize_and_compress_image(output_path: str) -> str:
     """
-    Resize image to max 500px width and compress if file size exceeds 500KB.
-    Returns the final output path (may change extension to .jpg if PNG is compressed).
+    Resize image to max 500px width and compress toward ~200KB for lightweight cover images.
+    Automatically chooses WebP or JPEG based on image complexity, with format-size fallback.
+    Returns the final output path (may change extension to .webp or .jpg).
     """
     try:
-        from PIL import Image
-        import io
+        from PIL import Image, ImageFilter, ImageStat
     except ImportError:
         print("⚠️  Pillow not installed; skipping resize/compress. Install with: pip install Pillow")
         return output_path
+
+    def detect_transparency(image):
+        if 'A' not in image.getbands():
+            return False
+        alpha_extrema = image.getchannel('A').getextrema()
+        return alpha_extrema[0] < 255
+
+    def analyze_image_complexity(image):
+        sample = image.convert('RGB')
+        sample.thumbnail((256, 256), Image.LANCZOS)
+
+        grayscale = sample.convert('L')
+        grayscale_stat = ImageStat.Stat(grayscale)
+        contrast = grayscale_stat.stddev[0]
+
+        edges = grayscale.filter(ImageFilter.FIND_EDGES)
+        edge_mean = ImageStat.Stat(edges).mean[0]
+
+        color_stddev = sum(ImageStat.Stat(sample).stddev) / 3
+        complexity = min(
+            1.0,
+            (contrast / 90.0) * 0.35
+            + (edge_mean / 80.0) * 0.45
+            + (color_stddev / 90.0) * 0.20,
+        )
+
+        return {
+            "score": complexity,
+            "contrast": contrast,
+            "edge_mean": edge_mean,
+        }
+
+    def choose_preferred_format(image, metrics):
+        if detect_transparency(image):
+            return 'WEBP', 'transparency detected'
+
+        if metrics['score'] <= COMPLEXITY_WEBP_THRESHOLD:
+            return 'WEBP', f"lower complexity score ({metrics['score']:.2f})"
+
+        return 'JPEG', f"higher complexity score ({metrics['score']:.2f})"
+
+    def encode_candidate(image, fmt, quality):
+        candidate = image
+        buf = io.BytesIO()
+
+        if fmt == 'JPEG':
+            if candidate.mode not in ('RGB', 'L'):
+                candidate = candidate.convert('RGB')
+            candidate.save(
+                buf,
+                format='JPEG',
+                quality=quality,
+                optimize=True,
+                progressive=True,
+            )
+        elif fmt == 'WEBP':
+            if candidate.mode not in ('RGB', 'RGBA', 'L'):
+                candidate = candidate.convert('RGBA' if detect_transparency(candidate) else 'RGB')
+            candidate.save(
+                buf,
+                format='WEBP',
+                quality=quality,
+                method=6,
+            )
+        else:
+            raise ValueError(f"Unsupported format: {fmt}")
+
+        data = buf.getvalue()
+        return data, len(data) / 1024
+
+    def build_best_variant(image, fmt):
+        min_quality = MIN_WEBP_QUALITY if fmt == 'WEBP' else MIN_JPEG_QUALITY
+        start_quality = 90 if fmt == 'WEBP' else 85
+        working_img = image
+        best_variant = None
+
+        while True:
+            quality = start_quality
+
+            while quality >= min_quality:
+                candidate_data, candidate_size_kb = encode_candidate(working_img, fmt, quality)
+                candidate = {
+                    'format': fmt,
+                    'data': candidate_data,
+                    'size_kb': candidate_size_kb,
+                    'quality': quality,
+                    'width': working_img.width,
+                    'height': working_img.height,
+                }
+
+                if best_variant is None or candidate_size_kb < best_variant['size_kb']:
+                    best_variant = candidate
+
+                if candidate_size_kb <= MAX_FILE_SIZE_KB:
+                    return candidate
+
+                quality -= QUALITY_STEP
+
+            next_width = int(working_img.width * RESIZE_SCALE_STEP)
+            if next_width < MIN_WIDTH or next_width >= working_img.width:
+                return best_variant
+
+            next_height = max(1, int(working_img.height * (next_width / working_img.width)))
+            working_img = working_img.resize((next_width, next_height), Image.LANCZOS)
+            print(
+                f"🪶 Reducing dimensions further to {next_width}x{next_height} "
+                f"while testing {fmt} to approach {TARGET_FILE_SIZE_KB}KB"
+            )
 
     path = Path(output_path)
     img = Image.open(path)
@@ -98,11 +214,7 @@ def resize_and_compress_image(output_path: str) -> str:
         img = img.resize((MAX_WIDTH, new_height), Image.LANCZOS)
         print(f"📐 Resized to {MAX_WIDTH}x{new_height}")
 
-    # Save back (use JPEG for compression if needed)
-    ext = path.suffix.lower()
-    is_png = ext == '.png'
-
-    # First save attempt
+    # Keep a locally optimized copy if it already fits the blog-cover target.
     img.save(output_path, optimize=True)
     file_size_kb = path.stat().st_size / 1024
 
@@ -110,29 +222,52 @@ def resize_and_compress_image(output_path: str) -> str:
         print(f"📦 File size: {file_size_kb:.1f}KB")
         return output_path
 
-    # Need to compress further — use JPEG
-    jpeg_path = str(path.with_suffix('.jpg'))
-    if img.mode in ('RGBA', 'P'):
-        img = img.convert('RGB')
+    metrics = analyze_image_complexity(img)
+    preferred_format, reason = choose_preferred_format(img, metrics)
+    alternate_format = 'JPEG' if preferred_format == 'WEBP' else 'WEBP'
+    print(
+        f"🧠 Preferred cover format: {preferred_format} "
+        f"({reason}; edge mean {metrics['edge_mean']:.1f}, contrast {metrics['contrast']:.1f})"
+    )
 
-    quality = 85
-    while quality >= 40:
-        buf = io.BytesIO()
-        img.save(buf, format='JPEG', quality=quality, optimize=True)
-        size_kb = len(buf.getvalue()) / 1024
-        if size_kb <= MAX_FILE_SIZE_KB:
-            break
-        quality -= 10
+    preferred_variant = build_best_variant(img, preferred_format)
+    alternate_variant = build_best_variant(img, alternate_format)
 
-    with open(jpeg_path, 'wb') as f:
-        f.write(buf.getvalue())
-    print(f"🗜️  Compressed to JPEG (quality={quality}): {size_kb:.1f}KB → {jpeg_path}")
+    chosen_variant = preferred_variant
+    if alternate_variant is not None:
+        preferred_over_limit = preferred_variant['size_kb'] > MAX_FILE_SIZE_KB
+        alternate_hits_target = alternate_variant['size_kb'] <= MAX_FILE_SIZE_KB
+        alternate_meaningfully_smaller = alternate_variant['size_kb'] + 15 < preferred_variant['size_kb']
 
-    # Remove original PNG if a new JPEG was created
-    if is_png and jpeg_path != output_path:
+        if (preferred_over_limit and alternate_hits_target) or alternate_meaningfully_smaller:
+            chosen_variant = alternate_variant
+            print(
+                f"🔁 Switching to {alternate_variant['format']} because it produced a smaller cover file "
+                f"({alternate_variant['size_kb']:.1f}KB vs {preferred_variant['size_kb']:.1f}KB)"
+            )
+
+    extension = '.webp' if chosen_variant['format'] == 'WEBP' else '.jpg'
+    final_path = str(path.with_suffix(extension))
+
+    with open(final_path, 'wb') as f:
+        f.write(chosen_variant['data'])
+
+    print(
+        f"🗜️  Saved cover as {chosen_variant['format']} "
+        f"(quality={chosen_variant['quality']}, {chosen_variant['width']}x{chosen_variant['height']}): "
+        f"{chosen_variant['size_kb']:.1f}KB → {final_path}"
+    )
+
+    if chosen_variant['size_kb'] > MAX_FILE_SIZE_KB:
+        print(
+            f"⚠️  Final size is still above the ~{TARGET_FILE_SIZE_KB}KB target: "
+            f"{chosen_variant['size_kb']:.1f}KB"
+        )
+
+    if path.exists() and final_path != output_path:
         path.unlink()
 
-    return jpeg_path
+    return final_path
 
 
 DEFAULT_MODEL = "google/gemini-3.1-flash-image-preview"
