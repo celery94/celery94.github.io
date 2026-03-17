@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2026-03-17T01:40:35+00:00
-title: "Leanstral 想做的，不是更会 vibe coding，而是让它更敢被相信"
+title: "Leanstral 在做什么：给 vibe coding 加上可验证性"
 description: "Mistral 发布的 Leanstral，最值得注意的不是它又做了一个面向 Lean 4 的模型，而是它把 coding agent 的一个根问题说得很直白：在高风险场景里，真正拖慢速度的已经不是生成，而是人工验证。Leanstral 的野心，是把“能写”往“能证明”推进一步。"
 tags: ["AI", "Mistral", "Formal Verification", "Coding Agents"]
 slug: "leanstral-trustworthy-vibe-coding"
