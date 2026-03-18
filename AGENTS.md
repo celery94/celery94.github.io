@@ -10,7 +10,7 @@ Install dependencies with `npm install`. Use `npm run dev` for local development
 Prettier is the source of truth: 2-space indentation, semicolons, double quotes, 80-character line width, and Tailwind class sorting via `prettier-plugin-tailwindcss`. ESLint includes Astro and TypeScript rules and rejects `console` calls. Use the `@/*` import alias for `src` modules when it improves readability. Keep Astro components and layouts in PascalCase (`Header.astro`), utilities in camelCase (`getSortedPosts.ts`), and content filenames descriptive and kebab-case with numeric prefixes when following the existing article sequence (for example `590-github-copilot-cli-for-beginners.md`).
 
 ## Testing Guidelines
-There is no separate unit-test suite in this repository today. Treat `npm run lint` and `npm run build` as the required validation baseline for every change. For content or UI work, also smoke-test the affected route in `npm run dev` and confirm search still works after a production build.
+There is no separate unit-test suite in this repository today. Treat `npm run lint` as the required validation baseline for every change. For content or UI work, also smoke-test the affected route in `npm run dev` and confirm search still works after a production build.
 
 ## Commit & Pull Request Guidelines
 Recent history uses Conventional Commits such as `feat: ...`, `fix: ...`, and `refactor: ...`; `cz.yaml` is configured for `cz_conventional_commits`, so keep that format. Pull requests should include a short summary, note any changed routes or content collections, link the related issue when one exists, and attach screenshots for visible UI changes. Do not merge with failing GitHub Pages build checks.
