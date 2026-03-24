@@ -12,6 +12,8 @@ GPT-5.4 在前端生成上比过去的版本明显更强——不只是能运行
 
 这篇文章的核心结论是：**提示不够具体，模型就会退回到训练数据里的高频习惯——布局千篇一律、视觉层级薄弱，功能可用但缺乏设计感。** 给模型提供更明确的约束，结果就会完全不同。
 
+![](../../assets/665/01-cover.png)
+
 ## GPT-5.4 在前端方向的三个改进
 
 ### 图像理解与图片工具调用
@@ -73,7 +75,7 @@ When doing frontend design tasks, avoid generic, overbuilt layouts.
 
 ![情绪板示例，用于引导 GPT-5.4 确立统一的视觉风格](https://cdn.openai.com/devhub/blog/codex_moodboard.png)
 
-*GPT-5.4 在 Codex 中生成的情绪板，灵感来自纽约咖啡文化与 Y2K 美学*
+_GPT-5.4 在 Codex 中生成的情绪板，灵感来自纽约咖啡文化与 Y2K 美学_
 
 ### 把页面组织成叙事结构
 
