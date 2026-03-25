@@ -8,9 +8,6 @@ export interface Props {
 }
 
 const { tag, tagName, size = "sm" } = Astro.props;
-
-const hue = tag.split("").reduce((acc, char) => acc + char.charCodeAt(0), 0) % 360;
-const tint = `hsl(${hue} 64% 44%)`;
 ---
 
 <li
@@ -18,7 +15,6 @@ const tint = `hsl(${hue} 64% 44%)`;
     "inline-block",
     size === "sm" ? "my-1" : "mx-1 my-2.5",
   ]}
-  style={`--tag-tint:${tint};`}
 >
   <a
     href={`/tags/${tag}/`}
@@ -39,13 +35,5 @@ const tint = `hsl(${hue} 64% 44%)`;
 </li>
 
 <style>
-  .tag {
-    border-color: color-mix(in srgb, var(--tag-tint) 35%, var(--color-border));
-    background: color-mix(in srgb, var(--tag-tint) 12%, transparent);
-  }
-
-  .tag:hover {
-    color: var(--tag-tint);
-    border-color: color-mix(in srgb, var(--tag-tint) 55%, var(--color-border));
-  }
+  /* Tag styles are handled by .tag class in global.css */
 </style>

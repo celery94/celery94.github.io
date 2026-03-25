@@ -21,34 +21,24 @@ const headingProps = {
   class:
     "font-display text-lg font-semibold leading-snug tracking-tight transition-colors duration-200 group-hover:text-accent",
 };
-
-const accentHue =
-  title.split("").reduce((acc, char) => acc + char.charCodeAt(0), 0) % 360;
-const cardAccent = `hsl(${accentHue} 72% 44%)`;
 ---
 
 <li
   class="card group relative my-2 overflow-hidden p-3 sm:p-4"
-  style={`--card-accent:${cardAccent};`}
 >
-  <div
-    class="pointer-events-none absolute top-0 left-0 h-0.5 w-full opacity-70"
-    style="background: linear-gradient(90deg, var(--card-accent), transparent 72%);"
-  />
-
   <div class:list={[imageSrc ? "grid gap-3 sm:grid-cols-[132px,1fr] sm:items-center" : ""]}>
     {
       imageSrc && (
         <a
           href={href}
-          class="card-cover group/image focus-outline block h-36 overflow-hidden rounded-xl border border-border/70 sm:h-32"
+          class="card-cover group/image focus-outline block h-36 overflow-hidden rounded-lg border border-border sm:h-32"
           aria-label={title}
         >
           <img
             src={imageSrc}
             alt={title}
             loading="lazy"
-            class="h-full w-full object-cover transition-transform duration-300 group-hover/image:scale-105"
+            class="h-full w-full object-cover"
           />
         </a>
       )
@@ -57,7 +47,7 @@ const cardAccent = `hsl(${accentHue} 72% 44%)`;
     <div class="min-w-0">
       <a
         href={href}
-        class="focus-outline block rounded-md p-0.5 text-accent/90 no-underline transition-transform duration-200 group-hover:translate-x-0.5"
+        class="focus-outline block rounded-md p-0.5 text-accent/90 no-underline"
       >
         {
           secHeading ? (
@@ -87,7 +77,7 @@ const cardAccent = `hsl(${accentHue} 72% 44%)`;
 
 <style>
   .card-cover {
-    background: color-mix(in srgb, var(--color-surface-2) 72%, transparent);
+    background: var(--color-surface-2);
     box-shadow: var(--shadow-sm);
   }
 </style>

@@ -14,7 +14,7 @@ const URL = Astro.url;
       SHARE_LINKS.map(social => (
         <LinkButton
           href={`${social.href + URL}`}
-          class="focus-outline inline-flex rounded-lg p-2 text-foreground/75 transition-all duration-200 hover:-translate-y-0.5 hover:text-accent sm:p-1.5"
+          class="focus-outline inline-flex rounded-lg p-2 text-foreground/75 transition-colors duration-200 hover:text-accent sm:p-1.5"
           title={social.linkTitle}
         >
           <social.icon class="inline-block size-6 fill-transparent stroke-current stroke-2 sm:scale-110" />

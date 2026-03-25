@@ -178,7 +178,7 @@ const nextPost =
 
       <button
         id="back-to-top"
-        class="focus-outline rounded-full border border-border/80 bg-surface px-4 py-2 text-sm font-medium text-foreground/80 transition-all duration-200 hover:-translate-y-0.5 hover:border-accent/50 hover:text-accent"
+        class="focus-outline rounded-full border border-border/80 bg-surface px-4 py-2 text-sm font-medium text-foreground/80 transition-colors duration-200 hover:border-accent/50 hover:text-accent"
       >
         Back to Top
       </button>
@@ -191,7 +191,7 @@ const nextPost =
         prevPost && (
           <a
             href={`/posts/${prevPost.slug}`}
-            class="card group flex w-full items-start gap-3 rounded-xl p-4 transition-all duration-200 hover:-translate-x-0.5"
+            class="card group flex w-full items-start gap-3 rounded-xl p-4 transition-colors duration-200"
           >
             <IconChevronLeft class="mt-0.5 inline-block h-5 w-5 flex-none text-accent" />
             <div class="min-w-0">
@@ -209,7 +209,7 @@ const nextPost =
         nextPost && (
           <a
             href={`/posts/${nextPost.slug}`}
-            class="card group flex w-full items-start justify-end gap-3 rounded-xl p-4 text-right transition-all duration-200 hover:translate-x-0.5 sm:col-start-2"
+            class="card group flex w-full items-start justify-end gap-3 rounded-xl p-4 text-right transition-colors duration-200 sm:col-start-2"
           >
             <div class="min-w-0">
               <span class="text-xs font-semibold tracking-wide text-foreground/55 uppercase">
@@ -241,12 +241,8 @@ const nextPost =
     right: 0;
     left: 0;
     height: 2px;
-    background: linear-gradient(
-      90deg,
-      color-mix(in srgb, var(--color-primary) 55%, transparent),
-      color-mix(in srgb, var(--color-accent) 70%, transparent),
-      color-mix(in srgb, var(--color-secondary) 55%, transparent)
-    );
+    background: var(--color-accent);
+    opacity: 0.6;
   }
 
   :global(#article) {
@@ -259,13 +255,10 @@ const nextPost =
 
   :global(#article img) {
     cursor: zoom-in;
-    transition:
-      transform 0.25s ease,
-      box-shadow 0.25s ease;
+    transition: box-shadow 0.2s ease;
   }
 
   :global(#article img:hover) {
-    transform: translateY(-2px);
     box-shadow: var(--shadow);
   }
 
@@ -274,11 +267,7 @@ const nextPost =
   }
 
   .progress-bar {
-    background: linear-gradient(
-      90deg,
-      color-mix(in srgb, var(--color-primary) 85%, var(--color-accent)),
-      var(--color-accent)
-    );
+    background: var(--color-accent);
   }
 
   @media (max-width: 768px) {
