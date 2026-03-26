@@ -275,6 +275,6 @@ Markdown 文件创建完成并通过最终检查后，自动使用 **wechat-draf
 
 ### 执行规则
 
-- `app_id` 和 `app_secret` 从环境变量 `WECHAT_APP_ID` / `WECHAT_APP_SECRET` 读取，不要向用户索要
-- 如果环境变量缺失，提示用户设置后再发布，不要跳过此步骤
+- Look for a `.env` file in the project directory or parent directories
+- `app_id` 和 `app_secret` 从 `.env` 文件中的 `WECHAT_APP_ID` / `WECHAT_APP_SECRET` 读取，不要向用户索要
 - 发布成功后向用户展示返回的 `media_id`，并提醒去微信公众平台后台检查草稿箱

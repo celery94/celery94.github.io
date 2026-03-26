@@ -433,11 +433,12 @@ def normalize_heading_text(text: str) -> str:
 
 
 def replace_link_text_with_url(match: re.Match[str]) -> str:
-    url = match.group(2)
+    label = match.group(1).strip()
+    url = match.group(2).strip()
     title = match.group(3)
-    url = url.strip()
     title_suffix = f' "{title}"' if title else ""
-    return f"[{url}]({url}{title_suffix})"
+    display = f"{label}: {url}" if label and label != url else url
+    return f"[{display}]({url}{title_suffix})"
 
 
 def basic_markdown_to_html(md_text: str) -> str:
