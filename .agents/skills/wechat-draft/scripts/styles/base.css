@@ -1,0 +1,150 @@
+/* Base WeChat article styles — shared by all presets */
+
+.wechat-article-body {
+  color: #2f3440;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  font-size: 16px;
+  line-height: 1.78;
+  word-break: break-word;
+}
+.wechat-article-body h1 {
+  margin: 1.4em 0 0.7em;
+  font-size: 28px;
+  line-height: 1.3;
+  font-weight: 700;
+  color: #18202a;
+}
+.wechat-article-body h2 {
+  margin: 1.3em 0 0.65em;
+  font-size: 24px;
+  line-height: 1.35;
+  font-weight: 700;
+  color: #18202a;
+}
+.wechat-article-body h3 {
+  margin: 1.2em 0 0.6em;
+  font-size: 20px;
+  line-height: 1.4;
+  font-weight: 700;
+  color: #202733;
+}
+.wechat-article-body h4 {
+  margin: 1.1em 0 0.55em;
+  font-size: 18px;
+  line-height: 1.45;
+  font-weight: 700;
+  color: #202733;
+}
+.wechat-article-body h5 {
+  margin: 1em 0 0.5em;
+  font-size: 17px;
+  line-height: 1.45;
+  font-weight: 700;
+}
+.wechat-article-body h6 {
+  margin: 1em 0 0.45em;
+  font-size: 16px;
+  line-height: 1.45;
+  font-weight: 700;
+}
+.wechat-article-body p {
+  margin: 0.95em 0;
+}
+.wechat-article-body ul {
+  margin: 1em 0;
+  padding-left: 1.5em;
+}
+.wechat-article-body ol {
+  margin: 1em 0;
+  padding-left: 1.6em;
+}
+.wechat-article-body li {
+  margin: 0.35em 0;
+}
+.wechat-article-body blockquote {
+  margin: 1.2em 0;
+  padding: 0.9em 1em;
+  border-left: 4px solid #6f86ff;
+  background: #f6f8ff;
+  color: #4e5a6b;
+}
+.wechat-article-body pre {
+  margin: 1.1em 0;
+  padding: 1em 1.2em;
+  border-radius: 10px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  background: #111827;
+  color: #f3f4f6;
+  font-size: 14px;
+  line-height: 1.7;
+  white-space: pre;
+  word-break: normal;
+  word-wrap: normal;
+  overflow-wrap: normal;
+  tab-size: 4;
+  -moz-tab-size: 4;
+}
+.wechat-article-body code {
+  padding: 0.15em 0.38em;
+  border-radius: 4px;
+  background: #f3f5f8;
+  color: #b42318;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  font-size: 0.92em;
+  word-break: break-all;
+}
+.wechat-article-body pre code {
+  display: block;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  color: inherit;
+  font-size: inherit;
+  white-space: inherit;
+  word-break: normal;
+  word-wrap: normal;
+  overflow-wrap: normal;
+}
+.wechat-article-body a {
+  color: #175fe6;
+  text-decoration: underline;
+}
+.wechat-article-body img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 1.4em auto;
+  border-radius: 8px;
+}
+.wechat-article-body table {
+  width: 100%;
+  margin: 1.1em 0;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+.wechat-article-body th {
+  padding: 0.75em;
+  border: 1px solid #d9e0ea;
+  background: #f4f7fb;
+  text-align: left;
+  font-weight: 700;
+}
+.wechat-article-body td {
+  padding: 0.75em;
+  border: 1px solid #d9e0ea;
+  text-align: left;
+  vertical-align: top;
+}
+.wechat-article-body hr {
+  margin: 1.6em 0;
+  border: 0;
+  border-top: 1px solid #d9e0ea;
+}
+.wechat-article-body strong {
+  font-weight: 700;
+  color: #18202a;
+}
+.wechat-article-body em {
+  font-style: italic;
+}

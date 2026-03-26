@@ -10,7 +10,7 @@ publish_draft.py - 将文章发布到微信公众号草稿箱
     --content "<p>正文</p>" \
     [--content-file /path/to/content.html] \
     [--content-format auto|markdown|html] \
-    [--style-preset wechat|none] \
+    [--style-preset auto|default|code|essay|guide|none] \
     [--extra-css-file /path/to/extra.css] \
     [--author "作者"] \
     [--digest "摘要"] \
@@ -19,6 +19,7 @@ publish_draft.py - 将文章发布到微信公众号草稿箱
     [--content-source-url https://example.com]
 
 凭据优先级: 命令行参数 > 环境变量 WECHAT_APP_ID / WECHAT_APP_SECRET > .env 文件
+样式预设: auto(自动推断) | default(通用) | code(代码密集) | essay(散文) | guide(教程) | none(无样式)
 """
 
 import argparse
@@ -35,27 +36,18 @@ from typing import Dict, List, Optional, Sequence, Tuple
 from urllib.parse import unquote, urlparse
 
 import requests
-from bs4 import BeautifulSoup, Comment
+from bs4 import BeautifulSoup
+
+from style_manager import (
+    STYLE_NAMES,
+    build_styled_fragment,
+    extract_frontmatter_tags,
+    infer_style,
+    load_extra_css,
+)
 
 
 WECHAT_API_BASE = "https://api.weixin.qq.com"
-SUPPORTED_STYLE_PRESETS = ("wechat", "none")
-UNSUPPORTED_TAGS = {
-    "script",
-    "iframe",
-    "object",
-    "embed",
-    "form",
-    "input",
-    "button",
-    "textarea",
-    "select",
-    "link",
-    "meta",
-    "base",
-}
-CSS_COMMENT_RE = re.compile(r"/\*.*?\*/", re.DOTALL)
-CSS_RULE_RE = re.compile(r"([^{}]+)\{([^{}]+)\}")
 LIST_RE = re.compile(r"^(\s*)([*+-]|\d+\.)\s+(.*)$")
 HEADING_RE = re.compile(r"^(#{1,6})\s+(.*)$")
 FENCE_RE = re.compile(r"^```([\w+-]+)?\s*$")
@@ -65,156 +57,6 @@ CODE_SPAN_RE = re.compile(r"`([^`]+)`")
 BOLD_RE = re.compile(r"(\*\*|__)(.+?)\1")
 ITALIC_RE = re.compile(r"(?<!\*)\*(?!\*)(.+?)(?<!\*)\*(?!\*)|(?<!_)_(?!_)(.+?)(?<!_)_(?!_)")
 DASH_METADATA_FENCE_RE = re.compile(r"^\s*-{3,}\s*$")
-WECHAT_CSS = """
-.wechat-article-body {
-  color: #2f3440;
-  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
-  font-size: 16px;
-  line-height: 1.78;
-  word-break: break-word;
-}
-.wechat-article-body h1 {
-  margin: 1.4em 0 0.7em;
-  font-size: 28px;
-  line-height: 1.3;
-  font-weight: 700;
-  color: #18202a;
-}
-.wechat-article-body h2 {
-  margin: 1.3em 0 0.65em;
-  font-size: 24px;
-  line-height: 1.35;
-  font-weight: 700;
-  color: #18202a;
-}
-.wechat-article-body h3 {
-  margin: 1.2em 0 0.6em;
-  font-size: 20px;
-  line-height: 1.4;
-  font-weight: 700;
-  color: #202733;
-}
-.wechat-article-body h4 {
-  margin: 1.1em 0 0.55em;
-  font-size: 18px;
-  line-height: 1.45;
-  font-weight: 700;
-  color: #202733;
-}
-.wechat-article-body h5 {
-  margin: 1em 0 0.5em;
-  font-size: 17px;
-  line-height: 1.45;
-  font-weight: 700;
-}
-.wechat-article-body h6 {
-  margin: 1em 0 0.45em;
-  font-size: 16px;
-  line-height: 1.45;
-  font-weight: 700;
-}
-.wechat-article-body p {
-  margin: 0.95em 0;
-}
-.wechat-article-body ul {
-  margin: 1em 0;
-  padding-left: 1.5em;
-}
-.wechat-article-body ol {
-  margin: 1em 0;
-  padding-left: 1.6em;
-}
-.wechat-article-body li {
-  margin: 0.35em 0;
-}
-.wechat-article-body blockquote {
-  margin: 1.2em 0;
-  padding: 0.9em 1em;
-  border-left: 4px solid #6f86ff;
-  background: #f6f8ff;
-  color: #4e5a6b;
-}
-.wechat-article-body pre {
-  margin: 1.1em 0;
-  padding: 1em 1.2em;
-  border-radius: 10px;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  background: #111827;
-  color: #f3f4f6;
-  font-size: 14px;
-  line-height: 1.7;
-  white-space: pre;
-  word-break: normal;
-  word-wrap: normal;
-  overflow-wrap: normal;
-  tab-size: 4;
-  -moz-tab-size: 4;
-}
-.wechat-article-body code {
-  padding: 0.15em 0.38em;
-  border-radius: 4px;
-  background: #f3f5f8;
-  color: #b42318;
-  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
-  font-size: 0.92em;
-  word-break: break-all;
-}
-.wechat-article-body pre code {
-  display: block;
-  padding: 0;
-  border-radius: 0;
-  background: transparent;
-  color: inherit;
-  font-size: inherit;
-  white-space: inherit;
-  word-break: normal;
-  word-wrap: normal;
-  overflow-wrap: normal;
-}
-.wechat-article-body a {
-  color: #175fe6;
-  text-decoration: underline;
-}
-.wechat-article-body img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-  margin: 1.4em auto;
-  border-radius: 8px;
-}
-.wechat-article-body table {
-  width: 100%;
-  margin: 1.1em 0;
-  border-collapse: collapse;
-  font-size: 14px;
-}
-.wechat-article-body th {
-  padding: 0.75em;
-  border: 1px solid #d9e0ea;
-  background: #f4f7fb;
-  text-align: left;
-  font-weight: 700;
-}
-.wechat-article-body td {
-  padding: 0.75em;
-  border: 1px solid #d9e0ea;
-  text-align: left;
-  vertical-align: top;
-}
-.wechat-article-body hr {
-  margin: 1.6em 0;
-  border: 0;
-  border-top: 1px solid #d9e0ea;
-}
-.wechat-article-body strong {
-  font-weight: 700;
-  color: #18202a;
-}
-.wechat-article-body em {
-  font-style: italic;
-}
-"""
 
 
 def configure_console_encoding() -> None:
@@ -735,120 +577,6 @@ def strip_full_document(raw_html: str) -> str:
     return raw_html
 
 
-def parse_style_declarations(style_text: str) -> Dict[str, str]:
-    declarations: Dict[str, str] = {}
-    for chunk in style_text.split(";"):
-        if ":" not in chunk:
-            continue
-        name, value = chunk.split(":", 1)
-        name = name.strip().lower()
-        value = value.strip()
-        if name and value:
-            declarations[name] = value
-    return declarations
-
-
-def serialize_style_declarations(declarations: Dict[str, str]) -> str:
-    return "; ".join(f"{name}: {value}" for name, value in declarations.items())
-
-
-def parse_css_rules(css_text: str) -> List[Tuple[List[str], Dict[str, str]]]:
-    cleaned = CSS_COMMENT_RE.sub("", css_text)
-    rules: List[Tuple[List[str], Dict[str, str]]] = []
-
-    for selector_text, body_text in CSS_RULE_RE.findall(cleaned):
-        declarations = parse_style_declarations(body_text)
-        selectors = []
-        for selector in (item.strip() for item in selector_text.split(",")):
-            if not selector:
-                continue
-            if any(token in selector for token in ("@", ":", "[")):
-                continue
-            selectors.append(selector)
-        if selectors and declarations:
-            rules.append((selectors, declarations))
-
-    return rules
-
-
-def sanitize_html_fragment(soup: BeautifulSoup) -> None:
-    for comment in soup.find_all(string=lambda value: isinstance(value, Comment)):
-        comment.extract()
-
-    for tag in soup.find_all(True):
-        if tag.name in UNSUPPORTED_TAGS:
-            tag.decompose()
-            continue
-
-        attrs_to_remove = []
-        for attr_name, attr_value in list(tag.attrs.items()):
-            lowered = attr_name.lower()
-            if lowered.startswith("on"):
-                attrs_to_remove.append(attr_name)
-                continue
-            if lowered in {"src", "href"} and isinstance(attr_value, str) and attr_value.lower().startswith("javascript:"):
-                attrs_to_remove.append(attr_name)
-        for attr_name in attrs_to_remove:
-            tag.attrs.pop(attr_name, None)
-
-
-def apply_inline_css(soup: BeautifulSoup, css_text: str) -> None:
-    rules = parse_css_rules(css_text)
-    if not rules:
-        return
-
-    for tag in soup.find_all(True):
-        original = serialize_style_declarations(parse_style_declarations(tag.get("style", "")))
-        tag.attrs["_original_style"] = original
-        tag.attrs["_generated_style"] = ""
-
-    for selectors, declarations in rules:
-        for selector in selectors:
-            try:
-                matched_tags = soup.select(selector)
-            except Exception:
-                continue
-            for tag in matched_tags:
-                generated = parse_style_declarations(tag.attrs.get("_generated_style", ""))
-                generated.update(declarations)
-                tag.attrs["_generated_style"] = serialize_style_declarations(generated)
-
-    for tag in soup.find_all(True):
-        generated = parse_style_declarations(tag.attrs.get("_generated_style", ""))
-        original = parse_style_declarations(tag.attrs.get("_original_style", ""))
-        generated.update(original)
-        if generated:
-            tag["style"] = serialize_style_declarations(generated)
-        else:
-            tag.attrs.pop("style", None)
-        tag.attrs.pop("_generated_style", None)
-        tag.attrs.pop("_original_style", None)
-
-
-def load_extra_css(extra_css_file: Optional[str]) -> str:
-    if not extra_css_file:
-        return ""
-    with open(extra_css_file, "r", encoding="utf-8") as handle:
-        return handle.read()
-
-
-def build_styled_fragment(fragment_html: str, style_preset: str, extra_css: str) -> str:
-    wrapped = f'<article class="wechat-article-body">{fragment_html}</article>'
-    soup = BeautifulSoup(wrapped, "html.parser")
-    sanitize_html_fragment(soup)
-
-    if style_preset == "wechat":
-        apply_inline_css(soup, WECHAT_CSS)
-    if extra_css:
-        apply_inline_css(soup, extra_css)
-
-    for style_tag in soup.find_all("style"):
-        style_tag.decompose()
-
-    article = soup.find("article")
-    return str(article) if article else str(soup)
-
-
 def is_http_image_url(src: str) -> bool:
     return src.lower().startswith(("http://", "https://"))
 
@@ -1006,6 +734,13 @@ def load_content(args: argparse.Namespace) -> Tuple[str, str, str]:
 
 def prepare_content(args: argparse.Namespace, access_token: str) -> str:
     raw_content, source_dir, content_format = load_content(args)
+
+    style_preset = args.style_preset
+    if style_preset == "auto":
+        tags = extract_frontmatter_tags(raw_content) if content_format == "markdown" else []
+        style_preset = infer_style(raw_content, title=args.title or "", tags=tags)
+        print(f"      自动推断样式: {style_preset}（基于内容分析和标签推断）")
+
     fragment_html = markdown_to_html(raw_content) if content_format == "markdown" else strip_full_document(raw_content)
     fragment_html, image_stats = rewrite_inline_images(fragment_html, access_token, source_dir)
     if image_stats["total"]:
@@ -1021,7 +756,7 @@ def prepare_content(args: argparse.Namespace, access_token: str) -> str:
     else:
         print("      未发现需要处理的正文图片")
     extra_css = load_extra_css(args.extra_css_file)
-    return build_styled_fragment(fragment_html, args.style_preset, extra_css)
+    return build_styled_fragment(fragment_html, style_preset, extra_css)
 
 
 def add_draft(access_token: str, article: dict) -> str:
@@ -1064,7 +799,12 @@ def main():
     parser.add_argument("--content", default=None, help="文章内容字符串（HTML 或 Markdown，与 --content-file 二选一）")
     parser.add_argument("--content-file", default=None, help="文章内容文件路径（.html 或 .md）")
     parser.add_argument("--content-format", choices=("auto", "markdown", "html"), default="auto", help="内容格式，默认自动识别")
-    parser.add_argument("--style-preset", choices=SUPPORTED_STYLE_PRESETS, default="wechat", help="内联样式预设，默认 wechat")
+    parser.add_argument(
+        "--style-preset",
+        choices=[*STYLE_NAMES, "wechat"],
+        default="auto",
+        help="内联样式预设: auto(自动推断) | default(通用) | code(代码密集) | essay(散文) | guide(教程) | none(无样式)，默认 auto",
+    )
     parser.add_argument("--extra-css-file", default=None, help="附加 CSS 文件，会继续内联到最终 HTML 中")
     parser.add_argument("--author", default="", help="作者名（可选）")
     parser.add_argument("--digest", default="", help="摘要，最多 120 字（可选）")
