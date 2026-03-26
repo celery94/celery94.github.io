@@ -23,6 +23,33 @@ from typing import Dict, List, Optional, Tuple
 
 from bs4 import BeautifulSoup, Comment
 
+# ---------------------------------------------------------------------------
+# CSS specificity helpers
+# ---------------------------------------------------------------------------
+
+
+def calc_css_specificity(selector: str) -> Tuple[int, int, int]:
+    """Return the CSS specificity (ids, classes, elements) for a simple selector.
+
+    Only covers the subset of selectors used in our CSS files: descendant
+    combinations of tag names, class selectors, and ID selectors.  Pseudo-
+    classes and attribute selectors are filtered out before we reach here.
+    """
+    ids = 0
+    classes = 0
+    elements = 0
+    # Split on whitespace and combinators (>, +, ~) to get simple selectors
+    for part in re.split(r"[\s>+~]+", selector.strip()):
+        if not part:
+            continue
+        ids += part.count("#")
+        classes += part.count(".")
+        # Strip class/id/attribute fragments to reveal the bare tag name
+        tag_part = re.sub(r"[.#\[].*", "", part)
+        if tag_part and tag_part != "*":
+            elements += 1
+    return (ids, classes, elements)
+
 
 # ---------------------------------------------------------------------------
 # Constants
@@ -295,40 +322,55 @@ def sanitize_html_fragment(soup: BeautifulSoup) -> None:
 
 
 def apply_inline_css(soup: BeautifulSoup, css_text: str) -> None:
+    """Apply *css_text* as inline styles onto *soup*, respecting CSS specificity.
+
+    Each property is won by the declaration whose selector has the highest
+    specificity.  When two selectors share the same specificity, the later one
+    (source order) wins — exactly as the CSS cascade requires.
+    """
     rules = parse_css_rules(css_text)
     if not rules:
         return
 
-    for tag in soup.find_all(True):
-        original = serialize_style_declarations(
-            parse_style_declarations(tag.get("style", ""))
-        )
-        tag.attrs["_original_style"] = original
-        tag.attrs["_generated_style"] = ""
+    all_tags = list(soup.find_all(True))
 
-    for selectors, declarations in rules:
+    # Per-tag: original inline styles (always win at the end)
+    original_styles: Dict[int, Dict[str, str]] = {
+        id(tag): parse_style_declarations(tag.get("style", "")) for tag in all_tags
+    }
+
+    # Per-tag: {prop: (value, specificity_tuple, order_index)}
+    # Higher specificity wins; equal specificity → higher order_index wins.
+    prop_maps: Dict[int, Dict[str, Tuple[str, Tuple[int, int, int], int]]] = {
+        id(tag): {} for tag in all_tags
+    }
+
+    for order_idx, (selectors, declarations) in enumerate(rules):
         for selector in selectors:
+            spec = calc_css_specificity(selector)
             try:
                 matched_tags = soup.select(selector)
             except Exception:
                 continue
             for tag in matched_tags:
-                generated = parse_style_declarations(
-                    tag.attrs.get("_generated_style", "")
-                )
-                generated.update(declarations)
-                tag.attrs["_generated_style"] = serialize_style_declarations(generated)
+                prop_map = prop_maps[id(tag)]
+                for prop, value in declarations.items():
+                    existing = prop_map.get(prop)
+                    if existing is None:
+                        prop_map[prop] = (value, spec, order_idx)
+                    else:
+                        _, ex_spec, ex_order = existing
+                        if spec > ex_spec or (spec == ex_spec and order_idx >= ex_order):
+                            prop_map[prop] = (value, spec, order_idx)
 
-    for tag in soup.find_all(True):
-        generated = parse_style_declarations(tag.attrs.get("_generated_style", ""))
-        original = parse_style_declarations(tag.attrs.get("_original_style", ""))
-        generated.update(original)
+    for tag in all_tags:
+        generated = {prop: val for prop, (val, _, _) in prop_maps[id(tag)].items()}
+        # Element's own inline style always overrides stylesheet rules
+        generated.update(original_styles[id(tag)])
         if generated:
             tag["style"] = serialize_style_declarations(generated)
         else:
             tag.attrs.pop("style", None)
-        tag.attrs.pop("_generated_style", None)
-        tag.attrs.pop("_original_style", None)
 
 
 def load_extra_css(extra_css_file: Optional[str]) -> str:

@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+﻿#!/usr/bin/env python3
 """
 publish_draft.py - 将文章发布到微信公众号草稿箱
 
@@ -286,8 +286,11 @@ def strip_leading_dash_metadata(md_text: str) -> str:
     return md_text
 
 
+_REFERENCE_HEADINGS = {"参考", "参考链接", "references", "reference", "related links"}
+
+
 def rewrite_reference_links(md_text: str) -> str:
-    """在“参考链接”章节内保留原始 URL 作为链接地址和可见文本。"""
+    """在参考章节内将 Markdown 链接替换为纯文本 URL，避免微信不显示超链接。"""
     lines = md_text.split("\n")
     rewritten_lines: List[str] = []
     in_reference_section = False
@@ -299,15 +302,16 @@ def rewrite_reference_links(md_text: str) -> str:
         if heading_match:
             heading_level = len(heading_match.group(1))
             heading_text = normalize_heading_text(heading_match.group(2))
-            if in_reference_section and heading_level <= reference_heading_level and heading_text != "参考链接":
+            normalized = heading_text.lower().strip()
+            if in_reference_section and heading_level <= reference_heading_level and normalized not in _REFERENCE_HEADINGS:
                 in_reference_section = False
                 reference_heading_level = 0
-            if heading_text == "参考链接":
+            if normalized in _REFERENCE_HEADINGS:
                 in_reference_section = True
                 reference_heading_level = heading_level
 
         if in_reference_section:
-            line = LINK_RE.sub(replace_link_text_with_url, line)
+            line = LINK_RE.sub(replace_link_with_plain_text, line)
 
         rewritten_lines.append(line)
 
@@ -319,13 +323,12 @@ def normalize_heading_text(text: str) -> str:
     return cleaned
 
 
-def replace_link_text_with_url(match: re.Match[str]) -> str:
+def replace_link_with_plain_text(match: re.Match[str]) -> str:
+    """将 [label](url) 替换为纯文本，因为微信公众号不显示超链接。"""
     label = match.group(1).strip()
     url = match.group(2).strip()
-    title = match.group(3)
-    title_suffix = f' "{title}"' if title else ""
-    display = f"{label}: {url}" if label and label != url else url
-    return f"[{display}]({url}{title_suffix})"
+    return f"{label}: {url}" if label and label != url else url
+
 
 
 def basic_markdown_to_html(md_text: str) -> str:
