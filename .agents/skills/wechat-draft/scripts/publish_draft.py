@@ -400,7 +400,7 @@ def strip_leading_dash_metadata(md_text: str) -> str:
 
 
 def rewrite_reference_links(md_text: str) -> str:
-    """在“参考链接”章节内使用 URL 本身作为链接文本。"""
+    """在“参考链接”章节内保留原始 URL 作为链接地址和可见文本。"""
     lines = md_text.split("\n")
     rewritten_lines: List[str] = []
     in_reference_section = False
@@ -433,13 +433,11 @@ def normalize_heading_text(text: str) -> str:
 
 
 def replace_link_text_with_url(match: re.Match[str]) -> str:
-    text = match.group(1)
     url = match.group(2)
-    # Render as plain readable text so the raw URL is always visible in WeChat
-    # (external links are non-clickable in WeChat articles).
-    if text and text.strip() != url.strip():
-        return f"{text}（{url}）"
-    return url
+    title = match.group(3)
+    url = url.strip()
+    title_suffix = f' "{title}"' if title else ""
+    return f"[{url}]({url}{title_suffix})"
 
 
 def basic_markdown_to_html(md_text: str) -> str:
@@ -610,34 +608,38 @@ def consume_paragraph(lines: Sequence[str], start: int) -> Tuple[int, str]:
 
 
 def render_inline_markdown(text: str) -> str:
-    code_tokens: List[str] = []
+    inline_tokens: List[str] = []
+
+    def stash_html(fragment: str) -> str:
+        inline_tokens.append(fragment)
+        return f"@@INLINE{len(inline_tokens) - 1}@@"
 
     def stash_code(match: re.Match[str]) -> str:
-        code_html = f"<code>{html.escape(match.group(1))}</code>"
-        code_tokens.append(code_html)
-        return f"@@CODE{len(code_tokens) - 1}@@"
+        return stash_html(f"<code>{html.escape(match.group(1))}</code>")
+
+    def stash_image(match: re.Match[str]) -> str:
+        alt = html.escape(match.group(1), quote=True)
+        src = html.escape(match.group(2), quote=True)
+        title = match.group(3)
+        title_attr = f' title="{html.escape(title, quote=True)}"' if title else ""
+        return stash_html(f'<img src="{src}" alt="{alt}"{title_attr} />')
+
+    def stash_link(match: re.Match[str]) -> str:
+        label = html.escape(match.group(1))
+        href = html.escape(match.group(2), quote=True)
+        title = match.group(3)
+        title_attr = f' title="{html.escape(title, quote=True)}"' if title else ""
+        return stash_html(f'<a href="{href}"{title_attr}>{label}</a>')
 
     escaped = CODE_SPAN_RE.sub(stash_code, text)
+    escaped = IMAGE_RE.sub(stash_image, escaped)
+    escaped = LINK_RE.sub(stash_link, escaped)
     escaped = html.escape(escaped)
-
-    escaped = IMAGE_RE.sub(
-        lambda match: (
-            f'<img src="{match.group(2)}" '
-            f'alt="{match.group(1)}" />'
-        ),
-        escaped,
-    )
-    escaped = LINK_RE.sub(
-        lambda match: (
-            f'<a href="{match.group(2)}">{match.group(1)}</a>'
-        ),
-        escaped,
-    )
     escaped = BOLD_RE.sub(lambda match: f"<strong>{match.group(2)}</strong>", escaped)
     escaped = ITALIC_RE.sub(lambda match: f"<em>{match.group(1) or match.group(2)}</em>", escaped)
 
-    for token_index, code_html in enumerate(code_tokens):
-        escaped = escaped.replace(f"@@CODE{token_index}@@", code_html)
+    for token_index, fragment in enumerate(inline_tokens):
+        escaped = escaped.replace(f"@@INLINE{token_index}@@", fragment)
 
     return escaped
 
