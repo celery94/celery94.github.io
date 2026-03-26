@@ -63,7 +63,7 @@ LINK_RE = re.compile(r"\[([^\]]+)\]\(([^)\s]+)(?:\s+\"([^\"]*)\")?\)")
 CODE_SPAN_RE = re.compile(r"`([^`]+)`")
 BOLD_RE = re.compile(r"(\*\*|__)(.+?)\1")
 ITALIC_RE = re.compile(r"(?<!\*)\*(?!\*)(.+?)(?<!\*)\*(?!\*)|(?<!_)_(?!_)(.+?)(?<!_)_(?!_)")
-DASH_METADATA_FENCE_RE = re.compile(r"^\s*-{5,}\s*$")
+DASH_METADATA_FENCE_RE = re.compile(r"^\s*-{3,}\s*$")
 WECHAT_CSS = """
 .wechat-article-body {
   color: #2f3440;
@@ -433,11 +433,13 @@ def normalize_heading_text(text: str) -> str:
 
 
 def replace_link_text_with_url(match: re.Match[str]) -> str:
+    text = match.group(1)
     url = match.group(2)
-    title = match.group(3)
-    if title:
-        return f'[{url}]({url} "{title}")'
-    return f"[{url}]({url})"
+    # Render as plain readable text so the raw URL is always visible in WeChat
+    # (external links are non-clickable in WeChat articles).
+    if text and text.strip() != url.strip():
+        return f"{text}（{url}）"
+    return url
 
 
 def basic_markdown_to_html(md_text: str) -> str:
