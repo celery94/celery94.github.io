@@ -135,13 +135,20 @@ WECHAT_CSS = """
 }
 .wechat-article-body pre {
   margin: 1.1em 0;
-  padding: 1em;
+  padding: 1em 1.2em;
   border-radius: 10px;
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
   background: #111827;
   color: #f3f4f6;
   font-size: 14px;
-  line-height: 1.6;
+  line-height: 1.7;
+  white-space: pre;
+  word-break: normal;
+  word-wrap: normal;
+  overflow-wrap: normal;
+  tab-size: 4;
+  -moz-tab-size: 4;
 }
 .wechat-article-body code {
   padding: 0.15em 0.38em;
@@ -150,13 +157,19 @@ WECHAT_CSS = """
   color: #b42318;
   font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
   font-size: 0.92em;
+  word-break: break-all;
 }
 .wechat-article-body pre code {
+  display: block;
   padding: 0;
   border-radius: 0;
   background: transparent;
   color: inherit;
   font-size: inherit;
+  white-space: inherit;
+  word-break: normal;
+  word-wrap: normal;
+  overflow-wrap: normal;
 }
 .wechat-article-body a {
   color: #175fe6;

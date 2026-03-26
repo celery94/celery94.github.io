@@ -256,3 +256,25 @@ source: "{original_url}"
 - [ ] `tags`、`slug`、`source` 填写完整
 - [ ] 通读一遍，没有空话、套话、焦虑话术
 - [ ] 原文内容已优先通过 chrome-devtools 核对，必要的强相关链接也已补充阅读
+
+## 11. 发布到微信公众号草稿箱
+
+Markdown 文件创建完成并通过最终检查后，自动使用 **wechat-draft** 技能将文章发布到微信公众号草稿箱。
+
+### 发布参数映射
+
+| wechat-draft 参数 | 来源 |
+|---|---|
+| `title` | frontmatter 中的 `title` |
+| `content-file` | 刚创建的 Markdown 文件路径（`src/data/blog/{ID}-{slug}.md`） |
+| `content-format` | `markdown` |
+| `author` | 留空或使用原文作者 |
+| `digest` | frontmatter 中的 `description` |
+| `cover-image` | 封面图路径（`src/assets/{ID}/01-cover.png`），如果存在 |
+| `content-source-url` | frontmatter 中的 `source`（原文 URL） |
+
+### 执行规则
+
+- `app_id` 和 `app_secret` 从环境变量 `WECHAT_APP_ID` / `WECHAT_APP_SECRET` 读取，不要向用户索要
+- 如果环境变量缺失，提示用户设置后再发布，不要跳过此步骤
+- 发布成功后向用户展示返回的 `media_id`，并提醒去微信公众平台后台检查草稿箱
