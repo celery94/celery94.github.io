@@ -18,7 +18,7 @@ publish_draft.py - 将文章发布到微信公众号草稿箱
     [--thumb-media-id EXISTING_MEDIA_ID] \
     [--content-source-url https://example.com]
 
-凭据优先级: 命令行参数 > 环境变量 WECHAT_APP_ID / WECHAT_APP_SECRET
+凭据优先级: 命令行参数 > 环境变量 WECHAT_APP_ID / WECHAT_APP_SECRET > .env 文件
 """
 
 import argparse
@@ -30,6 +30,7 @@ import re
 import sys
 import tempfile
 import time
+from pathlib import Path
 from typing import Dict, List, Optional, Sequence, Tuple
 from urllib.parse import unquote, urlparse
 
@@ -226,6 +227,50 @@ def configure_console_encoding() -> None:
 
 
 configure_console_encoding()
+
+
+def load_env_from_dotenv() -> None:
+    """从当前目录及其父目录中的 .env 文件加载微信凭据。"""
+    dotenv_values: Dict[str, str] = {}
+    search_dirs = list(reversed([Path.cwd(), *Path.cwd().parents]))
+
+    for directory in search_dirs:
+        env_file = directory / ".env"
+        if not env_file.exists():
+            continue
+
+        try:
+            with open(env_file, "r", encoding="utf-8") as handle:
+                for raw_line in handle:
+                    line = raw_line.strip()
+                    if not line or line.startswith("#"):
+                        continue
+                    if line.startswith("export "):
+                        line = line[7:].lstrip()
+                    if "=" not in line:
+                        continue
+
+                    key, value = line.split("=", 1)
+                    key = key.strip()
+                    if key not in {"WECHAT_APP_ID", "WECHAT_APP_SECRET"}:
+                        continue
+
+                    value = value.strip()
+                    if len(value) >= 2 and value[0] == value[-1] and value[0] in {'"', "'"}:
+                        value = value[1:-1]
+                    elif " #" in value:
+                        value = value.split(" #", 1)[0].rstrip()
+
+                    if value:
+                        dotenv_values[key] = value
+        except OSError:
+            continue
+
+    for key, value in dotenv_values.items():
+        os.environ.setdefault(key, value)
+
+
+load_env_from_dotenv()
 
 
 def get_access_token(appid: str, secret: str) -> str:
@@ -1005,8 +1050,16 @@ def add_draft(access_token: str, article: dict) -> str:
 
 def main():
     parser = argparse.ArgumentParser(description="发布文章到微信公众号草稿箱")
-    parser.add_argument("--appid", default=os.environ.get("WECHAT_APP_ID"), help="AppID (或设置环境变量 WECHAT_APP_ID)")
-    parser.add_argument("--secret", default=os.environ.get("WECHAT_APP_SECRET"), help="AppSecret (或设置环境变量 WECHAT_APP_SECRET)")
+    parser.add_argument(
+        "--appid",
+        default=os.environ.get("WECHAT_APP_ID"),
+        help="AppID (或设置环境变量 WECHAT_APP_ID，或在 .env 中配置)",
+    )
+    parser.add_argument(
+        "--secret",
+        default=os.environ.get("WECHAT_APP_SECRET"),
+        help="AppSecret (或设置环境变量 WECHAT_APP_SECRET，或在 .env 中配置)",
+    )
     parser.add_argument("--title", required=True, help="文章标题")
     parser.add_argument("--content", default=None, help="文章内容字符串（HTML 或 Markdown，与 --content-file 二选一）")
     parser.add_argument("--content-file", default=None, help="文章内容文件路径（.html 或 .md）")
@@ -1021,9 +1074,9 @@ def main():
     args = parser.parse_args()
 
     if not args.appid:
-        parser.error("缺少 AppID：请通过 --appid 传入或设置环境变量 WECHAT_APP_ID")
+        parser.error("缺少 AppID：请通过 --appid 传入、设置环境变量 WECHAT_APP_ID，或在 .env 中配置")
     if not args.secret:
-        parser.error("缺少 AppSecret：请通过 --secret 传入或设置环境变量 WECHAT_APP_SECRET")
+        parser.error("缺少 AppSecret：请通过 --secret 传入、设置环境变量 WECHAT_APP_SECRET，或在 .env 中配置")
 
     print("[1/4] 获取 access_token ...")
     token = get_access_token(args.appid, args.secret)
