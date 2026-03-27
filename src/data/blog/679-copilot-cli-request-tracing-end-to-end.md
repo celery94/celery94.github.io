@@ -1,7 +1,7 @@
 ---
 pubDatetime: 2026-03-27T19:40:00+08:00
 title: "揭开黑盒：追踪一次 Copilot CLI 请求的完整链路"
-description: "通过 mitmweb 代理和调试日志，逐步追踪 Copilot CLI 从终端到 LLM API 再返回的完整请求链路，理解"agent"行为背后的两次 HTTP 往返和本地工具执行机制。"
+description: "通过 mitmweb 代理和调试日志，逐步追踪 Copilot CLI 从终端到 LLM API 再返回的完整请求链路，理解agent行为背后的两次 HTTP 往返和本地工具执行机制。"
 tags: ["GitHub Copilot", "CLI", "Debugging", "Observability"]
 slug: "copilot-cli-request-tracing-end-to-end"
 ogImage: "../../assets/679/01-cover.png"
@@ -53,6 +53,7 @@ copilot --log-level debug --log-dir ~/copilot-debug/
 ```
 
 两个环境变量各有用途：
+
 - `HTTPS_PROXY`：让 CLI 的流量经过 mitmweb
 - `NODE_EXTRA_CA_CERTS`：让 Node.js 信任 mitmweb 的自签名 CA 证书，否则 TLS 握手会失败
 
@@ -130,10 +131,10 @@ LLM 请求了两个工具调用：`report_intent`（更新界面状态为"Listin
 
 初始化流量过后，你会看到两条关键的 `POST` 请求：
 
-| # | 类型 | 路径 | 用途 |
-|---|---|---|---|
-| 1 | POST | `/chat/completions` | 主模型请求 → 返回 tool_calls |
-| 2 | POST | `/chat/completions` | 携带工具结果的后续请求 → 返回最终文本 |
+| #   | 类型 | 路径                | 用途                                  |
+| --- | ---- | ------------------- | ------------------------------------- |
+| 1   | POST | `/chat/completions` | 主模型请求 → 返回 tool_calls          |
+| 2   | POST | `/chat/completions` | 携带工具结果的后续请求 → 返回最终文本 |
 
 ### 第一次 POST 请求体
 
@@ -174,31 +175,33 @@ LLM 请求了两个工具调用：`report_intent`（更新界面状态为"Listin
 
 ```json
 {
-  "choices": [{
-    "finish_reason": "tool_calls",
-    "message": {
-      "role": "assistant",
-      "content": null,
-      "tool_calls": [
-        {
-          "id": "tooluse_cMgpXCEPUHqgfiVsxYkFqZ",
-          "type": "function",
-          "function": {
-            "name": "report_intent",
-            "arguments": "{\"intent\": \"Listing directory contents\"}"
+  "choices": [
+    {
+      "finish_reason": "tool_calls",
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "tooluse_cMgpXCEPUHqgfiVsxYkFqZ",
+            "type": "function",
+            "function": {
+              "name": "report_intent",
+              "arguments": "{\"intent\": \"Listing directory contents\"}"
+            }
+          },
+          {
+            "id": "tooluse_COXsHEprFxFmdR4rkMg6HX",
+            "type": "function",
+            "function": {
+              "name": "bash",
+              "arguments": "{\"command\": \"ls -la\", \"description\": \"List files in current directory\"}"
+            }
           }
-        },
-        {
-          "id": "tooluse_COXsHEprFxFmdR4rkMg6HX",
-          "type": "function",
-          "function": {
-            "name": "bash",
-            "arguments": "{\"command\": \"ls -la\", \"description\": \"List files in current directory\"}"
-          }
-        }
-      ]
+        ]
+      }
     }
-  }]
+  ]
 }
 ```
 
@@ -253,13 +256,15 @@ CLI 在本地执行完工具后，把结果发回给 LLM，这是第二次 POST 
 
 ```json
 {
-  "choices": [{
-    "message": {
-      "role": "assistant",
-      "content": "The directory is empty — no files or subdirectories present (only . and ..)."
-    },
-    "finish_reason": "stop"
-  }]
+  "choices": [
+    {
+      "message": {
+        "role": "assistant",
+        "content": "The directory is empty — no files or subdirectories present (only . and ..)."
+      },
+      "finish_reason": "stop"
+    }
+  ]
 }
 ```
 
