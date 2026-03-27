@@ -229,7 +229,7 @@ def upload_inline_image(access_token: str, image_path: str, max_retries: int = 3
                 f"({attempt}/{max_retries}) - {os.path.basename(image_path)}: "
                 f"errcode={data.get('errcode')}, errmsg={data.get('errmsg')}"
             )
-        except Exception as exc:
+        except BaseException as exc:
             print(
                 "      正文图片上传异常 "
                 f"({attempt}/{max_retries}) - {os.path.basename(image_path)}: {exc}"
