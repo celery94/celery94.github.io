@@ -845,7 +845,7 @@ def main():
         "author": args.author,
         "digest": args.digest[:120] if args.digest else "",
         "content_source_url": args.content_source_url,
-        "need_open_comment": 0,
+        "need_open_comment": 1,
         "only_fans_can_comment": 0,
     }
     if thumb_media_id:

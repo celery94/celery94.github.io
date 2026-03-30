@@ -268,7 +268,7 @@ Markdown 文件创建完成并通过最终检查后，自动使用 **wechat-draf
 | `title` | frontmatter 中的 `title` |
 | `content-file` | 刚创建的 Markdown 文件路径（`src/data/blog/{ID}-{slug}.md`） |
 | `content-format` | `markdown` |
-| `author` | aidehub |
+| `author` | `Aide Hub` |
 | `digest` | frontmatter 中的 `description` |
 | `cover-image` | 封面图路径（`src/assets/{ID}/01-cover.png`），如果存在 |
 | `content-source-url` | frontmatter 中的 `source`（原文 URL） |
