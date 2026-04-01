@@ -4,6 +4,8 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro check && astro build && pagefind --site dist && cp -r dist/pagefind public/",
+    "images:audit": "node ./scripts/image-audit.mjs",
+    "images:optimize": "node ./scripts/image-optimize.mjs",
     "preview": "astro preview",
     "sync": "astro sync",
     "astro": "astro",

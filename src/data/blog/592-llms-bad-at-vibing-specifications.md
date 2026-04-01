@@ -4,11 +4,11 @@ title: "LLM 写形式化规约，看着像回事，其实什么都没验证"
 description: "Hillel Wayne 分析了 AI 生成的 TLA+ 和 Alloy 规约：代码不能编译、属性只是同义反复、真正有价值的并发和活性属性 LLM 写不出来。形式化方法要普及，光能生成规约远远不够。"
 tags: ["AI", "Formal Methods", "TLA+", "LLM"]
 slug: "llms-bad-at-vibing-specifications"
-ogImage: "../../assets/592/01-cover.png"
+ogImage: "../../assets/592/01-cover.webp"
 source: "https://buttondown.com/hillelwayne/archive/llms-are-bad-at-vibing-specifications/"
 ---
 
-![LLM 与形式化规约概念图](../../assets/592/01-cover.png)
+![LLM 与形式化规约概念图](../../assets/592/01-cover.webp)
 
 GitHub 上 4% 的 TLA+ 规约文件里出现了 "Claude" 这个词。这个数字来自 Hillel Wayne 的最新观察，一个在形式化方法社区有十多年实践经验的人。他一年前还写过"AI 是 TLA+ 用户的倍增器"，如今自己推翻了那个乐观判断的一半。
 

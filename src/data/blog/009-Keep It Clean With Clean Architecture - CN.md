@@ -25,7 +25,7 @@ Clean Architecture 是一种架构模式，强调：
 
 它由[Robert C. Martin (Uncle Bob)](https://en.wikipedia.org/wiki/Robert_C._Martin)创建，并基于他同样提出的[SOLID](https://en.wikipedia.org/wiki/SOLID)原则。
 
-![](../../assets/KeepItCleanWithCleanArchitecture/uncle-bob.png)
+![](../../assets/KeepItCleanWithCleanArchitecture/uncle-bob.webp)
 
 #### **Clean Architecture 的环形结构是什么？**
 

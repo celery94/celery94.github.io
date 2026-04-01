@@ -116,7 +116,7 @@ var recoveryCodes = await _userManager.GenerateNewTwoFactorRecoveryCodesAsync(us
 
 私钥从不离开用户设备，这使得钓鱼攻击从根本上失效——攻击者即使伪造了登录页面，也无法获得有效的签名。
 
-![Passkey 认证流程](../../assets/674/02-passkey-flow.png)
+![Passkey 认证流程](../../assets/674/02-passkey-flow.webp)
 
 ### 2FA 与 Passkey 的对比
 

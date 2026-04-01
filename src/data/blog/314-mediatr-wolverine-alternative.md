@@ -16,7 +16,7 @@ description: MediatR即将转向商业许可，Wolverine作为替代品凭借高
 面对新形势，开发者们都在问：**有没有更现代、免费且功能更强大的替代方案？**  
 答案就是：**Wolverine**！
 
-![CQRS与MediatR演进](../../assets/314/cqrs-mediator-evolution.png)
+![CQRS与MediatR演进](../../assets/314/cqrs-mediator-evolution.webp)
 
 > _图1：CQRS模式与MediatR应用架构演进_
 

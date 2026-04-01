@@ -55,7 +55,7 @@ var items = await dbContext.UserNotes
 - 并发/数据变动时可能漏掉或重复数据
 - 每次都需统计总数，增加额外负担
 
-![offset-explain-plan](../../assets/271/offset-explain-plan.png)
+![offset-explain-plan](../../assets/271/offset-explain-plan.webp)
 
 ---
 
@@ -91,7 +91,7 @@ query = query.Where(x => EF.Functions.LessThanOrEqual(
 - 不能直接跳转到任意页，只能“顺序浏览”
 - 实现略复杂，需要维护和编码游标
 
-![cursor-explain-plan](../../assets/271/cursor-explain-plan.png)
+![cursor-explain-plan](../../assets/271/cursor-explain-plan.webp)
 
 ---
 
@@ -192,7 +192,7 @@ public sealed record Cursor(DateOnly Date, Guid LastId)
 > - 若为API、实时Feed、无限滚动等，对“深翻页”性能敏感场景，请优先选择游标分页。
 > - 若为管理后台、小型列表或必须显示总页数，可继续使用Offset。
 
-![summary-pic](../../assets/271/pagination-summary.png)
+![summary-pic](../../assets/271/pagination-summary.webp)
 
 ---
 

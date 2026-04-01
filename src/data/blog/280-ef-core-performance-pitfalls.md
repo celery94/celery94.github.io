@@ -13,7 +13,7 @@ description: 本文面向.NET开发者，系统梳理Entity Framework Core在实
 
 对于众多.NET开发者来说，Entity Framework Core（简称EF Core）无疑是数据库操作的利器。它用ORM的方式屏蔽了繁琐的SQL，让我们可以聚焦于业务逻辑。然而，抽象层的便利背后，也暗藏着性能陷阱。你是否遇到过应用莫名变慢、内存飙升、数据库压力激增等问题？本篇文章将结合典型案例和图示，带你避开EF Core开发中的常见性能“坑”，助力你的项目如虎添翼！
 
-![EF Core性能陷阱示意图](../../assets/280/280-1.png)
+![EF Core性能陷阱示意图](../../assets/280/280-1.webp)
 
 ## 正文
 
