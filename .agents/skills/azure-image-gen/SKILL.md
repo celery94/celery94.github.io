@@ -56,7 +56,7 @@ python azure_generate_image.py <prompt> [options]
 | Flag | Default | Description |
 |------|---------|-------------|
 | `--output`, `-o` | `generated_image.png` | Output file path |
-| `--size`, `-s` | `1024x1024` | `1024x1024`, `1024x1536`, `1536x1024`, `1792x1024`, `1024x1792` |
+| `--size`, `-s` | `1024x1024` | `1024x1024`, `1024x1536`, `1536x1024`, `auto` |
 | `--quality`, `-q` | `medium` | `low`, `medium`, `high` |
 | `--format`, `-f` | `png` | API output format: `png`, `jpeg`, `webp` |
 | `--compression` | `100` | 0–100 (100 = lossless) |
@@ -75,7 +75,7 @@ python .agents/skills/azure-image-gen/scripts/azure_generate_image.py "A sunset 
 
 ### Custom size and quality
 ```bash
-python .agents/skills/azure-image-gen/scripts/azure_generate_image.py "Abstract art" --size 1792x1024 --quality high
+python .agents/skills/azure-image-gen/scripts/azure_generate_image.py "Abstract art" --size 1536x1024 --quality high
 ```
 
 ### Custom output path

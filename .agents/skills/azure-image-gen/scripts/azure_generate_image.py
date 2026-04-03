@@ -329,7 +329,7 @@ def main():
         epilog="""\
 Examples:
   python azure_generate_image.py "A red fox in an autumn forest"
-  python azure_generate_image.py "Abstract art" --size 1792x1024
+  python azure_generate_image.py "Abstract art" --size 1536x1024
   python azure_generate_image.py "Logo design" --quality high --output logo.png
   python azure_generate_image.py "Banner" --format png --compression 80
 """,
@@ -337,7 +337,7 @@ Examples:
 
     parser.add_argument("prompt", help="Text description of the image to generate")
     parser.add_argument("--output", "-o", default="generated_image.png", help="Output file path (default: generated_image.png)")
-    parser.add_argument("--size", "-s", default="1024x1024", choices=["1024x1024", "1024x1536", "1536x1024", "1792x1024", "1024x1792"], help="Image size (default: 1024x1024)")
+    parser.add_argument("--size", "-s", default="1024x1024", choices=["1024x1024", "1024x1536", "1536x1024", "auto"], help="Image size (default: 1024x1024)")
     parser.add_argument("--quality", "-q", default="medium", choices=["low", "medium", "high"], help="Image quality (default: medium)")
     parser.add_argument("--format", "-f", default="png", choices=["png", "jpeg", "webp"], help="Output format from API (default: png)")
     parser.add_argument("--compression", type=int, default=100, help="Output compression 0-100 (default: 100, lossless)")
