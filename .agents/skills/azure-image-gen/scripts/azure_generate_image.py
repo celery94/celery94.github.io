@@ -94,11 +94,7 @@ def resize_and_compress_image(output_path: str) -> str:
         return {"score": complexity, "contrast": contrast, "edge_mean": edge_mean}
 
     def choose_preferred_format(image, metrics):
-        if detect_transparency(image):
-            return "WEBP", "transparency detected"
-        if metrics["score"] <= COMPLEXITY_WEBP_THRESHOLD:
-            return "WEBP", f"lower complexity score ({metrics['score']:.2f})"
-        return "JPEG", f"higher complexity score ({metrics['score']:.2f})"
+        return "JPEG", f"complexity score {metrics['score']:.2f}"
 
     def encode_candidate(image, fmt, quality):
         candidate = image
@@ -173,7 +169,7 @@ def resize_and_compress_image(output_path: str) -> str:
     )
 
     preferred_variant = build_best_variant(img, preferred_format)
-    alternate_variant = build_best_variant(img, alternate_format)
+    alternate_variant = None  # WebP disabled; always output JPEG
 
     chosen_variant = preferred_variant
     if alternate_variant is not None:
