@@ -580,6 +580,59 @@ def strip_full_document(raw_html: str) -> str:
     return raw_html
 
 
+def convert_list_tag_to_paragraphs(list_tag, soup: BeautifulSoup, depth: int = 0) -> List:
+    """将 ul/ol 转换为段落列表，规避微信公众号对原生列表渲染不稳定的问题。"""
+    converted_nodes: List = []
+    direct_items = [child for child in list_tag.children if getattr(child, "name", None) == "li"]
+
+    for index, item in enumerate(direct_items, start=1):
+        item_clone = BeautifulSoup(str(item), "html.parser").find("li")
+        if item_clone is None:
+            continue
+
+        nested_lists = item_clone.find_all(["ul", "ol"], recursive=False)
+        for nested in nested_lists:
+            nested.extract()
+
+        content_html = "".join(str(node) for node in item_clone.contents).strip()
+
+        marker = f"{index}. " if list_tag.name == "ol" else "• "
+        indent = "　" * depth
+
+        paragraph = soup.new_tag("p")
+        paragraph["style"] = "margin: 0.35em 0"
+        paragraph.append(f"{indent}{marker}")
+
+        if content_html:
+            fragment = BeautifulSoup(content_html, "html.parser")
+            for child in list(fragment.contents):
+                paragraph.append(child)
+
+        converted_nodes.append(paragraph)
+
+        for nested in item.find_all(["ul", "ol"], recursive=False):
+            converted_nodes.extend(convert_list_tag_to_paragraphs(nested, soup, depth + 1))
+
+    return converted_nodes
+
+
+def normalize_lists_for_wechat(fragment_html: str) -> str:
+    """将 HTML 中所有 ul/ol 结构转换为段落结构，提升微信公众号编辑器兼容性。"""
+    soup = BeautifulSoup(fragment_html, "html.parser")
+
+    while True:
+        list_tag = soup.find(["ul", "ol"])
+        if list_tag is None:
+            break
+
+        replacement_nodes = convert_list_tag_to_paragraphs(list_tag, soup, depth=0)
+        for node in reversed(replacement_nodes):
+            list_tag.insert_after(node)
+        list_tag.decompose()
+
+    return str(soup)
+
+
 def is_http_image_url(src: str) -> bool:
     return src.lower().startswith(("http://", "https://"))
 
@@ -759,7 +812,8 @@ def prepare_content(args: argparse.Namespace, access_token: str) -> str:
     else:
         print("      未发现需要处理的正文图片")
     extra_css = load_extra_css(args.extra_css_file)
-    return build_styled_fragment(fragment_html, style_preset, extra_css)
+    styled_fragment = build_styled_fragment(fragment_html, style_preset, extra_css)
+    return normalize_lists_for_wechat(styled_fragment)
 
 
 def add_draft(access_token: str, article: dict) -> str:
