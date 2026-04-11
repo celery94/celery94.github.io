@@ -381,17 +381,26 @@ def load_extra_css(extra_css_file: Optional[str]) -> str:
 
 
 def build_styled_fragment(
-    fragment_html: str, style_preset: str, extra_css: str
+    fragment_html: str, style_preset: str, extra_css: str, design_css: str = ""
 ) -> str:
     """Wrap *fragment_html* in an article container, sanitize it, and apply
-    inline CSS for *style_preset* plus any *extra_css*."""
+    inline CSS for *style_preset* plus any *design_css* and *extra_css*.
+
+    ``design_css`` is concatenated with the preset CSS in a **single**
+    ``apply_inline_css`` pass so that design rules (which come later in the
+    combined string) win over preset rules at equal CSS specificity.  User
+    ``extra_css`` is applied afterwards so it can still override everything.
+    """
     wrapped = f'<article class="wechat-article-body">{fragment_html}</article>'
     soup = BeautifulSoup(wrapped, "html.parser")
     sanitize_html_fragment(soup)
 
     style_css = load_style_css(style_preset)
-    if style_css:
-        apply_inline_css(soup, style_css)
+    # Combine preset + design overlay in one pass; design comes after preset so
+    # later-source-order wins at equal specificity (design ▶ preset).
+    combined_preset = "\n".join(layer for layer in (style_css, design_css) if layer)
+    if combined_preset:
+        apply_inline_css(soup, combined_preset)
     if extra_css:
         apply_inline_css(soup, extra_css)
 

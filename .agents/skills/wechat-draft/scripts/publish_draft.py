@@ -38,6 +38,7 @@ from urllib.parse import unquote, urlparse
 import requests
 from bs4 import BeautifulSoup
 
+from design_manager import generate_design_css, pick_random_design
 from style_manager import (
     STYLE_NAMES,
     build_styled_fragment,
@@ -788,7 +789,7 @@ def load_content(args: argparse.Namespace) -> Tuple[str, str, str]:
     return raw, source_dir, content_format
 
 
-def prepare_content(args: argparse.Namespace, access_token: str) -> str:
+def prepare_content(args: argparse.Namespace, access_token: str, design_profile=None) -> str:
     raw_content, source_dir, content_format = load_content(args)
 
     style_preset = args.style_preset
@@ -812,7 +813,8 @@ def prepare_content(args: argparse.Namespace, access_token: str) -> str:
     else:
         print("      未发现需要处理的正文图片")
     extra_css = load_extra_css(args.extra_css_file)
-    styled_fragment = build_styled_fragment(fragment_html, style_preset, extra_css)
+    design_css = generate_design_css(design_profile) if design_profile is not None else ""
+    styled_fragment = build_styled_fragment(fragment_html, style_preset, extra_css, design_css=design_css)
     return normalize_lists_for_wechat(styled_fragment)
 
 
@@ -891,7 +893,13 @@ def main():
         print("[2/4] 跳过封面图片上传")
 
     print("[3/4] 准备文章内容 ...")
-    html_content = prepare_content(args, token)
+    design_profile = None
+    try:
+        design_profile = pick_random_design()
+        print(f"      设计灵感参考: {design_profile.display_name}")
+    except Exception as exc:
+        print(f"      跳过设计灵感参考 ({exc})")
+    html_content = prepare_content(args, token, design_profile=design_profile)
 
     article = {
         "title": args.title,
@@ -912,6 +920,7 @@ def main():
         "success": True,
         "media_id": media_id,
         "title": args.title,
+        "design_reference": design_profile.display_name if design_profile else None,
         "message": "草稿已成功添加到草稿箱，请登录微信公众平台后台进行最终审核和发布。",
     }
     print("\n发布成功")
