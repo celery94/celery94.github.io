@@ -1,7 +1,7 @@
 ---
 pubDatetime: 2026-04-13T10:29:00+08:00
 title: ".NET 8+ 插件架构设计：基于 AssemblyLoadContext 的完整方案"
-description: "本文从官方文档、官方样例和 McMaster.NETCore.Plugins 出发，系统梳理 .NET 8+ 环境下插件系统的核心机制、设计约束和工程落地方法。包括 ALC 隔离模型、共享契约边界、依赖解析、卸载规则、Native AOT 限制，以及从"可信 in-proc"到"不可信 sidecar"的双模式选型建议。"
+description: '本文从官方文档、官方样例和 McMaster.NETCore.Plugins 出发，系统梳理 .NET 8+ 环境下插件系统的核心机制、设计约束和工程落地方法。包括 ALC 隔离模型、共享契约边界、依赖解析、卸载规则、Native AOT 限制，以及从"可信 in-proc"到"不可信 sidecar"的双模式选型建议。'
 tags: ["dotnet", "plugin", "architecture", "csharp"]
 slug: "dotnet8-plugin-architecture-alc"
 ogImage: "../../assets/730/01-cover.png"
@@ -282,6 +282,7 @@ sidecar 进程有独立的身份、工作目录和资源限制，插件崩溃不
 **Trimming**：Trimmer 在构建时分析代码，动态加载的程序集在构建时不可见，trimmer 无法知道要保留哪些方法。开启激进 trimming 的宿主加载插件时，插件依赖的反射目标可能已经被裁剪掉。
 
 实践规则：
+
 - 宿主默认不开激进 trimming，不发布为 Native AOT
 - 插件如果有 trim 需要，只能在代码路径完全已知、反射点可声明的前提下谨慎使用
 - 插件发布为**外部独立目录**（含 `.deps.json` + 私有依赖），不要做单文件插件
