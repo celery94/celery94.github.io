@@ -4,13 +4,13 @@ title: ".NET Agent Skills：三种编写方式，一个 Provider 统一运行"
 description: "微软 Agent Framework 为 .NET 开发者提供了三种 Skill 编写方式：文件式、类继承式和内联代码式，通过 AgentSkillsProviderBuilder 将它们自由组合进同一个 Provider，并支持脚本执行审批等生产特性。本文以一个 HR 自助服务 Agent 为例，逐步演示如何灵活叠加这三种方式。"
 tags: ["Agent Framework", ".NET", "AI Agent", "C#"]
 slug: "dotnet-agent-skills-three-ways-one-provider"
-ogImage: "../../assets/734/01-cover.png"
+ogImage: "../../assets/734/01-cover.jpg"
 source: "https://devblogs.microsoft.com/agent-framework/agent-skills-in-net-three-ways-to-author-one-provider-to-run-them"
 ---
 
 微软 Agent Framework 最新更新为 .NET 开发者提供了一套更灵活的 Skill 编写模型：**文件式、类继承式、内联代码式**，三种方式可以自由混合，共用同一个 `AgentSkillsProvider`。这不是为了覆盖所有可能场景而堆出来的功能，它解决的是一个真实问题——团队不同步时，怎样让 Agent 的能力持续向前走。
 
-![三种 Agent Skills 编写方式汇聚到统一 Provider](../../assets/734/01-cover.png)
+![三种 Agent Skills 编写方式汇聚到统一 Provider](../../assets/734/01-cover.jpg)
 
 ## 场景：HR 自助服务 Agent 的演进
 
