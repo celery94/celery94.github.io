@@ -1,6 +1,8 @@
 # Cover Prompt Template
 
-创建文章封面时，先用这个模板生成最终 prompt，再调用 `generate-image`。
+创建文章封面时，先用这个模板生成**草图 prompt**，必要时再生成**编辑 prompt**，然后调用 `azure-image-gen`。
+
+不要默认“一次生成 = 最终封面”。`gpt-image-2` 更适合先确认概念与构图，再基于已有图继续编辑收敛。
 
 ## 1. 先判断封面类型
 
@@ -36,6 +38,9 @@
 - `风格方向`：按下方决策表填写
 - `色彩限制`：2-4 个主色，不要彩虹拼盘
 - `禁用元素`：和主题无关、但模型容易乱加的东西
+- `参考素材策略`：纯文本生成 / 用 1-2 张本地图片做 reference / 先生成再编辑 / 局部遮罩
+- `第一轮目标`：这次先验证什么（主题是否成立、主体是否清楚、构图是否稳）
+- `第二轮修正点`：如果第一轮出来后要改，优先改哪 1-3 项
 
 ## 3. 类型到风格的固定映射
 
@@ -55,7 +60,26 @@
 - 只有文章天然适合时，才允许显式加入这类风格词
 - 如果用了像素风或动漫感，也要先满足“主隐喻清楚、主体明确、构图简洁”
 
-## 4. 统一禁令
+## 4. `gpt-image-2` 参数默认值
+
+除非文章题材有特殊需要，否则封面优先按这组参数来：
+
+- **草图阶段**
+	- `size`: `1504x640`
+	- `quality`: `low`
+	- `background`: `auto` 或 `opaque`
+	- `format`: 追求速度时用 `jpeg` / `webp`；准备马上进入编辑流时优先保留 `png`
+- **精修阶段**
+	- `size`: `2256x960`
+	- `quality`: `medium`
+	- 只有复杂结构、材质或光影不够稳定时才升到 `high`
+- **统一规则**
+	- 宽高比固定 2.35:1
+	- `gpt-image-2` 当前不支持透明背景，不要用 `transparent`
+	- 不要依赖图中可见文字来表达主题；这个模型虽然比以前更强，但文字排版仍然不是封面成功的关键路径
+	- 当前脚本即使传 `--n > 1` 也只保存第一张，所以多方案探索请分多次生成或改走编辑流
+
+## 5. 统一禁令
 
 每个 prompt 都必须明确包含下面这些限制：
 
@@ -79,9 +103,13 @@
 - 赛博朋克紫蓝光污染
 - 巨量 HUD 浮层
 
-## 5. Prompt 骨架
+如果第一轮结果里出现了这些元素，优先在第二轮编辑里明确写“remove / no / avoid”，而不是寄希望于模型自己悟出来。
 
-用下面这套结构输出最终 prompt：
+## 6. Prompt 骨架
+
+### 6.1 第一轮：草图生成 prompt
+
+用下面这套结构输出**第一轮草图 prompt**：
 
 ```text
 Create a wide cinematic cover illustration for a Chinese tech blog article.
@@ -99,7 +127,35 @@ Do not include any visible text, title, letters, UI labels, prompt residue, wate
 Avoid {禁用元素}.
 ```
 
-## 6. 使用要求
+### 6.2 第二轮：编辑 / 精修 prompt
+
+当第一轮已经有可用方向，但需要修主体、背景、风格、误生成元素时，不要重写一整套世界观，优先把第一张图作为输入图，再用这套结构写**编辑 prompt**：
+
+```text
+Use the provided image as the base.
+Keep the strongest part of the current composition and preserve the core metaphor: {封面主隐喻}.
+
+Change only these points:
+- {第二轮修正点 1}
+- {第二轮修正点 2}
+- {第二轮修正点 3}
+
+Make the image feel more like {风格方向}. Preserve one clear focal point.
+Primary subject should remain: {主视觉主体}, {主体动作}.
+Simplify the background so that only {背景元素} remains as supporting context.
+Color palette: {色彩限制}. Aspect ratio 2.35:1.
+
+Remove any visible text, title, letters, UI labels, fake screenshots, fake charts, fake terminal output, watermark, prompt residue, unrelated icons, and decorative clutter.
+Avoid {禁用元素}.
+```
+
+### 6.3 何时用参考图 / 遮罩
+
+- 如果你已经有**允许复用的本地图片**，而且它能明确帮助模型抓住主体关系、空间结构或关键对象，可以把它作为 `--input-image`
+- 如果只是局部元素跑偏，例如错误多出一个屏幕、背景里出现了假图表、主物体边上多了无关符号，再考虑 `--mask`
+- 如果第一轮主题就不对，不要强行 edit；回到槽位，改“主隐喻 / 主体动作 / 构图方式”至少两项，再重新生成
+
+## 7. 使用要求
 
 - prompt 里必须同时包含“主题”“主体”“动作”“构图”“风格”“禁令”
 - 同主题文章不能只替换名词，至少在“主隐喻 / 主体动作 / 构图方式”里改动两项
@@ -107,8 +163,14 @@ Avoid {禁用元素}.
 - 非发布类文章，默认不要做成广告横幅
 - 架构类文章可以表达“连接关系”，但不要伪造真实系统图
 - 研究类文章可以抽象，但不能抽象到完全看不出主题
+- 每一轮生成后都要看 `revised_prompt`（如果接口返回了它），确认模型有没有把图往“标题海报、仪表盘、假架构图、截图 UI”方向带偏
+- 判断逻辑要固定：
+	- **主题不对**：回到槽位重写，再生成
+	- **主题对但细节不对**：优先编辑已有图
+	- **只有局部出错**：再考虑遮罩
+- 不要把“多堆一点风格词”当成唯一优化方式；对 `gpt-image-2` 来说，清楚的主隐喻、主体关系和删减杂物，通常比多加十个形容词更有效
 
-## 7. 示例
+## 8. 示例
 
 ### 示例 1：教程类
 
@@ -142,6 +204,26 @@ Color palette: charcoal, soft teal, warm orange, off-white.
 Aspect ratio 2.35:1.
 
 Do not include any visible text, title, letters, UI labels, prompt residue, watermark, screenshots, dashboards, fake diagrams, fake terminal output, unrelated icons, or decorative clutter.
+Avoid floating robots, neon city, dense code rain.
+```
+
+如果第一轮结果已经有了“工作台 + 插件插入”的主结构，但背景里冒出了假 UI 文本或多余面板，第二轮编辑 prompt 可以写成：
+
+```text
+Use the provided image as the base.
+Keep the strongest part of the current composition and preserve the core metaphor: two AI coding capabilities connected into one developer workflow on a single workstation.
+
+Change only these points:
+- remove all text-like marks and pseudo UI labels
+- simplify the background so it reads as supporting context rather than a screenshot
+- make the plugin insertion action clearer and more visually decisive
+
+Make the image feel more like editorial technical illustration. Preserve one clear focal point.
+Primary subject should remain: a terminal-centric developer workstation with a plugin module, the plugin module sliding into a side slot and lighting up as it connects.
+Simplify the background so that only a few command-like motion lines, one simplified tool emblem, and soft interface silhouettes remain as supporting context.
+Color palette: charcoal, soft teal, warm orange, off-white. Aspect ratio 2.35:1.
+
+Remove any visible text, title, letters, UI labels, fake screenshots, fake charts, fake terminal output, watermark, prompt residue, unrelated icons, and decorative clutter.
 Avoid floating robots, neon city, dense code rain.
 ```
 
