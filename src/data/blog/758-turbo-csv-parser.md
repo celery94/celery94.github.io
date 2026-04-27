@@ -4,7 +4,6 @@ title: "意外打造出最快的 C# CSV 解析器"
 description: "一次性能优化的完整旅程。从基础的字节扫描到 SIMD 向量指令，逐步优化 CSV 解析速度，最终击败现有高性能库。文中涵盖 UTF-8 编码原理、向量化指令、缓存优化等核心概念。"
 tags: ["C#", "性能优化", "SIMD", "CSV解析", "高性能编程"]
 slug: "turbo-csv-parser"
-ogImage: "../../assets/758/01-cover.png"
 source: "https://bepis.io/blog/turbo-csv-parser"
 ---
 
