@@ -1,0 +1,35 @@
+{
+  "article_type": "tutorial",
+  "core_theme": "ASP.NET Core .NET 10 API Key 认证：生产级实现",
+  "reader_takeaway": "能照着配置 AuthenticationHandler + SHA-256 哈希 + HybridCache 的完整 API Key 认证链路",
+  "main_conclusion": "用 AuthenticationHandler<TOptions> 实现 API Key 认证，搭配 SHA-256 哈希存储和 HybridCache 验证缓存，是 .NET 10 中唯一能与 [Authorize]、OpenAPI 完整集成的方案",
+  "summary_angle": "一个 API 请求从携带 X-API-Key 到通过 AuthenticationHandler 验证、命中 HybridCache、获得 ClaimsPrincipal 的完整认证流程",
+  "narrative_flow": "请求进入 → 读取 X-API-Key 请求头 → SHA-256 哈希 → HybridCache 命中/落库查询 → 生成 ClaimsPrincipal → [Authorize] 通过",
+  "information_blocks": [
+    {
+      "label": "SHA-256 哈希",
+      "anchor": "存储哈希而非明文，防止数据库泄露导致凭证暴露",
+      "visual": "钥匙变成哈希值的转换节点"
+    },
+    {
+      "label": "HybridCache",
+      "anchor": "L1 命中约 50ns，比数据库查询快 20,000 倍",
+      "visual": "缓存层拦截请求，闪电符号表示极低延迟"
+    },
+    {
+      "label": "401 vs 403",
+      "anchor": "无密钥返回 401，密钥有效但权限不足返回 403（RFC 9457）",
+      "visual": "两条分支路径，分别标 401 和 403"
+    }
+  ],
+  "main_focal_point": "一位服务器端程序员/机器人客户端向 ASP.NET Core API 发送携带 X-API-Key 请求头的请求，API 端的 AuthenticationHandler 在验证哈希后生成通行证",
+  "composition": "横向叙事，左侧为客户端请求发出，中间为 AuthenticationHandler + HybridCache 验证节点，右侧为授权通过的 API 响应",
+  "style": "japanese-manga 分镜，墨线，速度线，黑白为主，局部蓝色高亮关键节点",
+  "comic_style": "japanese-manga",
+  "comic_style_reason": "教程类型默认 japanese-manga；分镜化叙事能清晰展示 API 认证的请求→验证→授权线性流程",
+  "color_palette": "黑白灰为主，蓝色高亮哈希符号和缓存层，绿色标注授权通过节点",
+  "forbidden_elements": ["假 UI 截图", "假 dashboard", "假终端输出", "假架构节点标签", "英文口号", "主标题文字", "伪造图表坐标"],
+  "visible_text": ["SHA-256", "HybridCache", "401/403"],
+  "aspect_ratio": "2.35:1",
+  "final_prompt": "Wide cover illustration, aspect ratio 2.35:1. Japanese manga panel style with ink lines and speed lines, black-and-white with selective blue highlights on key nodes and green on success paths. A server-to-server authentication flow: on the left, a mechanical robot client sends an HTTP request with X-API-Key header (small Chinese label '请求头'). In the center, an ASP.NET Core AuthenticationHandler node receives the key, transforms it through a SHA-256 hash funnel (label '哈希'), then queries a HybridCache layer shown as a glowing blue memory chip with lightning bolt (label 'HybridCache'). On the right, after successful validation, a green ClaimsPrincipal token grants access to a protected API endpoint with a checkmark. Two small branch paths show 401 rejection (red X, no key) and 403 forbidden (orange warning, insufficient scope). Manga panel composition: left panel shows request, center panel shows validation mechanics with speed lines emphasizing speed, right panel shows authorization result. No text other than the three short labels. No fake UI, no dashboard, no terminal, no chart axes. Cinematic wide format."
+}
