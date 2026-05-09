@@ -1,0 +1,39 @@
+{
+  "article_id": "787",
+  "article_type": "analysis",
+  "title": "用 AI Agent 把自然语言转成 SQL：三种方案的实验对比",
+  "summary_angle": "通过对比三种 NL-to-SQL 方案（Copilot CLI、Agent Framework、AI/BI Genie）的实验数据，揭示运行时查询验证和元数据是准确率的核心驱动力",
+  "narrative_flow": "challenge → three_approaches → runtime_validation_ablation → feedback_loop_gains → business_logic_bottleneck",
+  "information_blocks": [
+    {
+      "block": "运行时查询是关键",
+      "anchor": "移除 query_db 工具后准确率从 76.92% 跌至 38.46%",
+      "visual": "一把剑被折断，代表失去运行时验证能力"
+    },
+    {
+      "block": "三种方案对比",
+      "anchor": "Copilot CLI 80.77% vs Agent Framework 76.92% vs Genie 88.50%（含反馈）",
+      "visual": "三名侦探站在不同高度台阶上"
+    },
+    {
+      "block": "领域提示的增益",
+      "anchor": "加入 domain hints 后 Claude Sonnet 4.5 从 66.70% 升至 80.77%",
+      "visual": "一把钥匙解锁隐藏数据"
+    },
+    {
+      "block": "业务逻辑是瓶颈",
+      "anchor": "剩余 ~25% 错误主要来自语义误解，不是 SQL 语法问题",
+      "visual": "墙壁上有裂缝，象征剩余障碍"
+    }
+  ],
+  "main_subject": "一个 AI 侦探角色在数据库迷宫中，手持 SQL 查询卷轴，周围有运行时验证和元数据线索",
+  "subject_action": "侦探分析数据库模式，手写 SQL 查询，旁边显示准确率数字",
+  "composition": "wide 2.35:1，左侧主焦点（侦探+数据库迷宫），右侧 2-3 个信息块叙事面板",
+  "background_elements": "数据库表格、SQL 代码片段、准确率数字、推理箭头",
+  "comic_style": "american-comic",
+  "comic_style_reason": "文章是分析/对比型研究，涉及多个方案的冲突与判断，适合 american-comic 的粗轮廓、halftone 对照张力风格",
+  "color_palette": "深蓝+金色+白色，halftone 纹理，高对比度",
+  "forbidden_elements": ["假 dashboard UI", "假终端截图", "英文长句口号", "假图表坐标", "假架构节点名"],
+  "allowed_text": ["SQL", "75%+", "38%→77%"],
+  "prompt": "Wide cover illustration, aspect ratio 2.35:1, american-comic style with bold outlines, halftone dots, high contrast. A detective character in a blue suit stands in a database maze holding a glowing SQL scroll, surrounded by database table grids. Left panel: the detective analyzing schema with magnifying glass, a broken sword labeled with small Chinese tag '无查询' nearby showing the collapse. Center panel: three stepping stones with accuracy numbers rising. Right panel: a key unlocking a data vault with small Chinese tag '领域提示'. Bottom-right: cracked wall with small label '业务逻辑'. Color: deep blue, gold, white halftone. No fake UI, no dashboard, no English slogans, no fake charts. 2-3 short Chinese labels maximum."
+}
