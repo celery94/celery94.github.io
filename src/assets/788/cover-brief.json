@@ -1,0 +1,14 @@
+{
+  "article_type": "analysis",
+  "summary_angle": "把 static readonly byte[] 字段改为 static ReadOnlySpan<byte> 属性，编译器把数据直接嵌入 PE 程序集，实现零堆分配——.NET Framework 也适用",
+  "narrative_flow": "左panel：byte[] → GC 堆上的对象（分配成本）；右panel：ReadOnlySpan<byte> → 数据嵌入程序集（零分配）；下方信息块：三条限制规则",
+  "main_conclusion": "static ReadOnlySpan<byte> 属性 = 编译器特性，数据嵌入 PE metadata，无堆分配，.NET Framework 同样受益",
+  "information_blocks": [
+    { "label": "byte[]", "anchor": "static readonly byte[] ByteField = new byte[]{1,2,3,4}", "visual": "堆内存盒子，标 × 号" },
+    { "label": "ReadOnlySpan<byte>", "anchor": "static ReadOnlySpan<byte> Prop => new byte[]{1,2,3,4}", "visual": "PE 文件内嵌，零分配，标 ✓ 号" },
+    { "label": "仅 byte/sbyte/bool", "anchor": "只适用单字节类型，int 不行", "visual": "三角警告图标" }
+  ],
+  "comic_style": "american-comic",
+  "comic_style_reason": "文章属于 analysis 类型（对比分析 + IL 代码验证），按规则自动选择 american-comic：粗轮廓、halftone、graphic-novel 式对照与张力",
+  "cover_prompt": "Wide cover illustration, aspect ratio 2.35:1, american-comic graphic-novel style, halftone shading, bold black outlines. Two-panel split composition: LEFT PANEL shows a C# developer at a desk, looking at code on screen showing 'byte[] { 1,2,3,4 }', a large red X above a floating heap memory box labeled 'GC Heap', dramatic shadow, stressed expression. RIGHT PANEL shows the same developer smiling, screen shows 'ReadOnlySpan<byte>', a green checkmark above a PE assembly file icon with bytes embedded inside it, labeled '零分配'. At the bottom: three small info-badges reading '仅 byte/sbyte/bool', '仅常量', 'ReadOnly 专用'. No text other than these short Chinese labels. Dark navy and amber color palette. No fake UI, no fake terminal, no fake charts, no fake architecture diagrams."
+}
