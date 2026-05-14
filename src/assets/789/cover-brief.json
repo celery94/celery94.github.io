@@ -1,0 +1,56 @@
+{
+  "article_title": "用 Agent Governance Toolkit 给 .NET MCP 工具调用加一层闸门",
+  "cover_type": "architecture",
+  "core_theme": ".NET Agent 在调用 MCP 工具前后，用 AGT 统一做工具定义扫描、策略判断、输出净化和审计观测。",
+  "reader_takeaway": "读者能理解 MCP 工具调用为什么需要治理层，以及如何把 GovernanceKernel、YAML policy 和审计事件接入 .NET agent。",
+  "summary_angle": "把原本直接进入工具的 agent 调用，改成经过可配置治理闸门后再执行。",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "原文 read_flie 工具描述中嵌入 prompt injection，并得到 85/100 风险分。",
+      "visual_idea": "左侧被警示线包围的可疑工具卡片。",
+      "visible_label": "风险85",
+      "numeric_fact": "85/100"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文列出 McpSecurityScanner、McpResponseSanitizer、GovernanceKernel 和 YAML policy。",
+      "visual_idea": "中央治理闸门分成扫描、策略、净化三层。",
+      "visible_label": "治理层",
+      "numeric_fact": ""
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文说明治理核会发出审计事件和 OpenTelemetry metrics。",
+      "visual_idea": "右侧安全通过的工具调用旁边出现审计脉冲。",
+      "visible_label": "审计",
+      "numeric_fact": ""
+    }
+  ],
+  "main_metaphor": "Agent 工具调用进入一座带仪表灯的治理闸门。",
+  "primary_subject": "中央的治理闸门",
+  "subject_action": "拦截左侧可疑 MCP 工具调用，放行右侧合规调用并写入审计信号。",
+  "composition": "左到右三段推进，中央单点主焦点。",
+  "style_direction": "isometric conceptual systems scene",
+  "comic_style": "japanese-manga",
+  "comic_style_reason": "文章讲的是工具调用治理流水线，读者需要顺着风险、策略、审计三个节点看完，适合日漫式分镜推进。",
+  "allowed_visible_text": ["风险85", "治理层", "审计"],
+  "color_palette": ["charcoal", "signal red", "teal", "paper white"],
+  "avoid": [
+    "真实产品截图",
+    "假 dashboard",
+    "假终端输出",
+    "超级英雄人物",
+    "长英文标题",
+    "不可追溯的指标"
+  ],
+  "reference_strategy": "纯文本生成，最终用项目内矢量源生成宽幅 JPG 封面。",
+  "draft_goal": "验证左侧风险、中央治理层、右侧审计放行的叙事是否一眼可读。",
+  "revision_targets": [
+    "减少文字密度",
+    "强化中央闸门主焦点",
+    "保留 2.35:1 宽图比例"
+  ],
+  "final_prompt": "Wide cover illustration, aspect ratio 2.35:1. Japanese-manga technical infographic with clean ink lines, limited teal red charcoal palette, one central isometric governance gate as the main subject. Left panel: a suspicious MCP tool call card with warning marks and the short Chinese label 风险85. Center: layered gate labeled 治理层, implying scan, policy, sanitize without fake UI. Right panel: a cleared tool call with small telemetry pulse labeled 审计. Dynamic left-to-right flow, manga speed lines, halftone texture, paper white background. No long text, no dashboard, no terminal, no fake charts, no watermark."
+}
