@@ -1,0 +1,52 @@
+{
+  "article_title": "在 Blazor 中用 Web Workers 运行后台任务：.NET 11 预览版新特性",
+  "cover_type": "tutorial",
+  "core_theme": ".NET 11 引入 Web Worker 模板，让 Blazor WASM 应用可以把 CPU 密集型任务放到独立线程运行，彻底解决 UI 卡死问题",
+  "reader_takeaway": "读完能搭出一个用 Web Worker 运行后台 .NET 代码的 Blazor WASM 应用，理解 JSExport、WebWorkerClient 和消息传递机制",
+  "summary_angle": "单线程 JS 引擎导致 UI 冻结 → Web Worker 把计算放到独立线程 → .NET 11 新模板大幅降低接入复杂度",
+  "narrative_flow": "before-after",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "JS 引擎 V8 是单线程的，CPU 密集任务会导致 UI 冻结，浏览器甚至建议关闭页面",
+      "visual_idea": "左侧：Blazor 应用 UI 冻结，浏览器警告'页面无响应'，角色一脸崩溃",
+      "visible_label": "UI 冻结",
+      "numeric_fact": null
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "dotnet new webworker 生成独立项目，通过 WebWorkerClient.CreateAsync 启动后台 .NET 运行时",
+      "visual_idea": "中间：分镜显示 dotnet new webworker 命令，右侧产生独立的 Web Worker 气泡",
+      "visible_label": "webworker",
+      "numeric_fact": null
+    },
+    {
+      "role": "step",
+      "source_anchor": "[JSExport] 修饰的静态方法在 Worker 线程运行，结果序列化后传回主线程",
+      "visual_idea": "右侧：[JSExport] 标签飘在独立线程旁，主线程和 Worker 线程之间有消息气泡",
+      "visible_label": "JSExport",
+      "numeric_fact": null
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "缓存 WebWorkerClient 实例，避免每次冷启动重加载 .NET 运行时的开销",
+      "visual_idea": "底部：复用箭头连接两个调用场景，第一次慢、之后快",
+      "visible_label": "复用实例",
+      "numeric_fact": null
+    }
+  ],
+  "main_metaphor": "主线程与工作线程之间的分工：一个角色负责 UI 响应，另一个在后台拼命计算",
+  "primary_subject": "一个程序员角色坐在主线程前保持 UI 流畅，旁边有一个机械臂/工人在独立空间处理繁重任务",
+  "subject_action": "主角色操控 UI，助手在 Worker 线程中运行计算",
+  "composition": "左右对照",
+  "style_direction": "editorial technical illustration with manga panel storytelling",
+  "comic_style": "japanese-manga",
+  "comic_style_reason": "tutorial 类型，有明确的 before-after 流程叙事（UI 冻结→Web Worker 解救），适合分镜推进的日漫风格",
+  "allowed_visible_text": ["UI 冻结", "webworker", "JSExport"],
+  "color_palette": ["#1a1a2e", "#6C3483", "#17a2b8", "#f8f9fa"],
+  "avoid": ["假终端输出", "假 dashboard", "超级英雄", "赛博朋克霓虹", "通用机器人站姿", "代码雨"],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证主题（单线程 UI 冻结 vs Web Worker 后台运算）、左右分镜构图、日漫风格是否成立",
+  "revision_targets": ["确保左侧 UI 冻结场景清晰", "右侧 Worker 线程计算感要体现", "避免文字堆砌"],
+  "final_prompt": "Wide cover illustration, aspect ratio 2.35:1. Japanese manga panel comic style with ink lines, limited color palette (deep navy, purple, teal, white). Left panel: a developer character stares at a frozen browser screen showing 'UI 冻结' label, face showing frustration, halftone dots in background. Right panel: a mechanical worker arm or assistant character inside a separate bubble/thread space, busy processing data with speed lines, label 'webworker' floating nearby. Center divider shows a clean separation line with a message bubble passing between the two panels. Small '[JSExport]' label on the right panel method call. Overall layout: left-right contrast composition. No fake UI screenshots, no dashboard, no charts, no terminals, no hero slogans. Clean, readable, two-panel manga storytelling."
+}
