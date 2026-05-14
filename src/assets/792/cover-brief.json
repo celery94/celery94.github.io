@@ -1,0 +1,38 @@
+{
+  "article_id": "792",
+  "article_type": "release",
+  "title": ".NET 11 Process API 全面升级",
+  "summary_angle": ".NET 11 彻底改造 Process API：一行代码捕获进程输出、告别管道死锁、苹果 Silicon 性能提升 98 倍",
+  "narrative_flow": "旧 API 死锁困境 → 新 API 一行搞定 → 苹果 Silicon 98x 更快",
+  "information_blocks": [
+    {
+      "label": "旧方法死锁",
+      "detail": "顺序读取两个流，管道缓冲区满则卡死",
+      "source": "Sequential reads block on pipe buffer"
+    },
+    {
+      "label": "一行搞定",
+      "detail": "Process.RunAndCaptureText(\"dotnet\", [\"--help\"])",
+      "source": "RunAndCaptureText one-liner API"
+    },
+    {
+      "label": "98x 更快",
+      "detail": "Apple Silicon 进程启动速度提升 98 倍 (posix_spawn)",
+      "source": "98x improvement on Apple Silicon"
+    },
+    {
+      "label": "NativeAOT -32%",
+      "detail": "使用 SafeProcessHandle，NativeAOT 体积缩小 32%",
+      "source": "32% smaller NativeAOT binaries"
+    }
+  ],
+  "comic_style": "japanese-manga",
+  "comic_style_reason": "release 类型文章默认选择 japanese-manga，分镜化叙事适合展示新 API 解决旧问题的转折",
+  "main_subject": "一名开发者面对进程输出管道死锁问题，.NET 11 的新 API 如魔法般一行解决，背景有速度线和分镜对比",
+  "composition": "宽封面 2.35:1，左侧展示旧代码死锁场景（红色警告），右侧展示新 RunAndCaptureText 一行代码（绿色成功），中间穿插速度线象征性能提升",
+  "style": "japanese-manga, ink lines, speed lines, limited color palette, black and white with accent colors",
+  "color_palette": "墨线黑白主调，错误用红色，成功用绿色，速度线用金色",
+  "forbidden_elements": ["fake UI", "fake dashboard", "fake charts", "English slogans", "fake terminal output"],
+  "visible_text": ["旧方法", "一行搞定", "98x"],
+  "final_prompt": "Wide cover illustration in japanese manga style, aspect ratio 2.35:1. Split-panel composition: left panel shows a developer frustrated by a deadlock (red warning signs, pipe buffer overflow symbols, code fragments in chaos), right panel shows the same developer triumphant holding a single line of code 'RunAndCaptureText()' with green success glow and dynamic speed lines. Background has manga speed lines radiating outward. Small Chinese labels: '旧方法' on left panel, '一行搞定' on right panel, '98x' as a bold accent number. Ink line art style with minimal colors - mostly black/white with red for error and green for success. No fake UI, no dashboard, no English slogans."
+}
