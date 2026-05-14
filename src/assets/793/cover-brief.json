@@ -1,0 +1,39 @@
+{
+  "article_type": "tutorial",
+  "id": "793",
+  "slug": "csharp-linq-set-operations-distinct-union-intersect-except",
+  "title": "LINQ 集合操作：Distinct、Union、Intersect、Except 全解析",
+  "summary_angle": ".NET 6 引入的 *By 变体（DistinctBy、UnionBy、IntersectBy、ExceptBy）让集合操作不再需要自定义 IEqualityComparer，只需一个 key selector 即可",
+  "narrative_flow": "从左到右展示四种集合操作的对照：去重 → 合并 → 取交集 → 取差集，每格对应一个操作的"旧写法 vs 新写法"",
+  "information_blocks": [
+    {
+      "label": "去重",
+      "anchor": "DistinctBy(p => p.Name) 替代 GroupBy + First",
+      "position": "左上"
+    },
+    {
+      "label": "合并",
+      "anchor": "UnionBy(storeB, p => p.Id)，左序列优先",
+      "position": "右上"
+    },
+    {
+      "label": "取交",
+      "anchor": "IntersectBy(teamB.Select(e => e.Id), e => e.Id)",
+      "position": "左下"
+    },
+    {
+      "label": "取差",
+      "anchor": "ExceptBy(terminated.Select(e => e.Id), e => e.Id)",
+      "position": "右下"
+    }
+  ],
+  "main_conclusion": ".NET 6 的四个 *By 系列方法让 LINQ 集合操作彻底告别 IEqualityComparer 样板代码",
+  "main_subject": "一个程序员角色站在四个集合操作的分镜格中，每格展示一种操作的新旧对比",
+  "comic_style": "japanese-manga",
+  "comic_style_reason": "教程类文章，默认选 japanese-manga；分镜格式天然适合展示四种操作的并列对比",
+  "composition": "2.35:1 宽封面，四格分镜布局，每格一个集合操作主题",
+  "color_palette": "黑白墨线为主，少量蓝色高亮标注新 API",
+  "background_elements": "代码背景纹理，速度线强调新方法的简洁",
+  "forbidden_elements": ["英文口号", "fake UI", "fake dashboard", "fake chart", "fake terminal output", "fake architecture labels"],
+  "final_prompt": "Japanese manga style, wide cover illustration, aspect ratio 2.35:1. Four-panel manga layout showing C# LINQ set operations. Top-left panel: programmer deduplicating items with label '去重'. Top-right panel: two streams merging into one with label '合并'. Bottom-left panel: two circles overlapping (intersection) with label '取交'. Bottom-right panel: left set minus right set with label '取差'. Black and white ink lines with minimal blue accent highlights. Speed lines around the new API panels. Clean manga composition, no fake UI, no dashboard, no terminal output."
+}
