@@ -1,0 +1,45 @@
+{
+  "article_title": "C# LINQ 连接完全指南：Join、GroupJoin、LeftJoin、RightJoin 与 Zip",
+  "cover_type": "tutorial",
+  "core_theme": "C# LINQ 的各种连接操作，以及 .NET 10 如何用 LeftJoin/RightJoin 直接替代繁琐的旧左外连接写法",
+  "reader_takeaway": "知道每种连接操作对应哪种 SQL 场景，并能在 .NET 10 中用一行 LeftJoin 替代原来三步的 GroupJoin+SelectMany+DefaultIfEmpty",
+  "summary_angle": "从旧写法的三步繁琐到 .NET 10 一行 LeftJoin 的进化对比，同时理清 Join/GroupJoin/Zip/SelectMany 的适用边界",
+  "narrative_flow": "before-after",
+  "information_blocks": [
+    {
+      "role": "mechanism",
+      "source_anchor": "Join matches elements from two sequences where a key selector produces equal keys -- SQL INNER JOIN equivalent",
+      "visual_idea": "两个集合用键精确配对，不匹配的行被过滤掉",
+      "visible_label": "内连接",
+      "numeric_fact": null
+    },
+    {
+      "role": "contrast",
+      "source_anchor": "Before .NET 10, left outer join required GroupJoin + SelectMany + DefaultIfEmpty. .NET 10 introduced LeftJoin directly.",
+      "visual_idea": "左边面板：旧写法三步骤堆叠；右边面板：.NET 10 一行 LeftJoin，清爽对比",
+      "visible_label": "LeftJoin",
+      "numeric_fact": ".NET 10"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "Zip pairs elements by position -- not a relational join; if positions drift, use Join on a shared key instead",
+      "visual_idea": "两个平行序列按位置一一对应，像拉链一样咬合",
+      "visible_label": "位置配对",
+      "numeric_fact": null
+    }
+  ],
+  "main_metaphor": "数据管道中，不同接头（Join/LeftJoin/Zip）决定了两条管道如何汇合",
+  "primary_subject": "一名程序员站在两条数据流汇合点，手持 .NET 10 LeftJoin 接头，旁边是被丢弃的旧三段式写法",
+  "subject_action": "程序员用新接头（LeftJoin）轻松替换了旧三步管道，表情从苦恼变为满意",
+  "composition": "左右对照",
+  "style_direction": "editorial technical illustration with japanese-manga panel framing",
+  "comic_style": "japanese-manga",
+  "comic_style_reason": "tutorial 类型，叙事是'旧写法三步 vs 新 API 一行'的前后对比，适合日漫分镜节奏：左格旧写法苦恼，右格新 API 清爽，推进感强",
+  "allowed_visible_text": ["内连接", "LeftJoin", ".NET 10", "位置配对"],
+  "color_palette": ["深靛蓝", "白/浅灰", "墨线黑", "强调紫"],
+  "avoid": ["假终端截图", "假代码雨", "霓虹赛博朋克背景", "浮动UI芯片", "机器人站姿", "漫画主角与主题无关"],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证左右分镜对比构图、程序员主体动作、以及内连接/LeftJoin/位置配对三个信息块是否清晰可读",
+  "revision_targets": ["如果分镜文字太多改短标签", "如果程序员形象过于卡通化则强化墨线风格", "如果背景干扰主体则简化为纯色/网格"],
+  "final_prompt": "Wide cover illustration, aspect ratio 2.35:1. Japanese manga style: clean ink lines, limited color (deep indigo, white, black ink, accent purple), panel-based composition. TWO-PANEL left-right contrast layout divided by a bold panel gutter. LEFT PANEL (before): a manga programmer character looks stressed, tangled in three chained pipe connectors labeled '内连接' -- three steps, messy wires, frustrated expression. RIGHT PANEL (after): same programmer relaxed and confident, holding one clean connector labeled 'LeftJoin' with '.NET 10' chip badge, single streamlined pipe. Between panels a bold arrow indicating transformation. Bottom-left small panel shows a zipper-like pairing labeled '位置配对'. Speed lines suggest transition from old to new. No fake terminal output, no dashboard, no UI screenshot, no floating code rain, no hero text, no English slogans."
+}
