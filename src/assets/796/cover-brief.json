@@ -1,0 +1,52 @@
+{
+  "article_title": "从单体到模块化单体再到微服务：100k 用户下的 .NET 架构演进",
+  "cover_type": "architecture",
+  "core_theme": ".NET 系统应按可测量的痛点顺序演进：单体 → 模块化单体 → 选择性微服务，而非跟风架构潮流",
+  "reader_takeaway": "理解何时以及如何从单体演进到模块化单体，再有选择性地提取微服务，避免走弯路",
+  "summary_angle": "跳过模块化单体直接拆微服务是最贵的架构错误——Northwind Pay 把 11 个服务合并回 9 个之后，延迟才下降",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "Northwind Pay：100k 用户时有 11 个服务，P99 延迟反而更差，2/3 的故障由不存在的服务间网络问题引起",
+      "visual_idea": "一个工程师面对混乱的微服务拓扑图，满头问号",
+      "visible_label": "过早拆分",
+      "numeric_fact": "11"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "模块化单体：单一可部署，但内部有严格边界——contracts、schema 隔离、集成事件",
+      "visual_idea": "一个整洁的建筑立面，内部有清晰分区的格局图",
+      "visible_label": "模块化单体",
+      "numeric_fact": null
+    },
+    {
+      "role": "step",
+      "source_anchor": "提取服务需满足 5 个标准中的至少 2 个：不同扩展需求、不同可靠性需求、独立团队、数据隔离、稳定 6 个月",
+      "visual_idea": "从整体中分离出两个独立模块，其余保持完整",
+      "visible_label": "按需提取",
+      "numeric_fact": "2/5"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "架构演进应跟随可测量的痛点，而非炒作。这是文章反复出现的核心论点",
+      "visual_idea": "一条清晰的进化路径箭头：单体 → 模块化 → 微服务",
+      "visible_label": "痛点驱动",
+      "numeric_fact": null
+    }
+  ],
+  "main_metaphor": "建筑演进：从小屋扩建为公寓楼再有选择性地独立分楼",
+  "primary_subject": "一个 .NET 工程师站在三阶段架构演进路径前，指向模块化单体",
+  "subject_action": "指示清晰的演进路径，周围有结构化模块组成的建筑",
+  "composition": "斜向推进",
+  "style_direction": "isometric conceptual systems scene",
+  "comic_style": "japanese-manga",
+  "comic_style_reason": "architecture 类型，叙事是流程推进（单体→模块化单体→微服务），左到右三步推进，选 japanese-manga",
+  "allowed_visible_text": ["过早拆分", "模块化单体", "痛点驱动"],
+  "color_palette": ["#1a1a2e", "#16213e", "#e94560", "#f5a623"],
+  "avoid": ["假架构图标签", "假仪表板", "UI截图", "霓虹科技背景", "超级英雄海报风格"],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证三阶段演进主线清楚、主体明确、漫画分镜风格成立",
+  "revision_targets": ["信息块可读性", "构图方向清晰度", "漫画叙事感"],
+  "final_prompt": "Wide cover illustration, aspect ratio 2.35:1. Japanese manga style: ink lines, speed lines, panel gutters, limited color palette (dark navy #1a1a2e, deep blue #16213e, vivid red #e94560, amber #f5a623). Three-beat narrative panels arranged diagonally left-to-right. Panel 1 (left): a software engineer surrounded by chaotic tangled microservice nodes, expression of frustration, small callout chip '过早拆分' and number '11'. Panel 2 (center): clean modular building cross-section with 4 distinct internal zones separated by bold lines, callout chip '模块化单体'. Panel 3 (right): two modules cleanly separating from the main structure with directional arrows, engineer confident, callout chip '痛点驱动'. Bold panel gutters between scenes. Diagonal composition flowing left to right. No fake UI, no fake charts, no fake terminals, no English slogans, no watermarks. Maximum 3 visible Chinese labels."
+}
