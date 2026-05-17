@@ -1,0 +1,54 @@
+{
+  "article_title": ".NET 项目必加的 5 类架构测试",
+  "cover_type": "tutorial",
+  "core_theme": "用 ArchUnitNET 把架构规则写成自动化测试，让 CI 来守护层依赖、命名规范、类共位、可见性和第三方库边界",
+  "reader_takeaway": "掌握 5 类架构测试的写法，能在 .NET 项目里用 ArchUnitNET 把架构约定变成可执行的门禁规则",
+  "summary_angle": "架构文档会被遗忘，自动化测试不会——一张封面呈现「规则落地」的转化弧线",
+  "narrative_flow": "before-after",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "原文开头：Every project starts with good intentions... Six months later, someone moves a domain service into the Infrastructure project...",
+      "visual_idea": "一个层级图被打破的画面，箭头方向乱了",
+      "visible_label": "依赖混乱",
+      "numeric_fact": null
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "ArchUnitNET setup: ArchLoader scans assemblies and builds an in-memory model",
+      "visual_idea": "一个工具扫描多个程序集，生成内存模型",
+      "visible_label": "ArchUnitNET",
+      "numeric_fact": null
+    },
+    {
+      "role": "step",
+      "source_anchor": "5 types: Layer, Naming, Colocation, Visibility, Dependency Guard",
+      "visual_idea": "5 个整齐排列的检查标签或编号块",
+      "visible_label": "5 类守护",
+      "numeric_fact": "5"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "结论：Architecture tests are a safety net that catches violations before they reach production. They run in milliseconds.",
+      "visual_idea": "CI 绿灯通过，检测极快",
+      "visible_label": "CI 拦截",
+      "numeric_fact": null
+    }
+  ],
+  "main_metaphor": "建筑蓝图变成自动化安全网：架构规则从文档迁移到测试断言",
+  "primary_subject": "一个清晰的层级结构图被测试工具守护着",
+  "subject_action": "ArchUnitNET 扫描程序集，箭头指向正确的层依赖方向",
+  "composition": "斜向推进",
+  "base_style": "editorial technical illustration",
+  "selected_style": "极简线稿风",
+  "selected_style_prompt_descriptor": "minimalist line-art illustration, sparse clean strokes, ample negative space, precise symbolic objects, limited accent color",
+  "selected_style_reason": "随机从 40 项风格池中选中第 19 项；极简线稿的干净感与 Clean Architecture 的分层逻辑高度一致，留白也能让信息块清晰可读",
+  "style_safety_note": "极简线稿风无品牌或艺术家强指向，无需安全改写",
+  "allowed_visible_text": ["依赖混乱", "ArchUnitNET", "5 类守护", "CI 拦截"],
+  "color_palette": ["#1A1A2E", "#4A90D9", "#F5F5F5", "#E8B84B"],
+  "avoid": ["真实仪表盘截图", "假代码终端", "赛博朋克霓虹背景", "通用机器人", "浮动 HUD"],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮验证：层级图主体清晰，ArchUnitNET 工具感可见，4 个信息块可读，极简线稿风格到位",
+  "revision_targets": ["如果信息块文字过密，减少到 3 个", "如果层级图不清晰，改用更明确的箭头指向", "如果背景太空，增加轻量网格或虚线辅助"],
+  "final_prompt": "Wide cover illustration, aspect ratio 2.35:1. Editorial technical illustration with minimalist line-art style: sparse clean strokes, ample negative space, precise symbolic objects, limited accent color. Show a Clean Architecture layer diagram (Domain, Application, Infrastructure, Presentation as horizontal bands) with directional arrows enforced by a scanning tool. Four small callout chips in the composition: Chinese labels '依赖混乱' (crossed-out left side), 'ArchUnitNET' (center tool), '5 类守护' (right side list), 'CI 拦截' (bottom green check). Diagonal composition from problem (upper-left, broken arrows) to solution (lower-right, correct arrows + green check). Color palette: dark navy #1A1A2E, clear blue #4A90D9, light gray #F5F5F5, amber #E8B84B. No dashboard, no terminal, no fake chart axes, no English slogans, no watermark, no decorative clutter."
+}
