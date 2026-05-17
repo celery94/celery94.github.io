@@ -1,0 +1,54 @@
+{
+  "article_title": "用例半成功怎么办：在 .NET 中为局部失败设计恢复策略",
+  "cover_type": "architecture",
+  "core_theme": "一个用例调用多个系统时，副作用按类型分为事务性、可逆外部、不可逆外部三类，每类有对应策略：事务提交放最后、不可逆副作用走 Outbox、外部可逆调用用幂等键或补偿事件",
+  "reader_takeaway": "能把副作用分类，知道在支付+数据库+邮件场景下如何避免重复扣款、数据丢失、静默吞错",
+  "summary_angle": "同一个用例，支付成功但数据库提交失败 → 三类副作用 → 三条不同出路",
+  "narrative_flow": "conflict-to-resolution",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "The customer was charged once, but our system thought the payment had failed. The payment provider had taken the money, the order had rolled back to a draft state",
+      "visual_idea": "一个订单节点拆成三条路径，中间有一条路径断裂",
+      "visible_label": "半成功",
+      "numeric_fact": null
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "Three categories: Transactional / External and reversible / External and irreversible",
+      "visual_idea": "三条分支路径，分别标注事务、可逆、不可逆",
+      "visible_label": "3类副作用",
+      "numeric_fact": "3"
+    },
+    {
+      "role": "step",
+      "source_anchor": "Strategy 1: Pull Transactional Work to the End — commit last, after all external calls have either succeeded or been explicitly tolerated",
+      "visual_idea": "事务提交节点在最末端",
+      "visible_label": "事务最后提交",
+      "numeric_fact": null
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "Irreversible work goes through the Outbox pattern, not the use case. External, reversible work uses idempotency keys first, compensating events second.",
+      "visual_idea": "Outbox 和幂等键作为两个保护符号",
+      "visible_label": "Outbox",
+      "numeric_fact": null
+    }
+  ],
+  "main_metaphor": "一个订单处理管道分叉成三条路，部分管道有裂口，修复方式各不相同",
+  "primary_subject": "一个订单处理管道节点，正在向三个方向分叉",
+  "subject_action": "三条分支路径，其中一条有裂口，旁边有修复机制的图示",
+  "composition": "等距空间或层级式关系",
+  "base_style": "isometric conceptual systems scene",
+  "selected_style": "游戏原画风",
+  "selected_style_prompt_descriptor": "game concept art illustration, clear hero object, readable environment storytelling, polished lighting, production-art detail",
+  "selected_style_reason": "随机从40项风格池中选中；游戏原画风的立体结构图和清晰焦点适合表达系统架构中的分叉与修复",
+  "style_safety_note": "游戏原画风不强指向特定品牌或艺术家，无需改写",
+  "allowed_visible_text": ["半成功", "3类副作用", "Outbox"],
+  "color_palette": ["深蓝", "琥珀橙", "灰白", "警示红"],
+  "avoid": ["假仪表盘", "假终端输出", "赛博朋克霓虹灯", "通用机器人站姿", "浮夸 HUD 浮层", "代码雨背景"],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮先验证：三条路径的分叉结构是否清楚、主焦点（订单节点）是否突出、可见中文标签是否在 3 个以内",
+  "revision_targets": ["如果路径数量不清晰，减少视觉元素突出3条分支", "如果主标签不可读，加深背景对比", "如果出现假图表或假代码，移除并改用抽象图形"],
+  "final_prompt": "A wide cover illustration, aspect ratio 2.35:1. Isometric conceptual systems scene with game concept art illustration style — clear hero object, readable environment storytelling, polished lighting, production-art detail. The scene shows a central order-processing node splitting into three diverging pipeline paths. One path (database transaction) leads to a solid secure endpoint shown last in the sequence. One path (external payment) has a visible crack or break in the middle — suggesting partial failure. One path (email notification) feeds into a floating outbox container. The composition uses isometric equal-distance spatial layout with warm amber highlights on the secure path, warning red on the cracked path, and cool blue on the outbox path. Deep blue and grey-white background. A small Chinese label chip '半成功' near the cracked section, '3类副作用' near the branching origin, 'Outbox' near the notification container. No dashboard, no fake terminal, no fake chart axes, no hero title text, no English slogans, no watermark, no neon cityscape background."
+}
