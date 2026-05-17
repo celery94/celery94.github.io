@@ -1,0 +1,66 @@
+{
+  "article_title": "用 Redis Backplane 横向扩展 SignalR：消息路由、粘性会话与故障边界",
+  "cover_type": "architecture",
+  "core_theme": "SignalR 在多实例部署时连接状态是服务器本地的，需要 Redis backplane 帮助跨实例路由消息，但它不替代粘性会话，也不会在 Redis 故障期间缓存消息。",
+  "reader_takeaway": "读者能理解 SignalR 横向扩展时为什么会丢消息，如何接入 Redis backplane，以及上线前必须检查的两个边界。",
+  "summary_angle": "从分裂的本地连接表，到通过 Redis 转发跨实例消息，同时暴露粘性会话和不缓存消息两个生产约束。",
+  "narrative_flow": "conflict-to-resolution",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "原文 Why SignalR Breaks When You Scale Out：每个服务器只知道连接到自己的客户端。",
+      "visual_idea": "左侧服务器和客户端之间有本地连接线，跨服务器路径断开。",
+      "visible_label": "连接分裂",
+      "numeric_fact": ""
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文 The Backplane Pattern：服务器把消息发布到 backplane，其他实例再转发给本地客户端。",
+      "visual_idea": "中央 Redis 中继节点把两台 .NET 服务器重新连接起来。",
+      "visible_label": "Redis",
+      "numeric_fact": ""
+    },
+    {
+      "role": "caveat",
+      "source_anchor": "原文 The Sticky Sessions Requirement：Redis 解决消息路由，但仍需要 sticky sessions。",
+      "visual_idea": "底部小面板展示 negotiate 与 WebSocket 升级必须落到同一实例。",
+      "visible_label": "粘性会话",
+      "numeric_fact": ""
+    },
+    {
+      "role": "caveat",
+      "source_anchor": "原文 What Happens When Redis Goes Down：Redis 不可用期间 SignalR 不缓存消息。",
+      "visual_idea": "底部小面板展示 Redis 故障时消息没有队列留存。",
+      "visible_label": "不缓存",
+      "numeric_fact": ""
+    }
+  ],
+  "main_metaphor": "两个应用服务器之间原本断裂的消息通道，被中央 Redis 中继桥重新接上。",
+  "primary_subject": "中央 Redis 中继节点连接两台 .NET 服务器和多端客户端",
+  "subject_action": "消息从一个服务器实例经过 Redis backplane 转发到另一个服务器实例上的客户端",
+  "composition": "等距空间，中央 Redis 为主焦点，左右两侧分别是 .NET 服务器和客户端，底部用两个小信息块提示生产约束。",
+  "base_style": "isometric conceptual systems scene",
+  "selected_style": "青年写实风",
+  "selected_style_prompt_descriptor": "mature realistic comic illustration, grounded anatomy, restrained expressions, cinematic everyday lighting, detailed but readable scenes",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；横向扩展和故障边界适合用更克制、清晰的写实漫画质感表达。",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻。",
+  "allowed_visible_text": ["连接分裂", "Redis", "粘性会话", "不缓存"],
+  "color_palette": ["graphite black", "Redis red", ".NET violet", "muted teal"],
+  "avoid": [
+    "霓虹城市背景",
+    "通用机器人",
+    "代码雨",
+    "真实产品截图",
+    "伪造 dashboard",
+    "伪造终端输出",
+    "无关图标堆叠"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证主题是否能一眼看出 SignalR 多实例、Redis backplane、粘性会话和不缓存消息四个节点。",
+  "revision_targets": [
+    "如果可见文字过多，减少到底部两个 caveat 标签和中央 Redis 标签。",
+    "如果像真实系统架构图，改为更插画化的等距场景。",
+    "如果 Redis 主体不清晰，强化中央中继节点和红色消息路径。"
+  ],
+  "final_prompt": "Use case: infographic-diagram. Asset type: wide cover infographic illustration for a Chinese tech blog article, aspect ratio 2.35:1. Primary request: create a wide cinematic infographic-story cover illustration that summarizes scaling ASP.NET Core SignalR with a Redis backplane. Theme: SignalR connections are local to each server instance; after scaling to multiple replicas, messages can disappear unless a Redis backplane routes messages across instances and sticky sessions keep negotiation and WebSocket upgrade on the same server. Summary angle: from fractured server-local connection maps to coordinated cross-instance delivery through Redis, with two caveats still visible. Information blocks: 连接分裂, Redis, 粘性会话, 不缓存. Main metaphor: two application server blocks separated by a broken route, reconnected by a central Redis relay bridge. Style/medium: combine isometric conceptual systems scene with mature realistic comic illustration, grounded forms, restrained expressions, cinematic everyday lighting, detailed but readable scenes. No watermark, no screenshots, no dashboards, no fake terminal output, no fabricated metrics."
+}
