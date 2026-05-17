@@ -1,0 +1,51 @@
+{
+  "article_title": "GitHub Copilot 的编码套件：VS Code 里 AI 真正在做什么",
+  "cover_type": "architecture",
+  "core_theme": "VS Code 的 coding harness 是连接语言模型与编辑器动作的系统层，负责上下文组装、工具暴露和工具执行，驱动 agent 循环",
+  "reader_takeaway": "理解模型只生成文本，套件才是让文本变成实际操作的那层；以及 VS Code 如何评测和适配不同模型",
+  "summary_angle": "模型是发动机，套件才是整辆车——这张封面展示套件如何把模型输出变成真实编辑器动作",
+  "narrative_flow": "layered reveal",
+  "information_blocks": [
+    {
+      "role": "mechanism",
+      "source_anchor": "Context assembly, Tool exposure, Tool execution — the three main responsibilities of the coding harness",
+      "visual_idea": "三个模块化节点围绕中心主体排列，标注编号",
+      "visible_label": "上下文",
+      "numeric_fact": "3"
+    },
+    {
+      "role": "problem",
+      "source_anchor": "Language models do not edit files, execute commands, or run tests by themselves. They can only produce text.",
+      "visual_idea": "模型作为中心发光体，只输出文字流；套件作为环绕层将文字转化为动作箭头",
+      "visible_label": "套件"
+    },
+    {
+      "role": "evidence",
+      "source_anchor": "think → act → observe → think again cycle — the agent loop",
+      "visual_idea": "循环箭头或螺旋轨迹，表达迭代推进感",
+      "visible_label": "循环"
+    },
+    {
+      "role": "contrast",
+      "source_anchor": "40 VSC-Bench runs across eight model-effort configurations",
+      "visual_idea": "右侧角落小型散点图剪影或数字标注，表示评测维度",
+      "numeric_fact": "40"
+    }
+  ],
+  "main_metaphor": "汽车发动机与车身的关系：模型是发动机，harness 是整辆车",
+  "primary_subject": "VS Code 编辑器窗口外壳作为主体，内部流动着上下文→工具→动作的信息流",
+  "subject_action": "编辑器窗口作为套件容器，向语言模型发送请求，接收文本并转换为代码编辑动作",
+  "composition": "等距空间或层级式关系",
+  "base_style": "isometric conceptual systems scene",
+  "selected_style": "游戏原画风",
+  "selected_style_prompt_descriptor": "game concept art illustration, clear hero object, readable environment storytelling, polished lighting, production-art detail",
+  "selected_style_reason": "从40项风格池中随机选中第35项；游戏原画风擅长展示模块化系统关系，清晰的英雄主体加辅助环境叙事，适合架构型文章",
+  "style_safety_note": "游戏原画风为通用视觉风格描述，不指向特定游戏品牌、工作室或艺术家，无需额外安全改写",
+  "allowed_visible_text": ["上下文", "套件", "循环", "40"],
+  "color_palette": ["深海蓝 #1A2D4F", "琥珀橙 #E87B2F", "白 #F5F5F5", "深灰 #2A2A35"],
+  "avoid": ["伪造的 VS Code 界面截图", "真实代码片段", "假终端输出", "假图表坐标轴", "漂浮芯片堆积", "通用机器人形象"],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "先验证：等距三层架构（上下文→模型→动作）+ 循环箭头 + 游戏原画质感是否成立",
+  "revision_targets": ["如果模型主体不够突出，加强中心发光效果", "如果信息块太密，压缩为2个可见标签", "如果出现假界面元素，改为抽象几何形式"],
+  "final_prompt": "Wide cover illustration, aspect ratio 2.35:1. Game concept art illustration, clear hero object, readable environment storytelling, polished lighting, production-art detail. Isometric conceptual systems scene. Deep navy background #1A2D4F. Central glowing language model core (abstract luminous sphere or crystal) surrounded by three orbital modules labeled with small Chinese chips: '上下文' '套件' '循环'. A stylized VS Code-inspired editor window frame (isometric, abstracted, not a real UI screenshot) acting as the harness container that transforms text output into code edit actions. Flowing amber #E87B2F information streams connecting model core to action arrows. Small '40' numeric chip in corner representing 40 VSC-Bench evaluation runs. Strong focal contrast, polished game-art lighting, no fake UI, no dashboard, no chart axes, no terminal output, no English slogans, no watermarks. Wide cinematic composition."
+}
