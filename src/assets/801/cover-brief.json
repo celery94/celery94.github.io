@@ -1,0 +1,47 @@
+{
+  "article_title": "别再用 DateTime.Now：用 TimeProvider 让 .NET 代码可测试",
+  "cover_type": "tutorial",
+  "core_theme": "DateTime.Now 是 .NET 代码中的隐式全局状态，应该改用 TimeProvider 依赖注入，让时间相关逻辑可测试",
+  "reader_takeaway": "了解为什么 DateTime.Now 让测试变难，以及如何用 TimeProvider 或 IDateTimeProvider 接口解决，配合 FakeTimeProvider 控制测试时间",
+  "summary_angle": "一个改动（DateTime.Now → TimeProvider.GetUtcNow()）让订阅过期、试用结束、午夜窗口这三类场景全部可测试",
+  "narrative_flow": "before-after",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "DateTime.Now is scattered everywhere: services, validators, business rules, even domain entities. It looks innocent. But it quietly breaks your tests.",
+      "visual_idea": "左侧：一个代码面板里 DateTime.Now 高亮显示，旁边出现红叉，代表不可测试",
+      "visible_label": "旧方式",
+      "numeric_fact": null
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "The fix is simple: inject time as a dependency. Register it once in DI: builder.Services.AddSingleton(TimeProvider.System);",
+      "visual_idea": "中间：一个橙色箭头指向右侧，表示重构方向",
+      "visible_label": "注入时间",
+      "numeric_fact": null
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "FakeTimeProvider for testing... var time = new FakeTimeProvider(); time.SetUtcNow(...) // Now you can simulate ANY moment in time",
+      "visual_idea": "右侧：一个代码面板里 _timeProvider.GetUtcNow() 高亮显示，绿色对勾，可测试标签",
+      "visible_label": "可测试",
+      "numeric_fact": null
+    }
+  ],
+  "main_metaphor": "一个时钟被"插入"代码中——时间从全局隐患变成可控的依赖",
+  "primary_subject": "两个代码面板的左右对比：DateTime.Now（红叉）vs TimeProvider 注入（绿色对勾）",
+  "subject_action": "代码面板展示改造前后的对比，橙色箭头指向改造方向",
+  "composition": "左右对照",
+  "base_style": "editorial technical illustration",
+  "selected_style": "欧漫清线风",
+  "selected_style_prompt_descriptor": "European clear-line comic style, precise outlines, flat readable colors, tidy environments, restrained humor and detail",
+  "selected_style_reason": "随机从40项风格池中选中；欧漫清线风的精准线条和扁平配色与技术对比场景天然契合，视觉清晰不杂乱",
+  "style_safety_note": "欧漫清线风为通用视觉风格描述词，无品牌、工作室或特定艺术家指向，无需安全改写",
+  "allowed_visible_text": ["旧方式", "注入时间", "可测试"],
+  "color_palette": ["#1E2132 暗夜蓝（背景）", "#F5A623 橙色（箭头/强调）", "#4CAF50 绿色（正确路径）", "#E74C3C 红色（错误方式）"],
+  "avoid": ["假终端输出", "假 dashboard", "代码雨", "霓虹高楼", "通用机器人", "水印", "英文口号"],
+  "reference_strategy": "使用 src/assets/801/02-code-comparison.jpg 作为参考图，帮助模型理解主体关系（代码面板对比结构和配色）；不复制原图，只参考布局和色调",
+  "draft_goal": "第一轮验证：左右对比构图是否清晰，三个信息块标签是否可见且准确，主题是否一眼可识别为 .NET 时间依赖注入",
+  "revision_targets": ["如果代码面板文字过多或难以辨认，简化为符号化代码块", "如果箭头方向不清晰，加强橙色箭头", "如果信息块标签模糊，增加标签底板对比度"],
+  "final_prompt": "Wide cover illustration, aspect ratio 2.35:1. European clear-line comic style, precise outlines, flat readable colors, tidy environments. Left panel on dark background shows code with 'DateTime.Now' highlighted in orange, a red X mark in the corner, small Chinese label chip '旧方式'. Orange curved arrow pointing right from left panel to right panel. Right panel shows 'TimeProvider' with constructor injection code, a green checkmark, small Chinese label chip '可测试'. Center between panels a small chip label '注入时间'. Clean dark navy background #1E2132. Accent colors: orange #F5A623, green #4CAF50, red #E74C3C. No real terminal output, no dashboard, no fake chart axes, no fake architecture labels, no title text, no English slogans, no watermark, no code rain, no neon cityscape."
+}
