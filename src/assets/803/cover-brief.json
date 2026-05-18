@@ -1,0 +1,47 @@
+{
+  "article_id": "803",
+  "article_type": "release",
+  "title": ".NET 6-10 新增 LINQ 方法全览",
+  "summary_angle": "从 .NET 6 到 .NET 10，LINQ 新增了 15 个方法，逐一消灭了样板代码",
+  "core_conclusion": ".NET 6-10 陆续为 LINQ 添加了 Chunk、MinBy、CountBy、AggregateBy、LeftJoin 等 15 个方法，把过去需要 10 行手写循环或 GroupBy+ToDictionary 的场景压缩成一行",
+  "narrative_flow": "版本演进时间线：.NET 6（最大一批：8 个方法）→ .NET 7（排序简化）→ .NET 9（聚合革命）→ .NET 10（外连接登场）",
+  "information_blocks": [
+    {
+      "label": "NET 6",
+      "content": "Chunk / DistinctBy / MinBy / MaxBy / ExceptBy 等 8 个方法",
+      "anchor": "文章 .NET 6 Additions 节"
+    },
+    {
+      "label": "NET 9",
+      "content": "CountBy / AggregateBy / Index — 单次遍历替代 GroupBy",
+      "anchor": "文章 .NET 9 Additions 节，CountBy 单次遍历、AggregateBy seedSelector"
+    },
+    {
+      "label": "NET 10",
+      "content": "LeftJoin / RightJoin — 外连接正式进入 BCL",
+      "anchor": "文章 .NET 10 Additions 节"
+    }
+  ],
+  "main_subject": "一位 C# 程序员站在写满 LINQ 链式调用的黑板前，用手指向版本时间线",
+  "main_subject_action": "指向时间线上的 .NET 版本号，旁边漂浮着 Chunk() / CountBy() / LeftJoin() 等代码标签",
+  "composition": "宽封面 2.35:1，左侧主人物，右侧时间轴（6→7→9→10），信息块分布在时间轴节点旁",
+  "background": "深色渐变背景（深蓝 / 深紫），带速度线和分镜边框",
+  "comic_style": "japanese-manga",
+  "comic_style_reason": "文章类型为 release（版本发布记录），默认选 japanese-manga；分镜布局适合展示版本演进时间轴",
+  "color_palette": "黑白主调 + 少量青色 / 绿色高亮标注版本号节点",
+  "allowed_text": [
+    "NET 6",
+    "NET 9",
+    "NET 10",
+    "LINQ"
+  ],
+  "forbidden_elements": [
+    "假 dashboard",
+    "假终端输出",
+    "假 IDE 截图",
+    "英文长句口号",
+    "超级英雄",
+    "科技公司品牌 logo"
+  ],
+  "prompt": "Wide cover illustration, aspect ratio 2.35:1. Japanese manga style, black and white ink with limited cyan/green highlights. A C# developer in casual clothes stands at a blackboard covered in LINQ method chains, pointing at a vertical timeline on the right side. The timeline shows milestone nodes labeled 'NET 6', 'NET 9', 'NET 10' in bold Japanese manga lettering. Floating code fragments near each node: 'Chunk()' at NET 6, 'CountBy()' at NET 9, 'LeftJoin()' at NET 10. Speed lines radiate from each node suggesting rapid evolution. Panel borders separate the timeline nodes like manga panels. Dark gradient background (deep blue / deep purple). Composition: single protagonist on left third, timeline panels spanning right two thirds. Ink line art, hatching for shadows, limited spot color on version labels only. No fake UI, no fake terminal, no English slogans, no brand logos."
+}
