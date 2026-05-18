@@ -1,0 +1,45 @@
+{
+  "article_title": "IHostedService vs BackgroundService：.NET 10 后台任务选哪个",
+  "cover_type": "analysis",
+  "core_theme": "IHostedService 和 BackgroundService 的区别、适用场景，以及 5 个生产环境中的常见坑",
+  "reader_takeaway": "能清晰判断何时用 BackgroundService、何时用 IHostedService、何时该升级到 Hangfire/Quartz",
+  "summary_angle": "BackgroundService 覆盖 99% 的场景，但有 5 个生产坑会让你在凌晨 3 点接到警报",
+  "narrative_flow": "conflict-to-resolution",
+  "information_blocks": [
+    {
+      "role": "contrast",
+      "source_anchor": "IHostedService 是 2 个方法的原始接口；BackgroundService 是封装了生命周期的抽象基类，30 行代码缩到 6 行",
+      "visual_idea": "左侧一个复杂的接口齿轮装置（IHostedService 30行），右侧一个简洁的单按钮（BackgroundService 6行）",
+      "visible_label": "30行 vs 6行",
+      "numeric_fact": "30行 vs 6行"
+    },
+    {
+      "role": "problem",
+      "source_anchor": ".NET 6+ 默认行为：ExecuteAsync 抛出未处理异常会导致整个 Host 进程崩溃（BackgroundServiceExceptionBehavior.StopHost）",
+      "visual_idea": "一个后台服务爆炸，把整栋楼（API）都炸飞的画面",
+      "visible_label": "凌晨3点",
+      "numeric_fact": null
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "决策矩阵：BackgroundService 用于持续循环，IHostedService 用于一次性启动任务，Hangfire/Quartz 用于需要持久化/调度/仪表盘的场景",
+      "visual_idea": "三叉路标：BackgroundService（循环轮询）、IHostedService（启动任务）、Hangfire（持久化任务）",
+      "visible_label": "决策矩阵",
+      "numeric_fact": null
+    }
+  ],
+  "main_metaphor": "两个战士在擂台上——一个全副武装（IHostedService，手动管理生命周期），一个身手敏捷（BackgroundService，框架已封装），裁判手持决策矩阵",
+  "primary_subject": "BackgroundService 和 IHostedService 的对比关系",
+  "subject_action": "两种抽象在面对生产级后台任务时的力量对比，以及选择决策",
+  "composition": "左右对照",
+  "style_direction": "conceptual editorial illustration with american-comic graphic novel tension",
+  "comic_style": "american-comic",
+  "comic_style_reason": "analysis 类型文章，核心是对照判断（BackgroundService vs IHostedService vs Hangfire），american-comic 的冲突感和对照构图更贴合决策型内容的气质",
+  "allowed_visible_text": ["30行 vs 6行", "凌晨3点", "决策矩阵"],
+  "color_palette": ["#1a1a2e", "#e94560", "#0f3460", "#f5f0e8"],
+  "avoid": ["真实 UI 截图", "假仪表盘", "假终端", "假架构图标签", "超级英雄形象"],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证左右对照的对比构图、漫画叙事风格、以及三个信息块的可读性",
+  "revision_targets": ["如果信息块文字太密，减少标签数量", "如果主体不清晰，强化左右两侧的视觉对比"],
+  "final_prompt": "Wide cover illustration, aspect ratio 2.35:1. American comic / graphic novel style: bold outlines, halftone shading, high-contrast dark palette (#1a1a2e navy, #e94560 red accent, off-white highlights). Left-right split composition. LEFT panel: A developer hunched over complex machinery — gears, wires, cables — labeled with Chinese short tag '30行' (30 lines). The machinery is overwhelming, detailed, hard to manage. RIGHT panel: Same developer, now relaxed, pressing a single glowing button — clean, minimal — labeled '6行' (6 lines). CENTER bottom: A directional signpost with three arrows pointing different ways: one to a loop icon (BackgroundService), one to a rocket/startup icon (IHostedService), one to a dashboard (Hangfire). Small text label '决策矩阵' on the signpost. Background: dramatic comic panels dividing the scene. NO fake UI, NO fake terminal, NO fake charts, NO English text, NO superhero imagery. Cinematic wide banner crop."
+}
