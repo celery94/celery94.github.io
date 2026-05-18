@@ -1,0 +1,41 @@
+{
+  "article_id": "804",
+  "article_type": "analysis",
+  "title": "EF Core 10大性能陷阱及修复方案",
+  "source_url": "https://codewithmukesh.com/blog/ef-core-performance-mistakes/",
+  "summary_angle": "EF Core 查询模式：开发环境正常通过，生产环境爆炸——10个常见陷阱与修复方案",
+  "main_conclusion": "EF Core 10 大性能陷阱（N+1、全实体返回、无 AsNoTracking、懒加载、笛卡尔积爆炸、延迟过滤、暴力批量、无分页、缺索引、未编译查询）均可在 10 行代码内修复",
+  "narrative_flow": "shock → identify → fix → measure",
+  "information_blocks": [
+    {
+      "label": "N+1陷阱",
+      "anchor": "100条订单 → 101次查询",
+      "visual": "多个SQL闪电箭头从单个请求爆发"
+    },
+    {
+      "label": "投影修复",
+      "anchor": "4秒 → 80毫秒",
+      "visual": "大块实体 vs 精准DTO对比"
+    },
+    {
+      "label": "批量操作",
+      "anchor": "ExecuteUpdateAsync快300-500倍",
+      "visual": "单条SQL覆盖10000行"
+    },
+    {
+      "label": "懒加载炸弹",
+      "anchor": "JSON序列化触发隐式查询",
+      "visual": "代码看起来正常，数据库被暗中轰炸"
+    }
+  ],
+  "main_subject": "震惊的.NET开发者盯着4秒响应时间的监控屏幕，后方数据库服务器爆炸冒烟",
+  "subject_action": "开发者手指指向屏幕上N+1查询数量，旁边有代码注解",
+  "composition": "wide 2.35:1，左侧主体（开发者+屏幕），右侧3个分镜信息块",
+  "background": "深色服务器机房，绿色代码流",
+  "comic_style": "american-comic",
+  "comic_style_reason": "analysis类文章，10个错误的对比与修复呈现冲突与判断张力，适合american-comic的粗轮廓、halftone、graphic-novel对照风格",
+  "color_palette": ["#1a1a2e", "#e94560", "#00ff88", "#f5f5dc"],
+  "visible_text": ["N+1", "4s→80ms", "×300"],
+  "forbidden_elements": ["假UI截图", "假dashboard", "假图表坐标", "假终端输出", "英文口号", "主标题文字"],
+  "final_prompt": "Wide cover illustration, aspect ratio 2.35:1, american comic graphic novel style. Left panel: a shocked .NET developer staring at a monitor showing '4s' response time in red, halftone background, bold ink outlines. Center: burst panel showing 101 SQL lightning bolts firing from a single API request labeled 'N+1'. Right: two comparison panels - top shows large entity blob vs slim DTO projection labeled '4s→80ms', bottom shows a single UPDATE arrow crushing 10000 rows labeled '×300'. Dark server room background with green code streams. Limited Chinese labels: N+1, 4s→80ms, ×300. No fake UI, no fake charts, no fake dashboards, no English slogans. Comic book halftone dots, speed lines, bold outlines."
+}
