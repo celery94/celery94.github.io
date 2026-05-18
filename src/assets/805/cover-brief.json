@@ -1,0 +1,41 @@
+{
+  "article_id": "805",
+  "article_type": "tutorial",
+  "article_title": ".NET 实现实时司机位置追踪：Redis GEO + 状态缓冲 + SignalR",
+  "core_conclusion": "高频短暂的 GPS 更新需要可变状态缓冲（不是队列）+ Redis GEO + SignalR，而不是 SQL 数据库，才能支撑百万级并发",
+  "reader_takeaway": "读完能用 .NET 搭建 Uber 同款实时位置追踪管道，知道 5 个最容易踩的反模式",
+  "summary_angle": "从 Uber 的百万级写入压力出发，展示 ConcurrentDictionary 状态缓冲 → Redis GEO 地理索引 → SignalR 实时推送 的三层设计",
+  "narrative_flow": "问题规模（百万/秒写入） → 可变状态缓冲（覆盖写非队列）→ Redis GEO → SignalR WebSocket 推送 → 水平扩展（Redis 背板）",
+  "information_blocks": [
+    {
+      "label": "每4秒/司机",
+      "anchor": "5 million active drivers, each sending a GPS update every 4 seconds → ~1.25 million writes per second",
+      "visual": "手机 GPS 信号多箭头射向服务器"
+    },
+    {
+      "label": "状态覆盖写",
+      "anchor": "ConcurrentDictionary<string, LocationUpdate> where each write simply overwrites the previous value",
+      "visual": "字典格子，最新位置覆盖旧值，废弃历史"
+    },
+    {
+      "label": "Redis GEO",
+      "anchor": "GEOSEARCH returning the 10 nearest drivers within 5km finishes in under a millisecond",
+      "visual": "地图圆形范围搜索，毫秒响应"
+    },
+    {
+      "label": "SignalR 推送",
+      "anchor": "riders watching their driver move on a map in real time, WebSocket group watching:{driverId}",
+      "visual": "WebSocket 连接线从服务器到乘客手机，地图实时更新"
+    }
+  ],
+  "comic_style": "japanese-manga",
+  "comic_style_reason": "教程 + 架构类文章，叙事方向是从左到右的流程推进（GPS 信号 → 缓冲 → Redis → SignalR → 手机），适合日漫分镜化流程叙事",
+  "main_subject": "一个 .NET 开发者在多个分镜中处理高速 GPS 数据流：第一格看到数字冲击（百万/秒），第二格用字典覆盖写丢掉旧值，第三格在 Redis 地图上圈出附近司机，第四格 SignalR 把更新推到乘客手机",
+  "composition": "宽横向分镜，四格从左到右，每格一个叙事节点，速度线强调数据高速流动",
+  "style_detail": "日漫分镜，墨线轮廓，高对比黑白+少量蓝色/红色点缀，速度线表示数据流速，技术图标（Redis logo 概念化处理为六边形缓存容器，手机GPS信号）",
+  "color_palette": "黑白墨线为主，蓝色代表数据流，红色圈出关键节点，少量绿色代表成功响应",
+  "forbidden_elements": ["真实 UI 截图", "假 dashboard", "假代码终端截图", "假图表坐标", "英文口号", "主标题文字", "Uber 商标或logo"],
+  "allowed_text": ["每4秒/司机", "状态覆盖写", "Redis GEO", "SignalR"],
+  "aspect_ratio": "2.35:1",
+  "final_prompt": "Japanese manga style wide cover illustration, aspect ratio 2.35:1. Four horizontal comic panels from left to right with speed lines throughout: Panel 1 - shock expression of .NET developer seeing '125万/秒' GPS data flood with multiple arrows from phone icons; Panel 2 - ConcurrentDictionary grid with latest value overwriting old ones (old values crossed out), small label '状态覆盖写'; Panel 3 - circular map radar with Redis hexagonal container at center, nearby driver dots highlighted in radius, label 'Redis GEO'; Panel 4 - WebSocket connection lines flowing from server to rider smartphone showing moving map dot, label 'SignalR'. Manga ink lines, high contrast black-white with blue data flow accents and red highlights on key nodes. No UI screenshots, no fake dashboards, no English slogans, no title text overlay."
+}
