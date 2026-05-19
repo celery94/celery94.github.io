@@ -1,0 +1,45 @@
+{
+  "article_title": "仓储模式在 .NET 10 中还值得用吗",
+  "cover_type": "analysis",
+  "core_theme": "DbContext 本身已是 Repository + Unit of Work 的实现，大多数团队在 EF Core 之上再包一层仓储是没有必要的抽象税",
+  "reader_takeaway": "能判断什么时候该用仓储模式，什么时候直接用 DbContext 更好，以及两者的性能差距",
+  "summary_angle": "50+ 个 API，ORM 从未被替换过——仓储模式的核心承诺从未兑现",
+  "narrative_flow": "conflict-to-resolution",
+  "information_blocks": [
+    {
+      "role": "contrast",
+      "source_anchor": "IUserRepository 包了 DbContext，DbContext 本身已是 Repository + Unit of Work，等于用抽象包抽象",
+      "visual_idea": "左侧：层层嵌套的俄罗斯套娃（IRepository → DbContext → Database），右侧：直接一条线连到数据库",
+      "visible_label": "套娃 vs 直连",
+      "numeric_fact": null
+    },
+    {
+      "role": "evidence",
+      "source_anchor": "仓储版本比薄处理器版本多传 38% 字节，查询时延从 6ms 升到 14ms",
+      "visual_idea": "两个测速表：仓储版指针在 14ms，薄处理器版指针在 6ms",
+      "visible_label": "6ms vs 14ms",
+      "numeric_fact": "38%"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "3 个真正需要仓储的场景：严格 DDD + 聚合根、领域层不能引用 EF Core（Clean Architecture）、多数据源合并",
+      "visual_idea": "三个绿色通行标志，其余五个场景打红叉",
+      "visible_label": "3种例外",
+      "numeric_fact": null
+    }
+  ],
+  "main_metaphor": "拆穿一个流传多年但几乎从未成立的技术承诺",
+  "primary_subject": "IUserRepository 套娃包裹 DbContext 的讽刺对比",
+  "subject_action": "抽象层被拆穿，暴露出里面的 DbContext",
+  "composition": "左右对照",
+  "style_direction": "conceptual editorial illustration with american-comic graphic novel tension",
+  "comic_style": "american-comic",
+  "comic_style_reason": "analysis 类型文章，核心是判断和反驳——仓储模式的承诺 vs 实际结果，american-comic 的对照和张力感适合这种揭穿式叙事",
+  "allowed_visible_text": ["套娃 vs 直连", "6ms vs 14ms", "3种例外"],
+  "color_palette": ["#1a1a2e", "#e94560", "#0f3460", "#f5f0e8"],
+  "avoid": ["真实 UI 截图", "假仪表盘", "假终端输出", "超级英雄形象", "假代码标签"],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证左右对照构图——套娃抽象 vs 直连——是否清晰传递出'多余的抽象层'主题",
+  "revision_targets": ["如果套娃形象不够清晰，改用脚手架/中间层形象", "如果数据对比不够醒目，放大速度表的差距"],
+  "final_prompt": "Wide cover illustration, aspect ratio 2.35:1. American comic graphic novel style: bold ink outlines, halftone dot shading, dark navy background (#1a1a2e), red accent highlights (#e94560), off-white highlights. LEFT-RIGHT split composition. LEFT PANEL: A developer struggling with a towering stack of nested boxes/wrappers — Russian matryoshka doll style layers labeled with small Chinese tags '套娃 vs 直连' — overwhelming, fragile, one layer inside another, the innermost being DbContext. The developer looks frustrated. RIGHT PANEL: Same developer, now confident, a single clean direct arrow from their code straight to a glowing database cylinder — no intermediary boxes, clean and fast. BOTTOM: Two speedometer gauges side by side — left gauge pointer at the slow end labeled '14ms', right gauge pointer at the fast end labeled '6ms'. Small Chinese label '6ms vs 14ms' between them. TOP RIGHT corner: three small green checkmark shields labeled '3种例外' to show the rare valid use cases. Style: dramatic American comic panel borders, high-contrast graphic novel composition, halftone textures. NO fake UI, NO fake terminal, NO fake code boxes, NO English text labels, NO superhero imagery. Wide cinematic banner crop 2.35:1."
+}
