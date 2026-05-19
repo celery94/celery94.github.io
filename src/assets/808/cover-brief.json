@@ -1,0 +1,45 @@
+{
+  "article_title": ".NET 10 NuGet 包裁剪：减少 70% 误报漏洞，还原更快",
+  "cover_type": "release",
+  "core_theme": ".NET 10 默认开启 NuGet 包裁剪，把 .NET 运行时已内置的包从依赖图中移除，70% 的传递性漏洞警告消失，restore 最多快 50%",
+  "reader_takeaway": "明白 .NET 10 包裁剪解决了什么问题、默认配置是什么、对项目有哪些可见影响",
+  "summary_angle": "平台已经提供的包不应该还在依赖图里触发虚假漏洞警告——.NET 10 把这件事做成了默认行为",
+  "narrative_flow": "before-after",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "System.Text.Json 已由 .NET 10 运行时提供，但旧包仍出现在依赖图里并触发 CVE 警告——这是误报",
+      "visual_idea": "一堆红色警告标志堆在开发者桌上，全是 System.Text.Json、System.Formats.Asn1 等平台内置包的漏洞报告",
+      "visible_label": "误报",
+      "numeric_fact": null
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "包裁剪在 restore 时从依赖图中移除平台已提供的包，不下载、不出现在 restore 输出里、不被 audit 报告",
+      "visual_idea": "一把剪刀精准剪断依赖图中多余的节点，图变得更干净",
+      "visible_label": "裁剪",
+      "numeric_fact": null
+    },
+    {
+      "role": "evidence",
+      "source_anchor": "在 Microsoft 遥测中，启用默认配置的项目与之前默认值相比，传递性漏洞报告减少 70%，restore 时间最多减少 50%",
+      "visual_idea": "两个对比柱：误报数 -70%，restore 时间 -50%",
+      "visible_label": "-70% 误报",
+      "numeric_fact": "70%"
+    }
+  ],
+  "main_metaphor": "剪刀裁去依赖图中的冗余节点，露出真正需要关注的部分",
+  "primary_subject": "NuGet 包裁剪 — 剪刀切断冗余依赖节点",
+  "subject_action": "restore 时自动移除平台内置包，让依赖图更干净",
+  "composition": "居中主物体",
+  "style_direction": "product-poster style illustration with japanese-manga clarity",
+  "comic_style": "japanese-manga",
+  "comic_style_reason": "release 类型文章，默认选 japanese-manga；干净的分镜叙事适合展示 before → after 的变化过程",
+  "allowed_visible_text": ["误报", "裁剪", "-70% 误报"],
+  "color_palette": ["#0d1b2a", "#00b4d8", "#90e0ef", "#f5f0e8"],
+  "avoid": ["真实终端截图", "假 CVE 报告界面", "超级英雄形象", "假图表坐标轴"],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证剪刀切断依赖图节点的主视觉是否清晰，before-after 对比是否可读",
+  "revision_targets": ["如果依赖图节点太乱，简化为 3-4 个节点", "如果剪刀不够显眼，放大并加速度线"],
+  "final_prompt": "Wide cover illustration, aspect ratio 2.35:1. Japanese manga style: clean ink outlines, speed lines, limited color palette with deep navy background (#0d1b2a), bright cyan accent (#00b4d8), light cyan highlights (#90e0ef), off-white. CENTER composition. MAIN SUBJECT: A large glowing pair of scissors cutting through a tangled web of dependency graph nodes — some nodes are red (false-positive vulnerability markers labeled '误报' in small Chinese) and get snipped away, the remaining nodes after the cut are clean blue circles connected by neat lines. The scissors are dynamic, with manga-style speed lines radiating outward. LEFT side of cut: messy red-highlighted nodes (redundant platform packages). RIGHT side of cut: clean minimal graph (only real dependencies). BOTTOM: Two simple bar charts side by side — left bar taller labeled '之前', right bar 70% shorter labeled '之后', with small Chinese text '-70% 误报' above them. Style: manga panel composition with dramatic speed lines, halftone dot textures in background, high-contrast ink outlines. NO fake terminal windows, NO fake UI, NO fake code, NO English text labels, NO superhero imagery. Wide 2.35:1 banner crop."
+}
