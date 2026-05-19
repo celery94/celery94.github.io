@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 340" font-family="Segoe UI, Arial, sans-serif" font-size="13">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#555"/>
+    </marker>
+    <style>
+      .executor { fill: #e8f0fe; stroke: #4285f4; stroke-width: 1.5; rx: 8; }
+      .request-port { fill: #fef7e0; stroke: #f9ab00; stroke-width: 1.5; rx: 8; }
+      .label { text-anchor: middle; dominant-baseline: central; fill: #222; }
+      .sublabel { text-anchor: middle; dominant-baseline: central; fill: #666; font-size: 10px; font-style: italic; }
+      .edge { stroke: #555; stroke-width: 1.5; fill: none; marker-end: url(#arrow); }
+    </style>
+  </defs>
+
+  <!-- Row 1: CreateApprovalRequest -->
+  <rect class="executor" x="255" y="20" width="210" height="44"/>
+  <text class="label" x="360" y="38">CreateApprovalRequest</text>
+  <text class="sublabel" x="360" y="52">Executor</text>
+
+  <!-- Arrow down -->
+  <line class="edge" x1="360" y1="64" x2="360" y2="84"/>
+
+  <!-- Row 2: ManagerApproval -->
+  <rect class="request-port" x="255" y="86" width="210" height="44"/>
+  <text class="label" x="360" y="104">ManagerApproval</text>
+  <text class="sublabel" x="360" y="118">RequestPort (pause)</text>
+
+  <!-- Arrow down -->
+  <line class="edge" x1="360" y1="130" x2="360" y2="150"/>
+
+  <!-- Row 3: PrepareFinanceReview -->
+  <rect class="executor" x="255" y="152" width="210" height="44"/>
+  <text class="label" x="360" y="170">PrepareFinanceReview</text>
+  <text class="sublabel" x="360" y="184">Executor</text>
+
+  <!-- Fan-out arrows -->
+  <line class="edge" x1="310" y1="196" x2="170" y2="224"/>
+  <line class="edge" x1="410" y1="196" x2="550" y2="224"/>
+
+  <!-- Row 4 Left: BudgetApproval -->
+  <rect class="request-port" x="55" y="226" width="210" height="44"/>
+  <text class="label" x="160" y="244">BudgetApproval</text>
+  <text class="sublabel" x="160" y="258">RequestPort (pause)</text>
+
+  <!-- Row 4 Right: ComplianceApproval -->
+  <rect class="request-port" x="455" y="226" width="210" height="44"/>
+  <text class="label" x="560" y="244">ComplianceApproval</text>
+  <text class="sublabel" x="560" y="258">RequestPort (pause)</text>
+
+  <!-- Fan-in arrows -->
+  <line class="edge" x1="170" y1="270" x2="310" y2="294"/>
+  <line class="edge" x1="550" y1="270" x2="410" y2="294"/>
+
+  <!-- Row 5: ExpenseReimburse -->
+  <rect class="executor" x="255" y="296" width="210" height="44"/>
+  <text class="label" x="360" y="314">ExpenseReimburse</text>
+  <text class="sublabel" x="360" y="328">Executor</text>
+</svg>

@@ -1,0 +1,52 @@
+{
+  "article_title": "Microsoft Agent Framework 中的持久化工作流实战",
+  "cover_type": "architecture",
+  "core_theme": "Microsoft Agent Framework (MAF) 提供了一套工作流编程模型，让开发者能以 Executor + WorkflowBuilder 组合 AI Agent 和普通步骤，从本地内存运行起步，一步步演进为可持久化、可分布式、可托管到 Azure Functions 的生产级编排系统",
+  "reader_takeaway": "理解 MAF 工作流从内存 → 持久化 → 云托管的演进路径，以及 Fan-Out/Fan-In、Human-in-the-Loop、MCP Tool 暴露等核心模式",
+  "summary_angle": "同一份工作流定义，换不同 runtime 即可获得持久化 + 可观测 + 云弹性——零改动 Executor 代码",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "step",
+      "source_anchor": "Executor<TInput, TOutput> 是最小工作单元，WorkflowBuilder 将多个 Executor 连成有向图",
+      "visual_idea": "第一格：三个方块（OrderLookup → OrderCancel → SendEmail）用箭头连成流水线",
+      "visible_label": "定义流程",
+      "numeric_fact": null
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "Microsoft.Agents.AI.DurableTask 基于 Durable Task 技术栈，每步完成后自动 checkpoint，进程重启不丢失进度",
+      "visual_idea": "第二格：同一流水线节点上出现检查点印章，底部有 DTS 状态存储层",
+      "visible_label": "持久化",
+      "numeric_fact": null
+    },
+    {
+      "role": "evidence",
+      "source_anchor": "AddFanOutEdge 让 Physicist 和 Chemist 两个 AI Agent 并行执行，AddFanInBarrierEdge 等待全部完成后继续",
+      "visual_idea": "第三格：中心节点分叉出两条并行路径（两个 AI Agent），再汇聚到聚合节点",
+      "visible_label": "并行 AI",
+      "numeric_fact": null
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "Azure Functions hosting 自动生成 HTTP 触发器，exposeMcpToolTrigger: true 将工作流暴露为 MCP 工具",
+      "visual_idea": "第四格：云端图标上方出现 HTTP 箭头和 MCP 徽章，表示对外可调用",
+      "visible_label": "云+MCP",
+      "numeric_fact": null
+    }
+  ],
+  "main_metaphor": "分镜流水线——四格漫画依次展示工作流从本地流水线到持久化分布式系统的演进",
+  "primary_subject": "由方块节点和箭头组成的工作流有向图",
+  "subject_action": "数据从左向右流经节点，检查点和并行分叉在各步骤上呈现",
+  "composition": "等距空间或层级式关系",
+  "style_direction": "isometric conceptual systems scene",
+  "comic_style": "japanese-manga",
+  "comic_style_reason": "architecture 类型，叙事方向是左到右流程推进（定义→持久化→并行→云端），符合 japanese-manga 的分镜节奏；三段式 + 四格布局与漫画分镜天然契合",
+  "allowed_visible_text": ["定义流程", "持久化", "并行 AI", "云+MCP"],
+  "color_palette": ["#1a1a2e", "#16213e", "#0f3460", "#e94560"],
+  "avoid": ["伪造终端输出", "假 dashboard 截图", "假图表坐标", "通用机器人站姿", "霓虹高楼背景", "赛博朋克紫蓝光污染"],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮先验证四格分镜布局、工作流节点-箭头主视觉、日漫线条风格是否成立",
+  "revision_targets": ["如果节点太模糊改清晰", "如果文字太多精简标签", "如果构图拥挤则减少细节"],
+  "final_prompt": "Wide cover illustration, aspect ratio 2.35:1. Japanese manga style: clean ink lines, speed lines, limited color palette (dark navy, red accent), panel gutters. Four-panel comic strip layout from left to right, each panel showing one stage of a software workflow evolution. Panel 1 (定义流程): three rectangles labeled as nodes connected by arrows forming a simple left-to-right pipeline. Panel 2 (持久化): same pipeline with checkpoint stamp icons on each node, DTS storage layer beneath. Panel 3 (并行 AI): center node splits into two parallel AI agent branches then merges at aggregator node. Panel 4 (云+MCP): cloud icon above the workflow with HTTP arrow and MCP badge. Minimal visible Chinese short labels: 定义流程, 持久化, 并行AI, 云+MCP. No fake terminal output, no dashboard screenshots, no chart axes, no watermark. Clean manga ink lines, monochrome with red highlights."
+}
