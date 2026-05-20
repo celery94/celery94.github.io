@@ -1,0 +1,41 @@
+{
+  "article_id": "812",
+  "article_type": "tutorial",
+  "title": "C# 反射：.NET 10 完全指南",
+  "summary_angle": "反射是强大的运行时工具，但有真实的性能代价——.NET 10 提供了更好的替代方案",
+  "narrative_flow": "从反射的核心 API 出发，经过性能陷阱警示，到达现代替代方案（FrozenDictionary、表达式树、[UnsafeAccessor]）",
+  "main_conclusion": "在类型编译时未知的场景合理使用反射，并用缓存、表达式树或源生成器应对性能需求",
+  "information_blocks": [
+    {
+      "label": "核心 API",
+      "content": "Type / PropertyInfo / MethodInfo / Assembly 构成反射的骨架",
+      "source_anchor": "Core Reflection Types section"
+    },
+    {
+      "label": "性能陷阱",
+      "content": "每次调 GetProperty 代价高昂；ConcurrentDictionary 缓存一次查找多次复用",
+      "source_anchor": "The Naive Pattern (Expensive) vs Cached Reflection section"
+    },
+    {
+      "label": "FrozenDictionary",
+      "content": ".NET 8+ 引入，写一次读多次场景无锁开销，比 ConcurrentDictionary 更快",
+      "source_anchor": "Upgrading to FrozenDictionary section"
+    },
+    {
+      "label": "[UnsafeAccessor]",
+      "content": ".NET 8+ 原生速度访问私有成员，AOT 兼容，替代反射的最佳选项",
+      "source_anchor": "UnsafeAccessor (.NET 8+) section"
+    }
+  ],
+  "comic_style": "japanese-manga",
+  "comic_style_reason": "教程类文章默认使用 japanese-manga；分镜化叙事适合展示从初始 API 探索到性能优化的递进步骤",
+  "main_subject": "一位开发者角色手持放大镜对着一个发光的代码对象，镜头中映射出 Type / PropertyInfo / MethodInfo 的分解结构",
+  "main_subject_action": "用放大镜检视代码对象，镜中显示反射元数据的分层结构",
+  "composition": "左侧主人公检视场景占 60%；右侧 3 个横排信息格（核心 API、性能陷阱、FrozenDictionary）各占余下空间",
+  "background": "简洁深色背景带轻微格纹，代码字符散落其间作点缀",
+  "color_palette": "深蓝黑 + 青色高亮 + 警示橙（标注性能陷阱）",
+  "visible_text": ["反射", "缓存", "FrozenDictionary"],
+  "forbidden_elements": ["假 UI 截图", "假终端输出", "假图表坐标", "英文口号", "长段说明文字"],
+  "aspect_ratio": "2.35:1",
+  "prompt": "Wide cover illustration, aspect ratio 2.35:1, japanese manga style with bold ink lines, limited color palette of dark navy blue and cyan highlights with orange accent. Left 60% panel: a developer character holding a magnifying glass over a glowing .NET assembly code object, the magnifying glass reveals PropertyInfo / MethodInfo / Type fragments floating inside. Right side: three vertically stacked manga panels — top panel shows a code block with caching (ConcurrentDictionary) and speed lines; middle panel shows a FrozenDictionary icon with fast arrow and '缓存' label; bottom panel shows [UnsafeAccessor] attribute tag glowing with native-speed lightning bolt. Background: dark grid with scattered code glyphs. Text labels in Chinese: '反射' near the magnifying glass, '缓存' on middle panel, 'FrozenDictionary' on bottom label. No fake dashboards, no fake terminal, no long English phrases. Manga ink style, halftone dots in shadow areas."
+}
