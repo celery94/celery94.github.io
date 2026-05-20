@@ -1,0 +1,45 @@
+{
+  "article_title": "Agentic-Agile：为什么 AI 智能体开发需要敏捷，而不只是提示词",
+  "cover_type": "analysis",
+  "core_theme": "提示词驱动的开发在规模化时会崩溃，需要将经典敏捷方法论适配给人类与 AI 智能体协作团队",
+  "reader_takeaway": "理解为什么 Spec-first + 结构化 Backlog + 治理优先的 Agentic-Agile 方法能解决提示词驱动开发的根本问题",
+  "summary_angle": "从混乱提示到结构化合约：对照两种开发方式的核心差异与根本原因",
+  "narrative_flow": "conflict-to-resolution",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "Prompt-driven development produces: No backlog, No concept of done, No phased delivery, No governance",
+      "visual_idea": "左侧：一个开发者被散乱的对话气泡和提示词包围，代码混乱飘散",
+      "visible_label": "提示词驱动",
+      "numeric_fact": null
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "Agentic-Agile: Specs in Backlog first → Contract-driven execution → Incremental delivery → Governance from day one",
+      "visual_idea": "右侧：整齐的看板/故事卡片，人类与 AI 智能体并排在一个有序的工作流中",
+      "visible_label": "规范先行",
+      "numeric_fact": null
+    },
+    {
+      "role": "contrast",
+      "source_anchor": "Upgrading the model does not fix missing acceptance criteria. A more capable agent working against an ambiguous spec produces more sophisticated drift.",
+      "visual_idea": "中央分隔线：混乱 vs 有序的鲜明对照，上方用箭头指向从左到右的转变",
+      "visible_label": "合约驱动",
+      "numeric_fact": null
+    }
+  ],
+  "main_metaphor": "建筑蓝图与施工秩序 — 有蓝图的团队 vs 没有计划的工地",
+  "primary_subject": "一名工程师与 AI 智能体并排在看板前审查故事卡片",
+  "subject_action": "工程师指向结构化的 Backlog 卡片，AI 智能体在左侧面对散乱的提示词",
+  "composition": "左右对照",
+  "style_direction": "conceptual editorial illustration with american-comic graphic novel tension",
+  "comic_style": "american-comic",
+  "comic_style_reason": "这是一篇 analysis 类型文章，核心叙事是判断与冲突（提示词驱动 vs 规范先行），american-comic 的粗轮廓、halftone 和强对照编辑感最适合表达这种判断张力",
+  "allowed_visible_text": ["提示词驱动", "规范先行", "合约驱动"],
+  "color_palette": ["#1a1a2e", "#e63946", "#457b9d", "#f1faee"],
+  "avoid": ["超级英雄海报", "赛博朋克霓虹灯", "真实 UI 截图", "假终端输出", "假架构节点标签", "漂浮芯片背景", "无意义代码雨"],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证左右对照构图是否清晰表达混乱提示 vs 有序规范的核心对比",
+  "revision_targets": ["如果左右分界不明确则加强对照线", "如果标签文字过多则删减至 1-2 个", "如果主体不清楚则突出工程师+AI智能体的协作关系"],
+  "final_prompt": "Wide cover illustration, aspect ratio 2.35:1. American comic graphic novel style: bold outlines, halftone shading, high contrast, editorial graphic novel tension. Two-panel split composition: LEFT panel shows chaotic prompt-driven development — a lone developer surrounded by scattered chat bubbles, overlapping prompts, tangled code fragments floating in the air, dark background, red-tinted disorder. RIGHT panel shows structured Agentic-Agile — an engineer and a glowing AI companion figure standing side by side in front of an organized kanban board with neat story cards, blue-tinted order and clarity. A bold vertical dividing line separates the two panels. Small Chinese text labels: '提示词驱动' on left panel, '规范先行' on right panel. No watermarks, no fake dashboards, no terminal output, no architecture diagrams, no hero slogans, no English text."
+}
