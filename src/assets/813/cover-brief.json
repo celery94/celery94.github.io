@@ -1,0 +1,40 @@
+{
+  "article_id": "813",
+  "article_type": "analysis",
+  "title": "10 个会让 .NET 10 API 崩溃生产的反模式",
+  "summary_angle": "不是所有反模式都一样危险——4个会凌晨两点崩溃生产，其他的只是拖慢速度",
+  "narrative_flow": "从严重性矩阵切入，通过4级威胁分层讲清哪些必须立刻修，哪些下个冲刺修",
+  "main_conclusion": "优先修4个生产级杀手：async void、sync-over-async、per-request HttpClient、单例捕获作用域服务",
+  "information_blocks": [
+    {
+      "label": "🔴 致命",
+      "content": "async void、.Result/.Wait()、new HttpClient()、单例注入Scoped",
+      "source_anchor": "Severity Matrix — Kills production row"
+    },
+    {
+      "label": "🟠 损钱",
+      "content": "IEnumerable<T>延迟序列化、AOT项目使用反射映射器、商业库恐慌采购",
+      "source_anchor": "Costs money row"
+    },
+    {
+      "label": "🟡 拖速",
+      "content": "胖控制器、在简单CRUD上强套Repository Pattern",
+      "source_anchor": "Slows velocity row"
+    },
+    {
+      "label": "⚪ 外观",
+      "content": "throw ex 而不是 throw（只影响调试，不影响生产）",
+      "source_anchor": "Cosmetic row"
+    }
+  ],
+  "comic_style": "american-comic",
+  "comic_style_reason": "analysis类型默认american-comic；4级严重性矩阵是冲突对照型叙事，符合american-comic的对抗张力风格",
+  "main_subject": "一个穿着工程师服的角色面对4个不同威胁等级的怪物/危机面板，每个面板用颜色和严重性符号区分",
+  "composition": "左侧主角站在决策路口，右侧4个并排面板各代表一个严重性级别（红/橙/黄/白），每个面板内有1个标签和1个代表性反模式符号",
+  "background": "深色格纹背景带halftone点阵效果，体现graphic novel质感",
+  "color_palette": "深黑 + 警告红（致命级）+ 橙色（损钱级）+ 黄色（拖速级）+ 白灰（外观级）",
+  "visible_text": ["致命", "🔴", "🟠", "🟡"],
+  "forbidden_elements": ["假终端截图", "假仪表盘", "假图表坐标", "英文口号", "超级英雄电影海报风格"],
+  "aspect_ratio": "2.35:1",
+  "prompt": "Wide cover illustration, aspect ratio 2.35:1, american comic style with bold outlines and halftone dot shading, graphic novel aesthetic. Left 40%: a developer engineer character standing at a crossroads, looking determined, viewed from a slight low angle. Right 60%: four horizontally stacked comic panels each representing one severity tier — top panel red background with skull icon (async void kills production), second panel orange background with money/socket icon (HttpClient socket exhaustion costs money), third panel yellow background with slow turtle icon (fat controller slows velocity), fourth panel light gray with magnifying glass (throw ex is just cosmetic). Each panel has a short Chinese label: '致命', one orange panel, one yellow panel, one gray. Black ink bold outlines, halftone shadows, no fake UI or terminal screenshots, no long English text."
+}
