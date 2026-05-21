@@ -1,0 +1,45 @@
+{
+  "article_title": "C# 封闭层次结构提案：用 closed 修饰符终结 switch 默认分支",
+  "cover_type": "analysis",
+  "core_theme": "C# 语言设计提案：新增 closed 修饰符，限制继承只能在同一程序集内，从而让 switch 表达式能够不带 default 分支实现穷举匹配",
+  "reader_takeaway": "理解 closed 类的设计动机、限制规则和对 switch 穷举性检查的影响，以及它与 sealed 的本质区别",
+  "summary_angle": "一个新修饰符如何让 C# 的类型层次结构变成编译器可以完全掌握的封闭集合",
+  "narrative_flow": "conflict-to-resolution",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "Motivation 段：Many class types are not intended to be extended by anyone but their authors, but the language provides no way to express that intent",
+      "visual_idea": "左侧：一个类被外部程序集随意继承，switch 表达式需要 default 分支",
+      "visible_label": "缺默认",
+      "numeric_fact": null
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "Syntax 段：closed class is implicitly abstract，子类只能在同一程序集内声明",
+      "visual_idea": "中间：closed 关键字像一道门锁，阻挡跨程序集继承",
+      "visible_label": "closed",
+      "numeric_fact": null
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "Summary 段：switch expression that covers all direct descendants can be concluded to 'exhaust' the closed class - it does not need to provide a default case",
+      "visual_idea": "右侧：switch 表达式覆盖所有子类，无需 default，编译器静默通过",
+      "visible_label": "无需默认",
+      "numeric_fact": null
+    }
+  ],
+  "main_metaphor": "一道只对同程序集开放的继承之门，外部试图穿越时遭遇错误警告",
+  "primary_subject": "一个程序员在两扇门前做决策：左边开放继承（需要 default），右边 closed 继承（穷举匹配）",
+  "subject_action": "主体站在 closed/open 两条路的分叉口，左侧显示 default 阻断，右侧显示穷举通行",
+  "composition": "左右对照",
+  "style_direction": "conceptual editorial illustration with american-comic graphic-novel tension",
+  "comic_style": "american-comic",
+  "comic_style_reason": "analysis 类型默认选 american-comic；本文讲的是语言设计中的一个冲突判断——旧的开放继承 vs 新的封闭约束——左右对照的冲突叙事非常适合 american-comic 的 halftone 张力风格",
+  "allowed_visible_text": ["closed", "缺默认", "无需默认"],
+  "color_palette": ["深蓝", "钢灰", "亮橙", "白"],
+  "avoid": ["超级英雄形象", "真实终端截图", "假 IDE 界面", "真实代码编辑器", "品牌 logo"],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证左右对照构图是否清晰传达 closed 的约束感与 switch 穷举的收益",
+  "revision_targets": ["如果 halftone 不够明显可加强", "如果左右分界不够清晰可加边界线", "如果中间 closed 标签淹没可放大"],
+  "final_prompt": "Wide cover illustration, aspect ratio 2.35:1. American-comic graphic-novel style, halftone texture, bold ink outlines, high contrast. Split composition: left panel shows a programmer frustrated, multiple class hierarchies branching out chaotically, a warning sign labeled '缺默认' hovers over incomplete switch arms. Right panel shows a sealed gate/door with the word 'closed' carved on it, a programmer confidently matching all subtypes in a switch expression, a green checkmark labeled '无需默认'. Center dividing line is a dramatic crack or thick panel border. Dark navy and steel gray background, bright orange accents on key elements, clean white labels. No real code editors, no superhero imagery, no brand logos. Cinematic tension, editorial clarity."
+}
