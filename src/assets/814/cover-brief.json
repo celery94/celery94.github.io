@@ -1,0 +1,37 @@
+{
+  "article_id": "814",
+  "article_type": "tutorial",
+  "title": "C# PropertyInfo 与 MethodInfo：实用开发者指南",
+  "summary_angle": "掌握 PropertyInfo 和 MethodInfo 两大反射工具，用缓存模式构建高性能动态 .NET 系统",
+  "narrative_flow": "从反射层次结构入手 → PropertyInfo 读写属性 → MethodInfo 动态调用 → 缓存避免性能陷阱",
+  "information_blocks": [
+    {
+      "label": "类型层级",
+      "content": "Assembly→Type→MemberInfo→PropertyInfo/MethodInfo",
+      "source": "Where PropertyInfo and MethodInfo Fit 章节"
+    },
+    {
+      "label": "GetValue/SetValue",
+      "content": "PropertyInfo 读写属性值，私有 setter 须用 GetSetMethod(nonPublic:true)",
+      "source": "Reading and Writing Values 章节代码示例"
+    },
+    {
+      "label": "Invoke + 解包异常",
+      "content": "MethodInfo.Invoke 调用方法，TargetInvocationException 需用 ExceptionDispatchInfo 解包",
+      "source": "Practical Example: Simple Method Dispatcher 章节"
+    },
+    {
+      "label": "缓存一次多次读",
+      "content": "ConcurrentDictionary 缓存 PropertyInfo[]/MethodInfo，避免每次调用 GetProperties() 分配新数组",
+      "source": "Performance Gotchas 章节"
+    }
+  ],
+  "main_subject": "一名开发者在代码编辑器前，PropertyInfo 和 MethodInfo 两个反射对象像工具一样悬浮在他身旁，背后是 C# 代码和缓存字典的意象",
+  "composition": "宽幅 2.35:1，左侧开发者主体 + 右侧 2×2 信息格，每格对应一个叙事块",
+  "comic_style": "japanese-manga",
+  "comic_style_reason": "tutorial 类型，按规则默认选 japanese-manga；分镜化布局适合展示层级结构和步骤递进",
+  "color_palette": "深蓝黑主色调，青绿色高亮代码元素，少量红色标注陷阱（BindingFlags 缺少 Instance 标志）",
+  "visible_text": ["PropertyInfo", "MethodInfo", "缓存"],
+  "forbidden_elements": ["假 UI 截图", "假 dashboard", "假终端输出", "假图表坐标", "英文长句口号"],
+  "prompt": "japanese manga comic cover illustration, wide 2.35:1 aspect ratio, C# developer at code editor, PropertyInfo and MethodInfo objects floating as glowing tools, reflection hierarchy Assembly→Type→MemberInfo in background, concurrentdictionary cache pattern shown as organized bookshelf, TargetInvocationException wrapped in safety net visual metaphor, manga panel layout with 2x2 info grid on right side, bold ink lines, speed lines, limited color palette deep blue and cyan highlights, small chinese labels: PropertyInfo MethodInfo 缓存, no fake UI no dashboard no terminal output no english slogans, clean manga storytelling"
+}

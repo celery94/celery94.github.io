@@ -1,0 +1,37 @@
+{
+  "article_id": "815",
+  "article_type": "analysis",
+  "title": "FIDES：用信息流控制让 Agent 不再被提示词注入劫持",
+  "summary_angle": "FIDES 把提示词注入防御从概率性启发变成确定性策略——内容标签 + 传播 + 调用前拦截",
+  "narrative_flow": "攻击者植入 [SYSTEM] 指令 → 传统防御失效 → FIDES 标签传播 → 策略围栏在工具执行前拦截",
+  "information_blocks": [
+    {
+      "label": "untrusted 标签",
+      "content": "read_issue 返回内容立即打上 untrusted 标签，Issue Body 和 [SYSTEM] 块同等对待",
+      "source": "Labels on content 章节"
+    },
+    {
+      "label": "传播",
+      "content": "LabelTrackingFunctionMiddleware：最严格优先传播，一次污染整次运行",
+      "source": "Automatic label propagation 章节"
+    },
+    {
+      "label": "策略围栏",
+      "content": "accepts_untrusted=False / max_allowed_confidentiality=public 在工具调用前拦截",
+      "source": "Policy enforcement before the tool runs 章节"
+    },
+    {
+      "label": "隔离 LLM",
+      "content": "var_<id> 变量引用 + 无工具隔离模型：主模型永远不读到 [SYSTEM] 块",
+      "source": "Variable indirection and the quarantined LLM 章节"
+    }
+  ],
+  "main_subject": "恶意 Issue 像一颗带毒子弹射向 Agent，被一堵标签围栏拦住；围栏上标有 trusted/untrusted 和 public/private，后方是安全的工具调用区",
+  "composition": "宽幅 2.35:1，左侧攻击者与 [SYSTEM] 毒箭，中央标签围栏作为主焦点，右侧 2 个策略拦截信息块",
+  "comic_style": "american-comic",
+  "comic_style_reason": "analysis 类型，场景是安全对抗与策略冲突，american-comic 的粗轮廓、halftone 和对抗张力更适合表达攻防博弈",
+  "color_palette": "深红黑对抗色，蓝色标签标注，绿色安全区，halftone 网点背景",
+  "visible_text": ["untrusted", "策略围栏", "拦截"],
+  "forbidden_elements": ["假 UI 截图", "假 dashboard", "假终端输出", "假图表坐标", "英文长句口号"],
+  "prompt": "american comic graphic novel cover illustration, wide 2.35:1 aspect ratio, dramatic security confrontation scene, a malicious [SYSTEM] arrow flying from shadowy attacker figure on the left, stopped by a glowing LABEL FENCE barrier in the center with trusted/untrusted and public/private tags glowing on it, on the right side safe tool execution zone with policy shield icons, halftone dot pattern background, bold thick outlines, deep red and black threat colors on left, blue labels on barrier, green safe zone on right, small chinese text labels: untrusted 策略围栏 拦截, no fake UI no dashboard no terminal no long english slogans, graphic novel storytelling tension"
+}
