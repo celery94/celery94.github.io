@@ -1,0 +1,52 @@
+{
+  "article_title": "用 .NET 构建 MCP 服务器：让 AI 自动执行 API 性能测试",
+  "cover_type": "tutorial",
+  "core_theme": "在 .NET 里用一个 NuGet 包构建 MCP 服务器，把负载测试变成 AI 可调用的工具，AI 一句话就能运行测试并对比两个 API 端点的吞吐量和延迟",
+  "reader_takeaway": "能照着做出一个可接入 GitHub Copilot 的 .NET MCP 服务器，实现 run_load_test / compare_endpoints 等性能诊断工具",
+  "summary_angle": "Thread.Sleep 让 p95 延迟爆到 1000ms，Task.Delay 降到 503ms——MCP 让 AI 用真实数字来诊断这件事",
+  "narrative_flow": "before-after",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "Thread.Sleep holds a ThreadPool thread for 500ms. Under 20 concurrent users, threads run out and requests queue up.",
+      "visual_idea": "线程池被堵死、请求排队等候的紧张画面",
+      "visible_label": "线程饥饿",
+      "numeric_fact": "35 RPS"
+    },
+    {
+      "role": "contrast",
+      "source_anchor": "P95: 1000ms → 503ms (✅ -49.7%). Task.Delay releases the thread while waiting.",
+      "visual_idea": "before/after 对比：左侧拥堵的线程，右侧释放后流畅的协程",
+      "visible_label": "P95 对比",
+      "numeric_fact": "-49.7%"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "WithToolsFromAssembly() scans for all [McpServerToolType] classes. One NuGet package: ModelContextProtocol.AspNetCore",
+      "visual_idea": "AI 调用 MCP 工具，工具往下连接 .NET API",
+      "visible_label": "MCP 工具层",
+      "numeric_fact": null
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "A healthy API has p99 roughly 2–5× its p50. When p99 is 20–100× the p50, that's the ThreadPool starvation signature.",
+      "visual_idea": "显示 p50/p99 比值的指示表盘",
+      "visible_label": "p99 诊断",
+      "numeric_fact": null
+    }
+  ],
+  "main_metaphor": "一名工程师（AI）坐在操控台前，通过仪表盘发现堵塞的管道，按下修复按钮后数据流畅流过",
+  "primary_subject": "AI 操控的性能测试控制台，中央显示 before/after 延迟数字",
+  "subject_action": "AI 向 MCP 服务器发出对比指令，仪表盘上的数字从红变绿",
+  "composition": "左右对照",
+  "style_direction": "editorial technical illustration with manga panel structure",
+  "comic_style": "japanese-manga",
+  "comic_style_reason": "tutorial 类型默认 japanese-manga；文章叙事是流程推进（问题→机制→对比→结论），适合分镜推进感",
+  "allowed_visible_text": ["线程饥饿", "P95 对比", "-49.7%"],
+  "color_palette": ["#1a1a2e", "#e94560", "#0f3460", "#53c8e8"],
+  "avoid": ["UI 截图", "假 dashboard", "假终端输出", "假图表坐标", "超级英雄人物", "英文口号"],
+  "reference_strategy": "纯文本生成；可参考已下载的 compare-endpoints.webp 和 p-results.png 了解数据展示形式，但不复制界面",
+  "draft_goal": "第一轮验证：左右对照构图成立、before/after 张力到位、数字标签 -49.7% 可见",
+  "revision_targets": ["如果构图不清晰，加强左右分割线", "如果文字太多，减少到只保留 -49.7% 数字", "如果没有漫画速度线，补充"],
+  "final_prompt": "Wide cover illustration, aspect ratio 2.35:1. Japanese manga panel style: ink lines, speed lines, limited color palette. Left-right split composition. LEFT PANEL (dark red tones): A cluster of blocked threads shown as tangled cables/pipes, requests piling up in a queue, small label '线程饥饿', number '35 RPS' in red ink. RIGHT PANEL (cool blue-teal tones): Same threads now flowing freely as async streams, a control panel gauge showing improvement, bold number '-49.7%' in teal ink, label 'P95 对比'. CENTER DIVIDING ELEMENT: A stylized MCP server node with .NET logo, acting as the bridge/switch that triggered the change. AI operator figure (minimalist manga silhouette) at bottom center gesturing toward the right panel. Speed lines emanating from center to right to show momentum. Black ink outlines, halftone shading in red and blue. NO fake UI screenshots, NO dashboard components, NO terminal text, NO English slogans. Max 3 Chinese labels total."
+}
