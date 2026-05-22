@@ -1,0 +1,56 @@
+{
+  "article_title": "C# 16 的 unsafe 要变成可审查的安全契约",
+  "cover_type": "architecture",
+  "core_theme": "C# 正在把 unsafe 从指针语法标记扩展成可传播、可记录、可审查的内存安全契约。",
+  "reader_takeaway": "读者能理解新的 C# 内存安全模型如何通过 unsafe block、unsafe 签名、safety 文档和项目级开关，让不安全边界更清楚。",
+  "summary_angle": "把旧模型里的隐含约定，整理成一条可追踪的安全链路：标记操作、传播义务、记录契约、守住边界。",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "contrast",
+      "source_anchor": "原文 C# 1.0 model 章节，unsafe 主要表示从这里进入 unsafe context，调用方契约不清楚。",
+      "visual_idea": "左侧是模糊的旧 unsafe 区域，边界上只有警示线。",
+      "visible_label": "旧边界",
+      "numeric_fact": ""
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文 The model in a nutshell，要求 inner unsafe block、传播、/// <safety> 文档和边界 suppression。",
+      "visual_idea": "中间是一条安全链路，四个环节串在一起。",
+      "visible_label": "安全契约",
+      "numeric_fact": ""
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文 Project-level opt-in，C# 16 safety model 通过新项目级开关启用，AllowUnsafeBlocks 控制是否允许 unsafe 代码。",
+      "visual_idea": "右侧是项目开关和编译器检查门。",
+      "visible_label": "项目开关",
+      "numeric_fact": "C# 16"
+    }
+  ],
+  "main_metaphor": "一条从 unsafe 操作到安全调用方的检查链路。",
+  "primary_subject": "由 unsafe block、safety 文档和编译器检查门组成的安全链",
+  "subject_action": "不安全操作被圈进局部 block，义务沿调用链传播，边界处用文档和 guard 封住。",
+  "composition": "等距空间，左到右流程推进",
+  "style_direction": "isometric conceptual systems scene",
+  "comic_style": "japanese-manga",
+  "comic_style_reason": "这篇文章讲的是模型变化和调用链传播，适合用日漫式分镜表达流程。",
+  "allowed_visible_text": ["旧边界", "安全契约", "项目开关", "C# 16"],
+  "color_palette": ["ink black", "cool cyan", "warm amber", "paper white"],
+  "avoid": [
+    "真实 IDE 截图",
+    "假终端输出",
+    "英文口号",
+    "假架构节点名",
+    "复杂图表",
+    "霓虹背景"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮验证旧边界到安全契约再到项目开关的流程是否清楚。",
+  "revision_targets": [
+    "减少多余文字",
+    "突出 unsafe 义务传播",
+    "避免画成真实代码截图"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: C# 16 improving memory safety by turning unsafe into an explicit caller-facing safety contract. The reader should quickly feel that unsafe operations are being moved from implicit convention into visible compiler-enforced boundaries.\n\nSummary angle: turn the article into a readable safety chain: old unsafe boundary, explicit safety contract, project-level compiler gate.\nNarrative flow: 3-beat process. In a 2.35:1 frame, keep one dominant focal subject and 3 supporting narrative beats.\nInformation blocks:\n- contrast: legacy unsafe context has unclear caller obligations, visible label \"旧边界\"\n- mechanism: unsafe block, propagation, and safety documentation form a contract, visible label \"安全契约\"\n- takeaway: project switches enable the new model and compiler gate, visible label \"项目开关\", numeric fact \"C# 16\"\n\nMain metaphor: a safety chain connecting an unsafe operation to a safe caller through explicit contracts and guard rails.\nSubject: an isometric safety chain made of an unsafe block, a safety document, guard rails, and a compiler gate.\nComposition/framing: left-to-right staged progression. Prefer horizontal storytelling that stays legible in a wide cover.\nStyle/medium: final style must be japanese-manga, interpreted through isometric conceptual systems scene. Stylized ink lines, restrained speed lines, limited color, polished, clearly readable as an infographic-style summary cover.\nColor palette: ink black, cool cyan, warm amber, paper white.\nVisible text policy: allow only these short Chinese labels or numeric chips: \"旧边界\", \"安全契约\", \"项目开关\", \"C# 16\", and no more than 4 total text items. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: real IDE screenshots, fake terminal output, English slogans, fake architecture node names, complex charts, neon background."
+}

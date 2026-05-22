@@ -1,0 +1,63 @@
+{
+  "article_title": "AX Stack：AI 编程代理真正可调的是扩展层",
+  "cover_type": "analysis",
+  "core_theme": "Agent Experience 要把 AI coding agent 的结果拆成 model、harness、agent extensions 三层，其中 extensions 是技术所有者和开发者能直接改进的层。",
+  "reader_takeaway": "读者能理解为什么模型和 harness 多半不可控，以及为什么要围绕 discovery、selection、quality、composition 测量 agent extensions。",
+  "summary_angle": "把 AX stack 画成三层：固定的 model、固定的 harness、可调的 extensions，并用 lift 和 drag 说明扩展是否真的改善结果。",
+  "narrative_flow": "conflict-to-resolution",
+  "information_blocks": [
+    {
+      "role": "contrast",
+      "source_anchor": "原文 The model 和 The harness 章节，model 与 harness 是 fixed constraint。",
+      "visual_idea": "左侧两层被锁住，表示模型和 harness 不能直接控制。",
+      "visible_label": "固定层",
+      "numeric_fact": ""
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文 Agent extensions 章节，skills、MCP servers、instruction files、custom agents 是可控表面。",
+      "visual_idea": "中间是可调节的扩展面板，连接到生成代码。",
+      "visible_label": "扩展层",
+      "numeric_fact": ""
+    },
+    {
+      "role": "evidence",
+      "source_anchor": "原文 The three failure modes 和 What you're actually optimizing，四个优化目标是 discovery、selection、quality、composition。",
+      "visual_idea": "右侧四个检查点围绕扩展面板。",
+      "visible_label": "四项检查",
+      "numeric_fact": "4"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文 Lift and drag，通过有无 extension 的受控对照判断 lift 或 drag。",
+      "visual_idea": "底部天平一边 lift 一边 drag，强调测量。",
+      "visible_label": "测量",
+      "numeric_fact": ""
+    }
+  ],
+  "main_metaphor": "一套代理流水线里，固定层被锁住，可调扩展层通过测量决定是 lift 还是 drag。",
+  "primary_subject": "分层的 AX stack 控制台",
+  "subject_action": "扩展层被工程师调节，输出结果经过四项检查和 lift drag 天平。",
+  "composition": "左右对照，中心主物体，四个信息块围绕主控制台",
+  "style_direction": "conceptual editorial illustration",
+  "comic_style": "american-comic",
+  "comic_style_reason": "这篇文章是在判断哪些层可控、哪些层不可控，适合用美漫式对照和编辑感表达。",
+  "allowed_visible_text": ["固定层", "扩展层", "四项检查", "测量", "4"],
+  "color_palette": ["ink black", "paper white", "muted cyan", "warm yellow"],
+  "avoid": [
+    "真实产品截图",
+    "假 dashboard",
+    "英文口号",
+    "复杂架构节点名",
+    "大量代码雨",
+    "品牌 logo 拼贴"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮验证固定层、扩展层、四项检查和测量的关系是否清楚。",
+  "revision_targets": [
+    "减少多余文字",
+    "突出只有扩展层可调",
+    "避免画成真实产品界面"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: the AX stack for AI coding agents, where model and harness are mostly fixed while agent extensions are the layer developers can improve. The reader should quickly feel which layer is fixed and where real leverage exists.\n\nSummary angle: show the AX stack as fixed model and harness layers, a tunable agent extensions layer, four checks for extension quality, and a lift versus drag measurement.\nNarrative flow: conflict-to-resolution. In a 2.35:1 frame, keep one dominant focal subject and 4 supporting narrative beats.\nInformation blocks:\n- contrast: model and harness are fixed constraints, visible label \"固定层\"\n- mechanism: agent extensions are the controllable surface, visible label \"扩展层\"\n- evidence: discovery, selection, quality, composition, visible label \"四项检查\", numeric fact \"4\"\n- takeaway: compare runs to measure lift or drag, visible label \"测量\"\n\nMain metaphor: a layered agent pipeline console with locked fixed layers and a tunable extension layer, feeding a measurement scale.\nSubject: a stylized AX stack control console with locked model and harness layers, adjustable extension panels, four check nodes, and a lift-drag scale.\nComposition/framing: editorial contrast composition with one central stack console and four readable supporting beats. Prefer wide graphic-novel layout that stays legible in a 2.35:1 cover.\nStyle/medium: final style must be american-comic, interpreted through conceptual editorial illustration. Bold ink outlines, subtle halftone texture, limited color, polished, clearly readable as an infographic-style summary cover.\nColor palette: ink black, paper white, muted cyan, warm yellow.\nVisible text policy: allow only these short Chinese labels or numeric chips: \"固定层\", \"扩展层\", \"四项检查\", \"测量\", \"4\", and no more than 5 total text items. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: real product screenshots, fake dashboards, English slogans, complex architecture node names, dense code rain, brand logo collage."
+}

@@ -1,0 +1,56 @@
+{
+  "article_title": "用 AGENTS.md 和 Skills 让 AI 编程更像团队协作",
+  "cover_type": "architecture",
+  "core_theme": "用仓库级 AGENTS.md 提供项目上下文，用 task-level skills 提供可复用任务步骤，再用 CI 和评审检查 AI 生成结果。",
+  "reader_takeaway": "读者能理解团队使用 AI 编程工具时，怎样把项目约定、重复任务和验证流程放进仓库。",
+  "summary_angle": "把分散的个人提示词，整理成 AGENTS.md、Skills、Verification 三层可复用协作流程。",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "mechanism",
+      "source_anchor": "原文 AGENTS.md: Project-Level Context 章节，AGENTS.md 放在仓库根目录，记录项目概览、架构、技术栈和编码约定。",
+      "visual_idea": "左侧是一本文档手册，向中间流水线提供项目地图。",
+      "visible_label": "项目上下文",
+      "numeric_fact": ""
+    },
+    {
+      "role": "step",
+      "source_anchor": "原文 Skills: Task-Level Instructions 章节，skills 放在 .github/skills/，每个 skill 记录重复任务的步骤、模板和测试要求。",
+      "visual_idea": "中间是几张任务卡片进入同一条生成流水线。",
+      "visible_label": "任务步骤",
+      "numeric_fact": "4"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文 The Verification Layer 章节，AI 辅助变更经过 targeted CI、测试、CodeQL、lint 和 PR review。",
+      "visual_idea": "右侧是检查门，测试、lint、review 三个图标依次亮起。",
+      "visible_label": "验证",
+      "numeric_fact": ""
+    }
+  ],
+  "main_metaphor": "一条代码生产线先读取团队手册，接着执行任务卡，然后通过检查门。",
+  "primary_subject": "一条由 AGENTS.md 手册、skills 卡片和 CI 检查门组成的代码流水线",
+  "subject_action": "手册和任务卡共同引导生成文件，文件通过检查门后进入代码库。",
+  "composition": "等距空间，左到右层级推进",
+  "style_direction": "isometric conceptual systems scene",
+  "comic_style": "japanese-manga",
+  "comic_style_reason": "这篇文章讲的是从上下文到任务步骤再到验证的流程，适合用日漫式分镜表现顺序推进。",
+  "allowed_visible_text": ["项目上下文", "任务步骤", "验证", "4"],
+  "color_palette": ["ink black", "warm yellow", "soft teal", "paper white"],
+  "avoid": [
+    "真实产品截图",
+    "假 dashboard",
+    "英文口号",
+    "复杂架构节点名",
+    "大量代码雨",
+    "品牌 logo 拼贴"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮验证三段流程是否清楚：AGENTS.md 提供上下文，skills 提供任务步骤，CI 和评审做检查。",
+  "revision_targets": [
+    "减少多余文字",
+    "保持左到右流程清楚",
+    "避免画成真实 GitHub 页面"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: coordinating AI-assisted development with AGENTS.md, reusable skills, and verification. The reader should quickly feel that team context and repeatable task instructions turn scattered AI coding into a shared engineering workflow.\n\nSummary angle: compress the article into one readable left-to-right workflow: project context, task instructions, verification gate.\nNarrative flow: 3-beat process. In a 2.35:1 frame, keep one dominant focal subject and 3 supporting narrative beats.\nInformation blocks:\n- mechanism: AGENTS.md gives project-level context, visible label \"项目上下文\"\n- step: skills encode repeatable task steps, visible label \"任务步骤\", numeric fact \"4\"\n- takeaway: CI, tests, lint, CodeQL, and review verify the generated work, visible label \"验证\"\n\nMain metaphor: a code production line reads a team handbook, follows reusable task cards, then passes through a verification gate.\nSubject: an isometric workflow made of an AGENTS.md handbook, skill cards, generated files, and a CI review gate, all connected as one clear line.\nComposition/framing: isometric scene with left-to-right staged progression. Prefer horizontal storytelling that stays legible in a wide cover.\nStyle/medium: final style must be japanese-manga, interpreted through isometric conceptual systems scene. Stylized ink lines, restrained speed lines, limited color, polished, clearly readable as an infographic-style summary cover.\nColor palette: ink black, warm yellow, soft teal, paper white.\nVisible text policy: allow only these short Chinese labels or numeric chips: \"项目上下文\", \"任务步骤\", \"验证\", \"4\", and no more than 4 total text items. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: real product screenshots, fake dashboards, English slogans, complex architecture node names, dense code rain, brand logo collage."
+}

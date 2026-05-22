@@ -1,0 +1,63 @@
+{
+  "article_title": "ASP.NET Core 限流：从 429 到 Redis 的生产配置",
+  "cover_type": "tutorial",
+  "core_theme": "在 ASP.NET Core .NET 10 中给 API 配好限流策略，保护数据库、外部 API 和高成本端点。",
+  "reader_takeaway": "读者能理解四种内置限流算法的选择方式，并知道生产环境需要补齐 429、Retry-After、分区和 Redis。",
+  "summary_angle": "把一次高频请求压垮 API 的风险，压缩成“选择算法、返回 429、跨实例同步”三段流程。",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "原文开头的 pricing endpoint 示例，单个 free-tier 用户循环请求导致 PostgreSQL CPU 到 90 percent。",
+      "visual_idea": "API 网关前的闸门拦住一串密集请求，后方数据库从红色压力转为稳定。",
+      "visible_label": "拦请求",
+      "numeric_fact": "90%"
+    },
+    {
+      "role": "step",
+      "source_anchor": "原文决策表：Public REST API 推荐 Token Bucket，登录和 OTP 推荐 Sliding Window，高成本端点推荐 Concurrency Limiter。",
+      "visual_idea": "中间分镜展示三个限流器卡片被选入不同端点。",
+      "visible_label": "选算法",
+      "numeric_fact": ""
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文 Key Takeaways：显式设置 RejectionStatusCode = 429，并从 MetadataName.RetryAfter 写 Retry-After。",
+      "visual_idea": "右侧响应卡片只显示 429 和 Retry-After 两个短标记。",
+      "visible_label": "429",
+      "numeric_fact": ""
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文 In-Memory Trap：多副本下内存限流的有效上限会变成 configured limit x instance count，需 Redis backplane。",
+      "visual_idea": "三个实例连到一个 Redis 中心计数器，避免各自计数。",
+      "visible_label": "Redis",
+      "numeric_fact": ""
+    }
+  ],
+  "main_metaphor": "API 入口处的限流闸门把请求流整理成可控节奏。",
+  "primary_subject": "一个带仪表刻度的 API 闸门",
+  "subject_action": "闸门把过密请求拦截成 429，把允许请求送往后方服务。",
+  "composition": "单点聚焦，左到右分镜推进",
+  "style_direction": "editorial technical illustration",
+  "comic_style": "japanese-manga",
+  "comic_style_reason": "这是一篇配置教程，读者需要按步骤理解限流算法、拒绝响应和跨实例计数，适合用日漫式分镜推进。",
+  "allowed_visible_text": ["拦请求", "选算法", "429", "Redis"],
+  "color_palette": ["ink black", "warm amber", "cool cyan", "paper white"],
+  "avoid": [
+    "真实 dashboard",
+    "假终端输出",
+    "复杂架构图",
+    "英文口号",
+    "大量代码雨",
+    "霓虹城市"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "先验证 API 闸门、429 响应和 Redis 共享计数三段信息是否清楚。",
+  "revision_targets": [
+    "减少多余文字",
+    "保持一个主焦点",
+    "避免画成真实系统截图"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: production-grade rate limiting in ASP.NET Core .NET 10. The reader should quickly feel that API traffic can be controlled before expensive backend work starts.\n\nSummary angle: compress the article into three readable beats: block abusive traffic, choose the right limiter, return 429 with Retry-After, and share counters with Redis in multi-instance deployments.\nNarrative flow: 3-beat process. In a 2.35:1 frame, keep one dominant focal subject and 3-4 supporting narrative beats.\nInformation blocks:\n- problem: a noisy caller can push the backend to 90% CPU, visible label \"拦请求\", numeric fact \"90%\"\n- step: choose limiter by endpoint shape, visible label \"选算法\"\n- takeaway: rejected requests return 429 and Retry-After, visible label \"429\"\n- mechanism: multi-instance deployments need a Redis backplane, visible label \"Redis\"\n\nMain metaphor: a rate-limiting gate at the API entrance shapes a flood of requests into a controlled stream.\nSubject: a large API gate with a pressure gauge, blocking dense request lines while clean allowed traffic reaches backend services.\nComposition/framing: single focal point with left-to-right panelized storytelling. Prefer horizontal storytelling that stays legible in a wide cover.\nStyle/medium: final style must be japanese-manga, interpreted through editorial technical illustration. Stylized ink lines, restrained speed lines, limited color, polished, clearly readable as an infographic-style summary cover.\nColor palette: ink black, warm amber, cool cyan, paper white.\nVisible text policy: allow only these short Chinese labels or numeric chips: \"拦请求\", \"选算法\", \"429\", \"Redis\", and no more than 4 total text items. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: real dashboards, fake terminal output, complex architecture diagrams, English slogans, dense code rain, neon city."
+}

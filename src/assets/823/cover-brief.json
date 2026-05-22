@@ -1,0 +1,59 @@
+{
+  "article_title": ".NET 10 反射性能：先缓存，再编译，再测量",
+  "cover_type": "tutorial",
+  "core_theme": "反射性能优化要先判断是否在热路径，再按缓存 PropertyInfo、FrozenDictionary、compiled delegates、UnsafeAccessor 和 BenchmarkDotNet 的顺序处理。",
+  "reader_takeaway": "读者能理解反射慢在哪里，以及如何按成本和收益选择优化手段。",
+  "summary_angle": "把“反射很慢”的泛泛判断，压缩成一条可操作的优化阶梯。",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "原文 Why Reflection Performance Matters，关键问题是 reflection call 是否在 hot path。",
+      "visual_idea": "左侧是热路径仪表，标出反射调用处于高频循环。",
+      "visible_label": "热路径",
+      "numeric_fact": ""
+    },
+    {
+      "role": "step",
+      "source_anchor": "原文 Strategy 1 和 Strategy 2，缓存 PropertyInfo/MethodInfo，并在只读场景使用 FrozenDictionary。",
+      "visual_idea": "中间第一段阶梯是缓存层，从重复查找变成一次建立多次读取。",
+      "visible_label": "缓存",
+      "numeric_fact": ""
+    },
+    {
+      "role": "step",
+      "source_anchor": "原文 Strategy 3 和 Strategy 4，compiled delegates 与 UnsafeAccessor 减少热路径开销。",
+      "visual_idea": "中间第二段阶梯是 delegate 和 UnsafeAccessor，把慢调用变成直接路径。",
+      "visible_label": "委托",
+      "numeric_fact": ""
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文 How to Measure，使用 BenchmarkDotNet、MemoryDiagnoser、GlobalSetup 和 Release 模式。",
+      "visual_idea": "右侧是 benchmark 仪表盘式测量卡，但不做真实 dashboard。",
+      "visible_label": "测量",
+      "numeric_fact": ""
+    }
+  ],
+  "main_metaphor": "一条从热路径识别到缓存、委托、测量的性能优化阶梯。",
+  "primary_subject": "反射性能优化阶梯",
+  "subject_action": "开发者把高频反射调用沿阶梯逐步优化，并用测量卡验证结果。",
+  "composition": "单点聚焦，左到右分镜推进",
+  "style_direction": "editorial technical illustration",
+  "comic_style": "japanese-manga",
+  "comic_style_reason": "这是一篇实践型性能优化文章，适合用日漫式流程分镜表现逐步推进。",
+  "allowed_visible_text": ["热路径", "缓存", "委托", "测量"],
+  "color_palette": ["ink black", "cool cyan", "warm yellow", "paper white"],
+  "avoid": [
+    "真实 benchmark dashboard",
+    "假终端输出",
+    "英文口号",
+    "复杂图表",
+    "大量代码雨",
+    "品牌 logo"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮验证优化阶梯和测量闭环是否清楚。",
+  "revision_targets": ["减少多余文字", "突出阶梯顺序", "避免画成真实工具截图"],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: reflection performance in .NET 10, moving from hot-path diagnosis to caching, compiled delegates, and BenchmarkDotNet measurement. The reader should quickly feel that reflection optimization is a measured ladder rather than a vague rule.\n\nSummary angle: compress the article into one practical optimization ladder: identify hot path, cache metadata, compile delegates, measure results.\nNarrative flow: 3-beat process. In a 2.35:1 frame, keep one dominant focal subject and 4 supporting narrative beats.\nInformation blocks:\n- problem: reflection only matters when it sits in a hot path, visible label \"热路径\"\n- step: cache PropertyInfo and MethodInfo, visible label \"缓存\"\n- step: use compiled delegates or UnsafeAccessor for hot calls, visible label \"委托\"\n- takeaway: verify with BenchmarkDotNet, visible label \"测量\"\n\nMain metaphor: a performance optimization staircase where each step removes one reflection cost and the final step is measurement.\nSubject: a developer guiding a reflection call through an optimization staircase with cache blocks, delegate shortcut, and a measurement card.\nComposition/framing: single focal point with left-to-right panelized storytelling. Prefer horizontal storytelling that stays legible in a wide cover.\nStyle/medium: final style must be japanese-manga, interpreted through editorial technical illustration. Stylized ink lines, restrained speed lines, limited color, polished, clearly readable as an infographic-style summary cover.\nColor palette: ink black, cool cyan, warm yellow, paper white.\nVisible text policy: allow only these short Chinese labels: \"热路径\", \"缓存\", \"委托\", \"测量\", and no more than 4 total text items. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: real benchmark dashboards, fake terminal output, English slogans, complex charts, dense code rain, brand logos."
+}

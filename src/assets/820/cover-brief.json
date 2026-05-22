@@ -1,0 +1,63 @@
+{
+  "article_title": "代码只是软件工作的很小一部分",
+  "cover_type": "analysis",
+  "core_theme": "软件工程师的长期价值来自调试、判断、计划、测试、沟通和记录，而不只是写更多代码。",
+  "reader_takeaway": "读者能理解 AI 时代代码生成变便宜后，哪些能力更值得投入。",
+  "summary_angle": "把“写代码”放成小块，把调试、计划、测试和决策记录放成真正撑起工程工作的四个支柱。",
+  "narrative_flow": "conflict-to-resolution",
+  "information_blocks": [
+    {
+      "role": "contrast",
+      "source_anchor": "原文标题 Code was the smallest part of the job，以及开头提到职业里大部分工作不在 coding。",
+      "visual_idea": "左侧是一小块代码纸片，旁边有更大的工程工作台。",
+      "visible_label": "少写",
+      "numeric_fact": ""
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文第 1 条 The job is mostly debugging，强调日志、stack traces、profilers、git bisect。",
+      "visual_idea": "中间主焦点是工程师用放大镜检查日志和系统线路。",
+      "visible_label": "调试",
+      "numeric_fact": ""
+    },
+    {
+      "role": "step",
+      "source_anchor": "原文第 4 条 Plan before you code 和第 6 条 Tests are a contract with future-you。",
+      "visual_idea": "右上角是一张计划纸和测试勾选卡。",
+      "visible_label": "计划",
+      "numeric_fact": ""
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文第 10 条 Write things down，建议每个项目保留 decisions/ 文件夹。",
+      "visual_idea": "右下角是 decisions 文件夹，保存工程决策。",
+      "visible_label": "记录",
+      "numeric_fact": ""
+    }
+  ],
+  "main_metaphor": "代码只是工作台上的一张小纸，真正支撑系统的是调试工具、计划、测试和决策记录。",
+  "primary_subject": "一个工程工作台",
+  "subject_action": "工程师把小代码片段放到一边，正在排查日志、整理计划和保存决策。",
+  "composition": "左右对照，中心主物体，四个信息块围绕主工作台",
+  "style_direction": "conceptual editorial illustration",
+  "comic_style": "american-comic",
+  "comic_style_reason": "这篇文章是工程经验判断，主线是对“只看写代码”的观念做对照，适合用美漫式编辑感和强对比。",
+  "allowed_visible_text": ["少写", "调试", "计划", "记录"],
+  "color_palette": ["ink black", "paper white", "muted teal", "warm coral"],
+  "avoid": [
+    "真实 IDE 截图",
+    "假终端输出",
+    "英文口号",
+    "复杂图表",
+    "超级英雄海报",
+    "大量代码雨"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮验证小代码块和大工程工作台的对照是否清楚。",
+  "revision_targets": [
+    "减少多余文字",
+    "强调调试和决策记录",
+    "避免画成普通程序员海报"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: code is only a small part of long-term software engineering work. The reader should quickly feel that debugging, planning, testing, people skills, and decision records carry more long-term value than typing more code.\n\nSummary angle: make the code fragment visibly small, while the engineering workbench is larger and supported by debugging, planning, tests, and records.\nNarrative flow: conflict-to-resolution. In a 2.35:1 frame, keep one dominant focal subject and 4 supporting narrative beats.\nInformation blocks:\n- contrast: code is a small part of the job, visible label \"少写\"\n- mechanism: debugging takes most of the real work, visible label \"调试\"\n- step: planning before coding reduces rework, visible label \"计划\"\n- takeaway: decisions need to be written down, visible label \"记录\"\n\nMain metaphor: code is a small paper slip on a large engineering workbench, while tools for debugging, planning, testing, and decision records hold the system together.\nSubject: an engineering workbench with a tiny code note, a magnifying glass over logs, a planning sheet, a test checklist, and a decisions folder.\nComposition/framing: editorial contrast composition with one central workbench and four readable supporting beats. Prefer a strong wide graphic-novel layout that stays legible in a 2.35:1 cover.\nStyle/medium: final style must be american-comic, interpreted through conceptual editorial illustration. Bold ink outlines, subtle halftone texture, limited color, polished, clearly readable as an infographic-style summary cover.\nColor palette: ink black, paper white, muted teal, warm coral.\nVisible text policy: allow only these short Chinese labels: \"少写\", \"调试\", \"计划\", \"记录\", and no more than 4 total text items. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: real IDE screenshots, fake terminal output, English slogans, complex charts, superhero poster style, dense code rain."
+}
