@@ -1,0 +1,54 @@
+{
+  "article_title": "C# 自定义特性实战：验证、插件注册和命令路由的完整实现",
+  "cover_type": "tutorial",
+  "core_theme": "C# 自定义特性的完整使用模式：继承 Attribute 定义、AttributeUsage 限定范围、反射读取，覆盖验证、插件注册和命令路由三个实战场景",
+  "reader_takeaway": "能写出可被反射读取的自定义特性类，并在验证、插件扫描和命令路由场景中独立实现完整的特性驱动机制",
+  "summary_angle": "特性是被动的元数据，只有代码主动用反射读取才会产生行为——这一理解是所有框架机制的基础",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "step",
+      "source_anchor": "原文 'Creating a Custom Attribute Class'：sealed class XxxAttribute : Attribute，加 [AttributeUsage] 限定范围",
+      "visual_idea": "第一步：定义一个带标注的类图，箭头指向 Attribute 基类",
+      "visible_label": "1 定义",
+      "numeric_fact": null
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文 'Reading Attributes with Reflection'：GetCustomAttribute<T>() 在运行时从元数据表中检索特性",
+      "visual_idea": "第二步：反射扫描示意，PropertyInfo 指向 Attribute 数据",
+      "visible_label": "2 反射读取",
+      "numeric_fact": null
+    },
+    {
+      "role": "evidence",
+      "source_anchor": "原文三个 Practical 章节：验证约束、插件扫描、命令路由",
+      "visual_idea": "第三步：三个应用场景标签：验证 / 插件 / 路由",
+      "visible_label": "3 个场景",
+      "numeric_fact": "3"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文 'Performance Notes'：用 ConcurrentDictionary 缓存反射结果，热路径不重复调用 GetCustomAttribute",
+      "visual_idea": "性能提示徽章：缓存 vs 每次扫描",
+      "visible_label": "缓存",
+      "numeric_fact": null
+    }
+  ],
+  "main_metaphor": "把标签贴在代码元素上，运行时扫描仪逐一读取标签并触发行为",
+  "primary_subject": "三步流程：定义特性类 → 用反射读取 → 三个实战场景",
+  "subject_action": "运行时反射器扫描类型成员上的特性标签并触发对应逻辑",
+  "composition": "斜向推进",
+  "base_style": "editorial technical illustration",
+  "selected_style": "韩漫条漫风",
+  "selected_style_prompt_descriptor": "polished vertical-webtoon-inspired rendering adapted to a wide cover, clean gradients, sharp character shapes, glossy color blocks",
+  "selected_style_reason": "随机选中第9项；韩漫条漫风的清洁渐变、清晰色块和模块化构图适合表达三步骤流程的教程类封面",
+  "style_safety_note": "韩漫条漫风不指向特定作者、工作室或平台品牌，无需安全改写",
+  "allowed_visible_text": ["1 定义", "2 反射读取", "3 个场景", "缓存"],
+  "color_palette": ["靛蓝色", "浅青色", "白色", "暖黄色"],
+  "avoid": ["假终端输出", "假类图 UML", "假 IDE 截图", "漂浮代码雨", "通用机器人"],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮验证三步流程的斜向推进构图和模块化色块是否清晰",
+  "revision_targets": ["确保三个步骤模块视觉上可区分", "确保不出现假 UML 类图", "确保信息块标签可读"],
+  "final_prompt": "Wide cover illustration, aspect ratio 2.35:1. Polished webtoon-inspired rendering adapted to wide cover, clean gradients, sharp geometric shapes, glossy color blocks. Editorial technical illustration type. Diagonal flow composition showing a 3-beat tutorial process from left to right: STEP 1 on the left shows a code element (class or property box) with a tag label being attached to it, label chip '1 定义', indigo blue color block. STEP 2 in the center shows a scanning beam or magnifying glass reading the tags at runtime, label chip '2 反射读取', cyan color block. STEP 3 on the right shows three small scenario icons representing validation checkmark, plugin puzzle piece, and routing arrow, label '3 个场景', warm yellow color block. Small badge at bottom right: '缓存' performance tip chip. Overall diagonal left-to-right flow with arrow connectors between steps. Indigo, cyan, white, warm yellow palette on clean dark background. NO fake UML class diagram, NO fake terminal output, NO fake IDE screenshot, NO code rain, NO floating robot. Wide 2.35:1 cinematic composition."
+}
