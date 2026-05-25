@@ -1,0 +1,54 @@
+{
+  "article_title": "C# 代理模式实战：用组合叠加缓存、限流和日志",
+  "cover_type": "tutorial",
+  "core_theme": "用代理模式将缓存、限流、日志等横切关注点分散为独立的类，通过接口包装链组合，而非塞进单一庞大的类",
+  "reader_takeaway": "能用代理链模式重构 API 客户端，给每个横切关注点一个独立的可测试类，并通过 DI 自由组合顺序",
+  "summary_angle": "从 500 行混乱单类到四层代理链：每个关注点一个类，组合替代修改",
+  "narrative_flow": "before-after",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "原文'The Problem'章节：缓存+限流+日志混在一个 WeatherService 类里",
+      "visual_idea": "左侧：一个臃肿的类图，混入多个关注点的代码堆叠",
+      "visible_label": "混乱单类",
+      "numeric_fact": null
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文三个代理类：CachingWeatherProxy、RateLimitingWeatherProxy、LoggingWeatherProxy，各持 _inner: IWeatherService",
+      "visual_idea": "右侧：清晰分层的链条，每层一个盒子标注职责",
+      "visible_label": "链式代理",
+      "numeric_fact": null
+    },
+    {
+      "role": "step",
+      "source_anchor": "原文 Program.cs DI 注册：HttpService → Logging → RateLimit → Caching",
+      "visual_idea": "箭头由内向外贯穿四个模块，表示 DI 组装方向",
+      "visible_label": "DI 组合",
+      "numeric_fact": "4层"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文'Adding a New Proxy'章节：新增 CircuitBreakerWeatherProxy，0 行现有代码被修改",
+      "visual_idea": "一个新模块插入链条，其他模块保持完整",
+      "visible_label": "零改动扩展",
+      "numeric_fact": null
+    }
+  ],
+  "main_metaphor": "层层嵌套的防护链条，每一环只负责一件事",
+  "primary_subject": "由内向外的四层代理调用链",
+  "subject_action": "代理链拦截请求并按职责传递",
+  "composition": "左右对照",
+  "base_style": "editorial technical illustration",
+  "selected_style": "游戏原画风",
+  "selected_style_prompt_descriptor": "game concept art illustration, clear hero object, readable environment storytelling, polished lighting, production-art detail",
+  "selected_style_reason": "随机选中第35项；游戏原画风的清晰分层感和精致光影适合表达代理链的结构性与层次感",
+  "style_safety_note": "游戏原画风不指向特定品牌、工作室或艺术家，无需额外安全改写",
+  "allowed_visible_text": ["混乱单类", "链式代理", "4层", "DI 组合"],
+  "color_palette": ["深蓝色", "青绿色", "暖橙色", "中性灰"],
+  "avoid": ["假终端界面", "假架构图表", "漂浮芯片", "代码雨", "霓虹高楼"],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮验证左右对照构图、before-after 叙事是否清晰",
+  "revision_targets": ["确保代理链的层次感清楚", "确保不出现假图表元素", "确保主视觉聚焦在链条结构上"],
+  "final_prompt": "Wide cover illustration, aspect ratio 2.35:1. Game concept art illustration style, clear hero object, readable environment storytelling, polished cinematic lighting, production-art detail. Editorial technical illustration type. Left-right contrast composition: LEFT SIDE shows a single chaotic monolithic class with multiple tangled responsibilities stacked on top of each other, dark messy look, label '混乱单类'. RIGHT SIDE shows a clean layered proxy chain with 4 distinct modules connected by arrows flowing from inside out, each module clearly labeled with one responsibility, bright structured look, label '链式代理'. Center connecting element: an arrow labeled '4层 DI 组合' bridging the two sides. Color palette: deep navy blue background, teal-green accents for the proxy chain modules, warm orange for the single class problem, neutral gray connectors. NO fake terminal output, NO fake dashboard, NO fake chart axes, NO fake architecture node names, NO floating chip decorations, NO code rain. Allow maximum 4 short Chinese labels from the information blocks. Wide cinematic composition with strong focal contrast between the two sides."
+}
