@@ -1,0 +1,51 @@
+{
+  "article_title": "IAsyncEnumerable<T>：流式处理数据，不把所有东西塞进内存",
+  "cover_type": "tutorial",
+  "core_theme": "用 IAsyncEnumerable<T> 替换 ToListAsync()，将内存从 O(n) 压到 O(1)，并提供 4 个生产级可用的完整模式",
+  "reader_takeaway": "能立刻把 EF Core、HttpClient、文件处理、ASP.NET Core Controller 四种场景的 List<T> 改造为流式 IAsyncEnumerable<T>，知道 4 种常见坑及修复方法",
+  "summary_angle": "同样 100 万条记录：95 GB 内存爆炸 vs 150 MB 常驻 —— 改的只是返回类型",
+  "narrative_flow": "before-after",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "500,000 database records, a List<T>, and a server with 8GB RAM. The math didn't work. Peak Memory: ~95 GB OutOfMemoryException",
+      "visual_idea": "左侧 BEFORE 面板：一个巨大的 List 桶装满数据，内存条冒烟爆炸，标签 '95 GB'",
+      "visible_label": "95 GB",
+      "numeric_fact": "95 GB"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "IAsyncEnumerable<T> lets you stream data asynchronously — processing items one by one as they arrive",
+      "visual_idea": "中心过渡：一条流动的数据管道，逐条传递而非整批",
+      "visible_label": "逐条流式",
+      "numeric_fact": null
+    },
+    {
+      "role": "contrast",
+      "source_anchor": "Peak Memory: ~150 MB (constant, regardless of dataset size). Time to first output: 50ms",
+      "visual_idea": "右侧 AFTER 面板：稳定的 150 MB 小容器，数据流动不间断，标签 '150 MB'",
+      "visible_label": "150 MB",
+      "numeric_fact": "150 MB"
+    }
+  ],
+  "main_metaphor": "读书逐页 vs 先复印全书 —— 流式处理只在需要时才取下一页",
+  "primary_subject": "一条数据流管道，左侧连接数据库，右侧送出处理结果",
+  "subject_action": "管道持续传送单条记录，内存容量始终不变",
+  "composition": "左右对照",
+  "base_style": "editorial technical illustration",
+  "selected_style": "动态分镜电影风",
+  "selected_style_prompt_descriptor": "dynamic cinematic storyboard style, sequential panels, camera-motion feeling, strong cuts, clear narrative beats",
+  "selected_style_reason": "随机从 40 项风格池中选中。文章本身有强烈的 before/after 戏剧弧线（API 崩溃 → 流式救援），动态分镜电影风的分格对照和叙事节奏与这个反差主题完美契合。",
+  "style_safety_note": "动态分镜电影风无强指向特定品牌或艺术家，直接使用安全描述词，无需改写。",
+  "allowed_visible_text": ["95 GB", "150 MB", "逐条流式"],
+  "color_palette": ["深蓝黑 #1a1a2e", "警示红 #e94560", "数据青 #4fc3f7", "成功绿 #69f0ae"],
+  "avoid": ["漂浮芯片", "无意义代码雨", "通用机器人站姿", "赛博朋克紫蓝光污染", "假终端截图", "假仪表盘"],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证左右分格对照（爆炸 vs 稳定流动）的主叙事是否清晰，95 GB vs 150 MB 数字 chip 是否醒目",
+  "revision_targets": [
+    "如果分格不明显，增强中间管道/箭头的分割感",
+    "如果 95 GB 数字不够醒目，改为更大的红色标签",
+    "如果色调太暗，适当提亮 AFTER 面板"
+  ],
+  "final_prompt": "Wide cover illustration, aspect ratio 2.35:1. Dynamic cinematic storyboard style, sequential panels, camera-motion feeling, strong cuts, clear narrative beats. Editorial technical illustration style.\n\nLayout: TWO clear horizontal panels side by side with a strong dividing line or gutter.\n\nLEFT PANEL (BEFORE): Dark, urgent mood. A massive overflowing bucket/container labeled '95 GB' bursting with data records — cracks, smoke, explosion effect. A memory bar completely full and red. Chaotic, danger colors: deep red #e94560 and dark #1a1a2e.\n\nRIGHT PANEL (AFTER): Calm, controlled mood. A smooth data pipeline/tube delivering single records one-by-one, a small steady container labeled '150 MB'. Serene, cool data flow in teal/cyan #4fc3f7. Memory bar showing minimal usage. A small chip '逐条流式' near the pipeline.\n\nAllowed visible text (3 items only): '95 GB' on left explosion chip, '150 MB' on right steady container, '逐条流式' on pipeline chip.\n\nNo: fake terminal output, no fake dashboard, no fake chart, no cyberpunk neon clutter, no floating code rain, no robot figures, no watermark."
+}
