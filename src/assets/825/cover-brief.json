@@ -1,0 +1,54 @@
+{
+  "article_title": "Claude Code Skills：把重复工作流封装成一条命令",
+  "cover_type": "tutorial",
+  "core_theme": "用 SKILL.md 格式在 Claude Code 中创建可复用的 AI 工作流技能，替代粘贴重复 prompt 的习惯",
+  "reader_takeaway": "能写出一个有效的 SKILL.md，让 Claude 自动或手动执行可重复工作流，并知道如何设置权限、参数和子 agent",
+  "summary_angle": "从一堆散落的 Notion prompt 片段，到一个 /skill-name 命令就能触发完整流程 —— SKILL.md 是让 AI 工作流可版本化、可共享的关键",
+  "narrative_flow": "before-after",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "Anyone who uses Claude Code seriously ends up with a graveyard of prompts. A long block in a Notion page for scaffolding a new ASP.NET Core endpoint.",
+      "visual_idea": "左侧：散落的 prompt 文本片段，标注「漂移」",
+      "visible_label": "prompt 漂移",
+      "numeric_fact": null
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "A skill is a reusable Markdown file that Claude Code loads on demand as part of its prompt. You write instructions in a SKILL.md file, give it a name, and invoke it with /skill-name",
+      "visual_idea": "中心：SKILL.md 文件作为核心主体，箭头指向 /command 触发",
+      "visible_label": "SKILL.md",
+      "numeric_fact": null
+    },
+    {
+      "role": "evidence",
+      "source_anchor": "dotnet-claude-kit ships 47 skills covering architectures, runtime patterns, observability, infrastructure",
+      "visual_idea": "右侧：整齐排列的工具图标组，标注数字 47",
+      "visible_label": "47 skills",
+      "numeric_fact": "47"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "context: fork to run in an isolated subagent with its own context window",
+      "visual_idea": "底部：fork 符号，表示子 agent 隔离执行",
+      "visible_label": "context: fork",
+      "numeric_fact": null
+    }
+  ],
+  "main_metaphor": "工具库 —— 从散落的零件到整齐上架的工具架",
+  "primary_subject": "一个 SKILL.md 文件，从中发出分支箭头连接到多个工作流步骤",
+  "subject_action": "SKILL.md 作为枢纽，向外辐射连接 scaffold、review、migration 等任务",
+  "composition": "居中主物体",
+  "base_style": "editorial technical illustration",
+  "selected_style": "游戏原画风",
+  "selected_style_prompt_descriptor": "game concept art illustration, clear hero object, readable environment storytelling, polished lighting, production-art detail",
+  "selected_style_reason": "随机从 40 项风格池中选中。游戏原画风的「英雄主体突出 + 环境叙事」特质，适合呈现 SKILL.md 作为工具库核心的角色感，画面信息层次清晰，符合教程类封面要求。",
+  "style_safety_note": "游戏原画风无强指向特定品牌、工作室或艺术家，直接使用原描述词，无需改写。",
+  "allowed_visible_text": ["prompt 漂移", "SKILL.md", "47 skills"],
+  "color_palette": ["深蓝 #1a2744", "金黄 #f5a623", "冷白 #e8ecf4", "橙红 #e84c3d"],
+  "avoid": ["赛博朋克霓虹光污染", "假终端截图", "假架构节点", "通用机器人站姿", "floating chip"],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证「SKILL.md 作为工具库枢纽」的主隐喻是否清晰，信息块布局是否可读，游戏原画风格是否呈现出来",
+  "revision_targets": ["如果 SKILL.md 主体不够突出，增加光源集中在文件上", "如果风格偏向普通 editorial，加强 concept art 细节质感", "如果文字标签不可读，缩减至 2 个"],
+  "final_prompt": "Wide cover illustration, aspect ratio 2.35:1. Game concept art illustration, clear hero object, readable environment storytelling, polished lighting, production-art detail. Editorial technical illustration style.\n\nScene: A dark deep-blue tech workspace. CENTER: A glowing SKILL.md file document as the hero object, emanating branching arrows to 3-4 workflow nodes (scaffold / review / migrate). LEFT SIDE: faded scattered prompt text fragments labeled '漂移' suggesting disorder. RIGHT SIDE: a clean numbered grid of 47 tool icons, with a small chip reading '47 skills'. BOTTOM: a fork-branch symbol with label 'context: fork' indicating subagent isolation.\n\nColors: deep navy #1a2744 background, golden highlight #f5a623 on the hero SKILL.md, cool white #e8ecf4 for arrows and nodes, accent orange-red #e84c3d for one workflow node.\n\nAllowed visible text (3 items only): '漂移' as a faded label on left, 'SKILL.md' on the hero file, '47 skills' on the right grid chip. No other text.\n\nNo: fake terminal output, no fake dashboard, no fake chart axes, no generic robot figure, no cyberpunk neon pollution, no floating decorative chips, no watermark, no English slogans."
+}
