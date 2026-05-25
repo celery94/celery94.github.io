@@ -1,0 +1,47 @@
+{
+  "article_title": "长耗时 API 请求的扩展方案：从同步阻塞到队列驱动",
+  "cover_type": "architecture",
+  "core_theme": "长耗时 API 请求会同时拖垮用户体验和系统吞吐；把接受工作和执行工作分离，是解决问题的关键路径",
+  "reader_takeaway": "了解从同步阻塞到队列化异步处理的三步演进：每一步的收益和代价是什么，在什么规模下值得跨出下一步",
+  "summary_angle": "把请求阻塞比作堵在收费站的车队，202 Accepted + 后台任务是把收费亭和行驶通道分开，队列是引入独立车道调度",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "Step 0: The Naive Version - connection stays open the whole time, burning a thread and concurrency slot",
+      "visual_idea": "像素场景：单通道收费站，一辆车卡住，后面车辆全部等待",
+      "visible_label": "阻塞",
+      "numeric_fact": null
+    },
+    {
+      "role": "step",
+      "source_anchor": "Step 1: Accept the Work, Don't Do It - return 202 Accepted with a job ID, background processor picks up Pending rows",
+      "visual_idea": "像素场景：收费站快速放行并贴号码牌，后台工人处理任务",
+      "visible_label": "202",
+      "numeric_fact": null
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "Step 2: Decouple the Worker From the API - queue + competing consumers, independent scaling",
+      "visual_idea": "像素场景：独立传送带（队列）连接前台和多个后台工人格子",
+      "visible_label": "队列解耦",
+      "numeric_fact": null
+    }
+  ],
+  "main_metaphor": "像素工厂流水线：前台快速接单（API），后台独立处理（Worker），传送带缓冲（Queue）",
+  "primary_subject": "像素风格的三阶段流水线工厂俯视图",
+  "subject_action": "任务从左侧单通道阻塞演进到右侧多 worker 并行处理，三段并排展示",
+  "composition": "等距空间",
+  "base_style": "isometric conceptual systems scene",
+  "selected_style": "像素复古风",
+  "selected_style_prompt_descriptor": "retro pixel-art inspired illustration, blocky forms, limited palette, old game composition cues, readable wide layout",
+  "selected_style_reason": "随机从 40 项风格池中选中；像素复古风的格子状图像语言天然契合步骤演进的叙事结构，三段并排的工厂场景能用像素块清晰区分阻塞/异步/队列三个阶段",
+  "style_safety_note": "像素复古风不强指向任何特定品牌、工作室或在世艺术家，无需安全改写",
+  "allowed_visible_text": ["阻塞", "202", "队列解耦"],
+  "color_palette": ["深海蓝 #1a2a4a", "像素米白 #e8dcc8", "信号绿 #4ecb71", "珊瑚橙 #e86b3a"],
+  "avoid": ["真实系统架构图标注", "假终端输出", "浮动芯片", "通用机器人站姿", "霓虹赛博朋克光污染"],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮验证：三段像素场景能否清楚表达阻塞→异步→队列的演进逻辑，等距构图和像素色块是否可读",
+  "revision_targets": ["如果三段场景不清晰，加轻量流向箭头", "如果像素风格不明显，强化格子纹理和有限调色板"],
+  "final_prompt": "Wide cover illustration, aspect ratio 2.35:1. Isometric conceptual systems scene with retro pixel-art inspired illustration style: blocky pixel forms, limited 4-color palette (deep navy #1a2a4a, cream #e8dcc8, signal green #4ecb71, coral orange #e86b3a), old game composition cues, readable wide layout. Three side-by-side isometric factory zones showing API request scaling progression. Left zone: single-lane pixel factory, blocked queue of tasks, visible congestion. Middle zone: fast intake counter with job ticket, background worker alcove. Right zone: conveyor belt queue connecting intake to multiple independent worker cells. Small Chinese labels: 阻塞 on left zone, 202 on middle counter, 队列解耦 on right conveyor. No fake UI, no fake charts, no terminal output, no floating chips, no neon cyberpunk lights. Crisp pixel art textures, isometric top-down perspective, coherent pixel grid, minimal decorative clutter."
+}
