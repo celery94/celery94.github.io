@@ -1,0 +1,58 @@
+{
+  "article_title": "C# 责任链设计模式：完整指南与示例",
+  "cover_type": "tutorial",
+  "core_theme": "责任链模式让请求沿着处理器链依次流动，每个处理器决定是处理、转发还是短路",
+  "reader_takeaway": "掌握责任链三种变体、核心组件和 C# 完整实现，包括 ASP.NET Core 中间件中的真实应用",
+  "summary_angle": "一条链串起多个处理器，每个节点自主决定放行还是拦截",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "Without the chain of responsibility pattern, the sender would need conditional logic to determine the correct handler, creating tight coupling and a violation of the open/closed principle.",
+      "visual_idea": "左侧：请求对象面对一堆 if-else 分支，箭头混乱",
+      "visible_label": "if-else 耦合",
+      "numeric_fact": null
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "The chain of responsibility design pattern passes a request along a chain of handlers. Each handler examines the request and either processes it, passes it to the next handler, or does both.",
+      "visual_idea": "中间：三个串联的方框（Authentication → Authorization → Validation），请求箭头沿链流动，其中一个节点亮起拦截符号",
+      "visible_label": "责任链",
+      "numeric_fact": null
+    },
+    {
+      "role": "evidence",
+      "source_anchor": "ASP.NET Core's middleware pipeline is a direct implementation of the chain of responsibility pattern. Each middleware receives a RequestDelegate for the next component.",
+      "visual_idea": "右侧：ASP.NET Core 中间件标签，强调这是框架级别的内置应用",
+      "visible_label": "中间件",
+      "numeric_fact": null
+    }
+  ],
+  "main_metaphor": "传票机制：一张请求单在处理台之间依次传递，每个台位决定是签字放行还是退回",
+  "primary_subject": "一条由三个处理节点组成的链，中间节点亮起判断符号——放行或拦截",
+  "subject_action": "请求从左端进入链，依次经过每个处理节点，某个节点做出拦截或放行决策",
+  "composition": "斜向推进",
+  "base_style": "editorial technical illustration",
+  "selected_style": "欧漫清线风",
+  "selected_style_prompt_descriptor": "European clear-line comic style, precise outlines, flat readable colors, tidy environments, restrained humor and detail",
+  "selected_style_reason": "随机选中；欧漫清线风的精确线条和平铺色块非常适合展示链式数据流和决策节点，清晰可读",
+  "style_safety_note": "欧漫清线风不涉及具体品牌、工作室或在世艺术家，无需安全改写",
+  "allowed_visible_text": ["if-else 耦合", "责任链", "中间件"],
+  "color_palette": ["#1e3a5f", "#f5a623", "#4caf50", "#ffffff"],
+  "avoid": [
+    "假终端输出",
+    "假 dashboard",
+    "假图表坐标",
+    "英文口号",
+    "通用机器人",
+    "霓虹背景"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证斜向推进构图、三节点链式流、拦截决策节点清晰可见",
+  "revision_targets": [
+    "如果节点标签不清晰，减少装饰元素",
+    "如果链条走向不明确，加粗箭头",
+    "可见文字不超过 3 处"
+  ],
+  "final_prompt": "Wide cover illustration, aspect ratio 2.35:1. European clear-line comic style, precise outlines, flat readable colors, tidy composition, restrained detail. Editorial technical illustration.\n\nThe scene: A request object (represented as a clean document icon) enters from the left along a diagonal pipeline. Three handler nodes are arranged along the diagonal path from lower-left to upper-right: the first node is labeled with a chip '责任链', the second node is the decision point — glowing amber, with a fork showing two arrows: one goes forward (green checkmark) and one bounces back (red X). A small label chip reads 'if-else 耦合' in the bottom-left corner showing the problem being avoided. The third node at the top-right is labeled '中间件' in a clean chip, referencing ASP.NET Core.\n\nThe nodes are rendered as clean rectangular boxes with rounded corners, connected by bold arrows. The decision node has a diamond-shaped indicator. The color palette is deep navy #1e3a5f background, amber #f5a623 for the decision node, green #4caf50 for the forward path, white for outlines and text.\n\nNo watermarks, no fake terminal, no fake dashboard, no fake chart axes, no English slogans, no title text. Visible text: only the three Chinese chips '责任链', 'if-else 耦合', '中间件'. Wide cinematic composition."
+}
