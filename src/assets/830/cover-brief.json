@@ -1,0 +1,66 @@
+{
+  "article_title": "C# 表达式树替代反射：何时该做性能升级",
+  "cover_type": "tutorial",
+  "core_theme": "用表达式树替代反射，将动态成员访问的运行时开销压缩到近乎零",
+  "reader_takeaway": "掌握"反射一次、编译、缓存"管线，可以为属性读取、设置、构造工厂、方法调用各场景生成可直接使用的代码",
+  "summary_angle": "一次性编译成本换来无限次零反射热路径",
+  "narrative_flow": "before-after",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "PropertyInfo.GetValue() 每次调用都需要：验证存在性、虚调用链分派、值类型装箱、返回 object",
+      "visual_idea": "左侧展示反射调用链中的多个重复步骤（每次调用都重走一遍）",
+      "visible_label": "每次调用",
+      "numeric_fact": null
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "四步管线：Get MemberInfo → Build expression tree → .Compile() → Cache delegate",
+      "visual_idea": "右侧展示管线：1 次 reflect → 1 次 .Compile() → ∞ 次原生速度调用",
+      "visible_label": "编译后缓存",
+      "numeric_fact": null
+    },
+    {
+      "role": "contrast",
+      "source_anchor": "Every single call repeats that work. Expression trees front-load all of it into the one-time .Compile() step.",
+      "visual_idea": "中间一条分界线或箭头，左侧密集的多步重复，右侧简洁的单路径",
+      "visible_label": "零开销",
+      "numeric_fact": null
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "The sweet spot: high-frequency calls (serialization, mapping, property binding) where the set of types is fixed after startup but not known at compile time.",
+      "visual_idea": "底部轻量标签区：序列化 / 映射 / 属性绑定",
+      "visible_label": "高频场景",
+      "numeric_fact": null
+    }
+  ],
+  "main_metaphor": "熔炉与模具：反射是每次手工锻造，表达式树是一次铸模、无限次浇注",
+  "primary_subject": "一名开发者将一段代码从"反复手工操作"变为"一次铸模后的自动流水线"",
+  "subject_action": "正在将一堆散乱的反射调用链汇聚成单一的编译管线，并封装进缓存",
+  "composition": "左右对照",
+  "base_style": "editorial technical illustration",
+  "selected_style": "游戏原画风",
+  "selected_style_prompt_descriptor": "game concept art illustration, clear hero object, readable environment storytelling, polished lighting, production-art detail",
+  "selected_style_reason": "随机选中；游戏原画风的清晰主体感与生产级细节适合展现"精密工具升级"的主题，不会让画面流于泛科技氛围",
+  "style_safety_note": "游戏原画风不涉及具体品牌、工作室或在世艺术家，无需安全改写",
+  "allowed_visible_text": ["每次调用", "编译后缓存", "零开销"],
+  "color_palette": ["#1a2a4a", "#3c7abf", "#f5c842", "#ffffff"],
+  "avoid": [
+    "浮动芯片",
+    "假 dashboard",
+    "假终端输出",
+    "假架构图节点名",
+    "无意义代码雨",
+    "霓虹紫蓝光污染",
+    "通用机器人站姿"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证左右对照构图、before-after 叙事弧线、主体明确（编译管线 vs 反射调用链）",
+  "revision_targets": [
+    "如果画面出现假代码或假终端，立刻重生",
+    "如果主对照弧线不清晰，收紧 before 一侧的视觉密度",
+    "确保可见文字不超过 3 处且均来自 information_blocks"
+  ],
+  "final_prompt": "Wide cover illustration, aspect ratio 2.35:1. Game concept art illustration, clear hero object, readable environment storytelling, polished lighting, production-art detail. Editorial technical illustration.\n\nLeft side (BEFORE): A dense tangle of repeated call steps glowing faintly — same loop executed over and over, each iteration triggers validate, dispatch, box, return object. A short Chinese label chip reads '每次调用'. The visual is slightly chaotic: many overlapping arrows in a loop.\n\nCenter: A clean vertical dividing line with a single bold directional arrow pointing right, labeled '零开销'.\n\nRight side (AFTER): A streamlined single pipeline: one input → one Compile step → an infinite-repeat arrow labeled '编译后缓存' flowing cleanly forward. The palette is cooler, cleaner, more confident. The call path is a straight line, not a loop.\n\nBottom: subtle label row — three small chips: 序列化 / 映射 / 属性绑定. No long sentences.\n\nColor palette: deep navy #1a2a4a background, electric blue #3c7abf for pipeline elements, amber #f5c842 for the compile step, white for labels. The left side is slightly warmer and murkier; the right side is crisp and illuminated.\n\nNo watermarks, no fake dashboard, no fake terminal, no fake chart axes, no hero title text, no English slogans. Visible text: only the three Chinese chips '每次调用', '编译后缓存', '零开销', each under 6 characters. Wide cinematic composition."
+}
