@@ -1,0 +1,47 @@
+{
+  "article_title": "Cosmos DB 新项目安全起步：8 步最小可行安全清单",
+  "cover_type": "tutorial",
+  "core_theme": "新 Cosmos DB 应用第一天就应该做到的 8 项安全配置：禁用密钥、托管标识、RBAC、诊断日志、网络限制、参数化查询、持续备份",
+  "reader_takeaway": "拿到一张可执行的 day-one 安全清单，避免后期从密钥迁移到托管标识的高成本返工",
+  "summary_angle": "大多数开发者拿到密钥就走了，但第一天跳过的安全配置后面要花几倍代价补",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "The portal handed you two keys and a connection string, it worked, and you moved on. That's what most developers do, and it causes problems later.",
+      "visual_idea": "一把钥匙从门缝里掉出来，旁边有一个警告三角",
+      "visible_label": "密钥泄漏",
+      "numeric_fact": null
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "Step 1-4: 禁用密钥 → 托管标识 → RBAC → DefaultAzureCredential",
+      "visual_idea": "一面盾牌上有一个身份指纹图标，代替了传统钥匙",
+      "visible_label": "托管标识",
+      "numeric_fact": null
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "Quick reference checklist: 8 项安全配置在 day one 完成",
+      "visual_idea": "一张勾选了全部项目的清单，旁边有一个绿色对勾",
+      "visible_label": "8 步清单",
+      "numeric_fact": "8"
+    }
+  ],
+  "main_metaphor": "一扇数据库大门：左边用钥匙开锁（不安全），右边用身份指纹开锁（安全），门上贴着一张 8 项清单",
+  "primary_subject": "一面带身份指纹的安全盾牌挡在数据库大门前",
+  "subject_action": "盾牌取代了旧钥匙，保护数据库入口",
+  "composition": "左右对照",
+  "base_style": "editorial technical illustration",
+  "selected_style": "极简线稿风",
+  "selected_style_prompt_descriptor": "minimalist line-art illustration, sparse clean strokes, ample negative space, precise symbolic objects, limited accent color",
+  "selected_style_reason": "随机选中（838 mod 40 = 38 → 第 18 项：极简线稿风）",
+  "style_safety_note": "该风格不指向特定品牌、工作室或艺术家，无需安全改写",
+  "allowed_visible_text": ["密钥泄漏", "托管标识", "8"],
+  "color_palette": ["白色", "深蓝", "浅灰", "红色点缀"],
+  "avoid": ["假 Azure Portal 截图", "假终端输出", "假 dashboard", "赛博朋克霓虹", "无关机器人"],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证左右对照（密钥 vs 标识）的视觉隐喻是否清晰",
+  "revision_targets": ["线稿精度", "左右对比的可读性", "8 步清单信息块"],
+  "final_prompt": "Wide cover illustration, aspect ratio 2.35:1. Editorial technical illustration with minimalist line-art illustration style, sparse clean strokes, ample negative space, precise symbolic objects, limited accent color. Left-right contrast composition on a clean white background. Left side: an old-fashioned key falling through a crack in a door, with a small red warning triangle and Chinese label '密钥泄漏'. Right side: a sturdy shield with a fingerprint icon on it stands in front of a database vault door, with Chinese label '托管标识'. Between them, a subtle dividing line. At the bottom-right corner, a small checklist card with a large number '8' and green checkmarks. Lines are thin dark-blue strokes on white. Accent colors: deep blue for shields and locks, red for warning elements, light gray for background details. No poster title, no English text, no fake code, no fake terminal, no fake Azure Portal, no dashboard, no watermark, no neon glow, no robot."
+}
