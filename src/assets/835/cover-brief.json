@@ -1,0 +1,47 @@
+{
+  "article_title": "重新设计 System.Diagnostics.Process：用类型系统消除"只有启动者才能用"的陷阱",
+  "cover_type": "analysis",
+  "core_theme": "Process 类的 StandardOutput 等属性只在你自己调了 Start 之后才有效，这是 API 设计缺陷；解法是把这些成员移到 Start 的返回类型里，让编译器替你挡住非法访问",
+  "reader_takeaway": "理解一个 API 设计原则：如果属性或方法只在某个条件下有效，就把它移到只有满足条件才能拿到的类型上",
+  "summary_angle": "用类型系统的分层替代运行时异常——一个 Process 类的假想重构",
+  "narrative_flow": "before-after",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "Process.StandardOutput 只在你自己调了 Start 的 Process 对象上有效，是一个 attractive nuisance",
+      "visual_idea": "一个锁住的属性符号，代表运行时才爆的非法访问",
+      "visible_label": "陷阱",
+      "numeric_fact": null
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "把标准句柄移到 ProcessStartResult，Start 返回这个类型而不是 Process",
+      "visual_idea": "一条分离线，左侧旧的混合结构，右侧拆分成两个清晰的类型",
+      "visible_label": "拆分",
+      "numeric_fact": "2"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "要强制开发者按顺序做事，就让第二步依赖第一步产出的东西",
+      "visual_idea": "一把钥匙打开一个门，门后是标准句柄",
+      "visible_label": null,
+      "numeric_fact": null
+    }
+  ],
+  "main_metaphor": "一把钥匙（Start 的返回值）才能打开的门（标准句柄）",
+  "primary_subject": "一个抽象的门和钥匙结构，门后是受保护的属性",
+  "subject_action": "钥匙正在从锁里转开，门缝露出安全的访问路径",
+  "composition": "左右对照",
+  "base_style": "conceptual editorial illustration",
+  "selected_style": "水彩漫画风",
+  "selected_style_prompt_descriptor": "watercolor comic illustration, translucent washes, visible paper texture, soft edges, light ink structure",
+  "selected_style_reason": "从 40 项风格池中随机选中",
+  "style_safety_note": "该风格不指向任何品牌、工作室或艺术家，无需安全改写",
+  "allowed_visible_text": ["陷阱", "拆分"],
+  "color_palette": ["#2b4162", "#fa9f42", "#e8dcc8", "#8b2635"],
+  "avoid": ["假代码编辑器", "假终端", "假 dashboard", "代码雨", "通用机器人"],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证 before-after 对照构图 + 水彩漫画风格是否成立",
+  "revision_targets": ["对比清晰度", "水彩质感", "钥匙-门隐喻辨识度"],
+  "final_prompt": "Wide cover illustration, aspect ratio 2.35:1. Conceptual editorial illustration in a watercolor comic style with translucent washes, visible paper texture, soft edges, and light ink structure. Left-right split composition: on the left, a tangled knot of overlapping shapes in muted red tones representing a confused API where properties are mixed together unsafely, with a small Chinese label '陷阱' on a warning chip; on the right, the same shapes cleanly separated into two distinct groups connected by a key-and-lock mechanism, with a small Chinese label '拆分'. A decorative key shape bridges the center, suggesting that calling Start produces the key that unlocks safe access. Warm amber and cool slate blue palette on a cream paper-textured background. Soft watercolor bleeds between sections. No poster title, no English slogan, no fake UI, no fake terminal, no fake code editor, no watermark, no robot figure."
+}
