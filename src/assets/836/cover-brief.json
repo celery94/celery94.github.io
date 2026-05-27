@@ -1,0 +1,47 @@
+{
+  "article_title": "用 C# 实现责任链模式：5 步写出生产级审批链",
+  "cover_type": "tutorial",
+  "core_theme": "在 C# 中分步实现责任链设计模式，从处理器抽象到 DI 注册和日志诊断",
+  "reader_takeaway": "掌握责任链模式的接口 vs 抽象类选型、具体处理器编写、链构建、DI 集成和生产级日志",
+  "summary_angle": "一条请求沿链传递，每级决策者自动判断是处理还是转交下一级",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "step",
+      "source_anchor": "Step 1: HandlerBase 抽象类提供 CanHandle / Process 骨架",
+      "visual_idea": "一个带齿轮的抽象蓝图模块，作为链的起始原型",
+      "visible_label": "抽象基类",
+      "numeric_fact": "①"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "Step 2-3: Manager→Director→VP→CEO 审批链，金额逐级递增",
+      "visual_idea": "四个依次排列的角色轮廓，用箭头串联，标注递增的审批额度",
+      "visible_label": "审批链",
+      "numeric_fact": "②"
+    },
+    {
+      "role": "step",
+      "source_anchor": "Step 4-5: DI 容器注册 + 日志装饰，生产级运行",
+      "visual_idea": "一个容器符号把链条封装起来，旁边有日志输出的信号线",
+      "visible_label": "DI + 日志",
+      "numeric_fact": "③"
+    }
+  ],
+  "main_metaphor": "一条审批请求像信件一样沿传送链逐站传递，直到有权限的审批者接手",
+  "primary_subject": "一条由四个节点组成的传递链，请求信封从左向右经过",
+  "subject_action": "信封沿链滑动，被某一站截获处理",
+  "composition": "斜向推进",
+  "base_style": "editorial technical illustration",
+  "selected_style": "手绘铅笔草稿风",
+  "selected_style_prompt_descriptor": "hand-drawn pencil sketch look, visible construction lines, graphite texture, loose but intentional composition",
+  "selected_style_reason": "随机选中（ID 836 mod 40 = 36）",
+  "style_safety_note": "该风格不指向特定品牌、工作室或艺术家，无需安全改写",
+  "allowed_visible_text": ["①", "②", "③", "审批链"],
+  "color_palette": ["石墨灰", "淡蓝", "暖米白", "浅橙色点缀"],
+  "avoid": ["假代码截图", "假终端输出", "假 UML 类图", "赛博朋克霓虹", "无关机器人"],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证斜向推进的链式传递主体是否清晰，3 个信息块是否可读",
+  "revision_targets": ["信息块标签清晰度", "铅笔纹理质感", "主体链条的连贯性"],
+  "final_prompt": "Wide cover illustration, aspect ratio 2.35:1. Editorial technical illustration with hand-drawn pencil sketch look, visible construction lines, graphite texture, loose but intentional composition. A chain of four desk stations arranged diagonally from lower-left to upper-right, connected by flowing arrows. A small envelope-like request slides along the chain. Station ① shows an abstract blueprint gear labeled '抽象基类'. Station ② shows four silhouette figures of increasing authority connected by arrows, labeled '审批链'. Station ③ shows a container symbol wrapping the chain with diagnostic signal lines, labeled 'DI + 日志'. Background is warm off-white paper with faint grid lines. Palette: graphite gray, light blue, warm cream, soft orange accents. Small numbered chips ①②③ near each station. No poster title, no English text, no fake code, no fake terminal, no fake UML diagram, no dashboard, no watermark, no neon glow, no floating chips, no robot."
+}
