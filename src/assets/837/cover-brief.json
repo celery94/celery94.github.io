@@ -1,0 +1,47 @@
+{
+  "article_title": "AI 编程 Agent 到底怎么用你的技术：7 步信息级联全拆解",
+  "cover_type": "analysis",
+  "core_theme": "拆解 AI 编程 Agent 从收到 prompt 到生成代码的 7 步信息级联，揭示工具描述、上下文竞争和响应质量如何决定 Agent 是否正确使用你的 SDK/API",
+  "reader_takeaway": "理解 Agent 在每一步的决策逻辑，知道自己的工具在哪一步被丢弃、误选或误用，从而有针对性地优化 AX",
+  "summary_angle": "一个请求从 prompt 到代码要经过 7 级级联，任何一级失败都会让你的工具变成隐形",
+  "narrative_flow": "layered reveal",
+  "information_blocks": [
+    {
+      "role": "mechanism",
+      "source_anchor": "Step 1: 上下文组装——harness 决定什么进入上下文窗口，工具描述在竞争空间",
+      "visual_idea": "一个漏斗入口，多个工具标签争先恐后挤进去，部分被挡在外面",
+      "visible_label": "上下文竞争",
+      "numeric_fact": "①"
+    },
+    {
+      "role": "contrast",
+      "source_anchor": "Step 3-4: 模型可能跳过匹配工具、用过时训练数据，或调用工具后响应太多/太少都产生 drag",
+      "visual_idea": "一个岔路口，左边是工具被调用的路，右边是被跳过后用过时记忆的路",
+      "visible_label": "选中 vs 跳过",
+      "numeric_fact": null
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "The information cascade: 7 步依赖链，任何一步失败向下级联",
+      "visual_idea": "一条从上到下的级联瀑布，某一级断裂后下方全部暗掉",
+      "visible_label": "级联断裂",
+      "numeric_fact": "7"
+    }
+  ],
+  "main_metaphor": "一条 7 级瀑布，每一级把信息往下传递，中间任何一级断流，下游就干涸",
+  "primary_subject": "一条从上至下的 7 级信息瀑布，中间某级出现裂缝",
+  "subject_action": "信息流沿瀑布向下倾泻，在裂缝处断裂",
+  "composition": "左右对照",
+  "base_style": "conceptual editorial illustration",
+  "selected_style": "彩铅绘本风",
+  "selected_style_prompt_descriptor": "colored-pencil picture-book illustration, tactile strokes, gentle palette, warm narrative objects, soft educational tone",
+  "selected_style_reason": "随机选中（837 mod 40 = 37，对应彩铅绘本风）",
+  "style_safety_note": "该风格不指向特定品牌、工作室或艺术家，无需安全改写",
+  "allowed_visible_text": ["①", "7", "上下文竞争"],
+  "color_palette": ["暖米白", "柔蓝", "淡橙", "石墨灰点缀"],
+  "avoid": ["假代码截图", "假终端输出", "假 dashboard", "赛博朋克霓虹", "无关机器人站姿", "漂浮芯片"],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证 7 级瀑布级联断裂的视觉隐喻是否清晰，3 个信息块是否可读",
+  "revision_targets": ["瀑布层级的辨识度", "彩铅纹理质感", "裂缝断裂处的视觉冲击"],
+  "final_prompt": "Wide cover illustration, aspect ratio 2.35:1. Conceptual editorial illustration with colored-pencil picture-book illustration style, tactile strokes, gentle palette, warm narrative objects, soft educational tone. A 7-tier cascading waterfall flowing from upper-left to lower-right, each tier labeled with a small numbered chip. At the top tier, a funnel shows many colorful tool-description cards competing to squeeze through a narrow opening, labeled '上下文竞争' with chip ①. In the middle tiers, a fork in the stream: one branch flows through a called-tool gate, the other diverts into a faded memory cloud. Near the bottom, a crack breaks the cascade, and the tiers below are dimmed and dry, with a large chip showing '7'. Background is warm cream paper with faint pencil grid texture. Palette: warm cream, soft blue, pale orange, graphite gray accents. No poster title, no English text, no fake code, no fake terminal, no dashboard, no watermark, no neon glow, no floating chips, no robot, no UI screenshot."
+}
