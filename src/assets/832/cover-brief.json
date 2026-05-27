@@ -1,0 +1,47 @@
+{
+  "article_title": ".NET 10 Clean Architecture 实战：从空目录到可运行的电影管理 API",
+  "cover_type": "tutorial",
+  "core_theme": "用 .NET 10 从零搭建 Clean Architecture 四层项目，依赖只朝内指向 Domain",
+  "reader_takeaway": "读完可以跟着操作，建出一个四层分明、编译器强制依赖方向、带 Aspire 编排和领域单元测试的 .NET 10 Web API",
+  "summary_angle": "四个同心层 + 一条规则 = 编译器替你守住架构",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "mechanism",
+      "source_anchor": "Domain → Application → Infrastructure → API，箭头只朝内",
+      "visual_idea": "四个同心圆/环，从中心到外层，箭头朝内",
+      "visible_label": "Domain",
+      "numeric_fact": "4"
+    },
+    {
+      "role": "step",
+      "source_anchor": "IApplicationDbContext 接口定义在 Application，Infrastructure 的 DbContext 实现它",
+      "visual_idea": "一个接口符号连接到一个数据库符号，线条简洁",
+      "visible_label": "接口",
+      "numeric_fact": null
+    },
+    {
+      "role": "evidence",
+      "source_anchor": "10 个领域单元测试 155ms 跑完，不需要数据库和 Web 服务器",
+      "visual_idea": "一个勾号 + 155ms 数字标签",
+      "visible_label": "155ms",
+      "numeric_fact": "155ms"
+    }
+  ],
+  "main_metaphor": "四层同心环，核心是纯净的领域层，外层逐层包裹",
+  "primary_subject": "四个同心圆环代表 Domain / Application / Infrastructure / API",
+  "subject_action": "箭头从外层指向内层核心",
+  "composition": "居中主物体",
+  "base_style": "editorial technical illustration",
+  "selected_style": "极简线稿风",
+  "selected_style_prompt_descriptor": "minimalist line-art illustration, sparse clean strokes, ample negative space, precise symbolic objects, limited accent color",
+  "selected_style_reason": "从 40 项风格池中随机选中",
+  "style_safety_note": "该风格不指向任何品牌、工作室或艺术家，无需安全改写",
+  "allowed_visible_text": ["Domain", "4", "155ms"],
+  "color_palette": ["#1a1a2e", "#e94560", "#f5f5f5", "#16213e"],
+  "avoid": ["假 dashboard", "假终端输出", "假架构节点名", "赛博朋克紫蓝光", "漂浮芯片", "代码雨"],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮先验证四层同心环构图 + 极简线稿风格是否成立",
+  "revision_targets": ["信息块可读性", "线稿风格纯净度", "箭头方向明确性"],
+  "final_prompt": "Wide cover illustration, aspect ratio 2.35:1. Editorial technical illustration in a minimalist line-art style with sparse clean strokes, ample negative space, precise symbolic objects, and limited accent color. Four concentric rings at center representing software architecture layers, labeled from innermost to outermost: 'Domain' in deep navy. Thin inward-pointing arrows from outer rings toward core. A small interface icon connecting to a database symbol on the right side. A checkmark chip with '155ms' in the lower portion. Background: clean off-white with subtle grid lines. Palette: deep navy #1a1a2e, coral accent #e94560, off-white #f5f5f5. No poster title, no English slogan, no fake UI, no dashboard, no terminal output, no watermark, no clutter."
+}
