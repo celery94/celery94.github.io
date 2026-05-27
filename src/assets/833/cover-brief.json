@@ -1,0 +1,47 @@
+{
+  "article_title": ".NET 开发者的 GitHub Copilot 实战手册：Chat、Agent 和 CLI 分别怎么用",
+  "cover_type": "analysis",
+  "core_theme": ".NET 开发者应该按任务类型选择 Copilot 的不同交互面——Chat 用于理解和规划，Agent 用于有边界的多步执行",
+  "reader_takeaway": "读完能判断当前任务该用 Chat 还是 Agent，能写出结构化的 .NET 场景 prompt",
+  "summary_angle": "不是学功能，而是从手头的任务出发选 Copilot 的使用面",
+  "narrative_flow": "conflict-to-resolution",
+  "information_blocks": [
+    {
+      "role": "contrast",
+      "source_anchor": "Chat 用于理解、比较、规划、解释；Agent 用于修改、验证、交付可 review 的结果",
+      "visual_idea": "左侧一个对话气泡代表 Chat（理解），右侧一个齿轮/执行符号代表 Agent（执行）",
+      "visible_label": "理解",
+      "numeric_fact": null
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "四个交互面：Visual Studio、VS Code、Copilot CLI、云端 Agent",
+      "visual_idea": "四个简洁图标排成一行或弧形",
+      "visible_label": "4",
+      "numeric_fact": "4"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "好的 prompt 包含四要素：目标、代码/输出、约束、期望的回答形状",
+      "visual_idea": "一个小清单或四格标签",
+      "visible_label": "约束",
+      "numeric_fact": null
+    }
+  ],
+  "main_metaphor": "两种工作模式的对比——理解 vs 执行，对话 vs 自动化",
+  "primary_subject": "一个 .NET 开发者工位的抽象场景，左侧对话气泡右侧齿轮执行",
+  "subject_action": "开发者面前两条路径分叉：一条通向理解（Chat），一条通向执行（Agent）",
+  "composition": "左右对照",
+  "base_style": "conceptual editorial illustration",
+  "selected_style": "厚涂插画风",
+  "selected_style_prompt_descriptor": "painterly digital illustration, rich brushwork, volumetric lighting, strong focal contrast, textured color masses",
+  "selected_style_reason": "从 40 项风格池中随机选中",
+  "style_safety_note": "该风格不指向任何品牌、工作室或艺术家，无需安全改写",
+  "allowed_visible_text": ["理解", "执行", "4"],
+  "color_palette": ["#1b2838", "#5c9ead", "#f0c27f", "#e8e8e8"],
+  "avoid": ["假 dashboard", "假终端输出", "假代码编辑器截图", "赛博朋克紫蓝光", "漂浮芯片", "通用机器人站姿"],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮验证左右对照构图 + Chat vs Agent 双路径是否清晰",
+  "revision_targets": ["对比关系清晰度", "厚涂质感", "信息块可读性"],
+  "final_prompt": "Wide cover illustration, aspect ratio 2.35:1. Conceptual editorial illustration in a painterly digital style with rich brushwork, volumetric lighting, strong focal contrast, and textured color masses. Split composition: on the left, a luminous speech-bubble shape representing understanding and dialogue, with a small Chinese label '理解'; on the right, a glowing gear-and-arrow mechanism representing execution and automation, with a small Chinese label '执行'. Between them, four small iconic shapes in an arc suggesting four developer surfaces, with a tiny '4' chip. Warm amber light from the left, cool teal light from the right, meeting in a soft gradient at center. Background: deep slate blue with subtle painterly texture. No poster title, no English slogan, no fake UI, no dashboard, no terminal output, no watermark, no code editor screenshot, no robot figure."
+}
