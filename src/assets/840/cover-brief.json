@@ -1,0 +1,75 @@
+{
+  "article_title": "Template Method vs Strategy：C# 里两种“变中有不变”的算法骨架取舍",
+  "cover_type": "analysis",
+  "core_theme": "在 C# 里实现“算法主结构不变、个别步骤可变”的两条路：模板方法靠继承锁结构，策略模式靠组合换实现；两者也可以组合使用。",
+  "reader_takeaway": "读者能分清模板方法和策略模式各自适合什么场景，并知道什么时候应该把两者组合起来用。",
+  "summary_angle": "用一张左右对照图把“继承锁住的固定流水线”和“可拔插的组合管道”并列起来，并在中间留一块小区域表达“两者可以组合”。",
+  "narrative_flow": "conflict-to-resolution",
+  "information_blocks": [
+    {
+      "role": "mechanism",
+      "source_anchor": "原文 Template Method: Inheritance-Based — base class owns the workflow, subclasses customize pieces",
+      "visual_idea": "左半边一座厚实的四级楼梯，每一级被一个固定的金属箍锁住，象征 read → transform → write → log 的固定顺序",
+      "visible_label": "继承·锁结构",
+      "numeric_fact": ""
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文 Strategy: Composition-Based — interfaces with multiple implementations, client injects",
+      "visual_idea": "右半边一条水平传送带，上面三个可拔插的方形模块（Reader / Transformer / Writer）由一只抽象的手悬空替换",
+      "visible_label": "组合·可拔插",
+      "numeric_fact": ""
+    },
+    {
+      "role": "contrast",
+      "source_anchor": "原文 Side-by-Side Comparison：Flexibility vs Enforcement",
+      "visual_idea": "在两边底部各画一行简短状态线：左边是闭合环带、右边是开放轨道",
+      "visible_label": "流程固定 / 步骤可换",
+      "numeric_fact": ""
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文 Combining Both Patterns：base class enforces order, strategy plugged into transform step",
+      "visual_idea": "在画面中央偏下，一根楼梯的中间一级被替换成一个亮色可拔插的模块，象征“模板方法外壳 + 策略可换步骤”",
+      "visible_label": "两者可组合",
+      "numeric_fact": ""
+    }
+  ],
+  "main_metaphor": "左边是被金属箍锁住的固定楼梯，右边是带可拔插模块的传送带；中间一级楼梯被换成可插拔的模块代表两者结合。",
+  "primary_subject": "一组横向铺开的算法管道意象：左边楼梯，右边传送带，中央一级可替换的模块",
+  "subject_action": "无人物；只有结构对照与一只悬空的手在右侧替换模块",
+  "composition": "左右对照双联式构图，中央偏下保留一处“可拔插”的桥接元素",
+  "base_style": "conceptual editorial illustration",
+  "selected_style": "厚涂插画风",
+  "selected_style_prompt_descriptor": "painterly digital illustration, rich brushwork, volumetric lighting, strong focal contrast, textured color masses",
+  "selected_style_reason": "随机选择；厚涂的体积感和明暗适合表达“锁结构”与“可拔插模块”的物理重量差异",
+  "style_safety_note": "风格名为通用艺术类别，未指向具体品牌、工作室或在世艺术家，无需改写",
+  "allowed_visible_text": [
+    "继承·锁结构",
+    "组合·可拔插",
+    "流程固定 / 步骤可换",
+    "两者可组合"
+  ],
+  "color_palette": [
+    "warm off-white background",
+    "deep slate blue",
+    "muted brass amber accent"
+  ],
+  "avoid": [
+    "真实 Visual Studio 或 .NET 商标 / logo",
+    "假代码截图或假 IDE 界面",
+    "霓虹紫蓝赛博朋克氛围",
+    "通用机器人或开发者人物形象",
+    "悬浮代码雨",
+    "巨量 HUD 浮层",
+    "英文长口号或封面主标题"
+  ],
+  "reference_strategy": "纯文本生成；无可复用本地素材",
+  "draft_goal": "验证左右对照构图能否在一张 2.35:1 宽图里清晰承载“固定楼梯 vs 可拔插传送带”，并让中央替换块读得出“组合使用”的意思",
+  "revision_targets": [
+    "如果左右两侧没有形成明显对照，强化左边箍紧的金属环和右边的可拔插槽",
+    "如果出现伪 UI 或商标，明确禁用并改用纯抽象几何",
+    "如果可见文字超过 4 处或出现英文长句，收紧标签到允许清单"
+  ],
+  "final_prompt": "wide cover illustration, aspect ratio 2.35:1, conceptual editorial illustration combined with painterly digital illustration, rich brushwork, volumetric lighting, strong focal contrast, textured color masses. Side-by-side diptych composition for a C# design-patterns article cover, no people, no faces. Left half: a solid four-step staircase made of heavy stone-like blocks, each step clamped together by a single thick metallic brass band, conveying a fixed and locked workflow; subtle warm rim light from upper-left. Right half: a clean horizontal conveyor track in the same scene, with three modular pluggable cube blocks (suggesting reader, transformer, writer) hovering above three matching empty slots, while a single abstract painterly hand from off-canvas calmly swaps the middle cube; soft volumetric light from upper-right. Lower-center: one of the staircase's middle steps morphs into a brass-accented pluggable cube that bridges into the conveyor side, suggesting the two patterns can be combined. Warm off-white background, deep slate blue as primary structural color, a single muted brass amber accent on bands, slots, and the central bridging cube. Include only four small Chinese chip labels positioned beside the relevant objects: 继承·锁结构 above the staircase, 组合·可拔插 above the conveyor, 流程固定 / 步骤可换 across the lower mid-line as a single thin chip, 两者可组合 next to the central bridging cube; no other text anywhere. Strict prohibitions: no real Visual Studio or .NET logos, no real IDE screenshots, no fake dashboards, no fake terminal output, no fake code snippets, no fabricated metrics, no English slogans, no poster title, no watermark, no neon cyberpunk lighting, no generic robot or developer characters, no floating code rain, no dense HUD overlays, no collage of unrelated icons."
+}
