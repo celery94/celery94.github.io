@@ -1,0 +1,75 @@
+{
+  "article_title": "给 AI 编码代理接上 Microsoft Learn：用 Learn MCP Server 拿到当下的官方文档",
+  "cover_type": "release",
+  "core_theme": "Microsoft Learn MCP Server 让 AI 编码代理在写代码前先查当下的官方文档，从而避开训练截止日期带来的过期 API 问题。",
+  "reader_takeaway": "读者知道 Learn MCP Server 是什么、为什么有用、在 GitHub Copilot CLI 和 VS Code 里如何接入，并理解“接入文档”和“不接入文档”的真实差距。",
+  "summary_angle": "一个有无对照：同样的 prompt，没有 Learn MCP 时陷入 15 次工具调用调依赖；接上 Learn MCP 后 0 步调试、直接产出可运行的部署脚本。",
+  "narrative_flow": "before-after",
+  "information_blocks": [
+    {
+      "role": "contrast",
+      "source_anchor": "原文对比表第一行：Agent's first action — Web search vs Microsoft Docs Search",
+      "visual_idea": "封面左半边一个代理形象在迷雾中翻找旧手册；右半边代理通过细线连接到 Learn 文档块，画面更通透",
+      "visible_label": "首步：搜文档",
+      "numeric_fact": ""
+    },
+    {
+      "role": "evidence",
+      "source_anchor": "原文表格：Debug steps before producing code — 15+ tool calls vs 0",
+      "visual_idea": "左半边漂浮 15 个杂乱的小工具齿轮，右半边只有一个干净的 0 数字 chip",
+      "visible_label": "调试步骤",
+      "numeric_fact": "15→0"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文：Learn MCP Server gives agents direct access to Microsoft Learn documentation … through MCP",
+      "visual_idea": "中间一根细线连接代理与一本带 Learn 标识的开放文档，象征 MCP 信道",
+      "visible_label": "Learn MCP",
+      "numeric_fact": ""
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文：az ml (deprecated) vs az cognitiveservices (current)",
+      "visual_idea": "右半边代理手里握着一份印有“az cognitiveservices”小标签的清晰脚本",
+      "visible_label": "当下 API",
+      "numeric_fact": ""
+    }
+  ],
+  "main_metaphor": "代理从盲翻旧手册到看清官方文档的双联画对比",
+  "primary_subject": "一个抽象的 AI 编码代理角色，在画面中央被一条细线穿过左右两个状态",
+  "subject_action": "左侧代理低头在杂乱齿轮中翻找；右侧代理抬头看向开放的 Learn 文档并写出干净的脚本",
+  "composition": "左右对照双联式构图，中央留出一条贯穿的细线代表 MCP 信道",
+  "base_style": "product-poster style illustration",
+  "selected_style": "极简线稿风",
+  "selected_style_prompt_descriptor": "minimalist line-art illustration, sparse clean strokes, ample negative space, precise symbolic objects, limited accent color",
+  "selected_style_reason": "随机选择；极简线稿风的留白与细线天然契合“信道连接”和“前后对照”叙事，不容易掉进伪 UI、霓虹科技的窠臼",
+  "style_safety_note": "风格名为通用艺术类别，未指向具体品牌、工作室或在世艺术家，无需改写",
+  "allowed_visible_text": [
+    "首步：搜文档",
+    "调试步骤 15→0",
+    "Learn MCP",
+    "当下 API"
+  ],
+  "color_palette": [
+    "off-white background",
+    "deep ink black line",
+    "single muted teal accent"
+  ],
+  "avoid": [
+    "Microsoft 真实 logo 或商标",
+    "真实 Azure 门户截图或假 dashboard",
+    "霓虹紫蓝赛博朋克氛围",
+    "通用机器人站姿",
+    "悬浮代码雨",
+    "巨量 HUD 浮层",
+    "英文长口号或封面主标题"
+  ],
+  "reference_strategy": "纯文本生成；无可复用本地素材",
+  "draft_goal": "验证左右对照构图能否在一张 2.35:1 宽图里清晰承载“无文档 / 接入 Learn”的两个状态，并让中央细线读得出 MCP 信道含义",
+  "revision_targets": [
+    "如果左右两侧失去对照关系，强化中央分界与细线",
+    "如果出现伪 UI 或假 logo，明确禁用并改用纯符号文档",
+    "如果可见文字超过 4 处或出现英文长句，收紧标签到允许清单"
+  ],
+  "final_prompt": "wide cover illustration, aspect ratio 2.35:1, product-poster style illustration combined with minimalist line-art illustration, sparse clean strokes, ample negative space, precise symbolic objects, limited accent color. Diptych-style before-and-after composition for a tech article cover. Left half: a faceless AI coding agent figure crouched and rummaging through a cluttered pile of small mechanical gears and faded paper manuals in dim flat lighting, conveying confusion. Right half: the same agent figure standing upright, calmly looking toward an open, clean book labeled with a small neutral docs glyph, holding a tidy floating script panel; one thin horizontal line crosses the entire canvas through the agent in both halves, suggesting an MCP channel connecting the two states. Off-white background, deep ink black linework, a single muted teal accent on the connecting line, the open book, and the script panel. Include only four small Chinese chip labels positioned beside the relevant objects: 首步：搜文档 above the right book, 调试步骤 15→0 between the two halves, Learn MCP on the connecting line near the center, 当下 API near the script panel; no other text anywhere. Strict prohibitions: no real Microsoft logo, no real Azure portal screenshots, no fake dashboards, no fake terminal output, no fake architecture node names, no fabricated metrics beyond the 15→0 chip, no English slogans, no poster title, no watermark, no neon cyberpunk lighting, no generic robot stance, no floating code rain, no dense HUD overlays."
+}
