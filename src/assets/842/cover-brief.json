@@ -1,0 +1,79 @@
+{
+  "article_title": "Reflection vs Source Generators：.NET 10 里选谁，看你什么时候知道类型",
+  "cover_type": "analysis",
+  "core_theme": "C# 反射在运行时工作、灵活但有开销且对 AOT 不友好；源生成器在编译期生成真实 C# 代码、零运行时开销且 AOT 友好；选择标准是'类型在什么时候才能被知道'",
+  "reader_takeaway": "理解为什么 .NET 10 下的合理默认是'编译期已知类型用源生成器、运行时才知道的用反射'，并知道两者可以在同一应用里混合使用",
+  "summary_angle": "把运行时反射和编译期源生成器并排画出来，再用一条桥提示两者可以混合使用",
+  "narrative_flow": "before-after",
+  "information_blocks": [
+    {
+      "role": "contrast",
+      "source_anchor": "原文 'What Reflection Does' 段：反射在运行时读取程序集元数据，可应付动态加载的类型",
+      "visual_idea": "画面左侧用极简线稿画一个放大镜悬在散落的零件堆上方，零件上有问号轮廓",
+      "visible_label": "运行时·灵活",
+      "numeric_fact": ""
+    },
+    {
+      "role": "contrast",
+      "source_anchor": "原文 'What Source Generators Do' 与 'AOT Compatibility in .NET 10' 段：源生成器在编译期生成真实 C# 代码，AOT 友好、零运行时开销",
+      "visual_idea": "画面右侧用极简线稿画一台带印章的小型压模机，把整齐的方块按到一条静态传送带的固定卡槽里",
+      "visible_label": "编译期·零开销",
+      "numeric_fact": ""
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文 'The Hybrid Approach' 段：启动时用反射做插件发现，主热路径走源生成器；两条路径在 DI 容器汇合",
+      "visual_idea": "画面中下方用一条极简线稿桥把左侧放大镜场景和右侧压模场景连起来，桥中央用一个小圆圈节点",
+      "visible_label": "混合策略",
+      "numeric_fact": ""
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文 'AOT Compatibility in .NET 10' 段：.NET 10 下 NativeAOT 越来越主流，反射的动态调用受限，源生成器是必备工具",
+      "visual_idea": "右侧压模机上方挂一小块极简徽章",
+      "visible_label": "AOT 友好",
+      "numeric_fact": ""
+    }
+  ],
+  "main_metaphor": "左侧'运行时举着放大镜找类型' vs 右侧'编译期用压模把类型预先打成卡槽里的零件'，桥连两者表示可以混合",
+  "primary_subject": "由左侧放大镜+散件、右侧压模机+传送带、中下连接桥组成的横向对照线",
+  "subject_action": "视觉动线从左侧的搜寻动作过渡到右侧的预成型动作，桥连接两者",
+  "composition": "左右对照 + 居中桥连接，主焦点在右侧压模机和它的传送带",
+  "base_style": "conceptual editorial illustration",
+  "selected_style": "极简线稿风",
+  "selected_style_prompt_descriptor": "minimalist line-art illustration, sparse clean strokes, ample negative space, precise symbolic objects, limited accent color",
+  "selected_style_reason": "随机选中极简线稿风；该风格与一篇'.NET 10 反射 vs 源生成器'技术取舍文章的克制理性气质相符，能用最少的元素把两侧对照表达清楚",
+  "style_safety_note": "风格名称不指向具体艺术家或工作室，无需额外改写",
+  "allowed_visible_text": [
+    "运行时·灵活",
+    "编译期·零开销",
+    "AOT 友好",
+    "混合策略"
+  ],
+  "color_palette": [
+    "off-white background",
+    "deep ink black linework",
+    "single muted indigo accent on the bridge and stamp head"
+  ],
+  "avoid": [
+    "no real Microsoft / .NET / Visual Studio logos",
+    "no real IDE or terminal screenshots",
+    "no fake code snippets visible on screens",
+    "no fake dashboards or charts",
+    "no fabricated metrics",
+    "no English slogans or poster title",
+    "no neon cyberpunk lighting",
+    "no generic robot mascots",
+    "no floating code rain",
+    "no dense HUD overlays",
+    "no collage of unrelated icons"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证'左侧放大镜+散件 → 右侧压模+传送带 → 中下桥连接'三段叙事在极简线稿风下是否成立",
+  "revision_targets": [
+    "如桥连接不够清晰，加粗中央节点",
+    "如散件 vs 卡槽零件区分不明显，加强卡槽形状对比",
+    "如蓝色 accent 太重，缩小到压模头和桥心两处"
+  ],
+  "final_prompt": "wide cover illustration, aspect ratio 2.35:1, conceptual editorial illustration combined with minimalist line-art illustration, sparse clean strokes, ample negative space, precise symbolic objects, limited accent color. Horizontal before-after composition for a .NET technical-choice article cover, no people, no faces. Left half: a large simple line-art magnifying glass hovering low over a small scattered pile of irregular polygonal parts, a couple of which have hollow question-mark outlines etched on their surface, conveying runtime inspection of unknown types. Right half: a compact line-art stamping machine with a small embossed seal head pressing tidy uniform cube blocks into evenly spaced slotted positions on a clean horizontal conveyor track, conveying compile-time pre-shaping. Lower center: a single thin line-art arched bridge connecting the left scene to the right scene, with one small circular node at the bridge's center suggesting the two paths converge. Off-white background, deep ink black as the dominant line color, single muted indigo accent strictly limited to the stamping head and the bridge center node. Include only four small Chinese chip labels positioned beside the relevant objects: '运行时·灵活' near the magnifying glass, '编译期·零开销' near the stamping machine, '混合策略' next to the bridge center node, 'AOT 友好' as a tiny chip above the stamping machine; no other text anywhere. Strict prohibitions: no real Microsoft or .NET or Visual Studio logos, no real IDE screenshots, no real terminal output, no fake code snippets, no fake dashboards, no fake chart axes, no fake architecture node names, no fabricated metrics, no English slogans, no poster title, no watermark, no neon cyberpunk lighting, no generic robot mascots, no floating code rain, no dense HUD overlays, no unrelated icon collage."
+}
