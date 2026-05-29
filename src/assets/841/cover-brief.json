@@ -1,0 +1,66 @@
+{
+  "article_title": "给研究型 AI 代理一份验证清单：让工具脚本从猜测变成契约",
+  "cover_type": "analysis",
+  "core_theme": "研究型 GenAI 代理给出的工具方案常常看起来合理但其实不完整；用一份 4 段式验证清单把使用场景、排除项、检测类、验证用例固化下来，工具脚本才能从猜测变成可信的契约",
+  "reader_takeaway": "知道为什么纯靠代理推荐的工具会留盲点，并拿到一个可以照着复用的 4 段式 (0/1/2/3) 验证清单结构",
+  "summary_angle": "左侧一根看似坚固但已经裂开的石柱代表'似是而非的工具脚本'，右侧用 0/1/2/3 四级阶梯把'用例-排除-检测类-验证用例'立成一份契约印章",
+  "narrative_flow": "conflict-to-resolution",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "原文 'The problem' 与 'What was missed' 段：GenAI 能拼出看起来合理的脚本，但漏掉了 unused private members 这类检测类",
+      "visual_idea": "左侧一根高大的版画式立柱，纹理沉重，但中段有一道明显裂缝，柱顶贴一小张倾斜的纸条",
+      "visible_label": "似是而非",
+      "numeric_fact": ""
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文 'Using a verification checklist' 段：Part 0/1/2/3 四段流程",
+      "visual_idea": "画面中央偏右用 4 级版画式阶梯从低到高排开，每级阶梯侧面分别刻 0/1/2/3 编号",
+      "visible_label": "验证清单",
+      "numeric_fact": "0/1/2/3"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文 'Closing thought' 段：A verification checklist turns tooling prompts from a guess into a contract",
+      "visual_idea": "阶梯顶端放一个圆形版画式印章/封蜡图案，覆在一张展开的文档上",
+      "visible_label": "工具=契约",
+      "numeric_fact": ""
+    }
+  ],
+  "main_metaphor": "裂开的旧立柱 → 0/1/2/3 阶梯 → 盖上印章的契约文档；从一个看似稳固但有裂缝的方案，走到一份可被验证、可被签收的工程契约",
+  "primary_subject": "由左侧裂柱、中段 0/1/2/3 四级阶梯、右上盖印契约文档组成的一条横向叙事线",
+  "subject_action": "视觉动线从左下的裂柱沿阶梯向右上抬升，最后落在盖了印章的契约文档上",
+  "composition": "斜向推进 + 左右对照：左 1/3 留给问题，右 2/3 留给四段式机制和契约印章",
+  "base_style": "conceptual editorial illustration",
+  "selected_style": "黑白版画风",
+  "selected_style_prompt_descriptor": "black-and-white printmaking look, carved textures, bold shadows, high contrast, poster-like but no title text",
+  "selected_style_reason": "随机选中黑白版画风；该风格与 analysis 类的契约、版图、印章意象天然契合，能稳住'严肃工程方法论'的语气",
+  "style_safety_note": "风格名称不指向具体艺术家或工作室，无需额外改写",
+  "allowed_visible_text": ["似是而非", "验证清单", "0/1/2/3", "工具=契约"],
+  "color_palette": [
+    "off-white paper",
+    "deep ink black",
+    "single muted brick red accent on the seal"
+  ],
+  "avoid": [
+    "no real GitHub/Microsoft logos",
+    "no real IDE or terminal screenshots",
+    "no fake code snippets or AST diagrams",
+    "no fake dashboards or charts",
+    "no fabricated metrics or percentages",
+    "no English slogans or poster title",
+    "no neon cyberpunk lighting",
+    "no generic robot mascots",
+    "no floating code rain",
+    "no dense HUD overlays"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证'裂柱 → 0/1/2/3 阶梯 → 契约印章'的横向叙事是否成立，并确认黑白版画质感能撑住严肃方法论语气",
+  "revision_targets": [
+    "如阶梯编号 0/1/2/3 不清晰，加强刻字深度",
+    "如印章颜色压过整体黑白基调，把红色降到极小面积",
+    "如柱身裂缝不够明显，加深裂纹纹理"
+  ],
+  "final_prompt": "wide cover illustration, aspect ratio 2.35:1, conceptual editorial illustration combined with black-and-white printmaking look, carved textures, bold shadows, high contrast, poster-like but no title text. Horizontal conflict-to-resolution composition for a software engineering methodology article cover, no people, no faces. Left third: a tall heavy printmaking-style stone column with deep carved vertical grooves, visibly cracked through its middle section with a thin sloped paper strip pinned near its top, conveying a plausible-looking but flawed tooling script. Middle to right: a four-step printmaking staircase rising from lower-left to upper-right, each step's side face bearing one large carved numeral 0, 1, 2, 3 in order, suggesting a four-part verification process. Upper right: an open carved contract document resting on the top step, with a small round wax-seal-style stamp pressed onto it as the single muted brick-red accent in the entire image. Off-white textured paper background, deep ink black as the only structural color, single muted brick-red accent strictly limited to the wax seal. Include only four small Chinese chip labels positioned beside the relevant objects: '似是而非' near the cracked column top, '验证清单' above the staircase, '0/1/2/3' as a thin chip along the steps, '工具=契约' next to the sealed contract document; no other text anywhere. Strict prohibitions: no real GitHub or Microsoft logos, no real IDE screenshots, no real terminal output, no fake code snippets, no fake AST diagrams, no fake dashboards, no fake chart axes, no fake architecture node names, no fabricated metrics, no English slogans, no poster title, no watermark, no neon cyberpunk lighting, no generic robot mascots, no floating code rain, no dense HUD overlays."
+}
