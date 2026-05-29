@@ -1,0 +1,47 @@
+{
+  "article_title": "让反射在 .NET 10 Native AOT 下安全：DynamicallyAccessedMembers 实用指南",
+  "cover_type": "tutorial",
+  "core_theme": "在 .NET 10 Native AOT 下，反射不是被禁用，而是要通过注解告诉裁剪器哪些成员必须保留",
+  "reader_takeaway": "看完知道 IL2xxx 警告为什么出现、用 [DynamicallyAccessedMembers] / [RequiresUnreferencedCode] / [RequiresDynamicCode] 分别怎么标，源生成器什么时候才是终极方案",
+  "summary_angle": "裁剪器把类型悄悄删掉，注解把保护伞撑回去",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "Why Native AOT and Reflection Don't Mix by Default 段：trimmer 在静态分析时删掉它认为不可达的类型，运行时反射拿到 null 或 TypeLoadException",
+      "visual_idea": "裁剪器（剪刀符号）正在裁掉一组类型方块，留下空洞",
+      "visible_label": "裁剪",
+      "numeric_fact": "1"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "The [DynamicallyAccessedMembers] Attribute 段：注解告诉 trimmer 必须保留某些成员",
+      "visual_idea": "一把伞或一圈光罩盖住一个类型方块，方块下方留下保留的构造器、方法标记",
+      "visible_label": "保留成员",
+      "numeric_fact": "2"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "Source Generators: The Permanent Solution 段：把反射搬到编译期",
+      "visual_idea": "齿轮 / 模板从源代码侧生成新的代码节点，连接到主类型",
+      "visible_label": "编译期生成",
+      "numeric_fact": "3"
+    }
+  ],
+  "main_metaphor": "裁剪器 vs 保护伞 vs 编译期生成器：从“被裁掉”到“被保留”再到“提前生成”",
+  "primary_subject": "中央一个清晰的类型方块（带 .NET 风格 angle bracket 标记）",
+  "subject_action": "三段式横向展开：左侧被剪掉、中段被保护、右侧被源生成器复制",
+  "composition": "left-to-right 3-beat process, central anchor 类型方块",
+  "base_style": "editorial technical illustration",
+  "selected_style": "极简线稿风",
+  "selected_style_prompt_descriptor": "minimalist line-art illustration, sparse clean strokes, ample negative space, precise symbolic objects, limited accent color",
+  "selected_style_reason": "随机选择；线稿风格适合教程类的清晰流程图叙事，避免堆砌华丽元素",
+  "style_safety_note": "无品牌或艺术家强指向，无需改写",
+  "allowed_visible_text": ["裁剪", "保留成员", "编译期生成", "1", "2", "3"],
+  "color_palette": ["off-white #F6F4EE", "ink black #1A1A1A", "muted teal #2F6E6A", "warm accent #D97A4B"],
+  "avoid": ["poster title", "long English slogan", "fake terminal", "fake dashboard", "neon cyberpunk", "floating chips", "fake architecture node names", "watermark"],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "确认 3-beat 流程清晰、主类型方块居中可识别、线稿风格成立",
+  "revision_targets": ["如果信息块过密就压成 3 个", "如果出现假图表 / 假 UI 就在下一轮明确禁用", "如果颜色过冷加入一抹暖色作为重点"],
+  "final_prompt": "Wide cover illustration, aspect ratio 2.35:1, minimalist line-art illustration, sparse clean strokes, ample negative space, precise symbolic objects, limited accent color, editorial technical illustration tone. Composition: a clean three-beat horizontal process. Left beat: a small group of type blocks (labeled with abstract angle brackets) being snipped away by stylized scissors, leaving empty silhouettes; tiny Chinese label chip \"裁剪\" with a small numeral \"1\". Middle beat: a single central type block (the anchor of the whole image) covered by a soft circular protective canopy / umbrella shape, with small annotations like .ctor / method ticks preserved underneath; tiny Chinese label chip \"保留成员\" with numeral \"2\". Right beat: a gear / template symbol on a code-leaf shape emitting clean duplicated code line strokes that connect into the central type block; tiny Chinese label chip \"编译期生成\" with numeral \"3\". Use off-white background #F6F4EE, ink black line work, a muted teal accent for the protective canopy, and a single warm coral accent for the gear/output beat. Keep visible text to only the three short Chinese chips and the three small numerals; absolutely no English slogans, no poster title, no long sentences, no fake UI, no fake dashboard, no fake terminal, no fake chart axes, no fake architecture node names, no watermark, no prompt residue, no neon cyberpunk lighting, no floating chips clutter."
+}
