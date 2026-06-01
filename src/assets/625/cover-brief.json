@@ -1,0 +1,54 @@
+{
+  "article_title": "SQL Server 时态表 + EF Core：零侵入式数据变更审计",
+  "cover_type": "tutorial",
+  "core_theme": "用 SQL Server 时态表配合 EF Core 6+ 的 IsTemporal() API，无需自定义拦截器即可构建完整的行级别数据历史审计系统",
+  "reader_takeaway": "掌握 EF Core 时态表的完整配置步骤，以及 5 个历史查询运算符（TemporalAll、TemporalAsOf、TemporalBetween、TemporalFromTo、TemporalContainedIn）的使用场景",
+  "summary_angle": "传统手写审计代码 vs 时态表引擎级历史追踪——后者的关键优势是时间戳由 SQL Server 强制写入，无法被应用层绕过",
+  "narrative_flow": "before-after",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "The naive approach - adding CreatedAt, UpdatedAt, and ModifiedBy columns - only tells you when the last change happened. You lose the full history.",
+      "visual_idea": "残缺的数据行，只有最后一次时间戳",
+      "visible_label": "数据丢失",
+      "numeric_fact": null
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "entity.ToTable('Orders', t => t.IsTemporal(temporal => { temporal.HasPeriodStart('ValidFrom'); temporal.HasPeriodEnd('ValidTo'); temporal.UseHistoryTable('OrdersHistory', 'audit'); }));",
+      "visual_idea": "主表与历史表并排，箭头表示旧版本自动归档",
+      "visible_label": "IsTemporal",
+      "numeric_fact": null
+    },
+    {
+      "role": "evidence",
+      "source_anchor": "Five temporal query operators: TemporalAll, TemporalAsOf, TemporalBetween, TemporalFromTo, TemporalContainedIn",
+      "visual_idea": "5个查询运算符以标签形式排列",
+      "visible_label": "5 种查询",
+      "numeric_fact": "5"
+    },
+    {
+      "role": "contrast",
+      "source_anchor": "In typical OLTP scenarios, the overhead is 5–15%.",
+      "visual_idea": "写入性能开销标注",
+      "visible_label": null,
+      "numeric_fact": "5-15%"
+    }
+  ],
+  "main_metaphor": "数据库表的双层镜像——主表看当前，历史表回溯过去",
+  "primary_subject": "并排的两个数据库表（主表 + 历史表），中间有时间轴贯穿",
+  "subject_action": "一行记录正在被从主表移入历史表，时间戳自动写入",
+  "composition": "单点聚焦或轻微斜向推进",
+  "base_style": "editorial technical illustration",
+  "selected_style": "游戏原画风",
+  "selected_style_prompt_descriptor": "game concept art illustration, clear hero object, readable environment storytelling, polished lighting, production-art detail",
+  "selected_style_reason": "随机选中；游戏原画风的清晰主体感和成品质感适合展现技术机制的精确美学",
+  "style_safety_note": "游戏原画风为描述类风格，非特定工作室或艺术家名称，无需改写",
+  "allowed_visible_text": ["IsTemporal", "5 种查询", "数据丢失"],
+  "color_palette": ["深蓝#1a2744", "青绿#00c9a7", "银灰#b0bec5", "琥珀#ffb74d"],
+  "avoid": ["假UI截图", "假仪表盘", "假终端输出", "假SQL执行结果", "水印"],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证主题（双表历史追踪）、主隐喻（主表+历史表镜像）、5个信息块和游戏原画风格是否成立",
+  "revision_targets": ["信息块可读性", "双表关系清晰度", "色彩风格一致性"],
+  "final_prompt": "Wide cover illustration, aspect ratio 2.35:1. Game concept art illustration, clear hero object, readable environment storytelling, polished lighting, production-art detail. Editorial technical illustration style.\n\nMain scene: Two database table structures side by side connected by a glowing timeline axis — left table labeled with subtle '主表' glow, right table labeled with subtle '历史表' glow. A single data row is mid-transition, floating from the main table into the history table, with a timestamp particle trail. The row emits amber light as it moves.\n\nInformation blocks (integrated naturally, not as floating UI labels):\n- Small label '数据丢失' with an incomplete broken row icon near bottom-left\n- Small tag 'IsTemporal' rendered as a metallic code chip hovering above the main table\n- Minimal '5 种查询' tag with 5 small glowing dots\n- Subtle '5-15%' annotation near a performance gauge element\n\nColor palette: Deep navy #1a2744 background, teal-cyan #00c9a7 accent glow on history flow, silver-gray #b0bec5 table structures, amber #ffb74d for the moving row highlight. Clean dark-tech atmosphere.\n\nVisible text: only the 3 Chinese short labels above (≤6 characters each) + numeric '5-15%'. No title, no English slogans, no fake dashboard charts, no fake terminal output, no watermark."
+}
