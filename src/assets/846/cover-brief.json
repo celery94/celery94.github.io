@@ -1,0 +1,65 @@
+{
+  "article_title": "ASP.NET Core Controller 实战：把 REST 端点写清楚",
+  "cover_type": "tutorial",
+  "core_theme": "ASP.NET Core controller 如何接收 HTTP 请求、调用业务服务并返回规范响应",
+  "reader_takeaway": "读者能理解 ControllerBase、ApiController、ActionResult、模型绑定、依赖注入和薄控制器的基本写法",
+  "summary_angle": "把 controller 画成轻量协调层：请求进来，服务处理，响应出去",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "mechanism",
+      "source_anchor": "原文 ControllerBase vs Controller 章节说明 Web API 通常使用 ControllerBase",
+      "visual_idea": "中央控制台接收 REST 请求卡片",
+      "visible_label": "控制器",
+      "numeric_fact": "1"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文 The [ApiController] Attribute 章节说明自动模型验证和绑定来源推断",
+      "visual_idea": "控制台上方出现校验印章和绑定箭头",
+      "visible_label": "自动校验",
+      "numeric_fact": "2"
+    },
+    {
+      "role": "step",
+      "source_anchor": "原文 Action Results 章节列出 Ok、CreatedAtAction、NoContent、NotFound、Conflict 等结果",
+      "visual_idea": "右侧输出不同颜色的 HTTP 响应卡片",
+      "visible_label": "状态码",
+      "numeric_fact": "200, 201, 204, 404"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文 Keeping Controllers Thin 章节强调 controller 只协调请求、服务和响应",
+      "visual_idea": "业务逻辑被放在后方服务模块中，controller 本身保持小而清晰",
+      "visible_label": "薄控制器",
+      "numeric_fact": "4"
+    }
+  ],
+  "main_metaphor": "小型调度台把 REST 请求交给服务层，再把结构化响应送回客户端",
+  "primary_subject": "一个简洁的 controller 调度台",
+  "subject_action": "正在把请求卡片导向服务通道并输出响应卡片",
+  "composition": "斜向推进",
+  "base_style": "editorial technical illustration",
+  "selected_style": "日漫少年风",
+  "selected_style_prompt_descriptor": "energetic shonen-inspired manga look, clean ink lines, dynamic poses, readable action rhythm, bright restrained color accents",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；教程型内容适合用有推进感的动作节奏表达请求流转",
+  "style_safety_note": "该风格为泛类型描述，不涉及具体品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["控制器", "自动校验", "状态码", "薄控制器"],
+  "color_palette": ["white", "charcoal", "teal", "coral", "amber"],
+  "avoid": [
+    "真实产品截图",
+    "真实 dashboard",
+    "假终端输出",
+    "假架构节点名",
+    "无意义代码雨",
+    "霓虹城市背景"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证 controller 作为轻量协调层的主题是否清楚",
+  "revision_targets": [
+    "减少长文字",
+    "保持单一主焦点",
+    "让请求到响应的路径更清楚"
+  ],
+  "final_prompt": "Use case: infographic-story. Asset type: wide cover infographic illustration for a Chinese tech blog article. Theme: ASP.NET Core controllers for REST endpoints. Summary angle: one clean controller as the small coordination layer between incoming REST requests and business services. Narrative flow: 3-beat process. Keep one dominant focal subject and 3-4 supporting narrative beats. Information blocks: 控制器, 自动校验, 状态码, 薄控制器. Main metaphor: a compact command desk that routes REST request cards into service lanes and response cards. Style: editorial technical illustration with energetic shonen-inspired manga look, clean ink lines, dynamic poses, readable action rhythm, bright restrained color accents. Wide 2.35:1 frame. No poster title, no long sentences, no English slogans, no fake UI, no fake charts, no watermark."
+}
