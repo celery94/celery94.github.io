@@ -1,0 +1,66 @@
+{
+  "article_title": "Microsoft Agent Framework at Build 2026：从本地 Agent 到生产运行",
+  "cover_type": "release",
+  "core_theme": "Microsoft Agent Framework 在 Build 2026 公布了面向生产 Agent 的一组新能力，重点是运行环境、托管部署、减少工具调用轮次和多 Agent 转交。",
+  "reader_takeaway": "读者可以判断这些更新分别解决什么问题，以及本地 Agent 走向生产服务时该关注哪些层。",
+  "summary_angle": "把 MAF 1.0 之后的新能力压成一条从本地执行到生产运行的路径。",
+  "narrative_flow": "3 beat process",
+  "information_blocks": [
+    {
+      "role": "mechanism",
+      "source_anchor": "原文 What is new 的 Agent Harness 章节，提到 shell、filesystem、人审、上下文管理、compaction、skills、web search 等内置能力。",
+      "visual_idea": "左侧用一个可控工作台表示 Agent Harness 接管文件、命令和上下文。",
+      "visible_label": "Harness",
+      "numeric_fact": ""
+    },
+    {
+      "role": "step",
+      "source_anchor": "原文 Foundry Hosted Agents 章节，提到容器化部署、Foundry 托管基础设施、自动缩放、会话状态、观测和版本管理。",
+      "visual_idea": "中间用一个容器进入云端托管舱，表示从本地 Agent 进入生产运行。",
+      "visible_label": "托管",
+      "numeric_fact": ""
+    },
+    {
+      "role": "evidence",
+      "source_anchor": "原文 CodeAct 章节给出代表性工作负载数据：传统方式 27.81s、6890 tokens，CodeAct 13.23s、2489 tokens，提升 52.4% 和 63.9%。",
+      "visual_idea": "右侧用压缩后的工具调用轨迹表示多步调用被一段 Python 程序合并。",
+      "visible_label": "CodeAct",
+      "numeric_fact": "52.4%"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文 Handoff 章节，提到 triage、billing、tech 三个 Agent 和有向转交边。",
+      "visual_idea": "背景里用三条轻量连线表示多 Agent 之间的转交流程。",
+      "visible_label": "Handoff",
+      "numeric_fact": ""
+    }
+  ],
+  "main_metaphor": "一条从本地工作台通向云端运行舱的生产路径",
+  "primary_subject": "一个抽象 Agent 核心模块",
+  "subject_action": "沿着分层轨道从本地执行区移动到托管运行区",
+  "composition": "居中主物体，左到右推进，少量辅助信息块",
+  "base_style": "product-poster style illustration",
+  "selected_style": "欧漫清线风",
+  "selected_style_prompt_descriptor": "European clear-line comic style, precise outlines, flat readable colors, tidy environments, restrained humor and detail",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；清线风适合把多个产品能力压成清楚的宽幅叙事。",
+  "style_safety_note": "该风格是泛类型描述，不涉及具体品牌、工作室或艺术家复刻。",
+  "allowed_visible_text": ["Harness", "托管", "CodeAct", "52.4%", "Handoff"],
+  "color_palette": ["ink blue", "warm white", "signal green", "muted coral"],
+  "avoid": [
+    "真实 Microsoft 产品截图",
+    "假 dashboard",
+    "假架构节点名",
+    "长段英文",
+    "霓虹高楼背景",
+    "通用机器人站姿",
+    "密集 UI 浮层"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证宽幅封面是否能看出从本地 Agent 到生产运行的路径，并包含至少两个来自原文的叙事节点。",
+  "revision_targets": [
+    "如果像真实界面，改成抽象产品插画",
+    "如果信息块过多，保留 Harness、托管、CodeAct 三个主节点",
+    "如果可见文字过多，删掉 Handoff 标签"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: Microsoft Agent Framework Build 2026 updates for production agents. The reader should quickly understand the path from local agent execution to production hosting and faster tool-heavy runs.\n\nSummary angle: compress the new MAF 1.0 follow-up capabilities into a left-to-right path from local harness to hosted production runtime.\nNarrative flow: 3 beat process. In a 2.35:1 frame, keep one dominant focal subject and 2-4 supporting narrative beats. Each beat must map to the article's information blocks rather than generic decoration.\nInformation blocks:\n- mechanism: Agent Harness adds controlled shell, filesystem, approvals, compaction, skills, and web search. Visible label: Harness.\n- step: Foundry Hosted Agents move a local agent into managed infrastructure with scaling, sessions, observability, and versioning. Visible label: 托管.\n- evidence: CodeAct collapses many tool calls into one sandboxed Python execution, with the source benchmark showing 52.4% faster time and 63.9% fewer tokens. Visible label: CodeAct, number chip: 52.4%.\n- mechanism: Handoff declares directed transfers between triage and specialist agents. Visible label: Handoff.\n\nMain metaphor: a production path from a local workbench to a cloud runtime chamber.\nSubject: one abstract agent core module, moving along layered rails from a local execution zone into a hosted runtime zone.\nComposition/framing: centered main object with left-to-right progression, clean supporting panels, wide 2.35:1 cover, readable at blog-card size.\nStyle/medium: combine product-poster style illustration with the selected visual style descriptor: European clear-line comic style, precise outlines, flat readable colors, tidy environments, restrained humor and detail. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: ink blue, warm white, signal green, muted coral.\nVisible text policy: allow only 1-3 short Chinese labels or number chips by default, and no more than 4 when strictly necessary, all sourced from the information blocks. Each label <= 6 Chinese characters or one required product/model name. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: real Microsoft UI screenshots, fake dashboards, fake architecture node names, dense HUD overlays, neon city backgrounds, generic robot pose, long English text."
+}
