@@ -1,0 +1,66 @@
+{
+  "article_title": "Foundry Memory at Build 2026：让 Agent 记住步骤和边界",
+  "cover_type": "release",
+  "core_theme": "Microsoft Foundry 在 Build 2026 更新了 Agent memory，重点从个性化扩展到可靠执行、可检查管理、过期控制、多模态记忆和本地文件记忆。",
+  "reader_takeaway": "读者可以理解这次更新为什么强调流程记忆，以及团队评估 Agent memory 时该检查哪些工程边界。",
+  "summary_angle": "把 Agent memory 从存事实扩展到存流程、管权限和留审计的变化做成一条可读路径。",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "原文指出企业 Agent 常见失败是知道事实却没有执行正确流程，例如跳过校验、误用工具或重复错误模式。",
+      "visual_idea": "左侧用散落事实卡和断开的步骤线表示只记事实仍可能失败。",
+      "visible_label": "事实",
+      "numeric_fact": ""
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文 procedural memory 两步流程：从 agent trajectories 提取 when to use 和 what to do，再在相似任务中检索并注入上下文。",
+      "visual_idea": "中间用带检查点的流程卷轴表示可复用的执行步骤。",
+      "visible_label": "流程",
+      "numeric_fact": ""
+    },
+    {
+      "role": "evidence",
+      "source_anchor": "原文提到启用 procedural memory 后，在 STATE-Bench 和 Tau-Bench 评估中看到约 5% 改善。",
+      "visual_idea": "右侧用小型评估徽章表示任务稳定性改善。",
+      "visible_label": "评估",
+      "numeric_fact": "5%"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文和 Microsoft Learn 文档强调管理体验、CRUD、TTL、scope、删除和用户控制。",
+      "visual_idea": "背景用钥匙、时钟和删除标记表示可控管理。",
+      "visible_label": "可控",
+      "numeric_fact": ""
+    }
+  ],
+  "main_metaphor": "一本会记录成功步骤、也带有权限和时效标记的运行手册",
+  "primary_subject": "一本抽象的 Agent 记忆手册",
+  "subject_action": "从散落事实卡中整理出带检查点的流程，并进入受控记忆库",
+  "composition": "左到右推进，居中主物体，少量辅助符号",
+  "base_style": "product-poster style illustration",
+  "selected_style": "低饱和文艺风",
+  "selected_style_prompt_descriptor": "low-saturation arthouse illustration, quiet composition, subtle grain, muted colors, reflective emotional tone",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；低饱和风格适合表达记忆、审计和可靠性，避免做成夸张科技海报。",
+  "style_safety_note": "该风格为泛视觉描述，不涉及品牌、工作室或艺术家复刻。",
+  "allowed_visible_text": ["事实", "流程", "评估", "5%", "可控"],
+  "color_palette": ["deep ink", "warm paper", "soft sage", "muted amber"],
+  "avoid": [
+    "真实 Microsoft 产品截图",
+    "假 dashboard",
+    "假图表坐标",
+    "长段文字",
+    "霓虹科技背景",
+    "通用机器人",
+    "密集漂浮图标"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证画面能表达 Agent memory 从事实记忆走向流程记忆和可控管理。",
+  "revision_targets": [
+    "如果像真实界面，改成抽象插画",
+    "如果文字过多，只保留流程、5%、可控",
+    "如果主题过泛，强化手册、检查点和时钟"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: Microsoft Foundry Memory Build 2026 updates for agent reliability and controllable memory. The reader should quickly understand that agent memory now covers procedures, evaluation, management, retention, and local file memory.\n\nSummary angle: show the shift from remembering facts to remembering proven procedures with controls.\nNarrative flow: 3-beat process. In a 2.35:1 frame, keep one dominant focal subject and 2-4 supporting narrative beats. Each beat must map to the article's information blocks rather than generic decoration.\nInformation blocks:\n- problem: enterprise agents can know facts but still fail when they skip validation, misuse tools, or repeat flawed patterns. Visible label: 事实.\n- mechanism: procedural memory extracts when-to-use and what-to-do items from agent trajectories, then retrieves them for similar tasks. Visible label: 流程.\n- evidence: Microsoft reports about 5% improvement on STATE-Bench and Tau-Bench with procedural memory enabled. Visible label: 评估, number chip: 5%.\n- takeaway: management UI, CRUD, TTL, scope isolation, deletion, and user commands make memory inspectable and controllable. Visible label: 可控.\n\nMain metaphor: a runbook that records proven successful procedures and carries permission plus retention marks.\nSubject: one abstract agent memory handbook, organizing scattered fact cards into a checked procedure path and moving into a controlled memory library.\nComposition/framing: centered main subject with left-to-right progression, clean supporting panels, wide 2.35:1 cover, readable at blog-card size.\nStyle/medium: combine product-poster style illustration with the selected visual style descriptor: low-saturation arthouse illustration, quiet composition, subtle grain, muted colors, reflective emotional tone. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: deep ink, warm paper, soft sage, muted amber.\nVisible text policy: allow only 1-3 short Chinese labels or number chips by default, and no more than 4 when strictly necessary, all sourced from the information blocks. Each label <= 6 Chinese characters or one required product/model name. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: real Microsoft UI screenshots, fake dashboard, fake chart axes, long paragraphs, neon tech background, generic robot, dense floating icons."
+}
