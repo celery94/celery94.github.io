@@ -1,0 +1,59 @@
+{
+  "article_title": "ASP.NET Core API 版本管理：URL、Header 和 Query String 怎么选",
+  "cover_type": "tutorial",
+  "core_theme": "用 Asp.Versioning.Mvc 在 ASP.NET Core 中配置 API 版本管理，并理解 URL segment、query string、header 和组合读取器的取舍。",
+  "reader_takeaway": "读者能知道为什么要尽早做 API versioning，如何安装和配置 Asp.Versioning.Mvc，以及在不同客户端场景下选择合适的版本读取方式。",
+  "summary_angle": "一条 API 请求进入版本路由后，可以通过三种入口识别版本，并把 v1/v2 分流到稳定的控制器和文档。",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "step",
+      "source_anchor": "原文 The Asp.Versioning.Mvc NuGet Package：安装 Asp.Versioning.Mvc 和 Asp.Versioning.Mvc.ApiExplorer，并在 Program.cs 配置 DefaultApiVersion、AssumeDefaultVersionWhenUnspecified、ReportApiVersions。",
+      "visual_idea": "左侧用一个配置扳手和小型代码卡片表示基础配置完成。",
+      "visible_label": "先配置",
+      "numeric_fact": "1"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文 URL Segment Versioning、Query String Versioning、Header Versioning：版本可来自 /api/v1/products、?api-version=1.0 或 X-Api-Version。",
+      "visual_idea": "中间三条清晰的请求通道汇入同一个版本分流器。",
+      "visible_label": "三入口",
+      "numeric_fact": "3"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文 Combining Multiple Version Readers 与 Swagger/OpenAPI Multi-Version Configuration：ApiVersionReader.Combine() 可同时支持多种策略，ApiExplorer/Swashbuckle 为每个版本生成独立文档。",
+      "visual_idea": "右侧显示 v1/v2 两份文档册和分流后的控制器路径，表达兼容迁移。",
+      "visible_label": "分版本",
+      "numeric_fact": "2"
+    }
+  ],
+  "main_metaphor": "API 请求通过版本分流器进入不同轨道",
+  "primary_subject": "一个清晰的 API version router 分流器",
+  "subject_action": "把来自路径、查询参数和请求头的三条请求线分流到 v1 与 v2 两条稳定轨道",
+  "composition": "轻微斜向推进",
+  "base_style": "editorial technical illustration",
+  "selected_style": "欧漫清线风",
+  "selected_style_prompt_descriptor": "European clear-line comic style, precise outlines, flat readable colors, tidy environments, restrained humor and detail",
+  "selected_style_reason": "随机选中；清线风适合把三种版本策略和 v1/v2 分流画得明确，不会让封面像真实 dashboard 或复杂架构图。",
+  "style_safety_note": "该风格不指向特定在世艺术家、品牌或工作室；prompt 使用通用安全描述。",
+  "allowed_visible_text": ["先配置", "三入口", "分版本"],
+  "color_palette": ["ink blue", "warm white", "coral accent", "leaf green"],
+  "avoid": [
+    "真实产品截图",
+    "假 dashboard",
+    "假终端输出",
+    "长标题文字",
+    "英文口号",
+    "无意义代码雨",
+    "水印"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证三条版本入口、一个分流器、v1/v2 输出和少量中文短标签是否清楚。",
+  "revision_targets": [
+    "如果文字过多，减少到三个短标签",
+    "如果像真实 UI 截图，改成更抽象的 editorial illustration",
+    "如果主焦点不明确，强化中央 version router"
+  ],
+  "final_prompt": "Use case: infographic-story. Asset type: wide cover infographic illustration for a Chinese tech blog article. Primary request: Create a wide cinematic infographic-story cover illustration that summarizes an ASP.NET Core API versioning tutorial. Theme: using Asp.Versioning.Mvc to route API requests by URL segment, query string, header, or combined readers while keeping v1 and v2 compatible. The reader should quickly feel that API versioning is a practical routing and migration system, not abstract theory. Summary angle: one API request enters a version router; three source-grounded version entry points converge and split into v1/v2 controllers and separate docs. Narrative flow: 3-beat process in a 2.35:1 frame, with one dominant central API version router and three supporting narrative beats. Information blocks: 1) setup with Asp.Versioning.Mvc configuration, visible label '先配置', numeric 1; 2) three version entry points from /api/v1, ?api-version, and X-Api-Version, visible label '三入口', numeric 3; 3) split output to v1/v2 and versioned OpenAPI docs, visible label '分版本', numeric 2. Main metaphor: API requests moving through a clean router switch into versioned tracks. Style/medium: editorial technical illustration plus European clear-line comic style, precise outlines, flat readable colors, tidy environment, restrained detail. Composition/framing: wide cover illustration, aspect ratio 2.35:1; central router is the only dominant focal subject; left-to-right or slight diagonal flow; plenty of negative space; 2-4 small callout chips maximum. Color palette: ink blue, warm white, coral accent, leaf green. Text: only the three Chinese short labels '先配置', '三入口', '分版本' and optional numerals 1, 2, 3; no title, no slogan, no English sentences. Constraints: make it clearly about API versioning in ASP.NET Core without showing a fake UI screenshot; all visual beats must map to the source anchors; no fabricated metrics. Avoid: watermark, prompt residue, dashboard, fake chart axes, fake terminal output, fake architecture node names, long text, English slogan, random code rain, generic robot, neon city background, decorative clutter."
+}
