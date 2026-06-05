@@ -1,0 +1,65 @@
+{
+  "article_title": "2026 软件工程书单：按你当下的问题来选书",
+  "cover_type": "analysis",
+  "core_theme": "软件工程书籍推荐应该按问题域而非热门度来组织",
+  "reader_takeaway": "根据自己当前卡在什么问题上，找到对应的那本书",
+  "summary_angle": "从左到右展现从「盲目追热门」到「按问题精准选书」的转变",
+  "narrative_flow": "conflict-to-resolution",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "the right question isn't 'what should I read?' It's 'What am I struggling with right now?'",
+      "visual_idea": "画面左侧：模糊、杂乱的书堆，暗示无方向的阅读",
+      "visible_label": "热门书单",
+      "numeric_fact": ""
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "8 problem domains each with specific books",
+      "visual_idea": "画面中央偏右：一个清晰的阅读空间，按问题标签分区",
+      "visible_label": "按问题选书",
+      "numeric_fact": "8个方向"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "Pick the book that matches where you're stuck right now",
+      "visual_idea": "一个读者站在决策点，面前是匹配度指示，不是排行榜",
+      "visible_label": "从你卡住的地方开始",
+      "numeric_fact": "18本"
+    }
+  ],
+  "main_metaphor": "安静的书房/阅览空间，书不按作者或销量排列，而是按「你此刻的困境」分类",
+  "primary_subject": "一个安静的读者侧影，站在问题标签引导的书籍区域前",
+  "subject_action": "正在选择一本书，不是浏览排行榜，而是对照自己的问题",
+  "composition": "左右对照：左模糊杂乱→右清晰有序，中央单点聚焦于读者与书的连接",
+  "base_style": "conceptual editorial illustration",
+  "selected_style": "低饱和文艺风",
+  "selected_style_prompt_descriptor": "low-saturation arthouse illustration, quiet composition, subtle grain, muted colors, reflective emotional tone",
+  "selected_style_reason": "从40项风格池中随机选中。书单推荐类文章适合用安静、有思考感的视觉氛围，避免喧闹的营销感",
+  "style_safety_note": "无需改写，该风格为抽象美学描述，不指向特定品牌、工作室或艺术家",
+  "allowed_visible_text": [
+    "热门书单",
+    "按问题选书",
+    "从你卡住的地方开始",
+    "8×方向"
+  ],
+  "color_palette": ["暖灰", "旧纸米白", "低饱和蓝灰", "淡赭石"],
+  "avoid": [
+    "排行榜数字",
+    "海报标题",
+    "假书架UI",
+    "Amazon logo",
+    "霓虹灯光",
+    "代码雨",
+    "机器人",
+    "dashboard"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮验证：左右对照构图是否清晰、低饱和文艺氛围是否成立、读者与书的连接是否自然",
+  "revision_targets": [
+    "构图平衡（左右比重不协调）",
+    "氛围（过于鲜艳或过于灰暗）",
+    "信息块可读性（标签不清晰）"
+  ],
+  "final_prompt": "conceptual editorial illustration, wide cover 2.35:1. A quiet library corner bathed in soft diffuse light. Left side: a blurred, cluttered pile of books with a faint faded label reading '热门书单', representing undirected popular reading. Center-right: a calm reader silhouette stands at a decision point, facing organized book sections labeled by problem tags (not genre). The books are arranged in subtle thematic clusters. A gentle visual path leads from the cluttered left to the focused right. Low-saturation arthouse illustration, quiet composition, subtle film grain texture, muted warm grey and faded paper tones with hints of muted blue-grey and pale ochre, reflective emotional tone, no poster title, no dashboard, no robots, no neon, no fake UI"
+}
