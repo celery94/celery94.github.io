@@ -1,0 +1,63 @@
+{
+  "article_title": "ASP.NET Core 模型验证：Data Annotations 还是 FluentValidation",
+  "cover_type": "tutorial",
+  "core_theme": "在 ASP.NET Core .NET 10 中把输入验证放在 API 边界，用 Data Annotations、ModelState、自动 400 和 FluentValidation 处理不同复杂度的规则",
+  "reader_takeaway": "读者能判断什么时候用属性注解，什么时候用 IValidatableObject 或 FluentValidation，并知道如何返回一致的 ValidationProblemDetails",
+  "summary_angle": "把请求 DTO 进入验证门、失败返回 400、复杂规则进入 FluentValidation 规则引擎这条主线讲清楚",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "mechanism",
+      "source_anchor": "原文 Data Annotations Overview：Required、StringLength、Range、EmailAddress 等属性注解适合简单结构性规则",
+      "visual_idea": "请求 DTO 卡片进入验证扫描器，属性级规则像刻度一样逐项检查",
+      "visible_label": "注解",
+      "numeric_fact": ""
+    },
+    {
+      "role": "evidence",
+      "source_anchor": "原文 Automatic 400 with [ApiController]：ModelState 无效时自动返回包含 errors 字典的 ValidationProblemDetails",
+      "visual_idea": "无效输入被分流到整洁的 ProblemDetails 错误托盘，标出 400",
+      "visible_label": "400",
+      "numeric_fact": "400"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文 FluentValidation 和 Async Validation：复杂、条件式、异步和可测试规则适合 AbstractValidator<T>",
+      "visual_idea": "另一侧模块化规则引擎处理条件和异步校验",
+      "visible_label": "规则",
+      "numeric_fact": ""
+    }
+  ],
+  "main_metaphor": "API 边界上的质量检测站，把坏输入挡在业务逻辑之前",
+  "primary_subject": "居中的模型验证门正在扫描请求 DTO",
+  "subject_action": "请求模型被检查、分流：通过进入业务流程，失败进入 400 响应，复杂规则进入规则引擎",
+  "composition": "左到右流程，中央单点聚焦于验证门，三处短标签作为叙事节点",
+  "base_style": "editorial technical illustration",
+  "selected_style": "极简线稿风",
+  "selected_style_prompt_descriptor": "minimalist line-art illustration, sparse clean strokes, ample negative space, precise symbolic objects, limited accent color",
+  "selected_style_reason": "从40项风格池中随机选中。模型验证文章需要强调清晰边界和规则分流，极简线稿能避免把流程画成复杂 dashboard",
+  "style_safety_note": "无需改写，该风格为泛化视觉描述，不指向特定品牌、工作室或在世艺术家",
+  "allowed_visible_text": ["注解", "400", "规则"],
+  "color_palette": ["暖白", "石墨灰", "低饱和青绿", "少量珊瑚红"],
+  "avoid": [
+    "真实 UI 截图",
+    "dashboard",
+    "终端文字",
+    "代码块",
+    "假图表坐标",
+    "产品 logo",
+    "海报标题",
+    "英文口号",
+    "无关机器人",
+    "霓虹城市",
+    "紫蓝渐变污染"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮验证：验证门、400 分流和规则引擎三段是否一眼可读，文字是否只保留三个短标签",
+  "revision_targets": [
+    "如果出现真实 UI，改为抽象质量检测站",
+    "如果流程不清楚，强化左到右箭头和分流路径",
+    "如果文字过多，压缩为三个短标签"
+  ],
+  "final_prompt": "Use case: infographic-story. Asset type: wide cover infographic illustration for a Chinese tech blog article. Create a wide cinematic infographic-story cover illustration summarizing an ASP.NET Core model validation tutorial. Theme: validating incoming API models at the boundary with Data Annotations, ModelState automatic 400 responses, and FluentValidation for richer rules. The reader should quickly understand that validation catches bad input before domain logic runs. Summary angle: a request DTO enters a validation gate, simple attribute checks are handled first, invalid input is routed to a structured 400 response, and complex conditional/async rules move through a separate FluentValidation rule engine. Narrative flow: 3-beat process. In a 2.35:1 frame, keep one dominant focal subject and 3 supporting narrative beats. Scene/backdrop: an isometric technical quality-control station, not a real UI and not a dashboard. A request DTO card with fields passes through a clean validation scanner. One path leads to a tidy ProblemDetails error tray marked 400, another path goes through a modular rule engine with small connected blocks. Subject: one dominant validation gate scanning an API request model, with clear pass/fail routing. Style/medium: editorial technical illustration plus minimalist line-art illustration, sparse clean strokes, precise symbolic objects, limited accent color, clear instructional polish. Composition/framing: wide 2.35:1 cover, single main validation gate in the center, left-to-right flow, three small Chinese callout chips, generous negative space, no title text. Lighting/mood: calm engineering clarity, clean boundary-checking mood, practical and trustworthy. Color palette: warm white, graphite gray, muted teal, small coral red accents for invalid input. Text (verbatim): only these three short labels: 注解, 400, 规则. Keep them small and readable. No other text. Constraints: no fake UI screenshot, no dashboard, no terminal text, no code blocks, no fake chart axes, no product logos, no watermark, no English slogans, no poster title, no dense labels, no unrelated robots, no neon city, no purple-blue gradient domination."
+}
