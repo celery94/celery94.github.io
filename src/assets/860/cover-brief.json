@@ -1,0 +1,67 @@
+{
+  "article_title": "用 .NET 写一个简单 MCP Server：从 stdio 到本地工具",
+  "cover_type": "tutorial",
+  "core_theme": "用 .NET MCP SDK 搭建一个通过 stdio 暴露工具的 MCP Server，让 AI 客户端调用本地文件工具和 LM Studio 本地模型",
+  "reader_takeaway": "读者能理解 MCP server 的最小注册方式、tool attribute 的作用、DI 注入、客户端配置、stderr logging，以及基于 LLM 的意图分类模式",
+  "summary_angle": "把 AI 客户端请求经 stdio 送入 .NET MCP Server，再由自动发现的工具调用本地文件和本地模型",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "mechanism",
+      "source_anchor": "原文 Program.cs：AddMcpServer().WithStdioServerTransport().WithToolsFromAssembly()",
+      "visual_idea": "左侧客户端信号通过 stdio 进入中央 server",
+      "visible_label": "stdio",
+      "numeric_fact": ""
+    },
+    {
+      "role": "step",
+      "source_anchor": "原文 Defining a Tool：[McpServerToolType]、[McpServerTool] 和 Description 让工具被发现并形成输入 schema",
+      "visual_idea": "中央 server 周围有 icon-only attribute 标签和工具模块",
+      "visible_label": "工具",
+      "numeric_fact": ""
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文 Adding LLM-Backed Tools：LmStudioClient 调用 localhost:1234/v1/chat/completions，DI 自动注入服务",
+      "visual_idea": "右侧本地文件抽屉和本地模型方块被工具调用",
+      "visible_label": "本地",
+      "numeric_fact": ""
+    }
+  ],
+  "main_metaphor": "AI 客户端把请求交给一个本地工具交换站，由 MCP Server 路由到可发现的 .NET 工具",
+  "primary_subject": "中央的紧凑 MCP server box",
+  "subject_action": "接收 stdio 请求，发现工具，调用本地能力",
+  "composition": "左到右流程，中央 server 为单一主焦点，三处短标签对应输入、工具、输出",
+  "base_style": "editorial technical illustration",
+  "selected_style": "科幻机甲风",
+  "selected_style_prompt_descriptor": "science-fiction mecha concept illustration, mechanical forms, hard-surface details, cockpit-scale cues, cool industrial palette",
+  "selected_style_reason": "从40项风格池中随机选中。MCP Server 是本地工具和 AI 客户端之间的机械式路由枢纽，硬表面科幻风能把工具连接关系表现得清楚",
+  "style_safety_note": "无需改写，该风格为泛化视觉描述，不指向特定品牌、工作室或在世艺术家",
+  "allowed_visible_text": ["stdio", "工具", "本地"],
+  "color_palette": ["石墨灰", "暖白", "低饱和青绿", "少量琥珀色", "蓝灰"],
+  "avoid": [
+    "真实 UI 截图",
+    "dashboard",
+    "终端文字",
+    "可读代码",
+    ".NET text",
+    "MCP text",
+    "LM Studio text",
+    "DI text",
+    "假图表坐标",
+    "产品 logo",
+    "海报标题",
+    "英文口号",
+    "无关机器人",
+    "霓虹城市",
+    "紫蓝渐变污染"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮验证 MCP flow 是否清楚；第二轮移除额外模块文字，只保留 stdio、工具、本地三个标签",
+  "revision_targets": [
+    "去掉 server 和模块上的多余文字",
+    "保留左到右 MCP 调用流程",
+    "确保本地文件和本地模型用图标表达而不是文字"
+  ],
+  "final_prompt": "Use case: infographic-story. Asset type: wide cover infographic illustration for a Chinese tech blog article. Create a wide cinematic infographic-story cover illustration summarizing a tutorial about building a simple MCP server in .NET. Theme: an AI client discovers and calls local tools through an MCP server using stdio transport. The reader should quickly understand client -> stdio -> server -> discovered tools -> local actions. Summary angle: a client request flows through stdio into a compact .NET MCP server, attribute-discovered tools appear as icon-only tool blocks, then actions reach a local file drawer and a local model cube. Narrative flow: 3-beat process. In a 2.35:1 frame, keep one dominant focal subject and 3 supporting narrative beats. Information blocks: mechanism: MCP server registered with stdio transport; visible label: stdio. step: tool methods are discovered from attributes; visible label: 工具. takeaway: local LLM and file actions are invoked through DI-backed tools; visible label: 本地. Scene/backdrop: an isometric conceptual developer workbench, not a real UI and not a dashboard. On the left, an abstract AI client device sends a clean signal line into a compact central server box. Around the server are icon-only attribute tags and plug-in tool blocks. On the right, two destination modules: a file drawer icon and a local model cube icon, both connected through clean service pipes. Do not write names on any module. Subject: one dominant central MCP server box routing requests from AI client to discovered tools. Style/medium: editorial technical illustration plus science-fiction mecha concept illustration, hard-surface details, cool industrial palette, clean and readable. Composition/framing: wide 2.35:1 cover, left-to-right flow, central server as focal point, three small Chinese callout chips, generous negative space, no title text. Lighting/mood: practical local AI tooling, precise, approachable, not hype-driven. Color palette: graphite gray, warm white, muted teal, small amber accents, restrained blue-gray. Text (verbatim): only these three short labels: stdio, 工具, 本地. No other readable text anywhere in the image. No text on machines, screens, blocks, drawers, pipes, chips, or background. Constraints: no English text except the exact label stdio, no .NET text, no MCP text, no LM Studio text, no DI text, no fake UI screenshot, no dashboard, no terminal text, no real code blocks, no fake chart axes, no product logos, no watermark, no English slogans, no poster title, no dense labels, no unrelated robots, no neon city, no purple-blue gradient domination."
+}
