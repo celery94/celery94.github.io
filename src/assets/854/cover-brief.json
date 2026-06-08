@@ -1,0 +1,64 @@
+{
+  "article_title": "ASP.NET Core JWT 认证：从登录到角色授权",
+  "cover_type": "tutorial",
+  "core_theme": "在 ASP.NET Core .NET 10 Minimal API 中实现 JWT Bearer 认证，从登录签发 token 到保护 endpoint 和角色授权",
+  "reader_takeaway": "读者能理解 JWT 的三段结构、签名验证流程、JwtBearer 配置、角色 claim、测试方式和生产安全注意事项",
+  "summary_angle": "用一条从登录到 API 访问的路径，说明 token 如何被签发、携带、验证和授权",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "step",
+      "source_anchor": "原文 TL;DR 和 Generating the JWT：登录后使用 JsonWebTokenHandler 生成签名 token",
+      "visual_idea": "客户端请求进入 token forge，生成带三段结构的发光 token",
+      "visible_label": "登录",
+      "numeric_fact": ""
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文 Wiring Up Authentication：AddJwtBearer 设置 issuer、audience、signing key、lifetime 等验证参数",
+      "visual_idea": "token 穿过 API 验证门，门上用抽象锁和校验符号表示签名与过期时间检查",
+      "visible_label": "验证",
+      "numeric_fact": ""
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文 Adding Roles to a User 和 Protecting Endpoints：RequireAuthorization 与 RequireRole 保护路由",
+      "visual_idea": "通过验证后的 token 进入受保护 API vault，旁边有角色徽章",
+      "visible_label": "角色",
+      "numeric_fact": ""
+    }
+  ],
+  "main_metaphor": "一个被签名的 token 像通行凭证一样穿过 API 安检门，最后进入受保护资源",
+  "primary_subject": "居中的发光 JWT token，隐约分成 header、payload、signature 三段",
+  "subject_action": "token 从登录端生成，经过验证门，抵达受保护 API",
+  "composition": "左到右推进，单点聚焦于中央 token 和验证门，三处短标签作为流程节点",
+  "base_style": "editorial technical illustration",
+  "selected_style": "游戏原画风",
+  "selected_style_prompt_descriptor": "game concept art illustration, clear hero object, readable environment storytelling, polished lighting, production-art detail",
+  "selected_style_reason": "从40项风格池中随机选中。JWT 认证有清晰的流程和安全门槛，游戏原画式的通行凭证/关卡隐喻适合表达登录、验证、授权三步",
+  "style_safety_note": "无需改写，该风格为泛化视觉描述，不指向特定品牌、工作室或在世艺术家",
+  "allowed_visible_text": ["登录", "验证", "角色"],
+  "color_palette": ["深炭灰", "暖白", "低饱和青色", "少量金色"],
+  "avoid": [
+    "真实 UI 截图",
+    "dashboard",
+    "终端文字",
+    "代码块",
+    "密码或密钥明文",
+    "假图表坐标",
+    "产品 logo",
+    "海报标题",
+    "英文口号",
+    "黑客连帽衫",
+    "霓虹城市",
+    "紫蓝渐变污染"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮验证：JWT bearer flow 是否一眼可读，三个中文标签是否准确，安全主题是否没有变成黑客/攻击视觉",
+  "revision_targets": [
+    "如果画面像 dashboard，改成抽象安全工坊",
+    "如果 token 不够突出，强化中央发光凭证",
+    "如果出现多余文字，压缩为三个短标签"
+  ],
+  "final_prompt": "Use case: infographic-story. Asset type: wide cover infographic illustration for a Chinese tech blog article. Create a wide cinematic infographic-story cover illustration summarizing an ASP.NET Core JWT authentication tutorial. Theme: a signed JWT bearer token flow for Minimal APIs. The reader should quickly understand login -> signed token -> protected endpoint -> role check, plus the caveat that JWT payload is readable, not encrypted. Summary angle: a client receives a signed token after login, carries it through an Authorization: Bearer flow, and the API gate validates signature, expiry, issuer/audience, and role before allowing access. Narrative flow: 3-beat process. In a 2.35:1 frame, keep one dominant focal subject and 3 supporting narrative beats. Scene/backdrop: an isometric conceptual security workshop, not a real UI and not a dashboard. A small client terminal-like device on the left sends credentials to a secure token forge, a glowing token with three segmented parts passes through a verification gate, then reaches a protected API vault on the right with role badges. Subject: one dominant glowing JWT token, split into three subtle segments, moving through a secure ASP.NET Core API gate. Style/medium: isometric conceptual systems scene plus game concept art illustration, clear hero object, readable environment storytelling, polished lighting, production-art detail. Composition/framing: wide 2.35:1 cover, left-to-right flow, dominant token in the center, three small Chinese callout chips, generous negative space, no title text. Lighting/mood: clean security engineering mood, confident but not dramatic. Color palette: deep charcoal, warm white, muted cyan, restrained gold accents. Text (verbatim): only these three short Chinese labels: 登录, 验证, 角色. Keep them small and readable. No other text. Constraints: no fake UI screenshot, no dashboard, no terminal text, no code blocks, no fake chart axes, no passwords, no secrets shown, no product logos, no watermark, no English slogans, no poster title, no dense labels, no hacker hoodies, no neon city, no purple-blue gradient domination."
+}
