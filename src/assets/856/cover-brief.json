@@ -1,0 +1,63 @@
+{
+  "article_title": "C# Mediator 模式：把对象通信收回到一个中介",
+  "cover_type": "architecture",
+  "core_theme": "用 Mediator 设计模式把多个对象之间的直接引用改成通过中介协调，降低耦合并集中通信逻辑",
+  "reader_takeaway": "读者能理解 Mediator 的参与者、适用场景、C# 实现、事件驱动变体、MediatR 的映射关系，以及避免 God Object 的边界",
+  "summary_angle": "从对象互相引用的混乱网状通信，转成清晰的中介枢纽路由，同时提醒中介只负责协调不承载业务规则",
+  "narrative_flow": "conflict-to-resolution",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "原文 What Is the Mediator Design Pattern：N 个对象互相通信最多产生 N×(N-1) 个直接引用",
+      "visual_idea": "左侧多个模块之间交叉连线，表达依赖网变乱",
+      "visible_label": "耦合",
+      "numeric_fact": "N×(N-1)"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文四个参与者：Mediator、Concrete Mediator、Colleague、Concrete Colleagues；对象只知道 mediator",
+      "visual_idea": "中央中介 hub 接收消息并路由到各模块",
+      "visible_label": "中介",
+      "numeric_fact": ""
+    },
+    {
+      "role": "caution",
+      "source_anchor": "原文 Best Practices and Pitfalls：mediator 应该协调交互，不应变成 God Object",
+      "visual_idea": "中介旁边的小仪表提醒职责过载风险",
+      "visible_label": "边界",
+      "numeric_fact": ""
+    }
+  ],
+  "main_metaphor": "把模块间杂乱的直连线收束到一个交通控制塔式的中介 hub",
+  "primary_subject": "居中的 mediator 控制 hub，接收并路由消息",
+  "subject_action": "把左侧混乱直连变成右侧清晰路由，同时保持职责边界",
+  "composition": "左右对照加中央单点聚焦：左侧耦合网，中央中介，右侧清晰协作",
+  "base_style": "isometric conceptual systems scene",
+  "selected_style": "欧漫清线风",
+  "selected_style_prompt_descriptor": "European clear-line comic style, precise outlines, flat readable colors, tidy environments, restrained humor and detail",
+  "selected_style_reason": "从40项风格池中随机选中。Mediator 模式需要展示模块关系和通信路径，清线风能让结构变化清楚可读",
+  "style_safety_note": "无需改写，该风格为泛化视觉描述，不指向特定品牌、工作室或在世艺术家",
+  "allowed_visible_text": ["耦合", "中介", "边界"],
+  "color_palette": ["暖白", "石墨灰", "低饱和青绿", "少量琥珀色"],
+  "avoid": [
+    "真实 UI 截图",
+    "dashboard",
+    "终端文字",
+    "代码块",
+    "假图表坐标",
+    "产品 logo",
+    "海报标题",
+    "英文口号",
+    "无关机器人",
+    "霓虹城市",
+    "紫蓝渐变污染"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮验证：左侧耦合混乱、中央中介路由、右侧清晰通信和边界警示是否一眼可读",
+  "revision_targets": [
+    "如果像真实 dashboard，改为抽象系统场景",
+    "如果中介 hub 不突出，强化中央焦点",
+    "如果文字过多，压缩为三个短标签"
+  ],
+  "final_prompt": "Use case: infographic-story. Asset type: wide cover infographic illustration for a Chinese tech blog article. Create a wide cinematic infographic-story cover illustration summarizing a C# Mediator design pattern guide. Theme: multiple objects stop referencing each other directly and communicate through a central mediator hub. The reader should quickly understand coupling reduction, routed communication, and the God Object warning. Summary angle: a tangled many-to-many communication mesh is reorganized into a clean mediator hub, while a small warning shows that the hub must not become overloaded. Narrative flow: conflict-to-resolution. In a 2.35:1 frame, keep one dominant focal subject and 3 supporting narrative beats. Scene/backdrop: an isometric conceptual software architecture scene, not a real diagram and not a UI. On the left, several small module cubes have messy crossing wires. In the center, a clear mediator control hub receives message beams and routes them cleanly to modules on the right. A small side gauge warns when too many unrelated flows pile into the hub. Subject: one dominant central mediator hub with message paths entering and leaving, replacing messy direct references. Style/medium: isometric conceptual systems scene plus European clear-line comic style, precise outlines, flat readable colors, tidy environments, restrained detail. Composition/framing: wide 2.35:1 cover, left-to-right transformation from tangled mesh to clean hub routing, central hub as dominant focal point, three small Chinese callout chips, generous negative space, no title text. Lighting/mood: calm architectural clarity, practical software design tone, clean and readable. Color palette: warm white, graphite gray, muted teal, restrained amber warning accents. Text (verbatim): only these three short Chinese labels: 耦合, 中介, 边界. Keep them small and readable. No other text. Constraints: no fake UI screenshot, no dashboard, no terminal text, no code blocks, no fake chart axes, no product logos, no watermark, no English slogans, no poster title, no dense labels, no unrelated robots, no neon city, no purple-blue gradient domination."
+}
