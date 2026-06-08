@@ -1,0 +1,64 @@
+{
+  "article_title": "ASP.NET Core 错误处理：Problem Details 和全局异常处理",
+  "cover_type": "tutorial",
+  "core_theme": "用 ASP.NET Core 的 Problem Details、UseExceptionHandler 和 IExceptionHandler，把 Web API 错误统一成可解析、可追踪、生产安全的响应",
+  "reader_takeaway": "读者能搭出一致的错误处理管道，理解 RFC 9457 字段、全局 handler 链、ValidationProblemDetails、日志和开发/生产差异",
+  "summary_angle": "把混乱的 500 和不一致错误格式，经过处理链转换成带 traceId 的统一 Problem Details",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "原文开头：API 不应返回 mystery 500 或空 body，错误需要结构化且可解析",
+      "visual_idea": "左侧红色错误碎片流入处理站",
+      "visible_label": "混乱",
+      "numeric_fact": "500"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文 IExceptionHandler：多个 handler 按注册顺序尝试，先返回 true 的 handler 获胜",
+      "visual_idea": "中央两个模块化 handler gate 组成处理链",
+      "visible_label": "处理链",
+      "numeric_fact": ""
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文 Problem Details 和 CustomizeProblemDetails：统一 application/problem+json，并加入 traceId、timestamp 等扩展",
+      "visual_idea": "右侧抽象问题响应卡片带有追踪线和安全标记",
+      "visible_label": "可追踪",
+      "numeric_fact": ""
+    }
+  ],
+  "main_metaphor": "API 可靠性处理站把错误碎片加工成统一的问题响应",
+  "primary_subject": "居中的全局异常处理管道",
+  "subject_action": "接收混乱错误，按处理链映射，输出结构化 Problem Details",
+  "composition": "左到右流程，中央单点聚焦于 handler pipeline，三处短标签作为叙事节点",
+  "base_style": "editorial technical illustration",
+  "selected_style": "高对比电影风",
+  "selected_style_prompt_descriptor": "high-contrast cinematic illustration, strong key light, deep shadows, wide-screen composition, dramatic but realistic color grading",
+  "selected_style_reason": "从40项风格池中随机选中。错误处理主题适合用 incident-response 的明暗对比表达从混乱到可追踪的转变，但仍保持技术图解清晰",
+  "style_safety_note": "无需改写，该风格为泛化视觉描述，不指向特定品牌、工作室或在世艺术家",
+  "allowed_visible_text": ["混乱", "处理链", "可追踪"],
+  "color_palette": ["石墨灰", "暖白", "低饱和青绿", "少量红色和琥珀色"],
+  "avoid": [
+    "真实 UI 截图",
+    "dashboard",
+    "终端文字",
+    "代码块",
+    "可读 JSON 字段",
+    "英文文字",
+    "假图表坐标",
+    "产品 logo",
+    "海报标题",
+    "无关机器人",
+    "霓虹城市",
+    "紫蓝渐变污染"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮验证：错误碎片、处理链、统一问题响应和 traceability 是否清楚；第二轮移除多余英文和机器标签",
+  "revision_targets": [
+    "去掉机器和 gate 上的多余可读文字",
+    "保留三个中文短标签",
+    "强化左到右的错误转换流程"
+  ],
+  "final_prompt": "Use case: infographic-story. Asset type: wide cover infographic illustration for a Chinese tech blog article. Create a wide cinematic infographic-story cover illustration summarizing an ASP.NET Core Web API error-handling guide. Theme: transform inconsistent API failures into structured RFC 9457 Problem Details through global exception handlers. The reader should quickly understand consistency, handler chain, traceId, and production-safe responses. Summary angle: raw failures enter a global handler pipeline, specific exceptions are mapped first, fallback handles the rest, and every response exits as consistent problem response with traceability. Narrative flow: 3-beat process. In a 2.35:1 frame, keep one dominant focal subject and 3 supporting narrative beats. Scene/backdrop: an isometric conceptual API reliability station, not a real UI and not a dashboard. On the left, fragmented red error shards and status-like symbols flow into a central clean handler pipeline with two modular gates. On the right, a tidy abstract document card emerges with a shield/checkmark and a small trace thread, but no readable JSON text. Subject: one dominant central exception-handler pipeline converting failure fragments into a structured problem response. Style/medium: isometric conceptual systems scene plus high-contrast cinematic illustration, strong key light, controlled shadows, wide-screen composition, clean technical polish. Composition/framing: wide 2.35:1 cover, left-to-right flow, central handler pipeline as focal point, three small Chinese callout chips, generous negative space, no title text. Lighting/mood: calm incident-response clarity, production API reliability, professional and grounded. Color palette: graphite gray, warm white, muted teal, restrained red error accents, small amber trace accents. Text (verbatim): only these three short Chinese labels: 混乱, 处理链, 可追踪. No other readable text anywhere in the image. Constraints: no English text, no label on machine, no labels on gates, no fake UI screenshot, no dashboard, no terminal text, no real code blocks, no readable JSON fields, no fake chart axes, no product logos, no watermark, no English slogans, no poster title, no dense labels, no unrelated robots, no neon city, no purple-blue gradient domination."
+}
