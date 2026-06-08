@@ -1,0 +1,63 @@
+{
+  "article_title": "ASP.NET Core Middleware：把请求管道顺序讲清楚",
+  "cover_type": "architecture",
+  "core_theme": "ASP.NET Core middleware 如何组成 HTTP 请求处理管道，以及为什么注册顺序会影响行为",
+  "reader_takeaway": "读者能理解 middleware 的前后置执行模型、短路机制、常见注册方式，并知道什么时候用 IMiddleware 写可测试的中间件",
+  "summary_angle": "用一条请求进入、响应返回的路径，把管道、顺序和可测试三个核心点串起来",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "mechanism",
+      "source_anchor": "原文 The Request Pipeline Concept：middleware 可以在调用 next() 前处理请求，也可以在 next() 后处理响应",
+      "visual_idea": "请求线穿过层层嵌套的管道门，再沿下方路径返回",
+      "visible_label": "管道",
+      "numeric_fact": ""
+    },
+    {
+      "role": "step",
+      "source_anchor": "原文 Middleware Order Matters：注册顺序决定进入顺序，返回时反向执行，错误顺序会带来隐蔽 bug",
+      "visual_idea": "中间层按序排列，用轻微编号感和箭头表达顺序敏感",
+      "visible_label": "顺序",
+      "numeric_fact": ""
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文 The IMiddleware Interface：IMiddleware 适合 DI 依赖、复用和单元测试",
+      "visual_idea": "管道旁的小型可测试模块，像可拆卸组件一样接入主路径",
+      "visible_label": "可测试",
+      "numeric_fact": ""
+    }
+  ],
+  "main_metaphor": "一条 HTTP 请求线穿过层层嵌套的处理门，响应再按反向路径返回",
+  "primary_subject": "居中的嵌套式 ASP.NET Core 请求管道结构",
+  "subject_action": "请求进入、端点处理、响应返回，几个中间件像可组合层一样包裹核心端点",
+  "composition": "等距空间，单点聚焦于中央管道，左右轻微斜向推进",
+  "base_style": "isometric conceptual systems scene",
+  "selected_style": "欧漫清线风",
+  "selected_style_prompt_descriptor": "European clear-line comic style, precise outlines, flat readable colors, tidy environments, restrained humor and detail",
+  "selected_style_reason": "从40项风格池中随机选中。Middleware 的管道和顺序关系需要清晰、克制、易读的线条表达，这个风格适合把抽象系统关系讲清楚",
+  "style_safety_note": "无需改写，该风格为泛化视觉描述，不指向特定品牌、工作室或在世艺术家",
+  "allowed_visible_text": ["管道", "顺序", "可测试"],
+  "color_palette": ["石板灰", "暖白", "低饱和青绿", "少量琥珀色"],
+  "avoid": [
+    "真实 UI 截图",
+    "dashboard",
+    "终端窗口",
+    "代码雨",
+    "英文口号",
+    "海报标题",
+    "假图表坐标",
+    "产品 logo",
+    "无关机器人",
+    "霓虹城市",
+    "紫蓝渐变污染"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮验证：中央管道结构是否明确、请求/响应双向流动是否可读、三个中文短标签是否没有变成长句",
+  "revision_targets": [
+    "如果出现假 UI 或 dashboard，改为更抽象的等距系统场景",
+    "如果文字过多，压缩为三个短标签",
+    "如果主体分散，强化单一中央管道焦点"
+  ],
+  "final_prompt": "Use case: infographic-story. Asset type: wide cover infographic illustration for a Chinese tech blog article. Create a wide cinematic infographic-story cover illustration summarizing an ASP.NET Core middleware tutorial. Theme: middleware as the HTTP request pipeline. The reader should quickly understand that each middleware wraps the next, can run before and after next(), and order matters. Summary angle: a request travels through layered middleware, reaches an endpoint, then the response flows back through the same layers in reverse. Narrative flow: 3-beat process. In a 2.35:1 frame, keep one dominant focal subject and 3 supporting narrative beats. Scene/backdrop: an isometric conceptual systems scene, not a real diagram or UI. A glowing HTTP request thread enters from the left, passes through three translucent nested mechanical gates, reaches a simple endpoint core, then returns as a response thread on the lower path. Subject: one dominant nested pipeline structure with clear forward and return motion. Style/medium: isometric conceptual systems scene plus European clear-line comic style, precise outlines, flat readable colors, tidy environments, restrained detail. Composition/framing: wide 2.35:1 cover, single main focal pipeline in the center, light callout chips near the three narrative beats, generous negative space, no title text. Lighting/mood: clean technical clarity, calm studio lighting, professional tech-blog polish. Color palette: slate gray, warm white, muted teal, small amber accents. Text (verbatim): only these three short Chinese labels: 管道, 顺序, 可测试. Keep them small and readable. No other text. Constraints: no fake UI, no dashboard, no terminal, no real code blocks, no fake chart axes, no product logos, no watermark, no English slogans, no poster title, no dense labels, no unrelated robots, no neon city, no purple-blue gradient domination."
+}
