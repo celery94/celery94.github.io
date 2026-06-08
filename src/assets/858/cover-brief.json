@@ -1,0 +1,63 @@
+{
+  "article_title": "DRY 被误解最多的一点：别去重代码，去重知识",
+  "cover_type": "analysis",
+  "core_theme": "DRY 的核心不是消灭长得相似的代码，而是让同一份领域知识只有一个权威表达；错误抽象比重复更贵",
+  "reader_takeaway": "读者能判断什么是真重复、什么只是形状相似，并知道何时等待、何时抽象、何时让模块保留自己的模型",
+  "summary_angle": "从看起来相同的代码出发，展示草率共享如何制造隐藏耦合，最后落到真正应该共享的是同一份知识",
+  "narrative_flow": "conflict-to-resolution",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "原文 The Mistake：two pieces of code can look identical and represent completely different knowledge",
+      "visual_idea": "左侧两张相似代码卡片进入不同领域通道，表达长得像但含义不同",
+      "visible_label": "像",
+      "numeric_fact": ""
+    },
+    {
+      "role": "caution",
+      "source_anchor": "原文 Wrong Abstraction：shared helper grows boolean flags and hidden coupling",
+      "visual_idea": "中央共享 helper 机器长出警示开关和纠缠连接",
+      "visible_label": "耦合",
+      "numeric_fact": ""
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文 What DRY Actually Says 和 When DRY Is Right：same business fact such as manager approval threshold should have one home",
+      "visual_idea": "右侧干净的领域知识锚点只连接真正需要同一事实的地方",
+      "visible_label": "知识",
+      "numeric_fact": "1000"
+    }
+  ],
+  "main_metaphor": "软件架构工作台上，一台坏抽象机器把相似形状绑在一起，而真正的知识被放到一个稳定锚点",
+  "primary_subject": "中央的坏共享抽象机器与右侧清晰知识锚点形成对比",
+  "subject_action": "把表面相似的代码和真正同源的知识区分开",
+  "composition": "左到右对照：相似代码 -> 错误抽象/隐藏耦合 -> 单一知识来源",
+  "base_style": "conceptual editorial illustration",
+  "selected_style": "低饱和文艺风",
+  "selected_style_prompt_descriptor": "low-saturation arthouse illustration, quiet composition, subtle grain, muted colors, reflective emotional tone",
+  "selected_style_reason": "从40项风格池中随机选中。DRY 这类工程判断文章更适合安静、克制、有反思感的视觉，而不是夸张科技感",
+  "style_safety_note": "无需改写，该风格为泛化视觉描述，不指向特定品牌、工作室或在世艺术家",
+  "allowed_visible_text": ["像", "耦合", "知识"],
+  "color_palette": ["暖灰", "低饱和青绿", "纸白", "少量琥珀与珊瑚色"],
+  "avoid": [
+    "真实 UI 截图",
+    "dashboard",
+    "终端文字",
+    "可读代码",
+    "英文文字",
+    "假图表坐标",
+    "产品 logo",
+    "海报标题",
+    "无关机器人",
+    "霓虹城市",
+    "紫蓝渐变污染"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮验证：像、耦合、知识三段是否清楚；是否避免把 DRY 画成普通代码海报",
+  "revision_targets": [
+    "如果出现可读代码，改成抽象代码卡",
+    "如果知识锚点不明显，强化右侧单一来源",
+    "如果画面太科技，降低饱和度并减少装饰"
+  ],
+  "final_prompt": "Use case: infographic-story. Asset type: wide cover infographic illustration for a Chinese tech blog article. Create a wide cinematic infographic-story cover illustration summarizing an article about the DRY principle being misunderstood. Theme: DRY is about one authoritative representation of knowledge, not blindly deduplicating code that only looks similar. The reader should quickly understand that wrong abstractions create hidden coupling, while real domain facts deserve one home. Summary angle: two similar-looking code cards split into different domain meanings, a bad shared helper grows warning flags, and a clear domain fact becomes a stable single source of truth. Narrative flow: conflict-to-resolution. In a 2.35:1 frame, keep one dominant focal subject and 3 supporting narrative beats. Information blocks: problem: code looks alike but means different things; visible label: 像. caution: wrong abstraction creates hidden coupling and flags; visible label: 耦合. takeaway: shared knowledge gets one authoritative home; visible label: 知识. Scene/backdrop: a conceptual software architecture workbench, not a real UI and not a dashboard. On the left, two almost identical code-paper cards are separated into different colored domain lanes. In the center, a messy shared helper machine has small warning toggles and tangled links. On the right, a clean domain rule stone/tablet sits in one place with a calm glow, connected only to places that truly need the same fact. Subject: one dominant contrast between a messy premature abstraction machine and a clean single-source-of-truth domain fact. Style/medium: conceptual editorial illustration plus low-saturation arthouse illustration, quiet composition, subtle grain, muted colors, reflective technical tone. Composition/framing: wide 2.35:1 cover, left-to-right contrast, central messy abstraction as tension, right-side clean knowledge anchor as resolution, three small Chinese callout chips, generous negative space, no title text. Lighting/mood: thoughtful software architecture judgment, calm but cautionary, not dramatic. Color palette: warm gray, muted teal, soft paper white, restrained amber and coral warning accents. Text (verbatim): only these three short Chinese labels: 像, 耦合, 知识. Keep them small and readable. No other text. Constraints: no English text, no readable code, no fake UI screenshot, no dashboard, no terminal text, no fake chart axes, no product logos, no watermark, no English slogans, no poster title, no dense labels, no unrelated robots, no neon city, no purple-blue gradient domination."
+}
