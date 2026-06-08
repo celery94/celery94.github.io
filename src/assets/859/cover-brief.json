@@ -1,0 +1,71 @@
+{
+  "article_title": ".NET 的多次重生：从 Framework 到统一的现代平台",
+  "cover_type": "analysis",
+  "core_theme": ".NET 从 Windows 时代的 Framework，经过开源跨平台的 Core、作为桥梁的 Standard，最终走向统一现代 .NET 的身份重建",
+  "reader_takeaway": "读者能理解 .NET 命名混乱背后的历史原因，以及今天为什么应把现代 .NET 看作统一平台而不是一堆互不相关的变体",
+  "summary_angle": "用一条平台旅程讲清 .NET 的危机、重建、桥接和统一，而不是做版本功能对比",
+  "narrative_flow": "layered reveal",
+  "information_blocks": [
+    {
+      "role": "origin",
+      "source_anchor": "原文 Part I：.NET Framework 1.0 于 2002 年发布，并默认 Windows is the platform",
+      "visual_idea": "左侧旧企业堡垒代表 Windows 时代的完整但封闭的平台假设",
+      "visible_label": "Framework",
+      "numeric_fact": "2002"
+    },
+    {
+      "role": "contrast",
+      "source_anchor": "原文 Part III：.NET Core 1.0 于 2016 年发布，快速、跨平台、开源，但缺少旧世界许多 API",
+      "visual_idea": "中段断裂地基上重建开放桥梁，代表痛苦但必要的重启",
+      "visible_label": "Core",
+      "numeric_fact": "2016"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文 Part IV：.NET Standard 是 specification，不是 implementation，用来桥接 Framework 与 Core 的碎片化时期",
+      "visual_idea": "窄桥连接两个平台领地，代表临时和平条约",
+      "visible_label": "Standard",
+      "numeric_fact": ""
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文 Part V 和 VI：.NET 5 去掉 Core，.NET 6-10 进入成熟、统一、年度演进阶段",
+      "visual_idea": "右侧现代平台城市，包含云、容器、设备轮廓，代表统一现代 .NET",
+      "visible_label": ".NET",
+      "numeric_fact": "5+"
+    }
+  ],
+  "main_metaphor": "一条从旧堡垒穿过重建桥梁，最终抵达现代平台城市的时间路径",
+  "primary_subject": "贯穿画面的发光平台路径",
+  "subject_action": "从 Windows-bound Framework 走向开源、跨平台、统一的现代 .NET",
+  "composition": "左到右时间线，四个阶段节点，路径为单一主焦点",
+  "base_style": "conceptual editorial illustration",
+  "selected_style": "水彩漫画风",
+  "selected_style_prompt_descriptor": "watercolor comic illustration, translucent washes, visible paper texture, soft edges, light ink structure",
+  "selected_style_reason": "从40项风格池中随机选中。文章是技术史和身份反思，水彩漫画风适合表达时间、转变和温和的历史感",
+  "style_safety_note": "无需改写，该风格为泛化视觉描述，不指向特定品牌、工作室或在世艺术家",
+  "allowed_visible_text": ["Framework", "Core", "Standard", ".NET"],
+  "color_palette": ["暖灰", "柔和蓝灰", "低饱和青绿", "柔和琥珀", "少量红色"],
+  "avoid": [
+    "Microsoft logo",
+    "Windows logo",
+    "真实 UI 截图",
+    "dashboard",
+    "终端文字",
+    "代码块",
+    "假图表坐标",
+    "海报标题",
+    "英文口号",
+    "无关机器人",
+    "霓虹城市",
+    "紫蓝渐变污染"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮验证：四阶段路径是否清晰，是否避免真实品牌 logo，是否能看出平台重生而不是普通版本路线图",
+  "revision_targets": [
+    "如果出现品牌 logo，移除并改为抽象符号",
+    "如果文字过多，压缩为四个阶段标签",
+    "如果像 dashboard，改为概念时间线场景"
+  ],
+  "final_prompt": "Use case: infographic-story. Asset type: wide cover infographic illustration for a Chinese tech blog article. Create a wide cinematic infographic-story cover illustration summarizing a reflective history of .NET from 2002 to 2026. Theme: .NET survived multiple identity crises by rebuilding itself from Windows-bound Framework to open-source cross-platform .NET. The reader should quickly understand legacy assumptions, painful rebirth, bridge/unification, and mature modern platform. Summary angle: a platform journey moves from a confident Windows-era fortress, through a rebuilt open-source bridge, into a unified modern .NET skyline. Narrative flow: layered reveal. In a 2.35:1 frame, keep one dominant focal path and 4 supporting narrative beats. Information blocks: origin: .NET Framework in 2002 assumed Windows as the platform; visible label: Framework. rupture: .NET Core rebuilt for cross-platform and open source; visible label: Core. bridge: .NET Standard bridged fragmented runtimes; visible label: Standard. unity: .NET 5+ dropped Core and became modern unified .NET; visible label: .NET. Scene/backdrop: an isometric conceptual platform timeline, not a real UI and not a dashboard. Left: a solid old enterprise fortress with Windows-like panes but no logo. Middle-left: broken foundations being rebuilt into an open bridge with small community lights. Middle-right: a narrow standard bridge connects two territories. Right: a calm modern cross-platform city/platform with containers, cloud blocks, and multiple device silhouettes. Subject: one dominant illuminated path crossing from old fortress through bridge to unified modern platform. Style/medium: isometric conceptual systems scene plus watercolor comic illustration, translucent washes, visible paper texture, soft edges, light ink structure. Composition/framing: wide 2.35:1 cover, left-to-right timeline path, four small Chinese/technical callout chips, generous negative space, no title text. Lighting/mood: reflective, mature, hopeful, not hype-driven. Color palette: warm gray, soft blue-gray, muted teal, gentle amber, restrained red for rupture. Text (verbatim): only these four short labels: Framework, Core, Standard, .NET. Keep them small and readable. No other text. Constraints: no Microsoft logo, no Windows logo, no fake UI screenshot, no dashboard, no terminal text, no real code blocks, no fake chart axes, no watermark, no English slogans, no poster title, no dense labels, no unrelated robots, no neon city, no purple-blue gradient domination."
+}
