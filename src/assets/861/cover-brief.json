@@ -1,0 +1,71 @@
+{
+  "article_title": "ASP.NET Core Web API 集成测试：用 WebApplicationFactory 跑完整 HTTP 管线",
+  "cover_type": "tutorial",
+  "core_theme": "用 WebApplicationFactory 在内存中启动 ASP.NET Core 应用，替换生产依赖后编写可隔离的集成测试。",
+  "reader_takeaway": "读者可以理解 WebApplicationFactory 的作用，并掌握测试宿主、依赖替换、认证伪造、数据库隔离和 xUnit 组织方式。",
+  "summary_angle": "把生产 API 管线搬进测试台：内存宿主承载真实 HTTP 流程，测试侧替换数据库和外部服务，再用请求断言验证行为。",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "mechanism",
+      "source_anchor": "WebApplicationFactory<TEntryPoint> boots Program.cs, builds DI, wires middleware, and exposes an HttpClient without opening a real socket.",
+      "visual_idea": "透明测试舱中运行一条简化 API 管线。",
+      "visible_label": "测试宿主",
+      "numeric_fact": ""
+    },
+    {
+      "role": "step",
+      "source_anchor": "CustomWebApplicationFactory removes production DbContextOptions and registers SQLite in-memory plus fake external services.",
+      "visual_idea": "数据库和外部服务被替换为测试替身。",
+      "visible_label": "替换依赖",
+      "numeric_fact": ""
+    },
+    {
+      "role": "step",
+      "source_anchor": "Tests send GET and POST JSON requests, then assert status codes and response bodies.",
+      "visual_idea": "请求面板展示 GET、POST、200 和 JSON 响应。",
+      "visible_label": "请求断言",
+      "numeric_fact": ""
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "IAsyncLifetime and fixture cleanup keep tests isolated and avoid test pollution.",
+      "visual_idea": "测试数据在运行前后被种子和清理动作包围。",
+      "visible_label": "隔离状态",
+      "numeric_fact": ""
+    }
+  ],
+  "main_metaphor": "一个运行 ASP.NET Core API 管线的透明实验测试舱。",
+  "primary_subject": "透明测试舱中的 API 管线",
+  "subject_action": "测试探针向管线注入请求并读取断言结果",
+  "composition": "单点聚焦，左右辅助信息块水平推进",
+  "base_style": "editorial technical illustration",
+  "selected_style": "欧漫清线风",
+  "selected_style_prompt_descriptor": "European clear-line comic style, precise outlines, flat readable colors, tidy environments, restrained humor and detail",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；清线风适合表达教程流程和测试台结构，信息密度清楚不过载。",
+  "style_safety_note": "该风格为泛类型描述，不涉及特定品牌、工作室或在世艺术家复刻。",
+  "allowed_visible_text": ["测试宿主", "替换依赖", "请求断言", "隔离状态"],
+  "color_palette": [
+    "warm off-white",
+    "graphite ink",
+    "teal",
+    "muted coral",
+    "soft yellow"
+  ],
+  "avoid": [
+    "真实产品截图",
+    "密集代码雨",
+    "霓虹城市背景",
+    "通用机器人形象",
+    "终端窗口",
+    "过量 HUD 浮层"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证 WebApplicationFactory 测试宿主、依赖替换、HTTP 请求断言和状态隔离四个叙事节点是否清楚。",
+  "revision_targets": [
+    "减少伪 UI 感",
+    "保持中文短标签",
+    "避免真实架构图或仪表盘"
+  ],
+  "final_prompt": "Use case: infographic-story. Asset type: wide cover infographic illustration for a Chinese tech blog article, aspect ratio 2.35:1. Primary request: Create a wide cinematic infographic-story cover illustration that summarizes an article about testing ASP.NET Core Web APIs with WebApplicationFactory, integration tests, authentication fakes, in-memory databases, and xUnit fixtures. Summary angle: Turn the production API pipeline into a contained test bench: boot the app in memory, replace risky dependencies, send HTTP requests, and keep tests isolated. Style/medium: combine editorial technical illustration with European clear-line comic style, precise outlines, flat readable colors, tidy environments, restrained humor and detail. Visible text: 测试宿主, 替换依赖, 请求断言, 隔离状态. Constraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake terminal output, no fabricated metrics."
+}
