@@ -1,0 +1,65 @@
+{
+  "article_title": "C# 中介者模式实战：把对象通信从网状依赖改成集中协调",
+  "cover_type": "tutorial",
+  "core_theme": "用一个聊天系统示例，从接口、同事基类、具体中介者、DI 注册和单元测试完整实现 C# 中介者模式。",
+  "reader_takeaway": "读者能理解中介者模式适合解决什么耦合问题，并能按步骤写出可注册、可测试、可扩展的 C# 实现。",
+  "summary_angle": "把同事对象之间的网状通信收束到一个中介者：发送者不再知道接收者，路由、注册和测试都集中处理。",
+  "narrative_flow": "conflict-to-resolution",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "The mediator pattern removes tangled cross-references between objects by centralizing how they interact.",
+      "visual_idea": "左侧多位同事对象之间有交叉红线，呈现直接通信导致的混乱依赖。",
+      "visible_label": "耦合成网",
+      "numeric_fact": ""
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "IChatMediator defines SendMessage and RegisterColleague; ChatRoom owns message routing.",
+      "visual_idea": "中央中介者圆桌接收消息并分发给注册对象。",
+      "visible_label": "中介协调",
+      "numeric_fact": ""
+    },
+    {
+      "role": "step",
+      "source_anchor": "StandardUser and BotUser communicate through Send on the base class and never reference each other directly.",
+      "visual_idea": "右侧同事对象只通过虚线消息令牌连接到中介者。",
+      "visible_label": "同事解耦",
+      "numeric_fact": ""
+    },
+    {
+      "role": "validation",
+      "source_anchor": "Unit tests verify routing, duplicate prevention, and bot auto-responses.",
+      "visual_idea": "测试清单和绿色检查标记表示路由行为可验证。",
+      "visible_label": "可测行为",
+      "numeric_fact": ""
+    }
+  ],
+  "main_metaphor": "一个中央消息圆桌，把多对象直接通信改成统一路由。",
+  "primary_subject": "中央中介者路由枢纽",
+  "subject_action": "接收来自同事对象的消息令牌并分发给其他注册对象",
+  "composition": "左右前后对照，中央单点聚焦，右侧进入测试验证",
+  "base_style": "editorial technical illustration",
+  "selected_style": "极简线稿风",
+  "selected_style_prompt_descriptor": "minimalist line-art illustration, sparse clean strokes, ample negative space, precise symbolic objects, limited accent color",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；中介者模式的价值在于把关系简化，极简线稿风能强化从混乱到清晰的对照。",
+  "style_safety_note": "该风格为泛类型描述，不涉及特定品牌、工作室或在世艺术家复刻。",
+  "allowed_visible_text": ["耦合成网", "中介协调", "同事解耦", "可测行为"],
+  "color_palette": ["ivory", "charcoal", "teal", "muted red", "soft green"],
+  "avoid": [
+    "真实 IDE 截图",
+    "终端窗口",
+    "密集代码雨",
+    "通用机器人形象",
+    "霓虹城市背景",
+    "过量 HUD 浮层"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证从网状耦合到中介协调再到可测试行为的叙事是否清楚。",
+  "revision_targets": [
+    "压低伪 UI 感",
+    "保留四个中文短标签",
+    "避免真实架构图或仪表盘"
+  ],
+  "final_prompt": "Use case: infographic-story. Asset type: wide cover infographic illustration for a Chinese tech blog article, aspect ratio 2.35:1. Primary request: Create a wide cinematic infographic-story cover illustration that summarizes an article about implementing the Mediator pattern in C# step by step. Summary angle: Turn a tangled mesh of colleagues into a clean communication hub: define the mediator contract, register colleagues, route messages, and test behavior. Style/medium: combine editorial technical illustration with minimalist line-art illustration, sparse clean strokes, ample negative space, precise symbolic objects, limited accent color. Visible text: 耦合成网, 中介协调, 同事解耦, 可测行为. Constraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake terminal output, no fabricated metrics."
+}
