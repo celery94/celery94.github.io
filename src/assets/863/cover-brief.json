@@ -1,0 +1,59 @@
+{
+  "article_title": "ASP.NET Core vs Node.js：2026 年企业后端怎么选",
+  "cover_type": "analysis",
+  "core_theme": "比较 ASP.NET Core 和 Node.js 在 2026 年企业后端开发中的适配边界",
+  "reader_takeaway": "读者可以按业务负载、安全合规、维护周期、开发速度和团队结构判断该选 ASP.NET Core、Node.js，还是混合使用",
+  "summary_angle": "企业后端选型不是单纯跑分竞赛，而是在治理稳定性、实时交付速度和混合架构之间做取舍",
+  "narrative_flow": "conflict-to-resolution",
+  "information_blocks": [
+    {
+      "role": "contrast",
+      "source_anchor": "原文 Performance and Scalability、Security and Compliance、Maintainability for Large Applications 部分认为 ASP.NET Core 更适合 CPU 密集业务、合规和长期维护",
+      "visual_idea": "画面左侧用稳固的企业级引擎、合规建筑和盾牌表达结构化、可治理的后端系统",
+      "visible_label": "企业稳态",
+      "numeric_fact": "2026"
+    },
+    {
+      "role": "contrast",
+      "source_anchor": "原文指出 Node.js 的事件驱动、非阻塞架构适合实时通信、流媒体、轻量 API 和快速开发",
+      "visual_idea": "画面右侧用高速事件流、消息气泡和轻量服务表达实时和快速迭代",
+      "visible_label": "快速实时",
+      "numeric_fact": ""
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文 Can Enterprises Use Both? 部分建议企业可用 ASP.NET Core 承载关键业务与安全敏感服务，用 Node.js 承载实时通信、API 网关和面向客户的微服务",
+      "visual_idea": "中央用指南针和桥梁连接两侧，表达按工作负载选择或组合",
+      "visible_label": "混合架构",
+      "numeric_fact": ""
+    }
+  ],
+  "main_metaphor": "技术负责人面前的架构指南针，把两类后端引擎连接到同一条企业系统道路上",
+  "primary_subject": "中央的架构指南针和决策轮",
+  "subject_action": "指南针在 ASP.NET Core 的企业稳态引擎和 Node.js 的实时事件引擎之间做方向选择",
+  "composition": "左右对照汇入中央决策轮，宽屏横向叙事，单一主焦点",
+  "base_style": "conceptual editorial illustration",
+  "selected_style": "日漫少年风",
+  "selected_style_prompt_descriptor": "energetic shonen-inspired manga look, clean ink lines, dynamic poses, readable action rhythm, bright restrained color accents",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；左右技术路线的拉力和中央决策动作适合用有推进感的漫画节奏表达",
+  "style_safety_note": "该风格为泛类型描述，不涉及品牌、工作室或特定艺术家复刻",
+  "allowed_visible_text": ["企业稳态", "快速实时", "混合架构", "2026"],
+  "color_palette": ["深炭灰", "冷青色", "鲜绿色", "琥珀色"],
+  "avoid": [
+    "通用机器人站姿",
+    "无意义代码雨",
+    "霓虹高楼背景",
+    "假 dashboard",
+    "假终端输出",
+    "真实架构图标签",
+    "海报长标题"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证左右技术对照、中央决策焦点和三个来源锚定信息块是否清楚",
+  "revision_targets": [
+    "如果文字过多，删到 3 个中文短标签以内",
+    "如果画面像真实仪表盘，改成概念插画",
+    "如果左右主题不清，强化稳态系统与实时事件流的视觉差异"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes an enterprise backend technology comparison article. Theme: ASP.NET Core vs Node.js in 2026 for enterprise development. The reader should quickly feel that platform choice depends on operational fit: governance and long-term systems versus fast real-time product iteration.\n\nSummary angle: Enterprise backend selection is a decision matrix, not a benchmark race: ASP.NET Core is stronger for compliance, maintainability, and mission-critical workloads; Node.js is stronger for real-time, I/O-heavy, and rapid product delivery; many enterprises can combine both.\nNarrative flow: conflict-to-resolution. In a 2.35:1 frame, keep one dominant focal subject and 3 supporting narrative beats. Each beat must map to these source-grounded information blocks rather than generic decoration.\nInformation blocks:\n- contrast: ASP.NET Core handles CPU-intensive business logic, high transaction volumes, security and compliance needs; visible label: 企业稳态; numeric fact: 2026\n- contrast: Node.js handles concurrent I/O, real-time communication, streaming, lightweight APIs, and rapid development; visible label: 快速实时; numeric fact: none\n- takeaway: hybrid architecture can use ASP.NET Core for mission-critical services and Node.js for API gateways, real-time communication, and customer-facing microservices; visible label: 混合架构; numeric fact: none\n\nMain metaphor: a CTO's decision console as a balanced bridge between two backend engines, with a clear central compass choosing the right path by workload.\nSubject: one central architectural compass/decision wheel connecting two stylized backend engines, balancing structured enterprise systems on one side and real-time event streams on the other.\nComposition/framing: left-right contrast converging into a central decision wheel, horizontal storytelling, one clear focal subject, supporting callout chips only.\nStyle/medium: combine conceptual editorial illustration with energetic shonen-inspired manga look, clean ink lines, dynamic poses, readable action rhythm, bright restrained color accents. Stylized, polished, editorial, visually strong, clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: deep charcoal, clean white, ASP.NET-side cool teal, Node.js-side fresh green, small amber accent for the decision compass. Keep purple-blue use minimal.\nVisible text policy: allow only these 3 short Chinese labels: 企业稳态, 快速实时, 混合架构. Each label must be clean and legible. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names.\nConstraints: wide cover illustration, aspect ratio 2.35:1; no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: generic robot mascot, code rain, neon city background, marketing poster typography, dense HUD overlays, real dashboard screenshots, brand logos."
+}
