@@ -1,0 +1,68 @@
+{
+  "article_title": "MAF 分层 SDK：Loop、Workflow、Harness",
+  "cover_type": "architecture",
+  "core_theme": "Microsoft Agent Framework 用 Agent loops、Workflows 和 Harnesses 三层结构，把简单聊天能力推进到可生产化的 agent 应用",
+  "reader_takeaway": "读者能理解 MAF 为什么不是单一聊天封装，而是一套让开发者按场景选择自治程度、编排方式和运行时控制的分层 SDK",
+  "summary_angle": "生产级 agent 需要分层：内层循环负责推理和工具调用，中层工作流负责可靠编排，外层 harness 提供工具、上下文、记忆、权限、日志和可观测性",
+  "narrative_flow": "layered reveal",
+  "information_blocks": [
+    {
+      "role": "mechanism",
+      "source_anchor": "Agent loops: the repeated cycle of input, context, decision, tool call, observation, state, and completion",
+      "visual_idea": "中心旋转的 agent engine，箭头表示模型、工具、观察和状态的循环",
+      "visible_label": "循环",
+      "numeric_fact": "1"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "Workflows: sequential flows, handoffs, author/critic loops, magentic-style orchestration, custom workflows",
+      "visual_idea": "中层轨道承载多个任务站点，表示步骤、交接、评审和协调",
+      "visible_label": "编排",
+      "numeric_fact": "2"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "Harnesses: tools, context, memory, planning, middleware, permissions, human approval, logging and tracing",
+      "visual_idea": "外层仪表和安全阀，表示运行时能力和控制边界",
+      "visible_label": "运行",
+      "numeric_fact": "3"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "Provider-agnostic composition across Microsoft Foundry, OpenAI, Anthropic, Copilot Studio, GitHub Copilot, and A2A",
+      "visual_idea": "右侧连接到多个外部供应商和协议的开放接口",
+      "visible_label": "开放",
+      "numeric_fact": ""
+    }
+  ],
+  "main_metaphor": "一台三层黄铜工程机器，把 agent 的推理循环、业务编排和运行时控制组合在一起",
+  "primary_subject": "中心的三层抽象 agent engine",
+  "subject_action": "内层循环转动，中层工作流路由任务，外层 harness 提供工具、记忆、权限和可观测性",
+  "composition": "2.35:1 宽幅，中心三层机器，左侧三个编号标签，右侧开放连接器",
+  "base_style": "isometric conceptual systems scene",
+  "selected_style": "蒸汽朋克风",
+  "selected_style_prompt_descriptor": "steampunk adventure illustration, brass mechanisms, gears, goggles, warm industrial light, handcrafted machinery",
+  "selected_style_reason": "随机选中；机械分层隐喻适合表达 SDK 的循环、编排和运行时能力三层结构",
+  "style_safety_note": "该风格不指向特定品牌、工作室或在世艺术家，prompt 使用非仿冒描述词",
+  "allowed_visible_text": ["循环", "编排", "运行", "开放", "1/2/3"],
+  "color_palette": ["warm brass", "deep teal", "graphite gray", "soft ivory"],
+  "avoid": [
+    "真实 Microsoft 图表复刻",
+    "假 dashboard",
+    "假图表坐标或图例",
+    "假终端输出",
+    "伪造指标",
+    "英文口号",
+    "水印",
+    "密集 HUD",
+    "无关图标"
+  ],
+  "reference_strategy": "纯文本生成；原文 diagram 单独作为正文配图，不作为像素级参考",
+  "draft_goal": "验证三层架构和 provider-agnostic 开放性是否能在一张宽封面里读出来",
+  "revision_targets": [
+    "如果像真实架构图，改为更明确的概念机器插画",
+    "如果标签太多，压缩为四个短标签",
+    "如果开放接口出现假指标或假图例，改为抽象连接器"
+  ],
+  "final_prompt": "Create a wide cinematic infographic-story cover illustration for a Chinese tech blog article about Microsoft Agent Framework's layered SDK design. Theme: moving from simple chat apps to production agents through Agent loops, Workflows, and Harnesses. Keep one dominant central layered brass agent engine and source-grounded callouts: 循环/1, 编排/2, 运行/3, 开放. Base style: isometric conceptual systems scene. Selected style: steampunk adventure illustration with brass mechanisms, gears, warm industrial light, handcrafted machinery. Wide 2.35:1 cover. Avoid real Microsoft diagram reproduction, fake dashboards, fake charts, fake terminals, fabricated metrics, long text, slogans, and watermark."
+}
