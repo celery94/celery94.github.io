@@ -1,0 +1,66 @@
+{
+  "article_title": "Human-in-the-Loop AI：用 ASP.NET Core 给 AI 加一道人工审批门",
+  "cover_type": "architecture",
+  "core_theme": "在 ASP.NET Core 中设计 Human-in-the-Loop AI 系统，让 AI 建议先进入审批队列，再由人类审核后执行敏感业务动作。",
+  "reader_takeaway": "读者能理解 HITL 的关键组件：AI 建议、审批队列、人工审核、业务执行、审计日志、通知和反馈闭环。",
+  "summary_angle": "把全自动 AI 执行改造成可治理的审批工作流，兼顾效率、风险控制和可追责。",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "mechanism",
+      "source_anchor": "What Is Human-in-the-Loop AI? / AI Recommendation -> Human Review -> Approval -> Execution",
+      "visual_idea": "左侧 AI 服务生成建议卡片，但不直接执行。",
+      "visible_label": "AI建议",
+      "numeric_fact": ""
+    },
+    {
+      "role": "step",
+      "source_anchor": "Creating a Review Dashboard / Implementing Approval Endpoints",
+      "visual_idea": "中央人工审批门和审核工作台，表示 approve、reject、request modifications。",
+      "visible_label": "人工审批",
+      "numeric_fact": ""
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "Audit Logging / Human Feedback Loops",
+      "visual_idea": "右侧业务动作、审计日志轨迹和反馈箭头回到 AI 服务。",
+      "visible_label": "审计反馈",
+      "numeric_fact": ""
+    }
+  ],
+  "main_metaphor": "企业控制室里的 AI 审批闸门",
+  "primary_subject": "中央人工审批门和审核工作台",
+  "subject_action": "把 AI 建议拦截在审批队列中，等待人类审核后再放行业务动作",
+  "composition": "宽幅 2.35:1，左侧 AI 建议流，中间人工审批门，右侧业务执行、审计日志和反馈闭环",
+  "base_style": "isometric conceptual systems scene",
+  "selected_style": "高对比电影风",
+  "selected_style_prompt_descriptor": "high-contrast cinematic illustration, strong key light, deep shadows, wide-screen composition, dramatic but realistic color grading",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；高风险审批和治理主题适合用高对比电影构图强化风险边界。",
+  "style_safety_note": "该风格为泛电影光影描述，不涉及特定品牌、工作室或在世艺术家复刻。",
+  "allowed_visible_text": ["AI建议", "人工审批", "审计反馈"],
+  "color_palette": [
+    "graphite gray",
+    "dark navy",
+    "ASP.NET-like blue",
+    "approval green",
+    "amber risk accent"
+  ],
+  "avoid": [
+    "generic robot mascot",
+    "code rain",
+    "neon city background",
+    "dense HUD overlays",
+    "fake ASP.NET logo",
+    "fake Microsoft UI",
+    "tiny unreadable text",
+    "long workflow checklist"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证三段式 HITL 工作流、中央审批门、审计反馈闭环和短标签可读性。",
+  "revision_targets": [
+    "如果像真实 dashboard，改回抽象架构插画。",
+    "如果文字过多，只保留三个短标签。",
+    "如果 AI 直接执行动作，强化审批门阻断关系。"
+  ],
+  "final_prompt": "Use case: infographic-diagram\nAsset type: wide cover infographic illustration for a Chinese tech blog article, aspect ratio 2.35:1\nPrimary request: Create a wide cinematic infographic-story cover illustration summarizing an article about designing Human-in-the-Loop AI systems with ASP.NET Core. Theme: AI should recommend, humans review high-risk decisions, then approved actions execute with audit and feedback.\n\nSummary angle: replace fully autonomous AI execution with a controlled approval workflow: AI recommendation -> review queue -> human approval -> business action, with audit logging and feedback improving the system.\nNarrative flow: 3-beat process. Keep one dominant focal subject and 3 supporting narrative beats.\nInformation blocks:\n- mechanism: AI generates a recommendation but does not execute directly; visible label \"AI建议\".\n- governance: a human reviewer approves, rejects, or requests changes from a review queue; visible label \"人工审批\".\n- accountability: approved actions execute through a controlled gate, while audit logs and feedback loop back; visible label \"审计反馈\".\n\nMain metaphor: an enterprise control room where an ASP.NET Core API pipeline routes AI decisions through a human approval gate before execution.\nSubject: central approval gate with a human reviewer at a workstation, AI recommendation cards entering from the left and approved business action exiting to the right.\nComposition/framing: wide 2.35:1. Left side: AI service and recommendation stream. Center: large human approval gate and review queue, dominant focal subject. Right side: business action, audit log trail, and feedback loop arrow returning to AI service. Use clean directional arrows but avoid making it look like a real dashboard or screenshot.\nStyle/medium: combine isometric conceptual systems scene with high-contrast cinematic illustration: strong key light, deep shadows, wide-screen composition, dramatic but realistic color grading. Stylized, polished, editorial, visually strong, readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: graphite gray, dark navy, ASP.NET-like blue accent, approval green, small amber risk accent. Avoid purple-blue gradient dominance.\nVisible text policy: allow only these 3 short Chinese labels: \"AI建议\", \"人工审批\", \"审计反馈\". Each label must be large and readable. No poster title, no English slogans, no long sentence captions, no fake UI labels, no fake chart axes, no fake terminal output.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake product UI, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: generic robot mascot, code rain, neon city background, dense HUD overlays, fake ASP.NET logo, fake Microsoft UI, tiny unreadable text, long workflow checklist."
+}
