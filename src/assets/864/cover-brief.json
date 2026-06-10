@@ -1,0 +1,68 @@
+{
+  "article_title": "Azure Repos 也能用 Copilot 做代码评审了：预览版怎么开、怎么用、怎么算钱",
+  "cover_type": "release",
+  "core_theme": "GitHub Copilot code reviews 进入 Azure Repos pull request 的有限公开预览",
+  "reader_takeaway": "读者能判断这个预览能力是否适合自己的 Azure Repos 团队，并知道启用、发起评审、关注限制和费用的基本路径",
+  "summary_angle": "Copilot 评审不是直接全量开放，而是通过预览申请、组织/仓库/用户三层开关、PR 内请求评审、费用监控这条路径进入 Azure Repos",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "step",
+      "source_anchor": "原文 Sign up for the Technical Preview：limited public preview, sign-up process, enable the feature for their organization",
+      "visual_idea": "左上角日历和预览标签，表示 2026 年的有限公开预览",
+      "visible_label": "预览",
+      "numeric_fact": "2026"
+    },
+    {
+      "role": "step",
+      "source_anchor": "原文 Getting Started：organization level, individual repositories, user Preview Features",
+      "visual_idea": "左下角三个编号检查点，表示组织、仓库、用户三层启用",
+      "visible_label": "启用",
+      "numeric_fact": "1/2/3"
+    },
+    {
+      "role": "step",
+      "source_anchor": "原文 Code Review Process：Request button next to Copilot Code Review in Reviewers section",
+      "visual_idea": "中心 PR 文档和右侧评审按钮，表示在 PR 里请求 Copilot Code Review",
+      "visible_label": "评审",
+      "numeric_fact": "3"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文 Guardrails and Limits 与 Billing：preview limits, GitHub AI credit, Azure subscription billing, Cost Management",
+      "visual_idea": "右侧仪表和锁形符号，提醒团队关注限制、并发和费用",
+      "visible_label": "计费",
+      "numeric_fact": ""
+    }
+  ],
+  "main_metaphor": "一个 pull request 文档穿过评审门，Copilot 光束正在检查代码变更",
+  "primary_subject": "中心的虚构 pull request 文档和 Copilot review badge",
+  "subject_action": "Pull request 正在被 Copilot 检查，周围有预览、启用、评审、计费四个短标签",
+  "composition": "2.35:1 宽幅，中心主物体，左侧启用路径，右侧评审与费用提示，轻微斜向推进",
+  "base_style": "product-poster style illustration",
+  "selected_style": "日漫少女风",
+  "selected_style_prompt_descriptor": "soft shojo-inspired manga look, elegant linework, expressive faces, gentle decorative details, luminous pastel accents",
+  "selected_style_reason": "随机选中；柔和、清晰的线条适合把预览发布、设置路径和费用提醒压缩成不紧张的产品更新封面",
+  "style_safety_note": "该风格不指向特定在世艺术家或具体工作室，prompt 使用安全描述词而非模仿某个品牌或作者",
+  "allowed_visible_text": ["预览", "启用", "评审", "计费", "1/2/3", "2026"],
+  "color_palette": ["Azure blue", "soft teal", "pale rose", "warm off-white"],
+  "avoid": [
+    "真实 Azure DevOps UI 截图",
+    "假 dashboard",
+    "假图表坐标或图例",
+    "假终端输出",
+    "伪造指标",
+    "英文口号",
+    "水印",
+    "无意义代码雨",
+    "通用机器人站姿"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证主题、三层启用路径、PR 评审和费用限制四个叙事节点是否能在单张宽封面里读出来",
+  "revision_targets": [
+    "如果画面像真实 UI 截图，改为更明确的虚构插画",
+    "如果信息块超过 4 个或文字太多，压缩为短标签",
+    "如果费用和限制被画成假图表，改为抽象仪表或提醒符号"
+  ],
+  "final_prompt": "Use case: infographic-story. Asset type: wide cover infographic illustration for a Chinese tech blog article. Create a wide cinematic infographic-story cover illustration that summarizes a Microsoft Azure DevOps update: GitHub Copilot code reviews are entering limited public preview for Azure Repos pull requests. Summary angle: Copilot review moves into Azure Repos PRs, but teams should enable it deliberately: organization setting, repository setting, user preview feature, then request review in a PR. Narrative flow: 3-beat process. Keep one dominant focal PR sheet and three supporting narrative beats: 预览/2026, 启用/1/2/3, 评审, 计费. Use product-poster style illustration with a soft shojo-inspired manga look, elegant linework, gentle decorative details, luminous pastel accents. Wide cover illustration, aspect ratio 2.35:1. Avoid real UI screenshots, fake dashboards, fake charts, fake terminals, fabricated metrics, English slogans, watermark, and decorative clutter."
+}
