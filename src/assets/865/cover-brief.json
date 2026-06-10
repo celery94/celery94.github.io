@@ -1,0 +1,83 @@
+{
+  "article_title": "Claude Code 进阶用法：.NET 项目里最值得落地的 20 个习惯",
+  "cover_type": "tutorial",
+  "core_theme": "面向 .NET 开发者的 Claude Code 进阶工作流：验证循环、上下文管理、hooks、MCP/Roslyn、worktrees 和模型选择",
+  "reader_takeaway": "读者能把 Claude Code 从聊天式助手调整成可验证、可约束、可扩展的开发协作者",
+  "summary_angle": "高级用法的核心不是提示词花样，而是控制：给它可运行的检查、干净的上下文、确定性的自动化和 .NET 语义工具",
+  "narrative_flow": "layered reveal",
+  "information_blocks": [
+    {
+      "role": "mechanism",
+      "source_anchor": "Tip 1: Give Claude a check it can run itself; run dotnet build and dotnet test after each change",
+      "visual_idea": "左侧循环箭头、清单和通过标记，表示构建和测试形成闭环",
+      "visible_label": "验证",
+      "numeric_fact": "1"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "Tips 5-8: /clear, /context, compact early, keep CLAUDE.md lean",
+      "visual_idea": "上下文文件、清理工具和 CLAUDE.md 文件夹，表示主动管理上下文预算",
+      "visible_label": "上下文",
+      "numeric_fact": "2"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "Tips 9-11: permissions block, PostToolUse hook, commit-time gate",
+      "visual_idea": "安全钩子、检查清单和闸门，表示确定性的格式化和提交前验证",
+      "visible_label": "Hooks",
+      "numeric_fact": "3"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "Tips 14-20: Roslyn MCP, Context7, type-aware prompts, worktrees, headless runs, model selection",
+      "visual_idea": "MCP 网络、语义导航、分支文件夹和模型节点，表示 .NET 感知与并行扩展",
+      "visible_label": "MCP",
+      "numeric_fact": "4"
+    }
+  ],
+  "main_metaphor": "开发者坐在控制台前，把 Claude Code 的工作流接入四道可控检查点",
+  "primary_subject": "中心的虚构开发控制台和一个抽象 AI 助手图标",
+  "subject_action": "控制台把任务依次路由到验证、上下文、Hooks 和 MCP 四个区域",
+  "composition": "2.35:1 宽幅，居中控制台，四个信息块围绕主屏幕，左到右形成工作流",
+  "base_style": "editorial technical illustration",
+  "selected_style": "美式卡通风",
+  "selected_style_prompt_descriptor": "American cartoon illustration, elastic shapes, clear expressions, bold color fields, light comedic timing",
+  "selected_style_reason": "随机选中；清晰的卡通分区适合把 20 条建议压缩成四个可读工作流节点",
+  "style_safety_note": "该风格不指向特定品牌、工作室或在世艺术家，prompt 使用非仿冒描述词",
+  "allowed_visible_text": [
+    "验证",
+    "上下文",
+    "Hooks",
+    "MCP",
+    "1/2/3/4",
+    "CLAUDE.md",
+    "/clear",
+    "/context",
+    ".NET"
+  ],
+  "color_palette": [
+    "crisp cyan",
+    "graphite gray",
+    "warm yellow",
+    "restrained coral"
+  ],
+  "avoid": [
+    "真实 Claude UI 截图",
+    "假终端输出",
+    "假 dashboard",
+    "假图表坐标或图例",
+    "伪造指标",
+    "英文口号",
+    "水印",
+    "密集 HUD",
+    "无关图标"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证四个源自文章的实践节点是否能在单张宽封面里读出来",
+  "revision_targets": [
+    "如果像真实产品 UI，改成更抽象的控制台插画",
+    "如果标签太多，压缩到四个主标签",
+    "如果 MCP 区域像假架构图，改为抽象语义网络"
+  ],
+  "final_prompt": "Use case: infographic-story. Asset type: wide cover infographic illustration for a Chinese tech blog article. Theme: turning Claude Code from a chat box into a controlled .NET development teammate through verification loops, context hygiene, hooks, MCP/Roslyn, worktrees, and model selection. Keep one central fictional workstation console and four supporting beats: 验证/1, 上下文/2, Hooks/3, MCP/4. Base style: editorial technical illustration. Selected style descriptor: American cartoon illustration, elastic shapes, clear expressions, bold color fields, light comedic timing. Wide 2.35:1 cover. Avoid real UI screenshots, fake terminals, fake dashboards, fake charts, fabricated metrics, long text, slogans, and watermark."
+}
