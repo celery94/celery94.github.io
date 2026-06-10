@@ -1,0 +1,66 @@
+{
+  "article_title": "Spec-Driven Development：AI 原生工程要先对齐意图",
+  "cover_type": "analysis",
+  "core_theme": "Spec-Driven Development 把结构化规格作为人和 AI 的共同事实源，用来减少需求、设计、实现和验证之间的意图丢失。",
+  "reader_takeaway": "读者能理解为什么 prompt-first 在复杂项目中容易失真，以及如何用小范围试点开始 spec-first 工作流。",
+  "summary_angle": "从散落 prompt 到共享规格，再到实现和验证回环，说明 SDD 的核心价值是先对齐意图再加速执行。",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "Why prompt-first workflows are not enough",
+      "visual_idea": "左侧散落便签和断裂箭头，表示 prompt-first 下的架构漂移、代码漂移和返工。",
+      "visible_label": "意图丢失",
+      "numeric_fact": ""
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "What is Spec-Driven Development?",
+      "visual_idea": "中央发光规格蓝图承载 guardrails、requirements、constraints、acceptance criteria 和 edge cases。",
+      "visible_label": "共享规格",
+      "numeric_fact": ""
+    },
+    {
+      "role": "workflow",
+      "source_anchor": "GitHub Spec Kit Engineering lifecycle",
+      "visual_idea": "右侧代码块、测试检查和发布门禁形成回到规格的验证闭环。",
+      "visible_label": "闭环验证",
+      "numeric_fact": ""
+    }
+  ],
+  "main_metaphor": "一张活的规格蓝图连接产品、架构、工程、AI 代理、测试和发布验证",
+  "primary_subject": "中心工作台上的发光结构化规格蓝图",
+  "subject_action": "把散落的 prompt 输入收束成 AI 可以执行并验证的工程上下文",
+  "composition": "宽幅 2.35:1，左侧意图丢失，中央共享规格，右侧实现与验证闭环",
+  "base_style": "conceptual editorial illustration",
+  "selected_style": "动态分镜电影风",
+  "selected_style_prompt_descriptor": "dynamic cinematic storyboard style, sequential panels, camera-motion feeling, strong cuts, clear narrative beats",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；文章主线是从问题到机制再到验证的三段式判断，适合用分镜式叙事表达。",
+  "style_safety_note": "该风格为泛分镜和电影构图描述，不涉及特定品牌、工作室或在世艺术家复刻。",
+  "allowed_visible_text": ["意图丢失", "共享规格", "闭环验证"],
+  "color_palette": [
+    "charcoal",
+    "off-white",
+    "restrained blue",
+    "validation green",
+    "small amber accent"
+  ],
+  "avoid": [
+    "generic robot mascot",
+    "code rain",
+    "neon city",
+    "GitHub UI screenshot",
+    "Microsoft UI screenshot",
+    "long process checklist",
+    "dense text panels",
+    "fake software interface"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮验证 SDD 的三段式主线、中心规格蓝图和短标签可读性。",
+  "revision_targets": [
+    "减少可见文字到 3 个中文短标签。",
+    "去掉底部长信息栏和伪 UI 流程列表。",
+    "强化中心规格蓝图和右侧验证闭环。"
+  ],
+  "final_prompt": "Regenerate a simpler wide cover illustration for the same Chinese tech blog article.\n\nUse case: infographic-diagram\nAsset type: wide cover infographic illustration, aspect ratio 2.35:1\nPrimary request: Summarize Spec-Driven Development as a spec-first approach to AI-native engineering. The cover must be simpler than a dashboard and must not look like a UI screenshot.\n\nSummary angle: scattered prompts lose intent; a shared living spec aligns humans and AI; implementation is validated back against the spec.\nNarrative flow: 3-beat process with one dominant focal subject and only 3 supporting beats.\nInformation blocks, use only these labels if any text appears:\n- problem: scattered prompt notes and broken arrows cause translation loss; visible label \"意图丢失\".\n- mechanism: one central living spec blueprint becomes the shared source of truth; visible label \"共享规格\".\n- validation: code and tests loop back to the spec through clear check gates; visible label \"闭环验证\".\n\nMain metaphor: a central living blueprint document on a worktable, connecting product, architecture, engineering, AI agent, tests, and release validation.\nSubject: one large luminous spec blueprint in the center, with humans and small AI assistant icons around it, and a clean loop from blueprint to code blocks to test checks back to blueprint.\nComposition/framing: wide 2.35:1. Left third: a small cluster of messy prompt sticky notes with broken arrows. Center: dominant spec blueprint as the largest focal object. Right third: a simple validation loop with code blocks, test checkmarks, and release gate. No bottom information panels. No stacked UI rows. No dashboard cards.\nStyle/medium: combine conceptual editorial illustration with dynamic cinematic storyboard style: sequential visual beats, clear narrative rhythm, polished but restrained, not a fake product interface. Do not imitate any brand, studio, or living artist.\nColor palette: charcoal background, off-white blueprint, restrained blue accent, green validation accent, small amber warning accent.\nVisible text policy: allow at most 3 short Chinese labels total: \"意图丢失\", \"共享规格\", \"闭环验证\". Each label must be large and readable. No other readable text, no English, no menu labels, no workflow row labels, no tiny captions, no poster title.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake terminal output, no fake chart axes, no dense HUD, no unrelated icon collage, no bottom legend, no fabricated metrics.\nAvoid: generic robot mascot, code rain, neon city, GitHub UI screenshot, Microsoft UI screenshot, long process checklist, dense text panels, fake software interface."
+}
