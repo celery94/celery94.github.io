@@ -1,0 +1,74 @@
+{
+  "article_title": "ASP.NET Core API 部署指南",
+  "cover_type": "tutorial",
+  "core_theme": "把 ASP.NET Core Web API 部署到 Docker 和 Azure 的生产化路径",
+  "reader_takeaway": "读者能按顺序理解 Docker 镜像、Compose 本地环境、健康检查、Azure 部署目标、密钥管理和启动性能的关键取舍",
+  "summary_angle": "先把容器做对，再补上本地依赖、健康探针、Azure 运行平台、密钥和性能优化",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "step",
+      "source_anchor": "Multi-stage Docker Build for .NET 10: use sdk:10.0 for build and aspnet:10.0 for runtime",
+      "visual_idea": "第一个部署门显示 Docker 镜像和构建块，表示多阶段镜像",
+      "visible_label": "镜像",
+      "numeric_fact": "1"
+    },
+    {
+      "role": "step",
+      "source_anchor": "Docker Compose for Local Development: API, SQL Server, depends_on service_healthy, double underscore env vars",
+      "visual_idea": "第二个门显示本地数据库、API 和 Compose 网络",
+      "visible_label": "本地",
+      "numeric_fact": "2"
+    },
+    {
+      "role": "step",
+      "source_anchor": "Health Checks: /health/live and /health/ready for container orchestrators",
+      "visual_idea": "第三个门显示健康盾牌和 liveness/readiness 两个端点",
+      "visible_label": "健康",
+      "numeric_fact": "3"
+    },
+    {
+      "role": "step",
+      "source_anchor": "Publishing to Azure App Service, Azure Container Apps, Secrets Management with Key Vault",
+      "visual_idea": "第四个门显示 Azure、容器平台和密钥盾牌",
+      "visible_label": "Azure",
+      "numeric_fact": "4"
+    }
+  ],
+  "main_metaphor": "一个 .NET API 容器沿部署通道穿过四道生产检查门",
+  "primary_subject": "中心的 .NET API container package",
+  "subject_action": "容器从镜像构建、本地验证、健康探针一路进入 Azure 运行环境",
+  "composition": "2.35:1 宽幅，左到右四个检查门，中间容器作为主焦点",
+  "base_style": "editorial technical illustration",
+  "selected_style": "黑暗奇幻风",
+  "selected_style_prompt_descriptor": "dark fantasy illustration, gothic silhouettes, ancient textures, moody rim light, restrained magical atmosphere",
+  "selected_style_reason": "随机选中；用克制的关卡/闸门隐喻表达生产部署必须经过的安全检查和运行门槛",
+  "style_safety_note": "该风格不指向特定品牌、工作室或在世艺术家，prompt 明确排除恐怖、怪物和血腥元素",
+  "allowed_visible_text": ["镜像", "本地", "健康", "Azure", "1/2/3/4"],
+  "color_palette": [
+    "deep graphite",
+    "Azure blue glow",
+    "warm gold",
+    "muted steel"
+  ],
+  "avoid": [
+    "真实 Azure portal UI",
+    "假 dashboard",
+    "假终端输出",
+    "假代码文本",
+    "假图表坐标",
+    "伪造指标",
+    "水印",
+    "怪物",
+    "血腥恐怖",
+    "无关图标"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证读者能看出 Docker 镜像、本地依赖、健康检查和 Azure 部署四个节点",
+  "revision_targets": [
+    "如果画面过暗影响阅读，增强 Azure blue 和 gold checkpoint 光源",
+    "如果出现真实产品 UI，改为概念插画",
+    "如果出现无关幻想元素，移除并强化技术检查点"
+  ],
+  "final_prompt": "Create a wide cinematic infographic-story cover illustration for a Chinese tech blog article about deploying ASP.NET Core Web API to Docker and Azure. Theme: production API passes through deployment gates: Docker image, local compose dependencies, health checks, Azure runtime/secrets. Keep one central .NET container package and four short labels: 镜像/1, 本地/2, 健康/3, Azure/4. Base style: editorial technical illustration. Selected style: dark fantasy illustration with gothic silhouettes, ancient textures, moody rim light, restrained magical atmosphere, adapted professionally with no horror and no creatures. Wide 2.35:1 cover. Avoid real portal UI, fake dashboard, fake terminals, fake code text, fabricated metrics, long text, watermark, monsters, and gore."
+}
