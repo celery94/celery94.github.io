@@ -1,0 +1,59 @@
+{
+  "article_title": "SOLID 原则在 C# 和 .NET 10 里的落地方式",
+  "cover_type": "architecture",
+  "core_theme": "用五个 SOLID 原则把 C# 代码从难改、难测、易连锁出错，整理成职责清晰、可扩展、可替换的结构。",
+  "reader_takeaway": "读者能理解 SRP、OCP、LSP、ISP、DIP 各自解决什么失败模式，以及现代 .NET 10 如何让这些原则更自然地落地。",
+  "summary_angle": "SOLID 不是背概念，而是把混在一起的职责、分支、继承和依赖拆成更稳定的模块边界。",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "原文开头提到一个类做六件事、测试难写、修一个 bug 引出两个新 bug。",
+      "visual_idea": "左侧一团纠缠的代码模块和断裂测试线。",
+      "visible_label": "耦合",
+      "numeric_fact": ""
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文用 SRP、OCP、LSP、ISP、DIP 五个原则拆解不同失败模式。",
+      "visual_idea": "中间五块小型原则板围绕一个 C# 模块进行校准。",
+      "visible_label": "五原则",
+      "numeric_fact": "5"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文 .NET 10 部分提到 records、内置 DI、ILogger<T>、IMiddleware、IActionFilter、IHostedService。",
+      "visual_idea": "右侧形成清晰模块、接口插槽和可替换依赖。",
+      "visible_label": ".NET 10",
+      "numeric_fact": "10"
+    }
+  ],
+  "main_metaphor": "把纠缠代码重新分拣为可替换的模块化工坊。",
+  "primary_subject": "一个抽象的 C# 模块工坊核心",
+  "subject_action": "正在把混乱依赖线拆分并接入清晰接口插槽",
+  "composition": "等距空间，左侧混乱输入，中间原则校准，右侧稳定输出，单个 C# 模块工坊作为主焦点",
+  "base_style": "isometric conceptual systems scene",
+  "selected_style": "欧漫清线风",
+  "selected_style_prompt_descriptor": "European clear-line comic style, precise outlines, flat readable colors, tidy environments, restrained humor and detail",
+  "selected_style_reason": "随机选中；清线风适合把 SOLID 的模块边界和依赖关系画清楚，避免变成抽象科技氛围图。",
+  "style_safety_note": "该风格是通用漫画视觉语言描述，不指向特定品牌、工作室或在世艺术家。",
+  "allowed_visible_text": ["耦合", "五原则", ".NET 10"],
+  "color_palette": ["ink blue", "warm white", "muted green", "amber accent"],
+  "avoid": [
+    "真实 IDE 截图",
+    "假 dashboard",
+    "假终端输出",
+    "无意义代码雨",
+    "通用机器人",
+    "霓虹城市背景",
+    "密集长文字"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮验证 2.35:1 宽封面中是否能看出混乱代码经过五原则整理成 .NET 10 模块结构。",
+  "revision_targets": [
+    "减少文字，只保留 1-3 个短标签",
+    "确保只有一个主焦点",
+    "避免真实 UI、dashboard 或代码截图"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: SOLID principles in C# and .NET 10 turn tangled, hard-to-test code into modular, extensible, substitutable design. The reader should quickly feel that SOLID is a practical structure tool, not memorized terminology.\n\nSummary angle: SOLID is not just five definitions; it separates mixed responsibilities, brittle branches, unsafe inheritance, bloated interfaces, and concrete dependencies into stable module boundaries.\nNarrative flow: 3-beat process. In a 2.35:1 frame, keep one dominant focal subject and 3 supporting narrative beats. Each beat must map to the article's information blocks rather than generic decoration.\nInformation blocks:\n- problem: tangled class responsibilities, fragile tests, bug-fix ripple effects; visible label: 耦合\n- mechanism: five principles SRP, OCP, LSP, ISP, DIP as compact calibration plates around the main module; visible label: 五原则, numeric chip: 5\n- takeaway: .NET 10 support through records, built-in dependency injection, ILogger<T>, middleware and hosted-service abstractions; visible label: .NET 10, numeric chip: 10\n\nMain metaphor: a modular C# workshop that sorts tangled code into clean replaceable parts.\nSubject: an abstract C# module workshop core, splitting dependency wires and plugging them into clean interface sockets.\nComposition/framing: isometric conceptual systems scene, left side tangled input, center principle calibration, right side stable modular output, one C# module workshop as the dominant focal subject. Prefer horizontal storytelling that stays legible in a wide cover.\nStyle/medium: combine isometric conceptual systems scene with the selected visual style descriptor: European clear-line comic style, precise outlines, flat readable colors, tidy environments, restrained humor and detail. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: ink blue, warm white, muted green, amber accent.\nVisible text policy: allow only these short labels if needed: 耦合, 五原则, .NET 10. No poster title, no long sentences, no English slogans beyond .NET 10, no fake UI labels, no fake chart axes, no fake architecture node names.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: realistic IDE screenshot, terminal window, dashboard panels, meaningless code rain, generic robot, neon city background, dense tiny text."
+}
