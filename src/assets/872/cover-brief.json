@@ -1,0 +1,72 @@
+{
+  "article_title": "迭代器模式 C# 实战：分页数据访问的完整实现",
+  "cover_type": "tutorial",
+  "core_theme": "用 C# 迭代器模式把分页数据访问封装成普通的 foreach 循环，让消费者不再关心分页机制",
+  "reader_takeaway": "学会用 IEnumerable<T> 和 IAsyncEnumerable<T> 构建透明的分页数据访问层，直接从项目中复用",
+  "summary_angle": "从「手动分页循环又乱又难维护」到「foreach 一行搞定，分页自动透明」，核心是一层 IEnumerable<T> 封装",
+  "narrative_flow": "conflict-to-resolution",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "第一节：手动 while-true-fetch-break 循环，每个消费者都要重复分页逻辑，需求变更时所有地方都要改",
+      "visual_idea": "画面左侧散落的多个相同循环代码片段，暗示重复劳动和混乱",
+      "visible_label": "手动分页循环",
+      "numeric_fact": ""
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "第二节：PaginatedEnumerable<T> 封装分页抓取，委托解耦数据源",
+      "visual_idea": "中央一个统一的传送带/管道结构，代表迭代器的封装层，数据块从底部自动送入",
+      "visible_label": "IEnumerable<T>",
+      "numeric_fact": ""
+    },
+    {
+      "role": "evidence",
+      "source_anchor": "第五节：foreach 一行遍历，LINQ .Where()/.Select() 直接组合，仓储返回 IEnumerable<T> 即可",
+      "visual_idea": "右侧一个简洁的 foreach 循环图标，连带着 LINQ 链式操作的视觉暗示",
+      "visible_label": "foreach + LINQ",
+      "numeric_fact": ""
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "第七节/总结：内存高效，百万级记录场景适用，消费者无需改动",
+      "visual_idea": "底部或角落展示一个内存节省的对比图标，大量数据流经但内存占用很小",
+      "visible_label": "内存高效",
+      "numeric_fact": ""
+    }
+  ],
+  "main_metaphor": "传送带流水线，数据像货物从源头经过迭代器封装层自动送上消费者的 foreach 工作台",
+  "primary_subject": "一个整洁的 C# 迭代器传送带装置，数据块从底部被自动送入，右侧 foreach 消费者简单取用",
+  "subject_action": "迭代器装置正在自动推进数据块，消费者只需在终点用 foreach 接住",
+  "composition": "左右对照：左侧混乱的手动循环 vs 右侧干净的 foreach 流水线，中央是迭代器封装层做桥梁",
+  "base_style": "editorial technical illustration",
+  "selected_style": "迪士尼动画风",
+  "selected_style_prompt_descriptor": "bright family-animation feeling, rounded character shapes, clear emotional acting, polished color and lighting, no studio imitation",
+  "selected_style_reason": "用户未指定风格，本篇从 40 项风格池随机选中（index 23/40）",
+  "style_safety_note": "原风格名强指向迪士尼品牌，最终 prompt 只使用明亮动画感、圆润造型、清晰表现力、精致色彩与光照等非仿冒描述",
+  "allowed_visible_text": [
+    "手动分页循环",
+    "IEnumerable<T>",
+    "foreach + LINQ",
+    "内存高效"
+  ],
+  "color_palette": ["深蓝背景", "暖橙高亮", "白色技术元素", "浅灰辅助"],
+  "avoid": [
+    "代码雨",
+    "霓虹高楼",
+    "赛博朋克紫蓝光",
+    "漂浮芯片",
+    "通用机器人",
+    "HUD浮层",
+    "假UI界面",
+    "假dashboard"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮先验证主题（传送带+foreach迭代）、构图（左右对比）、信息块可读性",
+  "revision_targets": [
+    "如果左侧代码片段太具体像真实截图就简化",
+    "如果传送带变成真实工厂流水线就回到抽象概念图",
+    "如果有迪士尼角色出现就清除"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: Using C# Iterator Pattern to wrap paginated data access into a transparent foreach loop. The reader should quickly feel this is a practical pattern that replaces messy manual pagination with clean, composable code.\n\nSummary angle: From 'manual while-true-fetch-break loops everywhere' to 'foreach handles everything, pagination is transparent' — the key is one layer of IEnumerable<T> encapsulation.\nNarrative flow: conflict-to-resolution. In a 2.35:1 frame, keep one dominant focal subject and 2-4 supporting narrative beats. Each beat must map to the article's information blocks rather than generic decoration.\nInformation blocks:\n- problem: Manual pagination loops repeated across consumers, tangled with business logic\n- mechanism: PaginatedEnumerable<T> wraps page fetching via delegate, decoupling data source\n- evidence: Plain foreach + LINQ .Where()/.Select() work transparently over paginated data\n- takeaway: Memory-efficient for millions of records, consumers never need to change\n\nMain metaphor: A clean conveyor-belt pipeline where data blocks move from a data source through an iterator encapsulation layer to a foreach workstation.\nSubject: A tidy C# iterator conveyor mechanism, data blocks being automatically advanced, with a foreach consumer at the right side. No real characters or people.\nComposition/framing: Left-right contrast — chaotic repeated manual loops on the left vs clean foreach pipeline on the right, with the iterator encapsulation as the bridge in center. Prefer horizontal storytelling that stays legible in a wide cover.\nStyle/medium: combine editorial technical illustration with the selected visual style descriptor: bright family-animation feeling, rounded character shapes, clear emotional acting, polished color and lighting, no studio imitation. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: deep blue background, warm orange highlights, white technical elements, light gray accents.\nVisible text policy: allow only 1-4 short Chinese labels from the information blocks: '手动分页循环', 'IEnumerable<T>', 'foreach + LINQ', '内存高效'. Each label <= 6 Chinese characters or one required product/model name. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: code rain, neon skylines, cyberpunk purple-blue lighting, floating chips, generic robots, HUD overlays, fake UI interfaces, fake dashboards, Disney characters."
+}
