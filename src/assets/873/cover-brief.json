@@ -1,0 +1,66 @@
+{
+  "article_title": "10 个 Async/Await 错误正在拖垮你的 ASP.NET Core API 性能",
+  "cover_type": "tutorial",
+  "core_theme": "ASP.NET Core 中 10 个常见的 async/await 误用及其对生产环境性能的真实影响",
+  "reader_takeaway": "学会识别和修复 10 个最常见的 async/await 错误，理解每个修复如何直接转化为吞吐量和延迟改善",
+  "summary_angle": "从线程池饥饿、1,200 RPS 到 4,500 RPS、零死锁——一次 async 审计如何用两星期换来 3.75 倍吞吐量",
+  "narrative_flow": "before-after",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "原文 TL;DR 表格与 Mattrx 总览：线程池饥饿 4/week、p95 8.2s、死锁 3/month",
+      "visual_idea": "画面左侧暗部：拥堵的请求队列，被阻塞的线程如停滞的车道",
+      "visible_label": "修复前 1200 RPS",
+      "numeric_fact": "1200"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文 10 个错误编号：.Result、async void、Sequential await 等",
+      "visual_idea": "画面中部过渡：代码片段幻化为修复管道，从串行变为并行",
+      "visible_label": "10 个陷阱",
+      "numeric_fact": "10"
+    },
+    {
+      "role": "evidence",
+      "source_anchor": "原文 Mattrx 汇总：4500 RPS、p95 1.4s、线程 110→22、零事故",
+      "visual_idea": "画面右侧亮部：畅通的并行管道，清晰的数据流箭头，绿色通过标记",
+      "visible_label": "修复后 4500 RPS",
+      "numeric_fact": "4500"
+    }
+  ],
+  "main_metaphor": "交通拥堵疏通——左侧堵塞的车道代表被 .Result 和 async void 拖垮的线程池，右侧畅通的并行车道代表修复后的异步流",
+  "primary_subject": "一条从拥堵分流为多个并行车道的高速路",
+  "subject_action": "请求流从左向右穿过画面，在中间经过代码结构的疏导，分流为多个并行通道后加速通过",
+  "composition": "左右对照",
+  "base_style": "editorial technical illustration",
+  "selected_style": "高对比电影风",
+  "selected_style_prompt_descriptor": "high-contrast cinematic illustration, strong key light, deep shadows, wide-screen composition, dramatic but realistic color grading",
+  "selected_style_reason": "用户未指定风格，本篇从 40 项风格池随机选中；本文强调 before/after 代码修复带来的性能对比，高对比电影风的强明暗对照天然适合表达'困境→改善'的叙事张力",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["修复前 1200 RPS", "10 个陷阱", "修复后 4500 RPS"],
+  "color_palette": [
+    "深蓝灰（暗部/拥堵）",
+    "暖橙色（过渡/警告）",
+    "翡翠绿（亮部/畅通）",
+    "深黑色（阴影/对比）"
+  ],
+  "avoid": [
+    "漂浮芯片",
+    "无意义代码雨",
+    "霓虹高楼背景",
+    "通用机器人站姿",
+    "赛博朋克紫蓝光污染",
+    "巨量 HUD 浮层",
+    "假 dashboard",
+    "假终端",
+    "假架构标签"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证左右对照构图 + 三个信息块的叙事节奏和高对比电影风格是否成立",
+  "revision_targets": [
+    "信息块标签可读性和位置",
+    "左右明暗过渡是否自然",
+    "是否出现假 UI/假图表元素"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: 10 common async/await mistakes in ASP.NET Core and their real production impact. The reader should quickly feel the dramatic performance transformation from thread-pool starvation to optimized throughput.\n\nSummary angle: From thread-pool starvation at 1,200 RPS to 4,500 RPS and zero deadlocks — how a 2-week async audit delivered 3.75x throughput.\nNarrative flow: before-after. In a 2.35:1 frame, keep one dominant focal subject and 2-4 supporting narrative beats. Each beat must map to the article's information blocks rather than generic decoration.\nInformation blocks:\n- Problem: Left side, dark and congested, a blocked thread pool lane with queued requests, labeled '修复前 1200 RPS'\n- Mechanism: Center transition, code patterns transforming from sequential blocked lanes into parallel async pipelines, labeled '10 个陷阱'\n- Evidence: Right side, bright and flowing, clean parallel lanes with green throughput indicators, labeled '修复后 4500 RPS'\n\nMain metaphor: Traffic jam clearing — congested thread lanes on the left transforming into smooth parallel async pipelines on the right.\nSubject: A multi-lane data highway flowing from left (congested, blocked) to right (parallel, optimized), with the center showing the code-structure transformation.\nComposition/framing: Left-right contrast composition. Prefer horizontal storytelling that stays legible in a wide cover.\nStyle/medium: combine editorial technical illustration with the selected visual style descriptor: high-contrast cinematic illustration, strong key light, deep shadows, wide-screen composition, dramatic but realistic color grading. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: Dark blue-gray (congested side), warm orange (transition), emerald green (optimized side), deep black (contrast/shadows).\nVisible text policy: allow only 1-3 short Chinese labels or number chips by default, sourced from the information blocks. Each label <= 6 Chinese characters or one required product/model name. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: floating chips, meaningless code rain, neon skyscraper backgrounds, generic robot poses, cyberpunk purple-blue light pollution, massive HUD overlays, fake dashboards, fake terminals, fake architecture labels."
+}
