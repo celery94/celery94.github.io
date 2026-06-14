@@ -1,0 +1,54 @@
+{
+  "article_title": "用 .NET Aspire 构建 Dapr Workflow：持久化业务流程实战",
+  "cover_type": "architecture",
+  "core_theme": "Dapr Workflow + .NET Aspire 构建持久化、可恢复的业务流程编排",
+  "reader_takeaway": "学会用 Dapr Workflow 的持久化执行能力构建可靠业务流程，并通过 .NET Aspire 统一管理本地开发环境",
+  "summary_angle": "把"写工作流 → Aspire 编排运行 → 持久化执行不丢进度 → 可视化检查"做成一条清晰的流水线封面",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "step",
+      "source_anchor": "Workflow 继承 Workflow<TInput, TOutput>，用 CallActivityAsync 串联 activity",
+      "visual_idea": "一个代码/流程管道入口，C# 代码符号流向结构化路径",
+      "visible_label": "定义工作流",
+      "numeric_fact": "①"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "Aspire 编排 Dapr sidecar、Valkey state store 和 API 服务",
+      "visual_idea": "中间层模块化组件协同——sidecar、state store、API 三个模块并行/串联",
+      "visible_label": "Aspire 编排",
+      "numeric_fact": "②"
+    },
+    {
+      "role": "evidence",
+      "source_anchor": "Dapr 将每一步记录到 state store，崩溃后从断点回放",
+      "visual_idea": "一个带 checkpoint 标记的持久化时间线/进度条，箭头从断点继续",
+      "visible_label": "持久化执行",
+      "numeric_fact": "③"
+    },
+    {
+      "role": "step",
+      "source_anchor": "Diagrid Dev Dashboard 可视化检查 workflow 状态和执行历史",
+      "visual_idea": "一个观察窗口/放大镜查看执行历史面板",
+      "visible_label": "可视化检查",
+      "numeric_fact": "④"
+    }
+  ],
+  "main_metaphor": "一条模块化的自动化工厂流水线，Dapr 作为可靠的流程引擎，Aspire 作为统一的控制面板",
+  "primary_subject": "一条由代码入口 → 模块化组件 → 持久化进度条 → 监控面板组成的流水线系统",
+  "subject_action": "从左到右流动推进，每个阶段清晰分工、互相衔接",
+  "composition": "斜向推进",
+  "base_style": "isometric conceptual systems scene",
+  "selected_style": "游戏原画风",
+  "selected_style_prompt_descriptor": "game concept art illustration, clear hero object, readable environment storytelling, polished lighting, production-art detail",
+  "selected_style_reason": "用户未指定风格，874 mod 40 = 34，随机选中游戏原画风；模块化流水线的英雄物体和环境叙事与架构类文章契合",
+  "style_safety_note": "使用泛游戏概念画描述，不引用具体作品或设计师",
+  "allowed_visible_text": ["①", "②", "③", "④"],
+  "color_palette": ["深蓝灰", "橙铜色", "暖白", "暗金属灰"],
+  "avoid": ["漂浮芯片", "无意义代码雨", "霓虹高楼", "通用机器人", "赛博朋克紫蓝", "HUD 浮层", "假 dashboard", "假架构图节点名", "假终端输出"],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证4阶段流水线结构是否清晰可读，主焦点是否突出",
+  "revision_targets": ["如果流水线结构混乱先修构图", "如果①-④标签不清晰先修位置", "如果背景杂物过多先简化"],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: Dapr Workflow + .NET Aspire for durable business process orchestration. The reader should quickly feel this article teaches how to build durable workflows with Dapr and run everything with Aspire.\n\nSummary angle: A modular pipeline that transforms C# workflow code into durable, observable execution: write the workflow → Aspire orchestrates sidecar & state store → Dapr ensures crash-safe progress → dashboard visualizes results.\nNarrative flow: 3-beat process. In a 2.35:1 frame, keep one dominant focal subject and 2-4 supporting narrative beats. Each beat must map to the article's information blocks rather than generic decoration.\nInformation blocks:\n- step: workflow code flows into structured path, visible label '定义工作流' with marker ①\n- mechanism: three modular components (sidecar, state store, API) orchestrated in parallel, visible label 'Aspire 编排' with marker ②\n- evidence: a durable progress timeline with checkpoint markers, arrow resumes from breakpoint, visible label '持久化执行' with marker ③\n- step: an observation window/lens viewing execution history panel, visible label '可视化检查' with marker ④\n\nMain metaphor: A modular automated factory pipeline where Dapr is the reliable process engine and Aspire is the unified control panel.\nSubject: A pipeline system flowing from code entry through modular components, persistent progress bar, to monitoring panel, moving left to right with clear stage transitions.\nComposition/framing: diagonal forward progression. Prefer horizontal storytelling that stays legible in a wide cover.\nStyle/medium: combine isometric conceptual systems scene with the selected visual style descriptor: game concept art illustration, clear hero object, readable environment storytelling, polished lighting, production-art detail. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: deep blue-grey, copper-orange, warm white, dark metallic grey.\nVisible text policy: allow only 4 Chinese labels (①定义工作流 ②Aspire编排 ③持久化执行 ④可视化检查) sourced from information blocks. Each label <= 6 Chinese characters. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: floating chips, meaningless code rain, neon skyscrapers, generic robot poses, cyberpunk purple-blue, HUD overlays, fake dashboards, fake architecture diagram node names, fake terminal output.\nwide cover illustration, aspect ratio 2.35:1"
+}
