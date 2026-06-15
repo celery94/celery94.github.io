@@ -1,0 +1,71 @@
+{
+  "article_title": "C# 中介者模式最佳实践：代码组织与可维护性",
+  "cover_type": "tutorial",
+  "core_theme": "中介者模式的最佳实践：接口设计、域聚焦、拒绝上帝对象、强类型通知、错误处理、拆分策略和测试",
+  "reader_takeaway": "掌握让中介者模式在生产代码中持续可维护的 6 条核心实践，避开上帝中介者反模式",
+  "summary_angle": "一个管所有事的上帝中介者 → 拆成多个各自负责一个关注域的聚焦中介者，每个都通过接口隔离、强类型通知和独立测试能力保持可维护",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "单个 ApplicationMediator 同时处理订单、登录、邮件通知——上帝对象反模式",
+      "visual_idea": "一个臃肿的中心节点/核心，周围缠满了不同颜色、不同形状的连接线，混乱指向所有方向",
+      "visible_label": "上帝中介者",
+      "numeric_fact": ""
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "按域拆分为 OrderMediator、ChatRoomMediator，各自只管一个关注域",
+      "visual_idea": "中心节点分裂为两个各自独立的枢纽，各自只连接颜色和形状一致的协作者",
+      "visible_label": "订单 / 聊天",
+      "numeric_fact": "2"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "每个中介者通过接口隔离、强类型通知、可独立测试、错误隔离保持可维护",
+      "visual_idea": "两个中枢各自以清晰、有序的方式运转，四周有干净的分界线",
+      "visible_label": "可测试 / 可维护",
+      "numeric_fact": ""
+    }
+  ],
+  "main_metaphor": "交通枢纽分解：一个超载的中央调度站分裂为两个各自独立、信号清晰的专用调度台",
+  "primary_subject": "画面左侧一个臃肿的中心枢纽节点被多条混乱线条缠绕，画面右侧这个枢纽分裂为两个清晰独立、各自有序连接的小型枢纽",
+  "subject_action": "分离与重构——从混乱的一体式调度转变为各自清晰的专用协调中心",
+  "composition": "左右对照构图，左侧展示混乱的上帝中介者，右侧展示拆解后的两个聚焦中介者，中间有动态转换轨迹",
+  "base_style": "editorial technical illustration",
+  "selected_style": "厚涂插画风",
+  "selected_style_prompt_descriptor": "painterly digital illustration, rich brushwork, volumetric lighting, strong focal contrast, textured color masses",
+  "selected_style_reason": "用户未指定风格，本篇从 40 项风格池随机选中 Index 16；厚涂画的体积感和强焦点对比适合表达架构拆分时的质感对比",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": [
+    "上帝中介者",
+    "订单",
+    "聊天",
+    "可测试",
+    "可维护",
+    "2"
+  ],
+  "color_palette": [
+    "深蓝灰 #2C3E50",
+    "暖橙 #E67E22",
+    "柔和绿 #27AE60",
+    "米白 #F5F0E8"
+  ],
+  "avoid": [
+    "漂浮芯片",
+    "无意义代码雨",
+    "霓虹高楼",
+    "通用机器人",
+    "UI截图",
+    "假架构图",
+    "假dashboard",
+    "水印",
+    "英文长标签"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证左右对照构图能否清晰传达上帝中介者→聚焦中介者的拆分叙事，确认两个右侧枢纽独立可辨",
+  "revision_targets": [
+    "如果右侧两个枢纽看不清差异，增强颜色区分；如果连接线太多导致视觉混乱，减少线量并加粗关键路径"
+  ],
+  "final_prompt": ""
+}
