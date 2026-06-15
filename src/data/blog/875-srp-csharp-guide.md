@@ -1,7 +1,7 @@
 ---
 pubDatetime: 2026-06-15T07:29:14+08:00
 title: "C# 单一职责原则：一个类，一个变更理由"
-description: "单一职责原则（SRP）是 SOLID 的起点。本文从"Actor 视角"重新解读 SRP，结合反例拆解和重构代码演示，讲清楚为什么一个类只应该为一个角色而变，以及如何在 .NET 10 的日常开发中落地。"
+description: 单一职责原则（SRP）是 SOLID 的起点。本文从 Actor 视角重新解读 SRP，结合反例拆解和重构代码演示，讲清楚为什么一个类只应该为一个角色而变，以及如何在 .NET 10 的日常开发中落地。
 tags: ["C#", "SOLID", "SRP", ".NET"]
 slug: "srp-csharp-guide"
 ogImage: "../../assets/875/01-cover.png"
