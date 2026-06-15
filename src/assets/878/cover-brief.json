@@ -1,0 +1,61 @@
+{
+  "article_title": "Mediator 与 Observer 模式对比：C# 中如何选对对象通信方式",
+  "cover_type": "analysis",
+  "core_theme": "Mediator 集中协调 vs Observer 广播通知 —— 两种对象通信模式的本质区别与选择依据",
+  "reader_takeaway": "读完能判断在什么场景下该用集中协调（Mediator），什么场景下该用广播通知（Observer）",
+  "summary_angle": "两种模式的核心差异：一个主动路由、一个被动广播，匹配错误会让设计越来越别扭",
+  "narrative_flow": "conflict-to-resolution",
+  "information_blocks": [
+    {
+      "role": "contrast",
+      "source_anchor": "Mediator 模式章节：中心协调器管理参与者之间的通信，主动路由消息",
+      "visual_idea": "画面左侧，一个中心枢纽节点通过定向箭头连接多个参与者节点，代表集中协调",
+      "visible_label": "Mediator",
+      "numeric_fact": "①"
+    },
+    {
+      "role": "contrast",
+      "source_anchor": "Observer 模式章节：Subject 向所有订阅者广播通知，订阅者独立响应",
+      "visual_idea": "画面右侧，一个广播源向四周辐射信号波，多个接收端各自独立接收",
+      "visible_label": "Observer",
+      "numeric_fact": "②"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "总结章节：需要管理型通信选 Mediator，需要独立广播选 Observer",
+      "visual_idea": "画面中间偏下的分界/选择指示，连接左右两侧的对比",
+      "visible_label": "选对通信方式",
+      "numeric_fact": ""
+    }
+  ],
+  "main_metaphor": "交通管制员 vs 气象广播站 —— 一个做定向路由，一个做全方位广播",
+  "primary_subject": "一个中心控制枢纽（左侧）与一个广播信号塔（右侧）在宽阔画面中形成左右对照",
+  "subject_action": "左侧的枢纽通过明确方向箭头向各节点发送信号；右侧的广播塔向外扩散圆形信号波",
+  "composition": "左右对照，中间用一条微妙的光影分界线或决策标记分隔两种范式",
+  "base_style": "conceptual editorial illustration",
+  "selected_style": "高对比电影风",
+  "selected_style_prompt_descriptor": "high-contrast cinematic illustration, strong key light, deep shadows, wide-screen composition, dramatic but realistic color grading",
+  "selected_style_reason": "用户未指定风格，本篇从 40 项风格池随机选中；比较型文章适合用高对比和光影来强化两种范式的对立与选择",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["Mediator", "Observer", "选对通信方式"],
+  "color_palette": ["deep navy indigo", "warm amber gold", "silver white"],
+  "avoid": [
+    "fake UI",
+    "fake dashboard",
+    "fake terminal",
+    "code screenshots",
+    "generic robot",
+    "neon cityscape",
+    "cyberpunk purple-blue haze",
+    "floating chips",
+    "HUD overlays"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮验证左侧集中协调与右侧广播通知的对照构图是否成立，以及电影级光影是否强化了对比关系",
+  "revision_targets": [
+    "如果两侧视觉力度不均衡，调整光比和饱和度",
+    "如果广播侧信号波像 HUD 而不是概念图，收紧 style 描述",
+    "如果信息块标签太小或太密，缩小到 3 个标签并加大间距"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: Mediator centralized coordination vs Observer broadcast notification — two fundamentally different approaches to object communication in C#. The reader should quickly feel the sharp contrast between managed routing and passive broadcasting, and know when to pick each.\n\nSummary angle: One is active routing through a central hub, the other is passive broadcast to all listeners. Picking the wrong one makes your design fight against you.\nNarrative flow: conflict-to-resolution. In a 2.35:1 frame, keep one dominant focal subject and 2-4 supporting narrative beats. Each beat must map to the article's information blocks rather than generic decoration.\nInformation blocks:\n- contrast: Mediator central hub with directed arrows connecting participant nodes, representing active coordination and selective routing. Label: \"Mediator\", number: ①\n- contrast: Observer broadcast source radiating signal waves outward to independent receivers on the right side, representing one-to-many notification. Label: \"Observer\", number: ②\n- takeaway: a subtle dividing decision indicator between left and right sides, showing the choice between two paradigms. Label: \"选对通信方式\"\n\nMain metaphor: air traffic controller tower (left, directed routing) vs weather broadcast station (right, omnidirectional broadcast).\nSubject: a central control hub with directional signal paths on the left, contrasted with a broadcast tower radiating concentric waves on the right, connected by a cinematic middle ground.\nComposition/framing: left-right contrast with a subtle light-shadow dividing line in the center. Prefer horizontal storytelling that stays legible in a wide cover.\nStyle/medium: combine conceptual editorial illustration with the selected visual style descriptor: high-contrast cinematic illustration, strong key light, deep shadows, wide-screen composition, dramatic but realistic color grading. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: deep navy indigo on the left side transitioning to warm amber gold on the right side, with silver white accents and highlights.\nVisible text policy: allow only 1-3 short Chinese labels or number chips by default, and no more than 4 when strictly necessary, all sourced from the information blocks. Each label <= 6 Chinese characters or one required product/model name. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: fake UI, fake dashboard, fake terminal, code screenshots, generic robot, neon cityscape, cyberpunk purple-blue haze, floating chips, HUD overlays."
+}
