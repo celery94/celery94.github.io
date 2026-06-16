@@ -1,0 +1,72 @@
+{
+  "article_title": ".NET API 容量规划：从猜测走向可测量扩容",
+  "cover_type": "architecture",
+  "core_theme": "用 SLO、p95 延迟、k6 压测和背压机制，把 .NET API 的容量上限测出来并记录下来。",
+  "reader_takeaway": "读者能理解容量规划应关注哪些指标，并能用一个本地实验观察 API 何时退化。",
+  "summary_angle": "把发布会议里的模糊判断，变成带条件、带余量、可复测的容量数字。",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "原文 Why CPU and RAM Lie to You：CPU 和内存有余量时，连接池、线程池、锁、队列和 p95 延迟仍可能先出问题。",
+      "visual_idea": "请求压力从左侧涌入，CPU 指示保持平稳，但延迟和队列暗线开始发亮。",
+      "visible_label": "别只看CPU",
+      "numeric_fact": ""
+    },
+    {
+      "role": "step",
+      "source_anchor": "原文 The Baseline Loop 与 k6/connections.js：先定义 SLO，再跑 200 到 1000 VU 的基线压测，并检查 p95。",
+      "visual_idea": "中央阈值门旁有一条测量刻度，表现 p95 被持续观察。",
+      "visible_label": "测p95",
+      "numeric_fact": "p95"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文 Protecting the write path with backpressure：WriteGate 用 SemaphoreSlim 做有界并发，极端负载下返回 429。",
+      "visual_idea": "阈值门把过载请求导入侧边泄压通道，保住已接收请求。",
+      "visible_label": "429限流",
+      "numeric_fact": "429"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文 The Baseline Loop：达到 SLO 后，给预计峰值增加 30-50% 余量并发布容量数字。",
+      "visual_idea": "右侧出现稳定输出和安全缓冲区，表示可发布的容量边界。",
+      "visible_label": "留余量",
+      "numeric_fact": "30-50%"
+    }
+  ],
+  "main_metaphor": "一座可测量的压力闸门保护 API 引擎。",
+  "primary_subject": "中央 API 阈值门",
+  "subject_action": "接收请求流，测量延迟，并把超过边界的流量安全分流。",
+  "composition": "宽幅 2.35:1，中央单点聚焦，左进右出，周围放 3-4 个短标签信息块。",
+  "base_style": "isometric conceptual systems scene",
+  "selected_style": "暗黑哥特风",
+  "selected_style_prompt_descriptor": "dark gothic illustration, pointed arches, lace shadows, candlelit contrast, ornate black shapes, restrained horror mood",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；容量压力、阈值门和受控降级适合用克制的暗色张力表达。",
+  "style_safety_note": "该风格为泛类型描述，不涉及品牌、工作室或艺术家复刻。",
+  "allowed_visible_text": ["别只看CPU", "测p95", "429限流", "留余量"],
+  "color_palette": [
+    "charcoal black",
+    "muted steel gray",
+    "warm amber",
+    "restrained teal"
+  ],
+  "avoid": [
+    "generic robot",
+    "code rain",
+    "neon city",
+    "real product UI",
+    "fake terminal",
+    "long text",
+    "horror gore",
+    "excessive purple-blue glow"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证中央阈值门、请求压力、p95/429/余量三个叙事节点是否清楚。",
+  "revision_targets": [
+    "如果文字过多，删到 3 个短标签以内",
+    "如果像真实仪表盘，改成抽象压力门",
+    "如果画面过暗，提高琥珀和青绿色辅助光"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes a .NET API capacity planning article. Theme: measuring API capacity with SLOs, p95 latency, repeatable load tests, and planned backpressure. The reader should quickly feel that scaling decisions come from measured limits and predictable degradation.\n\nSummary angle: turn a vague release-room guess into a measured capacity number with guardrails.\nNarrative flow: 3-beat process. In a 2.35:1 frame, keep one dominant focal subject and 3 supporting narrative beats. Each beat must map to the article's information blocks rather than generic decoration.\nInformation blocks:\n- problem: CPU and RAM can look fine while p95 latency and queues fail; visible label: \"别只看CPU\"\n- step: define SLO and run baseline/spike tests with k6; visible label: \"测p95\"\n- mechanism: write path uses bounded concurrency/backpressure and can return 429 deliberately; visible label: \"429限流\"\n- takeaway: publish safe RPS with 30-50% headroom; visible label: \"留余量\"\n\nMain metaphor: a measured pressure gate protecting an API engine.\nSubject: a stylized central API gateway engine shaped like a measured threshold gate, absorbing incoming request streams and diverting overload safely.\nComposition/framing: wide 2.35:1, central gate as dominant focal subject, left-to-right request flow, three small source-grounded callout chips around it, clear negative space, readable at blog-card size.\nStyle/medium: combine isometric conceptual systems scene with the selected visual style descriptor: dark gothic illustration, pointed arches, lace shadows, candlelit contrast, ornate black shapes, restrained horror mood. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: charcoal black, muted steel gray, warm amber, restrained teal accents.\nVisible text policy: allow only 1-3 short Chinese labels or number chips by default, and no more than 4 when strictly necessary, all sourced from the information blocks. Each label <= 6 Chinese characters. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: generic robot, code rain, neon city, real product UI, fake terminal, long text, horror gore, excessive purple-blue glow."
+}
