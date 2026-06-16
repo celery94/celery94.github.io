@@ -1,0 +1,59 @@
+{
+  "article_title": "C# 依赖倒置原则：让业务代码依赖抽象",
+  "cover_type": "architecture",
+  "core_theme": "用 C# 和 .NET 依赖注入说明依赖倒置原则如何让业务逻辑远离具体基础设施实现",
+  "reader_takeaway": "读者能看懂 DIP、DI 容器和构造函数注入之间的关系，并知道如何用接口隔离业务逻辑和基础设施",
+  "summary_angle": "把直接依赖 SQL 实现改成依赖 IOrderRepository，让业务逻辑、实现和测试替身都围绕同一抽象协作",
+  "narrative_flow": "conflict-to-resolution",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "原文 The Classic dependency inversion principle c# Violation 中 OrderService 直接 new SqlOrderRepository 的例子",
+      "visual_idea": "左侧业务模块被粗硬连线绑到数据库盒子上",
+      "visible_label": "直接依赖",
+      "numeric_fact": ""
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文 Applying DIP: Introducing the Abstraction 中引入 IOrderRepository 的例子",
+      "visual_idea": "画面中心是一块稳定接口板，业务模块和实现模块都接入它",
+      "visible_label": "抽象契约",
+      "numeric_fact": ""
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文 Testing Benefits: DIP Enables True Unit Tests 中用 NSubstitute 替换仓储的测试例子",
+      "visual_idea": "右侧测试替身轻松插入同一接口，旁边有小型测试勾选符号",
+      "visible_label": "易测试",
+      "numeric_fact": ""
+    }
+  ],
+  "main_metaphor": "业务逻辑通过一块稳定接口板连接可替换的基础设施模块",
+  "primary_subject": "一块写着接口符号的中心连接板",
+  "subject_action": "中心连接板把业务模块、SQL 实现和测试替身分开连接",
+  "composition": "等距空间，左侧问题态到右侧解法态的宽幅对照",
+  "base_style": "isometric conceptual systems scene",
+  "selected_style": "欧漫清线风",
+  "selected_style_prompt_descriptor": "European clear-line comic style, precise outlines, flat readable colors, tidy environments, restrained humor and detail",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；清晰线条适合表达 DIP 的模块边界和连接关系",
+  "style_safety_note": "该风格是泛化漫画类型描述，不涉及特定品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["直接依赖", "抽象契约", "易测试"],
+  "color_palette": ["深青色", "暖黄色", "灰白色", "砖红色"],
+  "avoid": [
+    "真实代码编辑器截图",
+    "真实 dashboard",
+    "假终端输出",
+    "假图表坐标",
+    "无意义代码雨",
+    "通用机器人",
+    "霓虹紫蓝光污染"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证中心抽象、直接依赖问题和测试替身三个叙事节点是否清楚",
+  "revision_targets": [
+    "减少文字",
+    "强化中心接口板",
+    "避免生成真实 UI 或代码截图"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: C# dependency inversion principle and .NET dependency injection let business logic depend on abstractions instead of concrete infrastructure. The reader should quickly feel how an interface separates business logic, SQL implementation, and test doubles.\n\nSummary angle: Replace a direct OrderService to SqlOrderRepository dependency with an IOrderRepository contract, so business logic, concrete storage, and unit tests all connect through the same abstraction.\nNarrative flow: conflict-to-resolution. In a 2.35:1 frame, keep one dominant focal subject and 3 supporting narrative beats. Each beat must map to the article's information blocks rather than generic decoration.\nInformation blocks:\n- problem: OrderService directly creates SqlOrderRepository, visible label: 直接依赖\n- mechanism: IOrderRepository becomes the central contract, visible label: 抽象契约\n- takeaway: a test double can plug into the same contract, visible label: 易测试\n\nMain metaphor: a stable interface board separating business logic from swappable infrastructure modules.\nSubject: a central interface connector board, separating and connecting a business module, a SQL storage module, and a test double module.\nComposition/framing: isometric conceptual systems scene, left-to-right conflict-to-resolution comparison inside one wide frame. Prefer horizontal storytelling that stays legible in a wide cover.\nStyle/medium: combine isometric conceptual systems scene with the selected visual style descriptor: European clear-line comic style, precise outlines, flat readable colors, tidy environments, restrained humor and detail. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: deep teal, warm yellow, gray white, brick red.\nVisible text policy: allow only these 3 short Chinese labels: 直接依赖, 抽象契约, 易测试. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: real code editor screenshots, fake terminal output, fake dashboard, meaningless code rain, generic robot, neon purple-blue city background."
+}
