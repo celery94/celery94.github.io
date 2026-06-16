@@ -1,0 +1,67 @@
+{
+  "article_title": "C# 接口隔离原则：把胖接口拆成清晰角色",
+  "cover_type": "analysis",
+  "core_theme": "用接口隔离原则识别胖接口，并把它们拆成按角色表达能力的小接口。",
+  "reader_takeaway": "读者能判断什么时候该拆接口，怎样拆成角色接口，以及拆分后如何配合依赖注入和测试。",
+  "summary_angle": "把一个强迫所有实现者背负全部方法的胖接口，整理成按能力分工的角色接口。",
+  "narrative_flow": "before-after",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "原文 The Fat Interface Smell 和 Before: The Fat IWorker Interface：IWorker 同时包含 DoWork、ManageTeam、GenerateReport、SetSalary，Developer 被迫抛出 NotImplementedException。",
+      "visual_idea": "左侧是一卷臃肿契约，方法标签挤在一起。",
+      "visible_label": "胖接口",
+      "numeric_fact": ""
+    },
+    {
+      "role": "step",
+      "source_anchor": "原文 After: Split into Role Interfaces：拆成 IWorker、IManager、IReporter，每个接口代表一个能力。",
+      "visual_idea": "右侧三张清爽角色卡片，分别承载一个能力组。",
+      "visible_label": "角色接口",
+      "numeric_fact": "3"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文 ISP and Dependency Injection in .NET 10：WorkScheduler 只依赖 IWorker，HRService 只依赖 IManager，AnalyticsService 只依赖 IReporter。",
+      "visual_idea": "构造函数只连接到需要的角色卡片。",
+      "visible_label": "按需注入",
+      "numeric_fact": ""
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文 Practical Guidelines：当实现者或消费者需要不同方法子集时拆分；方法总是一起使用时保持统一。",
+      "visual_idea": "右下角用轻量标记表示减少多余负担。",
+      "visible_label": "少负担",
+      "numeric_fact": ""
+    }
+  ],
+  "main_metaphor": "整理一张堆满方法的桌面，把大契约切成角色卡片。",
+  "primary_subject": "一个 oversized interface document 被整理成三张角色卡片",
+  "subject_action": "从左侧臃肿契约中分离出清晰的角色接口。",
+  "composition": "宽幅 2.35:1，左侧 before 胖接口，右侧 after 角色卡片，中央整理动作作为主焦点。",
+  "base_style": "conceptual editorial illustration",
+  "selected_style": "治愈日常风",
+  "selected_style_prompt_descriptor": "cozy slice-of-life illustration, warm natural light, soft domestic details, calm pacing, gentle hand-drawn texture",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；接口拆分主题适合用整理桌面和清爽卡片表达。",
+  "style_safety_note": "该风格为泛类型描述，不涉及品牌、工作室或艺术家复刻。",
+  "allowed_visible_text": ["胖接口", "角色接口", "按需注入", "少负担"],
+  "color_palette": ["warm ivory", "muted teal", "soft charcoal", "honey amber"],
+  "avoid": [
+    "generic robot",
+    "code rain",
+    "real IDE screenshot",
+    "fake terminal",
+    "long code text",
+    "brand logos",
+    "over-dense sticky notes",
+    "one-note beige palette"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证胖接口到角色接口的 before-after 关系、按需注入节点和少负担结论是否可读。",
+  "revision_targets": [
+    "如果像真实 IDE，改成抽象契约卡片",
+    "如果文字过多，保留 3-4 个短标签",
+    "如果画面太单调，增加 muted teal 和 honey amber 的功能色"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cover infographic illustration that summarizes a C# Interface Segregation Principle article. Theme: replacing one fat interface with small focused role interfaces that make implementations, DI constructors, and tests cleaner. The reader should quickly understand that clients should depend only on the methods they actually use.\n\nSummary angle: a messy oversized contract is sorted into focused role cards, removing fake implementations and leaner dependencies.\nNarrative flow: before-after. In a 2.35:1 frame, keep one dominant focal subject and 3 supporting narrative beats. Each beat must map to the article's information blocks rather than generic decoration.\nInformation blocks:\n- problem: a fat IWorker interface forces Developer to carry ManageTeam, GenerateReport, SetSalary and throw NotImplementedException; visible label: \"胖接口\"\n- step: split into IWorker, IManager, IReporter role interfaces; visible label: \"角色接口\"\n- mechanism: dependency injection consumers request only IWorker, IManager, or IReporter; visible label: \"按需注入\"\n- takeaway: split only when consumers or implementors need different subsets; visible label: \"少负担\"\n\nMain metaphor: a calm desk where an overloaded contract scroll is cut into neat role cards.\nSubject: one oversized interface document being gently separated into three clean role cards, with a simple C# symbol as context.\nComposition/framing: wide 2.35:1, left side cluttered oversized interface document, right side three tidy role cards, central hand/tool sorting the contract, clear before-after reading path, soft negative space, readable at blog-card size.\nStyle/medium: combine conceptual editorial illustration with the selected visual style descriptor: cozy slice-of-life illustration, warm natural light, soft domestic details, calm pacing, gentle hand-drawn texture. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: warm ivory, muted teal, soft charcoal, honey amber.\nVisible text policy: allow only 1-3 short Chinese labels or number chips by default, and no more than 4 when strictly necessary, all sourced from the information blocks. Each label <= 6 Chinese characters. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: generic robot, code rain, real IDE screenshot, fake terminal, long code text, brand logos, over-dense sticky notes, one-note beige palette."
+}
