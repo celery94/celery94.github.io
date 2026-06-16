@@ -1,0 +1,67 @@
+{
+  "article_title": "C# 备忘录模式实战：一步步实现撤销与重做",
+  "cover_type": "tutorial",
+  "core_theme": "用 C# 逐步实现 Memento Pattern：定义快照接口、让 Originator 保存私有状态、用双栈实现撤销和重做，并用测试验证行为。",
+  "reader_takeaway": "读者能照着实现一个保留封装性的撤销/重做小组件。",
+  "summary_angle": "把编辑器状态切成受保护的快照帧，再通过双栈完成撤销和重做。",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "step",
+      "source_anchor": "原文 Step 1：IMemento 只暴露 Description 和 CreatedAt，不暴露实际状态。",
+      "visual_idea": "第一个分镜里有一个窄接口卡片，只显示少量元数据。",
+      "visible_label": "接口",
+      "numeric_fact": "1"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文 Step 2：TextEditor 使用 private nested class EditorMemento 保存 Content 和 CursorPosition。",
+      "visual_idea": "中央编辑器把当前内容封装成一格胶片快照。",
+      "visible_label": "快照",
+      "numeric_fact": "2"
+    },
+    {
+      "role": "step",
+      "source_anchor": "原文 Step 5：Undo 和 Redo 使用两个 Stack<IMemento>，新操作会清空 redo 栈。",
+      "visual_idea": "两条方向相反的轨道表示 undo 栈与 redo 栈。",
+      "visible_label": "双栈",
+      "numeric_fact": "3"
+    },
+    {
+      "role": "evidence",
+      "source_anchor": "原文 Step 6：用 xUnit 通过公开状态验证撤销、重做、空栈和新操作清空 redo。",
+      "visual_idea": "收尾分镜用勾选标记表现测试通过。",
+      "visible_label": "测试",
+      "numeric_fact": "4"
+    }
+  ],
+  "main_metaphor": "电影剪辑台上的状态胶片帧。",
+  "primary_subject": "C# 文本编辑器面板",
+  "subject_action": "把文本状态保存为快照，并沿双栈轨道撤销和重做。",
+  "composition": "宽幅 2.35:1，横向三段分镜，中央编辑器为主焦点，清晰分隔面板。",
+  "base_style": "editorial technical illustration",
+  "selected_style": "动态分镜电影风",
+  "selected_style_prompt_descriptor": "dynamic cinematic storyboard style, sequential panels, camera-motion feeling, strong cuts, clear narrative beats",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；教程步骤天然适合用横向分镜表达状态流转。",
+  "style_safety_note": "该风格为泛类型描述，不涉及品牌、工作室或艺术家复刻。",
+  "allowed_visible_text": ["接口", "快照", "双栈", "测试"],
+  "color_palette": ["ink black", "paper white", "muted cobalt", "warm amber"],
+  "avoid": [
+    "generic robot",
+    "code rain",
+    "real IDE screenshot",
+    "fake terminal",
+    "long code text",
+    "brand logos",
+    "over-dense panels",
+    "tiny unreadable labels"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证分镜结构、快照胶片隐喻、双栈轨道和测试节点是否清楚。",
+  "revision_targets": [
+    "如果像真实 IDE，改成抽象编辑器面板",
+    "如果文字过多，保留 3-4 个短标签",
+    "如果双栈关系不清楚，强化两条方向轨道"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes a C# Memento Pattern step-by-step implementation guide. Theme: capturing object state snapshots, restoring previous state, and building undo/redo safely without exposing internals. The reader should quickly feel a practical progression from state snapshot to reliable undo/redo.\n\nSummary angle: a text editor state is captured into sealed snapshots, then restored through undo and redo stacks while encapsulation stays protected.\nNarrative flow: 3-beat process. In a 2.35:1 frame, keep one dominant focal subject and 3 supporting narrative beats. Each beat must map to the article's information blocks rather than generic decoration.\nInformation blocks:\n- step: define IMemento as a narrow snapshot contract with metadata only; visible label: \"接口\"\n- mechanism: originator saves private nested memento and restores from it; visible label: \"快照\"\n- step: undo and redo use two stacks, clearing redo after new edits; visible label: \"双栈\"\n- evidence: xUnit tests verify public behavior after restore; visible label: \"测试\"\n\nMain metaphor: a film editing table where each frame is a protected state snapshot.\nSubject: a stylized C# text editor panel as the main object, surrounded by snapshot film frames and two directional stack rails for undo and redo.\nComposition/framing: wide 2.35:1, dynamic cinematic storyboard style, central text editor as dominant focal subject, left-to-right progression across 3 panels, clear panel gutters, small Chinese labels only, readable at blog-card size.\nStyle/medium: combine editorial technical illustration with the selected visual style descriptor: dynamic cinematic storyboard style, sequential panels, camera-motion feeling, strong cuts, clear narrative beats. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: ink black, paper white, muted cobalt, warm amber accent.\nVisible text policy: allow only 1-3 short Chinese labels or number chips by default, and no more than 4 when strictly necessary, all sourced from the information blocks. Each label <= 6 Chinese characters. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: generic robot, code rain, real IDE screenshot, fake terminal, long code text, brand logos, over-dense panels, tiny unreadable labels."
+}
