@@ -1,0 +1,59 @@
+{
+  "article_title": "中介者模式 C# 实战：用 Mediator 构建松耦合的智能家居设备协调系统",
+  "cover_type": "tutorial",
+  "core_theme": "通过中央 Mediator 协调器解耦智能家居设备通信，将 N×N 直接依赖变为 N-to-1 协调",
+  "reader_takeaway": "学会用 Mediator 模式替代设备间直接引用，实现松耦合、可测试、可扩展的协调架构",
+  "summary_angle": "一张视觉化摘要展示从\"4个设备互相耦合形成 N×N 依赖网\"到\"通过一个 Mediator 广播通信\"的架构转变",
+  "narrative_flow": "conflict-to-resolution",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "原文开头 SecuritySystem 构造函数持有 LightController、Thermostat、MusicPlayer 三个直接引用，Arm() 方法直接调用各设备",
+      "visual_idea": "左侧混乱的蜘蛛网——四个设备节点直接连线交织",
+      "visible_label": "N×N 耦合",
+      "numeric_fact": "4→12"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "HomeAutomationMediator.Notify() 广播通知到除发送者外的所有注册设备",
+      "visual_idea": "中央一个协调器中转节点，四条放射状干净的通道连接到各设备",
+      "visible_label": "广播路由",
+      "numeric_fact": "N→1"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "SmartLock 作为新增设备，只需注册一行代码，不改任何现有代码",
+      "visual_idea": "一个发光的新设备模块顺畅接入协调中控，无需改动周围设备",
+      "visible_label": "零改动扩展",
+      "numeric_fact": "+1"
+    }
+  ],
+  "main_metaphor": "智能家居中控面板做协调中心——一个中枢节点与四周设备模块通过干净的通道连接，取代混乱的网状连线",
+  "primary_subject": "一个抽象化的智能家居中枢协调器（圆形/八边形中控节点），四周均匀分布四个设备模块（灯光、温控、安防、音乐图标化表示）",
+  "subject_action": "中枢接收一个设备节点的信号脉冲，向其他三个设备广播信号波纹，画面左侧到右侧呈现从混乱网状耦合到清晰星形路由的转变",
+  "composition": "左右对照——左侧混乱网状连线，右侧居中主节点加放射状清洁连接",
+  "base_style": "editorial technical illustration",
+  "selected_style": "低饱和文艺风",
+  "selected_style_prompt_descriptor": "low-saturation arthouse illustration, quiet composition, subtle grain, muted colors, reflective emotional tone",
+  "selected_style_reason": "用户未指定风格，从 40 项风格池随机选中（第 24 项）；低饱和文艺风的克制调性适合架构类技术教程，避免过度科技感的空洞氛围图",
+  "style_safety_note": "清单风格为泛风格描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["N×N 耦合", "广播路由", "零改动扩展"],
+  "color_palette": ["深墨蓝", "暖灰白", "低饱和琥珀黄", "哑光砖红"],
+  "avoid": [
+    "霓虹高楼背景",
+    "HUD浮层",
+    "漂浮芯片",
+    "赛博朋克紫蓝光",
+    "通用机器人站姿",
+    "假图表坐标轴",
+    "代码雨"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证 conflict-to-resolution 的左右对照构图是否成立、四个设备节点能否辨认、三种信息块标签位置是否合理",
+  "revision_targets": [
+    "左侧网状连线可能过于杂乱需简化",
+    "设备节点图标化程度",
+    "信息块标签和数字的小字可读性"
+  ],
+  "final_prompt": "Use case: infographic-story. Asset type: wide cover infographic illustration for a Chinese tech blog, aspect ratio 2.35:1. A wide cinematic infographic-story cover showing the architectural shift from NxN direct device coupling to N-to-1 Mediator routing in a smart home system. Left-to-right contrast transition. Theme: Mediator design pattern decoupling smart home device coordination. Summary: Four smart home devices transform from tangled spider-web coupling into clean centralized Mediator hub routing. Narrative: conflict-to-resolution. One dominant focal subject (central Mediator hub) and 3 supporting narrative beats. Block 1 (problem, left): Four device nodes (light bulb, thermostat dial, shield, music note icons) tangled in messy direct interconnecting lines. Label NxN-coupling. Number 4-to-12. Block 2 (mechanism, center-right): A single circular central Mediator hub with clean radial channels connecting to four device nodes, signal pulse rings emanating from hub. Label broadcast-routing. Number N-to-1. Block 3 (takeaway, far right): A new glowing device node smoothly joining the hub ring without disturbing existing connections. Label zero-change-extension. Number +1. Main metaphor: Smart home central control panel coordinator hub. Subject: An abstracted circular central coordinator hub surrounded by four simplified device icons, broadcasting clean signal connections. Composition: Left-to-right horizontal contrast - tangled mesh on left, clean radial hub center-right, new device joining right. Style: combine editorial technical illustration with low-saturation arthouse illustration, quiet composition, subtle grain, muted colors, reflective emotional tone. Stylized polished editorial. Do not imitate any brand studio or living artist. Color palette: deep ink blue, warm gray-white, low-saturation amber yellow, matte brick red. Visible text: only 3 short Chinese labels with small numeric callouts. No poster title no long sentences no English slogans. No watermark no screenshots no dashboards no fake diagrams no fake charts no fake terminal no fabricated metrics. Avoid neon city skylines HUD overlays floating chips cyberpunk glow generic robots code rain."
+}
