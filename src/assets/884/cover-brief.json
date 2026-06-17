@@ -1,0 +1,60 @@
+{
+  "article_title": "SOLID 违规识别与修复：C# 代码审查的五类典型问题",
+  "cover_type": "analysis",
+  "core_theme": "五种 SOLID 原则违规在 C# 生产代码中的识别信号与修复方案，附代码审查清单",
+  "reader_takeaway": "学会在 PR 阶段识别 SRP/OCP/LSP/ISP/DIP 的典型违规模式，知道如何修复，防止代码腐化积累",
+  "summary_angle": "一张视觉摘要展示五种 SOLID 违规从混沌纠缠到清晰分离的审查诊断全景——识别信号 → 修复方向",
+  "narrative_flow": "layered reveal",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "原文 SRP 违规：OrderProcessor 混合验证、持久化、邮件、日志、业务规则五类职责",
+      "visual_idea": "一个膨胀的、内部混乱交织的多层方块（上帝类），五条不同颜色的职责线乱缠",
+      "visible_label": "上帝类",
+      "numeric_fact": "5→1"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文五条原则各自修复：提取接口/多态/行为契约拆分/接口隔离/依赖注入",
+      "visual_idea": "五个清晰的方形模块从上到下排列，每个标注一个原则缩写（SRP/OCP/LSP/ISP/DIP），通过干净通道连接到一个审阅放大镜",
+      "visible_label": "审查诊断",
+      "numeric_fact": "5"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文代码审查清单：五组诊断问题帮助在 PR 阶段识别违规信号",
+      "visual_idea": "一个清单/检查板形状，上面勾选标记，与五个原则模块对应",
+      "visible_label": "审核清单",
+      "numeric_fact": "✓"
+    }
+  ],
+  "main_metaphor": "代码审查放大镜透过混乱的上帝类表面，看到五个干净的 SOLID 模块结构——从混乱到秩序的诊断过程",
+  "primary_subject": "一个巨大的放大镜/审查透镜，中心聚焦于一个膨胀混乱的类（上帝类），四周环绕五个清晰的结构化模块",
+  "subject_action": "放大镜正在透视——左侧混乱的代码团块透过镜片转变为右侧五个分离良好的 SOLID 模块",
+  "composition": "单点聚焦——中央放大镜做主焦点，五个 SOLID 模块在透镜周边或下方呈扇形或竖向排列，形成从混乱到清晰的诊断叙事",
+  "base_style": "conceptual editorial illustration",
+  "selected_style": "青年写实风",
+  "selected_style_prompt_descriptor": "mature realistic comic illustration, grounded anatomy, restrained expressions, cinematic everyday lighting, detailed but readable scenes",
+  "selected_style_reason": "用户未指定风格，从 40 项风格池随机选中（第 3 项）；青年写实风的扎实、克制、电影感日常光线适合代码审查诊断类技术文章，避免浮夸科技感",
+  "style_safety_note": "清单风格为泛风格描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["上帝类", "审查诊断", "审核清单"],
+  "color_palette": ["深石板灰", "暖琥珀黄", "哑光砖红", "墨蓝"],
+  "avoid": [
+    "霓虹高楼",
+    "HUD浮层",
+    "漂浮芯片",
+    "赛博朋克光污染",
+    "通用机器人",
+    "假图表/仪表盘",
+    "代码雨",
+    "假终端"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证中央放大镜做审查诊断主体是否成立、五原则模块是否清晰可辨、三个信息标签位置是否合理",
+  "revision_targets": [
+    "中央透镜的透视表达可能不清晰",
+    "五个模块可能过于密集",
+    "信息标签可读性"
+  ],
+  "final_prompt": "Use case: infographic-story. Asset type: wide cover infographic illustration for a Chinese tech blog, aspect ratio 2.35:1. A wide cinematic infographic-story cover about recognizing and fixing SOLID principle violations in Csharp code review. Theme: Five SOLID principle violations diagnosed through a code review lens. Summary: A diagnostic magnifying glass reveals five SOLID violations and their fixes. Block 1 (problem): A bloated tangled God Class with five colored responsibility threads - chaotic internal mess. Block 2 (mechanism): Five clean modular blocks SRP OCP LSP ISP DIP around lens perimeter. Block 3 (takeaway): A checklist board with check marks. Main metaphor: code review magnifying lens penetrating a chaotic god class. Subject: large circular magnifying glass at center. Style: conceptual editorial illustration combined with mature realistic comic illustration. Color: deep slate gray, warm amber yellow, matte brick red, ink blue."
+}
