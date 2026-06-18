@@ -1,0 +1,61 @@
+{
+  "article_title": "ASP.NET Core 角色授权实战：JWT + Minimal API + .NET 10",
+  "cover_type": "tutorial",
+  "core_theme": "从零实现 ASP.NET Core .NET 10 角色授权：JWT 写入角色、RequireRole 保护端点、OR/AND 语义与排错",
+  "reader_takeaway": "掌握角色授权的完整流程和常见陷阱，能照着步骤在自己的 .NET 10 项目里跑通",
+  "summary_angle": "三步完成角色授权（写入 JWT → 配置 RoleClaimType → RequireRole 保护端点），附带 OR/AND 语义和排错清单",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "step",
+      "source_anchor": "TokenService writes one 'role' claim per role into JWT; RoleClaimType = 'role' in Program.cs aligns token writing with reading",
+      "visual_idea": "一个 JWT token 图标内有 Admin/Manager/User 三个角色标签从 Identity 数据库流入",
+      "visible_label": "角色写入JWT",
+      "numeric_fact": "1"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "RequireRole('Admin','Manager') = OR; chained RequireRole = AND. Named policies for reuse via AddAuthorizationBuilder()",
+      "visual_idea": "一个分岔门禁结构，OR 路径（单门）vs AND 路径（双门串联），标注命名 Policy",
+      "visible_label": "OR/AND策略",
+      "numeric_fact": "2"
+    },
+    {
+      "role": "evidence",
+      "source_anchor": "MapInboundClaims=false + RoleClaimType='role' fixes the claim-mapping trap; debug endpoint reveals renamed claims",
+      "visual_idea": "一个放大镜对准 claim 映射表，显示 role → 长 URI 的错误转换被红线划掉",
+      "visible_label": "排错清单",
+      "numeric_fact": "3"
+    }
+  ],
+  "main_metaphor": "三道关卡的安全检查流程：角色随 token 通过门禁系统，第一道写入身份凭据，第二道验证访问策略，第三道排查拦截故障",
+  "primary_subject": "一个代表 API 端点的门禁结构，带有 JWT token 和角色标签，三道检查关卡依次排列",
+  "subject_action": "携带角色标签的 token 依次通过三道关卡，每一道验证一种授权条件",
+  "composition": "单点聚焦或轻微斜向推进，令牌从左到右穿过三道门禁",
+  "base_style": "editorial technical illustration",
+  "selected_style": "低饱和文艺风",
+  "selected_style_prompt_descriptor": "low-saturation arthouse illustration, quiet composition, subtle grain, muted colors, reflective emotional tone",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中（序号34）；教程主题搭配低饱和文艺风可以营造冷静、可信任的学习氛围，与代码教程的精确感互补",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["角色写入JWT", "OR/AND策略", "排错清单"],
+  "color_palette": ["灰蓝", "暗绿", "浅灰", "暖米白"],
+  "avoid": [
+    "漂浮芯片",
+    "无意义代码雨",
+    "霓虹高楼背景",
+    "通用机器人站姿",
+    "赛博朋克紫蓝光污染",
+    "巨量 HUD 浮层",
+    "假 dashboard",
+    "假终端输出",
+    "假架构标签"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证三道关卡门禁 + 低饱和文艺风在教程主题下的可读性：JWT 角色标签是否清晰、OR/AND 分岔是否可辨、排错示意是否明确",
+  "revision_targets": [
+    "如果低饱和风格让技术元素不够突出，增加一点色彩对比",
+    "如果门禁结构过于抽象，增加具象的锁/key 图形",
+    "如果信息块标签与背景融合，调整对比度"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: ASP.NET Core role-based authorization tutorial — write roles into JWT, protect Minimal API endpoints with RequireRole, understand OR/AND semantics, and fix the claim-mapping trap. The reader should feel that role-based authorization in .NET 10 is a straightforward, learnable three-step process.\n\nSummary angle: Three-step authorization flow — write roles into JWT claim, configure RoleClaimType alignment, protect endpoints with RequireRole — accompanied by OR/AND strategy awareness and a troubleshooting checklist.\nNarrative flow: 3-beat process. In a 2.35:1 frame, keep one dominant focal subject and 2-4 supporting narrative beats. Each beat must map to the article's information blocks rather than generic decoration.\nInformation blocks:\n- Step: TokenService writes one 'role' claim per role into JWT; RoleClaimType='role' aligns writing with reading. Visual: a JWT token icon with Admin/Manager/User role labels flowing in from Identity store, labeled '角色写入JWT'.\n- Mechanism: RequireRole('Admin','Manager') = OR; chained RequireRole = AND. Named policies for reuse. Visual: a branching gate structure showing OR (single gate) vs AND (two serial gates), labeled 'OR/AND策略'.\n- Evidence: MapInboundClaims=false + RoleClaimType='role' fixes the claim-mapping trap. Visual: a magnifying glass over a claim mapping table showing role to long URI error crossed out, labeled '排错清单'.\n\nMain metaphor: A three-stage security checkpoint system — a token carrying roles passes through three gates, each validating one authorization condition.\nSubject: A gated API endpoint structure with JWT token and role labels, three checkpoints arranged sequentially.\nSubject action: A token with role labels passes through three checkpoints, each validating a different authorization condition.\nComposition/framing: Single focus with slight diagonal progression, token moving left to right through three gates. Prefer horizontal storytelling that stays legible in a wide cover.\nStyle/medium: combine editorial technical illustration with the selected visual style descriptor: low-saturation arthouse illustration, quiet composition, subtle grain, muted colors, reflective emotional tone. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: muted blue-gray, subdued green, light gray, warm off-white.\nVisible text policy: allow only 1-3 short Chinese labels or number chips by default, and no more than 4 when strictly necessary, all sourced from the information blocks. Each label <= 6 Chinese characters or one required product/model name. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: floating chips, meaningless code rain, neon city backgrounds, generic robot poses, cyberpunk purple-blue light pollution, massive HUD overlays, fake dashboards, fake terminal output, fake architecture labels."
+}
