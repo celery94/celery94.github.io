@@ -1,0 +1,47 @@
+{
+  "article_title": "GitHub Copilot Token 效率优化：缓存、工具搜索与传输层改进",
+  "cover_type": "architecture",
+  "core_theme": "VS Code 团队如何通过缓存策略、工具搜索和 WebSocket 三层优化降低 GitHub Copilot agent 的 token 消耗",
+  "reader_takeaway": "理解 LLM API 调用的工程化降本策略：缓存保留时间、按需工具加载、持久连接",
+  "summary_angle": "三重优化路径（延长缓存→按需加载工具→切换 WebSocket）形成叠加效应，每层都在不牺牲成功率的前提下削减 token 成本",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "mechanism",
+      "source_anchor": "Extended prompt caching: 24h retention produced up to +919% cache hit rate at 40-60 min gaps",
+      "visual_idea": "一个时钟/沙漏符号内有持续发光的缓存晶体，标注 24h 保留",
+      "visible_label": "24h缓存保留",
+      "numeric_fact": "+919%"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "Tool search deferred tool definitions, reducing per-user session tokens by ~18%",
+      "visual_idea": "一个筛选/漏斗状结构中，大量工具卡片在外部等待，只有少数被选中进入上下文流",
+      "visible_label": "按需工具搜索",
+      "numeric_fact": "-18%"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "WebSocket persistent connections reduced TTFT by ~19% and TTC by ~13%",
+      "visual_idea": "一条持续发光的连接线替代多次断开的 HTTP 请求箭头",
+      "visible_label": "WebSocket传输",
+      "numeric_fact": "-19%"
+    }
+  ],
+  "main_metaphor": "三重过滤管道系统：一个中央 agent harness 核心被三条优化支路环绕，每条支路代表一种降本策略，token 流经过过滤器后变得更精简",
+  "primary_subject": "一个结构化的 agent harness 核心模块，带有三条优化支路",
+  "subject_action": "agent harness 正在处理 token 流，三条支路分别执行缓存保留、按需筛选工具定义、建立持续连接",
+  "composition": "等距空间或层级式关系，中央主体 + 三条支路以环绕方式展开",
+  "base_style": "isometric conceptual systems scene",
+  "selected_style": "日漫少女风",
+  "selected_style_prompt_descriptor": "soft shojo-inspired manga look, elegant linework, expressive faces, gentle decorative details, luminous pastel accents",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中（序号2）；系统架构主题可以用少女漫的优雅线条和装饰细节来表达结构化流程，形成理性与柔和的对照",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["24h缓存保留", "按需工具搜索", "WebSocket传输"],
+  "color_palette": ["柔粉", "淡紫", "浅蓝绿", "暖金"],
+  "avoid": ["漂浮芯片", "无意义代码雨", "霓虹高楼背景", "通用机器人站姿", "赛博朋克紫蓝光污染", "巨量 HUD 浮层", "假 dashboard", "假终端输出", "假架构标签"],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证三重过滤管道 + 日漫少女风在架构主题下的可行性：主体是否清晰、三条支路是否可辨、信息块是否可读",
+  "revision_targets": ["如果整体构图偏离等距布局，收紧构图方向", "如果少女漫风格掩盖了技术主题，增加结构化元素", "如果信息块标签不可读，调整字号和位置"],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: How VS Code optimizes GitHub Copilot's agentic harness for token efficiency through three strategies: caching, tool search, and WebSocket transport. The reader should quickly feel that token cost can be systematically reduced through engineering optimizations.\n\nSummary angle: Three optimization paths (extend cache retention → load tools on-demand → switch to WebSocket) compound to cut token costs without sacrificing task success.\nNarrative flow: 3-beat process. In a 2.35:1 frame, keep one dominant focal subject and 2-4 supporting narrative beats. Each beat must map to the article's information blocks rather than generic decoration.\nInformation blocks:\n- Mechanism: 24h cache retention boosted hit rate up to +919% at 40-60min idle gaps. Visual: a clock/sandglass with a glowing cache crystal inside, labeled \"24h缓存保留\".\n- Mechanism: Tool search deferred definitions, cutting per-user session tokens by ~18%. Visual: a filter/funnel structure with many tool cards waiting outside, only a few selected into context flow, labeled \"按需工具搜索\".\n- Mechanism: WebSocket persistent connections reduced TTFT by ~19% and TTC by ~13%. Visual: a continuous glowing connection line replacing multiple broken HTTP request arrows, labeled \"WebSocket传输\".\n\nMain metaphor: A three-stage filtration pipeline system — a central agent harness core surrounded by three optimization branches, each representing one cost-reduction strategy. Token streams become leaner after passing through each filter.\nSubject: A structured agent harness core module with three optimization branches, processing token streams through cache retention, on-demand tool filtering, and persistent connections.\nComposition/framing: Isometric or layered relational layout, central subject with three branches radiating outward. Prefer horizontal storytelling that stays legible in a wide cover.\nStyle/medium: combine isometric conceptual systems scene with the selected visual style descriptor: soft shojo-inspired manga look, elegant linework, expressive faces, gentle decorative details, luminous pastel accents. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: soft pink, light purple, pale blue-green, warm gold.\nVisible text policy: allow only 1-3 short Chinese labels or number chips by default, and no more than 4 when strictly necessary, all sourced from the information blocks. Each label <= 6 Chinese characters or one required product/model name. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: floating chips, meaningless code rain, neon city backgrounds, generic robot poses, cyberpunk purple-blue light pollution, massive HUD overlays, fake dashboards, fake terminal output, fake architecture labels."
+}
