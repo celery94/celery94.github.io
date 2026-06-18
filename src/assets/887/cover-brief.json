@@ -1,0 +1,47 @@
+{
+  "article_title": "C# Memento 模式：什么时候该用、什么时候不该用",
+  "cover_type": "tutorial",
+  "core_theme": "Memento 模式的决策指南：通过结构化信号识别、场景匹配和重构实例，判断什么时候该用状态快照",
+  "reader_takeaway": "掌握一套判断框架，能在自己的 C# 项目里准确判断该不该引入 Memento 模式",
+  "summary_angle": "三问决策法：需要回滚吗→状态复杂吗→封装重要吗，附带适合/过度设计/误用的对照清单",
+  "narrative_flow": "conflict-to-resolution",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "Manual undo tracking with one backup field per property, no history stack, fragile scaling. Signs: undo/rollback, complex multi-field state, transaction safety.",
+      "visual_idea": "一个散落着独立备份字段的混乱对象，箭头指向不一致的状态，标注混乱",
+      "visible_label": "散落的状态追踪",
+      "numeric_fact": null
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "Originator.Save() returns opaque IMemento; Caretaker stores on stack; Originator.Restore() reads only its own nested class. Private nested ConfigMemento class.",
+      "visual_idea": "一个整洁的三方结构：发起者创建快照→保管者存栈→发起者恢复，快照是不透明盒子",
+      "visible_label": "Save/Restore闭环",
+      "numeric_fact": null
+    },
+    {
+      "role": "contrast",
+      "source_anchor": "Comparison table: Memento vs Command vs Serialization vs Event Sourcing. Which fits complex multi-field rollback.",
+      "visual_idea": "一个分岔路口，四条路分别标注 Memento / Command / 序列化 / Event Sourcing，Memento 路径亮着",
+      "visible_label": "四条路径选一条",
+      "numeric_fact": null
+    }
+  ],
+  "main_metaphor": "一条从混乱到有序的路径：左侧是散落的手动备份字段（问题），中间是 Save/Restore 闭环（方案），右侧是四条可选路径的分岔路口（决策）",
+  "primary_subject": "一个结构化的 Save→Stack→Restore 循环流程，左右分别连接问题场景和决策分岔",
+  "subject_action": "数据流从混乱的手动追踪经过 Save/Restore 闭环，最终导向四条路径的决策路口",
+  "composition": "左右对照或斜向推进，从混乱到有序的横向叙事",
+  "base_style": "editorial technical illustration",
+  "selected_style": "儿童童话风",
+  "selected_style_prompt_descriptor": "children's fairy-tale illustration, simple magical forms, friendly proportions, bright storybook palette, safe wonder",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中（序号39）；决策指南主题用童话风的简洁魔幻形式来表现'从混乱到有序'的叙事弧线，让技术内容更亲切可读",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["散落的状态追踪", "Save/Restore闭环", "四条路径选一条"],
+  "color_palette": ["明亮暖黄", "柔和蓝", "草绿", "暖橙"],
+  "avoid": ["漂浮芯片", "无意义代码雨", "霓虹高楼背景", "通用机器人站姿", "赛博朋克紫蓝光污染", "巨量 HUD 浮层", "假 dashboard", "假终端输出", "假架构标签"],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证混乱→有序的叙事弧线 + 儿童童话风在技术决策指南中的可读性：Save/Restore 闭环是否清晰、决策分岔是否可辨",
+  "revision_targets": ["如果童话风太过幼化掩盖了技术主题，增加结构线条", "如果决策分岔路口不够清楚，增强路径标注的对比度", "如果散落状态的混乱感不够，增加不一致连接的视觉提示"],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: C# Memento pattern decision guide — recognizing when to use state snapshots through structured signals, scenario matching, and code refactoring. The reader should feel equipped with a practical framework to decide when Memento fits and when it does not.\n\nSummary angle: A three-question decision flow — need rollback? state complex? encapsulation matters? — with a contrast of suitable scenarios vs overkill situations.\nNarrative flow: conflict-to-resolution. In a 2.35:1 frame, keep one dominant focal subject and 2-4 supporting narrative beats.\nInformation blocks:\n- Problem: Manual undo tracking with one backup field per property, no history stack, fragile scaling. Visual: a messy object with scattered backup fields, arrows pointing to inconsistent state, labeled '散落的状态追踪'.\n- Mechanism: Originator.Save() returns opaque IMemento; Caretaker stores on stack; Originator.Restore() reads nested class. Visual: a clean three-party structure — originator creates snapshot → caretaker stores → originator restores, snapshot as opaque box, labeled 'Save/Restore闭环'.\n- Contrast: Memento vs Command vs Serialization vs Event Sourcing decision fork. Visual: a fork in the road with four labeled paths, Memento path illuminated, labeled '四条路径选一条'.\n\nMain metaphor: A path from chaos to order — left side shows scattered manual backups (problem), center shows the Save/Restore cycle (solution), right side shows a decision fork with four paths (choice).\nSubject: A structured Save→Stack→Restore cycle flow, connected left to a problem scene and right to a decision fork.\nSubject action: Data flows from chaotic manual tracking through the Save/Restore cycle toward a four-path decision junction.\nComposition/framing: Left-to-right contrast or diagonal progression, horizontal storytelling from chaos to order. Prefer horizontal storytelling that stays legible in a wide cover.\nStyle/medium: combine editorial technical illustration with the selected visual style descriptor: children's fairy-tale illustration, simple magical forms, friendly proportions, bright storybook palette, safe wonder. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: warm yellow, soft blue, grass green, warm orange.\nVisible text policy: allow only 1-3 short Chinese labels or number chips by default, sourced from the information blocks. Each label <= 6 Chinese characters. No poster title, no long sentences, no English slogans, no fake UI labels.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: floating chips, meaningless code rain, neon city backgrounds, generic robot poses, cyberpunk purple-blue light pollution, massive HUD overlays, fake dashboards, fake terminal output, fake architecture labels."
+}
