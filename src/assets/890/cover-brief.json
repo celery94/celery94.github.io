@@ -1,0 +1,59 @@
+{
+  "article_title": "EF Core Migrations：把数据库结构变更纳入代码流程",
+  "cover_type": "tutorial",
+  "core_theme": "用 EF Core migrations 管理 .NET 应用的数据库结构变更",
+  "reader_takeaway": "读者可以理解 migration 的生命周期，并知道怎样创建、应用、回滚和在 CI/CD 中运行迁移",
+  "summary_angle": "把手写 SQL 的不稳定流程，压缩成可追踪、可回滚、可部署的 migration 流程",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "step",
+      "source_anchor": "原文介绍 dotnet ef migrations add 会生成 migration、Designer 和 ModelSnapshot 三类文件",
+      "visual_idea": "左侧是一叠手写 SQL 纸张，被整理成三张版本化迁移卡片",
+      "visible_label": "生成",
+      "numeric_fact": "1"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文说明 __EFMigrationsHistory 用来记录已应用 migration，支持重复执行时跳过已完成项",
+      "visual_idea": "中间是一条带检查点的数据库轨道，检查点代表历史表记录",
+      "visible_label": "追踪",
+      "numeric_fact": "2"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文建议生产环境优先用 migration bundle 作为部署前步骤，降低启动时迁移风险",
+      "visual_idea": "右侧是一个可交付的 bundle 箱子进入部署门禁",
+      "visible_label": "部署",
+      "numeric_fact": "3"
+    }
+  ],
+  "main_metaphor": "数据库结构变更从散乱纸张变成带检查点的铁路运输",
+  "primary_subject": "一条穿过数据库圆柱体的迁移轨道",
+  "subject_action": "轨道把迁移卡片送往部署门禁",
+  "composition": "斜向推进，左侧手写 SQL，中央数据库检查点，右侧部署 bundle",
+  "base_style": "editorial technical illustration",
+  "selected_style": "国漫二次元风",
+  "selected_style_prompt_descriptor": "contemporary Chinese anime-comic illustration, crisp linework, ornate but controlled details, vibrant fantasy-tech color accents",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；教程流程适合用清晰的动作线和分阶段画面表达",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["生成", "追踪", "部署"],
+  "color_palette": ["深墨绿", "暖白", "琥珀黄", "钢蓝"],
+  "avoid": [
+    "真实产品截图",
+    "真实 dashboard",
+    "假终端输出",
+    "假图表坐标",
+    "英文口号",
+    "无意义代码雨",
+    "通用机器人站姿"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证迁移流程是否能在一张宽封面里读成生成、追踪、部署三段，并且只保留三个中文短标签",
+  "revision_targets": [
+    "减少无关装饰",
+    "保持一个主轨道焦点",
+    "只保留三个中文短标签"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article, aspect ratio 2.35:1\nPrimary request: Create a clean wide cover illustration about EF Core database migrations, but make it abstract and symbolic with no readable technical text except the approved Chinese labels.\n\nScene: a single glowing railway line crosses a stylized database vault from left to right. On the left, blank folded cards enter the rail. In the center, three glowing checkpoint seals mark completed migration steps. On the right, a sealed deployment crate leaves through a gate. No paper should contain letters or numbers. No table, no chart, no terminal, no dashboard.\n\nNarrative flow: 3-beat process with exactly three label plaques:\n1 生成 above the blank cards\n2 追踪 above the checkpoint seals\n3 部署 above the deployment crate\n\nMain metaphor: schema changes become a controlled rail shipment through a database vault.\nComposition/framing: 2.35:1 wide cinematic frame, one dominant glowing rail as focal subject, three clear beats from left to right, spacious background, no dense small details.\nStyle/medium: editorial technical illustration combined with contemporary Chinese anime-comic illustration, crisp linework, controlled ornamental details, vibrant fantasy-tech color accents, polished and readable. Do not imitate a specific brand, studio, or living artist.\nColor palette: deep ink green, warm white, amber yellow, steel blue.\n\nStrict visible text rule: the image must contain ONLY these Chinese labels: 生成, 追踪, 部署, and optional number chips 1, 2, 3. Absolutely no Latin letters, no English words, no code text, no SQL, no table names, no migration IDs, no random digits on cards, no file names, no formulas, no interface labels, no poster title.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no tables, no fake diagrams, no charts, no fake terminal output, no fabricated metrics, no unrelated icons, no decorative text."
+}
