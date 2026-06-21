@@ -1,0 +1,59 @@
+{
+  "article_title": "Interpreter Pattern in C#：从表达式到 AST 求值",
+  "cover_type": "tutorial",
+  "core_theme": "用 C# 实现 Interpreter Pattern，把字符串表达式解析成 AST 并求值",
+  "reader_takeaway": "读者能理解 IExpression、终结符、非终结符、上下文、parser 和测试如何组成一个可运行的小型解释器",
+  "summary_angle": "把一行表达式变成一棵树，再通过变量上下文得到结果",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "step",
+      "source_anchor": "原文 Step 1 到 Step 3 定义 IExpression、NumberExpression、VariableExpression、AddExpression、SubtractExpression、MultiplyExpression",
+      "visual_idea": "左侧是一条表达式纸带进入节点工坊",
+      "visible_label": "建节点",
+      "numeric_fact": "1"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文 Step 5 用递归下降 parser 处理数字、变量、括号和乘法优先级",
+      "visual_idea": "中间是表达式纸带被切分成一棵发光 AST",
+      "visible_label": "成语法树",
+      "numeric_fact": "2"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文 Step 6 展示 x=10、y=5、z=3 时 x-y*z 等表达式的求值结果",
+      "visual_idea": "右侧上下文钥匙插入树根，输出结果光点",
+      "visible_label": "求值",
+      "numeric_fact": "3"
+    }
+  ],
+  "main_metaphor": "表达式胶片被剪辑成语法树，再投影成计算结果",
+  "primary_subject": "一条穿过三格分镜的发光表达式胶片",
+  "subject_action": "表达式胶片从输入区进入 AST 树形结构，再被上下文钥匙点亮",
+  "composition": "动态分镜电影风的三格横向推进，单条光带贯穿画面",
+  "base_style": "editorial technical illustration",
+  "selected_style": "动态分镜电影风",
+  "selected_style_prompt_descriptor": "dynamic cinematic storyboard style, sequential panels, camera-motion feeling, strong cuts, clear narrative beats",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；解释器教程天然适合用分镜展示输入、建树、求值三步",
+  "style_safety_note": "清单风格为泛电影分镜描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["建节点", "成语法树", "求值"],
+  "color_palette": ["墨黑", "暖白", "青绿", "琥珀黄"],
+  "avoid": [
+    "真实 IDE 截图",
+    "假终端输出",
+    "假 dashboard",
+    "长代码块",
+    "英文口号",
+    "复杂数学公式",
+    "通用机器人站姿"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证三格分镜能清楚表达输入、AST、上下文求值三步，并且不出现表达式、变量名或结果数字",
+  "revision_targets": [
+    "只保留三个中文短标签",
+    "让 AST 像抽象树而非真实架构图",
+    "减少无关代码文字"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article, aspect ratio 2.35:1\nPrimary request: Create a clean cinematic storyboard-style infographic cover about implementing the Interpreter Pattern in C#. Make it abstract and symbolic. Do not show readable code, formulas, expressions, numbers, or result values except approved step chips.\n\nScene: three horizontal storyboard panels connected by one glowing ribbon.\nPanel 1: blank expression cards are assembled into node cards, label 建节点, chip 1.\nPanel 2: the blank cards transform into a glowing abstract tree made of circles and lines, label 成语法树, chip 2.\nPanel 3: a key-shaped context object lights up the tree root and emits a simple glow orb, label 求值, chip 3.\n\nMain metaphor: input tokens become an abstract syntax tree, then context produces a result.\nSubject: one continuous glowing ribbon passing through blank cards, abstract AST tree, and context key.\nComposition/framing: wide 2.35:1 cinematic frame, three clear storyboard panels left to right, strong camera-motion feeling, sparse and readable.\nStyle/medium: editorial technical illustration combined with dynamic cinematic storyboard style, sequential panels, strong cuts, clear narrative beats, ink black, warm white, teal green, amber yellow. Do not imitate a specific brand, studio, or living artist.\n\nStrict visible text rule: ONLY these Chinese labels are allowed: 建节点, 成语法树, 求值. ONLY number chips 1, 2, 3 are allowed. Absolutely no other digits, no Latin letters, no English words, no math symbols, no formula, no code text, no variable names, no result values, no table text, no UI labels, no poster title.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboard, no terminal, no fake charts, no fake metrics, no dense small glyphs, no decorative text."
+}
