@@ -1,0 +1,226 @@
+{
+  "skill_name": "create-blog-post-from-url",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "请把这篇文章改写成一篇中文博客并生成封面，然后发布到微信公众号草稿箱：https://www.anthropic.com/engineering/building-effective-agents",
+      "expected_output": "会先用 Chrome DevTools MCP 抓取正文并形成结构化笔记，再生成中文 Markdown 博客。写作前会在用户未指定风格时从 40 项风格池随机选择 1 个 `selected_style`，并让文章表达、封面 brief、封面 prompt 和图片验收使用同一个风格。封面阶段默认读取 `references/cover-prompt-template.md`，创建 `src/assets/{ID}/cover-brief.json`，记录 `summary_angle`、`narrative_flow`、`information_blocks`、`selected_style`、`selected_style_prompt_descriptor`、`selected_style_reason` 和 `style_safety_note`，再用可用的图像生成 / 编辑技能完成封面，把最终选中图保存为 `src/assets/{ID}/01-cover.{ext}`，并把 `ogImage` 与 `wechat-draft` 的 `cover-image` 都指向这个最终实际路径。",
+      "files": [],
+      "assertions": [
+        {
+          "text": "Cover generation stays backend-agnostic by default instead of hardcoding a specific image-generation skill."
+        },
+        {
+          "text": "When no style is specified, the workflow randomly selects exactly one style from the 40-item style pool before writing."
+        },
+        {
+          "text": "The same selected style is used for article expression, cover brief, cover prompt, and cover acceptance."
+        },
+        {
+          "text": "The cover brief records `summary_angle`, `narrative_flow`, `information_blocks`, `selected_style`, `selected_style_prompt_descriptor`, `selected_style_reason`, and `style_safety_note`."
+        },
+        {
+          "text": "The final cover image is saved under `src/assets/{ID}/` rather than left in a generated-images temp/default directory."
+        },
+        {
+          "text": "`ogImage` and the WeChat `cover-image` parameter reference the final cover path."
+        },
+        {
+          "text": "After WeChat draft publishing succeeds and returns `media_id`, the workflow commits and pushes only the generated blog post and assets."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "把这个产品发布页写成中文博客，封面用默认方式生成，不要做成产品截图：https://openai.com/index/introducing-gpt-image-2/",
+      "expected_output": "会把文章类型识别为产品更新 / 发布型，封面 brief 中选择 `release`。用户未指定风格时，不再按 release 固定选择日漫，而是从 40 项风格池随机选择 1 个 `selected_style`，并把对应的 `selected_style_prompt_descriptor` 写进封面 prompt。封面不是泛主题插画，而是单张宽封面的 infographic summary：用 `2-4` 个来源可追溯的信息块概括发布重点，文字默认只保留 `1-3` 处少量中文短标签或数字，但仍然禁止主标题、假 UI、假 dashboard、假图表和假终端。",
+      "files": [],
+      "assertions": [
+        {
+          "text": "The cover type is selected from the fixed taxonomy and is appropriate for a product/release article."
+        },
+        {
+          "text": "Unspecified release covers use random style selection from the style pool rather than a fixed comic-style mapping."
+        },
+        {
+          "text": "The selected style descriptor is included in the image prompt while the cover still follows infographic-story constraints."
+        },
+        {
+          "text": "The cover concept expresses the article theme without pretending to be a real product screenshot."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "请用 Azure OpenAI 生成封面，把这篇英文教程改写成中文博客并推到微信草稿箱，封面用美漫超级英雄风：https://learn.microsoft.com/en-us/azure/ai-services/openai/how-to/dall-e",
+      "expected_output": "会尊重用户明确指定 Azure 和 `美漫超级英雄风` 的要求，在封面阶段使用 `azure-image-gen`，并把 `selected_style` 设为 `美漫超级英雄风`。仍然先生成 `cover-brief.json`，使用该风格对应的安全描述词构造单张宽封面的 infographic-story prompt，并把 Azure 脚本最终输出的实际文件路径（可能是 `.png`、`.jpg` 或 `.webp`）同步到 Markdown `ogImage` 和 `wechat-draft` 的 `cover-image`。",
+      "files": [],
+      "assertions": [
+        {
+          "text": "An explicit Azure preference is honored for cover generation even though the default flow is backend-agnostic."
+        },
+        {
+          "text": "An explicit style request overrides random style selection."
+        },
+        {
+          "text": "The prompt uses the safe descriptor for `美漫超级英雄风` rather than reverting to the old two-option comic-style field."
+        },
+        {
+          "text": "The Azure final output path extension is treated as authoritative."
+        },
+        {
+          "text": "The final image path is propagated consistently to blog frontmatter and WeChat publishing."
+        },
+        {
+          "text": "After WeChat draft publishing succeeds, the workflow reports `media_id`, commit hash, and pushed branch."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "把这篇架构文章写成中文博客。封面可以参考正文里的架构图，但不能照抄，也不能生成假的架构标签：https://example.com/agent-workflow-architecture",
+      "expected_output": "会把文章类型识别为架构 / 系统设计。用户未指定风格时，会从 40 项风格池随机选择 1 个风格，而不是按 workflow / pipeline 固定选择日漫。封面仍用 `2-4` 个来源可追溯的信息块把流程压成单张宽封面；参考图只用于主体关系或空间结构，不用于像素级临摹；最终 prompt 仍禁止假架构节点名、假 dashboard、假图表坐标和 screenshot 风格。",
+      "files": [],
+      "assertions": [
+        {
+          "text": "Reference images are used only for composition or subject relationships, not pixel-level copying."
+        },
+        {
+          "text": "Architecture covers use the one selected style from the random pool unless the user specifies a style."
+        },
+        {
+          "text": "Architecture covers may show abstract connections and flow markers but must not create fake labeled system diagrams."
+        },
+        {
+          "text": "The prompt includes a clear avoid list for fake labels and screenshot-like artifacts."
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "只把这个链接写成博客，不要生成封面，也不要发微信：https://example.com/short-note",
+      "expected_output": "会尊重用户明确的范围限制：仍然抓取 URL、生成中文 Markdown、写入 frontmatter 和参考链接，并在写作前随机确定 1 个 `selected_style` 作为文章表达的轻量风格方向；但跳过封面生成，不写 `ogImage`，也不调用 `wechat-draft`。",
+      "files": [],
+      "assertions": [
+        {
+          "text": "The explicit no-cover request prevents any image-generation skill from being invoked."
+        },
+        {
+          "text": "The explicit no-WeChat request prevents `wechat-draft` from being invoked."
+        },
+        {
+          "text": "The blog article is still generated normally without `ogImage`."
+        },
+        {
+          "text": "A selected style may still guide article expression lightly without triggering image generation."
+        },
+        {
+          "text": "The explicit no-WeChat request also skips the post-publish git commit and push flow."
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "把这篇观点文章改写成中文博客并生成封面：https://example.com/spec-driven-ai-opinion",
+      "expected_output": "会把文章识别为 `analysis`，但用户未指定风格时不会固定选择美漫，而是从 40 项风格池随机选择 1 个 `selected_style`。封面仍然做成单张宽封面的 infographic storytelling summary：至少压出 `2` 个能映射回原文的叙事信息块，而不是只画一张泛技术氛围图。",
+      "files": [],
+      "assertions": [
+        {
+          "text": "When style is unspecified for an `analysis` article, the brief randomly selects one style from the 40-item pool."
+        },
+        {
+          "text": "The cover summary contains at least two article-grounded information blocks rather than a generic thematic illustration."
+        },
+        {
+          "text": "The prompt forbids poster titles, fake UI labels, fake chart axes, and fabricated metrics regardless of the selected style."
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "prompt": "把这篇研究解读写成中文博客，封面指定新海诚光影风，并保留一两个关键数字：https://example.com/model-paper-breakdown",
+      "expected_output": "会把文章识别为 `research`，并尊重用户明确指定的 `新海诚光影风`，把它记录为 `selected_style`。由于该名称强指向特定在世作者，最终 prompt 使用安全描述词，例如高透明天空、强逆光、细腻云层、青春电影感光影、雨水和反射细节，并在 `style_safety_note` 说明不复刻具体作者画风。封面仍保持单张宽图，只允许少量来源可追溯的中文短标签和关键数字，不能扩展成海报式长标题或伪造实验图表。",
+      "files": [],
+      "assertions": [
+        {
+          "text": "An explicit style request overrides random selection for a `research` article."
+        },
+        {
+          "text": "`新海诚光影风` is preserved as `selected_style` but converted to a non-imitative `selected_style_prompt_descriptor`."
+        },
+        {
+          "text": "`style_safety_note` explains that strong brand/artist/studio style names are rewritten into safe descriptive terms."
+        },
+        {
+          "text": "Visible numbers on the cover must be sourced from the article or used as ordinal markers, not invented."
+        },
+        {
+          "text": "The prompt allows only a small amount of Chinese labels and key numbers while still forbidding long titles and fake charts."
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "prompt": "把这篇技术教程改写成适合微信公众号发布的中文文章，并生成封面后发草稿箱：https://example.com/devtool-automation-guide",
+      "expected_output": "会先完成公众号运营判断：该文服务 Aide Hub 的软件开发 / AI 助手定位，读者收益是学会一个可落地的方法，分发倾向偏收藏。正文仍保持教程写法，写清前提、步骤、结果验证和坑点；标题降低解释成本，使用技术对象加具体收益或适用场景；description 作为微信预览摘要控制在 80-120 字，并自然说明读者为什么值得点开。发布到微信前会加入克制的文末关注引导，说明 Aide Hub 会持续分享 AI 助手、开发工具和软件工程实践。",
+      "files": [],
+      "assertions": [
+        {
+          "text": "The workflow performs a WeChat account-ops judgment before writing, including account positioning, reader takeaway, and distribution tendency."
+        },
+        {
+          "text": "The article title reduces explanation cost and combines a technical object with a concrete benefit or usage scenario."
+        },
+        {
+          "text": "The description is treated as a WeChat preview summary and stays useful without hype."
+        },
+        {
+          "text": "A natural WeChat follow prompt is included when the article is going to the WeChat draft box."
+        },
+        {
+          "text": "After a successful WeChat draft publish, the generated Markdown and article assets are committed and pushed."
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "prompt": "把这篇工具评测写成博客并发布到公众号草稿箱。可以顺便给我一个自动回复关键词建议，但不要承诺没有准备好的资料：https://example.com/ai-code-review-tool",
+      "expected_output": "会把文章识别为工具评测型，并判断其公众号分发倾向偏涨粉：重点写使用场景、替代方案、上手门槛和适用边界。可以在最终报告里给出自动回复关键词建议，例如“清单”或“工具”，但只有当正文实际产出了对应资源或用户提供了资源时，才把关键词和资源承诺写进文章。正文和文末引导不得承诺不存在的资料、源码、课程、社群、优惠或咨询服务。",
+      "files": [],
+      "assertions": [
+        {
+          "text": "Tool-review articles are guided toward scenarios, alternatives, onboarding cost, and boundaries rather than generic praise."
+        },
+        {
+          "text": "Keyword auto-reply suggestions may be reported separately without implying the account backend is configured."
+        },
+        {
+          "text": "The generated article does not promise resources, source code, courses, communities, discounts, or consulting that were not actually provided."
+        },
+        {
+          "text": "After WeChat draft publishing succeeds, git status is checked and only this article's files are staged before commit and push."
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "prompt": "只把这篇趋势观点文章写成博客，不要发微信，也不要写成爆款公众号文：https://example.com/ai-agent-market-opinion",
+      "expected_output": "会尊重用户明确的范围限制：只生成中文博客，不调用 `wechat-draft`。仍会做轻量公众号运营判断来确认文章更偏观点评论型、读者收益是形成判断、分发倾向偏转发，但不会强行加入公众号文末关注模块，也不会把观点文章包装成夸张爆款。标题、摘要和正文保持自然技术博客表达，保留原文判断依据和适用边界。",
+      "files": [],
+      "assertions": [
+        {
+          "text": "The explicit no-WeChat request prevents `wechat-draft` from being invoked and skips the WeChat follow module."
+        },
+        {
+          "text": "Opinion articles are not forced into hype-driven WeChat viral copy."
+        },
+        {
+          "text": "The article preserves source-grounded reasoning and boundaries instead of inventing claims."
+        },
+        {
+          "text": "The explicit no-WeChat request also prevents any post-publish git commit or push."
+        }
+      ]
+    }
+  ]
+}

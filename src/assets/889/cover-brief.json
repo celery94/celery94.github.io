@@ -1,0 +1,71 @@
+{
+  "article_title": "模块化单体的边界：一次后来很难收回的拆分",
+  "cover_type": "architecture",
+  "core_theme": "模块边界在信息最少时被画下，后来会被真实的一致性需求检验。",
+  "reader_takeaway": "读者能理解为什么边界要保持可验证，以及为什么不确定时应先保留更粗的模块。",
+  "summary_angle": "两个看似清楚的模块，随着即时正确性要求出现，被越来越多连接重新拉回一起。",
+  "narrative_flow": "before-after",
+  "information_blocks": [
+    {
+      "role": "contrast",
+      "source_anchor": "Day one: Catalog and Collaboration as two cleanly separated modules",
+      "visual_idea": "两个模块被干净的玻璃板隔开，只保留轻量联系。",
+      "visible_label": "第一天",
+      "numeric_fact": "1"
+    },
+    {
+      "role": "evidence",
+      "source_anchor": "Catalog and Collaboration a year later, linked by events, two reads, and a synchronous price check",
+      "visual_idea": "连接线逐渐增多，读数据、事件、价格检查一起穿过边界。",
+      "visible_label": "连接增多",
+      "numeric_fact": "2"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "The business needed an order to be correct now",
+      "visual_idea": "计时器和闪电强调保存时价格必须马上正确。",
+      "visible_label": "即时正确",
+      "numeric_fact": "3"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "Splitting one coarse module into two is cheap and low risk; merging two modules back into one is expensive and risky",
+      "visual_idea": "破裂边界与成本符号表达后期合并的代价。",
+      "visible_label": "合并很贵",
+      "numeric_fact": "4"
+    }
+  ],
+  "main_metaphor": "两块模块化积木之间的玻璃边界逐渐被连接线和裂纹占满。",
+  "primary_subject": "被连接线穿透并开始裂开的模块边界",
+  "subject_action": "边界从清晰隔离变成难以撤回的耦合点",
+  "composition": "左右推进的四段宽幅分镜，中心边界作为主焦点",
+  "base_style": "isometric conceptual systems scene",
+  "selected_style": "欧漫清线风",
+  "selected_style_prompt_descriptor": "European clear-line comic style, precise outlines, flat readable colors, tidy environments, restrained humor and detail",
+  "selected_style_reason": "随机选中；清线风适合表达模块关系、边界和连接变化，细节清楚且不过度渲染。",
+  "style_safety_note": "该风格为通用漫画视觉描述，不指向特定品牌、工作室或在世艺术家。",
+  "allowed_visible_text": ["第一天", "连接增多", "即时正确", "合并很贵"],
+  "color_palette": [
+    "warm off-white",
+    "muted teal",
+    "slate outline",
+    "amber accent"
+  ],
+  "avoid": [
+    "neon city",
+    "robots",
+    "code rain",
+    "dense HUD overlays",
+    "screenshots",
+    "dashboards",
+    "fake architecture labels"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证边界从清晰到难以撤回的叙事能否在宽封面里被看懂。",
+  "revision_targets": [
+    "减少无关小图标",
+    "保持中文短标签可读",
+    "避免生成真实系统图或假 UI"
+  ],
+  "final_prompt": "Use case: infographic-diagram. Asset type: wide cover infographic illustration for a Chinese tech blog article. Create a 2.35:1 isometric conceptual systems scene with European clear-line comic style. Show two clean modules separated by a glass boundary, then the boundary filling with cables and cracks as consistency requirements grow. Keep four short Chinese labels only: 第一天, 连接增多, 即时正确, 合并很贵. No poster title, no long sentences, no fake UI, no dashboard, no fake terminal, no fabricated metrics."
+}
