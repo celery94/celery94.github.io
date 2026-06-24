@@ -1,0 +1,67 @@
+{
+  "article_title": "EF Core 关系建模完全指南：一对多、多对多与一对一",
+  "cover_type": "tutorial",
+  "core_theme": "EF Core 三种实体关系类型（一对多、一对一、多对多）的建模方式、配置方法和加载策略",
+  "reader_takeaway": "掌握 EF Core 三种关系类型的 Fluent API 配置、级联删除选项、显式/隐式多对多选择，以及加载策略的正确用法",
+  "summary_angle": "用简洁的连接图展示三种实体关系如何通过外键和导航属性在 EF Core 中映射为数据库约束",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "mechanism",
+      "source_anchor": "一对多：Blog.HasMany(b => b.Posts).WithOne(p => p.Blog)；原文 One-to-Many 章节",
+      "visual_idea": "一个 Blog 节点连接到多个 Post 节点，箭头方向从 1 指向 N",
+      "visible_label": "一对多",
+      "numeric_fact": "1→N"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "多对多显式连接实体：Student-Enrollment-Course；原文 Many-to-Many 章节",
+      "visual_idea": "Student 和 Course 之间通过 Enrollment 连接表关联，连接表上标注 Grade",
+      "visible_label": "多对多",
+      "numeric_fact": "N↔M"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "一对一：User.HasOne(u => u.Profile).WithOne(p => p.User)；原文 One-to-One 章节",
+      "visual_idea": "User 和 UserProfile 之间用外键 UserId 关联，双箭头表示唯一对应",
+      "visible_label": "一对一",
+      "numeric_fact": "1↔1"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "级联删除必须显式配置，不要依赖默认行为；原文 Cascade Delete 章节",
+      "visual_idea": "一个删除操作触发了依赖实体的级联，旁边标注 Restrict/Cascade 选项",
+      "visible_label": "显式级联",
+      "numeric_fact": "4 option"
+    }
+  ],
+  "main_metaphor": "实体关系像电路接线图，用清晰线条和节点表示实体间的连接规则",
+  "primary_subject": "一个抽象的实体关系接线图，包含 1→N 分支、N↔M 连接表和 1↔1 直连三种拓扑结构",
+  "subject_action": "三种关系拓扑同时在画面上以节点+连线的方式呈现，每种关系有标签标注",
+  "composition": "居中主物体",
+  "base_style": "editorial technical illustration",
+  "selected_style": "极简线稿风",
+  "selected_style_prompt_descriptor": "minimalist line-art illustration, sparse clean strokes, ample negative space, precise symbolic objects, limited accent color",
+  "selected_style_reason": "用户未指定风格，从风格池随机选中；关系建模主题适合用极简线条清晰表达实体间的连接拓扑",
+  "style_safety_note": "使用泛极简线稿描述，不涉及具体作品、工作室或艺术家",
+  "allowed_visible_text": ["一对多", "多对多", "一对一", "显式级联"],
+  "color_palette": ["深灰", "青蓝", "暖橙"],
+  "avoid": [
+    "漂浮芯片",
+    "霓虹高楼背景",
+    "通用机器人",
+    "假仪表盘坐标轴",
+    "假架构节点名",
+    "代码雨",
+    "HUD 浮层",
+    "UI 截图"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证极简线稿风格下三种关系拓扑是否清晰可读，标签是否与拓扑对应",
+  "revision_targets": [
+    "节点和连线的比例是否协调",
+    "颜色区分三种关系类型",
+    "可见标签是否与关系拓扑对应"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: EF Core entity relationships -- one-to-many, one-to-one, many-to-many with join entities, and cascade delete options. The reader should quickly understand the three relationship topologies in EF Core.\n\nSummary angle: Show the three EF Core relationship types as a clean entity-relationship wiring diagram, with foreign keys, navigation properties, and cascade delete options.\nNarrative flow: 3-beat process. In a 2.35:1 frame, keep one dominant focal subject and 4 supporting narrative beats.\nInformation blocks:\n- One-to-many: Blog has many Posts, labeled '一对多' with '1→N'\n- Many-to-many: Student-Enrollment-Course explicit join entity, labeled '多对多' with 'N↔M'\n- One-to-one: User-UserProfile with FK UserId, labeled '一对一' with '1↔1'\n- Cascade delete: explicit configuration of Restrict/Cascade options, labeled '显式级联' with '4 option'\n\nMain metaphor: Entity relationships as a clean circuit wiring diagram, with nodes and lines representing entity connections.\nSubject: An abstract entity relationship wiring diagram showing three topology types -- branching 1→N, join-table N↔M, and direct 1↔1 -- over a clean dark background.\nComposition/framing: centered main subject, nodes connected by clean lines spanning horizontally across the wide frame.\nStyle/medium: combine editorial technical illustration with the selected visual style descriptor: minimalist line-art illustration, sparse clean strokes, ample negative space, precise symbolic objects, limited accent color. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: dark gray, cyan blue, warm orange.\nVisible text policy: allow only 4 short Chinese labels as specified in information blocks. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: floating chips, neon skyscraper backgrounds, generic robots, fake dashboard axes, fake architecture node names, code rain, HUD overlays, cyberpunk purple-blue light pollution, UI screenshots."
+}
