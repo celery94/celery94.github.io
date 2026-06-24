@@ -1,0 +1,72 @@
+{
+  "article_title": "认识你的 Agent Harness：用 Microsoft Agent Framework 三步搭建个人理财助手",
+  "cover_type": "tutorial",
+  "core_theme": "用 Microsoft Agent Framework 的 harness 三步构建一个带自定义工具、网页搜索和计划能力的 agent——chat client -> harness -> console",
+  "reader_takeaway": "理解 agent harness 的核心概念，能照着三步流程构建一个带有自定义工具、网页搜索和计划模式的 agent",
+  "summary_angle": "三步搭建 agent：构造 chat client → 包装成 harness → 跑在交互式控制台，展示从零到可运行的完整路径",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "step",
+      "source_anchor": "Step 1 – Construct a chat client，用 Microsoft Foundry + Responses API 创建 IChatClient；原文 Step 1 章节",
+      "visual_idea": "第一个 panel 展示 chat client 连接到 AI 模型的初始化过程",
+      "visible_label": "Chat Client",
+      "numeric_fact": "1"
+    },
+    {
+      "role": "step",
+      "source_anchor": "Step 2 – Turn the chat client into a harness，用 AsHarnessAgent 包装，注入 instructions 和自定义工具；原文 Step 2 章节",
+      "visual_idea": "第二个 panel 展示 harness 将 chat client 包装起来，附加 tool、web search、planning 三个模块",
+      "visible_label": "Harness 包装",
+      "numeric_fact": "2"
+    },
+    {
+      "role": "step",
+      "source_anchor": "Step 3 – Run it through the harness console，用 HarnessConsole 运行交互式终端；原文 Step 3 章节",
+      "visual_idea": "第三个 panel 展示终端交互界面，agent 响应查询并显示 /todos 和 plan mode",
+      "visible_label": "交互运行",
+      "numeric_fact": "3"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "How plan mode works — PlanningResponse 结构化输出驱动 clarification/approval 两种模式；原文 How plan mode works 章节",
+      "visual_idea": "右下角标注 plan mode 的核心机制：结构化 JSON schema 约束 model 输出为 clarification 或 approval",
+      "visible_label": "Plan 模式",
+      "numeric_fact": "2 mode"
+    }
+  ],
+  "main_metaphor": "agent 构建像组装一台精密机械——chat client 是引擎，harness 是传动系统，console 是操控台",
+  "primary_subject": "一台由三个核心模块组成的 mechanical agent 构造示意：左侧 chat client 引擎、中段 harness 传动系统、右侧 console 操控台",
+  "subject_action": "三个模块依次连接，数据从引擎流向传动系统再到操控台，展示 agent 的构建流程",
+  "composition": "斜向推进",
+  "base_style": "editorial technical illustration",
+  "selected_style": "科幻机甲风",
+  "selected_style_prompt_descriptor": "science-fiction mecha concept illustration, mechanical forms, hard-surface details, cockpit-scale cues, cool industrial palette",
+  "selected_style_reason": "用户未指定风格，从风格池随机选中；agent harness 构建流程适合用机甲组装的机械感来表达模块组装和流水线概念",
+  "style_safety_note": "使用泛科幻机甲描述，不涉及具体作品、工作室或艺术家",
+  "allowed_visible_text": [
+    "Chat Client",
+    "Harness 包装",
+    "交互运行",
+    "Plan 模式"
+  ],
+  "color_palette": ["深蓝灰", "冷银", "暖橙"],
+  "avoid": [
+    "漂浮芯片",
+    "霓虹高楼背景",
+    "通用机器人",
+    "假仪表盘坐标轴",
+    "假架构节点名",
+    "代码雨",
+    "HUD 浮层",
+    "UI 截图"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证三步流程的机甲风格表达是否清晰，三个模块是否能在宽画面中可读",
+  "revision_targets": [
+    "三个模块的比例和间距",
+    "机械风格是否与编辑器插图基础风格和谐",
+    "可见标签的可读性"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: Building an agent harness with Microsoft Agent Framework in 3 steps -- chat client, harness wrapper, interactive console. The reader should quickly understand the three-step build process.\n\nSummary angle: Three-step agent building: construct a chat client -> wrap it into a harness with tools and planning -> run through an interactive console.\nNarrative flow: 3-beat process. In a 2.35:1 frame, keep one dominant focal subject and 4 supporting narrative beats.\nInformation blocks:\n- Step 1: Chat client connecting to AI model, labeled 'Chat Client' with marker 1\n- Step 2: Harness wrapping the client with tools, web search, and planning modules, labeled 'Harness 包装' with marker 2\n- Step 3: Interactive terminal console running the agent, labeled '交互运行' with marker 3\n- Mechanism: Plan mode using structured JSON schema for clarification/approval, labeled 'Plan 模式' with '2 mode'\n\nMain metaphor: Agent building as mechanical assembly -- chat client is the engine, harness is the drivetrain, console is the cockpit.\nSubject: A mechanical agent assembly composed of three core modules: chat client engine on the left, harness drivetrain in the middle, console cockpit on the right, with data flowing through each stage.\nComposition/framing: diagonal forward flow, three modules arranged left-to-right with slight upward trajectory.\nStyle/medium: combine editorial technical illustration with science-fiction mecha concept illustration, mechanical forms, hard-surface details, cockpit-scale cues, cool industrial palette. Do not imitate a specific brand, studio, or living artist.\nColor palette: dark blue-gray, cool silver, warm orange.\nVisible text policy: allow only 4 short Chinese/English labels as specified. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: floating chips, neon skyscraper backgrounds, generic robots, fake dashboard axes, fake architecture node names, code rain, HUD overlays, cyberpunk purple-blue light pollution, UI screenshots."
+}
