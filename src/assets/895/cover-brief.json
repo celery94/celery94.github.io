@@ -1,0 +1,64 @@
+{
+  "article_title": "EF Core 单元测试：InMemory vs SQLite 怎么选",
+  "cover_type": "tutorial",
+  "core_theme": "EF Core 测试策略：InMemory 内存 provider vs SQLite 内存模式的选择与实战",
+  "reader_takeaway": "知道两种 provider 的差异、适用场景和常见坑，能根据测试层次正确选择方案",
+  "summary_angle": "InMemory 快但缺少约束保护，SQLite 稍慢但真实可靠——选对 provider，测试才有意义",
+  "narrative_flow": "contrast",
+  "information_blocks": [
+    {
+      "role": "contrast",
+      "source_anchor": "InMemory: Blazing fast, no SQL parsing, great for logic tests, but no FK/unique/transaction enforcement",
+      "visual_idea": "左侧快速简化的抽象通道/箱体，箭头标注高速",
+      "visible_label": "<1ms",
+      "numeric_fact": "<1"
+    },
+    {
+      "role": "contrast",
+      "source_anchor": "SQLite: Real SQL engine, FK constraints enforced, transactions work, much closer to production",
+      "visual_idea": "右侧齿轮结构的真实 SQL 引擎路径",
+      "visible_label": "5-50ms",
+      "numeric_fact": "5-50"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "Decision guide: logic tests → InMemory, repository/data-access tests → SQLite, migrations → real DB",
+      "visual_idea": "中间分岔决策点，两条路径分出不同场景",
+      "visible_label": "怎么选",
+      "numeric_fact": ""
+    }
+  ],
+  "main_metaphor": "双轨测试岔路口——左侧快速但不完备的抽象通道，右侧真实但稍慢的 SQL 引擎路径",
+  "primary_subject": "一个测试决策分岔路口，左侧简化抽象箱体（InMemory），右侧齿轮结构的 SQL 引擎（SQLite）",
+  "subject_action": "测试代码流从上方进入岔路口，在中间做出选择，两条路径分别通向不同场景",
+  "composition": "左右对照",
+  "base_style": "editorial technical illustration",
+  "selected_style": "极简线稿风",
+  "selected_style_prompt_descriptor": "minimalist line-art illustration, sparse clean strokes, ample negative space, precise symbolic objects, limited accent color",
+  "selected_style_reason": "用户未指定风格，从 40 项风格池随机选中；教程的对比结构适合用极简线条做干净清晰的对照表达",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["<1ms", "5-50ms", "怎么选"],
+  "color_palette": [
+    "深灰黑",
+    "暖橙（InMemory 快速侧强调色）",
+    "冷蓝（SQLite 引擎侧强调色）",
+    "白底"
+  ],
+  "avoid": [
+    "代码雨",
+    "通用机器人",
+    "赛博朋克霓虹灯",
+    "假dashboard",
+    "假图表",
+    "漂浮芯片",
+    "UI截图"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮验证：岔路口构图是否清晰、左右对照是否成立、信息块是否可读",
+  "revision_targets": [
+    "如果左侧太简单看不出抽象箱体，增加箱体内部虚线结构",
+    "如果右侧齿轮太复杂，简化到 2-3 个核心齿轮",
+    "如果信息块标签不清晰，调整对比度和位置"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: EF Core testing strategy — InMemory vs SQLite in-memory providers comparison. The reader should quickly feel which provider to choose for different testing layers.\n\nSummary angle: InMemory is blazing fast but lacks real constraint enforcement; SQLite is slightly slower but gives a real SQL engine with FK, unique, and transaction support. Choosing the right one makes tests meaningful.\nNarrative flow: contrast. In a 2.35:1 frame, keep one dominant focal subject (a testing decision fork) and 2-3 supporting narrative beats. Each beat must map to the article's information blocks rather than generic decoration.\nInformation blocks:\n- contrast: InMemory left side — fast abstract channel, no constraints. Label: '<1ms'. Numeric: '<1'.\n- contrast: SQLite right side — real engine with gear structure, constraints enforced. Label: '5-50ms'. Numeric: '5-50'.\n- takeaway: center decision fork splitting into two paths for different testing scenarios. Label: '怎么选'.\n\nMain metaphor: A testing decision fork in the road — left path is a fast but incomplete abstract channel (InMemory), right path is a slightly slower but real SQL engine pathway (SQLite).\nSubject: A testing decision fork/split point, left side simplified abstract box (InMemory), right side gear-structured SQL engine (SQLite). Subject action: Test code flow entering from top, making decision at the fork, two paths leading to different testing scenarios.\nComposition/framing: left-right contrast split. Prefer horizontal storytelling that stays legible in a wide cover.\nStyle/medium: combine editorial technical illustration with the selected visual style descriptor: minimalist line-art illustration, sparse clean strokes, ample negative space, precise symbolic objects, limited accent color. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: deep gray-black linework, warm orange accent (InMemory fast side), cool blue accent (SQLite engine side), white/light background with negative space.\nVisible text policy: allow only 3 short Chinese labels or number chips, all sourced from the information blocks: '<1ms', '5-50ms', '怎么选'. Each label <= 6 Chinese characters or numeric. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: code rain, generic robots, cyberpunk neon, fake dashboards, fake charts, floating chips, UI screenshots, dark-mode tech background, purple-blue light pollution."
+}
