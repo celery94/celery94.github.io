@@ -1,0 +1,47 @@
+{
+  "article_title": "Loop Engineering 实战路线：从手动 Prompt 到自主循环的 14 步",
+  "cover_type": "tutorial",
+  "core_theme": "14步从 Prompter 升级为 Loop Designer 的完整路线图：三阶段、五大组件、四个闸门",
+  "reader_takeaway": "拿到一套可落地的 14 步路线图，知道什么时候该上 Loop、五个核心组件怎么搭、常见坑在哪",
+  "summary_angle": "一条从「手动敲 Prompt」到「设计自动跑的系统」的 14 级通关路线，用楼层/阶梯隐喻可视化",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "9 out of 10 builders have never written a single loop",
+      "visual_idea": "一个卡通小人在手工打字敲 prompt",
+      "visible_label": "手动 Prompt",
+      "numeric_fact": "9/10"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "5 building blocks: automation, worktrees, skills, connectors, sub-agents",
+      "visual_idea": "五个积木拼成的循环装置",
+      "visible_label": "5 大组件",
+      "numeric_fact": "5"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "14 steps, 3 tiers, from prompter to loop designer",
+      "visible_idea": "14级阶梯从 prompt 到 loop designer",
+      "visible_label": "14 步通关",
+      "numeric_fact": "14"
+    }
+  ],
+  "main_metaphor": "一条由卡通积木/关卡组成的 14 级阶梯，从底部的手工打字台登顶到自动运行的齿轮系统",
+  "primary_subject": "一个美式卡通风格的小工程师角色站在 14 级阶梯上，阶梯被分成三个平台（三阶段），阶梯旁有五块标志性积木",
+  "subject_action": "卡通工程师正沿着阶梯向上攀登，从打字台走向自动齿轮系统",
+  "composition": "斜向推进——从左下到右上的上升构图，阶梯为主轴，信息块放在阶梯平台旁",
+  "base_style": "editorial technical illustration",
+  "selected_style": "美式卡通风",
+  "selected_style_prompt_descriptor": "American cartoon illustration, elastic shapes, clear expressions, bold color fields, light comedic timing",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；14 步路线图的教程属性适合用弹性形状和明亮色块的卡通风格传递可读性和趣味性",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["手动 Prompt", "9/10", "5 大组件", "14 步通关"],
+  "color_palette": ["明亮橙黄", "天蓝", "草绿", "暖灰"],
+  "avoid": ["漂浮芯片", "霓虹高楼", "机器人站姿", "代码雨", "赛博朋克紫蓝光", "HUD 浮层", "假终端输出", "假架构图标签", "假仪表盘"],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮验证：14级阶梯+三平台+5块积木的信息结构是否可读，美式卡通风是否到位但不过分幼稚",
+  "revision_targets": ["如果阶梯/积木隐喻不够清楚，改用简洁进度条+标注", "如果卡通感过重削弱工程可信度，收紧角色比例增加技术道具", "如果信息块叠成海报，删到 2-3 个"],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration. Theme: Loop Engineering 14-step roadmap — the journey from manual prompter to autonomous loop designer. The reader should feel a clear progression path with measurable milestones.\n\nSummary angle: A 14-step staircase from 'typing prompts by hand' at the bottom to 'designing autonomous loop systems' at the top. Three tiered platforms mark the stages: Decision → Build → Production.\nNarrative flow: 3-beat process. In a 2.35:1 frame, keep one dominant focal subject and 2-3 supporting narrative beats.\nInformation blocks:\n- Problem: a cartoon character typing prompts at a desk, labeled '手动 Prompt' with '9/10'\n- Mechanism: five building block pieces forming a loop mechanism, labeled '5 大组件' with number 5\n- Takeaway: a 14-step staircase going upward, labeled '14 步通关' with number 14\n\nMain metaphor: a staircase made of cartoon building blocks with 14 steps, divided into 3 tiered platforms, leading from a manual typing desk to an automated gear system.\nSubject: an American cartoon style small engineer character climbing a 14-step staircase divided into 3 platforms, with 5 iconic building blocks beside it.\nSubject action: the engineer climbs upward from the typing desk toward the autonomous gear system.\nComposition/framing: diagonal upward progression from bottom-left to top-right. The staircase is the main axis, with information beats placed beside platform levels. Horizontal storytelling, wide cover.\nStyle/medium: combine editorial technical illustration with the selected visual style descriptor: American cartoon illustration, elastic shapes, clear expressions, bold color fields, light comedic timing. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: bright orange-yellow, sky blue, grass green, warm gray.\nVisible text policy: allow only 3-4 short Chinese labels or number chips, all sourced from the information blocks. Each label <= 6 Chinese characters or one required product name. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: floating chips, neon skylines, robot standing poses, code rain, cyberpunk purple-blue light, HUD overlays, fake terminal output, fake architecture labels, fake dashboards."
+}
