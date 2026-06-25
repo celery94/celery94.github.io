@@ -1,0 +1,64 @@
+{
+  "article_title": ".NET 面试 2026 全栈指南：300+ 道真题及考察逻辑",
+  "cover_type": "analysis",
+  "core_theme": ".NET 面试全景——四轮面试结构 + 跨专题真题 + 面试官真正评估的维度",
+  "reader_takeaway": "知道 2026 年 .NET 面试怎么考、覆盖哪些专题、避开哪些致命错误",
+  "summary_angle": "面试从定义考试变成了场景诊断——考官在听你是否推理，而不是背诵。知道这个转变，才能在 2026 年通过",
+  "narrative_flow": "layered reveal",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "Interview questions are scenario questions, not definitions — they reveal whether you've actually shipped production code",
+      "visual_idea": "表面老式问答定义卡被划掉/虚化",
+      "visible_label": "定义背诵",
+      "numeric_fact": ""
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "Four rounds: screening, deep-dive, system design, behavioral. Covers C#, EF Core, ASP.NET Core, system design, architecture across 11 topics",
+      "visual_idea": "四层面试结构 + 11 个专题模块展开",
+      "visible_label": "4 轮面试",
+      "numeric_fact": "11"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "5 mistakes: reciting definitions, 'it depends' without position, stuck on old versions, no production signals, skipping the why",
+      "visual_idea": "5 个红牌错误标记从表面穿透到深层",
+      "visible_label": "5 个坑",
+      "numeric_fact": "5"
+    }
+  ],
+  "main_metaphor": "面试透镜——透过表面定义看到四层深度评估结构",
+  "primary_subject": "一个分层透视的面试评估框架——上层是虚化的定义背诵卡，下层是清晰的四层结构（筛选、深挖、系统设计、行为）+ 11 个专题模块",
+  "subject_action": "视线穿透表面，聚焦到四层深度评估：C# 基础、框架内部、系统设计、工程判断",
+  "composition": "上下分层（表面虚化 + 深层结构化展开），在宽画面里横向分布模块",
+  "base_style": "conceptual editorial illustration",
+  "selected_style": "极简线稿风",
+  "selected_style_prompt_descriptor": "minimalist line-art illustration, sparse clean strokes, ample negative space, precise symbolic objects, limited accent color",
+  "selected_style_reason": "用户未指定风格，从 40 项风格池随机选中；面试准备指南的结构化特征适合用干净精准的线条表达层次和模块关系",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["定义背诵", "4 轮面试", "11", "5 个坑"],
+  "color_palette": [
+    "深灰黑线稿",
+    "暖橙（红牌/警示强调）",
+    "浅灰（表层虚化）",
+    "冷白底"
+  ],
+  "avoid": [
+    "代码雨",
+    "通用机器人",
+    "赛博朋克霓虹",
+    "假图表",
+    "UI截图",
+    "问答气泡",
+    "简历纸堆"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮验证：分层透视构图是否清晰、4 层结构 + 11 个模块是否可读、红牌标记是否突出",
+  "revision_targets": [
+    "如果上层定义卡太抢戏，增加透明度和虚化",
+    "如果模块太多难以辨认，合并为 4-6 个核心模块",
+    "如果极简线条表现力不够，增加局部区块色强调"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration. Theme: .NET interview preparation landscape 2026 — the shift from definition recitation to scenario diagnosis across four interview rounds and 11 topic areas.\nSummary angle: Interviews in 2026 evaluate reasoning not recitation. The four-round structure (screening, deep-dive, system design, behavioral) tests whether you can diagnose, name trade-offs, and explain when you would deviate from defaults.\nNarrative flow: layered reveal. In a 2.35:1 frame keep one dominant focal subject and 2-3 supporting narrative beats.\nInformation blocks:\n- problem: surface layer showing faded definition cards being crossed out — recitation is not enough. Label: '定义背诵'.\n- mechanism: deep layer revealing four interview rounds and 11 topic modules (C#, EF Core, ASP.NET Core, system design, etc.). Label: '4 轮面试'. Numeric: '11'.\n- takeaway: 5 red-flag mistakes piercing through. Label: '5 个坑'. Numeric: '5'.\nMain metaphor: An interview evaluation lens — peering through surface definitions to see the four-layer deep evaluation structure beneath.\nSubject: A layered cross-section. Upper layer shows faded crossed-out definition cards. Lower layer reveals a structured four-tier evaluation framework with topic modules distributed horizontally.\nComposition framing: vertical layer split, upper third simplified faded, lower two-thirds structured and precise. Horizontal module distribution for wide cover legibility.\nStyle medium: combine conceptual editorial illustration with minimalist line-art illustration sparse clean strokes ample negative space precise symbolic objects limited accent color.\nColor palette: deep gray-black linework warm orange accent for red-flag warnings light gray for faded surface layer cool white background.\nVisible text policy: allow only 3 short Chinese labels or number chips: '定义背诵' '4 轮面试' '11' '5 个坑'. No poster title no long sentences no English slogans.\nConstraints: no watermark no screenshots no dashboards no fake diagrams no fake charts.\nAvoid: code rain generic robots cyberpunk neon fake charts UI screenshots Q&A speech bubbles resume paper stacks."
+}
