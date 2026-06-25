@@ -1,0 +1,54 @@
+{
+  "article_title": "AI Loops 入门：什么是 Loop、什么时候该用、什么时候是个坑",
+  "cover_type": "tutorial",
+  "core_theme": "AI Loop 的概念、机制、适用边界与实操方法——从 DISCOVER 到 VERIFY 的完整迭代循环",
+  "reader_takeaway": "知道什么是 Loop，什么时候值得用，什么时候不该用，以及怎么在任意 LLM 里手搓一个自检循环",
+  "summary_angle": "把「手动推 AI → AI 自己循环迭代」的转变可视化：一条单向指令线变成一个带闸门的闭环循环",
+  "narrative_flow": "conflict-to-resolution",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "Most people still use AI one request at a time — you are the engine, AI is the tool",
+      "visual_idea": "一条断裂的单向线，箭头指向一个人形瓶颈",
+      "visible_label": "手动推一步",
+      "numeric_fact": null
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "DISCOVER → PLAN → EXECUTE → VERIFY → ITERATE 五点循环",
+      "visual_idea": "一个带齿轮感的闭环圆环，标注关键环节",
+      "visible_label": "闭环自迭代",
+      "numeric_fact": null
+    },
+    {
+      "role": "contrast",
+      "source_anchor": "Without a real check, the agent agrees with itself on repeat — Ralph Wiggum loop",
+      "visual_idea": "没有闸门的空洞循环 vs 有硬验证门槛的实心循环对照",
+      "visible_label": "Verify 是心脏",
+      "numeric_fact": null
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "Four criteria: task repeats weekly, auto-reject exists, agent does full job, done is objective",
+      "visual_idea": "一个决策关卡/四道判断门",
+      "visible_label": "四条自检",
+      "numeric_fact": "4"
+    }
+  ],
+  "main_metaphor": "一台版画印刷机的滚筒与压印结构——循环是滚筒，Verification 是压印时的硬门，pass/fail 是黑白分明",
+  "primary_subject": "一个由齿轮和滚筒组成的闭环机械装置，循环中的「验证闸门」像一把版画刻刀或印章压在输出上",
+  "subject_action": "机械装置正在旋转，输入从上方进入，经过齿轮循环后在闸门处要么通过、要么返回重来",
+  "composition": "单点聚焦——中央是闭环的滚筒/齿轮主结构，左右两侧可放置信息块作为辅助说明",
+  "base_style": "editorial technical illustration",
+  "selected_style": "黑白版画风",
+  "selected_style_prompt_descriptor": "black-and-white printmaking look, carved textures, bold shadows, high contrast, poster-like but no title text",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；Loops 的 Verify 核心逻辑与版画的锐利黑白对照高度契合，用高反差强化「通过/不通过」的二元判断隐喻",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["手动推一步", "闭环自迭代", "Verify 是心脏", "四条自检"],
+  "color_palette": ["纯黑", "纯白", "少量暖灰"],
+  "avoid": ["漂浮芯片", "霓虹高楼", "机器人站姿", "代码雨", "赛博朋克紫蓝光", "HUD 浮层", "假终端输出", "假架构图标签", "假仪表盘"],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮验证：主闭环滚筒 + Verify 闸门二元对照是否成立，黑白版画质感是否到位",
+  "revision_targets": ["如果滚筒/齿轮隐喻不够清楚，改回简洁圆环+箭头流程", "如果版画质感太素或太乱，收紧纹理密度", "如果信息块叠成海报，删到只剩 2-3 个并放大主焦点"],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: AI Loop concept — transforming manual one-shot prompting into autonomous self-iterating cycles with a hard verification gate. The reader should quickly feel the contrast between 'push the AI every step' and 'the AI runs the full loop on its own'.\n\nSummary angle: Show the shift from a broken one-way command line (manual prompting, human bottleneck) to a closed-loop cycle (DISCOVER → EXECUTE → VERIFY → ITERATE), with the Verify gate as the decisive pass/fail checkpoint.\nNarrative flow: conflict-to-resolution. In a 2.35:1 frame, keep one dominant focal subject and 2-4 supporting narrative beats. Each beat must map to the article's information blocks rather than generic decoration.\nInformation blocks:\n- Problem: a broken one-way arrow hitting a human-shaped bottleneck, labeled '手动推一步' in Chinese\n- Mechanism: a gear-like closed loop ring showing the iterative cycle, labeled '闭环自迭代' in Chinese\n- Contrast: a hollow loop without gate vs a solid loop with a hard Verify stamp, labeled 'Verify 是心脏' in Chinese\n- Takeaway: four decision gates or a checklist gate, labeled '四条自检' with number 4\n\nMain metaphor: a printmaking press roller mechanism — the loop is the rotating cylinder, Verification is the hard stamp/seal that marks pass or fail, black and white represent the binary judgment.\nSubject: a mechanical closed-loop device made of gears and rollers, with a verification stamp/gate pressing down on the output stream. Input enters from top, cycles through gears, and either passes through the gate or returns for another iteration.\nComposition/framing: single focal center — the loop roller/gear mechanism in the middle, with supporting information beats placed left and right as callout chips. Prefer horizontal storytelling that stays legible in a wide cover.\nStyle/medium: combine editorial technical illustration with the selected visual style descriptor: black-and-white printmaking look, carved textures, bold shadows, high contrast, poster-like but no title text. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: pure black, pure white, warm gray accents.\nVisible text policy: allow only 3-4 short Chinese labels or number chips, all sourced from the information blocks. Each label <= 6 Chinese characters. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: floating chips, neon skylines, robot standing poses, code rain, cyberpunk purple-blue light, HUD overlays, fake terminal output, fake architecture labels, fake dashboards."
+}
