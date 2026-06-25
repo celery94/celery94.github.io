@@ -1,0 +1,47 @@
+{
+  "article_title": "Loop Engineering 入门：构建自主 AI Agent 循环的四个核心难题",
+  "cover_type": "tutorial",
+  "core_theme": "Loop Engineering 作为一门工程学科——四个核心难题（终止条件、上下文腐烂、工具设计、验证机制）和五步构建路线",
+  "reader_takeaway": "理解 Loop 工程化的四个最难点并知道怎么应对，能按五步法从零开始构建自主循环",
+  "summary_angle": "把「人推 agent → agent 自己循环」的过渡做成四道关卡+一条通关路线的视觉叙事",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "Four hard parts: stop condition, context rot, usable tools, something that says no",
+      "visual_idea": "四道障碍/关卡门，每道代表一个难题",
+      "visible_label": "四道硬坎",
+      "numeric_fact": "4"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "Agent = Model + Harness, while True loop at the core",
+      "visual_idea": "一个Q版机器人在齿轮循环中运行",
+      "visible_label": "Model + Harness",
+      "numeric_fact": null
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "Five steps to start: basic loop, define done, protect context, audit tools, add critic",
+      "visual_idea": "五级阶梯从基础到完全自主",
+      "visible_label": "五步起步",
+      "numeric_fact": "5"
+    }
+  ],
+  "main_metaphor": "一个Q版小人（工程师）在设计和调试一台循环机器——四道关卡门和一条通关阶梯代表工程挑战",
+  "primary_subject": "一个Q版 chibi 风格的小工程师角色，站在一个环形齿轮装置旁边，面前是四道标注的关卡门",
+  "subject_action": "工程师检查着齿轮循环，面对四道关卡的考验",
+  "composition": "单点聚焦——中央是Q版工程师+齿轮循环，左右放关卡和通关信息块",
+  "base_style": "editorial technical illustration",
+  "selected_style": "Q版 Chibi 风",
+  "selected_style_prompt_descriptor": "chibi character illustration, small cute proportions, simplified expressions, playful shapes, clear infographic readability",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；Q版角色降低工程概念的视觉压迫感，用可爱小人喻指 engineer 与自主循环系统的关系",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["四道硬坎", "Model + Harness", "五步起步"],
+  "color_palette": ["柔和暖橙", "奶油黄", "淡蓝灰"],
+  "avoid": ["漂浮芯片", "霓虹高楼", "机器人站姿", "代码雨", "赛博朋克紫蓝光", "HUD 浮层", "假终端输出", "假架构图标签", "假仪表盘"],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮验证：Q版工程师+齿轮循环+四道关卡的信息结构是否清晰，chibi 风格是否可爱但不幼稚",
+  "revision_targets": ["如果角色太幼稚削弱了工程感，收紧角色比例增加 technical props", "如果信息块叠成海报，删到 2-3 个并放大主焦点", "如果关卡门隐喻不够清楚，改用简洁的 progress bar/checklist"],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration. Theme: Loop Engineering — the discipline of building autonomous AI agent loops. The reader should feel that building a reliable agent loop involves solving four hard engineering problems, and a clear 5-step path leads to success.\n\nSummary angle: Show a chibi-style engineer character working on a gear-loop machine, facing four challenge gates, with a 5-step ladder leading upward. The contrast is between 'one-shot prompting' (broken) and 'engineered autonomous loop' (running).\nNarrative flow: 3-beat process — the basic loop mechanism, the four hard challenges, the five-step path to mastery. In a 2.35:1 frame, keep one dominant focal subject and 2-3 supporting narrative beats.\nInformation blocks:\n- Problem: four gate-like challenge markers representing the four hard parts, labeled '四道硬坎' with number 4\n- Mechanism: a chibi robot inside a gear-loop circle, labeled 'Model + Harness'\n- Takeaway: a 5-step ladder from basic to autonomous, labeled '五步起步' with number 5\n\nMain metaphor: a chibi engineer character designing and debugging a loop machine — four challenge gates and a 5-step ladder represent the engineering discipline.\nSubject: a chibi-style small engineer character standing next to a circular gear-loop device, facing four labeled challenge gates and a 5-step ladder.\nSubject action: the engineer inspects the gear loop, facing the four challenge gates as tests to overcome.\nComposition/framing: single focal center — the chibi engineer and gear loop in the middle, challenge gates and steps ladder placed left and right as supporting callout chips. horizontal storytelling, wide cover.\nStyle/medium: combine editorial technical illustration with the selected visual style descriptor: chibi character illustration, small cute proportions, simplified expressions, playful shapes, clear infographic readability. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: soft warm orange, cream yellow, pale blue-gray.\nVisible text policy: allow only 3 short Chinese labels or number chips, all sourced from the information blocks. Each label <= 6 Chinese characters or one required product name. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: floating chips, neon skylines, robot standing poses, code rain, cyberpunk purple-blue light, HUD overlays, fake terminal output, fake architecture labels, fake dashboards."
+}
