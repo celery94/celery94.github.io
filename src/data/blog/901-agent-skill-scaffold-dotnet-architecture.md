@@ -1,7 +1,7 @@
 ---
 pubDatetime: 2026-06-26T07:18:14+08:00
 title: "用 Agent Skill 固化架构规范：从纠正 AI 到自己动手建一个 Scaffold 技能"
-description: "AI 编程助手默认生成的是"平均化"的代码——用 Controller 而不是 Minimal API，引 Swagger 而不是 Scalar。与其每次纠正，不如把项目规范写进一个 Agent skill，一条命令产出符合你架构的完整垂直切片。这篇文章从零搭建一个 scaffold 技能，讲清楚它和项目规则、子 agent 的区别，以及什么时候值得做。"
+description: "AI 编程助手默认生成的是平均化的代码——用 Controller 而不是 Minimal API，引 Swagger 而不是 Scalar。与其每次纠正，不如把项目规范写进一个 Agent skill，一条命令产出符合你架构的完整垂直切片。这篇文章从零搭建一个 scaffold 技能，讲清楚它和项目规则、子 agent 的区别，以及什么时候值得做。"
 tags: ["Agent Skills", ".NET", "Vertical Slice", "Scaffolding", "AI Coding"]
 slug: "agent-skill-scaffold-dotnet-architecture"
 ogImage: "../../assets/901/01-cover.png"
