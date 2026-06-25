@@ -1,0 +1,60 @@
+{
+  "article_title": "用 Agent Skill 固化你的架构规范：从纠正 AI 到自己动手建一个 Scaffold 技能",
+  "cover_type": "tutorial",
+  "core_theme": "用 Agent skill 把项目编码规范写成一个可复用的指令文件，让 AI 每次都按你的架构产出一致性代码，而不是通用的教程模板",
+  "reader_takeaway": "理解 Agent skill 的核心价值与适用场景，能独立构建一个 scaffold 类型的自定义技能",
+  "summary_angle": "把「写约定 → 建技能 → 一键生成一致代码」压缩成一张可读的叙事封面",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "原文 'Why generic AI output never matches your codebase' 章节：AI 默认生成 controller 而项目用 minimal API，代码能编译但风格完全不对",
+      "visual_idea": "一个杂乱、风格不统一的代码碎片区域，散落着错误的 controller、Swagger 等标记",
+      "visible_label": "AI 乱写",
+      "numeric_fact": ""
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文 'Building the skill, step by step' 章节：在 .claude/skills/ 下创建 SKILL.md，写入架构约定",
+      "visual_idea": "一个展开的魔法卷轴/文档，上面写着架构规则（minimal API、Scalar、无 MediatR 等关键词简写）",
+      "visible_label": "写入约定",
+      "numeric_fact": ""
+    },
+    {
+      "role": "step",
+      "source_anchor": "原文 'Running it: /scaffold-feature Products' 章节：一条命令生成完整 vertical slice",
+      "visual_idea": "从卷轴中涌出整齐一致的代码模块（endpoint、handler、validator 等 6 个文件），排列有序",
+      "visible_label": "一键生成",
+      "numeric_fact": ""
+    }
+  ],
+  "main_metaphor": "一个童话风格的魔法建筑蓝图卷轴，打开后能自动「打印」出整齐划一的建筑模块——把「固化规范→自动产出」变成一本可读的故事书画面",
+  "primary_subject": "一个展开的大型魔法蓝图卷轴或工艺罗盘",
+  "subject_action": "卷轴展开后正在「产出」一排整齐一致的小型建筑模块（代表 .NET 代码切片），像童话工坊里的自动建造过程",
+  "composition": "居中主物体，左侧到右侧的斜向推进叙事",
+  "base_style": "editorial technical illustration",
+  "selected_style": "儿童童话风",
+  "selected_style_prompt_descriptor": "children's fairy-tale illustration, simple magical forms, friendly proportions, bright storybook palette, safe wonder",
+  "selected_style_reason": "随机选中（索引 38）；教程类内容用童话绘本的温暖亲和感降低技术门槛，用简化造型突出「规范→产出」的因果逻辑",
+  "style_safety_note": "使用泛儿童童话风格描述，不涉及特定绘本作者、工作室或品牌",
+  "allowed_visible_text": ["AI 乱写", "写入约定", "一键生成"],
+  "color_palette": ["暖金黄", "柔蓝", "奶油白", "柔绿"],
+  "avoid": [
+    "霓虹高楼",
+    "赛博朋克紫蓝光",
+    "漂浮芯片",
+    "代码雨",
+    "HUD 浮层",
+    "通用机器人",
+    "dashboard",
+    "假终端"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮先验证：主隐喻（童话蓝图卷轴）是否成立、三个信息块是否可读、童话风格是否与教程主题和谐",
+  "revision_targets": [
+    "如果童话感过强冲淡技术主题，加强卷轴和代码模块的结构感",
+    "如果信息块看不清，加大标注区域",
+    "如果构图太满，减少背景装饰元素"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: Using an agent skill to encode your coding conventions so AI produces consistent architecture-aligned code instead of generic tutorial templates. The reader should quickly feel they can build their own scaffolding skill.\n\nSummary angle: The journey from 'AI writes wrong code' to 'write conventions into a skill' to 'one command generates consistent code' compressed into a readable narrative cover.\nNarrative flow: 3-beat process. In a 2.35:1 frame, keep one dominant focal subject and 2-4 supporting narrative beats. Each beat must map to the article's information blocks rather than generic decoration.\nInformation blocks:\n- Problem: scattered, mismatched code fragments (wrong controllers, Swagger labels) on the left side, labeled with Chinese text\n- Mechanism: an open magical blueprint scroll showing architecture rules (tiny shorthand: minimal API, Scalar, no MediatR) in the center, labeled with Chinese text\n- Step: from the scroll emerge orderly, identical code modules (endpoint, handler, validator etc.) marching to the right, labeled with Chinese text\n\nMain metaphor: A fairy-tale style magical architectural blueprint scroll that produces identical well-structured building blocks, making the conventions-to-output logic feel like a storybook workshop.\nSubject: A large open magical blueprint scroll or craftsman compass, actively producing orderly code/structure blocks.\nComposition/framing: Centered main object with left-to-right diagonal narrative progression. Prefer horizontal storytelling that stays legible in a wide cover.\nStyle/medium: combine editorial technical illustration with the selected visual style descriptor: children's fairy-tale illustration, simple magical forms, friendly proportions, bright storybook palette, safe wonder. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: warm gold, soft blue, cream white, soft green.\nVisible text policy: allow only 3 short Chinese labels, each at most 6 Chinese characters. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: neon cityscapes, cyberpunk purple-blue glow, floating chips, code rain, HUD overlays, generic robots, dashboards, fake terminals."
+}
