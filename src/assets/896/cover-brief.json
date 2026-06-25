@@ -1,0 +1,64 @@
+{
+  "article_title": "30 道 EF Core 2026 面试真题：考官真正关心什么",
+  "cover_type": "analysis",
+  "core_theme": "EF Core 面试中的真实考察维度——从表面回答到深层机制理解",
+  "reader_takeaway": "知道 EF Core 面试官真正问什么、挂掉什么回答",
+  "summary_angle": "表面上问的是概念和语法，实际上考察的是变更追踪、查询翻译、生命周期——知道这个落差才能通过面试",
+  "narrative_flow": "layered reveal",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "EF Core interview questions are scenario questions, not definition checks — they reveal whether you've actually shipped data access",
+      "visual_idea": "表面层的简单问答（被划掉/变淡），暗示这些不够",
+      "visible_label": "概念定义",
+      "numeric_fact": ""
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "7 categories: DbContext lifetime, LINQ translation, loading strategies, N+1, migrations, change tracking, advanced",
+      "visual_idea": "深层机制的结构层浮现出来——变更追踪、SQL翻译、生命周期",
+      "visible_label": "底层机制",
+      "numeric_fact": "7"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "5 mistakes that get developers rejected: singleton DbContext, lazy loading in APIs, client vs server evaluation, EnsureCreated in production, forgetting await",
+      "visual_idea": "5 个红牌警示从表面层穿透到深层",
+      "visible_label": "5 个坑",
+      "numeric_fact": "5"
+    }
+  ],
+  "main_metaphor": "面试冰山——表面是简单问答，水下是深层机制考察",
+  "primary_subject": "一个分层透视的场景，上层是模糊的概念卡片（表面问答），下层是精密运转的数据库引擎结构（真正考察的机制）",
+  "subject_action": "穿透表面层，视线聚焦到深层机制：变更追踪器、SQL 翻译引擎、生命周期管理",
+  "composition": "上下分层（iceberg / layered reveal），上层简洁模糊，下层精密丰富",
+  "base_style": "conceptual editorial illustration",
+  "selected_style": "厚涂插画风",
+  "selected_style_prompt_descriptor": "painterly digital illustration, rich brushwork, volumetric lighting, strong focal contrast, textured color masses",
+  "selected_style_reason": "用户未指定风格，从 40 项风格池随机选中；面试评价这个主题适合用厚涂的体积感和对比度来表达'表面 vs 深层'的反差",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["概念定义", "底层机制", "7", "5 个坑"],
+  "color_palette": [
+    "深蓝灰（深层机制背景）",
+    "暖金（焦点/洞察亮区）",
+    "浅灰（表面层淡出）",
+    "象牙白底"
+  ],
+  "avoid": [
+    "代码雨",
+    "通用机器人",
+    "赛博朋克霓虹",
+    "假图表",
+    "UI截图",
+    "漂浮芯片",
+    "问答气泡"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮验证：冰山上层淡出+下层精密的分层构图是否成立，主体关系是否清晰",
+  "revision_targets": [
+    "如果上层概念卡片太抢戏，减弱不透明度和细节",
+    "如果下层引擎太复杂，聚焦 3 个核心机制可视化",
+    "如果厚涂体积感不够，增加局部光源和笔触纹理"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: EF Core interview evaluation — surface-level answers vs deep mechanism understanding. The reader should quickly feel that real interview success requires understanding the underlying engine, not just definitions.\n\nSummary angle: Interviewers ask about concepts but evaluate deep mechanisms (change tracker, query translation, lifecycle). Knowing this gap is what separates passing from failing.\nNarrative flow: layered reveal. In a 2.35:1 frame, keep one dominant focal subject (an iceberg/layered cross-section showing deep mechanisms) and 2-3 supporting narrative beats.\nInformation blocks:\n- problem: surface layer showing faded concept cards that are not enough. Label: '概念定义'.\n- mechanism: deep layer revealing the real evaluation target — change tracker, SQL translation engine, lifecycle patterns. Label: '底层机制'. Numeric: '7'.\n- takeaway: 5 red-flag items piercing through from surface to depth. Label: '5 个坑'. Numeric: '5'.\n\nMain metaphor: An interview iceberg — the visible surface is faded simple Q&A, beneath the surface is a precise technical engine being evaluated.\nSubject: A layered cross-section/iceberg scene. Upper layer shows blurry faded concept cards (surface Q&A). Lower layer reveals a precise, well-lit database engine structure (change tracker, SQL translator, lifecycle manager) — the real evaluation target.\nComposition/framing: vertical layer split (iceberg / top-bottom). Upper third simplified and fading, lower two-thirds detailed and richly lit. Prefer horizontal storytelling that stays legible in a wide cover.\nStyle/medium: combine conceptual editorial illustration with the selected visual style descriptor: painterly digital illustration, rich brushwork, volumetric lighting, strong focal contrast, textured color masses. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: deep blue-gray for the deep mechanism layer, warm golden light for focal highlights, light gray for faded surface layer, ivory/light background.\nVisible text policy: allow only 3 short Chinese labels or number chips: '概念定义', '底层机制', '7', '5 个坑'. No poster title, no long sentences, no English slogans, no fake UI labels.\nConstraints: no watermark, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics.\nAvoid: code rain, generic robots, cyberpunk neon, fake charts, UI screenshots, floating chips, Q&A speech bubbles."
+}
