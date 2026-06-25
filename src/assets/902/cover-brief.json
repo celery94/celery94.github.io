@@ -1,0 +1,62 @@
+{
+  "article_title": "Interpreter 模式最佳实践：让 C# 表达式解析代码干净且可维护",
+  "cover_type": "tutorial",
+  "core_theme": "Interpreter 模式在 C# 中的 7 条最佳实践——从文法设计、解析与求值分离、表达式树组织、缓存、错误处理到测试策略",
+  "reader_takeaway": "掌握 Interpreter 模式的工程化写法，避免文法膨胀后代码失控，能独立构建可维护的 DSL 或表达式求值器",
+  "summary_angle": "把「定义文法 → 分离解析 → 缓存复用 → 清晰报错」四条主线压缩成一张叙事封面",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "原文 Keep Grammars Simple 章节：文法不先定义清楚，表达式类会反映歧义，调试极其痛苦",
+      "visual_idea": "左侧杂乱、纠缠的代码块和问号，代表文法混乱",
+      "visible_label": "文法混乱",
+      "numeric_fact": ""
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文 Separate Parsing from Interpretation 章节：解析器负责输入→表达式树，表达式只负责求值",
+      "visual_idea": "中央一个解析引擎/结构，把乱码转成清晰的树状结构",
+      "visible_label": "解析与求值分离",
+      "numeric_fact": ""
+    },
+    {
+      "role": "step",
+      "source_anchor": "原文多个章节综合：缓存、错误定位、测试策略、项目结构",
+      "visual_idea": "右侧整齐的模块化代码块，有缓存标记、测试标记、清晰错误提示",
+      "visible_label": "可维护可扩展",
+      "numeric_fact": ""
+    }
+  ],
+  "main_metaphor": "一个超级英雄式的「代码整理者」——一个强大的解析引擎把混乱的输入转成结构化的表达式树，像漫画英雄把混乱扭转为秩序",
+  "primary_subject": "一个强大的中央解析引擎/结构体，正在将左侧杂乱输入转成右侧整齐的树状输出",
+  "subject_action": "主动接收混乱的文本/符号，输出整齐排列的表达式树节点",
+  "composition": "居中主物体，左侧到右侧的横向推进叙事",
+  "base_style": "editorial technical illustration",
+  "selected_style": "美漫超级英雄风",
+  "selected_style_prompt_descriptor": "American superhero-comic energy, bold outlines, halftone texture, dramatic perspective, high-contrast color blocking",
+  "selected_style_reason": "随机选中（索引 9）；教程类最佳实践内容用超级英雄漫画的强烈动线和对比来突出「混乱→秩序」的转变",
+  "style_safety_note": "使用泛美漫超级英雄风格描述，不涉及特定漫画品牌、角色或艺术家",
+  "allowed_visible_text": ["文法混乱", "解析与求值分离", "可维护可扩展"],
+  "color_palette": ["深蓝", "亮红", "金黄", "白"],
+  "avoid": [
+    "霓虹高楼",
+    "赛博朋克紫蓝光",
+    "漂浮芯片",
+    "代码雨",
+    "HUD 浮层",
+    "通用机器人",
+    "dashboard",
+    "假终端",
+    "假图表",
+    "水印"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮先验证：主隐喻（代码整理引擎）是否成立、三个信息块是否可读、美漫风格是否与教程主题和谐",
+  "revision_targets": [
+    "如果漫画感过强冲淡技术主题，加强解析引擎的结构感",
+    "如果信息块看不清，加大标注区域",
+    "如果构图太满，简化背景"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: Interpreter pattern best practices in C# - how to keep expression parsing code clean and maintainable through grammar design, parsing/interpretation separation, caching, and error handling. The reader should quickly feel they can build a maintainable DSL or expression evaluator.\n\nSummary angle: The journey from 'messy grammar causes chaos' to 'separated parsing + caching + clear error messages = maintainable interpreter' compressed into a readable narrative cover.\nNarrative flow: 3-beat process. In a 2.35:1 frame, keep one dominant focal subject and 2-4 supporting narrative beats.\nInformation blocks:\n- Problem: tangled messy code fragments and question marks on the left side, representing grammar ambiguity, labeled with short Chinese text\n- Mechanism: a central powerful parsing engine/structure in the middle, transforming chaotic input into a clean expression tree, labeled with short Chinese text\n- Step: clean modular code blocks with test checkmarks, cache indicators, and clear error callouts on the right side, labeled with short Chinese text\n\nMain metaphor: A superhero-comic style code organizer - a powerful parsing engine that transforms messy input into structured expression trees, like a comic hero turning chaos into order.\nSubject: A large central parsing/interpretation engine structure, actively receiving messy symbols on the left and outputting ordered tree nodes on the right.\nComposition/framing: Centered main subject with left-to-right horizontal narrative progression. Keep one dominant focal point with 2-3 supporting beats.\nStyle/medium: combine editorial technical illustration with the selected visual style descriptor: American superhero-comic energy, bold outlines, halftone texture, dramatic perspective, high-contrast color blocking. Stylized, polished, editorial, visually strong. Do not imitate a specific brand, studio, or living artist.\nColor palette: deep blue, bright red, gold, white.\nVisible text policy: allow only 3 short Chinese labels, each at most 6 Chinese characters. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: neon cityscapes, cyberpunk purple-blue glow, floating chips, code rain, HUD overlays, generic robots, dashboards, fake terminals, fake charts."
+}
