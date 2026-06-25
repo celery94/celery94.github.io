@@ -1,7 +1,7 @@
 ---
 pubDatetime: 2026-06-25T12:13:45+08:00
 title: "30 道 EF Core 2026 面试真题：考官真正关心什么"
-description: "2026 年的 EF Core 面试不再考"什么是 ORM"，而是场景题：查询返回 200 行却跑了 201 条 SQL、迁移在生产环境挂掉、后台任务因为多线程共用 DbContext 报错。本文梳理 30 道高频 EF Core 面试题，按考察维度分类，附带红牌答案和经典追问。"
+description: "2026 年的 EF Core 面试不再考什么是 ORM，而是场景题：查询返回 200 行却跑了 201 条 SQL、迁移在生产环境挂掉、后台任务因为多线程共用 DbContext 报错。本文梳理 30 道高频 EF Core 面试题，按考察维度分类，附带红牌答案和经典追问。"
 tags: ["C#", "EF Core", "Interview", ".NET", "LINQ", "Change Tracking"]
 slug: "ef-core-interview-questions-2026"
 ogImage: "../../assets/896/01-cover.png"
