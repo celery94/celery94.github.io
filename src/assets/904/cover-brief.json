@@ -1,0 +1,62 @@
+{
+  "article_title": "一位资深 .NET 开发者的 20+ 条实战建议：从 DI、Async 到 EF Core 优化",
+  "cover_type": "analysis",
+  "core_theme": "20+ 条来自生产环境的 .NET 10 实战建议，覆盖依赖注入、异步编程、EF Core 优化、CancellationToken、缓存、安全、异常处理等核心领域",
+  "reader_takeaway": "获得一份可随时查阅的 .NET 最佳实践清单，每条建议都有 bad/good 代码对比和作者的真实生产判断",
+  "summary_angle": "把「踩坑 → 总结 → 形成最佳实践」的资深开发者经验沉淀做成一张叙事封面",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "原文开头：debug 凌晨两点的 bug、与混乱的遗留代码斗争、从错误中学习",
+      "visual_idea": "左侧混乱的齿轮和故障部件，代表踩过的坑",
+      "visible_label": "踩坑",
+      "numeric_fact": ""
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文 21 条建议：DI、async、EF Core、CancellationToken、缓存等",
+      "visual_idea": "中央精密的齿轮组/机械结构，每个齿轮代表一条最佳实践",
+      "visible_label": "最佳实践",
+      "numeric_fact": "20+"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文 Key Takeaways：DI 和 async 影响最大、AsNoTracking 2x 提速、HybridCache 是 .NET 10 默认缓存",
+      "visual_idea": "右侧流畅运转的精密机器，产出干净高效的代码",
+      "visible_label": "生产级代码",
+      "numeric_fact": ""
+    }
+  ],
+  "main_metaphor": "一个蒸汽朋克风格的精密工坊——混乱的零件经过经验丰富的匠人之手，变成有序运转的齿轮系统",
+  "primary_subject": "一个由多个齿轮和机械零件组成的精密工坊引擎",
+  "subject_action": "从左侧散落的零件/故障状态，经过中央齿轮组（最佳实践）的整合，变成右侧流畅运转的精密机器",
+  "composition": "居中主结构，左右两侧的 before-after 对比",
+  "base_style": "conceptual editorial illustration",
+  "selected_style": "蒸汽朋克风",
+  "selected_style_prompt_descriptor": "steampunk adventure illustration, brass mechanisms, gears, goggles, warm industrial light, handcrafted machinery",
+  "selected_style_reason": "随机选中（索引 12）；资深开发者的经验沉淀像匠人的手工艺知识，蒸汽朋克的齿轮机构天然适合表达「实践经验形成精密系统」的隐喻",
+  "style_safety_note": "使用泛蒸汽朋克风格描述，不涉及特定作品或设计师",
+  "allowed_visible_text": ["踩坑", "最佳实践", "20+"],
+  "color_palette": ["黄铜金", "古铜棕", "暖琥珀光", "深铁灰"],
+  "avoid": [
+    "霓虹高楼",
+    "赛博朋克紫蓝光",
+    "漂浮芯片",
+    "代码雨",
+    "HUD 浮层",
+    "通用机器人",
+    "dashboard",
+    "假终端",
+    "假图表",
+    "水印"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮验证：蒸汽朋克工坊隐喻是否成立、20+ 数字是否可见、before-after 对比是否清晰",
+  "revision_targets": [
+    "如果蒸汽朋克元素过密，简化齿轮密度",
+    "如果数字 '20+' 看不清，放大标注",
+    "如果构图太满，减少背景机械"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide infographic-story cover illustration summarizing 20+ battle-tested .NET best practices from a senior developer - covering DI, async, EF Core optimization, cancellation tokens, caching, security, and more. The reader should feel they're getting hard-won production wisdom.\n\nSummary angle: From 'stepping on landmines' to 'distilling best practices' to 'production-grade code' compressed into a readable cover.\nNarrative flow: 3-beat before-after process. In a 2.35:1 frame, keep one dominant focal subject and 2-3 supporting beats.\nInformation blocks:\n- Problem: scattered broken gears and malfunctioning parts on the left, representing painful lessons learned, labeled with short Chinese text\n- Mechanism: a central intricate gear system where each gear represents a best practice (DI, async, EF Core, caching, etc.), with a visible '20+' number, labeled with short Chinese text\n- Takeaway: a smoothly running precision machine on the right producing clean efficient output, labeled with short Chinese text\n\nMain metaphor: A steampunk-style craftsman workshop - chaotic parts transformed by experienced hands into an orderly running gear system.\nSubject: A precision workshop engine made of multiple brass gears and mechanical components.\nComposition/framing: Centered main structure with left-to-right before-after contrast. Keep one dominant focal point.\nStyle/medium: combine conceptual editorial illustration with the selected visual style descriptor: steampunk adventure illustration, brass mechanisms, gears, goggles, warm industrial light, handcrafted machinery. Stylized, polished, editorial. Do not imitate a specific brand, studio, or living artist.\nColor palette: brass gold, bronze brown, warm amber light, dark iron gray.\nVisible text policy: allow only 3 short Chinese labels plus one numeric fact '20+'. No poster title, no long sentences, no English slogans.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output.\nAvoid: neon cityscapes, cyberpunk purple-blue glow, floating chips, code rain, HUD overlays, generic robots, dashboards, fake terminals, fake charts."
+}
