@@ -1,0 +1,54 @@
+{
+  "article_title": "EF Core vs Dapper：.NET 数据访问怎么选",
+  "cover_type": "analysis",
+  "core_theme": "EF Core 和 Dapper 不是谁比谁好——它们解决不同抽象层级的问题。文章从性能、查询控制、迁移、学习曲线等维度对比，给出决策矩阵和混合使用模式",
+  "reader_takeaway": "获得一个清晰的决策框架：根据项目场景（CRUD、报表、遗留库、复杂领域模型）选出合适的工具或组合",
+  "summary_angle": "把「EF Core 擅长领域模型 → Dapper 擅长 SQL 控制 → 混合使用两全其美」做成对照式封面",
+  "narrative_flow": "conflict-to-resolution",
+  "information_blocks": [
+    {
+      "role": "contrast",
+      "source_anchor": "原文 feature comparison table 和 code comparison：EF Core 自动生成 SQL + 迁移 + 变更追踪 vs Dapper 手写 SQL + 零开销",
+      "visual_idea": "左侧代表 EF Core（高抽象、自动化），右侧代表 Dapper（直接、SQL 控制）",
+      "visible_label": "ORM vs Micro-ORM",
+      "numeric_fact": ""
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文 hybrid approach 和 decision matrix：EF Core 管写入 + Dapper 管读取，共享连接",
+      "visual_idea": "中央一个融合的「工具箱」，里面 EF 和 Dapper 各司其职",
+      "visible_label": "各用所长",
+      "numeric_fact": ""
+    }
+  ],
+  "main_metaphor": "一个卡通风格的工具箱对决——EF Core 是一把多功能瑞士军刀（啥都能干但有点重），Dapper 是一把锋利的手术刀（只干一件事但极致快），两者可以放进同一个工具箱",
+  "primary_subject": "一个分成两半的工具箱或工作台，左边放大而全的 EF Core 工具，右边放小而精的 Dapper 工具",
+  "subject_action": "两个工具从对立到协作，最终放入同一个工具箱",
+  "composition": "左右对照，中间汇聚",
+  "base_style": "conceptual editorial illustration",
+  "selected_style": "美式卡通风",
+  "selected_style_prompt_descriptor": "American cartoon illustration, elastic shapes, clear expressions, bold color fields, light comedic timing",
+  "selected_style_reason": "随机选中（索引 20）；工具对比类内容用卡通风格的夸张对照和明快配色来降低选择焦虑，让「二选一变成各取所长」的结论更易接受",
+  "style_safety_note": "使用泛美式卡通风格描述，不涉及特定作品或角色",
+  "allowed_visible_text": ["ORM", "Micro-ORM", "各用所长"],
+  "color_palette": ["蓝紫", "橙红", "白", "深灰"],
+  "avoid": [
+    "霓虹高楼",
+    "赛博朋克紫蓝光",
+    "漂浮芯片",
+    "代码雨",
+    "HUD 浮层",
+    "通用机器人",
+    "dashboard",
+    "假终端",
+    "假图表",
+    "水印"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮验证：左右对照构图是否清晰、两个工具的视觉区分是否明显",
+  "revision_targets": [
+    "如果左右区分不够，加强颜色对比",
+    "如果卡通感过强，稍微收敛夸张程度"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide infographic-story cover comparing EF Core vs Dapper in .NET - two data access tools with different philosophies. EF Core is the full-featured ORM, Dapper is the lightweight micro-ORM. The conclusion: use both where each shines - EF Core for writes/domain, Dapper for reads/reporting.\n\nSummary angle: From 'ORM vs Micro-ORM confrontation' to 'each has its strengths, use both' resolved into a readable cover.\nNarrative flow: conflict-to-resolution. Two sides that converge into one toolbox.\nInformation blocks:\n- Contrast: left side representing EF Core (high abstraction, automated), right side representing Dapper (direct SQL control, minimal overhead), labeled with short labels\n- Takeaway: a central unified toolbox where both tools coexist harmoniously, labeled with short Chinese text\n\nMain metaphor: A cartoon-style toolbox showdown - EF Core as a versatile Swiss army knife (does everything but heavier), Dapper as a precise scalpel (does one thing extremely well) - both belong in the same toolbox.\nSubject: A split workbench or toolbox, left side showing EF Core's comprehensive tools, right side showing Dapper's focused precision tool.\nComposition/framing: Left-right contrast converging to center. Keep one dominant focal point.\nStyle/medium: combine conceptual editorial illustration with American cartoon illustration, elastic shapes, clear expressions, bold color fields, light comedic timing. Stylized, polished, editorial. Do not imitate a specific brand, studio, or living artist.\nColor palette: blue-purple, orange-red, white, dark gray.\nVisible text policy: allow only 3 short labels. No poster title, no long sentences, no English slogans.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake terminals.\nAvoid: neon cityscapes, cyberpunk, floating chips, code rain, HUD, robots, dashboards, fake terminals, fake charts."
+}
