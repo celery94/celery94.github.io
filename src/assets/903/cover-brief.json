@@ -1,0 +1,62 @@
+{
+  "article_title": "Vertical Slice Architecture 生产落地指南：.NET 项目结构的最佳布局",
+  "cover_type": "architecture",
+  "core_theme": "Vertical Slice Architecture 按 feature 而非技术层组织 .NET 项目，每个切片自包含 Endpoint、Handler、Mapping、Validators 四个文件，通过 marker 接口自动注册",
+  "reader_takeaway": "获得一个可直接复用的 VSA 项目布局模板，理解切片内部结构、模块间通信和自动注册机制",
+  "summary_angle": "把「传统分层混乱 → 按 feature 切片 → 自动注册」做成一张结构化叙事封面",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "原文开头：传统分层项目改一个 feature 要跨三四个文件夹跳来跳去",
+      "visual_idea": "左侧凌乱的文件夹结构，Controllers、Services、Repositories 分散在不同位置",
+      "visible_label": "跨层跳转",
+      "numeric_fact": ""
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文 VSA 结构：每个 feature 一个文件夹，4 个文件（Endpoint、Handler、Mapping、Validators）",
+      "visual_idea": "中央整齐的切片结构，每个切片是一个自包含模块",
+      "visible_label": "按 Feature 组织",
+      "numeric_fact": ""
+    },
+    {
+      "role": "step",
+      "source_anchor": "原文 Automatic Registration 章节：marker 接口 + assembly scanning 自动注册",
+      "visual_idea": "右侧所有切片通过 marker 接口自动汇聚注册到应用",
+      "visible_label": "自动注册",
+      "numeric_fact": ""
+    }
+  ],
+  "main_metaphor": "一个校园风格的建筑群——传统分层的混乱教学楼被重组为按学科（feature）自包含的学院楼，每栋楼内部职能齐全",
+  "primary_subject": "一组按功能排列的模块化建筑/代码模块，每栋楼内部结构清晰可见",
+  "subject_action": "从左侧分散的碎片建筑重组为右侧整齐的模块化建筑群，通过统一的路径/接口连接",
+  "composition": "居中主结构，从左到右的重组叙事推进",
+  "base_style": "isometric conceptual systems scene",
+  "selected_style": "校园恋爱风",
+  "selected_style_prompt_descriptor": "youthful campus romance illustration, clean school-life setting, soft backlight, subtle emotional gestures, fresh color palette",
+  "selected_style_reason": "随机选中（索引 5）；架构组织类内容用清新的校园场景来比喻「按 feature 重新组织项目结构」，降低架构话题的距离感",
+  "style_safety_note": "使用泛校园风格描述，不涉及特定作品或作者",
+  "allowed_visible_text": ["跨层跳转", "按 Feature 组织", "自动注册"],
+  "color_palette": ["柔蓝", "樱花粉", "奶油白", "清新绿"],
+  "avoid": [
+    "霓虹高楼",
+    "赛博朋克紫蓝光",
+    "漂浮芯片",
+    "代码雨",
+    "HUD 浮层",
+    "通用机器人",
+    "dashboard",
+    "假终端",
+    "假图表",
+    "水印"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮验证：校园隐喻是否成立、三个信息块是否可读、isometric 构图是否清晰",
+  "revision_targets": [
+    "如果校园感过强冲淡架构主题，加强模块化结构感",
+    "如果信息块看不清，放大标注",
+    "如果等距透视变形，简化构图"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide infographic-story cover illustration that summarizes the article. Theme: Vertical Slice Architecture in .NET - organizing projects by feature instead of technical layers, with each slice being a self-contained folder containing Endpoint, Handler, Mapping, and Validators. The reader should feel they can adopt this production layout immediately.\n\nSummary angle: The journey from 'scattered cross-layer folders' to 'self-contained feature slices' to 'auto-registration via marker interfaces' compressed into a readable cover.\nNarrative flow: 3-beat process. In a 2.35:1 frame, keep one dominant focal subject and 2-3 supporting beats.\nInformation blocks:\n- Problem: scattered messy folder structures on the left (Controllers, Services, Repositories spread apart), labeled with short Chinese text\n- Mechanism: clean organized feature slices in the center, each a self-contained module, labeled with short Chinese text\n- Step: all slices connecting to auto-registration hub on the right, labeled with short Chinese text\n\nMain metaphor: A campus-style architectural complex - chaotic old buildings reorganized into self-contained department buildings, each with complete internal functions.\nSubject: A set of modular buildings/code modules arranged by feature, with clear internal structure visible.\nComposition/framing: Centered main structure with left-to-right reorganization narrative. Keep one dominant focal point.\nStyle/medium: combine isometric conceptual systems scene with the selected visual style descriptor: youthful campus romance illustration, clean school-life setting, soft backlight, subtle emotional gestures, fresh color palette. Stylized, polished, editorial. Do not imitate a specific brand, studio, or living artist.\nColor palette: soft blue, sakura pink, cream white, fresh green.\nVisible text policy: allow only 3 short Chinese labels, each at most 6 Chinese characters. No poster title, no long sentences, no English slogans.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics.\nAvoid: neon cityscapes, cyberpunk purple-blue glow, floating chips, code rain, HUD overlays, generic robots, dashboards, fake terminals, fake charts."
+}
