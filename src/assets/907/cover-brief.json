@@ -1,0 +1,54 @@
+{
+  "article_title": "30 道 LINQ 面试题：2026 年真实会被问到的那些",
+  "cover_type": "tutorial",
+  "core_theme": "30 道 LINQ 面试题覆盖延迟执行、IQueryable vs IEnumerable、表达式树、现代 .NET 9/10 运算符和 EF Core 实战，每道题都包含好回答和会挂的回答",
+  "reader_takeaway": "理解 LINQ 查询什么时候执行、在哪里执行（内存还是数据库），知道面试中什么回答会过关什么会挂",
+  "summary_angle": "从「知道 LINQ 语法」到「理解 LINQ 编译成什么」的面试进阶路径",
+  "narrative_flow": "before-after",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "原文引言：只链式调用直到结果对 vs 理解编译机制",
+      "visual_idea": "左侧散落的语法碎片（Where/Select/GroupBy），似懂非懂",
+      "visible_label": "只知语法",
+      "numeric_fact": ""
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文「Execution Model」节：延迟执行通过 yield return 和表达式树实现",
+      "visual_idea": "中央一个「执行引擎」或流程图：IEnumerable 懒惰迭代器 + IQueryable 表达式树变 SQL",
+      "visible_label": "延迟执行",
+      "numeric_fact": ""
+    },
+    {
+      "role": "contrast",
+      "source_anchor": "原文「IEnumerable vs IQueryable」节：6 个类别 30 道题覆盖从基础到性能",
+      "visual_idea": "右侧 6 个层级递进的模块或卡片：基础 → 执行模型 → IEn vs IQ → 运算符 → 性能 → EF Core",
+      "visible_label": "6 类 30 题",
+      "numeric_fact": "30"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文「Key Takeaways」和「5 Mistakes」节",
+      "visual_idea": "右下角一个对勾/通过的符号，暗示面试准备完备",
+      "visible_label": ".NET 10",
+      "numeric_fact": ""
+    }
+  ],
+  "main_metaphor": "面试阶梯/跑道：从左侧碎片化的语法知识，经过中间的执行模型理解，到达右侧 6 个类别 30 道题的完整准备",
+  "primary_subject": "一个递进的路径或阶梯结构，从碎片语法通向完整面试准备",
+  "subject_action": "路径从左侧碎片状态推进到右侧结构化的知识体系",
+  "composition": "居中主路径，左侧问题 → 中央机制 → 右侧结构化解决方案，水平递进",
+  "base_style": "editorial technical illustration",
+  "selected_style": "校园恋爱风",
+  "selected_style_prompt_descriptor": "youthful campus romance illustration, clean school-life setting, soft backlight, subtle emotional gestures, fresh color palette",
+  "selected_style_reason": "用户未指定风格，从 40 项风格池随机选中（#6）；用校园场景的「学习/备考」氛围呼应面试准备主题",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["只知语法", "延迟执行", "6 类 30 题", ".NET 10"],
+  "color_palette": ["柔和天蓝", "暖白", "淡珊瑚", "浅草绿"],
+  "avoid": ["代码雨", "假终端", "假 dashboard", "赛博朋克紫蓝光", "漂浮芯片", "霓虹高楼"],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证左侧碎片/中间机制/右侧结构化的三段布局是否可读",
+  "revision_targets": ["执行模型机制的视觉表达", "6 类 30 题的层级清晰度", "校园风格与编程主题的融合"],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration. Theme: 30 LINQ interview questions covering deferred execution, IEnumerable vs IQueryable, expression trees, modern .NET 9/10 operators, and EF Core scenarios. The reader should quickly feel the path from superficial syntax knowledge to deep understanding of how LINQ compiles and executes.\n\nSummary angle: The interview preparation journey from only knowing LINQ syntax to understanding the compilation mechanism, execution model, and database translation.\nNarrative flow: before-after. In a 2.35:1 frame, keep one dominant focal subject and 2-4 supporting narrative beats.\nInformation blocks:\n- Problem: Scattered LINQ syntax fragments on the left side (Where/Select/GroupBy pieces), labeled 「只知语法」\n- Mechanism: Central execution engine or flow diagram showing IEnumerable lazy iterators and IQueryable expression trees transforming into SQL, labeled 「延迟执行」\n- Contrast: Right side with 6 tiered modules/cards showing the interview categories progression: basics → execution → IEn vs IQ → operators → performance → EF Core, labeled 「6 类 30 题」 with number 30\n- Takeaway: A checkmark/pass symbol at bottom right indicating complete interview readiness, labeled 「.NET 10」\n\nMain metaphor: An interview preparation staircase/runway from fragmented syntax knowledge on the left through execution model understanding in the center to structured 6-category mastery on the right.\nSubject: A progressive path or staircase structure from fragmented syntax toward structured interview readiness.\nComposition: Central path, left problem → center mechanism → right structured solution, horizontal progression.\nStyle/medium: combine editorial technical illustration with youthful campus romance illustration, clean school-life setting, soft backlight, subtle emotional gestures, fresh color palette. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: soft sky blue, warm white, light coral, pale grass green.\nVisible text policy: allow only 4 short Chinese labels or number chips sourced from the information blocks. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: code rain, fake terminals, fake dashboards, cyberpunk purple-blue light pollution, floating chips, neon skyscrapers."
+}
