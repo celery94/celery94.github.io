@@ -1,0 +1,54 @@
+{
+  "article_title": "多智能体 A2A 系统中的上下文传递：三种方案对比",
+  "cover_type": "architecture",
+  "core_theme": "在 A2A 协议下，多智能体系统如何在无共享基础设施的微服务架构中传递对话上下文，三种方案的取舍与选择",
+  "reader_takeaway": "理解共享存储、内嵌上下文、每智能体状态存储三种上下文传递方案的适用场景和权衡，做出符合架构约束的选择",
+  "summary_angle": "三种上下文传递方案的对比：从「共享存储违背服务边界」到「内嵌上下文保持无状态」再到「每智能体存储引入运维开销」的决策路径",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "原文「The Challenge」节：多智能体系统拆分后对话上下文如何跨越无共享基础设施的服务边界",
+      "visual_idea": "左侧两个独立部署的 agent 之间有一条断裂的上下文连线",
+      "visible_label": "上下文断裂",
+      "numeric_fact": ""
+    },
+    {
+      "role": "contrast",
+      "source_anchor": "原文「Three Approaches」节：共享存储 / 内嵌上下文 / 每智能体存储",
+      "visual_idea": "中央三条分叉路径或三个并列的盒子，分别代表三种方案",
+      "visible_label": "3 种方案",
+      "numeric_fact": "3"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文「Embedded Context」节：coordinator 将摘要上下文嵌入 message payload，domain agent 无状态接收",
+      "visual_idea": "coordinator 节点向 domain agent 节点发送包裹了上下文的 message",
+      "visible_label": "内嵌上下文",
+      "numeric_fact": "10轮"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文「Trade-offs」矩阵和结论",
+      "visual_idea": "一个决策矩阵或流程图，指向推荐方案",
+      "visible_label": "无状态优先",
+      "numeric_fact": ""
+    }
+  ],
+  "main_metaphor": "消息快递系统：coordinator 是发送方，把上下文打包进信封（message payload），domain agent 是接收方，只拆开信封读取而不需要访问外部存储",
+  "primary_subject": "一个协调节点（coordinator）向一个领域智能体（domain agent）发送带上下文包裹的消息",
+  "subject_action": "协调节点正在打包上下文并将其嵌入消息中发送给无状态的领域智能体",
+  "composition": "左右结构：左侧 coordinator 打包 → 中间消息管道 → 右侧 domain agent 接收处理",
+  "base_style": "isometric conceptual systems scene",
+  "selected_style": "儿童童话风",
+  "selected_style_prompt_descriptor": "children's fairy-tale illustration, simple magical forms, friendly proportions, bright storybook palette, safe wonder",
+  "selected_style_reason": "用户未指定风格，从 40 项风格池随机选中（#40）；童话风格可以软化架构对比文章的技术冷感，用亲切的「信使传递消息」隐喻表达 agent 间通信",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["上下文断裂", "3 种方案", "内嵌上下文", "无状态优先"],
+  "color_palette": ["温暖蜜橘", "柔和天蓝", "奶油白", "淡草绿"],
+  "avoid": ["假终端", "假 dashboard", "代码雨", "赛博朋克紫蓝光", "漂浮芯片", "霓虹高楼", "HUD 浮层"],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证 coordinator→message→domain agent 的三段通信结构是否清楚",
+  "revision_targets": ["agent 间消息传递的可读性", "童话风格与架构主题的融合", "内嵌上下文的视觉表达"],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide infographic-story cover illustration. Theme: Passing context between agents in multi-agent A2A systems — three approaches compared. Summary angle: From broken context across microservice boundaries to the embedded context pattern with summarized conversation history. Narrative flow: 3-beat process. In a 2.35:1 frame, keep one dominant focal subject and 3-4 supporting narrative beats.\nInformation blocks:\n- Problem: Broken context line between two independently deployed agents on the left, labeled broken-context\n- Contrast: Three parallel paths or boxes in the center showing the three approaches (shared storage, embedded context, per-agent state), labeled 3-approaches with number 3\n- Mechanism: Coordinator node sending a message with embedded context to a stateless domain agent, labeled embedded-context with 10-turns\n- Takeaway: Decision matrix or flow pointing to the stateless-first recommendation, labeled stateless-first\n\nMain metaphor: A messenger delivery system — the coordinator packages context into an envelope (message payload), the domain agent just opens the envelope and reads, no external storage needed.\nSubject: A coordinator agent node sending a context-wrapped message to a domain agent node.\nComposition: Left-right structure: coordinator packaging on the left, message pipeline in the center, domain agent receiving on the right.\nStyle/medium: combine isometric conceptual systems scene with children's fairy-tale illustration, simple magical forms, friendly proportions, bright storybook palette, safe wonder. Stylized, polished, editorial. Do not imitate a specific brand, studio, or living artist.\nColor palette: warm tangerine, soft sky blue, cream white, pale grass green.\nVisible text policy: allow only 4 short Chinese labels or number chips. No poster title, no long sentences, no English slogans, no fake UI labels, no fake architecture node names.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no unrelated icon collage.\nAvoid: fake terminals, fake dashboards, code rain, cyberpunk purple-blue light, floating chips, neon skyscrapers, HUD overlays."
+}
