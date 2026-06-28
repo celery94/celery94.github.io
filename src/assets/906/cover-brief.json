@@ -1,0 +1,54 @@
+{
+  "article_title": "IHttpClientFactory 在 .NET 中的使用：命名客户端、类型化客户端与依赖注入模式",
+  "cover_type": "tutorial",
+  "core_theme": "IHttpClientFactory 通过 handler 池化设计同时解决 socket 耗尽和 DNS 过期问题，提供基础工厂、命名客户端、类型化客户端三种递进模式",
+  "reader_takeaway": "理解三种模式的区别和选择场景，知道为什么类型化客户端必须是 transient，以及单例里怎么正确发 HTTP 请求",
+  "summary_angle": "从「new HttpClient() 耗尽 socket」到「static singleton DNS 过期」再到「IHttpClientFactory 双杀」的解决路径",
+  "narrative_flow": "before-after",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "原文「Why Not new HttpClient()?」节：Dispose 后 socket TIME_WAIT 长达 4 分钟导致耗尽",
+      "visual_idea": "散落断裂的连接线或碎片化的 socket 符号，画面左侧暗调",
+      "visible_label": "Socket 耗尽",
+      "numeric_fact": "4min"
+    },
+    {
+      "role": "problem",
+      "source_anchor": "原文 static singleton 段落：DNS 缓存不更新，IP 变更后请求失败",
+      "visual_idea": "一根僵硬的管道连接到一个褪色/过期的地址标签",
+      "visible_label": "DNS 过期",
+      "numeric_fact": ""
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文「How IHttpClientFactory Works」节：handler 池化、2 分钟过期轮换",
+      "visual_idea": "中央工厂/枢纽，输出干净客户端，内部循环复用 handler",
+      "visible_label": "Handler 池化",
+      "numeric_fact": "2min"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文「如何选择」总结段：基础 → 命名 → 类型化的递进关系",
+      "visual_idea": "三层递进的阶梯或管道，标注三种模式",
+      "visible_label": "基础/命名/类型化",
+      "numeric_fact": ""
+    }
+  ],
+  "main_metaphor": "工厂流水线/枢纽：一个中心化的工厂产出干净的 HttpClient，底层的 handler 池循环复用",
+  "primary_subject": "一个中央工厂/分发器，向右侧输出干净的新客户端对象",
+  "subject_action": "工厂正在分发新鲜客户端，内部 handler 池在循环轮换",
+  "composition": "单点聚焦，左侧问题 → 中央工厂/枢纽 → 右侧清洁方案，轻微的横向推进",
+  "base_style": "editorial technical illustration",
+  "selected_style": "校园恋爱风",
+  "selected_style_prompt_descriptor": "youthful campus romance illustration, clean school-life setting, soft backlight, subtle emotional gestures, fresh color palette",
+  "selected_style_reason": "用户未指定风格，从 40 项风格池随机选中（#6）；用清新干净的校园美学表现「干净的客户端实例」和「有序的关系管理」",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["Socket 耗尽", "DNS 过期", "Handler 池化", "基础/命名/类型化"],
+  "color_palette": ["软青蓝", "暖米白", "淡珊瑚粉", "柔和灰绿"],
+  "avoid": ["漂浮芯片", "代码雨", "霓虹高楼", "赛博朋克紫蓝光", "假 dashboard", "假终端", "假架构图标签"],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证工厂主体 + 左侧问题 / 右侧方案的元素关系是否清晰可读",
+  "revision_targets": ["handler 池化循环的表达是否清楚", "三层模式递进的可读性", "风格与基础设施主题的融合度"],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: IHttpClientFactory solves socket exhaustion and DNS staleness through handler pooling, with three progressive usage patterns. The reader should quickly feel the clear path from broken approaches to the correct solution.\n\nSummary angle: Show the journey from two broken approaches (socket exhaustion from new/dispose, DNS staleness from static singleton) to the single correct IHttpClientFactory solution.\nNarrative flow: before-after. In a 2.35:1 frame, keep one dominant focal subject and 2-4 supporting narrative beats. Each beat must map to the article's information blocks rather than generic decoration.\nInformation blocks:\n- Problem 1: Socket exhaustion — scattered broken connection lines, fading TIME_WAIT socket fragments on the left side, labeled with short Chinese chip 「Socket 耗尽」and number 4min\n- Problem 2: DNS staleness — a rigid pipe stuck to a faded address label, labeled 「DNS 过期」\n- Mechanism: Handler pooling — a central factory/distributor hub in the middle, outputting clean fresh HttpClient objects to the right, with a visible internal handler rotation cycle, labeled 「Handler 池化」with 2min\n- Takeaway: Pattern progression — three-tier steps or pipeline on the right side showing basic → named → typed, labeled 「基础/命名/类型化」\n\nMain metaphor: A factory/assembly-line hub that centrally manages a handler pool and distributes clean client objects.\nSubject: A central factory/distributor, actively distributing fresh HttpClient objects while recycling handlers internally.\nComposition/framing: Single focal center, left problems → center factory → right solution, subtle horizontal progression. Prefer horizontal storytelling that stays legible in a wide cover.\nStyle/medium: combine editorial technical illustration with the selected visual style descriptor: youthful campus romance illustration, clean school-life setting, soft backlight, subtle emotional gestures, fresh color palette. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: soft cyan-blue, warm off-white, light coral pink, muted sage green.\nVisible text policy: allow only 4 short Chinese labels or number chips sourced from the information blocks. Each label <= 6 Chinese characters. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: floating chips, code rain, neon skyscrapers, cyberpunk purple-blue light pollution, fake dashboards, fake terminals, fake architecture labels."
+}
