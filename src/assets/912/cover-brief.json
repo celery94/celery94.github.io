@@ -1,0 +1,53 @@
+{
+  "article_title": ".NET Keyed Services：一个接口多实现时的依赖注入方案",
+  "cover_type": "tutorial",
+  "core_theme": "用 .NET 8 的 Keyed Services 替代手写工厂 switch，通过 AddKeyedScoped、FromKeyedServices 和运行时动态解析实现干净的策略模式",
+  "reader_takeaway": "学会用键控 DI 注册和解析同一接口的多个实现，在编译期已知 key 和运行时动态 key 两种场景下去掉工厂样板代码",
+  "summary_angle": "从手写 switch 工厂到 DI 容器原生键控查找的简化路径",
+  "narrative_flow": "before-after",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "原文「The Switch Statement」节：每加一个实现要改 factory 里的 switch 和注册两个地方",
+      "visual_idea": "左侧一个带有易碎 switch 分支的工厂盒子",
+      "visible_label": "工厂 Switch",
+      "numeric_fact": ""
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文键控注册和 FromKeyedServices 解析方式",
+      "visual_idea": "中央 DI 容器，按 key（email/sms/push）分发不同实现",
+      "visible_label": "Keyed DI",
+      "numeric_fact": ".NET 8"
+    },
+    {
+      "role": "step",
+      "source_anchor": "原文三种解析方式：属性注入、运行时动态解析、AnyKey 广播",
+      "visual_idea": "右侧三个消费端：固定 key 用属性、动态 key 用 Provider、全量广播",
+      "visible_label": "3 种解析",
+      "numeric_fact": "3"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文「Wrapping Up」节：容器本身成为查询表",
+      "visible_idea": "一个干净容器输出正确实现的流程",
+      "visible_label": "无工厂",
+      "numeric_fact": ""
+    }
+  ],
+  "main_metaphor": "DI 容器作为键控分发中心：接口是类型，key 是标签，容器按标签匹配把正确的实现送给消费端",
+  "primary_subject": "一个中心化的 DI 容器/分发器，按 key 标签（email/sms/push）输出不同的 INotificationSender 实现",
+  "subject_action": "容器正在按 key 标签分发正确的实现到不同的消费端",
+  "composition": "左到右：工厂 switch（问题）→ 容器键控分发（机制）→ 三种消费端（结果）",
+  "base_style": "editorial technical illustration",
+  "selected_style": "游戏原画风",
+  "selected_style_prompt_descriptor": "game concept art illustration, clear hero object, readable environment storytelling, polished lighting, production-art detail",
+  "selected_style_reason": "用户未指定风格，从 40 项风格池随机选中（#29）；游戏原画的清晰主体和抛光光照适合表现 DI 容器作为中心实体分发的结构化关系",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["工厂 Switch", "Keyed DI", "3 种解析", "无工厂"],
+  "color_palette": ["深靛蓝", "暖金", "科技青", "柔和灰"],
+  "avoid": ["假终端", "假 dashboard", "代码雨", "漂浮芯片", "霓虹高楼", "虚假架构节点名"],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证容器键控分发和三种消费端的结构可读性",
+  "revision_targets": ["key 标签的视觉辨识度", "三种解析方式的区分", "游戏原画风格与架构主题的融合"],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide infographic-story cover illustration. Theme: .NET Keyed Services — replacing factory switches with keyed DI lookups. Summary angle: From hand-written switch factories to container-native keyed resolution. Narrative flow: before-after. Information blocks: Problem — factory box with fragile switch branches on the left. Mechanism — central DI container distributing different implementations by key labels (email/sms/push) in the center. Step — three consumer endpoints on the right receiving implementations via attribute, provider, and broadcast. Takeaway — clean container as the only lookup table. Main metaphor: A DI container as a keyed distribution center routing tagged implementations to consumers. Subject: A central container/distributor routing implementations by key tags. Composition: Left factory problem → center keyed container → right three resolution patterns. Style/medium: combine editorial technical illustration with game concept art, clear hero object, polished lighting, production-art detail. Do not imitate a specific brand, studio, or living artist. Color palette: deep indigo, warm gold, tech cyan, muted gray. No poster title, no fake UI, no fake terminals, no fake architecture labels."
