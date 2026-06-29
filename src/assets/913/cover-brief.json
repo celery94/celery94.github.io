@@ -1,0 +1,53 @@
+{
+  "article_title": "Git 2.55 更新亮点",
+  "cover_type": "release",
+  "core_theme": "Git 2.55 发布：增量 MIDX 几何重打包、git history fixup、Linux inotify 支持、位图生成翻倍提速等十余个新特性",
+  "reader_takeaway": "了解 Git 2.55 的重要更新，特别是增量 MIDX 重打包对仓库维护的影响和 git history fixup 带来的工作流改善",
+  "summary_angle": "Git 2.55 从底层 pack 管理到日常命令体验的全栈更新",
+  "narrative_flow": "layered reveal",
+  "information_blocks": [
+    {
+      "role": "step",
+      "source_anchor": "原文「MIDX」节：几何增量重打包在大仓库中将位图生成从 612s 降到 294s",
+      "visual_idea": "层层叠加的 MIDX 链结构，底部大层稳定、顶部小层频繁更新",
+      "visible_label": "MIDX 增量",
+      "numeric_fact": "2x"
+    },
+    {
+      "role": "step",
+      "source_anchor": "原文「git history fixup」节：暂存区改动直接应用到更早提交",
+      "visual_idea": "一个 fixup 改动从分支尖端向上游移动融合到目标提交",
+      "visible_label": "Fixup",
+      "numeric_fact": ""
+    },
+    {
+      "role": "step",
+      "source_anchor": "原文「tip of the iceberg」节：Linux inotify、并行钩子、远程组 push 等",
+      "visual_idea": "多个小特性卡片：Linux 监控、并行钩子、lane-limit、format-rev",
+      "visible_label": "Linux 监控",
+      "numeric_fact": ""
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文全文：100+ 贡献者、33 位新人",
+      "visual_idea": "Git 2.55 版本标识，社区贡献活跃",
+      "visible_label": "Git 2.55",
+      "numeric_fact": "100+"
+    }
+  ],
+  "main_metaphor": "冰山分层：MIDX 增量重打包是水面下的基建优化，git history fixup 和命令行改进是水面上的用户体验更新",
+  "primary_subject": "一个分层结构：底层是 pack 和 MIDX 的存储引擎层，上层是 git history、hooks、log 等命令层",
+  "subject_action": "底层 pack 存储优化和上层命令体验改进同时推进",
+  "composition": "自下而上的分层结构：存储引擎优化（MIDX）→ 工作流改进（fixup）→ 命令体验更新（多项小特性）→ Git 2.55 标识",
+  "base_style": "product-poster style illustration",
+  "selected_style": "废土末日风",
+  "selected_style_prompt_descriptor": "post-apocalyptic wasteland illustration, weathered materials, dusty atmosphere, survival objects, desaturated contrast",
+  "selected_style_reason": "用户未指定风格，从 40 项风格池随机选中（#26）；废土风格的\"重建与修复\"意象呼应 Git 版本迭代中修复问题和重构基础设施的主题",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["MIDX 增量", "Fixup", "Linux 监控", "Git 2.55"],
+  "color_palette": ["灰棕", "暗橙", "褪色蓝", "浅沙色"],
+  "avoid": ["假终端", "假 dashboard", "代码雨", "漂浮芯片", "霓虹高楼", "赛博朋克紫蓝光"],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证分层结构（存储→工作流→命令→版本标识）的叙事可读性",
+  "revision_targets": ["MIDX 层的表达", "废土风格与版本发布主题的契合", "小特性卡片的数量与布局"],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide infographic-story cover illustration. Theme: Git 2.55 release highlights — from storage engine optimization to daily command improvements. Summary angle: A full-stack update from low-level pack management to user-facing command experience. Narrative flow: layered reveal. Information blocks: Step — Incremental MIDX layers in the bottom section, large stable deeper layers and frequently updated tip layers, labeled with 2x speed improvement. Step — git history fixup feature in the middle, a change flowing upward to merge into an earlier commit. Step — Multiple small feature cards above: Linux inotify, parallel hooks, lane-limit, format-rev. Takeaway — Git 2.55 identifier at the top with 100+ contributors count. Main metaphor: An iceberg layered structure — infrastructure optimization at the bottom, user experience updates at the top. Subject: A layered structure representing storage engine, workflow improvements, and command updates. Composition: Bottom-up layers: MIDX storage optimization → fixup workflow → command features → Git 2.55 label. Style/medium: combine product-poster style illustration with post-apocalyptic wasteland illustration, weathered materials, dusty atmosphere, survival objects, desaturated contrast. Do not imitate a specific brand, studio, or living artist. Color palette: gray-brown, dark orange, faded blue, light sand. Visible text policy: allow only 4 short labels or number chips. No poster title, no long sentences, no English slogans, no fake UI, no fake terminals."
