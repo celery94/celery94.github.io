@@ -1,0 +1,53 @@
+{
+  "article_title": "HttpClient DNS 问题：PooledConnectionLifetime 与 SocketsHttpHandler",
+  "cover_type": "tutorial",
+  "core_theme": "HttpClient DNS 过期的根因是 TCP 连接池复用跳过 DNS 解析，通过 PooledConnectionLifetime 和 IHttpClientFactory handler 轮换解决",
+  "reader_takeaway": "理解 DNS 过期和 socket 耗尽是同一枚硬币的两面，知道怎么用 PooledConnectionLifetime 和 SetHandlerLifetime 在不同环境中正确配置",
+  "summary_angle": "从「复用 HttpClient 导致 DNS 过期」到「有界连接生命周期双杀」的解决路径",
+  "narrative_flow": "before-after",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "原文「The Paradox」节：复用 HttpClient 导致 DNS 只解析一次",
+      "visual_idea": "左侧一条 TCP 连接指向一个褪色/过期的 IP 地址标签，DNS 查询被阻塞",
+      "visible_label": "DNS 过期",
+      "numeric_fact": ""
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文「PooledConnectionLifetime」和 handler 轮换机制",
+      "visual_idea": "中央一个连接池，连接在 2 分钟生命周期后退役，新连接触发新的 DNS 查询",
+      "visible_label": "连接轮换",
+      "numeric_fact": "2min"
+    },
+    {
+      "role": "contrast",
+      "source_anchor": "原文 Kubernetes 和轮询 DNS 的对比讨论",
+      "visual_idea": "右侧健康的多 pod 集群，流量均匀分布",
+      "visible_label": "负载均衡",
+      "numeric_fact": ""
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文「Wrapping Up」和 FAQ",
+      "visual_idea": "一个配置了正确 PooledConnectionLifetime 的健康 HttpClient",
+      "visible_label": "生产就绪",
+      "numeric_fact": ""
+    }
+  ],
+  "main_metaphor": "连接池的生命周期循环：旧连接到期退役 → 新连接建立 → 新 DNS 查询 → IP 更新",
+  "primary_subject": "一个带有生命周期计时器的 TCP 连接池，旧连接退役、新连接触发 DNS 查询",
+  "subject_action": "连接池正在按生命周期轮换连接，每个新连接触发新的 DNS 解析",
+  "composition": "左到右：过期连接退役 → 中央连接池轮换 → 右侧新连接建立、DNS 查询更新",
+  "base_style": "editorial technical illustration",
+  "selected_style": "赛博朋克风",
+  "selected_style_prompt_descriptor": "cyberpunk comic mood, neon accents, rain-slick surfaces, dense urban tech atmosphere, controlled purple-blue usage",
+  "selected_style_reason": "用户未指定风格，从 40 项风格池随机选中（#12）；赛博朋克的城市网络意象适合表达连接池、IP 路由和网络层级的技术主题",
+  "style_safety_note": "使用泛赛博朋克描述，限制紫蓝色使用（controlled usage），不引用具体作品或设计师",
+  "allowed_visible_text": ["DNS 过期", "连接轮换", "负载均衡", "生产就绪"],
+  "color_palette": ["深紫蓝", "霓虹青", "暗灰", "暖琥珀点缀"],
+  "avoid": ["假终端", "假 dashboard", "代码雨", "过量紫蓝光污染", "漂浮芯片", "霓虹高楼背景"],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证连接池生命周期循环和 DNS 刷新的视觉关系",
+  "revision_targets": ["连接退役/新建的循环表达", "赛博朋克风格与技术主题的平衡", "轮询 DNS 的负载均衡可视化"],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide infographic-story cover illustration. Theme: HttpClient DNS issues — how PooledConnectionLifetime and IHttpClientFactory handler rotation solve DNS staleness through bounded connection lifetimes. Summary angle: From DNS staleness with long-lived connections to automatic DNS refresh through connection rotation. Narrative flow: before-after. Information blocks: Problem — expired DNS connection on the left with faded IP label. Mechanism — central connection pool with 2-minute rotation timer, old connections retiring and new ones triggering fresh DNS lookups. Contrast — healthy multi-pod cluster on the right with balanced traffic. Takeaway — production-ready configured HttpClient. Main metaphor: A connection pool lifecycle cycle — old connections retire, new connections trigger DNS queries. Subject: A connection pool with lifecycle timer, rotating connections and refreshing DNS. Composition: Left-right flow: expired connections retire → pool rotation → new connections with fresh DNS. Style/medium: combine editorial technical illustration with cyberpunk comic mood, neon accents, rain-slick surfaces, dense urban tech atmosphere, controlled purple-blue usage. Do not imitate a specific brand, studio, or living artist. Color palette: deep purple-blue, neon cyan, dark gray, warm amber accents. No poster title, no fake UI, no fake terminals."
