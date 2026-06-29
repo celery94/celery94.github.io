@@ -1,0 +1,53 @@
+{
+  "article_title": "用 NATS JetStream 在 .NET 中快速搭建持久化消息队列",
+  "cover_type": "tutorial",
+  "core_theme": "用 NATS JetStream 在 .NET 中搭建持久化工作队列，从 Docker 部署到发布消费再到「先处理再 Ack」的可靠性规则",
+  "reader_takeaway": "学会用单个 18MB 二进制在 ASP.NET Core 中搭建生产可用的 at-least-once 工作队列",
+  "summary_angle": "从 Core NATS 的 fire-and-forget 到 JetStream 的持久化 at-least-once 队列的升级路径",
+  "narrative_flow": "before-after",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "原文「Core NATS vs JetStream」节：Core NATS 没人订阅时丢消息",
+      "visual_idea": "左侧一个消息发出后消散的视觉，没有消费者在场",
+      "visible_label": "消息丢失",
+      "numeric_fact": ""
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文 JetStream 持久化层：捕获消息到磁盘 stream，重启后仍可读取",
+      "visual_idea": "中央一个 stream/队列容器，消息被持久化存储，消费者拉取",
+      "visible_label": "持久化 Stream",
+      "numeric_fact": "18MB"
+    },
+    {
+      "role": "step",
+      "source_anchor": "原文「Publish → Process → Ack」完整流程",
+      "visual_idea": "右侧 worker 拉取消息、处理、再 ack 的序列",
+      "visible_label": "先处理再 Ack",
+      "numeric_fact": ""
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文总结：单个二进制、易于运维、集群支持",
+      "visual_idea": "一个干净运行的队列系统，轻量高效",
+      "visible_label": "生产就绪",
+      "numeric_fact": ""
+    }
+  ],
+  "main_metaphor": "消息管道系统：左侧消息发出 → 中央持久化 stream 捕获 → 右侧 worker 消费处理",
+  "primary_subject": "一个持久化的消息 stream，左侧接收消息，右侧输出给竞争式消费者",
+  "subject_action": "stream 正在持久化消息并分发给多个 worker 实例",
+  "composition": "左到右管道：发布 → stream 持久化 → worker 消费",
+  "base_style": "editorial technical illustration",
+  "selected_style": "游戏原画风",
+  "selected_style_prompt_descriptor": "game concept art illustration, clear hero object, readable environment storytelling, polished lighting, production-art detail",
+  "selected_style_reason": "用户未指定风格，从 40 项风格池随机选中（#29）；游戏原画的干净光照和清晰主体适合突出消息管道的流线结构和不同阶段",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["消息丢失", "持久化 Stream", "先处理再 Ack", "生产就绪"],
+  "color_palette": ["深紫灰", "暖琥珀", "科技蓝", "柔和白"],
+  "avoid": ["假终端", "假 dashboard", "代码雨", "赛博朋克紫蓝光污染", "漂浮芯片", "霓虹高楼"],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证发布→stream→消费的三段消息管道是否清楚可读",
+  "revision_targets": ["stream 持久化的视觉辨识", "worker 竞争消费的表达", "游戏原画风格与技术主题的协调"],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide infographic-story cover illustration. Theme: Getting started with NATS JetStream in .NET — building a durable message queue. Summary angle: From Core NATS fire-and-forget message loss to JetStream persistent at-least-once queue. Narrative flow: before-after. Information blocks: Problem — message evaporating on the left side with no consumer present. Mechanism — central persistent stream capturing messages to disk for later delivery, labeled with 18MB. Step — right side worker pulling message, processing, then acking. Takeaway — production-ready lightweight queue system. Main metaphor: A message pipeline — publish on the left, persistent stream in the center, competing workers consuming on the right. Subject: A durable message stream receiving messages and distributing to workers. Composition: Left-right pipeline: publish → stream persistence → worker consumption. Style/medium: combine editorial technical illustration with game concept art illustration, clear hero object, readable environment storytelling, polished lighting, production-art detail. Do not imitate a specific brand, studio, or living artist. Color palette: deep purple-gray, warm amber, tech blue, soft white. No poster title, no fake UI, no fake terminals, no dashboards."
