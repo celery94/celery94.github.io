@@ -1,0 +1,46 @@
+{
+  "article_title": "Agent Harness：安全地使用你的数据——文件访问、审批与持久记忆",
+  "cover_type": "tutorial",
+  "core_theme": "用 Microsoft Agent Framework 的 harness 给 AI Agent 加上文件访问、工具审批（手动/自动/自定义）和跨会话持久记忆（文件+Foundry）",
+  "reader_takeaway": "学会用 harness 的三项内置能力让 agent 安全读写用户数据、在高风险操作前暂停审批、跨会话记住事实",
+  "summary_angle": "从「agent 只能谈不能碰」到「文件读写 + 智能审批 + 双模记忆」的安全 Agent 升级路径",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "step",
+      "source_anchor": "原文「File Access」节：file_access_* 工具集读写 portfolio.csv",
+      "visual_idea": "左侧一个文件图标，agent 从中读取 CSV 数据并输出报告文件",
+      "visible_label": "文件访问",
+      "numeric_fact": "6 tools"
+    },
+    {
+      "role": "step",
+      "source_anchor": "原文「Approvals」节：手动审批 + 自动审批规则 + 自定义小额交易规则",
+      "visual_idea": "中央一个审批闸门，交易调用被拦截暂停，Approve/Deny/Auto-Approve 三层过滤",
+      "visible_label": "审批守门",
+      "numeric_fact": "<$1k"
+    },
+    {
+      "role": "step",
+      "source_anchor": "原文「Durable Memory」节：文件记忆 + Foundry 事实记忆",
+      "visual_idea": "右侧两层记忆存储：底层粗粒度文件记忆，上层细粒度 Foundry 事实记忆",
+      "visible_label": "持久记忆",
+      "numeric_fact": "2 种"
+    }
+  ],
+  "main_metaphor": "三层安全架构：底层是数据管道（文件访问），中间是审批守门人，顶层是持久记忆",
+  "primary_subject": "一个 Agent 在安全管道中工作：从左读取文件数据，中间通过审批闸门执行动作，右边写入记忆",
+  "subject_action": "Agent 在文件读、交易审批和记忆存储之间安全流转",
+  "composition": "左到右三层管道：文件访问管道 → 审批闸门 → 记忆存储",
+  "base_style": "editorial technical illustration",
+  "selected_style": "赛博朋克风",
+  "selected_style_prompt_descriptor": "cyberpunk comic mood, neon accents, rain-slick surfaces, dense urban tech atmosphere, controlled purple-blue usage",
+  "selected_style_reason": "用户未指定风格，从 40 项风格池随机选中（#12）；赛博朋克的城市安全/闸门/管道意象适合表达数据流经审批和记忆的多层安全架构",
+  "style_safety_note": "使用泛赛博朋克描述，限制紫蓝色使用（controlled usage），不引用具体作品或设计师",
+  "allowed_visible_text": ["文件访问", "审批守门", "持久记忆"],
+  "color_palette": ["深紫蓝", "霓虹青", "暗灰", "暖琥珀"],
+  "avoid": ["假终端", "假 dashboard", "代码雨", "过量紫蓝光污染", "漂浮芯片", "霓虹高楼背景"],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证文件访问→审批→记忆的三段管道结构",
+  "revision_targets": ["审批闸门的视觉比重", "两种记忆的区分", "赛博朋克安全主题的克制表达"],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide infographic-story cover illustration. Theme: Agent Harness — working with data safely through file access, approvals, and durable memory. Summary angle: From agent that only talks to agent that safely reads, gets approval before acting, and remembers across sessions. Narrative flow: 3-beat process. Information blocks: Step — file access on the left, agent reading CSV data and writing reports, 6 tools. Step — approval gateway in the center, trade calls intercepted with Approve/Deny/Auto-Approve filtering. Step — durable memory on the right, two layers: coarse file memory and fine Foundry fact memory. Main metaphor: A three-layer security pipeline — data pipe, approval gate, memory store. Subject: An agent working through a secure pipeline: reading files, passing approval gates, writing memories. Composition: Left-right pipeline: file access → approval gateway → memory storage. Style/medium: combine editorial technical illustration with cyberpunk comic mood, neon accents, controlled purple-blue usage. Do not imitate a specific brand, studio, or living artist. Color palette: deep purple-blue, neon cyan, dark gray, warm amber. No poster title, no fake UI, no fake terminals."
