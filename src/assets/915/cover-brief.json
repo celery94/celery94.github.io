@@ -1,0 +1,53 @@
+{
+  "article_title": "HttpClient 弹性策略：.NET 10 中的超时、重试与断路器",
+  "cover_type": "tutorial",
+  "core_theme": "用 Microsoft.Extensions.Http.Resilience 给 HttpClient 加上四层弹性管道：超时、重试带抖动、断路器和分层超时",
+  "reader_takeaway": "学会一行 AddStandardResilienceHandler 或自定义 AddResilienceHandler 构建生产级 HTTP 弹性层",
+  "summary_angle": "从手写 Polly 样板代码到声明式弹性管道的简化路径",
+  "narrative_flow": "before-after",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "原文「Old Way」：手写 Polly Policy 链、版本耦合、无遥测",
+      "visual_idea": "左侧凌乱的 Policy.WrapAsync 嵌套",
+      "visible_label": "手写 Polly",
+      "numeric_fact": ""
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文管道结构：4 层策略（超时→重试→断路器→尝试超时）",
+      "visual_idea": "中央四层堆叠的防护管道",
+      "visible_label": "4 层管道",
+      "numeric_fact": "4"
+    },
+    {
+      "role": "contrast",
+      "source_anchor": "原文重试 vs 对冲的对比：顺序 vs 并行投机请求",
+      "visual_idea": "右侧两条分叉路径：顺序重试（时间线）和对冲（并行请求）",
+      "visible_label": "重试/对冲",
+      "numeric_fact": ""
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文总结：decision guide 和可观测性",
+      "visible_idea": "仪表盘上显示断路器状态和重试指标",
+      "visible_label": "可观测",
+      "numeric_fact": ""
+    }
+  ],
+  "main_metaphor": "多层防护盾：外层总超时 → 重试缓冲区 → 断路器熔断 → 每次尝试超时",
+  "primary_subject": "一个四层防护管道结构，HTTP 请求穿过超时、重试、断路器和尝试超时",
+  "subject_action": "请求正穿过弹性防护管道，各层各司其职",
+  "composition": "自外而内的防护层次结构：总超时 → 重试 → 断路器 → 尝试超时",
+  "base_style": "editorial technical illustration",
+  "selected_style": "洛丽塔幻想风",
+  "selected_style_prompt_descriptor": "ornate fantasy fashion illustration, lace-like detail, dollhouse elegance, soft magical palette, controlled decorative density",
+  "selected_style_reason": "用户未指定风格，从 40 项风格池随机选中（#27）；精致层叠的装饰风格适合表达多层防护管道逐层过滤的结构美感",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["手写 Polly", "4 层管道", "重试/对冲", "可观测"],
+  "color_palette": ["柔和紫罗兰", "淡金", "奶油白", "浅玫瑰"],
+  "avoid": ["假终端", "假 dashboard", "代码雨", "漂浮芯片", "霓虹高楼", "赛博朋克紫蓝污染"],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证四层管道的外到内结构是否清晰",
+  "revision_targets": ["管道层次的可读性", "洛丽塔风格与技术主题的平衡", "断路器/对冲的区分"],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide infographic-story cover illustration. Theme: HttpClient resilience pipeline with timeout, retry with jitter, circuit breaker, and attempt timeout. Summary angle: From hand-written Polly boilerplate to declarative 4-layer resilience pipeline. Narrative flow: before-after. Information blocks: Problem — messy Polly policy wrapping on the left. Mechanism — central 4-layer protection pipeline (total timeout → retry → circuit breaker → attempt timeout). Contrast — two paths on the right: sequential retry timeline and parallel hedging requests. Takeaway — observable dashboard with metrics. Main metaphor: A multi-layer protection shield filtering HTTP requests through timeout, retry, circuit breaker, and attempt timeout layers. Subject: A 4-layer protective pipeline structure. Composition: Outer-to-inner layers: total timeout → retry → circuit breaker → attempt timeout. Style/medium: combine editorial technical illustration with ornate fantasy fashion illustration, lace-like detail, dollhouse elegance, soft magical palette, controlled decorative density. Do not imitate a specific brand, studio, or living artist. Color palette: soft violet, pale gold, cream white, light rose. No poster title, no fake UI, no fake terminals."
