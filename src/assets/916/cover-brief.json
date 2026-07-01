@@ -1,0 +1,69 @@
+{
+  "article_title": "HttpClient 流式传输：用 ResponseHeadersRead 和 ReadAsStreamAsync 处理海量数据",
+  "cover_type": "tutorial",
+  "core_theme": "在 .NET 中用 HttpClient 流式读取 HTTP 响应，避免全量缓存导致内存暴涨",
+  "reader_takeaway": "学会使用 HttpCompletionOption.ResponseHeadersRead + ReadAsStreamAsync 等 API 实现常量内存的流式传输",
+  "summary_angle": "把「默认缓存 → 内存爆涨」转成「流式读取 → 内存恒定」，展示核心机制",
+  "narrative_flow": "conflict-to-resolution",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "默认 ResponseContentRead 会将 1GB 响应完整加载到内存中",
+      "visual_idea": "一个巨大的数据块堵在管道口，内存压力表爆红",
+      "visible_label": "内存暴涨",
+      "numeric_fact": "1GB"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "ResponseHeadersRead 让 await 在头部到达时就返回，Response.Content 仍是流而非缓存",
+      "visual_idea": "数据变成分段流过管道的小块，不再堆积",
+      "visible_label": "流式读取",
+      "numeric_fact": ""
+    },
+    {
+      "role": "evidence",
+      "source_anchor": "流式模式下峰值内存从 1GB 降到约 80KB（CopyToAsync 默认缓冲区大小）",
+      "visual_idea": "一个缓冲区小块在动态消费，不再堆积",
+      "visible_label": "峰值 80KB",
+      "numeric_fact": "1GB → 80KB"
+    },
+    {
+      "role": "tools",
+      "source_anchor": "DeserializeAsyncEnumerable 用于 JSON 数组、SseParser 用于 Server-Sent Events、IAsyncEnumerable 提供背压",
+      "visual_idea": "三个工具节点连接到流管道上",
+      "visible_label": "JSON / SSE / 背压",
+      "numeric_fact": ""
+    }
+  ],
+  "main_metaphor": "大坝（默认缓存）与管道（流式传输）的对照",
+  "primary_subject": "一条将大块数据分拆成流动小块的数据管道",
+  "subject_action": "数据从左侧的大块缓存区被拆解，通过流式管道分段向右流动",
+  "composition": "左右对照",
+  "base_style": "editorial technical illustration",
+  "selected_style": "国漫二次元风",
+  "selected_style_prompt_descriptor": "contemporary Chinese anime-comic illustration, crisp linework, ornate but controlled details, vibrant fantasy-tech color accents",
+  "selected_style_reason": "用户未指定风格，本篇从 40 项风格池随机选中；流式数据管道的分解与汇聚适合用国漫二次元的清晰线条与科技感配色表达",
+  "style_safety_note": "清单风格为泛类型描述，不涉及特定品牌、工作室或艺术家复刻",
+  "allowed_visible_text": [
+    "内存暴涨",
+    "流式读取",
+    "峰值 80KB",
+    "JSON / SSE / 背压"
+  ],
+  "color_palette": ["深蓝", "亮青", "警示橙红", "暖白"],
+  "avoid": [
+    "伪造的仪表盘",
+    "假终端输出",
+    "代码雨",
+    "赛博朋克紫蓝光污染",
+    "通用机器人站姿"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮先验证左右对照构图、四个信息块是否清晰、数据管道隐喻是否成立",
+  "revision_targets": [
+    "调整信息块标签位置使其不遮挡主体",
+    "确保管道与数据块的比例关系清晰",
+    "收紧科技元素避免过度装饰"
+  ],
+  "final_prompt": ""
+}
