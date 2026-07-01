@@ -1,0 +1,58 @@
+{
+  "article_title": "无需 CS 学位，如何成为 AI 工程师：一份 12 个月的完整自学路线",
+  "cover_type": "tutorial",
+  "core_theme": "不靠计算机学位，通过 12 个月分阶段自学、持续构建项目组合，成为 AI 工程师的完整路径",
+  "reader_takeaway": "拿到一份可执行的 6 阶段自学路线图，明确每个阶段学什么、做什么、产出什么",
+  "summary_angle": "把「12 个月自学→6 个阶段递进→3 个关键交付物」压缩成一张有推进感的路线图封面",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "step",
+      "source_anchor": "Phase 1-2: 学 Python + 掌握 LLM API（工具调用）",
+      "visual_idea": "一个编程终端和 API 密钥标志并置，箭头指向下一步",
+      "visible_label": "Python + API",
+      "numeric_fact": "1"
+    },
+    {
+      "role": "step",
+      "source_anchor": "Phase 3-4: 构建 RAG 系统和 Agent 代理",
+      "visual_idea": "文档块被检索并送入模型，多个工具被 agent 调度",
+      "visible_label": "RAG + Agent",
+      "numeric_fact": "2"
+    },
+    {
+      "role": "step",
+      "source_anchor": "Phase 5-6: 评估、部署、求职，交付 3 个可展示的项目",
+      "visual_idea": "一个被监控的生产系统 + 项目组合案例",
+      "visible_label": "部署 & 求职",
+      "numeric_fact": "3"
+    }
+  ],
+  "main_metaphor": "一条从起点（空白文件）到终点（3 个已部署项目）的递进式成长路线，像闯关推进",
+  "primary_subject": "一条由 6 个阶段节点组成的前进路径，每个节点标记技能和产出",
+  "subject_action": "人物从左侧的「Python 基础」开始，沿着路线向右推进，逐步解锁 LLM API、RAG、Agent、部署，最终到达右侧的「入职」终点",
+  "composition": "斜向推进",
+  "base_style": "editorial technical illustration",
+  "selected_style": "热血战斗风",
+  "selected_style_prompt_descriptor": "high-energy battle comic look, strong silhouettes, speed lines, impact framing, bold contrast without excessive clutter",
+  "selected_style_reason": "用户未指定风格，本篇从 40 项风格池随机选中；12 个月闯关式自学路线适合用热血战斗风的推进感和冲击力表达阶段递进",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["Python + API", "RAG + Agent", "部署 & 求职"],
+  "color_palette": ["深红", "亮橙", "炭黑", "暖白"],
+  "avoid": [
+    "伪造的仪表盘",
+    "假终端输出",
+    "代码雨",
+    "赛博朋克紫蓝光污染",
+    "通用机器人站姿",
+    "学位证书图像"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮先验证斜向推进构图、3 个信息块串联是否清晰、热血战斗风的推进感是否成立",
+  "revision_targets": [
+    "如果分阶段节点太密就减少到核心 3 个",
+    "确保热血风格不过度暴力化",
+    "如果右侧「入职」终点不够突出就强化终点视觉"
+  ],
+  "final_prompt": ""
+}
