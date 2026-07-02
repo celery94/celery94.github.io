@@ -1,0 +1,54 @@
+{
+  "article_title": "NuGet 包创建完全指南：从 .csproj 到 CI 自动化发布",
+  "cover_type": "tutorial",
+  "core_theme": "NuGet 包创建与发布的完整工作流，从 .csproj 元数据配置到自动化 CI 发布再到 SourceLink 可调试",
+  "reader_takeaway": "读者能掌握从零创建、打包、版本管理、发布、测试和配置调试支持的完整 NuGet 包开发链路",
+  "summary_angle": "把「定义元数据 → 打包测试 → 推送发布 → 可调试」做成一条流水线式的四段故事板封面",
+  "narrative_flow": "4-beat process",
+  "information_blocks": [
+    {
+      "role": "step",
+      "source_anchor": "Creating Your First NuGet Package — .csproj 中配置 PackageId、Version、Description 等元数据",
+      "visual_idea": "一个开发者正在编辑 .csproj 文件，代码行高亮显示包元数据属性",
+      "visible_label": "定义元数据",
+      "numeric_fact": "①"
+    },
+    {
+      "role": "step",
+      "source_anchor": "dotnet pack 命令 + 本地测试 — 打包输出 .nupkg 并用本地 feed 测试",
+      "visual_idea": "齿轮/打包机正在输出一个带 .nupkg 标签的盒装产物",
+      "visible_label": "打包&测试",
+      "numeric_fact": "②"
+    },
+    {
+      "role": "step",
+      "source_anchor": "Publishing to NuGet.org + GitHub Actions — dotnet nuget push 和 CI 自动化",
+      "visual_idea": "盒装包通过传送带/管道推送到 nuget.org 云服务标识",
+      "visible_label": "推送发布",
+      "numeric_fact": "③"
+    },
+    {
+      "role": "step",
+      "source_anchor": "SourceLink and Symbol Packages — 配置后消费者可在调试器中步进到包源码",
+      "visual_idea": "放大镜/调试符号图标覆盖在包上，源码链接可见",
+      "visible_label": "可调试",
+      "numeric_fact": "④"
+    }
+  ],
+  "main_metaphor": "软件包生产流水线 — 从原料（代码+元数据）经过加工（dotnet pack）到装箱（.nupkg）再到分发出库（nuget.org）最后可追踪（SourceLink）",
+  "primary_subject": "一条横向展开的四格故事板流水线，每格展示一个关键工序",
+  "subject_action": "从左到右顺序推进：编辑配置 -> 打包 -> 推送发布 -> 调试可见",
+  "composition": "横向四宫格故事板（storyboard panel sequence），从左到右推进，每格之间有视觉连接线或箭头过渡",
+  "base_style": "editorial technical illustration",
+  "selected_style": "动态分镜电影风",
+  "selected_style_prompt_descriptor": "dynamic cinematic storyboard style, sequential panels, camera-motion feeling, strong cuts, clear narrative beats",
+  "selected_style_reason": "随机选中；教程的步骤流程适合用分镜式推进表达，四个主要步骤横向排列具有天然的叙事节奏",
+  "style_safety_note": "使用泛动态分镜电影描述，不引用具体导演、影片或工作室",
+  "allowed_visible_text": ["定义元数据", "打包&测试", "推送发布", "可调试", "①", "②", "③", "④"],
+  "color_palette": ["深蓝灰 #2c3e50", "暖橙 #e67e22", "白色", "浅灰 #ecf0f1"],
+  "avoid": ["漂浮芯片", "无意义代码雨", "霓虹高楼背景", "通用机器人站姿", "假UI标签", "假dashboard", "假终端输出", "假架构图"],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证四格分镜构图能否清晰表达四个步骤流程，以及动态分镜风格是否成立",
+  "revision_targets": ["如果画面元素过于拥挤则简化每格内的细节", "如果分镜风格不够突出则加强面板间隔和运动线", "确保没有假UI或假终端元素"],
+  "final_prompt": ""
+}
