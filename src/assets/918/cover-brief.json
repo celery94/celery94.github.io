@@ -1,0 +1,59 @@
+{
+  "article_title": "SQL MCP Server OBO 认证：让 AI Agent 操作数据库时可追溯用户身份",
+  "cover_type": "architecture",
+  "core_theme": "通过 Microsoft Entra ID 的 On-Behalf-Of 认证实现 Agent → MCP Server → Azure SQL 的用户身份透传，让审计日志记录真实用户而非服务账号",
+  "reader_takeaway": "理解 SQL MCP Server 三种认证方式的区别，学会配置 OBO 透传认证让数据库审计能回答「谁做了这个操作」",
+  "summary_angle": "把「三种认证方式对比 → OBO 透传实现用户身份可追溯」压成一张清晰的架构锚定封面",
+  "narrative_flow": "conflict-to-resolution",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "用户名密码和托管身份两种方式在审计日志中只能看到服务账号，看不到真实用户",
+      "visual_idea": "左侧：Agent 带着匿名身份标记连到数据库，日志显示 ??? 或服务账号",
+      "visible_label": "谁操作的？",
+      "numeric_fact": ""
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "OBO 使用 Microsoft Entra ID 在服务间交换用户 token，从 Agent 一路传到 SQL",
+      "visual_idea": "中部：用户 token 在 Agent、MCP Server、Azure SQL 之间逐级传递的链路",
+      "visible_label": "OBO 透传",
+      "numeric_fact": ""
+    },
+    {
+      "role": "evidence",
+      "source_anchor": "Azure SQL 审计日志的 database_principal_name 字段显示真实用户，obo_middle_tier_app_id 记录中间层应用",
+      "visual_idea": "右侧：审计日志清晰显示 user@example.com 而不是服务账号",
+      "visible_label": "user@example.com",
+      "numeric_fact": ""
+    }
+  ],
+  "main_metaphor": "身份链——从用户到 Agent 到 MCP Server 到数据库的完整身份传递链条，OBO 让这条链不断裂",
+  "primary_subject": "三条并列的数据流路径（用户名密码 / 托管身份 / OBO），第三条用醒目方式突出，显示 user token 逐级传递",
+  "subject_action": "第一条和第二条路径上的 user 标记在到达 SQL 前就断了（变成 service account），第三条路径上 user 标记一路贯通到最后",
+  "composition": "等距空间或层级式关系，三条路径从上到下排列",
+  "base_style": "isometric conceptual systems scene",
+  "selected_style": "黑白版画风",
+  "selected_style_prompt_descriptor": "black-and-white printmaking look, carved textures, bold shadows, high contrast, poster-like but no title text",
+  "selected_style_reason": "用户未指定风格，本篇从 40 项风格池随机选中；认证链的对比说明适合用黑白版画的强对比和纹理感表达「对与错」的二元判断",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["谁操作的？", "OBO 透传", "user@example.com"],
+  "color_palette": ["黑白高对比", "可选少量警示红作为强调色"],
+  "avoid": [
+    "伪造的仪表盘",
+    "假终端输出",
+    "代码雨",
+    "赛博朋克紫蓝光污染",
+    "通用机器人站姿",
+    "伪造的日志截图",
+    "假 Entra ID 登录界面"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮先验证三条路径的等距对比构图是否清晰，OBO 路径的 token 传递链路是否一眼可辨",
+  "revision_targets": [
+    "确保三条路径的比例关系合理不拥挤",
+    "OBO 路径的 token 传递视觉要明显区别于另两条",
+    "黑白版画的纹理感不能淹没信息识别"
+  ],
+  "final_prompt": ""
+}
