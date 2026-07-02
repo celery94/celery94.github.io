@@ -1,0 +1,58 @@
+{
+  "article_title": "AI 基准测试没告诉你的那些事：为什么排行榜高分不等于你的场景好用",
+  "cover_type": "analysis",
+  "core_theme": "公开 AI 基准测试（如 SWE-bench）高分不等于在你的私有代码和团队约定场景中好用，需要自己的评测",
+  "reader_takeaway": "理解基准测试的五大局限（Goodhart 定律、分布差距、优化过拟合、Harness 差异、组织陷阱），学会用 5-10 个自有场景做受控模型对比",
+  "summary_angle": "基准分数飞涨 vs 真实效果缓慢——两条线越拉越开的差距本身就是本文的核心判断",
+  "narrative_flow": "conflict-to-resolution",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "Goodhart 定律：当基准分数成为优化目标，它就不再衡量通用能力——分数涨得比真实效果快",
+      "visual_idea": "一条陡峭上升的「基准分数」曲线和一条缓慢上升的「真实效果」曲线之间不断拉大的间隙",
+      "visible_label": "分数 vs 效果",
+      "numeric_fact": ""
+    },
+    {
+      "role": "contrast",
+      "source_anchor": "分布差距：基准覆盖公开开源项目，不覆盖你的私有 SDK、团队约定、AGENTS.md",
+      "visual_idea": "两个分布圆：大的「基准分布」和小的「你的分布」，两者只有一小块重叠",
+      "visible_label": "分布重叠",
+      "numeric_fact": ""
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "用自己的 5-10 个场景做受控对比，比较输出质量、成本、一致性和扩展响应性四个维度",
+      "visual_idea": "你的场景组成的评测卡组，旁边标注四个比较维度",
+      "visible_label": "自有评测",
+      "numeric_fact": "5-10"
+    }
+  ],
+  "main_metaphor": "两条越拉越开的曲线之间的张力——基准分数这条线被优化压力推着向上猛涨，真实效果这条线缓慢爬升",
+  "primary_subject": "两条发散曲线的对照画面，上方线条急促陡峭（标注基准分数），下方线条平缓渐进（标注真实效果），中间裂口在扩大",
+  "subject_action": "上方曲线被「优化压力」「数据重叠」「格式微调」三个箭头往上猛推，下方曲线只有自然增长",
+  "composition": "左右对照或上下对照，重点突出一条曲线和另一条曲线之间的裂口",
+  "base_style": "conceptual editorial illustration",
+  "selected_style": "欧漫清线风",
+  "selected_style_prompt_descriptor": "European clear-line comic style, precise outlines, flat readable colors, tidy environments, restrained humor and detail",
+  "selected_style_reason": "用户未指定风格，本篇从 40 项风格池随机选中；抽象分析和曲线对比适合用欧漫清线的精确轮廓和克制表达传递冷静的判断力",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["分数 vs 效果", "分布重叠", "自有评测"],
+  "color_palette": ["冷静蓝灰", "警示琥珀", "对比深蓝", "留白"],
+  "avoid": [
+    "伪造的排行榜截图",
+    "伪造的仪表盘",
+    "假图表坐标/图例",
+    "代码雨",
+    "赛博朋克紫蓝光污染",
+    "通用机器人站姿"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮先验证两条发散曲线的左右对照构图是否清晰，欧漫清线的精确轮廓感是否成立",
+  "revision_targets": [
+    "如果两条曲线区分度不够，加强上方曲线的陡峭感和下方曲线的平缓感",
+    "确保欧漫风格不过度戏剧化、保留克制感",
+    "三个标签位置不能遮挡曲线关键转折点"
+  ],
+  "final_prompt": ""
+}
