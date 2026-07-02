@@ -1,0 +1,54 @@
+{
+  "article_title": "HTTP/3 在 .NET 10：用 HttpClient 和 Kestrel 启用 QUIC",
+  "cover_type": "tutorial",
+  "core_theme": ".NET 10 中 HTTP/3 的完整启用链路：从 QUIC 协议优势到 HttpClient 客户端配置到 Kestrel 服务端配置到端到端联调",
+  "reader_takeaway": "读者能理解 QUIC 相比 TCP 的核心优势，掌握 HttpVersionPolicy 三种策略的选择逻辑，并能在 .NET 10 中同时配置客户端和服务端的 HTTP/3 支持",
+  "summary_angle": "用「TCP 队头阻塞 → QUIC 多流并行 → 版本策略选择 → 服务端配置 → 联调验证」这条升级链路概括 HTTP/3 在 .NET 10 中的核心价值与实操路径",
+  "narrative_flow": "4-beat process with contrast",
+  "information_blocks": [
+    {
+      "role": "mechanism",
+      "source_anchor": "QUIC 在传输层解决 TCP 队头阻塞，每个流独立，A 流丢包不影响 B 流",
+      "visual_idea": "左侧 TCP 单队列阻塞，右侧 QUIC 多流并行流畅，形成鲜明对比",
+      "visible_label": "QUIC无阻塞",
+      "numeric_fact": "①"
+    },
+    {
+      "role": "step",
+      "source_anchor": "HttpVersionPolicy 三种策略：RequestVersionOrLower/OrHigher/Exact 分别适用于生产降级、最低版本要求、测试验证",
+      "visual_idea": "一个拨盘/开关选择器，三个档位标注不同策略名称",
+      "visible_label": "版本策略",
+      "numeric_fact": "②"
+    },
+    {
+      "role": "step",
+      "source_anchor": "Kestrel 配置 HttpProtocols.Http1AndHttp2AndHttp3 + appsettings.json + Alt-Svc 自动协商",
+      "visual_idea": "服务器端点配置界面，协议指示灯显示 HTTP/1.1 + HTTP/2 + HTTP/3 三灯亮起",
+      "visible_label": "服务端配置",
+      "numeric_fact": "③"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "完整端到端示例：client 发起请求 → Alt-Svc 发现 → 后续请求升级到 HTTP/3，response.Version 确认为 3.0",
+      "visual_idea": "客户端发出请求，响应中显示协议版本从 1.1/2 过渡到 3.0",
+      "visible_label": "联调验证",
+      "numeric_fact": "④"
+    }
+  ],
+  "main_metaphor": "通信协议高速公路升级 — 从 TCP 单车道收费站排队到 QUIC 多车道 ETC 自由通行",
+  "primary_subject": "一条横向展开的数据流管道，左侧是阻塞的 TCP 旧通道，右侧是流畅的 QUIC 多流新通道，之间有版本策略开关做桥梁",
+  "subject_action": "从左到右的对比演进：旧协议阻塞 → 策略选择 → 新协议畅通 → 验证通过",
+  "composition": "左右对照式构图 + 横向推进，左侧展示问题（阻塞），右侧展示解决（并行），中间有过渡节点",
+  "base_style": "editorial technical illustration",
+  "selected_style": "高对比电影风",
+  "selected_style_prompt_descriptor": "high-contrast cinematic illustration, strong key light, deep shadows, wide-screen composition, dramatic but realistic color grading",
+  "selected_style_reason": "随机选中；HTTP/3 协议升级主题中的「旧 vs 新」「阻塞 vs 并行」对比适合用高对比戏剧性光效呈现演进关系",
+  "style_safety_note": "使用泛高对比电影描述，不引用具体影片、导演或工作室",
+  "allowed_visible_text": ["QUIC无阻塞", "版本策略", "服务端配置", "联调验证", "①", "②", "③", "④"],
+  "color_palette": ["深蓝灰 #1a2332", "科技青 #00b4d8", "暖橙 #f4a261", "白色"],
+  "avoid": ["漂浮芯片", "无意义代码雨", "霓虹高楼背景", "通用机器人站姿", "假UI标签", "假dashboard", "假终端输出", "假架构图", "赛博朋克紫蓝光污染", "HUD浮层"],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证左右对照构图能否清晰表达 TCP 阻塞 vs QUIC 并行，以及高对比电影风格是否成立",
+  "revision_targets": ["如果左右对比不够明显则加强光暗和色彩对比", "如果分镜风格不够突出则增加戏剧性光效和深度阴影", "确保没有假网络拓扑图或假服务器界面"],
+  "final_prompt": ""
+}
