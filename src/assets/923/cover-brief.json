@@ -1,0 +1,71 @@
+{
+  "article_title": "NuGet 包是什么？.nupkg 格式与 NuGet 注册中心详解",
+  "cover_type": "tutorial",
+  "core_theme": "拆解 NuGet 包的内部结构：.nupkg 是 ZIP 压缩包，内含 .nuspec 清单、lib/ 程序集、build/ 构建钩子，通过 NuGet.org 注册中心分发，dotnet restore 解析完整依赖图",
+  "reader_takeaway": "理解 NuGet 包从内部 ZIP 结构到注册中心运作再到依赖解析的完整链路，不再被还原失败和版本冲突难住",
+  "summary_angle": "把「.nupkg = ZIP 压缩包 → .nuspec 清单 → lib/ 程序集 → NuGet.org 注册中心 → dotnet restore 依赖图」压成一张结构清晰的封面",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "mechanism",
+      "source_anchor": ".nupkg 就是 ZIP 压缩包，内部包含 .nuspec 清单、lib/ 目标框架程序集、build/ 和 analyzers/ 可选目录",
+      "visual_idea": "一个打开的 ZIP/NuGet 盒子，展示内部层次结构",
+      "visible_label": ".nupkg = ZIP",
+      "numeric_fact": "1"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "NuGet.org 是默认公共注册中心，通过 nuget.config 可配置 Azure Artifacts、GitHub Packages 等私有源",
+      "visual_idea": "中央注册节点连接多个包源（公共/私有）",
+      "visible_label": "NuGet.org 注册中心"
+    },
+    {
+      "role": "step",
+      "source_anchor": "dotnet restore 读取 PackageReference → 查询包源 → 下载到本地缓存 → 解析传递依赖 → 写入 project.assets.json",
+      "visual_idea": "流程箭头：下载 → 解析 → 锁定文件",
+      "visible_label": "dotnet restore"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "理解内部结构后，还原失败、版本冲突、依赖解析异常都有据可查",
+      "visible_label": "不再黑箱"
+    }
+  ],
+  "main_metaphor": "一个被打开的 .nupkg 盒子/ZIP 压缩包，像拆包裹一样展示内部的 .nuspec 清单、lib/ 程序集层和注册中心连接",
+  "primary_subject": "中央一个正在展开/打开的 NuGet 包盒子，露出 .nuspec 卷轴和 lib/ 程序集分层",
+  "subject_action": "NuGet 包盒子正在打开，内部结构向外展开，连接到一个标志性的注册中心节点",
+  "composition": "居中主物体 + 放射状展开 + 右下注册中心节点",
+  "base_style": "editorial technical illustration",
+  "selected_style": "国漫二次元风",
+  "selected_style_prompt_descriptor": "contemporary Chinese anime-comic illustration, crisp linework, ornate but controlled details, vibrant fantasy-tech color accents",
+  "selected_style_reason": "用户未指定风格，从风格池随机选中；NuGet 包结构拆解的层次感和细节适合用国漫二次元的清晰线条与丰富层次表达",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": [
+    ".nupkg = ZIP",
+    "NuGet.org",
+    "dotnet restore",
+    "不再黑箱"
+  ],
+  "color_palette": ["科技蓝", "活力橙", "暖白"],
+  "avoid": [
+    "泛科技氛围图",
+    "霓虹高楼背景",
+    "无意义代码雨",
+    "通用机器人",
+    "水印",
+    "假 dashboard",
+    "假终端输出",
+    "假 UI 标签",
+    "漂浮芯片",
+    "赛博朋克紫蓝光污染",
+    "英语长标签"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "先验证「打开的 .nupkg 盒子 + 分层结构 + 注册中心节点 + 国漫二次元风格」是否成立",
+  "revision_targets": [
+    "如果信息块过于密集，压缩为 3 个信息块",
+    "如果背景元素抢夺焦点，简化背景",
+    "如果风格不够明显，加强清晰线稿和色彩对比"
+  ],
+  "final_prompt": "Use case: infographic-story. Wide cover, 2.35:1. Theme: NuGet package internals — .nupkg ZIP, .nuspec, lib/ TFMs, NuGet.org registry, dotnet restore. Metaphor: opening package box revealing layers. Chinese labels: .nupkg=ZIP, NuGet.org注册中心, dotnet restore, 不再黑箱. Style: editorial technical + contemporary Chinese anime-comic — crisp linework, ornate details, vibrant accents. No watermarks/screenshots/dashboards/fake diagrams/charts/terminal/code rain/chips/cyberpunk/robots/titles/slogans."
+}
