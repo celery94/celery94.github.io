@@ -1,0 +1,71 @@
+{
+  "article_title": "Mock HttpClient C#：DelegatingHandler、Mock 处理器与集成测试",
+  "cover_type": "tutorial",
+  "core_theme": "在 .NET 测试中 Mock HttpClient：拦截 HttpMessageHandler.SendAsync 接缝，替代真实网络调用，实现可控制的响应桩和请求验证",
+  "reader_takeaway": "掌握在 .NET 10 中不依赖外部服务就能给 HttpClient 相关代码写完整测试的方法",
+  "summary_angle": "把「拦截 SendAsync → 构造假响应 → 验证发出请求 → 不需要真实服务」压成一张流程清晰的封面",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "mechanism",
+      "source_anchor": "HttpMessageHandler 作为测试接缝 —— HttpClient 本身不做网络调用，所有请求都经过 SendAsync",
+      "visual_idea": "一个请求箭头被路由/拦截到一个中央处理器，不指向外部网络",
+      "visible_label": "拦截 SendAsync",
+      "numeric_fact": "1"
+    },
+    {
+      "role": "step",
+      "source_anchor": "MockHttpMessageHandler + HttpStubs：用 Func<> 控制返回的状态码、JSON body、请求头",
+      "visual_idea": "处理器输出假的响应（200 OK / JSON）",
+      "visible_label": "构造假响应"
+    },
+    {
+      "role": "step",
+      "source_anchor": "在 handler 委托内部捕获 HttpRequestMessage，调用完成后断言方法、URL、Header、Body",
+      "visual_idea": "放大镜观察发出的请求结构（方法、路径、body）",
+      "visible_label": "验证请求"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "小结：每个测试确定、快速、意图明确，没有外部服务器，没有网络依赖",
+      "visual_idea": "自闭环标志——所有交互都在系统内部完成",
+      "visible_label": "无网络依赖"
+    }
+  ],
+  "main_metaphor": "一个中央路由/拦截器替代了通往外部网络的出口，在内部完成「请求-响应」闭环",
+  "primary_subject": "中央拦截路由节点（抽象为精准的几何盒子/交换机），一侧接收请求，一侧返回假响应",
+  "subject_action": "中央路由节点拦截发来的请求并原地返回构造好的响应",
+  "composition": "居中主物体 + 左右数据流指示",
+  "base_style": "editorial technical illustration",
+  "selected_style": "极简线稿风",
+  "selected_style_prompt_descriptor": "minimalist line-art illustration, sparse clean strokes, ample negative space, precise symbolic objects, limited accent color",
+  "selected_style_reason": "用户未指定风格，从风格池随机选中；测试 Mock 概念的精准、可控特质适合用清晰极简的符号化表达",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": [
+    "① 拦截 SendAsync",
+    "② 构造假响应",
+    "③ 验证请求",
+    "无网络依赖"
+  ],
+  "color_palette": ["深蓝 / 炭灰", "亮橙点缀", "暖白"],
+  "avoid": [
+    "泛科技氛围图",
+    "霓虹高楼背景",
+    "无意义代码雨",
+    "通用机器人",
+    "水印",
+    "假 dashboard",
+    "假终端输出",
+    "假 UI 标签",
+    "漂浮芯片",
+    "赛博朋克紫蓝光污染"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "先验证「居中路由节点 + 三阶段流程 + 极简线稿风格」是否成立",
+  "revision_targets": [
+    "如果信息块标签过于密集，压缩叙事删除 1 个信息块",
+    "如果背景元素抢夺焦点，简化背景",
+    "如果风格倾向性不够强，加强 line-art 笔触和负空间"
+  ],
+  "final_prompt": "Use case: infographic-story. Wide cover infographic illustration, aspect ratio 2.35:1. Theme: Mock HttpClient testing in .NET — intercept HttpMessageHandler.SendAsync. Summary: intercept fake-response verify no-real-server needed. Main metaphor: a central router switch intercepting HTTP requests and returning controlled responses in a closed loop. Primary subject: a precise geometric switch-box node at center. Composition: centered main subject with left-to-right horizontal data flow. Chinese labels: 拦截SendAsync, 构造假响应, 验证请求. Style: editorial technical illustration combined with minimalist line-art — sparse clean strokes, ample negative space, precise symbolic objects, limited accent color (deep blue charcoal with orange accent and warm white). No watermark, screenshots, dashboards, fake diagrams, fake charts, fake terminal, code rain, floating chips, neon cyberpunk, generic robots, poster title, long sentences, English slogans."
+}
