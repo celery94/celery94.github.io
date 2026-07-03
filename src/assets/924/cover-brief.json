@@ -1,0 +1,64 @@
+{
+  "article_title": "Claude Code 提示词库：覆盖 .NET 开发全流程的 11 条提示词",
+  "cover_type": "tutorial",
+  "core_theme": "一套包含 11 条 Claude Code 提示词的 .NET 开发工具库，每条提示词都带有禁止项指令来控制 AI 输出质量",
+  "reader_takeaway": "拿到一套可直接复制使用的 .NET 开发提示词模板，理解禁止项的工作原理，减少 AI 生成不合适代码的时间",
+  "summary_angle": "把“提示词输入 -> 禁止项过滤 -> 可控产出”的工作流视觉化成一张宽封面",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "evidence",
+      "source_anchor": "原文列出 11 条提示词覆盖完整 .NET 开发流程",
+      "visual_idea": "一个开发者工作台，上面排列着编号的提示词卡片或文档",
+      "visible_label": "11条提示词",
+      "numeric_fact": "11"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "每条提示词都包含禁止项指令（Do NOT），阻止 AI 走默认统计路径",
+      "visual_idea": "一道护栏或过滤网，挡住错误的默认路径，只让正确方向通过",
+      "visible_label": "禁止项指令",
+      "numeric_fact": ""
+    },
+    {
+      "role": "step",
+      "source_anchor": "覆盖从头脑风暴、架构选择、脚手架、EF Core、测试到审计的完整开发流程",
+      "visual_idea": "一条流程图箭头的简化线索，从想法指向完成",
+      "visible_label": "全流程",
+      "numeric_fact": ""
+    }
+  ],
+  "main_metaphor": "开发者工作台上的提示词卡片库——每张卡片都是一条带禁止项护栏的结构化指令",
+  "primary_subject": "一个开发者工作台，上面整齐排列着编号的提示词卡片，卡片之间有一条带过滤标识的流程线",
+  "subject_action": "开发者（或手的暗示）正在从卡片库中选择/激活一条提示词，卡片上的禁止项护栏正在过滤不合规的代码路径",
+  "composition": "单点聚焦于工作台中心，提示词卡片从左到右按流程排列，带有轻度的流程线引导",
+  "base_style": "editorial technical illustration",
+  "selected_style": "独立漫画风",
+  "selected_style_prompt_descriptor": "indie comic illustration, personal hand-drawn marks, muted palette, imperfect line texture, intimate editorial feeling",
+  "selected_style_reason": "本篇从风格池随机选中；个人开发者分享提示词库的博客风格，适合用有个人印记、亲切编辑感的独立漫画视觉表达",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["11条提示词", "禁止项指令", "全流程"],
+  "color_palette": [
+    "暖灰调背景",
+    "深蓝提示词卡片",
+    "橙黄强调色",
+    "柔和米白工作台"
+  ],
+  "avoid": [
+    "漂浮芯片",
+    "代码雨",
+    "霓虹高楼",
+    "通用机器人",
+    "HUD 浮层",
+    "终端截图",
+    "dashboard"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮先验证主隐喻（工作台上的提示词卡片库）和三个信息块的可读性",
+  "revision_targets": [
+    "如果卡片布局太像海报，调整为更自然的桌面散落感",
+    "如果颜色太鲜艳，降低饱和度以匹配独立漫画风",
+    "如果流程线太像真实架构图，换为手绘风格箭头"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: A curated library of 11 Claude Code prompts for .NET developers, where each prompt carries negative commands (Do NOT rules) that filter out unwanted AI output. The reader should quickly feel they're getting a practical, ready-to-use prompt toolkit.\n\nSummary angle: Visualize the workflow of \"prompt input -> negative-command filtering -> controlled output\" as a developer workbench scene.\nNarrative flow: 3-beat process. In a 2.35:1 frame, keep one dominant focal subject and 2-4 supporting narrative beats. Each beat must map to the article's information blocks rather than generic decoration.\nInformation blocks:\n- evidence: 11 numbered prompt cards spread across the developer workbench, representing the 11 prompts covering the full .NET workflow. Visible label: \"11条提示词\". Numeric fact: 11.\n- mechanism: A guardrail or filter barrier blocking wrong default paths, letting only correct directions through, representing the negative commands. Visible label: \"禁止项指令\".\n- step: A simplified hand-drawn style arrow flow line from idea to completion, representing the end-to-end workflow. Visible label: \"全流程\".\n\nMain metaphor: A developer's personal prompt card library on a workbench — each card is a structured instruction with guardrails.\nSubject: A developer workbench with neatly arranged numbered prompt cards, a subtle flow line between them with filter indicators. A hand hint selecting or activating a prompt from the collection.\nComposition/framing: Single focal point on the workbench center, prompt cards arranged left to right along the workflow, with a light flow-line guide. Prefer horizontal storytelling that stays legible in a wide cover.\nStyle/medium: combine editorial technical illustration with the selected visual style descriptor: indie comic illustration, personal hand-drawn marks, muted palette, imperfect line texture, intimate editorial feeling. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: warm gray background, deep blue prompt cards, orange-yellow accents, soft cream workbench surface.\nVisible text policy: allow only 1-3 short Chinese labels or number chips by default, and no more than 4 when strictly necessary, all sourced from the information blocks. Each label <= 6 Chinese characters or one required product/model name. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: floating chips, code rain, neon buildings, generic robot figures, HUD overlays, terminal screenshots, dashboards."
+}
