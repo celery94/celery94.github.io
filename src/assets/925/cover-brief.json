@@ -1,0 +1,65 @@
+{
+  "article_title": "用 Tailscale 构建你自己的 VPN：零开放端口的私有网络",
+  "cover_type": "tutorial",
+  "core_theme": "用 Tailscale 的 Mesh VPN 构建零开放端口的私有网络，让数据库、监控面板等内部服务从公网彻底隐藏",
+  "reader_takeaway": "学会用 Tailscale 让多台 VPS 上的 Postgres、Grafana、API 等服务互相通信，同时公网看不到任何一个端口",
+  "summary_angle": "公网暴露风险 → Mesh 直接加密连接 → 零开放端口安全通信，三步完成服务器隐身",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "a bot is scanning the internet for your database, every database, on every server with a public IP",
+      "visual_idea": "画面左侧，一台服务器暴露着开放的端口，外部有红色扫描射线逼近",
+      "visible_label": "公网暴露",
+      "numeric_fact": null
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "Tailscale builds a mesh, where every device connects directly to every other device over its own encrypted tunnel",
+      "visual_idea": "画面中央，一个发光的保护气泡包裹着多台服务器，它们之间用加密通道直接连接",
+      "visible_label": "Mesh 直连",
+      "numeric_fact": "100.x"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "zero open ports, every internal service stops being a public endpoint you have to defend",
+      "visual_idea": "画面右侧，气泡内的服务安静运行，外部扫描射线被完全阻挡",
+      "visible_label": "零端口",
+      "numeric_fact": null
+    }
+  ],
+  "main_metaphor": "一个发光的保护气泡/安全穹顶，透明屏障内是 Mesh 连接的服务器群，外部扫描射线撞到气泡后消散",
+  "primary_subject": "一个半透明的蓝色保护气泡，内部有三台服务器节点互相连接",
+  "subject_action": "气泡包裹着内部通过加密通道互相连接的服务器节点，外部扫描射线被气泡表面阻挡并消散",
+  "composition": "居中主物体 + 左右叙事推进，左边扫描威胁向右进入气泡后消散",
+  "base_style": "editorial technical illustration",
+  "selected_style": "迪士尼动画风",
+  "selected_style_prompt_descriptor": "bright family-animation feeling, rounded character shapes, clear emotional acting, polished color and lighting, no studio imitation",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；Tailscale Mesh 网络可以类比为服务器节点之间的友好互动关系，明亮色调适合表达安全通信的主题",
+  "style_safety_note": "使用泛迪士尼动画风格描述，不引用具体工作室或影片",
+  "allowed_visible_text": ["公网暴露", "Mesh 直连", "零端口", "100.x"],
+  "color_palette": [
+    "深蓝色 #1A1A2E",
+    "安全蓝 #4A90D9",
+    "暖橙色点缀 #F5A623",
+    "明亮白色高光"
+  ],
+  "avoid": [
+    "robot figures",
+    "neon skyscraper background",
+    "floating chips",
+    "code rain",
+    "HUD overlay",
+    "fake dashboard",
+    "fake terminal",
+    "badge icons"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证保护气泡隐喻是否成立、三个叙事信息块是否清晰可读",
+  "revision_targets": [
+    "如果气泡不够明显就增强发光边缘",
+    "如果信息块看不清就放大标签chip",
+    "如果外部威胁射线太强就降低侵略感"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: Build a private zero-open-port network with Tailscale Mesh VPN. The reader should quickly feel that they can hide their servers from the public internet while keeping full connectivity.\n\nSummary angle: Public port exposure → Mesh encrypted direct connection → Zero open ports secure communication.\nNarrative flow: 3-beat process. In a 2.35:1 frame, keep one dominant focal subject and 2-4 supporting narrative beats.\nInformation blocks:\n- Block 1 (problem): Left side, a server with an exposed port, external red scanning rays approaching. Label: 公网暴露\n- Block 2 (mechanism): Center, a luminous protective bubble containing servers connected by encrypted tunnels. Label: Mesh 直连. Numeric: 100.x\n- Block 3 (takeaway): Right side, the scanning rays are blocked by the bubble, servers inside run safely and privately. Label: 零端口\n\nMain metaphor: A luminous protective bubble/security dome, transparent barrier with Mesh-connected servers inside, external scanning rays bounce off and dissipate.\nSubject: A semi-transparent blue protective bubble, three server nodes interconnected inside. The bubble wraps around the internally connected servers via encrypted channels; external scanning rays are blocked and dissipated by the bubble surface.\nComposition/framing: Centered main subject plus left-to-right narrative progression. Scanning threats enter from left and dissolve after hitting the bubble.\nStyle/medium: combine editorial technical illustration with the selected visual style descriptor: bright family-animation feeling, rounded character shapes, clear emotional acting, polished color and lighting, no studio imitation. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: Deep blue #1A1A2E, safety blue #4A90D9, warm orange accent #F5A623, bright white highlights.\nVisible text policy: allow only 3-4 short Chinese labels or number chips, all sourced from the information blocks. Each label <= 6 Chinese characters. Numbers allowed: 100.x. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: robot figures, neon skyscraper background, floating chips, code rain, HUD overlay, fake dashboard, fake terminal, badge icons.\n\nwide cover illustration, aspect ratio 2.35:1"
+}
