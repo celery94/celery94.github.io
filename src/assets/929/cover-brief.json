@@ -1,0 +1,47 @@
+{
+  "article_title": "EF Core Interceptors 完全指南：审计字段、软删除和慢查询日志",
+  "cover_type": "tutorial",
+  "core_theme": "EF Core 10 的 7 种 Interceptor：SaveChangesInterceptor 做审计字段和软删除，DbCommandInterceptor 做慢查询日志",
+  "reader_takeaway": "学会用 Interceptor 自动处理审计字段、软删除和慢查询捕获，理解作用域服务注入的正确方式",
+  "summary_angle": "从手动在每个 Handler 里写审计字段 → 一个 Interceptor 自动处理所有 SaveChanges 的审计、软删除和慢查询",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "原文开头——每个 Handler 手动设置 CreatedAt 重复且容易遗漏",
+      "visual_idea": "左侧：散落的实体对象，各自缺少 CreatedAt/UpdatedAt 标记",
+      "visible_label": "手动散乱",
+      "numeric_fact": ""
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "SaveChangesInterceptor 自动在 SaveChanges 前填充审计字段并执行软删除",
+      "visual_idea": "中心：一个拦截器层在 SaveChanges 之前检查所有实体变更并自动填入字段",
+      "visible_label": "拦截自动",
+      "numeric_fact": "7 种"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "DbCommandInterceptor 做慢查询日志 + 最终效果：审计字段自动完整",
+      "visual_idea": "右侧：数据库实体整齐排列，审计字段和软删除标志完整，慢查询被标记",
+      "visible_label": "审计完整",
+      "numeric_fact": ">500ms"
+    }
+  ],
+  "main_metaphor": "一个拦截层/滤网在数据库操作之前自动检查和修补实体",
+  "primary_subject": "一条从左到右的数据管线：左侧散落实体 → 中心拦截器层进行自动修补 → 右侧整齐完整实体流入数据库",
+  "subject_action": "实体对象从左向右流动，经过中间拦截器层时被自动标记和修复",
+  "composition": "左右对照推进",
+  "base_style": "editorial technical illustration",
+  "selected_style": "黑白版画风",
+  "selected_style_prompt_descriptor": "black-and-white printmaking look, carved textures, bold shadows, high contrast, poster-like but no title text",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；黑白版画的反差和结构性适合表达拦截器层的中间过滤角色",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["手动散乱", "拦截自动", "审计完整"],
+  "color_palette": ["black", "white", "warm paper off-white"],
+  "avoid": ["水印", "假 UI 截图", "假代码编辑器", "假数据库界面", "假 terminal", "代码雨", "英文口号", "长句标题", "霓虹灯光"],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证从散乱到拦截再到完整的三个信息块是否可辨认",
+  "revision_targets": ["拦截层不够突出时强化", "标签太小或模糊时放大"],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide infographic-story cover illustration. Theme: EF Core 10 interceptors as middleware for database calls - auto audit fields, soft deletes, slow query logging.\n\nSummary angle: From scattered entities missing audit fields → interceptor layer auto-stamps audit fields and soft deletes → clean entities with complete audit trails flowing into database.\nNarrative flow: 3-beat process. 2.35:1 wide frame.\nInformation blocks:\n- Problem (left): scattered entity objects missing CreatedAt/UpdatedAt markers — label '手动散乱'\n- Mechanism (center): interceptor layer sitting before SaveChanges, inspecting and fixing all entity changes — label '拦截自动', fact '7 种'\n- Takeaway (right): clean entities with complete audit fields and soft-delete flags flowing into database — label '审计完整', fact '>500ms'\n\nMain metaphor: A data pipeline with an interceptor filter layer that inspects and repairs entities before they reach the database.\nSubject: Entity objects flowing left to right through an interceptor filter stage. Left: scattered incomplete entities. Center: filter/detection layer applying stamps. Right: clean complete entities entering database.\nComposition: Left-to-right horizontal progression.\nStyle: combine editorial technical illustration with selected visual style descriptor: black-and-white printmaking look, carved textures, bold shadows, high contrast, poster-like but no title text. Stylized, editorial, visually strong. Do not imitate a specific brand, studio, or living artist.\nColor palette: black, white, warm paper off-white.\nVisible text: only 3 Chinese labels: '手动散乱', '拦截自动', '审计完整'. No poster title, no long sentences, no English slogans.\nConstraints: no watermark, no screenshots, no dashboards, no fake database UIs, no fake terminals, no fabricated metrics.\nAvoid: code rain, neon lights, fake code editors, fake UI panels, decorative clutter, cyberpunk coloring."
+}
