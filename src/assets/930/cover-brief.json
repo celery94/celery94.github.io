@@ -1,0 +1,47 @@
+{
+  "article_title": "Serilog 在 .NET 中的完整指南：从安装到生产级结构化日志",
+  "cover_type": "tutorial",
+  "core_theme": "Serilog 在 ASP.NET Core 中的接入：两阶段引导 → appsettings.json 配置 → Sink/Enricher 使用 → 结构化请求日志",
+  "reader_takeaway": "学会在 ASP.NET Core 中接入 Serilog 生产级结构化日志，包括 Sink 配置、Enricher 使用和请求日志中间件",
+  "summary_angle": "从 MEL 内置的简单 Console 日志 → Serilog 三阶段管线（Enricher → Filter → Sink）输出结构化、可查询的生产级日志",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "step",
+      "source_anchor": "原文两阶段初始化 + appsettings.json 配置",
+      "visual_idea": "左侧：初始化安装，NuGet 包和 Program.cs 代码引导",
+      "visible_label": "安装配置",
+      "numeric_fact": "4 pkg"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文管线架构——Enricher → Filter → Sink，以及 100+ Sink",
+      "visual_idea": "中心：三阶段管线流动，Enricher 追加属性，Filter 过滤，Sink 分路输出到 Console/File/Seq",
+      "visible_label": "管线流水",
+      "numeric_fact": "100+ Sink"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文 UseSerilogRequestLogging 结构化请求日志",
+      "visual_idea": "右侧：一条结构化 HTTP 请求日志条目（Method/Path/Status/Elapsed）进入仪表盘",
+      "visible_label": "结构化输出",
+      "numeric_fact": "1 条/请求"
+    }
+  ],
+  "main_metaphor": "日志从简单的文本流转变为经过三道工序处理的结构化数据产品",
+  "primary_subject": "一条从左到右的日志处理管线：原始日志进入 → 经过三个处理站（Enricher/Filter/Sink）→ 输出到多个目的地",
+  "subject_action": "日志事件从左向右流过三个处理站，每个站做一次附加值处理",
+  "composition": "斜向推进",
+  "base_style": "editorial technical illustration",
+  "selected_style": "水彩漫画风",
+  "selected_style_prompt_descriptor": "watercolor comic illustration, translucent washes, visible paper texture, soft edges, light ink structure",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；水彩的流动感和层次叠加适合表达日志管线的 Enricher→Filter→Sink 流水线处理",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["安装配置", "管线流水", "结构化输出"],
+  "color_palette": ["indigo blue", "teal", "warm ochre accent", "soft paper white"],
+  "avoid": ["水印", "假 UI", "假 dashboard", "假 terminal", "代码雨", "霓虹", "机器人", "英文口号"],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证三阶段管线（Enricher→Filter→Sink）的多路输出叙事是否成立",
+  "revision_targets": ["管线处理站不够清楚时强化视觉区分", "三个标签太小或模糊时放大"],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide infographic-story cover illustration. Theme: Serilog structured logging pipeline in .NET: package setup → Enricher/Filter/Sink pipeline → structured output to Console/File/Seq.\n\nSummary angle: From simple MEL Console log → Serilog 3-stage pipeline (Enricher → Filter → Sink) producing structured queryable logs to multiple destinations.\nNarrative flow: 3-beat process. 2.35:1 wide frame.\nInformation blocks:\n- Step (left): NuGet packages installation and Program.cs bootstrap setup — label '安装配置', fact '4 pkg'\n- Mechanism (center): 3-stage pipeline Enricher appends properties, Filter screens, Sink distributes to Console/File/Seq — label '管线流水', fact '100+ Sink'\n- Takeaway (right): single structured HTTP request log entry with Method/Path/Status/Elapsed flowing into dashboard — label '结构化输出', fact '1 条/请求'\n\nMain metaphor: Log events flowing through a 3-stage processing pipeline to multiple output destinations.\nSubject: A diagonal log processing pipeline. Log events enter left raw, pass through three treatment stations (Enricher/Filter/Sink), exit right as structured entries flowing to Console/File/Seq destinations.\nComposition: Diagonal progression, left entry to right multi-branch output.\nStyle: combine editorial technical illustration with selected visual style descriptor: watercolor comic illustration, translucent washes, visible paper texture, soft edges, light ink structure. Stylized, editorial, visually strong. Do not imitate a specific brand, studio, or living artist.\nColor palette: indigo blue, teal, warm ochre accent, soft paper white.\nVisible text: only 3 Chinese labels: '安装配置', '管线流水', '结构化输出'. No poster title, no long sentences, no English slogans.\nConstraints: no watermark, no screenshots, no dashboards, no fake UIs, no fake terminals, no fabricated metrics.\nAvoid: code rain, neon lighting, robot figures, cyberpunk colors, fake code editors, decorative clutter."
+}
