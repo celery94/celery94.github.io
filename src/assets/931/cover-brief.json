@@ -1,0 +1,47 @@
+{
+  "article_title": "在 C# 中构建 MCP 服务器和客户端：完整指南",
+  "cover_type": "tutorial",
+  "core_theme": "用 C# SDK 构建 MCP Server（工具/资源/提示词）+ Client（Stdio/HTTP）→ 接入 Microsoft.Extensions.AI → Agent 调用",
+  "reader_takeaway": "学会用 C# 构建 MCP Server 和 Client，让 AI Agent 通过标准协议发现和调用你的工具",
+  "summary_angle": "从 C# 代码中的方法 → 通过 [McpServerTool] 暴露为 MCP 工具 → Agent 通过 MCP Client 发现并调用",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "step",
+      "source_anchor": "原文 [McpServerTool] 定义工具 + DI 注入",
+      "visual_idea": "左侧：C# 代码中标记了 [McpServerTool] 的方法",
+      "visible_label": "定义工具",
+      "numeric_fact": "[McpServerTool]"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文 MCP Server 暴露 Stdio/HTTP 传输 + Client 发现工具列表",
+      "visual_idea": "中心：MCP Server 和 MCP Client 通过 JSON-RPC 握手，Client 列出工具",
+      "visible_label": "协议握手",
+      "numeric_fact": "JSON-RPC"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文 McpClientTool 继承 AIFunction → 传给 IChatClient",
+      "visual_idea": "右侧：Agent/LLM 通过 IChatClient 调用从 MCP Server 发现的工具",
+      "visible_label": "Agent 调用",
+      "numeric_fact": "IChatClient"
+    }
+  ],
+  "main_metaphor": "C# 方法通过 MCP 协议桥变成 AI Agent 可以调用的远程能力",
+  "primary_subject": "一条从左到右的连接：C# 代码 → MCP Server → JSON-RPC → MCP Client → AI Agent/LLM",
+  "subject_action": "C# 工具方法从左端被暴露，经过协议传输到右端被 Agent 发现和调用",
+  "composition": "左右对照推进",
+  "base_style": "editorial technical illustration",
+  "selected_style": "动态分镜电影风",
+  "selected_style_prompt_descriptor": "dynamic cinematic storyboard style, sequential panels, camera-motion feeling, strong cuts, clear narrative beats",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；分镜的序列感和阶段性推进适合表达 MCP 从定义→暴露→调用的流程",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["定义工具", "协议握手", "Agent 调用"],
+  "color_palette": ["slate blue", "electric teal", "warm amber accent", "dark charcoal"],
+  "avoid": ["水印", "假 UI", "假代码编辑器截图", "假 terminal", "代码雨", "霓虹", "机器人", "英文口号"],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证从代码定义 → 协议暴露 → Agent 调用的三段叙事是否成立",
+  "revision_targets": ["三段的分镜面板区分不够清晰时加强", "标签太小或模糊时放大"],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide infographic-story cover illustration. Theme: Building MCP servers and clients in C# - exposing C# methods as MCP tools for AI agents to discover and call.\n\nSummary angle: From C# code methods → exposed as MCP tools via [McpServerTool] → discovered and called by AI agents through MCP Client.\nNarrative flow: 3-beat process. 2.35:1 wide frame.\nInformation blocks:\n- Step (left): C# methods annotated with [McpServerTool] attribute ready to be exposed — label '定义工具', fact '[McpServerTool]'\n- Mechanism (center): MCP Server and Client handshake over JSON-RPC, Client lists available tools — label '协议握手', fact 'JSON-RPC'\n- Takeaway (right): AI agent calling discovered tools through IChatClient — label 'Agent 调用', fact 'IChatClient'\n\nMain metaphor: C# methods traveling across the MCP protocol bridge to become callable AI agent capabilities.\nSubject: A left-to-right flow: C# code methods (left) → MCP Server exposing tools → JSON-RPC protocol bridge → MCP Client discovering tools → AI agent calling them (right).\nComposition: Left-to-right progressive panels.\nStyle: combine editorial technical illustration with selected visual style descriptor: dynamic cinematic storyboard style, sequential panels, camera-motion feeling, strong cuts, clear narrative beats. Stylized, editorial, visually strong. Do not imitate a specific brand, studio, or living artist.\nColor palette: slate blue, electric teal, warm amber accent, dark charcoal.\nVisible text: only 3 Chinese labels: '定义工具', '协议握手', 'Agent 调用'. No poster title, no long sentences, no English slogans.\nConstraints: no watermark, no screenshots, no fake UIs, no fake code editors, no fake terminals, no fabricated metrics.\nAvoid: code rain, neon lighting, robot figures, cyberpunk colors, decorative clutter, fake IDE panels."
+}
