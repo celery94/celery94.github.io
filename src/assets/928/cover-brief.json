@@ -1,0 +1,47 @@
+{
+  "article_title": "单体架构在 C# 中的完整指南：从传统分层到模块化单体",
+  "cover_type": "architecture",
+  "core_theme": "C# 单体架构的三种形态：传统分层 → 模块化单体 → 分布式单体反模式，以及用 internal 保护模块边界的实践路径",
+  "reader_takeaway": "分清三种单体形态，学会用接口解耦和 internal 关键字构建可维护的模块化单体",
+  "summary_angle": "从耦合混乱的传统单体进化到编译期强制边界的模块化单体",
+  "narrative_flow": "before-after",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "原文传统分层单体——OrderService 直接 new OrderRepository()，硬耦合无法测试",
+      "visual_idea": "左侧：三个模块（订单/商品/用户）混在一起没有边界，箭头互相缠绕",
+      "visible_label": "耦合",
+      "numeric_fact": ""
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文使用 internal + 独立类库项目 + 接口契约保护模块边界",
+      "visual_idea": "中心：模块间出现清晰边界线，通过接口单向连接",
+      "visible_label": "接口 + internal",
+      "numeric_fact": ""
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文模块化单体演进路径——未来提取为微服务时只是运维动作而非架构重写",
+      "visual_idea": "右侧：三个独立模块整齐排列，各自接口清晰，模块名称可辨",
+      "visible_label": "模块化单体",
+      "numeric_fact": ""
+    }
+  ],
+  "main_metaphor": "从混乱的线团到有序的三块积木——模块化就是给每个部分画上清晰的边界",
+  "primary_subject": "三个代码模块从左到右演进：左侧混乱交织无边界，中间出现虚线边界和接口箭头，右侧变成三个整齐独立带清晰接口的模块",
+  "subject_action": "模块从混乱到有序的渐进演进过程",
+  "composition": "左右对照推进",
+  "base_style": "isometric conceptual systems scene",
+  "selected_style": "极简线稿风",
+  "selected_style_prompt_descriptor": "minimalist line-art illustration, sparse clean strokes, ample negative space, precise symbolic objects, limited accent color",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；极简线稿的理性克制和边界清晰度适合表达架构模块化主题",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["耦合", "接口 + internal", "模块化单体"],
+  "color_palette": ["warm gray", "deep indigo accent", "off-white background"],
+  "avoid": ["水印", "假系统架构图", "假代码编辑器截图", "假 terminal 输出", "代码雨", "仪表盘", "图表坐标", "英文口号", "长句标题", "通用机器人"],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证从混乱耦合到清晰模块边界的三段演进叙事是否成立，三个中文标签是否可辨认",
+  "revision_targets": ["模块结构不够清晰时强化边界线", "标签太小时放大", "背景太复杂时简化"],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide infographic-story cover illustration. Theme: C# monolith architecture evolution from chaotic tightly-coupled layered monolith to clean modular monolith with compiler-enforced boundaries.\n\nSummary angle: From chaotic tangled modules without boundaries → clear interface contracts with internal boundaries → three clean independent modules ready for future extraction.\nNarrative flow: before-after. 2.35:1 wide frame, one dominant focal subject and 3 supporting narrative beats.\nInformation blocks:\n- Problem (left): three code modules (Order, Catalog, User) tangled together, no boundaries, arrows tangled — label '耦合'\n- Mechanism (center): modules separated by dotted boundary lines, connected through one-way interface arrows — label '接口 + internal'\n- Takeaway (right): three clean independent modules with clear interfaces, organized and extractable — label '模块化单体'\n\nMain metaphor: Code blocks evolving from tangled yarn to clean organized building blocks with clear edges.\nSubject: Three module blocks undergoing left-to-right transformation. Left: messy tangled blocks. Center: dotted boundaries emerging with interface arrows. Right: three clean separated module blocks with labeled interface ports.\nComposition: Left-to-right horizontal progression, clean negative space.\nStyle: combine isometric conceptual systems scene with selected visual style descriptor: minimalist line-art illustration, sparse clean strokes, ample negative space, precise symbolic objects, limited accent color. Stylized, polished, editorial, visually strong. Do not imitate a specific brand, studio, or living artist.\nColor palette: warm gray, deep indigo accent, off-white background.\nVisible text: only 3 Chinese labels: '耦合', '接口 + internal', '模块化单体'. No poster title, no long sentences, no English slogans, no fake UI labels.\nConstraints: no watermark, no screenshots, no dashboards, no fake system architecture diagrams with real labels, no fake terminal output, no fabricated metrics.\nAvoid: code rain, neon buildings, robot poses, fake code editors, fake architecture node names with real project names, decorative clutter, cyberpunk lighting."
+}
