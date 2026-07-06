@@ -1,0 +1,54 @@
+{
+  "article_title": "HttpClient 日志与可观测性：ILogger、DelegatingHandler 和 OpenTelemetry",
+  "cover_type": "tutorial",
+  "core_theme": ".NET 10 HttpClient 可观测性四层方案：内置日志 → DelegatingHandler → OpenTelemetry 追踪 → 指标",
+  "reader_takeaway": "从零搭建 HttpClient 的可观测性体系，按需叠加日志、追踪和指标三层",
+  "summary_angle": "从盲调的 HTTP 调用（无日志、无追踪）到全栈可观测（结构化日志 + 分布式链路 + 指标仪表盘）",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "原文开头——微服务间 HTTP 调用出问题时看不到任何记录",
+      "visual_idea": "左侧：不透明的请求箭头，被遮挡隐藏",
+      "visible_label": "不可见",
+      "numeric_fact": "1"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "DelegatingHandler + 内置 ILogger 给出结构化请求日志",
+      "visual_idea": "中心：请求箭头穿过日志层，被标记上 Method/URL/StatusCode",
+      "visible_label": "日志",
+      "numeric_fact": "2"
+    },
+    {
+      "role": "evidence",
+      "source_anchor": "OpenTelemetry 分布式追踪 + W3C TraceContext 自动传播",
+      "visible_idea": "右上：请求链路展开成分布式 Trace Span 树",
+      "visible_label": "追踪",
+      "numeric_fact": "Trace"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "System.Net.Http Meter 指标 — duration histogram, queue time, connections",
+      "visual_idea": "右下：仪表盘显示延迟分布和连接池状态",
+      "visible_label": "指标",
+      "numeric_fact": "3"
+    }
+  ],
+  "main_metaphor": "HTTP 请求从被遮挡的盲区穿过三层可观测镜片后变得完全可见",
+  "primary_subject": "一条从左到右的 HTTP 请求箭头，穿过三层可观测滤片/镜片后变得清晰可见，并展开为追踪树和指标面板",
+  "subject_action": "请求箭头从左向右传播，穿过日志、追踪、指标三个滤片层",
+  "composition": "斜向推进，左暗右明",
+  "base_style": "editorial technical illustration",
+  "selected_style": "像素复古风",
+  "selected_style_prompt_descriptor": "retro pixel-art inspired illustration, blocky forms, limited palette, old game composition cues, readable wide layout",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；像素复古的视觉清晰度和分层感适合表达可观测性的模块化叠加",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["不可见", "日志", "追踪", "指标"],
+  "color_palette": ["deep navy", "electric cyan", "amber", "soft purple"],
+  "avoid": ["水印", "假 UI 截图", "假 dashboard", "假图表坐标", "假终端", "代码雨", "霓虹高楼", "通用机器人", "英文口号", "长句标题", "真实仪表盘复刻"],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证从不透明到可视的三层递进叙事是否成立，四个信息块标签是否清晰可辨",
+  "revision_targets": ["请求箭头主线不够清晰时强化", "三层滤片的视觉区分不明显时加强对比", "信息块标签太小或模糊时放大"],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide infographic-story cover illustration. Theme: .NET 10 HttpClient observability from blind HTTP calls to full stack logging + tracing + metrics.\n\nSummary angle: From invisible, untraceable HTTP requests → clear structured logs → distributed traces → metrics dashboards.\nNarrative flow: 3-beat process. 2.35:1 wide frame, one dominant focal subject and 3-4 supporting narrative beats.\nInformation blocks:\n- Problem (left): opaque HTTP request arrow, hidden, no visibility — label '不可见', fact '1'\n- Mechanism (center-left): request arrow passing through a logging lens, tagged with Method/URL/StatusCode — label '日志', fact '2'\n- Evidence (center-right): request spans expanding into a distributed trace tree — label '追踪', fact 'Trace'\n- Takeaway (right): histogram and gauge panels showing latency distribution and connection health — label '指标', fact '3'\n\nMain metaphor: An HTTP request arrow traveling left to right through three observability lenses that reveal its hidden details.\nSubject: A diagonal flowing HTTP request arrow, left side dark and hidden, right side revealed and expanded into trace tree and metric panels. The arrow passes through three layered lens/filter stages.\nComposition: Diagonal progression, dark-to-light left-to-right reveal.\nStyle: combine editorial technical illustration with selected visual style descriptor: retro pixel-art inspired illustration, blocky forms, limited palette, old game composition cues, readable wide layout. Stylized, polished, editorial, visually strong. Do not imitate a specific brand, studio, or living artist.\nColor palette: deep navy, electric cyan, amber, soft purple.\nVisible text: only 4 short Chinese labels: '不可见', '日志', '追踪', '指标'. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes.\nConstraints: no watermark, no screenshots, no dashboards, no fake diagrams, no fake charts with real axes, no fake terminal output, no fabricated metrics.\nAvoid: code rain, neon skyscrapers, generic robot poses, cyberpunk purple-blue overuse, dense HUD overlays, fake dashboard with numerical values."
+}
