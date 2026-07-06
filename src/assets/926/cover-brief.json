@@ -1,0 +1,47 @@
+{
+  "article_title": ".NET 日志记录：从 Console.WriteLine 到生产级可观测性",
+  "cover_type": "tutorial",
+  "core_theme": ".NET 日志体系从基础到生产级可观测性的完整指南，覆盖 ILogger、结构化日志、Serilog/NLog/OTel 选型",
+  "reader_takeaway": "搭建可用的 .NET 日志体系：从 Console.WriteLine 过渡到结构化、可查询、带追踪的生产级日志",
+  "summary_angle": "从混乱失控的 Console.WriteLine 到结构化、可查询、可观测的生产级日志管线",
+  "narrative_flow": "before-after",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "原文开头——开发者从 Console.WriteLine 开始，日志混乱不可查",
+      "visual_idea": "左侧：杂乱的纯文本日志流，难以辨认",
+      "visible_label": "失控",
+      "numeric_fact": "Console.WriteLine"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "ILogger + 结构化消息模板 + 日志级别分层",
+      "visual_idea": "中心过渡：日志内容被分类标记上 Info/Warn/Error，形成结构化属性",
+      "visible_label": "分层",
+      "numeric_fact": "Info / Warn / Error"
+    },
+    {
+      "role": "step",
+      "source_anchor": "Serilog + OpenTelemetry 统一管线，日志自动携带 TraceId",
+      "visual_idea": "右侧：结构化日志流入分析工具和追踪面板",
+      "visible_label": "可观测",
+      "numeric_fact": "OTel"
+    }
+  ],
+  "main_metaphor": "日志从混乱文本流到结构化数据管线的转换过程",
+  "primary_subject": "一条从左到右流动的日志流，左侧杂乱无结构，经过中间分类/结构化处理后，右侧变成清晰的属性化条目并进入分析工具",
+  "subject_action": "日志条目从左向右流动，经历标记、分类和结构化转换",
+  "composition": "左右对照推进",
+  "base_style": "editorial technical illustration",
+  "selected_style": "独立漫画风",
+  "selected_style_prompt_descriptor": "indie comic illustration, personal hand-drawn marks, muted palette, imperfect line texture, intimate editorial feeling",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；独立漫画的手工质感适合表达从混乱到秩序的手动改造过程",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["失控", "分层", "可观测"],
+  "color_palette": ["warm ochre", "muted teal", "soft charcoal", "dusty rose"],
+  "avoid": ["水印", "假 UI 截图", "假 dashboard", "假图表", "假终端输出", "代码雨", "霓虹高楼", "通用机器人", "英文口号", "长句标题"],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "先验证从混乱文本到结构化管线的 left-to-right 叙事是否成立，三个信息块是否可辨认",
+  "revision_targets": ["主体日志流不够清晰时强化对比", "信息块标签太小时放大", "背景太复杂时简化"],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: .NET logging from chaotic Console.WriteLine to structured, production-grade observability pipeline. The reader should quickly feel they can build a queryable, traceable logging system.\n\nSummary angle: From chaotic, unsearchable Console.WriteLine text streams → structured, categorized, queryable log entries flowing into analysis tools.\nNarrative flow: before-after. In a 2.35:1 frame, keep one dominant focal subject and 2-4 supporting narrative beats. Each beat must map to the article's information blocks rather than generic decoration.\nInformation blocks:\n- Problem (left): chaotic raw text log stream, unsearchable — visible label \"失控\", numeric fact \"Console.WriteLine\"\n- Mechanism (center transition): log entries being categorized, tagged with Info/Warn/Error levels, transforming into structured properties — visible label \"分层\", numeric fact \"Info / Warn / Error\"\n- Takeaway (right): structured clean log entries flowing into analysis tools and trace panels — visible label \"可观测\", numeric fact \"OTel\"\n\nMain metaphor: A log stream transforming from chaotic text into structured data pipeline.\nSubject: A flowing log stream moving left to right. Left side shows messy raw text lines. Center shows categorization and structuring happening. Right shows clean structured property-chips flowing into analysis tool silhouettes., The stream transforms from left chaos to right clarity.\nComposition/framing: Left-to-right horizontal progression. Prefer horizontal storytelling that stays legible in a wide cover.\nStyle/medium: combine editorial technical illustration with the selected visual style descriptor: indie comic illustration, personal hand-drawn marks, muted palette, imperfect line texture, intimate editorial feeling. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: warm ochre, muted teal, soft charcoal, dusty rose.\nVisible text policy: allow only 1-3 short Chinese labels or number chips, sourced from the information blocks: \"失控\", \"分层\", \"可观测\". No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: floating chips, meaningless code rain, neon skyscrapers, generic robot poses, cyberpunk purple-blue light pollution, dense HUD overlays, poster titles, English slogans, fake terminals."
+}
