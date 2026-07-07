@@ -1,0 +1,54 @@
+{
+  "article_title": "C# 模块化单体：.NET 开发者的完整实现指南",
+  "cover_type": "architecture",
+  "core_theme": "C# 模块化单体架构的四个核心原则与完整实现——模块封装、事件驱动通信、数据隔离、Host 组合根",
+  "reader_takeaway": "理解如何用 C# 构建模块化单体，掌握模块封装、数据隔离和事件通信的完整实现路径",
+  "summary_angle": "四个核心原则（封装边界→事件通信→独立数据→组合根）把一个传统单体改造为结构清晰、可维护的模块化单体，不必引入微服务的分布式复杂度",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "mechanism",
+      "source_anchor": "Practice 1: Module Encapsulation - internal sealed domain entities, public module interfaces",
+      "visual_idea": "一个被清晰外壳包裹的模块化方块，内部结构对外不可见，只露出接口触点",
+      "visible_label": "模块封装",
+      "numeric_fact": "①"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "Practice 2: Event-Driven Cross-Module Communication - MediatR INotification, one module publishes, others subscribe",
+      "visual_idea": "模块之间的信号连接线，箭头方向表示事件流向，不是直接调用",
+      "visible_label": "事件驱动",
+      "numeric_fact": "②"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "Practice 3: Data Isolation - each module owns its own DbContext and SQLite file",
+      "visual_idea": "每个模块下方有独立的数据层标识，没有共享数据库",
+      "visible_label": "独立数据",
+      "numeric_fact": "③"
+    },
+    {
+      "role": "step",
+      "source_anchor": "Practice 4: Module Composition in the Host - Program.cs as composition root, single line registration per module",
+      "visual_idea": "一个统一的底座（Host）承载所有模块，作为唯一的组装点",
+      "visible_label": "组合根",
+      "numeric_fact": "④"
+    }
+  ],
+  "main_metaphor": "模块化城市区块——四个功能区通过规则化路径（事件信号）连接，各自独立运作但共享一个统一的基座",
+  "primary_subject": "四个互相连接但边界清晰的模块化结构体，坐落于统一的 Host 底座上",
+  "subject_action": "模块之间通过信号（事件）箭头连接，而不是直接纠缠交织在一起",
+  "composition": "等距空间",
+  "base_style": "isometric conceptual systems scene",
+  "selected_style": "黑白版画风",
+  "selected_style_prompt_descriptor": "black-and-white printmaking look, carved textures, bold shadows, high contrast, poster-like but no title text",
+  "selected_style_reason": "用户未指定风格，本篇从 40 项风格池随机选中；黑白版画的高对比度和雕刻纹理适合表现模块化架构的结构感和边界分离",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["模块封装", "事件驱动", "独立数据", "组合根"],
+  "color_palette": ["black", "white", "deep teal accent"],
+  "avoid": ["neon glow", "cyberpunk", "floating chips", "code rain", "robot figures", "hud overlays", "fake dashboard", "fake terminal", "decorative clutter"],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮先验证等距空间下四个模块化方块 + 事件信号连接 + 黑白版画高对比度的主体关系是否成立",
+  "revision_targets": ["事件信号的视觉流向是否清晰", "黑白对比是否过于生硬", "四个信息块是否可读且不拥挤"],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: C# modular monolith architecture with four core principles - module encapsulation, event-driven communication, data isolation, and host composition root. The reader should quickly feel that they can build a clean, structured .NET application without microservices complexity.\n\nSummary angle: Four core principles (encapsulation boundaries → event communication → data isolation → composition root) transform a traditional monolith into a maintainable modular monolith without distributed system overhead.\nNarrative flow: 3-beat process. In a 2.35:1 frame, keep one dominant focal subject and 2-4 supporting narrative beats. Each beat must map to the article's information blocks rather than generic decoration.\nInformation blocks:\n- Block 1 (mechanism): module encapsulation - a block wrapped in clear boundary shell, internals invisible, only interface contacts exposed. Label: 模块封装. Tag: ①\n- Block 2 (mechanism): event-driven communication - signal connection lines between modules, arrows showing event flow direction, not direct calls. Label: 事件驱动. Tag: ②\n- Block 3 (mechanism): data isolation - each module has its own independent data layer beneath it, no shared database. Label: 独立数据. Tag: ③\n- Block 4 (step): composition root - a unified base platform (Host) carrying all modules as the single assembly point. Label: 组合根. Tag: ④\n\nMain metaphor: Modular city blocks - four functional zones connected by defined signal pathways, each operating independently but sharing a unified foundation.\nSubject: Four interconnected modular structure blocks with clean boundaries, sitting on a unified Host base platform, connected by signal arrows.\nComposition/framing: isometric layout. Prefer horizontal storytelling that stays legible in a wide cover.\nStyle/medium: combine isometric conceptual systems scene with the selected visual style descriptor: black-and-white printmaking look, carved textures, bold shadows, high contrast, poster-like but no title text. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: black, white, with subtle deep teal accent for key connection lines only.\nVisible text policy: allow only short Chinese labels 模块封装, 事件驱动, 独立数据, 组合根 and number tags ①②③④, all sourced from the information blocks. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: neon glow, cyberpunk, floating chips, code rain, robot figures, hud overlays, fake dashboard, fake terminal, decorative clutter, unrelated icons, stock tech background elements."
+}
