@@ -1,0 +1,57 @@
+{
+  "article_title": "TypeScript 7.0 发布：用 Go 重写的原生编译器，快 10 倍",
+  "cover_type": "release",
+  "core_theme": "TypeScript 7.0 用 Go 重写为原生编译器，完整构建快 8-12 倍且更省内存",
+  "reader_takeaway": "看懂这次不是加类型特性，而是整个工具链原生化换来的速度飞跃",
+  "summary_angle": "把'旧编译器慢 vs 原生 Go 编译器快 10 倍'的登场对比压成一张封面",
+  "narrative_flow": "before-after",
+  "information_blocks": [
+    {
+      "role": "contrast",
+      "source_anchor": "TypeScript 6 完整构建 125.7s vs 7 的 10.6s",
+      "visual_idea": "背景一条缓慢厚重的旧轨道",
+      "visible_label": "旧版",
+      "numeric_fact": ""
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原生 Go 移植普遍 8-12 倍提速",
+      "visual_idea": "中央一个发光的原生编译核心高速冲出",
+      "visible_label": "快 10 倍",
+      "numeric_fact": "10"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "共享内存多线程、并行类型检查",
+      "visual_idea": "多条并行光轨从核心分出，暗示多线程",
+      "visible_label": "多线程",
+      "numeric_fact": ""
+    }
+  ],
+  "main_metaphor": "一个原生编译核心像高速列车/引擎冲破旧的缓慢轨道，甩开一串减速的旧编译流程",
+  "primary_subject": "中央发光的原生 Go 编译核心引擎",
+  "subject_action": "高速冲出并甩开背后缓慢的旧编译流程",
+  "composition": "居中主物体 + 斜向推进的速度轨迹",
+  "base_style": "product-poster style illustration",
+  "selected_style": "热血战斗风",
+  "selected_style_prompt_descriptor": "high-energy battle comic look, strong silhouettes, speed lines, impact framing, bold contrast without excessive clutter",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；10 倍提速的登场感适合用高能速度线表达",
+  "style_safety_note": "使用泛高能战斗漫画描述，不引用具体作品或作者",
+  "allowed_visible_text": ["快 10 倍", "多线程", "旧版", "10"],
+  "color_palette": ["deep blue", "bright cyan", "warm amber"],
+  "avoid": [
+    "漂浮芯片",
+    "代码雨",
+    "霓虹高楼",
+    "通用机器人站姿",
+    "赛博朋克紫蓝光污染",
+    "巨量 HUD 浮层",
+    "假终端输出",
+    "假图表坐标"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证'原生编译核心高速冲出、甩开旧流程、暗示多线程'的主线是否清晰",
+  "primary_focus": "中央核心引擎",
+  "revision_targets": ["主焦点是否突出", "速度线可读性", "误生成的假标签清理"],
+  "final_prompt": "见 skill 生成"
+}
