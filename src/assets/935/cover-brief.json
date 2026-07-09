@@ -1,0 +1,60 @@
+{
+  "article_title": "单体还是微服务：给 .NET 开发者的 5 个判断问题",
+  "cover_type": "analysis",
+  "core_theme": "用 5 个判断问题决定单体、模块化单体还是微服务，避开分布式单体陷阱",
+  "reader_takeaway": "看懂这是一个按团队和领域现状做的架构取舍判断，而不是二选一的信仰",
+  "summary_angle": "把'单体 vs 微服务'的对照，收敛到中间那条模块化单体的务实分岔",
+  "narrative_flow": "conflict-to-resolution",
+  "information_blocks": [
+    {
+      "role": "contrast",
+      "source_anchor": "左侧单体：单一制品、单进程",
+      "visual_idea": "左侧一整块厚重完整的结构体",
+      "visible_label": "单体",
+      "numeric_fact": ""
+    },
+    {
+      "role": "contrast",
+      "source_anchor": "右侧微服务：多个独立可部署单元",
+      "visual_idea": "右侧散开的多个独立小模块节点",
+      "visible_label": "微服务",
+      "numeric_fact": ""
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "中间的模块化单体是务实的中间地带",
+      "visual_idea": "中央一个由清晰边界组成的复合结构，作为主焦点桥接两侧",
+      "visible_label": "模块化单体",
+      "numeric_fact": ""
+    }
+  ],
+  "main_metaphor": "一个天平/分岔路口，一端是整块巨石，一端是散开的独立单元，中间站着务实的复合结构",
+  "primary_subject": "中央的模块化单体复合结构",
+  "subject_action": "作为主焦点桥接左侧整块单体与右侧散开的微服务",
+  "composition": "左右对照 + 中央单点聚焦",
+  "base_style": "conceptual editorial illustration",
+  "selected_style": "高对比电影风",
+  "selected_style_prompt_descriptor": "high-contrast cinematic illustration, strong key light, deep shadows, wide-screen composition, dramatic but realistic color grading",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；架构取舍的张力适合高对比电影感的对照构图",
+  "style_safety_note": "使用泛电影感高对比描述，不引用具体影片或摄影师",
+  "allowed_visible_text": ["单体", "微服务", "模块化单体", "5"],
+  "color_palette": ["deep slate blue", "teal", "warm amber"],
+  "avoid": [
+    "漂浮芯片",
+    "代码雨",
+    "霓虹高楼",
+    "通用机器人站姿",
+    "赛博朋克紫蓝光污染",
+    "巨量 HUD 浮层",
+    "假架构图",
+    "假仪表盘"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证'单体 vs 微服务对照 + 中央模块化单体主焦点'的主线是否清晰",
+  "revision_targets": [
+    "三块结构的可读性",
+    "中央主焦点是否突出",
+    "误生成的假标签清理"
+  ],
+  "final_prompt": "见 skill 生成"
+}
