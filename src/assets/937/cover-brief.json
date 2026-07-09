@@ -1,0 +1,61 @@
+{
+  "article_title": "从 .NET 视角讲清 MCP：它到底解决什么问题",
+  "cover_type": "architecture",
+  "core_theme": "MCP 用统一协议边界解决众多 AI 主机与众多外部系统之间的 M×N 集成爆炸",
+  "reader_takeaway": "看懂 MCP 是一层可发现、可复用的集成契约，而不是 AI 框架或又一个 REST API",
+  "summary_angle": "把'M×N 杂乱连线'收敛成'经 MCP 统一边界的清爽连接'",
+  "narrative_flow": "conflict-to-resolution",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "5 个主机 × 10 个工具 = 50 条定制集成路径的爆炸",
+      "visual_idea": "左侧多个主机与多个系统之间杂乱交叉的连线",
+      "visible_label": "杂乱集成",
+      "numeric_fact": ""
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "MCP 统一契约：主机/客户端/服务器",
+      "visual_idea": "中央一道清晰的协议边界层作为主焦点，梳理两侧连接",
+      "visible_label": "统一协议",
+      "numeric_fact": ""
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "工具/资源/提示三类能力经边界被发现",
+      "visual_idea": "右侧收敛出三条清晰通道通向外部系统",
+      "visible_label": "工具·资源·提示",
+      "numeric_fact": "3"
+    }
+  ],
+  "main_metaphor": "杂乱缠绕的线路经过一块中央整理面板后变成整齐的三条通道",
+  "primary_subject": "中央的 MCP 协议边界整理层",
+  "subject_action": "把左侧杂乱的 M×N 连线梳理成右侧清晰的连接",
+  "composition": "左右对照 + 中央单点聚焦",
+  "base_style": "isometric conceptual systems scene",
+  "selected_style": "欧漫清线风",
+  "selected_style_prompt_descriptor": "European clear-line comic style, precise outlines, flat readable colors, tidy environments, restrained humor and detail",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；讲协议边界梳理集成，适合清线风的精确整洁表达",
+  "style_safety_note": "使用泛欧漫清线描述，不引用具体作者或作品",
+  "allowed_visible_text": ["杂乱集成", "统一协议", "工具·资源·提示", "3"],
+  "color_palette": ["deep indigo", "teal", "warm coral"],
+  "avoid": [
+    "漂浮芯片",
+    "代码雨",
+    "霓虹高楼",
+    "通用机器人站姿",
+    "赛博朋克紫蓝光污染",
+    "巨量 HUD 浮层",
+    "假架构节点名",
+    "假仪表盘"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证'左侧杂乱连线 -> 中央协议边界 -> 右侧清晰三通道'的主线是否清晰",
+  "primary_focus": "中央协议边界层",
+  "revision_targets": [
+    "中央主焦点是否突出",
+    "左右对照可读性",
+    "误生成的假节点名清理"
+  ],
+  "final_prompt": "见 skill 生成"
+}
