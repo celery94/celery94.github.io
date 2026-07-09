@@ -1,0 +1,68 @@
+{
+  "article_title": "在 ASP.NET Core 里配好 Serilog：一步步做下来",
+  "cover_type": "tutorial",
+  "core_theme": "在 ASP.NET Core 里用两阶段初始化 + appsettings 配置 + 请求日志中间件正确接入 Serilog",
+  "reader_takeaway": "照着五步把 Serilog 结构化日志在 ASP.NET Core 里跑通",
+  "summary_angle": "把'两阶段初始化 -> 分环境配置 -> 单行请求日志'压成一条清晰的接入流程",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "step",
+      "source_anchor": "阶段一 bootstrap logger 捕获启动异常，阶段二读 appsettings",
+      "visual_idea": "第一段：两级点火/启动结构，先小后全",
+      "visible_label": "两阶段启动",
+      "numeric_fact": "1"
+    },
+    {
+      "role": "step",
+      "source_anchor": "appsettings.json 分环境覆盖配置 sink",
+      "visual_idea": "第二段：一份配置分流到开发/生产不同输出",
+      "visible_label": "分环境配置",
+      "numeric_fact": "2"
+    },
+    {
+      "role": "step",
+      "source_anchor": "UseSerilogRequestLogging 每请求一条结构化日志",
+      "visual_idea": "第三段：多条杂乱日志收敛成一条带结构属性的日志流",
+      "visible_label": "结构化日志",
+      "numeric_fact": "3"
+    }
+  ],
+  "main_metaphor": "一条从点火到出稿的日志流水线，三段推进",
+  "primary_subject": "中央一条发光的日志管线主结构",
+  "subject_action": "从两阶段点火出发，经配置分流，汇成一条整齐的结构化日志流",
+  "composition": "斜向推进的三段流程 + 中央主管线单点聚焦",
+  "base_style": "editorial technical illustration",
+  "selected_style": "彩铅绘本风",
+  "selected_style_prompt_descriptor": "colored-pencil picture-book illustration, tactile strokes, gentle palette, warm narrative objects, soft educational tone",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；教程流程适合彩铅绘本的温和、可读、步骤清晰的教学气质",
+  "style_safety_note": "使用泛彩铅绘本描述，不引用具体绘者或作品",
+  "allowed_visible_text": [
+    "两阶段启动",
+    "分环境配置",
+    "结构化日志",
+    "1",
+    "2",
+    "3"
+  ],
+  "color_palette": ["warm cream", "teal", "soft amber"],
+  "avoid": [
+    "漂浮芯片",
+    "代码雨",
+    "霓虹高楼",
+    "通用机器人站姿",
+    "赛博朋克紫蓝光污染",
+    "巨量 HUD 浮层",
+    "假终端输出",
+    "假仪表盘"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证'两阶段启动 -> 分环境配置 -> 结构化单行日志'三段流程是否清晰",
+  "primary_focus": "中央日志管线",
+  "revision_targets": [
+    "三段流程可读性",
+    "主管线是否突出",
+    "误生成的假日志文字清理"
+  ],
+  "final_prompt": "见 skill 生成"
+}
