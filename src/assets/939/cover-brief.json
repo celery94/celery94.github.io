@@ -1,0 +1,72 @@
+{
+  "article_title": "Serilog vs Microsoft.Extensions.Logging：本就不是二选一",
+  "cover_type": "analysis",
+  "core_theme": "MEL 是日志抽象层，Serilog 是日志实现引擎，两者在 .NET 应用里互补而不是竞争",
+  "reader_takeaway": "理解 MEL 和 Serilog 的分层关系，能判断什么时候 MEL 够用、什么时候值得上 Serilog",
+  "summary_angle": "MEL 是抽象层（上层接口），Serilog 是实现引擎（下层管线），两者是互补关系而非对手",
+  "narrative_flow": "conflict-to-resolution",
+  "information_blocks": [
+    {
+      "role": "mechanism",
+      "source_anchor": "MEL is a logging abstraction, provides ILogger<T> interface",
+      "visual_idea": "上层：干净统一的接口层，多个箭头指向下方",
+      "visible_label": "MEL 抽象",
+      "numeric_fact": "ILogger<T>"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "Serilog is a logging implementation, full structured pipeline",
+      "visual_idea": "下层：管线引擎，多条输出路径（Console / File / Seq / Elasticsearch）",
+      "visible_label": "Serilog 引擎",
+      "numeric_fact": ""
+    },
+    {
+      "role": "evidence",
+      "source_anchor": "100+ community sinks, structured logging pipeline",
+      "visual_idea": "多个sink目标图标或流向箭头",
+      "visible_label": "100+ sink",
+      "numeric_fact": "100+"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "they're complementary, not competing; use both",
+      "visual_idea": "接口层和引擎层嵌合在一起的视觉",
+      "visible_label": "互补",
+      "numeric_fact": ""
+    }
+  ],
+  "main_metaphor": "双层架构桥：上层是统一接口层（MEL 抽象），下层是管线引擎（Serilog 实现），它们通过桥接层（UseSerilog）对接成一体",
+  "primary_subject": "一座双层的技术架构桥或齿轮耦合系统",
+  "subject_action": "上层干净接口向下传递，下层引擎分散处理并输出到多个目标",
+  "composition": "左右对照或上下分层，上层简洁、下层管线丰富但有序",
+  "base_style": "conceptual editorial illustration",
+  "selected_style": "高对比电影风",
+  "selected_style_prompt_descriptor": "high-contrast cinematic illustration, strong key light, deep shadows, wide-screen composition, dramatic but realistic color grading",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；对比分析类文章适合用强烈的明暗冲突和宽银幕构图来表达'抽象 vs 实现'的互补关系",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["MEL 抽象", "Serilog 引擎", "100+ sink", "互补"],
+  "color_palette": [
+    "deep navy #1a1a2e",
+    "warm amber #e8a838",
+    "crisp teal #2ec4b6"
+  ],
+  "avoid": [
+    "poster title",
+    "screenshot",
+    "dashboard",
+    "fake terminal",
+    "fake charts",
+    "code rain",
+    "floating chips",
+    "cyberpunk purple-blue glow",
+    "generic robot stance"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮先验证主题（双层互补架构）、叙事信息块（MEL 抽象层 + Serilog 引擎层）和构图是否成立",
+  "revision_targets": [
+    "如果第一轮看走眼了，优先修正主隐喻的表达方式",
+    "如果信息块不可读，压缩到 3 个并调整 visible_label",
+    "如果风格太暗或太糊，调整光照和对比"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: MEL is a logging abstraction, Serilog is a logging implementation — they are complementary layers in .NET, not competitors. The reader should quickly feel the clarity of the architecture: a clean abstraction layer on top, a powerful implementation engine below.\n\nSummary angle: MEL 是抽象/接口层（上层），Serilog 是实现/引擎层（下层），通过 UseSerilog 桥接在一起，不是二选一。\nNarrative flow: conflict-to-resolution. In a 2.35:1 frame, keep one dominant focal subject (a two-layer bridge or interlocking gear system) and 3-4 supporting narrative beats. Each beat must map to the article's information blocks rather than generic decoration.\nInformation blocks:\n- mechanism: MEL = abstraction layer / ILogger<T> interface (upper layer, clean unified surface)\n- mechanism: Serilog = implementation engine / provider (lower layer, pipeline with multiple output streams)\n- evidence: 100+ community sinks (multiple output targets: Seq, Elasticsearch, Console, File)\n- takeaway: complementary, not competing (the two layers fit together as one system)\n\nMain metaphor: a two-layer architectural bridge or gear-coupling system — a clean top interface layer (MEL) flowing into a structured pipeline engine below (Serilog), with output streams reaching multiple destinations.\nSubject: a two-layer bridge structure, the upper layer clean and minimal, the lower layer a rich but organized pipeline with multiple output channels.\nComposition/framing: layered vertical or diagonal composition, upper section minimal and bright, lower section structured and detailed. Wide-screen layout with the bridge or flow as the central spine.\nStyle/medium: combine conceptual editorial illustration with the selected visual style descriptor: high-contrast cinematic illustration, strong key light, deep shadows, wide-screen composition, dramatic but realistic color grading. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: deep navy, warm amber, crisp teal as accent.\nVisible text policy: allow only 3-4 short Chinese labels or number chips sourced from the information blocks: 'MEL 抽象', 'Serilog 引擎', '100+ sink', '互补'. Each label <= 6 Chinese characters. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: floating chips, code rain, neon cityscape background, generic robot stance, cyberpunk purple-blue light pollution, massive HUD overlays, poster titles."
+}
