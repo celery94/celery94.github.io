@@ -1,0 +1,75 @@
+{
+  "article_title": "EF Core 批量插入终极指南：从 AddRange 到原始 COPY 的六种策略",
+  "cover_type": "tutorial",
+  "core_theme": "六种 EF Core 批量插入策略的 BenchmarkDotNet 基准对比，从最慢的逐行 SaveChanges 到最快的 Npgsql COPY，差距超过两个数量级",
+  "reader_takeaway": "根据数据量级和需求（要不要 ID、要不要拦截器）判断该选 AddRange、分块+Clear、BulkInsert 还是原始 COPY/SqlBulkCopy",
+  "summary_angle": "从慢到快六级阶梯：逐行 SaveChanges（最慢）→ AddRange → AddRange(无检测) → 分块+Clear → BulkInsert → 原始 COPY（最快），差距 260 倍",
+  "narrative_flow": "conflict-to-resolution",
+  "information_blocks": [
+    {
+      "role": "contrast",
+      "source_anchor": "Add + SaveChanges per row: 975ms for 1K rows, catastrophic at scale",
+      "visual_idea": "左边一个缓慢散落的小方块，标注最慢",
+      "visible_label": "逐行 975ms",
+      "numeric_fact": "975ms"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "AddRange + one SaveChanges: 73ms for 1K rows, batching handles it",
+      "visual_idea": "中间稍快的流，标注 AddRange",
+      "visible_label": "AddRange 73ms",
+      "numeric_fact": "73ms"
+    },
+    {
+      "role": "evidence",
+      "source_anchor": "Raw Npgsql binary COPY: 50ms for 1K rows, 120ms for 10K, fastest by far",
+      "visual_idea": "右边极快的流线/闪电，标注 COPY",
+      "visible_label": "COPY 50ms",
+      "numeric_fact": "50ms"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "Start native, climb the ladder only when numbers tell you to",
+      "visual_idea": "阶梯从低到高，标注选型决策",
+      "visible_label": "按需爬梯",
+      "numeric_fact": ""
+    }
+  ],
+  "main_metaphor": "一个六级性能阶梯：从左侧慢速逐行插入爬到右侧极速批量流式写入，每级对应一种策略和它的基准时间",
+  "primary_subject": "一个从左到右逐级加速的性能阶梯或赛道，左侧慢（散落的单行）、右侧快（流线/闪电），每级标注策略名和基准时间",
+  "subject_action": "数据从左侧慢速逐行滴落，到右侧流式高速喷射，中间经过各个策略节点",
+  "composition": "从左到右的阶梯或赛道推进式构图，左慢右快，2.35:1 宽屏",
+  "base_style": "editorial technical illustration",
+  "selected_style": "黑白版画风",
+  "selected_style_prompt_descriptor": "black-and-white printmaking look, carved textures, bold shadows, high contrast, poster-like but no title text",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；黑白高对比和版画质感适合表达基准对比的强烈数据差异和六级梯度的结构化判断",
+  "style_safety_note": "使用泛黑白版画描述，不涉及具体艺术家或作品",
+  "allowed_visible_text": [
+    "975ms 逐行",
+    "73ms AddRange",
+    "50ms COPY",
+    "260x 差距"
+  ],
+  "color_palette": ["black", "white", "warm amber accent"],
+  "avoid": [
+    "poster title",
+    "screenshot",
+    "dashboard",
+    "fake terminal",
+    "fake charts",
+    "code rain",
+    "floating chips",
+    "generic robot stance",
+    "cyberpunk neon",
+    "HUD overlays",
+    "multicolor clutter"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮先验证主题（六级性能阶梯）、叙事信息块（逐行慢 → AddRange → COPY 快 → 按需选型）和黑白对比是否成立",
+  "revision_targets": [
+    "如果阶梯太模糊，强化左右快慢区分",
+    "如果信息块堆太多，压缩到 3 个",
+    "如果黑白过于单调，允许少量暖色点缀"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide infographic-story cover illustration. Theme: EF Core bulk insert performance ladder — six strategies benchmarked, from slowest (SaveChanges per row at 975ms) to fastest (Npgsql binary COPY at 50ms for 1K rows), a 260x gap.\n\nSummary angle: Six-tier performance ladder from left (slow) to right (fast): per-row SaveChanges → AddRange → AddRange no detection → chunked + Clear → BulkInsert → raw COPY.\nNarrative flow: conflict-to-resolution, showing the performance gap closing from left to right.\nInformation blocks:\n- contrast: per-row SaveChanges = 975ms for 1K rows, catastrophic (left, slow, scattered rows)\n- mechanism: AddRange + one SaveChanges = 73ms, batching handles it (middle, medium flow)\n- evidence: raw Npgsql COPY = 50ms, fastest by far (right, lightning-fast stream)\n- takeaway: climb the ladder only when numbers tell you, 260x gap between slowest and fastest (bottom annotation)\n\nMain metaphor: a six-tier performance ladder or racetrack from left (slow scattered drops) to right (fast streamlined bolt), each tier labeled with strategy name and benchmark time.\nSubject: a left-to-right accelerating ladder/track, slow on the left with scattered single items, fast on the right with a lightning stream, strategy labels at each tier.\nComposition: left-to-right accelerating horizontal ladder, 2.35:1 wide cover.\nStyle/medium: combine editorial technical illustration with black-and-white printmaking look, carved textures, bold shadows, high contrast, poster-like but no title text. Do not imitate a specific brand, studio, or living artist.\nColor palette: black, white, with a single warm amber accent for the numbers.\nVisible text policy: allow 3-4 short labels: '975ms 逐行', '73ms AddRange', '50ms COPY', '260x 差距'. No poster title, no long sentences, no English slogans.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams.\nAvoid: floating chips, code rain, neon cityscape, generic robot, cyberpunk glow, HUD overlays, multicolor clutter."
+}
