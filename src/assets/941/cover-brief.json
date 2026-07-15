@@ -1,0 +1,79 @@
+{
+  "article_title": "从零构建 C# 模块化单体：一步步搭起来",
+  "cover_type": "tutorial",
+  "core_theme": "用四层架构（Domain/Application/Infrastructure/Contracts）搭建 .NET 9 模块化单体，通过 MediatR 事件打通跨模块通信",
+  "reader_takeaway": "掌握从零搭建模块化单体的完整流程：方案结构、各层职责、跨模块事件通信和集成测试",
+  "summary_angle": "把「建模块 → 发事件 → 跨模块响应」做成一张流程型封面：多个独立模块通过 Contracts 事件管线单向通信，Host 作为组合根串起一切",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "mechanism",
+      "source_anchor": "Each module has four layers: Domain, Application, Infrastructure, Contracts",
+      "visual_idea": "一个模块的四层结构：Domain/Application/Infrastructure/Contracts 堆叠或分镜展示",
+      "visible_label": "四层模块",
+      "numeric_fact": "4"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "Cross-module communication via Contracts events and MediatR IPublisher",
+      "visual_idea": "两个模块之间通过事件管道连接，箭头单向传递",
+      "visible_label": "事件通信",
+      "numeric_fact": ""
+    },
+    {
+      "role": "evidence",
+      "source_anchor": "Host project is a thin composition root wiring all modules together",
+      "visual_idea": "Host 组合根居中，多条模块线从四周接入",
+      "visible_label": "Host 组合根",
+      "numeric_fact": ""
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "Application layers never reference each other; coupling becomes a compiler error",
+      "visual_idea": "模块之间用边界线隔离，Application 层互不引用",
+      "visible_label": "编译期隔离",
+      "numeric_fact": ""
+    }
+  ],
+  "main_metaphor": "多模块建筑或管网系统：每个模块是独立的单元（自带四层结构），它们之间只通过单向事件管道通信，Host 作为中央接线板串起所有模块",
+  "primary_subject": "一个由多个独立模块组成的系统：每个模块有清晰的分层结构，模块之间通过事件管道连接",
+  "subject_action": "模块内部数据在四层之间流转，模块之间通过事件管道单向发送信号",
+  "composition": "居中辐射或分格叙事：中心是 Host 组合根，左右分别展开 Projects 和 Tasks 两个模块的内部四层结构，事件管道在模块间连接",
+  "base_style": "editorial technical illustration",
+  "selected_style": "动态分镜电影风",
+  "selected_style_prompt_descriptor": "dynamic cinematic storyboard style, sequential panels, camera-motion feeling, strong cuts, clear narrative beats",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；模块化架构的搭建步骤和跨模块通信的叙事流适合用分镜式的阶段推进来表达",
+  "style_safety_note": "使用泛动态分镜描述，不引用具体电影作品或导演",
+  "allowed_visible_text": [
+    "四层模块 ①",
+    "事件通信 ②",
+    "Host 组合根",
+    "编译隔离"
+  ],
+  "color_palette": [
+    "slate #4a5568",
+    "amber #e8a838",
+    "teal #2ec4b6",
+    "navy #1a365d"
+  ],
+  "avoid": [
+    "poster title",
+    "screenshot",
+    "dashboard",
+    "fake terminal",
+    "fake charts",
+    "code rain",
+    "floating chips",
+    "generic robot stance",
+    "neon glow",
+    "HUD overlays"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮先验证主题（多模块架构）、叙事信息块（四层结构 / 事件通信 / Host 组合根 / 编译隔离）和分镜式构图是否成立",
+  "revision_targets": [
+    "如果第一轮走偏，优先修正模块和事件管线的区分",
+    "如果分镜太碎，减少到 3 个面板或改用居中辐射构图",
+    "如果风格过于嘈杂，简化分镜数量和背景"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide infographic-story cover illustration. Theme: Building a modular monolith in .NET 9 — each module has a four-layer structure (Domain/Application/Infrastructure/Contracts), modules communicate only through Contracts events via MediatR, and Host is the thin composition root.\n\nSummary angle: Build modules → publish events → cross-module reaction. Multiple independent modules connected by a one-way event pipeline, with Host as the central wiring hub.\nNarrative flow: 3-beat sequential panels or radial composition showing the build flow.\nInformation blocks:\n- mechanism: each module has 4 layers (Domain/Application/Infrastructure/Contracts) — visual: stacked or paneled module with layers numbered 1-4\n- mechanism: cross-module communication via Contracts events and MediatR IPublisher — visual: event pipeline arrows between two modules\n- evidence: Host is a thin composition root wiring everything — visual: central hub with module connections\n- takeaway: Application layers never reference each other, coupling becomes compiler error — visual: boundary lines with lock symbols between modules\n\nMain metaphor: a multi-module construction system — each module is a self-contained unit with internal layers, connected only by one-way event pipelines, with Host as the central wiring panel.\nSubject: a system of independent modules, each showing internal layers, connected by event pipeline arrows, with a central Host hub.\nComposition: center-radial or cinematic storyboard panels — center Host hub with Projects and Tasks modules on either side showing their internal layers, event pipes connecting them.\nStyle/medium: combine editorial technical illustration with dynamic cinematic storyboard style, sequential panels, camera-motion feeling, strong cuts, clear narrative beats. Do not imitate a specific brand, studio, or living artist.\nColor palette: slate, warm amber, teal, navy.\nVisible text policy: allow only 3-4 short Chinese labels: '四层模块 ①', '事件通信 ②', 'Host 组合根', '编译隔离'. Each label <= 8 Chinese characters. No poster title, no long sentences, no English slogans.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams.\nAvoid: floating chips, code rain, neon cityscape, generic robot, cyberpunk glow, HUD overlays, poster titles."
+}
