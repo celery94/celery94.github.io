@@ -1,0 +1,75 @@
+{
+  "article_title": "Agent Harness 能力扩展：Skills、Shell、CodeAct 和后台 Agent",
+  "cover_type": "tutorial",
+  "core_theme": "Microsoft Agent Framework Harness 从四个维度扩展 Agent 能力：Skills（按需加载领域知识）、Shell（受限文件系统操作）、CodeAct（沙箱写代码计算）、后台 Agent（并发委托子任务）",
+  "reader_takeaway": "理解 Agent Harness 四种能力扩展的用途和接入方式，知道什么时候用 Skill、Shell、CodeAct 或后台 Agent",
+  "summary_angle": "四个能力维度从一个中心 Harness 向外辐射：Skills 提供知识、Shell 操作文件、CodeAct 跑计算、后台 Agent 并行委托",
+  "narrative_flow": "layered reveal",
+  "information_blocks": [
+    {
+      "role": "mechanism",
+      "source_anchor": "Skills: SKILL.md files loaded on demand; Foundry skills managed centrally",
+      "visual_idea": "左上：一个发光的知识卷轴或技能卡片，标注 Skills",
+      "visible_label": "Skills",
+      "numeric_fact": ""
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "Shell: confined working directory with deny-list, shell executor tool",
+      "visual_idea": "右上：一个被边界框住的终端/文件夹，标注 Shell",
+      "visible_label": "Shell",
+      "numeric_fact": ""
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "CodeAct: sandboxed interpreter, Hyperlight/Monty, agent writes and runs code",
+      "visual_idea": "左下：代码块 + 齿轮/计算符号，标注 CodeAct",
+      "visible_label": "CodeAct",
+      "numeric_fact": ""
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "Background agents: delegate to sub-agents, concurrent fan-out, aggregate results",
+      "visual_idea": "右下：一个主节点分出三条并行分支，标注后台 Agent",
+      "visible_label": "后台 Agent",
+      "numeric_fact": ""
+    }
+  ],
+  "main_metaphor": "一个中央控制面板或机甲核心，四个能力模块（Skills/Shell/CodeAct/后台 Agent）作为外挂装备从四个方向接入，每个模块有独特的视觉符号",
+  "primary_subject": "一个中央 Agent Harness 核心，四个能力模块从四角接入，各模块有独立的视觉符号（知识卷轴、终端窗口、代码齿轮、并行分支箭头）",
+  "subject_action": "中央核心向外辐射连接四个能力模块，模块各自发光并带有功能标识",
+  "composition": "居中核心 + 四象限能力模块辐射式布局，2.35:1 宽屏",
+  "base_style": "editorial technical illustration",
+  "selected_style": "科幻机甲风",
+  "selected_style_prompt_descriptor": "science-fiction mecha concept illustration, mechanical forms, hard-surface details, cockpit-scale cues, cool industrial palette",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；Agent Harness 的能力模块扩展像机甲外挂装备升级，适合用机械结构和模块化硬表面表达",
+  "style_safety_note": "使用泛科幻机甲描述，不引用具体作品或设计师",
+  "allowed_visible_text": ["Skills", "Shell", "CodeAct", "后台 Agent"],
+  "color_palette": [
+    "cool steel #6b7c93",
+    "electric blue #3b82f6",
+    "amber #e8a838",
+    "dark carbon #1a1a2e"
+  ],
+  "avoid": [
+    "poster title",
+    "screenshot",
+    "dashboard",
+    "fake terminal",
+    "fake charts",
+    "code rain",
+    "floating chips",
+    "generic robot stance",
+    "neon glow",
+    "HUD overlays",
+    "cyberpunk purple-blue"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮先验证主题（中央 Harness + 四象限能力模块）、叙事信息块（Skills/Shell/CodeAct/后台 Agent）和机甲风格是否成立",
+  "revision_targets": [
+    "如果四个模块看起来太乱，减少到 3 个可见模块",
+    "如果机甲风格过于暗沉，提亮主光源和增加色彩区分",
+    "如果构图过于对称像十字架，改用斜向动态布局"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide infographic-story cover illustration. Theme: Scaling Microsoft Agent Framework Harness capabilities across four axes -- Skills (domain knowledge loaded on demand), Shell (confined file system operations), CodeAct (sandboxed code execution), Background Agents (concurrent sub-agent delegation).\n\nSummary angle: Four capability modules radiating from a central Agent Harness core -- Skills provides knowledge, Shell operates files, CodeAct runs computation, Background Agents delegate in parallel.\nNarrative flow: layered reveal of four capability expansions around a central core.\nInformation blocks:\n- mechanism: Skills -- SKILL.md knowledge cards loaded on demand, Foundry skills managed centrally (top-left, knowledge scroll/skill card icon)\n- mechanism: Shell -- confined working directory, deny-list policy, shell executor (top-right, bounded terminal/folder icon)\n- mechanism: CodeAct -- sandboxed interpreter, Hyperlight/Monty, agent writes and runs code (bottom-left, code block with gear icon)\n- mechanism: Background Agents -- delegate to sub-agents, concurrent fan-out, aggregate (bottom-right, fan-out branching arrows)\n\nMain metaphor: a central core (Agent Harness) with four modular capability attachments (like mecha equipment modules) connecting from four directions, each with distinct visual symbols.\nSubject: a central Harness core unit with four capability modules attached from four corners, each emitting its own glow and bearing a functional icon.\nComposition: centered core with four-quadrant radiating modules, wide 2.35:1 layout.\nStyle/medium: combine editorial technical illustration with science-fiction mecha concept illustration, mechanical forms, hard-surface details, cockpit-scale cues, cool industrial palette. Do not imitate a specific brand, studio, or living artist.\nColor palette: cool steel, electric blue, warm amber, dark carbon.\nVisible text policy: allow 4 short labels: 'Skills', 'Shell', 'CodeAct', '后台 Agent'. Each label short. No poster title, no long sentences, no English slogans.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams.\nAvoid: floating chips, code rain, neon cityscape, generic robot, cyberpunk glow, HUD overlays, poster titles, fake terminals."
+}
