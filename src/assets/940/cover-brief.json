@@ -1,0 +1,79 @@
+{
+  "article_title": "Vertical Slice Architecture 怎么测：把切片当成功能来测",
+  "cover_type": "tutorial",
+  "core_theme": "VSA 测试的正确单元是切片本身：从 HTTP 端点打到真实数据库，用 WebApplicationFactory + Testcontainers 做全链路功能验证",
+  "reader_takeaway": "学会用切片测试替换分层 mock 测试，搭建 WebApplicationFactory + Testcontainers 夹具，区分切片测试和单元测试的边界",
+  "summary_angle": "把「一个切片 = 一个功能测试单元」做成一张封面：HTTP 请求从顶部进入，穿过测试管线，打到真实 Postgres 容器，断言响应和数据库状态",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "mechanism",
+      "source_anchor": "a request goes in at the top, and an observable outcome comes out the bottom",
+      "visual_idea": "顶部箭头：HTTP 请求打入切片端点",
+      "visible_label": "HTTP 请求",
+      "numeric_fact": ""
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "WebApplicationFactory to host the app in-memory, and Testcontainers for real infrastructure",
+      "visual_idea": "中间测试管线：WebApplicationFactory + Testcontainers 横幅/符号",
+      "visible_label": "WebAppFactory + Testcontainers",
+      "numeric_fact": ""
+    },
+    {
+      "role": "evidence",
+      "source_anchor": "against a real database; assert on the response and the database state",
+      "visual_idea": "底部：真实 Postgres 数据库容器 + 断言标记",
+      "visible_label": "真实 DB 验证",
+      "numeric_fact": ""
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "Architecture tests keep slices independent",
+      "visual_idea": "多条切片被架构测试的边界线隔开，各自独立",
+      "visible_label": "切片独立",
+      "numeric_fact": ""
+    }
+  ],
+  "main_metaphor": "一条垂直贯穿的切片测试管线：请求从顶部箭头进入，穿过 WebApplicationFactory + Testcontainers 构成的测试平台，落到底部真实数据库，断言标记验证结果",
+  "primary_subject": "一条垂直贯穿的测试管线（切片），从上到下有清晰的请求→处理→数据库三层，被测试平台包围",
+  "subject_action": "HTTP 请求从顶部箭头打入，穿过测试夹具平台，落到底部真实数据库容器并打勾验证",
+  "composition": "垂直三层管线（上中下）+ 左右分屏展示多条独立切片受架构测试保护",
+  "base_style": "editorial technical illustration",
+  "selected_style": "游戏原画风",
+  "selected_style_prompt_descriptor": "game concept art illustration, clear hero object, readable environment storytelling, polished lighting, production-art detail",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；测试管线像游戏关卡流程一样有清晰的入口→处理→验证三个阶段，适合用游戏原画的场景叙事感表达",
+  "style_safety_note": "使用泛游戏概念设计描述，不引用具体游戏作品或设计师",
+  "allowed_visible_text": [
+    "HTTP 请求",
+    "Testcontainers",
+    "真实 DB",
+    "切片独立"
+  ],
+  "color_palette": [
+    "slate blue #4a6fa5",
+    "warm amber #e8a838",
+    "emerald green #2ecc71",
+    "dark charcoal #2c3e50"
+  ],
+  "avoid": [
+    "poster title",
+    "screenshot",
+    "dashboard",
+    "fake terminal",
+    "fake charts",
+    "code rain",
+    "floating chips",
+    "generic robot stance",
+    "cyberpunk neon",
+    "HUD overlays"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮先验证主题（垂直切片测试管线）、叙事信息块（请求→测试平台→DB验证→切片独立）和构图是否成立",
+  "revision_targets": [
+    "如果第一轮走偏，优先修正垂直管线的方向感",
+    "如果信息块太糊，减少到 3 个并调整构图",
+    "如果风格过于暗沉，提亮主光源"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide infographic-story cover illustration. Theme: Testing Vertical Slice Architecture by treating each slice as a feature test unit — HTTP request in, real database out, with WebApplicationFactory + Testcontainers as the test harness.\n\nSummary angle: One slice = one test unit: HTTP request enters at the top, passes through the test harness (WebApplicationFactory + Testcontainers), hits a real database below, and assertions verify both response and database state.\nNarrative flow: 3-beat process (request → test harness → DB verification) with a 4th beat showing slices kept independent by architecture tests.\nInformation blocks:\n- mechanism: HTTP request enters the slice endpoint (top entry point)\n- mechanism: WebApplicationFactory hosts app + Testcontainers provides real Postgres (middle test platform)\n- evidence: assertions verify response AND real database state (bottom verification with checkmark)\n- takeaway: architecture tests keep slices independent, preventing cross-slice coupling\n\nMain metaphor: a vertical slice test pipeline — a glowing request arrow entering from the top, passing through a test-platform layer (WebApplicationFactory + Testcontainers), landing in a real database container below with verification checkmarks.\nSubject: a vertical pipeline representing a slice under test, with distinct layers (request entry / test harness / real DB), surrounded by architecture-test boundary lines protecting other independent slices.\nComposition: vertical three-layer pipeline in the center, with side panels showing other protected independent slices. Wide-screen 2.35:1 layout.\nStyle/medium: combine editorial technical illustration with the selected visual style descriptor: game concept art illustration, clear hero object, readable environment storytelling, polished lighting, production-art detail. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: slate blue, warm amber, emerald green, dark charcoal.\nVisible text policy: allow only 3-4 short Chinese labels: 'HTTP 请求', 'Testcontainers', '真实 DB', '切片独立'. Each label <= 12 characters. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: floating chips, code rain, neon cityscape, generic robot stance, cyberpunk glow, massive HUD overlays, poster titles."
+}
