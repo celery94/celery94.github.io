@@ -1,0 +1,73 @@
+{
+  "article_title": "Serilog 生产环境最佳实践：从开发默认值到线上日志的十二条铁律",
+  "cover_type": "tutorial",
+  "core_theme": "Serilog 在生产环境需要从默认开发配置转向 12 条经过线上验证的最佳实践",
+  "reader_takeaway": "拿到一套可直接复制到 Program.cs 的 Serilog 生产配置，避免同步阻塞、磁盘爆满、PII 泄露",
+  "summary_angle": "开发默认值变成生产反模式——用像素游戏控制面板展示 4 个关键维度的「修复前→修复后」",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "mechanism",
+      "source_anchor": "第1节：文件/网络 Sink 必须包 Async()，避免同步阻塞请求线程",
+      "visual_idea": "像素风格的文件图标旁边显示「同步→异步」的状态切换",
+      "visible_label": "异步Sink",
+      "numeric_fact": ""
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "第2节：生产环境默认 Information，Microsoft.* 压到 Warning",
+      "visual_idea": "层级过滤器的像素化示意图，Debug/Verbose 被滤掉，Information 通过",
+      "visible_label": "等级调优",
+      "numeric_fact": ""
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "第5节：PII/敏感数据必须脱敏，日志是数据泄漏向量",
+      "visual_idea": "像素化盾牌标记在个人信息字段上，显示「***REDACTED***」",
+      "visible_label": "PII脱敏",
+      "numeric_fact": ""
+    },
+    {
+      "role": "contrast",
+      "source_anchor": "第3节：用消息模板代替 $ 字符串插值，保留结构化属性",
+      "visual_idea": "像素界面中 $ 符号被划掉，{OrderId} 模板高亮为正确方式",
+      "visible_label": "结构化",
+      "numeric_fact": ""
+    }
+  ],
+  "main_metaphor": "像素 RPG 风格的「日志系统状态面板」——像老式游戏的角色装备界面，展示 Serilog 各项配置的健康/优化状态",
+  "primary_subject": "一个像素风格的中控面板界面，带有多个配置状态指示模块",
+  "subject_action": "面板上的各个模块展示 4 项最佳实践的启用/优化状态，形成「从问题到修复」的视觉节奏",
+  "composition": "居中主面板，4 个信息块分布在面板四角或上下左右",
+  "base_style": "editorial technical illustration",
+  "selected_style": "像素复古风",
+  "selected_style_prompt_descriptor": "retro pixel-art inspired illustration, blocky forms, limited palette, old game composition cues, readable wide layout",
+  "selected_style_reason": "用户未指定风格，从 40 项风格池随机选中；日志系统配置的多维度状态适合用像素游戏 UI 式的信息面板表达，每条规则像一个「装备槽」",
+  "style_safety_note": "使用泛像素复古描述，不引用具体游戏、工作室或在世像素艺术家",
+  "allowed_visible_text": ["异步Sink", "等级调优", "PII脱敏", "结构化"],
+  "color_palette": [
+    "深灰背景 #1a1a2e",
+    "霓虹绿 #0f0",
+    "琥珀橙 #ff8c00",
+    "像素蓝 #4da6ff"
+  ],
+  "avoid": [
+    "漂浮芯片",
+    "无意义代码雨",
+    "霓虹高楼背景",
+    "通用机器人站姿",
+    "赛博朋克紫蓝光污染",
+    "巨量 HUD 浮层",
+    "真实 UI 截图",
+    "仪表盘",
+    "终端输出"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证像素复古风格下 Serilog 配置面板的主题是否成立，4 个信息块是否清晰可辨",
+  "revision_targets": [
+    "像素化程度是否足够（不能是普通扁平插画套了像素滤镜）",
+    "4 个信息块的视觉区分度",
+    "中文字符在像素风格下的可读性"
+  ],
+  "final_prompt": ""
+}
