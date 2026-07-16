@@ -1,0 +1,47 @@
+{
+  "article_title": "Serilog Enrichers：给每条日志自动注入上下文",
+  "cover_type": "tutorial",
+  "core_theme": "Serilog Enrichers 在日志管线中自动为每条日志附加机器名、线程 ID、关联 ID 等属性——配置一次，全局生效",
+  "reader_takeaway": "学会用标准 Enricher、LogContext 动态属性和自定义 Enricher 让每条日志自动携带诊断所需的上下文",
+  "summary_angle": "把「配置 Enricher → 日志管线自动注入属性 → 每条日志自带上下文」的流水线做成封面",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "step",
+      "source_anchor": "原文标准 Enricher：WithMachineName、WithThreadId、WithCorrelationId 等",
+      "visual_idea": "日志管线入口，三个属性标签（机器名、线程ID、关联ID）被自动贴到经过的日志事件上",
+      "visible_label": "自动注入",
+      "numeric_fact": null
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文 LogContext.PushProperty 作用域机制",
+      "visual_idea": "一个 using 代码块包裹着日志事件，块内的事件都带着 PaymentId、CustomerId 等动态属性",
+      "visible_label": "LogContext",
+      "numeric_fact": null
+    },
+    {
+      "role": "step",
+      "source_anchor": "原文自定义 Enricher 实现 ILogEventEnricher",
+      "visual_idea": "一个自定义齿轮模块插入管线，输出带 TenantId 的日志事件",
+      "visible_label": "自定义",
+      "numeric_fact": null
+    }
+  ],
+  "main_metaphor": "一条日志流水线：原始日志进入 → 经过多个 Enricher 工作站 → 输出携带完整上下文的日志",
+  "primary_subject": "一条从左到右的日志处理管线，入口是裸日志事件，经过标注了 Enricher 的工作站后被注入属性",
+  "subject_action": "日志事件沿管线移动，每个工作站给它贴上不同的上下文标签",
+  "composition": "斜向推进或从左到右的流水线构图",
+  "base_style": "editorial technical illustration",
+  "selected_style": "美式卡通风",
+  "selected_style_prompt_descriptor": "American cartoon illustration, elastic shapes, clear expressions, bold color fields, light comedic timing",
+  "selected_style_reason": "用户未指定风格，本篇从 40 项风格池随机选中（#21）；教程流水线概念的步骤感适合用卡通的清晰分割和弹性造型表达",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["自动注入", "LogContext", "自定义"],
+  "color_palette": ["橙暖", "深蓝", "亮白", "柔灰"],
+  "avoid": ["代码雨", "通用机器人", "假UI界面", "假终端", "假架构图标签"],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮先验证流水线构图是否清晰：日志从左到右经过三个标注的 Enricher 工作站",
+  "revision_targets": ["工作站标注是否可读", "流水线方向是否明确", "卡通风格是否过度幼稚"],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide infographic-story cover illustration. Theme: Serilog Enrichers automatically inject properties like machine name, thread ID, and correlation IDs into every log event in the pipeline. Configure once, applies globally. LogContext adds dynamic per-request properties. Custom enrichers extend the pipeline. The reader should feel: a log event enters the pipeline bare and exits carrying all diagnostic context.\n\nSummary angle: A log event assembly line: raw logs enter → pass through multiple Enricher workstations → exit with full context attached.\nNarrative flow: 3-beat process. In a 2.35:1 frame, keep one dominant focal subject and 2-4 supporting narrative beats.\nInformation blocks:\n- Step: Standard enrichers (WithMachineName, WithThreadId, WithCorrelationId) automatically tag passing log events. Label: 自动注入.\n- Mechanism: LogContext.PushProperty scopes wrap log events with dynamic properties like PaymentId, CustomerId. Label: LogContext.\n- Step: Custom enricher implementing ILogEventEnricher plugs into the pipeline, outputting logs with TenantId. Label: 自定义.\n\nMain metaphor: A log processing assembly line: bare log events enter, pass through labeled Enricher workstations, exit carrying complete context.\nSubject: A left-to-right pipeline where bare log events move through annotated Enricher workstation modules, each attaching a different context tag.\nComposition/framing: Left-to-right pipeline or slight diagonal flow. Prefer horizontal storytelling that stays legible in a wide cover.\nStyle/medium: combine editorial technical illustration with the selected visual style descriptor: American cartoon illustration, elastic shapes, clear expressions, bold color fields, light comedic timing. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: warm orange, deep blue, bright white, soft grey.\nVisible text policy: allow only 1-3 short Chinese labels, all sourced from the information blocks. Each label <= 6 Chinese characters. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: code rain, generic robots, fake UI, fake terminal, fake architecture labels."
+}
