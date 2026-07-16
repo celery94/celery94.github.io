@@ -1,0 +1,47 @@
+{
+  "article_title": "MCP Resources 与 Prompts：在 C# 中暴露数据和可复用模板",
+  "cover_type": "tutorial",
+  "core_theme": "MCP 服务器除了 Tool 还有 Resource 和 Prompt 两种原语：Resource 暴露可读数据，Prompt 暴露可复用工作流模板，三者职责不同",
+  "reader_takeaway": "能区分 Resource / Prompt / Tool 的使用场景，并用 C# 代码把三者正确建模到 MCP 服务器中",
+  "summary_angle": "把「读数据用 Resource、启工作流用 Prompt、做操作用 Tool」三种原语的明确分工压缩成一张决策封面",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "contrast",
+      "source_anchor": "原文 Resource vs Tool vs Prompt 决策框架",
+      "visual_idea": "三个并列的视觉符号：打开的书（Resource → 读数据）、对话气泡（Prompt → 模板）、齿轮（Tool → 动作）",
+      "visible_label": "读/模板/做",
+      "numeric_fact": null
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文 Template Resources 的 URI 模板概念",
+      "visual_idea": "URI 模板 docs://articles/{id} 的视觉化：一个带参数插槽的路径标识",
+      "visible_label": "{id}",
+      "numeric_fact": null
+    },
+    {
+      "role": "step",
+      "source_anchor": "原文 NuGet 包版本 1.4.0 与 C# SDK 属性标注方式",
+      "visual_idea": "C# 属性标注 [McpServerResource] / [McpServerPrompt] 作为标签贴在对应符号上",
+      "visible_label": "[Resource]",
+      "numeric_fact": "1.4.0"
+    }
+  ],
+  "main_metaphor": "三岔路口或三通道控制台，每条通道通向不同的 MCP 原语",
+  "primary_subject": "一个三向分流的抽象控制台或枢纽节点，向外延伸出三条标注清晰的路径",
+  "subject_action": "枢纽节点同时展示 Resource / Prompt / Tool 三条分支，每条有明确的视觉区分",
+  "composition": "居中主物体 + 三条路径向外辐射",
+  "base_style": "editorial technical illustration",
+  "selected_style": "高对比电影风",
+  "selected_style_prompt_descriptor": "high-contrast cinematic illustration, strong key light, deep shadows, wide-screen composition, dramatic but realistic color grading",
+  "selected_style_reason": "用户未指定风格，本篇从 40 项风格池随机选中（#31）；技术教程的三原语对比适合用强光影区分来强化概念边界",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["读/模板/做", "{id}", "[Resource]", "1.4.0"],
+  "color_palette": ["深蓝灰", "暖琥珀", "冷白高光"],
+  "avoid": ["代码雨", "通用机器人", "赛博霓虹", "假UI界面", "假终端"],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮先验证三支分流的构图是否清晰、三个信息块是否都能在画面上独立辨认",
+  "revision_targets": ["三个信息块的视觉区分度", "URI模板参数的可读性", "背景是否过度复杂"],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: MCP servers expose three distinct primitives — Resources (readable data), Prompts (reusable workflow templates), and Tools (actions). The reader should quickly feel the clear boundary between these three MCP server primitives and know when to use each.\n\nSummary angle: A three-way hub that visually separates 'read data with Resource', 'start workflow with Prompt', and 'perform action with Tool'.\nNarrative flow: 3-beat process. In a 2.35:1 frame, keep one dominant focal subject and 2-4 supporting narrative beats. Each beat must map to the article's information blocks rather than generic decoration.\nInformation blocks:\n- Contrast: Resource vs Prompt vs Tool — three visual symbols branching from a central hub: an open book (Resource → read data), a dialog bubble (Prompt → template), a gear (Tool → action). Visible label: 读/模板/做.\n- Mechanism: URI template docs://articles/{id} visualized as a path with a parameter slot. Visible label: {id}.\n- Step: C# attributes [McpServerResource] and [McpServerPrompt] as visual tags. Numeric fact: 1.4.0.\n\nMain metaphor: A three-way control hub or junction node with three distinctly marked paths leading to different MCP primitives.\nSubject: A central abstract control hub branching into three labeled paths, each path visually distinguished.\nComposition/framing: Centered main subject with three paths radiating outward. Prefer horizontal or radial storytelling that stays legible in a wide cover.\nStyle/medium: combine editorial technical illustration with the selected visual style descriptor: high-contrast cinematic illustration, strong key light, deep shadows, wide-screen composition, dramatic but realistic color grading. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: dark blue-grey, warm amber, cool white highlights.\nVisible text policy: allow only 1-3 short Chinese labels or number chips by default, and no more than 4 when strictly necessary, all sourced from the information blocks. Each label <= 6 Chinese characters or one required product/model name. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: code rain, generic robots, cyberpunk neon, fake UI, fake terminal."
+}
