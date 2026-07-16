@@ -1,0 +1,47 @@
+{
+  "article_title": "分布式单体：每个 C# 开发者都应该识别的反模式",
+  "cover_type": "analysis",
+  "core_theme": "分布式单体看起来像微服务架构，实际运行时却像紧耦合的单体——所有分布式复杂度都承受了，独立性好处一个没拿到",
+  "reader_takeaway": "能通过 5 个症状识别分布式单体，并知道用数据自治、异步事件和独立部署三招解耦",
+  "summary_angle": "把「外表微服务、内在单体」的虚假架构做成一张对照式封面：左边是光鲜的服务盒子，右边暴露出它们共享数据库、同步调用的真实耦合面",
+  "narrative_flow": "conflict-to-resolution",
+  "information_blocks": [
+    {
+      "role": "contrast",
+      "source_anchor": "原文 5 大症状：共享数据库、协同部署、同步 HTTP 链、无法独立扩缩、一个需求改 3+ 仓库",
+      "visual_idea": "五个服务盒子被同一根数据库管道串在一起，每个盒子表面独立但管道暴露了它们的真实耦合",
+      "visible_label": "5 个症状",
+      "numeric_fact": null
+    },
+    {
+      "role": "step",
+      "source_anchor": "原文三大修复：数据自治、异步事件、独立部署",
+      "visual_idea": "三把钥匙或三个解耦动作：断开共享 DB、切断同步链路、独立部署",
+      "visible_label": "3 步解耦",
+      "numeric_fact": "①/②/③"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文结论：服务边界必须是真实的，每个服务拥有自己的 DbContext 和数据库",
+      "visual_idea": "两个对比区域：左边崩塌的虚假微服务，右边真正独立的服务单元",
+      "visible_label": "真独立",
+      "numeric_fact": null
+    }
+  ],
+  "main_metaphor": "华丽外表下的空心结构——一排看似独立的高楼，剖面切开后共享同一个地基和管道系统",
+  "primary_subject": "一排表面独立的服务模块/盒子，被一根共享管道（数据库）从内部贯穿",
+  "subject_action": "外部看起来各自独立，但透视或剖面暴露了共享的数据库连接和同步调用链",
+  "composition": "左右对照：左侧是整洁独立的服务外观，右侧是剖面暴露的内部耦合",
+  "base_style": "conceptual editorial illustration",
+  "selected_style": "赛博朋克风",
+  "selected_style_prompt_descriptor": "cyberpunk comic mood, neon accents, rain-slick surfaces, dense urban tech atmosphere, controlled purple-blue usage",
+  "selected_style_reason": "用户未指定风格，本篇从 40 项风格池随机选中（#12）；分布式单体的「表面光鲜、内部腐朽」正好对应赛博朋克的「高科技、低生活」隐喻，用霓虹外表反衬结构脆弱",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻；已通过 controlled purple-blue usage 限制光污染",
+  "allowed_visible_text": ["5 个症状", "3 步解耦", "①/②/③", "真独立"],
+  "color_palette": ["深紫蓝", "冷青霓虹", "暗灰", "锈橙"],
+  "avoid": ["代码雨", "通用机器人", "假UI界面", "假终端", "假架构图标签", "过量霓虹光污染"],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮先验证左右对照构图是否清晰：左侧独立服务外观 vs 右侧剖面暴露共享管道",
+  "revision_targets": ["霓虹光污染是否过量", "共享管道是否视觉突出", "左右对比是否一目了然"],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: A distributed monolith looks like independent microservices but is actually tightly coupled — sharing a database, requiring coordinated deployments, and chaining synchronous HTTP calls. The reader should quickly feel the deception: shiny independent service boxes on the surface, but a single shared pipe running through all of them underneath.\n\nSummary angle: A left-right contrast cover: on the left, polished independent service boxes; on the right, a cross-section revealing a shared database pipeline connecting everything, exposing the fake independence.\nNarrative flow: conflict-to-resolution. In a 2.35:1 frame, keep one dominant focal subject and 2-4 supporting narrative beats. Each beat must map to the article's information blocks rather than generic decoration.\nInformation blocks:\n- Contrast: Five service boxes linked by one shared database pipeline. Label: 5 个症状.\n- Step: Three decoupling keys breaking the shared DB link, cutting synchronous chains, enabling independent deployment. Labels: 3 步解耦, ①/②/③.\n- Takeaway: Two zones side by side — collapsing fake microservices vs truly independent services. Label: 真独立.\n\nMain metaphor: A row of seemingly independent high-rise buildings whose cross-section reveals they share the same foundation and plumbing — a hollow structure beneath a polished facade.\nSubject: A row of service modules/boxes that appear independent externally, but a cutaway or cross-section reveals a shared pipeline (database) running through them all.\nComposition/framing: Left-right contrast — clean independent service exterior on the left, exposed internal coupling cross-section on the right. Prefer horizontal storytelling that stays legible in a wide cover.\nStyle/medium: combine conceptual editorial illustration with the selected visual style descriptor: cyberpunk comic mood, neon accents, rain-slick surfaces, dense urban tech atmosphere, controlled purple-blue usage. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: deep purple-blue, cool cyan neon, dark grey, rust orange.\nVisible text policy: allow only 1-3 short Chinese labels or number chips by default, and no more than 4 when strictly necessary, all sourced from the information blocks. Each label <= 6 Chinese characters or one required product/model name. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: code rain, generic robots, fake UI, fake terminal, fake architecture labels, excessive neon light pollution."
+}
