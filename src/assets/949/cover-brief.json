@@ -1,0 +1,47 @@
+{
+  "article_title": "模块化单体中的通信模式：进程内事件与合约",
+  "cover_type": "architecture",
+  "core_theme": "模块化单体中模块间通信靠三种模式：模块接口（同步查询）、MediatR 进程内事件（异步通知）、共享合约（事件和 DTO），核心原则是只引用 Contracts 层，绝不跨模块引用 Application/Infrastructure",
+  "reader_takeaway": "学会用 INotification + Contracts 项目实现零耦合的跨模块通信，并在同步查询场景下用模块接口保持类型安全",
+  "summary_angle": "把「三个模块（Tasks / Projects / Notifications）通过 Contracts 层松耦合通信、绝不直接互相引用的干净架构」做成封面",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "step",
+      "source_anchor": "原文三种通信方式：模块接口、进程内事件（MediatR）、共享合约",
+      "visual_idea": "三个模块盒子之间只通过 Contracts 层的桥接连接，Application/Infrastructure 层互不触碰",
+      "visible_label": "3 种通信",
+      "numeric_fact": null
+    },
+    {
+      "role": "evidence",
+      "source_anchor": "原文反模式：直接 ProjectReference 跨模块引用 Application 层",
+      "visual_idea": "一条红线被打叉——Tasks 不能直接引用 Projects.Application",
+      "visible_label": "禁止直引",
+      "numeric_fact": null
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文 MediatR INotification 发布-订阅解耦",
+      "visual_idea": "事件从 Tasks 模块发出，经由 MediatR 总线扇出到 Notifications 等订阅模块",
+      "visible_label": "发布/订阅",
+      "numeric_fact": null
+    }
+  ],
+  "main_metaphor": "三座独立的建筑（模块），彼此之间只通过一座公共桥（Contracts 层）连接，绝不直接从一栋楼的内部走到另一栋楼",
+  "primary_subject": "三个独立的模块建筑，分别标注 Tasks、Projects、Notifications，它们只通过中间一条公共通道（Contracts）互连",
+  "subject_action": "模块各自独立运转，通过合约层的消息通道和接口通信",
+  "composition": "等距空间或层级关系，三个模块绕合约层分布",
+  "base_style": "isometric conceptual systems scene",
+  "selected_style": "儿童童话风",
+  "selected_style_prompt_descriptor": "children's fairy-tale illustration, simple magical forms, friendly proportions, bright storybook palette, safe wonder",
+  "selected_style_reason": "用户未指定风格，本篇从 40 项风格池随机选中（#39）；模块化单体从「大泥球变成干净模块」的故事有「从此以后模块各自安好」的童话质感，适合用柔和、友好的视觉表达",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["3 种通信", "禁止直引", "发布/订阅"],
+  "color_palette": ["柔粉蓝", "嫩绿", "暖黄", "奶油白"],
+  "avoid": ["代码雨", "通用机器人", "假UI界面", "假终端", "假架构图标签", "黑暗元素"],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮先验证三个模块是否清晰独立、Contracts 桥接是否可见、童话风是否过度幼稚",
+  "revision_targets": ["模块独立性是否清晰", "合约桥接是否突出", "童话风格是否盖过架构信息"],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide infographic-story cover illustration. Theme: In a modular monolith, modules communicate through three clean patterns -- module interfaces for sync queries, MediatR INotification for async pub/sub, and shared Contracts projects. The golden rule: never reference another module's Application or Infrastructure layer. Only Contracts are safe cross-module references. The reader should feel the clean separation: each module is independent, communication flows only through well-defined contracts.\n\nSummary angle: Three independent modules (Tasks, Projects, Notifications) connected only through a shared Contracts bridge -- no direct cross-module dependencies.\nNarrative flow: 3-beat process. In a 2.35:1 frame, keep one dominant focal subject and 2-4 supporting narrative beats.\nInformation blocks:\n- Step: Three communication patterns -- module interfaces, in-process events, shared contracts. Label: 3 种通信.\n- Evidence: Anti-pattern crossed out -- Tasks must NOT directly reference Projects.Application. Label: 禁止直引.\n- Mechanism: MediatR INotification pub/sub decoupling -- events fan out to subscribers. Label: 发布/订阅.\n\nMain metaphor: Three independent buildings (modules), connected only through a shared bridge (Contracts layer). No one walks directly from inside one building into another.\nSubject: Three independent module structures (Tasks, Projects, Notifications) distributed around a central Contracts bridge.\nComposition/framing: Isometric or layered spatial arrangement -- three modules around a centralized contracts connection point, horizontal storytelling for wide cover.\nStyle/medium: combine isometric conceptual systems scene with the selected visual style descriptor: children's fairy-tale illustration, simple magical forms, friendly proportions, bright storybook palette, safe wonder. Stylized, polished, editorial. Do not imitate a specific brand, studio, or living artist.\nColor palette: soft pink-blue, fresh green, warm yellow, cream white.\nVisible text policy: allow only 1-3 short Chinese labels. Each label <= 6 Chinese characters. No poster title, no long sentences, no English slogans, no fake UI, no fake charts, no fake terminal.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter, no dark or scary elements.\nAvoid: code rain, generic robots, fake UI, fake terminal, fake architecture labels, dark themes, scary imagery."
+}
