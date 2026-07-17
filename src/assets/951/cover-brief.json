@@ -1,0 +1,44 @@
+{
+  "article_title": "Roslyn 三层分析 API：SyntaxNode vs ISymbol vs IOperation 该怎么选",
+  "cover_type": "tutorial",
+  "core_theme": "Roslyn 编译器平台三层分析架构：从纯语法到完整语义，告诉你写分析器时该用哪个 API",
+  "reader_takeaway": "学会在 SyntaxNode、ISymbol 和 IOperation 之间做出正确选择，写出更准确、更少误报的 Roslyn 分析器",
+  "summary_angle": "代码从原始文本→类型绑定→操作语义的三层递进，每一层解决不同的问题，选错层会导致误报或漏报",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "step",
+      "source_anchor": "SyntaxNode 层：RegisterSyntaxNodeAction，处理纯文本/结构/格式规则",
+      "visual_idea": "代码文本层——原始字符和token，浅色滤镜",
+      "visible_label": "Syntax 文本层"
+    },
+    {
+      "role": "step",
+      "source_anchor": "ISymbol 层：RegisterSymbolAction，处理类型解析、命名约定、继承层次",
+      "visual_idea": "类型系统层——类型名、接口、基类，中等深度滤镜",
+      "visible_label": "Symbol 类型层"
+    },
+    {
+      "role": "step",
+      "source_anchor": "IOperation 层：RegisterOperationAction，处理语义操作、方法调用、数据流",
+      "visual_idea": "操作语义层——方法调用、赋值、控制流，完整渲染",
+      "visible_label": "Operation 语义层"
+    }
+  ],
+  "main_metaphor": "一段 C# 代码穿过三层递进的分析滤镜，从模糊到清晰",
+  "primary_subject": "一段抽象的 C# 代码结构，从上到下穿过三层彩色滤镜",
+  "subject_action": "代码片段从顶部逐层向下流动，每经过一层滤镜变得更加结构化，顶部是原始文本，中间出现类型标注，底部展示操作语义关系",
+  "composition": "垂直三层递进，代码从上方进入，依次经过三个水平分层区域，每层有不同视觉质感",
+  "base_style": "editorial technical illustration",
+  "selected_style": "极简线稿风",
+  "selected_style_prompt_descriptor": "minimalist line-art illustration, sparse clean strokes, ample negative space, precise symbolic objects, limited accent color",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；极简线稿风格适合表现三层过滤架构的递进关系，干净利落的线条对应 Roslyn 编译管线的精确性",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["Syntax 文本层", "Symbol 类型层", "Operation 语义层"],
+  "color_palette": ["深灰蓝(代码文本)", "暖橙(Symbol层高亮)", "翠绿(Operation层高亮)", "浅灰(背景留白)"],
+  "avoid": ["漂浮UI", "假dashboard", "代码雨", "霓虹背景", "通用机器人", "水印", "prompt residue", "假代码片段"],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮验证：三层递进设计的可读性、代码结构穿过滤镜的抽象表达、信息标签定位",
+  "revision_targets": ["三层是否清晰可辨", "代码抽象是否过于具体/真实", "标签是否自然嵌入"],
+  "final_prompt": ""
+}
