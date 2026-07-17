@@ -1,0 +1,63 @@
+{
+  "article_title": "Kimi K3 与鹈鹕测试：跑一次 Prompt 比看 Benchmark 表格更有用",
+  "cover_type": "analysis",
+  "core_theme": "用一只骑自行车的鹈鹕测试 Kimi K3，揭示 benchmark 数字之外的真实体验",
+  "reader_takeaway": "理解为什么亲手跑模型比看 benchmark 表格更有价值，以及一个 21 个月的非正式测试如何持续暴露模型的真实特征",
+  "summary_angle": "K3 参数亮眼、benchmark 好看，但一次简单的鹈鹕提示词就暴露了隐藏 system prompt、推理 token 开销和定价压力",
+  "narrative_flow": "conflict-to-resolution",
+  "information_blocks": [
+    {
+      "role": "evidence",
+      "source_anchor": "Kimi K3 2.8T 参数、$3/$15 定价、7 月 27 日开源",
+      "visual_idea": "一个巨大的模型参数芯片/立方体标注 2.8T",
+      "visible_label": "2.8T 参数",
+      "numeric_fact": "2.8T"
+    },
+    {
+      "role": "contrast",
+      "source_anchor": "13241 推理 token 生成 3417 输出，花费 25 美分；隐藏 85 token system prompt",
+      "visual_idea": "推理 token 洪流和小输出之间的对比，鹈鹕穿过 token 雨",
+      "visible_label": "推理 13241 tokens",
+      "numeric_fact": "13241"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "跑一次模型比看 benchmark 表格更重要，pelican 是强制函数",
+      "visual_idea": "鹈鹕冲破了 benchmark 表格/数据墙",
+      "visible_label": "跑一次 > 看表格"
+    }
+  ],
+  "main_metaphor": "一只红围巾鹈鹕骑着自行车冲破 benchmark 数据流",
+  "primary_subject": "戴红围巾的白色鹈鹕骑红色自行车",
+  "subject_action": "鹈鹕从右侧向左骑行，穿过数字 benchmark 表格碎片和 token 粒子流，画面有冲破束缚的动感",
+  "composition": "斜向推进，鹈鹕从右下向左上骑行，左侧留有干净的叙事空间放置信息标签",
+  "base_style": "conceptual editorial illustration",
+  "selected_style": "独立漫画风",
+  "selected_style_prompt_descriptor": "indie comic illustration, personal hand-drawn marks, muted palette, imperfect line texture, intimate editorial feeling",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；独立漫画的手工编辑感适合分析评论类文章，不完美的线条呼应 Simon 对 benchmark 局限性的个人化反思",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["2.8T 参数", "推理 13241 tokens", "跑一次 > 看表格"],
+  "color_palette": [
+    "暖橙色(鹈鹕喙)",
+    "深灰蓝(benchmark数据)",
+    "柔白(鹈鹕身体)",
+    "暗红(围巾/自行车)"
+  ],
+  "avoid": [
+    "漂浮UI",
+    "假dashboard",
+    "代码雨",
+    "霓虹背景",
+    "通用机器人",
+    "水印",
+    "prompt residue"
+  ],
+  "reference_strategy": "纯文本生成，使用本地鹈鹕骑自行车图片作为参考图辅助理解主体关系",
+  "draft_goal": "第一轮验证：鹈鹕骑自行车的主体关系、斜向推进构图、信息块在画面中的可读布局",
+  "revision_targets": [
+    "主体比例是否清晰可辨",
+    "信息块标签是否自然嵌入画面",
+    "背景是否过于杂乱"
+  ],
+  "final_prompt": ""
+}
