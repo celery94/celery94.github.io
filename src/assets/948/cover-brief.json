@@ -1,0 +1,47 @@
+{
+  "article_title": "ASP.NET Core 内置 Rate Limiter：不装库也能做限流",
+  "cover_type": "tutorial",
+  "core_theme": "ASP.NET Core 自 .NET 7 起内置四种限流算法：固定窗口、滑动窗口、令牌桶和并发限制，配合分区机制即可实现按用户/IP 的精细限流",
+  "reader_takeaway": "能根据场景选对限流算法，用 GlobalLimiter + 分区键实现按调用方限流，并返回规范的 429 响应",
+  "summary_angle": "把「请求洪流冲击端点 → Rate Limiter 作为守门人拦截 → 合法请求通行、超限请求被 429 挡回」的防护链做成封面",
+  "narrative_flow": "conflict-to-resolution",
+  "information_blocks": [
+    {
+      "role": "contrast",
+      "source_anchor": "原文四种限流算法：Fixed Window、Sliding Window、Token Bucket、Concurrency",
+      "visual_idea": "四个不同的阀门/关卡形态，分别代表四种算法的限流方式：时间窗口、滑动窗口、令牌桶、并发门",
+      "visible_label": "4 种算法",
+      "numeric_fact": null
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文 GlobalLimiter + 分区键按 User/IP 隔离配额",
+      "visual_idea": "一个入口分流到多个独立配额桶，每个桶标着不同的用户/IP",
+      "visible_label": "按用户分区",
+      "numeric_fact": null
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文 OnRejected 返回 429 + Retry-After 头",
+      "visual_idea": "被拦截的请求被盖上 429 标记并附带倒计时",
+      "visible_label": "429",
+      "numeric_fact": null
+    }
+  ],
+  "main_metaphor": "一座有多个独立通道的关卡：请求洪流冲击关卡，只允许合法配额的请求通过，超限的被挡回",
+  "primary_subject": "一个限流关卡/闸门，前面是密集的请求洪流，后面只有按配额放行的请求通过",
+  "subject_action": "关卡拦截过量请求，只放行符合配额的部分",
+  "composition": "居中关卡 + 左右流量对比",
+  "base_style": "editorial technical illustration",
+  "selected_style": "悬疑惊悚风",
+  "selected_style_prompt_descriptor": "suspense thriller comic mood, low-key lighting, sharp shadows, uneasy framing, controlled tension without gore",
+  "selected_style_reason": "用户未指定风格，本篇从 40 项风格池随机选中（#26）；原文开头以登录端点被攻击的紧张叙事切入，悬疑紧张的氛围适合表达「端点暴露在攻击之下、限流器是最后防线」的张力",
+  "style_safety_note": "清单风格为泛类型描述，已通过 controlled tension without gore 限制惊悚程度",
+  "allowed_visible_text": ["4 种算法", "按用户分区", "429"],
+  "color_palette": ["暗蓝黑", "锐利白光", "暗红警告"],
+  "avoid": ["代码雨", "通用机器人", "假UI界面", "假终端", "血腥元素", "鬼怪"],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮先验证限流关卡的视觉表现和请求洪流的紧张感是否到位",
+  "revision_targets": ["惊悚感是否过度", "四种算法是否可辨别", "429 标记是否清晰"],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide infographic-story cover illustration. Theme: ASP.NET Core's built-in RateLimiter protects endpoints from being overwhelmed by too many requests. Four algorithms (fixed window, sliding window, token bucket, concurrency) shape traffic differently. GlobalLimiter with partition keys gives each caller their own quota bucket. The reader should feel the tension of an unprotected endpoint under attack, and the relief when the rate limiter gate holds.\n\nSummary angle: A flood of requests hits the rate limiter gate — excess requests are blocked with 429, legitimate ones pass through.\nNarrative flow: conflict-to-resolution. In a 2.35:1 frame, keep one dominant focal subject and 2-4 supporting narrative beats.\nInformation blocks:\n- Contrast: Four limiter valve types representing the four algorithms. Label: 4 种算法.\n- Mechanism: Entry point splitting traffic into per-user/IP quota buckets. Label: 按用户分区.\n- Takeaway: Blocked requests stamped with 429 and a countdown. Label: 429.\n\nMain metaphor: A checkpoint with multiple lanes — the request flood approaches, only quota-compliant requests get through, excess are turned back with 429.\nSubject: A rate limiter gate/checkpoint, with dense request traffic in front, only permitted requests passing through behind.\nComposition/framing: Centered checkpoint with traffic contrast left and right, horizontal storytelling for wide cover.\nStyle/medium: combine editorial technical illustration with the selected visual style descriptor: suspense thriller comic mood, low-key lighting, sharp shadows, uneasy framing, controlled tension without gore. Stylized, polished, editorial. Do not imitate a specific brand, studio, or living artist.\nColor palette: dark blue-black, sharp white light, dark red warning.\nVisible text policy: allow only 1-3 short Chinese labels. Each label <= 6 Chinese characters. No poster title, no long sentences, no English slogans, no fake UI, no fake charts, no fake terminal.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter, no gore, no monsters.\nAvoid: code rain, generic robots, fake UI, fake terminal, horror elements, excessive violence."
+}
