@@ -136,7 +136,7 @@ createStreetLight(["red", "yellow", "green"], "red");
 
 当我们传入一个不在原始`colors`数组中的`defaultColor`时会发生什么？在这个函数中，`colors`应该是“真理的来源”，并描述了可以传给`defaultColor`的内容。
 
-```actionscript
+```ts
 // 哎呀！这是不可取的，但是被允许了！
 createStreetLight(["red", "yellow", "green"], "blue");
 ```

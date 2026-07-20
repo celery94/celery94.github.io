@@ -16,10 +16,12 @@ source: "https://thecodeman.net/posts/how-to-monitor-dotnet-applications-in-prod
 ### 健康检查与指标的区别
 
 健康检查回答二元问题：
+
 - 服务是否存活？
 - 是否准备好接收流量？
 
 指标回答行为问题：
+
 - 每秒处理多少请求？
 - 请求耗时多久？
 - 处理了多少任务？
@@ -30,11 +32,13 @@ source: "https://thecodeman.net/posts/how-to-monitor-dotnet-applications-in-prod
 ### Prometheus 和 Grafana 的角色
 
 **Prometheus** 是时间序列指标系统，负责：
+
 - 从应用程序拉取指标（pull 模式）
 - 存储时间序列数据
 - 提供 PromQL 查询语言
 
 **Grafana** 是可视化层，负责：
+
 - 连接 Prometheus 作为数据源
 - 将指标转换为仪表板
 - 触发告警
@@ -56,6 +60,7 @@ source: "https://thecodeman.net/posts/how-to-monitor-dotnet-applications-in-prod
 回答不同的问题：服务是否准备好处理流量？
 
 **必须**检查：
+
 - 数据库
 - 外部 API
 - 消息队列
@@ -63,6 +68,7 @@ source: "https://thecodeman.net/posts/how-to-monitor-dotnet-applications-in-prod
 如果就绪检查失败，应停止流量，但不应杀死服务。
 
 实现时需要暴露两个端点：
+
 - `/health/live`
 - `/health/ready`
 
@@ -106,6 +112,7 @@ app.MapHealthChecks("/health/ready", new HealthCheckOptions {
 ```
 
 说明：
+
 - `/health/live` 只检查应用本身
 - `/health/ready` 检查 PostgreSQL 连接性
 - `/metrics` 暴露 Prometheus 格式的指标
@@ -224,6 +231,7 @@ services:
 ```
 
 启动顺序很重要：
+
 1. Postgres 必须在就绪检查之前存在
 2. 两个 .NET 应用在 Postgres 之后启动
 3. Prometheus 在应用之后启动，因为需要抓取目标
@@ -290,6 +298,7 @@ docker compose up --build
 - Worker: `http://localhost:8081/metrics`
 
 查找以下指标：
+
 - `http_requests_received_total`
 - `billing_jobs_processed_total`
 
@@ -316,7 +325,7 @@ docker compose up --build
 
 在查询部分输入：
 
-```promql
+```text
 rate(http_requests_received_total{job="orders-api"}[1m])
 ```
 
@@ -326,7 +335,7 @@ rate(http_requests_received_total{job="orders-api"}[1m])
 
 对于自定义的 `billing_jobs_processed_total` 指标，使用：
 
-```promql
+```text
 rate(billing_jobs_processed_total[1m]) * 60
 ```
 
@@ -337,6 +346,7 @@ rate(billing_jobs_processed_total[1m]) * 60
 监控不是事后添加的功能，而是一项技能。通过理解概念、端到端连接系统、了解生产环境中真正重要的内容来建立。
 
 本文展示了：
+
 - 活性和就绪健康检查的正确使用方式
 - 如何从 .NET 暴露有意义的 `/metrics`
 - Prometheus 如何抓取这些指标
