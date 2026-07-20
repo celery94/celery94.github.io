@@ -1,0 +1,47 @@
+{
+  "article_title": "ASP.NET Core 自定义用户管理：从注册到管理员面板",
+  "cover_type": "tutorial",
+  "core_theme": "在 ASP.NET Core Identity 之上自建用户管理端点——自定义用户模型、管理员 CRUD、角色分配、锁定/禁用、自助资料和密码重置，取代 MapIdentityApi 的局限性",
+  "reader_takeaway": "能在 Identity 框架之上写出完整的用户管理 API，包括注册、管理员面板、角色管理和自助服务",
+  "summary_angle": "从 MapIdentityApi 的围墙外搭建自己的用户管理塔楼——三根支柱：自定义用户模型、管理员端点、自助服务端点",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "mechanism",
+      "source_anchor": "原文扩展 IdentityUser 章节：继承 IdentityUser 加 FirstName/LastName/IsActive，一个类加一个泛型参数",
+      "visual_idea": "一个带扩展字段的 IdentityUser 骨架或蓝图，向外延伸自定义属性",
+      "visible_label": "自定义用户模型",
+      "numeric_fact": ""
+    },
+    {
+      "role": "step",
+      "source_anchor": "原文管理员端点章节：RequireRole Admin 保护的端点组，列出/搜索/分页/角色管理/锁定/禁用",
+      "visual_idea": "一个带盾牌或锁的管理面板控制台，上面有角色、锁定、启用等控制开关",
+      "visible_label": "管理员面板",
+      "numeric_fact": ""
+    },
+    {
+      "role": "step",
+      "source_anchor": "原文自助资料端点章节：/api/me 端点组，用户 ID 从 JWT 读取而非请求体",
+      "visual_idea": "一面镜子或反射面板，用户只能看到和修改自己的资料",
+      "visible_label": "自助资料",
+      "numeric_fact": ""
+    }
+  ],
+  "main_metaphor": "一座在 Identity 地基上自建的控制塔——三层结构：底层自定义用户模型、中层管理员控制面板、顶层用户自助入口",
+  "primary_subject": "一座三层的用户管理控制塔，每层对应一个功能区域",
+  "subject_action": "塔楼基层承载 Identity 引擎，中层管理员面板带锁定/角色/启用开关，顶层是用户自助镜子面板",
+  "composition": "垂直三层堆叠或自下而上的阶梯式布局",
+  "base_style": "editorial technical illustration",
+  "selected_style": "废土末日风",
+  "selected_style_prompt_descriptor": "post-apocalyptic wasteland illustration, weathered materials, dusty atmosphere, survival objects, desaturated contrast",
+  "selected_style_reason": "用户未指定风格，从 40 项风格池随机选中；废土风隐喻从'无管控的混乱'中自建秩序结构，与'在 MapIdentityApi 之外自建用户管理系统'的主题形成反差趣味",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["自定义用户模型", "管理员面板", "自助资料"],
+  "color_palette": ["锈棕色 #8B5E3C", "风化石灰 #9E9E9E", "暗哑橙点缀 #C67B3D", "沙尘背景"],
+  "avoid": ["真实产品界面截图", "dashboard", "假 UI 标签", "代码雨", "漂浮芯片", "霓虹高楼背景", "赛博朋克光污染", "HUD 浮层"],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "先验证'三层控制塔 + 废土风锈蚀质感 + 三个信息块可读性'是否成立",
+  "revision_targets": ["三层结构比例和空间区分", "废土质感是否过重导致信息块不清晰", "管理员面板的开关元素是否可辨识"],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide infographic-story cover. Theme: custom user management in ASP.NET Core — building your own user management tower on top of Identity: custom user model, admin panel with role/lock/disable controls, and self-service profile. The reader should see three layers of control built on a foundation.\n\nSummary angle: building a user management tower beyond MapIdentityApi's walls — three pillars: custom user model, admin endpoints, self-service endpoints.\nNarrative flow: 3-beat process. In a 2.35:1 frame, keep one dominant focal subject and 2-4 supporting narrative beats.\nInformation blocks:\n- mechanism: an IdentityUser skeleton or blueprint with extended properties extending outward, labeled in Chinese for custom user model\n- step: an admin control console with shield or lock, role/lock/enable switches, labeled in Chinese for admin panel\n- step: a mirror or reflection panel where a user can only see and edit their own profile, labeled in Chinese for self-service profile\n\nMain metaphor: a three-level control tower built on an Identity foundation — bottom level custom user model, middle admin control panel, top self-service mirror.\nSubject: a three-level user management control tower, each level for a function area.\nSubject action: base level carries Identity engine, middle level has admin panel with lock/role/enable switches, top level is a self-service mirror panel.\nComposition/framing: vertical three-layer stack or ascending stepped layout.\nStyle/medium: combine editorial technical illustration with the selected visual style descriptor: post-apocalyptic wasteland illustration, weathered materials, dusty atmosphere, survival objects, desaturated contrast. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: rust brown, weathered grey, muted orange accent, dusty background.\nVisible text policy: allow only short Chinese labels. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: real product UI screenshots, code rain, floating chips, neon backgrounds, cyberpunk purple-blue, HUD overlays."
+}
