@@ -1,0 +1,47 @@
+{
+  "article_title": ".NET 私有 NuGet 源实战：Azure Artifacts 与 GitHub Packages",
+  "cover_type": "tutorial",
+  "core_theme": "配置私有 NuGet 源的两种主流方案——Azure Artifacts 和 GitHub Packages，包括源 URL、认证、nuget.config 和 CI/CD 流水线配置",
+  "reader_takeaway": "能根据团队已有的基础设施（Azure DevOps 还是 GitHub），选对私有 NuGet 源方案并完成从本地到 CI/CD 的完整配置",
+  "summary_angle": "两个私有包仓库出口从一个 nuget.config 面板出发——左侧 Azure Artifacts（Entra ID + 上游代理），右侧 GitHub Packages（PAT 认证 + GITHUB_TOKEN）",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "mechanism",
+      "source_anchor": "原文 Azure Artifacts 章节：源 URL 模式、credential provider 安装、组织级 vs 项目级源、上游源代理",
+      "visual_idea": "左侧一个 Azure DevOps 风格的面板或模块，标注源 URL 片段和凭据提供器图标",
+      "visible_label": "Azure Artifacts",
+      "numeric_fact": ""
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文 GitHub Packages 章节：按 owner 的源 URL、read:packages 权限、GITHUB_TOKEN 自动注入",
+      "visual_idea": "右侧一个 GitHub 风格的面板或模块，标注 PAT 令牌和 Actions 管道图标",
+      "visible_label": "GitHub Packages",
+      "numeric_fact": ""
+    },
+    {
+      "role": "step",
+      "source_anchor": "原文 nuget.config 章节：多源声明、%TOKEN% 占位符语法、CI/CD 注入模式",
+      "visual_idea": "中间一个 nuget.config 配置文件或中心节点，连接两侧的源",
+      "visible_label": "nuget.config",
+      "numeric_fact": ""
+    }
+  ],
+  "main_metaphor": "一个中央包管理器面板，左右各挂载一个私有源仓库——Azure Artifacts（企业蓝）和 GitHub Packages（暗色系），中间由 nuget.config 连接",
+  "primary_subject": "一个居中的包配置面板，左右两侧分别连接 Azure Artifacts 和 GitHub Packages 两个源",
+  "subject_action": "中心配置节点通过管道或连接线向左右两侧分发包依赖，两侧源各自有独立的认证和流水线标识",
+  "composition": "居中主节点 + 左右两个源面板，形成对称或左右对照布局",
+  "base_style": "editorial technical illustration",
+  "selected_style": "水彩漫画风",
+  "selected_style_prompt_descriptor": "watercolor comic illustration, translucent washes, visible paper texture, soft edges, light ink structure",
+  "selected_style_reason": "用户未指定风格，从 40 项风格池随机选中；水彩漫画的柔和透明层次适合表达'配置/搭建'类教程场景，让技术选型看起来不冷硬",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["Azure Artifacts", "GitHub Packages", "nuget.config"],
+  "color_palette": ["Azure 蓝 #0078D4", "GitHub 暗色 #24292E", "暖色点缀 #D4A574", "水彩白底"],
+  "avoid": ["真实产品界面截图", "dashboard", "假 UI 标签", "代码雨", "漂浮芯片", "霓虹高楼背景", "赛博朋克光污染", "HUD 浮层"],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "先验证'中心配置面板 + 左右两个源仓库'的主体布局和水彩质感是否成立",
+  "revision_targets": ["左右面板的视觉平衡", "水彩半透明层叠效果", "源仓库品牌的暗示程度（不要像真实产品截图）"],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide infographic-story cover. Theme: private NuGet feeds — two hosted options: Azure Artifacts and GitHub Packages, configured through nuget.config with authentication setup. The reader should quickly see two source options connected via a central config.\n\nSummary angle: two private package feed exits from one nuget.config panel — left Azure Artifacts with Entra ID and upstream proxy, right GitHub Packages with PAT auth and GITHUB_TOKEN.\nNarrative flow: 3-beat process. In a 2.35:1 frame, keep one dominant focal subject and 2-4 supporting narrative beats.\nInformation blocks:\n- mechanism: on the left, an Azure DevOps-style module with source URL hints and credential provider icon, labeled 'Azure Artifacts'\n- mechanism: on the right, a GitHub-style module with PAT token and Actions pipeline icon, labeled 'GitHub Packages'\n- step: in the center, a nuget.config config file or central node connecting both sides, labeled 'nuget.config'\n\nMain metaphor: a central package manager panel with two private feed repositories mounted on each side, connected by nuget.config.\nSubject: a central config hub with left and right source panels for Azure Artifacts and GitHub Packages.\nSubject action: the central config node distributes package dependencies through pipelines to both sides, each source with its own auth and pipeline identifiers.\nComposition/framing: central hub with two symmetrical source panels, left-right contrast layout.\nStyle/medium: combine editorial technical illustration with the selected visual style descriptor: watercolor comic illustration, translucent washes, visible paper texture, soft edges, light ink structure. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: Azure blue, GitHub dark grey, warm accent tan, watercolor white background.\nVisible text policy: allow only short labels 'Azure Artifacts', 'GitHub Packages', 'nuget.config'. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: real product UI screenshots, code rain, floating chips, neon backgrounds, cyberpunk purple-blue, HUD overlays."
+}
