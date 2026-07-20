@@ -1,0 +1,47 @@
+{
+  "article_title": "Agent Skills for .NET 正式发布：可复用的 Agent 领域技能包",
+  "cover_type": "release",
+  "core_theme": "Agent Skills for .NET 从实验性预览毕业，[Experimental] 标签移除，API 稳定——可复用的 agent 领域技能包正式可用",
+  "reader_takeaway": "了解 Agent Skills 的开放格式、三种编写方式和生产级治理能力（审批、沙箱、过滤、缓存），能立即上手打包领域知识给 .NET agent",
+  "summary_angle": "一个技能包从实验标签中解封，正式进入生产——三种编写方式（文件/类/代码）、三项治理能力（审批/沙箱/过滤）",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "step",
+      "source_anchor": "原文三种编写方式章节：file-based skills、class-based skills、code-defined skills，三种接入同一 provider",
+      "visual_idea": "三个不同来源的输入符号汇聚向一个中心 provider 图标，代表文件/类/代码三种编写路径",
+      "visible_label": "3 种编写方式",
+      "numeric_fact": ""
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文生产环境构建章节：human-in-the-loop approval, controlled script execution, filtering, caching",
+      "visual_idea": "一个带盾牌或审批钩的治理控制面板，带沙箱图标和过滤漏斗",
+      "visible_label": "生产级治理",
+      "numeric_fact": ""
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文四阶段渐进暴露：advertise→load instructions→read resources→run scripts",
+      "visual_idea": "一个四层逐步展开的上下文窗口或加载序列",
+      "visible_label": "渐进暴露",
+      "numeric_fact": "4 阶段"
+    }
+  ],
+  "main_metaphor": "一个实验标签被撕掉、露出稳定版徽章的工具箱——三种输入路径汇聚到中心 provider，经过治理层后向 agent 暴露",
+  "primary_subject": "一个中心 skill provider 模块，左侧三种编写路径流入，右侧带审批盾牌露出给 agent",
+  "subject_action": "中心 provider 接收三路输入，经审批/沙箱/过滤层处理后向右暴露给 agent",
+  "composition": "水平左中右——左侧三路输入、中心 provider + 治理层、右侧 agent 图标",
+  "base_style": "product-poster style illustration",
+  "selected_style": "日漫少年风",
+  "selected_style_prompt_descriptor": "energetic shonen-inspired manga look, clean ink lines, dynamic poses, readable action rhythm, bright restrained color accents",
+  "selected_style_reason": "用户未指定风格，从 40 项风格池随机选中；少年漫的推进感适合产品发布/正式登场的氛围",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["3 种编写方式", "生产级治理", "4 阶段"],
+  "color_palette": ["微软蓝 #0078D4", "活力橙 #F7630C", "亮白背景"],
+  "avoid": ["真实产品界面截图", "dashboard", "假 UI 标签", "代码雨", "漂浮芯片", "霓虹高楼背景", "赛博朋克光污染", "HUD 浮层"],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "先验证'三路输入→中心 provider→治理层→agent 输出'的构图和日漫风格的推进感",
+  "revision_targets": ["三路输入与中心 provider 的视觉权重", "治理层的盾牌/沙箱元素可读性", "日漫线条是否干净不杂乱"],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide infographic-story cover. Theme: Agent Skills for .NET released. An experimental feature graduates to stable. Reusable skill packages with three authoring styles file/class/code, production governance with approval sandbox filtering, and progressive disclosure loading. Summary angle: a skill toolkit breaking free from experimental label into production. Three authoring paths, governance capabilities, 4-stage progressive loading. Information blocks: 1. three input symbols file/class/code converging to a center provider icon, labeled in Chinese for 3 authoring styles. 2. a governance panel with shield sandbox filter icons, labeled in Chinese for production governance. 3. a four-step progressive loading sequence, labeled with '4' stage. Main metaphor: a toolbox with experimental label torn off revealing stable badge. Three input paths to central provider, through governance layer to agent. Subject: central skill provider module with three input paths left, governance layer overlay, agent icon right. Subject action: provider receives three input types, passes through approval/sandbox/filter, exposes to agent on right. Composition: horizontal left-center-right flow. Style: combine product-poster style illustration with energetic shonen-inspired manga look, clean ink lines, dynamic poses, readable action rhythm, bright restrained color accents. Color palette: Microsoft blue, vibrant orange, bright white. Visible text: only short Chinese labels and numbers. No poster title. Constraints: no watermark, no screenshots, no dashboards, no fake diagrams, no decorative clutter. Avoid: real UI screenshots, code rain, floating chips, neon backgrounds, cyberpunk purple-blue, HUD overlays."
+}
