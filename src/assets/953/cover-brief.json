@@ -1,0 +1,47 @@
+{
+  "article_title": "MCP 传输层选型：C# 中 stdio、Streamable HTTP 与 SSE 对比",
+  "cover_type": "architecture",
+  "core_theme": "MCP 服务端的三种传输方式选型——stdio 用于本地进程，Streamable HTTP 用于远程服务，遗留 SSE 仅作兼容迁移",
+  "reader_takeaway": "能根据进程模型和状态需求，在 stdio、Streamable HTTP 无状态/有状态和遗留 SSE 之间做出正确选择",
+  "summary_angle": "三条传输路径从一个 MCP 决策点分叉——本地进程管道、远程 HTTP 端点、以及已被废弃的 SSE 迁移通道",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "mechanism",
+      "source_anchor": "原文 stdio 章节：客户端启动服务端进程，stdin/stdout 承载 JSON-RPC，日志走 stderr",
+      "visual_idea": "左侧一条本地进程管道，标注 stdin/stdout 流和子进程图标",
+      "visible_label": "stdio",
+      "numeric_fact": ""
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文 Streamable HTTP 章节：远程 HTTP 端点，支持无状态和有状态两种模式",
+      "visual_idea": "中间一个 HTTP 端点，有请求箭头进出，标注无状态/有状态 toggle",
+      "visible_label": "Streamable HTTP",
+      "numeric_fact": ""
+    },
+    {
+      "role": "contrast",
+      "source_anchor": "原文遗留 SSE 章节：默认禁用，MCP9004 废弃诊断，背压问题，仅作迁移兼容",
+      "visual_idea": "右侧一条被划掉或带折旧标记的通道，标注废弃兼容",
+      "visible_label": "SSE 迁移",
+      "numeric_fact": ""
+    }
+  ],
+  "main_metaphor": "一个三岔路口——从同一个 MCP 服务端核心出发，三条路分别通向本地进程管、远程 HTTP 端点和废弃兼容通道",
+  "primary_subject": "一个居中的服务端核心节点，发出三条通向不同方向的分支管道或路径",
+  "subject_action": "服务端核心居中，三条传输分支向左右展开，stdin 和 HTTP 分支活跃，SSE 分支有折旧标记",
+  "composition": "居中核心节点 + 三条水平分支路径，形成等距或放射状布局",
+  "base_style": "isometric conceptual systems scene",
+  "selected_style": "彩铅绘本风",
+  "selected_style_prompt_descriptor": "colored-pencil picture-book illustration, tactile strokes, gentle palette, warm narrative objects, soft educational tone",
+  "selected_style_reason": "用户未指定风格，从 40 项风格池随机选中；彩铅的温暖教育气质适合技术选型指南类内容，让对比决策看起来不那么冷硬",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["stdio", "Streamable HTTP", "SSE迁移"],
+  "color_palette": ["暖灰 #8B7D6B", "松石绿 #5F9EA0", "橙棕色 #D2691E", "柔白背景"],
+  "avoid": ["真实系统架构图", "dashboard", "假 UI 标签", "代码雨", "漂浮芯片", "霓虹高楼背景", "赛博朋克光污染", "HUD 浮层", "假终端输出"],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "先验证'三岔路口 + 三条传输路径 + SSE 折旧标记'的核心构图是否成立",
+  "revision_targets": ["三条路径的视觉权重平衡", "SSE 路径折旧标记的清晰度", "彩铅质感和暖色调是否统一"],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide infographic-story cover illustration. Theme: MCP transport selection — three transport paths for one MCP server: stdio for local process, Streamable HTTP for remote service, and legacy SSE for migration only. The reader should quickly understand there are three clear choices and SSE is deprecated.\n\nSummary angle: three transport paths diverging from one MCP server decision point — local process pipe, remote HTTP endpoint, and deprecated SSE migration path.\nNarrative flow: 3-beat process. In a 2.35:1 frame, keep one dominant focal subject and 2-4 supporting narrative beats.\nInformation blocks:\n- mechanism: a local process pipe with stdin/stdout streams, sub-process icon inside, labeled 'stdio'\n- mechanism: an HTTP endpoint with request arrows flowing in and out, stateless/stateful toggle indicator, labeled 'Streamable HTTP'\n- contrast: a crossed-out or deprecated channel on the right side, marked as compatibility-only, labeled 'SSE迁移'\n\nMain metaphor: a three-way junction — one central MCP server core sending three paths to different deployment models.\nSubject: a central server core node with three branch paths extending left, center, and right. Left is a process pipe, center is an HTTP endpoint, right is a deprecated channel.\nSubject action: the core sits at center, three transport branches fan out horizontally. The stdio and HTTP branches are active, the SSE branch shows deprecation marks.\nComposition/framing: central core node with three horizontal branch paths, radial or isometric layout.\nStyle/medium: combine isometric conceptual systems scene with the selected visual style descriptor: colored-pencil picture-book illustration, tactile strokes, gentle palette, warm narrative objects, soft educational tone. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: warm gray, teal-green, orange-brown, soft white background.\nVisible text policy: allow only short labels 'stdio', 'Streamable HTTP', 'SSE迁移'. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: code rain, floating chips, neon backgrounds, cyberpunk purple-blue, HUD overlays, fake terminal output."
+}
