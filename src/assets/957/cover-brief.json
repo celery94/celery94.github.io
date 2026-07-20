@@ -1,0 +1,47 @@
+{
+  "article_title": "什么是单体架构？三种类型用 C# 讲清楚",
+  "cover_type": "architecture",
+  "core_theme": "三种单体架构类型的对比——单进程单体、模块化单体和分布式单体（反模式），用 C# 代码展示每种类型并给出适用场景判断",
+  "reader_takeaway": "能区分三种单体类型，知道为什么模块化单体是大多数团队的正确默认选择，识别并避开分布式单体反模式",
+  "summary_angle": "三种单体形态并排对照——左侧经典单进程（分层），中间模块化（有边界），右侧分布式（打叉反模式）",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "mechanism",
+      "source_anchor": "原文类型一章：单进程单体，Controller→Service→Repository 分层架构，一切在一个进程里",
+      "visual_idea": "左侧一个经典三层堆叠方块，层之间直接箭头连接",
+      "visible_label": "单进程单体",
+      "numeric_fact": ""
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文类型二章：模块化单体，每个模块自包含，通过公开 API 交互，IServiceCollection 注册",
+      "visual_idea": "中间一组有清晰边界的分隔模块方块，模块间仅有管道连接",
+      "visible_label": "模块化单体",
+      "numeric_fact": ""
+    },
+    {
+      "role": "contrast",
+      "source_anchor": "原文类型三章：分布式单体反模式，服务分离但共享 DbContext，部署协调噩梦",
+      "visual_idea": "右侧一组表面分离但被共享数据层绑在一起的服务方块，带叉号或警告标记",
+      "visible_label": "分布式单体",
+      "numeric_fact": ""
+    }
+  ],
+  "main_metaphor": "三种建筑结构并排——左侧是单栋多层楼（单进程），中间是带防火墙的联排建筑群（模块化），右侧是表面分离但地基连在一起的危楼（分布式反模式）",
+  "primary_subject": "三种并排的建筑/结构形态，分别代表三类单体架构",
+  "subject_action": "左侧简单堆叠，中间模块化有分隔墙，右侧表面分离但底部共享结构带警告标记",
+  "composition": "水平三列并排对照布局",
+  "base_style": "isometric conceptual systems scene",
+  "selected_style": "高对比电影风",
+  "selected_style_prompt_descriptor": "high-contrast cinematic illustration, strong key light, deep shadows, wide-screen composition, dramatic but realistic color grading",
+  "selected_style_reason": "用户未指定风格，从 40 项风格池随机选中；高对比电影风格适合'三种架构对比'的主题，强光与深影强化差异感和判断力",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["单进程单体", "模块化单体", "分布式单体"],
+  "color_palette": ["暖金高光 #E8C547", "深蓝灰 #2C3E50", "警示橙红 #E74C3C"],
+  "avoid": ["真实产品界面截图", "dashboard", "假 UI 标签", "代码雨", "漂浮芯片", "霓虹高楼背景", "赛博朋克光污染", "HUD 浮层"],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "先验证'三种结构并排对照 + 分布式反模式标记 + 高对比光影'是否成立",
+  "revision_targets": ["三列的视觉权重平衡", "分布式单体的警示标记是否清晰", "高对比光影是否过重导致细节丢失"],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide infographic-story cover. Theme: three types of monolith architecture compared side by side. Single-process monolith (classic layered), modular monolith (correct default with boundaries), distributed monolith (anti-pattern, crossed out). The reader should immediately see one is the preferred choice and one is a warning.\n\nSummary angle: three architectural forms side by side — left classic single-process layered stack, middle modular with enforced boundaries, right distributed anti-pattern with warning marks.\nNarrative flow: 3-beat process. In a 2.35:1 frame.\nInformation blocks:\n- mechanism: left column, a classic three-layer stacked block with direct arrow connections between layers, labeled in Chinese for single-process monolith\n- mechanism: middle column, a set of cleanly separated module blocks with pipeline connections only, labeled in Chinese for modular monolith\n- contrast: right column, seemingly separate services bound together by a shared data layer underneath, with cross or warning marks, labeled in Chinese for distributed monolith\n\nMain metaphor: three architectural structures side by side — left a single multi-story building, middle connected townhouses with firewalls, right a dangerous structure appearing separate but sharing a cracked foundation.\nSubject: three side-by-side architectural forms representing the three monolith types.\nSubject action: left simple stack, middle modular with separation walls, right seemingly separate but sharing bottom structure with warning marks.\nComposition/framing: horizontal three-column side-by-side comparison layout.\nStyle/medium: combine isometric conceptual systems scene with high-contrast cinematic illustration, strong key light, deep shadows, wide-screen composition, dramatic but realistic color grading. Stylized, polished, editorial. Do not imitate a specific brand, studio, or living artist.\nColor palette: warm gold highlight, deep blue-gray, warning orange-red.\nVisible text policy: allow only short Chinese labels for three types. No poster title, no long sentences, no English slogans.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no decorative clutter.\nAvoid: real UI screenshots, code rain, floating chips, neon backgrounds, cyberpunk purple-blue, HUD overlays."
+}
