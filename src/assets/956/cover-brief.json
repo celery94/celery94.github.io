@@ -1,0 +1,47 @@
+{
+  "article_title": "从零搭建你的第一个 MCP 服务端（C# 快速上手）",
+  "cover_type": "tutorial",
+  "core_theme": "用 C# 搭建本地 stdio MCP 服务端的最短路径——控制台应用 + SDK + Host + 属性标注工具，配好 VS Code 就能跑",
+  "reader_takeaway": "能在 5 分钟内从零搭起一个可工作的本地 MCP 服务端，并接入 VS Code 或 Claude Desktop",
+  "summary_angle": "从 dotnet new console 到 AI 宿主发现工具的全流程——三条主线：创建项目、写工具方法、接入宿主",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "step",
+      "source_anchor": "原文创建项目和 Program.cs 章节：dotnet new console，AddMcpServer+StdioTransport+ToolsFromAssembly",
+      "visual_idea": "一个终端窗口或控制台图标，带 dotnet 命令提示和 NuGet 包引用标注",
+      "visible_label": "创建项目",
+      "numeric_fact": ""
+    },
+    {
+      "role": "step",
+      "source_anchor": "原文写工具方法章节：[McpServerTool] 属性和 Description 标注的 Echo 和 FormatWorkItem 方法",
+      "visual_idea": "一个带属性标签的方法卡片或函数签名浮层，标注 [McpServerTool]",
+      "visible_label": "写工具方法",
+      "numeric_fact": ""
+    },
+    {
+      "role": "step",
+      "source_anchor": "原文接入 VS Code 和 Claude Desktop 章节：mcp.json 配置 stdio 命令和路径",
+      "visual_idea": "一个配置文件图标连向 VS Code 或编辑器标识",
+      "visible_label": "接入宿主",
+      "numeric_fact": ""
+    }
+  ],
+  "main_metaphor": "一条从终端到 AI 宿主的流水线——左侧控制台启动服务端进程，中间工具方法被属性标注暴露，右侧 AI 宿主发现并调用",
+  "primary_subject": "一条从左到右的三段式流水线，连接控制台、工具卡片和 AI 宿主",
+  "subject_action": "左侧 dotnet 命令行启动进程，中间工具方法卡片浮出，右侧 VS Code/Claude 图标接收连接",
+  "composition": "水平从左到右的三段推进式布局",
+  "base_style": "editorial technical illustration",
+  "selected_style": "新海诚光影风",
+  "selected_style_prompt_descriptor": "transparent blue skies, dramatic backlight, detailed clouds, youthful cinematic lighting, rain and reflection details, no artist imitation",
+  "selected_style_reason": "用户未指定风格，从 40 项风格池随机选中；新海诚风格的光影通透感适合表达'从零开始搭建、第一次跑通'的清爽技术体验",
+  "style_safety_note": "原风格名强指向在世作者，最终 prompt 只使用光影、天空、云层、反射等非仿冒描述，不要求复刻特定导演或工作室风格",
+  "allowed_visible_text": ["创建项目", "写工具方法", "接入宿主"],
+  "color_palette": ["天空蓝 #4A90D9", "云白 #FAFAFA", "暖光点缀 #F5A623"],
+  "avoid": ["真实产品界面截图", "dashboard", "假 UI 标签", "代码雨", "漂浮芯片", "霓虹高楼背景", "赛博朋克光污染", "HUD 浮层", "假终端输出"],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "先验证'三段流水线 + 通透光影氛围 + 三个步骤标签可读'",
+  "revision_targets": ["光影是否过重导致信息块不清晰", "三段的视觉权重平衡", "天空/云层背景与前景工具卡片的对比度"],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide infographic-story cover. Theme: build your first MCP server in C#. From dotnet new console to AI host discovering your tool — three steps: create project with SDK and Host, write a tool method with McpServerTool attribute, configure the host in mcp.json. The reader should feel the clear, fresh journey of building something that works.\n\nSummary angle: from dotnet new console to AI host tool discovery — three beats: create project, write tool method, connect to host.\nNarrative flow: 3-beat process. In a 2.35:1 frame, keep one dominant focal subject and 2-4 supporting narrative beats.\nInformation blocks:\n- step: a terminal or console icon with dotnet command hints and NuGet package references, labeled in Chinese for create project\n- step: a method card or function signature with McpServerTool attribute tags, labeled in Chinese for write tool method\n- step: a config file icon connecting to a VS Code or editor logo, labeled in Chinese for connect to host\n\nMain metaphor: a pipeline from terminal to AI host — left console starts the server process, middle tool methods are exposed via attributes, right AI host discovers and calls them.\nSubject: a three-segment horizontal pipeline connecting console, tool card, and AI host icon.\nSubject action: left dotnet command launches process, middle tool card with attributes floats out, right VS Code icon receives connection.\nComposition/framing: horizontal left-to-right three-segment progressive layout.\nStyle/medium: combine editorial technical illustration with the selected visual style descriptor: transparent blue skies, dramatic backlight, detailed clouds, youthful cinematic lighting, rain and reflection details, no artist imitation. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: sky blue, cloud white, warm light accent.\nVisible text policy: allow only short Chinese labels. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: real product UI screenshots, code rain, floating chips, neon backgrounds, cyberpunk purple-blue, HUD overlays, fake terminal output."
+}
