@@ -1,0 +1,47 @@
+{
+  "article_title": "在 C# 里写一个 MCP 客户端：连接、发现、调用工具",
+  "cover_type": "tutorial",
+  "core_theme": "用 C# 和 ModelContextProtocol SDK 搭建 MCP 客户端，覆盖 stdio/HTTP 连接、工具发现、调用和内容块处理",
+  "reader_takeaway": "从零写出一个能连接 MCP 服务器、发现工具并调用的 C# 客户端",
+  "summary_angle": "把客户端建连 → 工具发现 → 调用返回 → 内容处理，压成一条清晰的客户端工作流封面",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "step",
+      "source_anchor": "StdioClientTransport or HttpClientTransport, McpClient.CreateAsync to establish session",
+      "visual_idea": "一个 C# 应用图标通过管道/箭头连向远端的服务器节点",
+      "visible_label": "连接",
+      "numeric_fact": ""
+    },
+    {
+      "role": "step",
+      "source_anchor": "ListToolsAsync, ListResourcesAsync, ListPromptsAsync for capability discovery",
+      "visual_idea": "从服务器节点展开的工具列表，几个简洁的方块标注 tool 名称",
+      "visible_label": "发现",
+      "numeric_fact": ""
+    },
+    {
+      "role": "step",
+      "source_anchor": "CallToolAsync, handling TextContentBlock, ImageContentBlock, EmbeddedResourceBlock, IsError",
+      "visual_idea": "选中的工具被调用后返回内容块（文本、图片、资源），有干净的数据流箭头",
+      "visible_label": "调用",
+      "numeric_fact": ""
+    }
+  ],
+  "main_metaphor": "一座两端连接的手绘桥：C# 应用在左，MCP 服务器在右，桥上流着发现信号和调用结果",
+  "primary_subject": "一条水平连接线，左端是 C# 应用图标，右端是 MCP 服务器方块，中间是干净的协议流",
+  "subject_action": "左侧应用发出请求，右侧服务器返回多类型内容块",
+  "composition": "斜向推进",
+  "base_style": "editorial technical illustration",
+  "selected_style": "极简线稿风",
+  "selected_style_prompt_descriptor": "minimalist line-art illustration, sparse clean strokes, ample negative space, precise symbolic objects, limited accent color",
+  "selected_style_reason": "用户未指定风格，从 40 项风格池随机选中；MCP 协议客户端的干净接口设计适合用极简线稿的精确符号和大量留白来表达清晰的步骤关系",
+  "style_safety_note": "极简线稿风为泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["连接", "发现", "调用"],
+  "color_palette": ["深灰蓝线稿", "白底", "橙黄点缀"],
+  "avoid": ["漂浮芯片", "代码雨", "霓虹高楼", "通用机器人站姿", "赛博朋克紫蓝光", "HUD 浮层", "假 dashboard", "假终端", "假图表", "密集纹理"],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮验证三步流（连接-发现-调用）是否清晰、极简线稿风格是否干净",
+  "revision_targets": ["步骤标识清晰度", "线稿风格一致性", "背景简洁度"],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article, aspect ratio 2.35:1\nPrimary request: Create a wide cinematic infographic-story cover illustration for a C# tutorial. Theme: Building an MCP client in C#, connecting to servers, discovering tools, and calling them with structured result handling.\nSummary angle: A 3-step client workflow: connect to server, discover capabilities, call tools and handle results.\nNarrative flow: 3-beat process. In a 2.35:1 frame, keep one dominant focal subject (the connection line) and 3 supporting narrative beats.\nInformation blocks:\n- Step 1: a C# application icon connecting via arrow to a remote server node, labeled 'connect'\n- Step 2: the server node expanding to show a list of discoverable tool blocks, labeled 'discover'\n- Step 3: a selected tool being called, returning content blocks (text, image, resource), labeled 'call'\nMain metaphor: A hand-drawn clean bridge between C# app and MCP server, with discovery signals and result streams flowing across.\nSubject: A horizontal connection line linking a C# app icon on the left to an MCP server block on the right, with clean protocol flow between them.\nComposition: diagonal forward push. Left app sends request, flows through center protocol bridge to right server, returns results back.\nStyle: combine editorial technical illustration with minimalist line-art illustration: sparse clean strokes, ample negative space, precise symbolic objects, limited accent color. Stylized, polished, editorial, visually clean. Do not imitate a specific brand, studio, or living artist.\nColor palette: deep gray-blue line strokes on white background, warm orange accent highlights.\nVisible text: only 2-3 short Chinese labels from information blocks ('connect', 'discover', 'call'). No poster title, no long sentences, no English slogans, no fake UI labels, no fake charts.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no decorative clutter.\nAvoid: floating chips, code rain, neon skyscrapers, generic robot poses, cyberpunk purple-blue glow, HUD overlays, fake dashboards, fake terminals, dense textures."
+}
