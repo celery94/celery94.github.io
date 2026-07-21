@@ -2,7 +2,16 @@
 pubDatetime: 2026-03-26T12:00:00+08:00
 title: "ASP.NET Core 中的双因子认证与 Passkey 无密码认证"
 description: "从传统 2FA（邮件码、短信码、TOTP）到基于 FIDO2/WebAuthn 的 Passkey 无密码认证，逐步拆解 ASP.NET Core Identity 的实现方式，并对比两者的安全特性与适用场景。"
-tags: ["ASP.NET Core", "Authentication", "2FA", "Passkey", "Security", "FIDO2", "WebAuthn"]
+tags:
+  [
+    "ASP.NET Core",
+    "Authentication",
+    "2FA",
+    "Passkey",
+    "Security",
+    "FIDO2",
+    "WebAuthn",
+  ]
 slug: "two-factor-authentication-2fa-passkey-aspnet-core"
 ogImage: "../../assets/674/01-cover.png"
 source: "https://www.c-sharpcorner.com/article/two-factor-authentication-2fa-and-passkey-authentication-in-asp-net-core/"
@@ -120,13 +129,13 @@ var recoveryCodes = await _userManager.GenerateNewTwoFactorRecoveryCodesAsync(us
 
 ### 2FA 与 Passkey 的对比
 
-| 特性 | 传统 2FA | Passkey |
-|------|---------|---------|
-| 是否需要密码 | 是 | 否 |
-| 用户体验 | 多步骤 | 一步完成 |
-| 安全模型 | 共享密钥 | 公钥加密 |
-| 抗钓鱼能力 | 中等 | 非常高 |
-| 设备集成 | 验证器 App | 生物识别、设备安全芯片 |
+| 特性         | 传统 2FA   | Passkey                |
+| ------------ | ---------- | ---------------------- |
+| 是否需要密码 | 是         | 否                     |
+| 用户体验     | 多步骤     | 一步完成               |
+| 安全模型     | 共享密钥   | 公钥加密               |
+| 抗钓鱼能力   | 中等       | 非常高                 |
+| 设备集成     | 验证器 App | 生物识别、设备安全芯片 |
 
 ## 在 ASP.NET Core 中集成 Passkey
 

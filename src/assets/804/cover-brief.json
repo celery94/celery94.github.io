@@ -36,6 +36,13 @@
   "comic_style_reason": "analysis类文章，10个错误的对比与修复呈现冲突与判断张力，适合american-comic的粗轮廓、halftone、graphic-novel对照风格",
   "color_palette": ["#1a1a2e", "#e94560", "#00ff88", "#f5f5dc"],
   "visible_text": ["N+1", "4s→80ms", "×300"],
-  "forbidden_elements": ["假UI截图", "假dashboard", "假图表坐标", "假终端输出", "英文口号", "主标题文字"],
+  "forbidden_elements": [
+    "假UI截图",
+    "假dashboard",
+    "假图表坐标",
+    "假终端输出",
+    "英文口号",
+    "主标题文字"
+  ],
   "final_prompt": "Wide cover illustration, aspect ratio 2.35:1, american comic graphic novel style. Left panel: a shocked .NET developer staring at a monitor showing '4s' response time in red, halftone background, bold ink outlines. Center: burst panel showing 101 SQL lightning bolts firing from a single API request labeled 'N+1'. Right: two comparison panels - top shows large entity blob vs slim DTO projection labeled '4s→80ms', bottom shows a single UPDATE arrow crushing 10000 rows labeled '×300'. Dark server room background with green code streams. Limited Chinese labels: N+1, 4s→80ms, ×300. No fake UI, no fake charts, no fake dashboards, no English slogans. Comic book halftone dots, speed lines, bold outlines."
 }

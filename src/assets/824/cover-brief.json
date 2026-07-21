@@ -44,9 +44,20 @@
   "comic_style_reason": "tutorial 类型默认 japanese-manga；文章叙事是流程推进（问题→机制→对比→结论），适合分镜推进感",
   "allowed_visible_text": ["线程饥饿", "P95 对比", "-49.7%"],
   "color_palette": ["#1a1a2e", "#e94560", "#0f3460", "#53c8e8"],
-  "avoid": ["UI 截图", "假 dashboard", "假终端输出", "假图表坐标", "超级英雄人物", "英文口号"],
+  "avoid": [
+    "UI 截图",
+    "假 dashboard",
+    "假终端输出",
+    "假图表坐标",
+    "超级英雄人物",
+    "英文口号"
+  ],
   "reference_strategy": "纯文本生成；可参考已下载的 compare-endpoints.webp 和 p-results.png 了解数据展示形式，但不复制界面",
   "draft_goal": "第一轮验证：左右对照构图成立、before/after 张力到位、数字标签 -49.7% 可见",
-  "revision_targets": ["如果构图不清晰，加强左右分割线", "如果文字太多，减少到只保留 -49.7% 数字", "如果没有漫画速度线，补充"],
+  "revision_targets": [
+    "如果构图不清晰，加强左右分割线",
+    "如果文字太多，减少到只保留 -49.7% 数字",
+    "如果没有漫画速度线，补充"
+  ],
   "final_prompt": "Wide cover illustration, aspect ratio 2.35:1. Japanese manga panel style: ink lines, speed lines, limited color palette. Left-right split composition. LEFT PANEL (dark red tones): A cluster of blocked threads shown as tangled cables/pipes, requests piling up in a queue, small label '线程饥饿', number '35 RPS' in red ink. RIGHT PANEL (cool blue-teal tones): Same threads now flowing freely as async streams, a control panel gauge showing improvement, bold number '-49.7%' in teal ink, label 'P95 对比'. CENTER DIVIDING ELEMENT: A stylized MCP server node with .NET logo, acting as the bridge/switch that triggered the change. AI operator figure (minimalist manga silhouette) at bottom center gesturing toward the right panel. Speed lines emanating from center to right to show momentum. Black ink outlines, halftone shading in red and blue. NO fake UI screenshots, NO dashboard components, NO terminal text, NO English slogans. Max 3 Chinese labels total."
 }

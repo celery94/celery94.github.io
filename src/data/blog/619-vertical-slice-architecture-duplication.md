@@ -2,7 +2,13 @@
 pubDatetime: 2026-03-16T00:22:45+00:00
 title: "Vertical Slice Architecture 里怎么处理代码重复"
 description: "这篇文章最有价值的地方，不是教你把 Vertical Slice Architecture 里的重复代码统统抽干，而是把一个更容易做对的判断讲清楚：VSA 里有些重复是正常代价，真正该警惕的不是重复代码本身，而是过早抽象、错误共享和重复知识。数据库查询、基础设施工具、领域规则、应用层逻辑，它们的共享边界根本不是一回事。"
-tags: [".NET", "Vertical Slice Architecture", "Software Architecture", "Code Quality"]
+tags:
+  [
+    ".NET",
+    "Vertical Slice Architecture",
+    "Software Architecture",
+    "Code Quality",
+  ]
 slug: "vertical-slice-architecture-duplication"
 ogImage: "../../assets/619/01-cover.png"
 source: "https://antondevtips.com/blog/how-to-avoid-code-duplication-in-vertical-slice-architecture-in-dotnet"

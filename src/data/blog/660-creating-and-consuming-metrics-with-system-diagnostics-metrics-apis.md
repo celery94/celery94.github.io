@@ -10,7 +10,7 @@ source: "https://andrewlock.net/creating-and-consuming-metrics-with-system-diagn
 
 ![.NET 指标入门](../../assets/660/01-cover.png)
 
-这是 Andrew Lock *System.Diagnostics.Metrics APIs* 系列的第 1 篇，也是整个系列的起点。如果你还没接触过 .NET 内置的指标体系，这篇文章是理解后续内容（Source Generator、Observable Instrument、MeterListener）的基础。
+这是 Andrew Lock _System.Diagnostics.Metrics APIs_ 系列的第 1 篇，也是整个系列的起点。如果你还没接触过 .NET 内置的指标体系，这篇文章是理解后续内容（Source Generator、Observable Instrument、MeterListener）的基础。
 
 ---
 
@@ -25,14 +25,15 @@ API 的核心是两个概念：
 
 ### Instrument 的类型
 
-| 类型 | Observable 版本 | 用途 |
-|------|-----------------|------|
-| `Counter<T>` | `ObservableCounter<T>` | 只增不减的计数（如请求总数） |
+| 类型               | Observable 版本              | 用途                                         |
+| ------------------ | ---------------------------- | -------------------------------------------- |
+| `Counter<T>`       | `ObservableCounter<T>`       | 只增不减的计数（如请求总数）                 |
 | `UpDownCounter<T>` | `ObservableUpDownCounter<T>` | 可正可负的计数（如当前活跃请求数、队列长度） |
-| `Gauge<T>` | `ObservableGauge<T>` | 瞬时当前值，新值替换旧值（如内存用量） |
-| `Histogram<T>` | — | 任意值的分布（如请求耗时） |
+| `Gauge<T>`         | `ObservableGauge<T>`         | 瞬时当前值，新值替换旧值（如内存用量）       |
+| `Histogram<T>`     | —                            | 任意值的分布（如请求耗时）                   |
 
 **标准 Instrument vs Observable Instrument** 的区别在于触发时机：
+
 - 标准版：每次调用记录方法时立即触发
 - Observable 版：只在消费方主动拉取时才读取（适合无需频繁刷新、读取本身有开销的指标）
 
@@ -132,6 +133,7 @@ public class ProductMetrics
 ```
 
 几点说明：
+
 - **Meter 命名**：仿照内置 Meter 的命名风格，用应用名称加类别作前缀（`MyApp.Products`）
 - **Instrument 命名**：遵循 OpenTelemetry 命名规范，小写加点分隔（`myapp.products.pricing_page_requests`）
 - **类型选择**：请求数选 `Counter<long>`——`long` 而非 `int` 是因为高流量服务的请求数可能超过 `int.MaxValue`

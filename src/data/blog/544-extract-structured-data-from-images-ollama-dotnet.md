@@ -113,27 +113,27 @@ Console.WriteLine(response.Text);
 
 ```json
 {
-    "items": [
-        {
-            "name": "limun /kg (A)",
-            "quantity": 280.00,
-            "unitPrice": 1.105,
-            "totalPrice": 309.40
-        },
-        {
-            "name": "salata /kom (A)",
-            "quantity": 70.00,
-            "unitPrice": 3.00,
-            "totalPrice": 210.00
-        },
-        {
-            "name": "susam 100g trpeza /kom (A)",
-            "quantity": 90.00,
-            "unitPrice": 1.00,
-            "totalPrice": 90.00
-        }
-    ],
-    "subtotal": 609.40
+  "items": [
+    {
+      "name": "limun /kg (A)",
+      "quantity": 280.0,
+      "unitPrice": 1.105,
+      "totalPrice": 309.4
+    },
+    {
+      "name": "salata /kom (A)",
+      "quantity": 70.0,
+      "unitPrice": 3.0,
+      "totalPrice": 210.0
+    },
+    {
+      "name": "susam 100g trpeza /kom (A)",
+      "quantity": 90.0,
+      "unitPrice": 1.0,
+      "totalPrice": 90.0
+    }
+  ],
+  "subtotal": 609.4
 }
 ```
 

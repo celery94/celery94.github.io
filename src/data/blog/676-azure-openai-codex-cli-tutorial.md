@@ -25,11 +25,11 @@ OpenAI 的 [Codex CLI](https://github.com/openai/codex) 与 ChatGPT 里内置的
 
 系统和硬件要求：
 
-| 要求 | 说明 |
-|------|------|
-| 操作系统 | macOS 12+、Ubuntu 20.04+/Debian 10+，或通过 WSL2 的 Windows 11 |
-| Git（可选，推荐） | 2.23+ 以使用内置 PR 辅助功能 |
-| 内存 | 最低 4 GB，推荐 8 GB |
+| 要求              | 说明                                                           |
+| ----------------- | -------------------------------------------------------------- |
+| 操作系统          | macOS 12+、Ubuntu 20.04+/Debian 10+，或通过 WSL2 的 Windows 11 |
+| Git（可选，推荐） | 2.23+ 以使用内置 PR 辅助功能                                   |
+| 内存              | 最低 4 GB，推荐 8 GB                                           |
 
 ## 在 Foundry 部署模型
 
@@ -87,10 +87,10 @@ export AZURE_OPENAI_API_KEY="<你的 API Key>"
 
 **第四步：验证配置**
 
-| 命令 | 作用 |
-|------|------|
-| `codex` | 启动交互式终端 UI（TUI） |
-| `codex "初始提示词"` | 带初始提示词启动 TUI |
+| 命令                      | 作用                     |
+| ------------------------- | ------------------------ |
+| `codex`                   | 启动交互式终端 UI（TUI） |
+| `codex "初始提示词"`      | 带初始提示词启动 TUI     |
 | `codex exec "初始提示词"` | 以非交互的自动化模式启动 |
 
 运行 `codex` 能进入 TUI 说明配置正常。
@@ -119,10 +119,10 @@ Codex 也有 VS Code 扩展，安装后就能直接在编辑器里调用。
 
 ### 三种审批模式
 
-| 模式 | 说明 |
-|------|------|
-| Chat | 只对话、做规划，不执行操作 |
-| Agent | 可读写文件、在工作目录内执行命令，工作目录外或访问网络时需手动确认 |
+| 模式              | 说明                                                                   |
+| ----------------- | ---------------------------------------------------------------------- |
+| Chat              | 只对话、做规划，不执行操作                                             |
+| Agent             | 可读写文件、在工作目录内执行命令，工作目录外或访问网络时需手动确认     |
 | Agent（完全访问） | Agent 模式的所有能力，且不需要逐步确认。仅在了解风险并有沙箱保护时使用 |
 
 ## 用 AGENTS.md 给 Codex 加持久指令
@@ -174,13 +174,13 @@ jobs:
 
 ## 常见问题排查
 
-| 症状 | 解决方法 |
-|------|----------|
-| `401 Unauthorized` 或 `403 Forbidden` | 确认 `AZURE_OPENAI_API_KEY` 已正确导出；`env_key` 必须是环境变量名，不能是 Key 字符串本身 |
-| `ENOTFOUND`、DNS 错误或 `404 Not Found` | 检查 `config.toml` 中的 `base_url`：资源名称是否正确、域名是否正确、路径是否包含 `/v1` |
-| CLI 忽略 Azure 配置 | 确认 `model_provider = "azure"` 已设置、`[model_providers.azure]` 节存在、`env_key` 的环境变量名与实际一致 |
-| Entra ID 支持 | 当前 Codex 不支持 Entra ID 认证 |
-| WSL + VS Code 扩展报 `401` | 扩展可能从 Windows 宿主机读取环境变量，在 Windows 侧也设置一次，然后重新从 WSL 终端执行 `code .` 启动 VS Code |
+| 症状                                    | 解决方法                                                                                                      |
+| --------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| `401 Unauthorized` 或 `403 Forbidden`   | 确认 `AZURE_OPENAI_API_KEY` 已正确导出；`env_key` 必须是环境变量名，不能是 Key 字符串本身                     |
+| `ENOTFOUND`、DNS 错误或 `404 Not Found` | 检查 `config.toml` 中的 `base_url`：资源名称是否正确、域名是否正确、路径是否包含 `/v1`                        |
+| CLI 忽略 Azure 配置                     | 确认 `model_provider = "azure"` 已设置、`[model_providers.azure]` 节存在、`env_key` 的环境变量名与实际一致    |
+| Entra ID 支持                           | 当前 Codex 不支持 Entra ID 认证                                                                               |
+| WSL + VS Code 扩展报 `401`              | 扩展可能从 Windows 宿主机读取环境变量，在 Windows 侧也设置一次，然后重新从 WSL 终端执行 `code .` 启动 VS Code |
 
 ## 参考
 

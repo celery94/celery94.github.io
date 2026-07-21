@@ -44,11 +44,33 @@
   "selected_style_prompt_descriptor": "dynamic cinematic storyboard style, sequential panels, camera-motion feeling, strong cuts, clear narrative beats",
   "selected_style_reason": "随机选中；教程的步骤流程适合用分镜式推进表达，四个主要步骤横向排列具有天然的叙事节奏",
   "style_safety_note": "使用泛动态分镜电影描述，不引用具体导演、影片或工作室",
-  "allowed_visible_text": ["定义元数据", "打包&测试", "推送发布", "可调试", "①", "②", "③", "④"],
+  "allowed_visible_text": [
+    "定义元数据",
+    "打包&测试",
+    "推送发布",
+    "可调试",
+    "①",
+    "②",
+    "③",
+    "④"
+  ],
   "color_palette": ["深蓝灰 #2c3e50", "暖橙 #e67e22", "白色", "浅灰 #ecf0f1"],
-  "avoid": ["漂浮芯片", "无意义代码雨", "霓虹高楼背景", "通用机器人站姿", "假UI标签", "假dashboard", "假终端输出", "假架构图"],
+  "avoid": [
+    "漂浮芯片",
+    "无意义代码雨",
+    "霓虹高楼背景",
+    "通用机器人站姿",
+    "假UI标签",
+    "假dashboard",
+    "假终端输出",
+    "假架构图"
+  ],
   "reference_strategy": "纯文本生成",
   "draft_goal": "验证四格分镜构图能否清晰表达四个步骤流程，以及动态分镜风格是否成立",
-  "revision_targets": ["如果画面元素过于拥挤则简化每格内的细节", "如果分镜风格不够突出则加强面板间隔和运动线", "确保没有假UI或假终端元素"],
+  "revision_targets": [
+    "如果画面元素过于拥挤则简化每格内的细节",
+    "如果分镜风格不够突出则加强面板间隔和运动线",
+    "确保没有假UI或假终端元素"
+  ],
   "final_prompt": ""
 }

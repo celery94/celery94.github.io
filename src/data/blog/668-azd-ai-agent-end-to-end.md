@@ -166,15 +166,15 @@ azd ai agent monitor --follow
 
 ## 命令速查
 
-| 命令 | 作用 |
-|------|------|
-| `azd ai agent init` | 生成 Foundry Agent 项目的 IaC 文件 |
-| `azd up` | 创建 Azure 资源并部署 Agent |
-| `azd ai agent invoke` | 向远端或本地 Agent 发送提示词 |
-| `azd ai agent run` | 在本地运行 Agent（用于开发） |
-| `azd ai agent monitor` | 流式输出已发布 Agent 的实时日志 |
-| `azd ai agent show` | 查看已发布 Agent 的健康状态 |
-| `azd down` | 删除所有 Azure 资源 |
+| 命令                   | 作用                               |
+| ---------------------- | ---------------------------------- |
+| `azd ai agent init`    | 生成 Foundry Agent 项目的 IaC 文件 |
+| `azd up`               | 创建 Azure 资源并部署 Agent        |
+| `azd ai agent invoke`  | 向远端或本地 Agent 发送提示词      |
+| `azd ai agent run`     | 在本地运行 Agent（用于开发）       |
+| `azd ai agent monitor` | 流式输出已发布 Agent 的实时日志    |
+| `azd ai agent show`    | 查看已发布 Agent 的健康状态        |
+| `azd down`             | 删除所有 Azure 资源                |
 
 ## 后续方向
 

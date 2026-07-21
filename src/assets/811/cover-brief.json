@@ -31,7 +31,15 @@
   "background": "dark blueprint/code grid, subtle concentric impact lines",
   "style": "american-comic graphic novel, bold black ink outlines, halftone dots, limited 3-color palette (black, white, electric blue accent)",
   "color": "Black ink dominant, electric blue (#0066FF) for impact accents, white backgrounds for panel cells, yellow (#FFD700) for warning signs",
-  "forbidden_elements": ["dashboard UI", "fake terminals", "fake chart axes", "product logos", "English slogans", "long text captions", "real code snippets rendered as image text"],
+  "forbidden_elements": [
+    "dashboard UI",
+    "fake terminals",
+    "fake chart axes",
+    "product logos",
+    "English slogans",
+    "long text captions",
+    "real code snippets rendered as image text"
+  ],
   "visible_text_allowance": "Maximum 4 labels in Chinese: 热路径、编译委托、[UnsafeAccessor]、源生成器 — each max 6 characters or 1 technical name; no main title, no English slogans",
   "final_prompt": "American comic book cover illustration, wide format 2.35:1 aspect ratio. A C# developer character holding a cracked magnifying glass stumbling over a pitfall, drawn in bold black ink outlines and halftone dots. Four comic panels arranged in a 2x2 grid on the right side of the image, each panel showing a warning sign. Panel labels in Chinese: top-left '热路径', top-right '编译委托', bottom-left '[UnsafeAccessor]', bottom-right '源生成器'. Each panel shows a small figure falling into a trap on the left half and a fixed/correct pattern (shield or light beam) on the right half. Electric blue (#0066FF) for impact lines and accents, yellow for warning signs, dark blueprint grid background with subtle concentric impact lines. No fake UI, no fake charts, no fake terminals, no English text except the single technical term [UnsafeAccessor]. Bold graphic novel style, halftone texture throughout."
 }

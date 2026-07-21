@@ -142,13 +142,13 @@ await context.EnablePollingAsync(
 
 任务状态模型也很完整：
 
-| 状态 | 含义 |
-| --- | --- |
-| `working` | 正在处理 |
+| 状态             | 含义                           |
+| ---------------- | ------------------------------ |
+| `working`        | 正在处理                       |
 | `input_required` | 等待额外输入，比如 elicitation |
-| `completed` | 已完成，结果可取 |
-| `failed` | 执行失败 |
-| `cancelled` | 已取消 |
+| `completed`      | 已完成，结果可取               |
+| `failed`         | 执行失败                       |
+| `cancelled`      | 已取消                         |
 
 客户端调用方式长这样：
 

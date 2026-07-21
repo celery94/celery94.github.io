@@ -44,9 +44,20 @@
   "comic_style_reason": "tutorial 类型，有明确的 before-after 流程叙事（UI 冻结→Web Worker 解救），适合分镜推进的日漫风格",
   "allowed_visible_text": ["UI 冻结", "webworker", "JSExport"],
   "color_palette": ["#1a1a2e", "#6C3483", "#17a2b8", "#f8f9fa"],
-  "avoid": ["假终端输出", "假 dashboard", "超级英雄", "赛博朋克霓虹", "通用机器人站姿", "代码雨"],
+  "avoid": [
+    "假终端输出",
+    "假 dashboard",
+    "超级英雄",
+    "赛博朋克霓虹",
+    "通用机器人站姿",
+    "代码雨"
+  ],
   "reference_strategy": "纯文本生成",
   "draft_goal": "验证主题（单线程 UI 冻结 vs Web Worker 后台运算）、左右分镜构图、日漫风格是否成立",
-  "revision_targets": ["确保左侧 UI 冻结场景清晰", "右侧 Worker 线程计算感要体现", "避免文字堆砌"],
+  "revision_targets": [
+    "确保左侧 UI 冻结场景清晰",
+    "右侧 Worker 线程计算感要体现",
+    "避免文字堆砌"
+  ],
   "final_prompt": "Wide cover illustration, aspect ratio 2.35:1. Japanese manga panel comic style with ink lines, limited color palette (deep navy, purple, teal, white). Left panel: a developer character stares at a frozen browser screen showing 'UI 冻结' label, face showing frustration, halftone dots in background. Right panel: a mechanical worker arm or assistant character inside a separate bubble/thread space, busy processing data with speed lines, label 'webworker' floating nearby. Center divider shows a clean separation line with a message bubble passing between the two panels. Small '[JSExport]' label on the right panel method call. Overall layout: left-right contrast composition. No fake UI screenshots, no dashboard, no charts, no terminals, no hero slogans. Clean, readable, two-panel manga storytelling."
 }

@@ -39,9 +39,20 @@
   "style_safety_note": "该风格不指向特定品牌、工作室或艺术家，无需安全改写",
   "allowed_visible_text": ["①", "7", "上下文竞争"],
   "color_palette": ["暖米白", "柔蓝", "淡橙", "石墨灰点缀"],
-  "avoid": ["假代码截图", "假终端输出", "假 dashboard", "赛博朋克霓虹", "无关机器人站姿", "漂浮芯片"],
+  "avoid": [
+    "假代码截图",
+    "假终端输出",
+    "假 dashboard",
+    "赛博朋克霓虹",
+    "无关机器人站姿",
+    "漂浮芯片"
+  ],
   "reference_strategy": "纯文本生成",
   "draft_goal": "验证 7 级瀑布级联断裂的视觉隐喻是否清晰，3 个信息块是否可读",
-  "revision_targets": ["瀑布层级的辨识度", "彩铅纹理质感", "裂缝断裂处的视觉冲击"],
+  "revision_targets": [
+    "瀑布层级的辨识度",
+    "彩铅纹理质感",
+    "裂缝断裂处的视觉冲击"
+  ],
   "final_prompt": "Wide cover illustration, aspect ratio 2.35:1. Conceptual editorial illustration with colored-pencil picture-book illustration style, tactile strokes, gentle palette, warm narrative objects, soft educational tone. A 7-tier cascading waterfall flowing from upper-left to lower-right, each tier labeled with a small numbered chip. At the top tier, a funnel shows many colorful tool-description cards competing to squeeze through a narrow opening, labeled '上下文竞争' with chip ①. In the middle tiers, a fork in the stream: one branch flows through a called-tool gate, the other diverts into a faded memory cloud. Near the bottom, a crack breaks the cascade, and the tiers below are dimmed and dry, with a large chip showing '7'. Background is warm cream paper with faint pencil grid texture. Palette: warm cream, soft blue, pale orange, graphite gray accents. No poster title, no English text, no fake code, no fake terminal, no dashboard, no watermark, no neon glow, no floating chips, no robot, no UI screenshot."
 }

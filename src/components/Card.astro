@@ -14,11 +14,15 @@ export interface Props {
 }
 
 const { href, frontmatter, secHeading = true, coverImage } = Astro.props;
-const { title, pubDatetime, modDatetime, description, tags, ogImage } = frontmatter;
+const { title, pubDatetime, modDatetime, description, tags, ogImage } =
+  frontmatter;
 const displayImage = coverImage || ogImage;
 const isLocalImage =
-  typeof displayImage === "object" && displayImage !== null && "src" in displayImage;
-const imageSrc = typeof displayImage === "string" ? displayImage : displayImage?.src;
+  typeof displayImage === "object" &&
+  displayImage !== null &&
+  "src" in displayImage;
+const imageSrc =
+  typeof displayImage === "string" ? displayImage : displayImage?.src;
 
 const headingProps = {
   style: { viewTransitionName: slugifyStr(title) },
@@ -27,37 +31,37 @@ const headingProps = {
 };
 ---
 
-<li
-  class="card group relative my-2 overflow-hidden p-3 sm:p-4"
->
-  <div class:list={[imageSrc ? "grid gap-3 sm:grid-cols-[132px,1fr] sm:items-center" : ""]}>
+<li class="card group relative my-2 overflow-hidden p-3 sm:p-4">
+  <div
+    class:list={[
+      imageSrc ? "grid gap-3 sm:grid-cols-[132px,1fr] sm:items-center" : "",
+    ]}
+  >
     {
       imageSrc && (
         <a
           href={href}
-          class="card-cover group/image focus-outline block h-36 overflow-hidden rounded-lg border border-border sm:h-32"
+          class="card-cover group/image focus-outline border-border block h-36 overflow-hidden rounded-lg border sm:h-32"
           aria-label={title}
         >
-          {
-            isLocalImage ? (
-              <Image
-                src={displayImage as ImageMetadata}
-                alt={title}
-                width={528}
-                loading="lazy"
-                sizes="(min-width: 640px) 132px, 100vw"
-                class="h-full w-full object-cover"
-              />
-            ) : (
-              <img
-                src={imageSrc}
-                alt={title}
-                loading="lazy"
-                decoding="async"
-                class="h-full w-full object-cover"
-              />
-            )
-          }
+          {isLocalImage ? (
+            <Image
+              src={displayImage as ImageMetadata}
+              alt={title}
+              width={528}
+              loading="lazy"
+              sizes="(min-width: 640px) 132px, 100vw"
+              class="h-full w-full object-cover"
+            />
+          ) : (
+            <img
+              src={imageSrc}
+              alt={title}
+              loading="lazy"
+              decoding="async"
+              class="h-full w-full object-cover"
+            />
+          )}
         </a>
       )
     }
@@ -65,7 +69,7 @@ const headingProps = {
     <div class="min-w-0">
       <a
         href={href}
-        class="focus-outline block rounded-md p-0.5 text-accent/90 no-underline"
+        class="focus-outline text-accent/90 block rounded-md p-0.5 no-underline"
       >
         {
           secHeading ? (
@@ -78,14 +82,16 @@ const headingProps = {
 
       <Datetime pubDatetime={pubDatetime} modDatetime={modDatetime} />
 
-      <p class="mt-2 line-clamp-2 text-sm text-foreground/80 sm:text-base">
+      <p class="text-foreground/80 mt-2 line-clamp-2 text-sm sm:text-base">
         {description}
       </p>
 
       {
         tags && (
           <ul class="mt-2 flex flex-wrap gap-1.5">
-            {tags.map(tag => <Tag tag={slugifyStr(tag)} tagName={tag} />)}
+            {tags.map(tag => (
+              <Tag tag={slugifyStr(tag)} tagName={tag} />
+            ))}
           </ul>
         )
       }

@@ -39,9 +39,24 @@
   "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
   "allowed_visible_text": ["耦合", "接口 + internal", "模块化单体"],
   "color_palette": ["warm gray", "deep indigo accent", "off-white background"],
-  "avoid": ["水印", "假系统架构图", "假代码编辑器截图", "假 terminal 输出", "代码雨", "仪表盘", "图表坐标", "英文口号", "长句标题", "通用机器人"],
+  "avoid": [
+    "水印",
+    "假系统架构图",
+    "假代码编辑器截图",
+    "假 terminal 输出",
+    "代码雨",
+    "仪表盘",
+    "图表坐标",
+    "英文口号",
+    "长句标题",
+    "通用机器人"
+  ],
   "reference_strategy": "纯文本生成",
   "draft_goal": "验证从混乱耦合到清晰模块边界的三段演进叙事是否成立，三个中文标签是否可辨认",
-  "revision_targets": ["模块结构不够清晰时强化边界线", "标签太小时放大", "背景太复杂时简化"],
+  "revision_targets": [
+    "模块结构不够清晰时强化边界线",
+    "标签太小时放大",
+    "背景太复杂时简化"
+  ],
   "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide infographic-story cover illustration. Theme: C# monolith architecture evolution from chaotic tightly-coupled layered monolith to clean modular monolith with compiler-enforced boundaries.\n\nSummary angle: From chaotic tangled modules without boundaries → clear interface contracts with internal boundaries → three clean independent modules ready for future extraction.\nNarrative flow: before-after. 2.35:1 wide frame, one dominant focal subject and 3 supporting narrative beats.\nInformation blocks:\n- Problem (left): three code modules (Order, Catalog, User) tangled together, no boundaries, arrows tangled — label '耦合'\n- Mechanism (center): modules separated by dotted boundary lines, connected through one-way interface arrows — label '接口 + internal'\n- Takeaway (right): three clean independent modules with clear interfaces, organized and extractable — label '模块化单体'\n\nMain metaphor: Code blocks evolving from tangled yarn to clean organized building blocks with clear edges.\nSubject: Three module blocks undergoing left-to-right transformation. Left: messy tangled blocks. Center: dotted boundaries emerging with interface arrows. Right: three clean separated module blocks with labeled interface ports.\nComposition: Left-to-right horizontal progression, clean negative space.\nStyle: combine isometric conceptual systems scene with selected visual style descriptor: minimalist line-art illustration, sparse clean strokes, ample negative space, precise symbolic objects, limited accent color. Stylized, polished, editorial, visually strong. Do not imitate a specific brand, studio, or living artist.\nColor palette: warm gray, deep indigo accent, off-white background.\nVisible text: only 3 Chinese labels: '耦合', '接口 + internal', '模块化单体'. No poster title, no long sentences, no English slogans, no fake UI labels.\nConstraints: no watermark, no screenshots, no dashboards, no fake system architecture diagrams with real labels, no fake terminal output, no fabricated metrics.\nAvoid: code rain, neon buildings, robot poses, fake code editors, fake architecture node names with real project names, decorative clutter, cyberpunk lighting."
 }

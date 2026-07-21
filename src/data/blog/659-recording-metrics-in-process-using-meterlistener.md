@@ -10,7 +10,7 @@ source: "https://andrewlock.net/recording-metrics-in-process-using-meterlistener
 
 ![用 MeterListener 在进程内采集 .NET 指标](../../assets/659/01-cover.png)
 
-这是 Andrew Lock *System.Diagnostics.Metrics APIs* 系列的第 4 篇。前几篇覆盖了如何创建各种 `Instrument`、如何用 `dotnet-counters` 消费指标，以及 Source Generator 的使用。这篇聚焦的问题是：如果不想依赖外部采集工具，想在自己的服务进程内直接拿到指标数据，该怎么做？
+这是 Andrew Lock _System.Diagnostics.Metrics APIs_ 系列的第 4 篇。前几篇覆盖了如何创建各种 `Instrument`、如何用 `dotnet-counters` 消费指标，以及 Source Generator 的使用。这篇聚焦的问题是：如果不想依赖外部采集工具，想在自己的服务进程内直接拿到指标数据，该怎么做？
 
 答案是使用 `MeterListener`。
 

@@ -2,7 +2,14 @@
 pubDatetime: 2026-02-24
 title: "垂直切片在模块化单体架构中的定位"
 description: "模块化单体解决的是系统分解为模块的宏观问题，垂直切片架构解决的是模块内部按功能组织代码的微观问题。两者层级不同，可以灵活组合使用。"
-tags: [".NET", "Architecture", "Modular Monolith", "Vertical Slice Architecture", "Clean Architecture"]
+tags:
+  [
+    ".NET",
+    "Architecture",
+    "Modular Monolith",
+    "Vertical Slice Architecture",
+    "Clean Architecture",
+  ]
 slug: "vertical-slices-in-modular-monolith"
 source: "https://www.milanjovanovic.tech/blog/where-vertical-slices-fit-inside-the-modular-monolith-architecture"
 ---

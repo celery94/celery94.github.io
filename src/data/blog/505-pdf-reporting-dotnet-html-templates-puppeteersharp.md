@@ -91,110 +91,114 @@ dotnet add package PuppeteerSharp
 <!-- Templates/InvoiceTemplate.html -->
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>发票 #{{Number}}</title>
     <style>
-        body {
-            font-family: 'Microsoft YaHei', Arial, sans-serif;
-            margin: 40px;
-            color: #333;
-            font-size: 14px;
-        }
-        h1 {
-            color: #2c3e50;
-            border-bottom: 3px solid #3498db;
-            padding-bottom: 10px;
-        }
-        h2 {
-            color: #34495e;
-            margin-top: 30px;
-            font-size: 18px;
-        }
-        .info-section {
-            margin: 20px 0;
-        }
-        .info-section p {
-            margin: 5px 0;
-            line-height: 1.6;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
-        table th, table td {
-            border: 1px solid #ddd;
-            padding: 12px;
-            text-align: left;
-        }
-        table th {
-            background-color: #3498db;
-            color: white;
-            font-weight: bold;
-        }
-        table tr:nth-child(even) {
-            background-color: #f9f9f9;
-        }
-        .total {
-            text-align: right;
-            font-size: 18px;
-            font-weight: bold;
-            color: #27ae60;
-            margin-top: 20px;
-        }
+      body {
+        font-family: "Microsoft YaHei", Arial, sans-serif;
+        margin: 40px;
+        color: #333;
+        font-size: 14px;
+      }
+      h1 {
+        color: #2c3e50;
+        border-bottom: 3px solid #3498db;
+        padding-bottom: 10px;
+      }
+      h2 {
+        color: #34495e;
+        margin-top: 30px;
+        font-size: 18px;
+      }
+      .info-section {
+        margin: 20px 0;
+      }
+      .info-section p {
+        margin: 5px 0;
+        line-height: 1.6;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+      }
+      table th,
+      table td {
+        border: 1px solid #ddd;
+        padding: 12px;
+        text-align: left;
+      }
+      table th {
+        background-color: #3498db;
+        color: white;
+        font-weight: bold;
+      }
+      table tr:nth-child(even) {
+        background-color: #f9f9f9;
+      }
+      .total {
+        text-align: right;
+        font-size: 18px;
+        font-weight: bold;
+        color: #27ae60;
+        margin-top: 20px;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <h1>发票 #{{Number}}</h1>
-    
+
     <div class="info-section">
-        <p><strong>日期：</strong>{{formatDate IssuedDate}}</p>
+      <p><strong>日期：</strong>{{formatDate IssuedDate}}</p>
     </div>
 
     <h2>发票方信息</h2>
     <div class="info-section">
-        <p><strong>公司名称：</strong>{{SellerAddress.CompanyName}}</p>
-        <p><strong>联系邮箱：</strong>{{SellerAddress.Email}}</p>
-        <p><strong>地址：</strong>{{SellerAddress.Street}}, {{SellerAddress.City}}</p>
+      <p><strong>公司名称：</strong>{{SellerAddress.CompanyName}}</p>
+      <p><strong>联系邮箱：</strong>{{SellerAddress.Email}}</p>
+      <p>
+        <strong>地址：</strong>{{SellerAddress.Street}}, {{SellerAddress.City}}
+      </p>
     </div>
 
     <h2>收票方信息</h2>
     <div class="info-section">
-        <p><strong>公司名称：</strong>{{CustomerAddress.CompanyName}}</p>
-        <p><strong>联系邮箱：</strong>{{CustomerAddress.Email}}</p>
-        <p><strong>地址：</strong>{{CustomerAddress.Street}}, {{CustomerAddress.City}}</p>
+      <p><strong>公司名称：</strong>{{CustomerAddress.CompanyName}}</p>
+      <p><strong>联系邮箱：</strong>{{CustomerAddress.Email}}</p>
+      <p>
+        <strong>地址：</strong>{{CustomerAddress.Street}},
+        {{CustomerAddress.City}}
+      </p>
     </div>
 
     <h2>项目明细</h2>
     <table>
-        <thead>
-            <tr>
-                <th>序号</th>
-                <th>项目名称</th>
-                <th>单价（元）</th>
-                <th>数量</th>
-                <th>小计（元）</th>
-            </tr>
-        </thead>
-        <tbody>
-            {{#each LineItems}}
-            <tr>
-                <td>{{increment @index}}</td>
-                <td>{{Name}}</td>
-                <td>{{formatCurrency Price}}</td>
-                <td>{{Quantity}}</td>
-                <td>{{formatCurrency (multiply Price Quantity)}}</td>
-            </tr>
-            {{/each}}
-        </tbody>
+      <thead>
+        <tr>
+          <th>序号</th>
+          <th>项目名称</th>
+          <th>单价（元）</th>
+          <th>数量</th>
+          <th>小计（元）</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each LineItems}}
+        <tr>
+          <td>{{increment @index}}</td>
+          <td>{{Name}}</td>
+          <td>{{formatCurrency Price}}</td>
+          <td>{{Quantity}}</td>
+          <td>{{formatCurrency (multiply Price Quantity)}}</td>
+        </tr>
+        {{/each}}
+      </tbody>
     </table>
 
-    <div class="total">
-        总计：{{formatCurrency Total}}
-    </div>
-</body>
+    <div class="total">总计：{{formatCurrency Total}}</div>
+  </body>
 </html>
 ```
 
@@ -555,12 +559,14 @@ public record Invoice(
 
 ```html
 <div class="header">
-    {{#if LogoBase64}}
-    <img src="data:image/png;base64,{{LogoBase64}}" 
-         alt="公司 Logo" 
-         style="height: 60px; max-width: 200px; object-fit: contain;" />
-    {{/if}}
-    <h1>发票 #{{Number}}</h1>
+  {{#if LogoBase64}}
+  <img
+    src="data:image/png;base64,{{LogoBase64}}"
+    alt="公司 Logo"
+    style="height: 60px; max-width: 200px; object-fit: contain;"
+  />
+  {{/if}}
+  <h1>发票 #{{Number}}</h1>
 </div>
 ```
 
@@ -626,228 +632,230 @@ var pdfOptions = new PdfOptions
 ```html
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>发票 #{{Number}}</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Microsoft YaHei', Arial, sans-serif;
-            color: #333;
-            line-height: 1.6;
-        }
-        .invoice-container {
-            padding: 20px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 3px solid #3498db;
-        }
-        .invoice-title {
-            font-size: 28px;
-            color: #2c3e50;
-            font-weight: bold;
-        }
-        .invoice-dates {
-            text-align: right;
-            color: #7f8c8d;
-            font-size: 14px;
-        }
-        .invoice-dates p {
-            margin: 5px 0;
-        }
-        .addresses {
-            display: flex;
-            justify-content: space-between;
-            gap: 20px;
-            margin: 30px 0;
-        }
-        .address-box {
-            flex: 1;
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 8px;
-            border-left: 4px solid #3498db;
-        }
-        .address-title {
-            color: #3498db;
-            font-size: 16px;
-            margin-bottom: 10px;
-            font-weight: bold;
-        }
-        .company-name {
-            font-size: 16px;
-            font-weight: bold;
-            color: #2c3e50;
-            margin-bottom: 5px;
-        }
-        .email {
-            color: #3498db;
-        }
-        .items-section {
-            margin: 30px 0;
-        }
-        .items-title {
-            color: #2c3e50;
-            font-size: 20px;
-            margin-bottom: 15px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #3498db;
-        }
-        .items-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
-        .items-table thead {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-        }
-        .items-table th,
-        .items-table td {
-            padding: 12px;
-            text-align: left;
-            border: 1px solid #e1e4e8;
-        }
-        .items-table th {
-            font-weight: bold;
-            font-size: 14px;
-        }
-        .items-table tbody tr:nth-child(even) {
-            background-color: #f8f9fa;
-        }
-        .items-table tbody tr:hover {
-            background-color: #e9ecef;
-        }
-        .totals {
-            margin-top: 30px;
-            display: flex;
-            justify-content: flex-end;
-        }
-        .totals-container {
-            width: 300px;
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 8px;
-        }
-        .totals-row {
-            display: flex;
-            justify-content: space-between;
-            padding: 10px 0;
-            border-bottom: 1px solid #dee2e6;
-        }
-        .totals-row.total {
-            font-size: 18px;
-            font-weight: bold;
-            color: #27ae60;
-            border-bottom: none;
-            border-top: 2px solid #3498db;
-            margin-top: 10px;
-            padding-top: 15px;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Microsoft YaHei", Arial, sans-serif;
+        color: #333;
+        line-height: 1.6;
+      }
+      .invoice-container {
+        padding: 20px;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 30px;
+        padding-bottom: 20px;
+        border-bottom: 3px solid #3498db;
+      }
+      .invoice-title {
+        font-size: 28px;
+        color: #2c3e50;
+        font-weight: bold;
+      }
+      .invoice-dates {
+        text-align: right;
+        color: #7f8c8d;
+        font-size: 14px;
+      }
+      .invoice-dates p {
+        margin: 5px 0;
+      }
+      .addresses {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        margin: 30px 0;
+      }
+      .address-box {
+        flex: 1;
+        background: #f8f9fa;
+        padding: 20px;
+        border-radius: 8px;
+        border-left: 4px solid #3498db;
+      }
+      .address-title {
+        color: #3498db;
+        font-size: 16px;
+        margin-bottom: 10px;
+        font-weight: bold;
+      }
+      .company-name {
+        font-size: 16px;
+        font-weight: bold;
+        color: #2c3e50;
+        margin-bottom: 5px;
+      }
+      .email {
+        color: #3498db;
+      }
+      .items-section {
+        margin: 30px 0;
+      }
+      .items-title {
+        color: #2c3e50;
+        font-size: 20px;
+        margin-bottom: 15px;
+        padding-bottom: 10px;
+        border-bottom: 2px solid #3498db;
+      }
+      .items-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+      }
+      .items-table thead {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+      }
+      .items-table th,
+      .items-table td {
+        padding: 12px;
+        text-align: left;
+        border: 1px solid #e1e4e8;
+      }
+      .items-table th {
+        font-weight: bold;
+        font-size: 14px;
+      }
+      .items-table tbody tr:nth-child(even) {
+        background-color: #f8f9fa;
+      }
+      .items-table tbody tr:hover {
+        background-color: #e9ecef;
+      }
+      .totals {
+        margin-top: 30px;
+        display: flex;
+        justify-content: flex-end;
+      }
+      .totals-container {
+        width: 300px;
+        background: #f8f9fa;
+        padding: 20px;
+        border-radius: 8px;
+      }
+      .totals-row {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 0;
+        border-bottom: 1px solid #dee2e6;
+      }
+      .totals-row.total {
+        font-size: 18px;
+        font-weight: bold;
+        color: #27ae60;
+        border-bottom: none;
+        border-top: 2px solid #3498db;
+        margin-top: 10px;
+        padding-top: 15px;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="invoice-container">
-        <!-- 页眉：Logo 和发票信息 -->
-        <div class="header">
-            <div>
-                <h1 class="invoice-title">发票 #{{Number}}</h1>
-                <div class="invoice-dates">
-                    <p><strong>开票日期：</strong>{{formatDate IssuedDate}}</p>
-                    <p><strong>到期日期：</strong>{{formatDate DueDate}}</p>
-                </div>
-            </div>
-            <div>
-                {{#if LogoBase64}}
-                <img src="data:image/png;base64,{{LogoBase64}}" 
-                     alt="公司 Logo" 
-                     style="height: 60px; max-width: 200px; object-fit: contain;" />
-                {{/if}}
-            </div>
+      <!-- 页眉：Logo 和发票信息 -->
+      <div class="header">
+        <div>
+          <h1 class="invoice-title">发票 #{{Number}}</h1>
+          <div class="invoice-dates">
+            <p><strong>开票日期：</strong>{{formatDate IssuedDate}}</p>
+            <p><strong>到期日期：</strong>{{formatDate DueDate}}</p>
+          </div>
+        </div>
+        <div>
+          {{#if LogoBase64}}
+          <img
+            src="data:image/png;base64,{{LogoBase64}}"
+            alt="公司 Logo"
+            style="height: 60px; max-width: 200px; object-fit: contain;"
+          />
+          {{/if}}
+        </div>
+      </div>
+
+      <!-- 地址信息 -->
+      <div class="addresses">
+        <!-- 发票方地址 -->
+        <div class="address-box">
+          <h3 class="address-title">发票方</h3>
+          <div class="address-content">
+            <p class="company-name">{{SellerAddress.CompanyName}}</p>
+            <p>{{SellerAddress.Street}}</p>
+            <p>{{SellerAddress.City}}, {{SellerAddress.State}}</p>
+            <p class="email">{{SellerAddress.Email}}</p>
+          </div>
         </div>
 
-        <!-- 地址信息 -->
-        <div class="addresses">
-            <!-- 发票方地址 -->
-            <div class="address-box">
-                <h3 class="address-title">发票方</h3>
-                <div class="address-content">
-                    <p class="company-name">{{SellerAddress.CompanyName}}</p>
-                    <p>{{SellerAddress.Street}}</p>
-                    <p>{{SellerAddress.City}}, {{SellerAddress.State}}</p>
-                    <p class="email">{{SellerAddress.Email}}</p>
-                </div>
-            </div>
-
-            <!-- 收票方地址 -->
-            <div class="address-box">
-                <h3 class="address-title">收票方</h3>
-                <div class="address-content">
-                    <p class="company-name">{{CustomerAddress.CompanyName}}</p>
-                    <p>{{CustomerAddress.Street}}</p>
-                    <p>{{CustomerAddress.City}}, {{CustomerAddress.State}}</p>
-                    <p class="email">{{CustomerAddress.Email}}</p>
-                </div>
-            </div>
+        <!-- 收票方地址 -->
+        <div class="address-box">
+          <h3 class="address-title">收票方</h3>
+          <div class="address-content">
+            <p class="company-name">{{CustomerAddress.CompanyName}}</p>
+            <p>{{CustomerAddress.Street}}</p>
+            <p>{{CustomerAddress.City}}, {{CustomerAddress.State}}</p>
+            <p class="email">{{CustomerAddress.Email}}</p>
+          </div>
         </div>
+      </div>
 
-        <!-- 项目明细表 -->
-        <div class="items-section">
-            <h2 class="items-title">项目明细</h2>
-            <table class="items-table">
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>项目描述</th>
-                        <th>单价</th>
-                        <th>数量</th>
-                        <th>小计</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {{#each LineItems}}
-                    <tr>
-                        <td>{{increment @index}}</td>
-                        <td>{{Name}}</td>
-                        <td>{{formatCurrency Price}}</td>
-                        <td>{{Quantity}}</td>
-                        <td>{{formatCurrency (multiply Price Quantity)}}</td>
-                    </tr>
-                    {{/each}}
-                </tbody>
-            </table>
-        </div>
+      <!-- 项目明细表 -->
+      <div class="items-section">
+        <h2 class="items-title">项目明细</h2>
+        <table class="items-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>项目描述</th>
+              <th>单价</th>
+              <th>数量</th>
+              <th>小计</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each LineItems}}
+            <tr>
+              <td>{{increment @index}}</td>
+              <td>{{Name}}</td>
+              <td>{{formatCurrency Price}}</td>
+              <td>{{Quantity}}</td>
+              <td>{{formatCurrency (multiply Price Quantity)}}</td>
+            </tr>
+            {{/each}}
+          </tbody>
+        </table>
+      </div>
 
-        <!-- 金额汇总 -->
-        <div class="totals">
-            <div class="totals-container">
-                <div class="totals-row">
-                    <span>小计：</span>
-                    <span>{{formatCurrency Subtotal}}</span>
-                </div>
-                <div class="totals-row">
-                    <span>税费：</span>
-                    <span>{{formatCurrency 0}}</span>
-                </div>
-                <div class="totals-row total">
-                    <span>总计：</span>
-                    <span>{{formatCurrency Total}}</span>
-                </div>
-            </div>
+      <!-- 金额汇总 -->
+      <div class="totals">
+        <div class="totals-container">
+          <div class="totals-row">
+            <span>小计：</span>
+            <span>{{formatCurrency Subtotal}}</span>
+          </div>
+          <div class="totals-row">
+            <span>税费：</span>
+            <span>{{formatCurrency 0}}</span>
+          </div>
+          <div class="totals-row total">
+            <span>总计：</span>
+            <span>{{formatCurrency Total}}</span>
+          </div>
         </div>
+      </div>
     </div>
-</body>
+  </body>
 </html>
 ```
 
@@ -997,13 +1005,13 @@ public class TemplateCache
 
 根据实际测试，使用这种方案生成一个标准的发票 PDF 的性能表现如下：
 
-| 场景 | 时间 | 说明 |
-|------|------|------|
-| 冷启动 | ~12 秒 | 包含下载 Chromium + 首次启动浏览器 |
-| 热运行（单次） | ~580 毫秒 | 浏览器已启动，模板已缓存 |
-| 模板编译 | ~13 毫秒 | Handlebars 模板编译时间 |
-| HTML 渲染 | ~550 毫秒 | 浏览器渲染 HTML 并生成 PDF |
-| 浏览器复用（并发） | ~350 毫秒/请求 | 使用浏览器连接池 |
+| 场景               | 时间           | 说明                               |
+| ------------------ | -------------- | ---------------------------------- |
+| 冷启动             | ~12 秒         | 包含下载 Chromium + 首次启动浏览器 |
+| 热运行（单次）     | ~580 毫秒      | 浏览器已启动，模板已缓存           |
+| 模板编译           | ~13 毫秒       | Handlebars 模板编译时间            |
+| HTML 渲染          | ~550 毫秒      | 浏览器渲染 HTML 并生成 PDF         |
+| 浏览器复用（并发） | ~350 毫秒/请求 | 使用浏览器连接池                   |
 
 **优化建议：**
 
@@ -1114,14 +1122,14 @@ Azure App Service 需要启用 64 位工作进程，并确保有足够的内存�
 
 相比 IronPDF、QuestPDF 等商业库，这种方案的优劣势如下：
 
-| 维度 | HTML + PuppeteerSharp | 商业 PDF 库 |
-|------|----------------------|------------|
-| **成本** | 完全免费 | 需要商业许可证（通常数千美元） |
-| **布局灵活性** | 极高（完整的 CSS 支持） | 中等（依赖库的 API） |
-| **学习曲线** | 低（使用熟悉的 Web 技术） | 中高（需要学习特定 API） |
-| **性能** | 中等（浏览器开销） | 高（原生 PDF 生成） |
-| **合规标准** | 有限（无 PDF/A 支持） | 完整（PDF/A、PDF/UA 等） |
-| **维护成本** | 低（开源社区支持） | 中等（依赖供应商更新） |
+| 维度           | HTML + PuppeteerSharp     | 商业 PDF 库                    |
+| -------------- | ------------------------- | ------------------------------ |
+| **成本**       | 完全免费                  | 需要商业许可证（通常数千美元） |
+| **布局灵活性** | 极高（完整的 CSS 支持）   | 中等（依赖库的 API）           |
+| **学习曲线**   | 低（使用熟悉的 Web 技术） | 中高（需要学习特定 API）       |
+| **性能**       | 中等（浏览器开销）        | 高（原生 PDF 生成）            |
+| **合规标准**   | 有限（无 PDF/A 支持）     | 完整（PDF/A、PDF/UA 等）       |
+| **维护成本**   | 低（开源社区支持）        | 中等（依赖供应商更新）         |
 
 ## 总结
 

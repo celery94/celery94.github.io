@@ -12,7 +12,7 @@ source: "https://simonwillison.net/guides/agentic-engineering-patterns/using-git
 
 Git 是和编码 Agent 配合工作的核心工具。代码放进版本控制，就意味着每一次变更都有记录，出问题随时可以追溯和回滚。更重要的是，所有主流编码 Agent 对 Git 的掌握程度相当深——不只是基本命令，连 bisect、reflog、rebase 这类高级用法也能轻松驾驭。
 
-这篇文章整理自 Simon Willison 的 *Agentic Engineering Patterns* 指南中"Using Git with coding agents"章节，内容涵盖 Git 基础回顾、可以直接复用的提示词模板，以及如何借助 Agent 解锁历史重写这类平时让人望而却步的操作。
+这篇文章整理自 Simon Willison 的 _Agentic Engineering Patterns_ 指南中"Using Git with coding agents"章节，内容涵盖 Git 基础回顾、可以直接复用的提示词模板，以及如何借助 Agent 解锁历史重写这类平时让人望而却步的操作。
 
 ---
 

@@ -2,7 +2,8 @@
 pubDatetime: 2026-03-13T02:25:03+00:00
 title: "Minimal API 热潮退去之后，真正留下来的不是少写几行，而是架构终于得自己证明自己"
 description: "Bipin Joshi 这篇文章写得很克制，但它点中了 Minimal API 这些年最重要的变化：它并没有消灭 controller，也没有终结分层架构，而是把默认起点从“先上结构”改成了“先上简单”。从这一刻起，复杂性不再天然正当，架构必须回答自己到底在解决什么问题。"
-tags: ["ASP.NET Core", "Minimal API", "Software Architecture", "Developer Workflow"]
+tags:
+  ["ASP.NET Core", "Minimal API", "Software Architecture", "Developer Workflow"]
 slug: "minimal-api-after-hype"
 ogImage: "../../assets/603/01-cover.png"
 source: "https://www.binaryintellect.net/articles/bb02912b-6f50-4b6a-a91d-38a559064f42.aspx"

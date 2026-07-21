@@ -33,7 +33,13 @@
   "comic_style": "american-comic",
   "comic_style_reason": "文章是分析/对比型研究，涉及多个方案的冲突与判断，适合 american-comic 的粗轮廓、halftone 对照张力风格",
   "color_palette": "深蓝+金色+白色，halftone 纹理，高对比度",
-  "forbidden_elements": ["假 dashboard UI", "假终端截图", "英文长句口号", "假图表坐标", "假架构节点名"],
+  "forbidden_elements": [
+    "假 dashboard UI",
+    "假终端截图",
+    "英文长句口号",
+    "假图表坐标",
+    "假架构节点名"
+  ],
   "allowed_text": ["SQL", "75%+", "38%→77%"],
   "prompt": "Wide cover illustration, aspect ratio 2.35:1, american-comic style with bold outlines, halftone dots, high contrast. A detective character in a blue suit stands in a database maze holding a glowing SQL scroll, surrounded by database table grids. Left panel: the detective analyzing schema with magnifying glass, a broken sword labeled with small Chinese tag '无查询' nearby showing the collapse. Center panel: three stepping stones with accuracy numbers rising. Right panel: a key unlocking a data vault with small Chinese tag '领域提示'. Bottom-right: cracked wall with small label '业务逻辑'. Color: deep blue, gold, white halftone. No fake UI, no dashboard, no English slogans, no fake charts. 2-3 short Chinese labels maximum."
 }

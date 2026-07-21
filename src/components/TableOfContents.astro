@@ -18,10 +18,10 @@ const filteredHeadings = headings.filter(h => h.depth <= 3);
       class="toc-aside hidden xl:block"
       aria-label="Table of Contents"
     >
-      <nav class="toc-nav rounded-xl border border-border bg-surface p-5 shadow-sm">
+      <nav class="toc-nav border-border bg-surface rounded-xl border p-5 shadow-sm">
         <h2 class="font-display mb-4 flex items-center gap-2 text-base font-semibold">
           <svg
-            class="h-4 w-4 text-accent"
+            class="text-accent h-4 w-4"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -40,7 +40,7 @@ const filteredHeadings = headings.filter(h => h.depth <= 3);
             <li class:list={["toc-item", `toc-depth-${heading.depth}`]}>
               <a
                 href={`#${heading.slug}`}
-                class="toc-link focus-outline block rounded-lg px-3 py-2 text-sm text-foreground/80 transition-all duration-200 hover:bg-accent/8 hover:text-accent"
+                class="toc-link focus-outline text-foreground/80 hover:bg-accent/8 hover:text-accent block rounded-lg px-3 py-2 text-sm transition-all duration-200"
                 style={`padding-left: ${0.65 + (heading.depth - 1) * 0.85}rem`}
                 data-heading-id={heading.slug}
               >
@@ -89,7 +89,8 @@ const filteredHeadings = headings.filter(h => h.depth <= 3);
   .toc-link.active {
     color: var(--color-accent);
     background: color-mix(in srgb, var(--color-accent) 14%, transparent);
-    box-shadow: inset 2px 0 0 color-mix(in srgb, var(--color-accent) 62%, transparent);
+    box-shadow: inset 2px 0 0
+      color-mix(in srgb, var(--color-accent) 62%, transparent);
   }
 
   .toc-link.read {
@@ -104,7 +105,9 @@ const filteredHeadings = headings.filter(h => h.depth <= 3);
 <script>
   function initTableOfContents() {
     const headings = Array.from(
-      document.querySelectorAll("#article h2[id], #article h3[id], #article h4[id]")
+      document.querySelectorAll(
+        "#article h2[id], #article h3[id], #article h4[id]"
+      )
     );
     const tocLinks = Array.from(
       document.querySelectorAll(".toc-link")
@@ -141,7 +144,10 @@ const filteredHeadings = headings.filter(h => h.depth <= 3);
           const tocAside = document.getElementById("toc-aside");
           if (activeLink && tocAside) {
             tocAside.scrollTo({
-              top: activeLink.offsetTop - tocAside.clientHeight / 2 + activeLink.clientHeight / 2,
+              top:
+                activeLink.offsetTop -
+                tocAside.clientHeight / 2 +
+                activeLink.clientHeight / 2,
               behavior: "smooth",
             });
           }
@@ -163,7 +169,8 @@ const filteredHeadings = headings.filter(h => h.depth <= 3);
         if (!target) return;
 
         const offset = 96;
-        const position = target.getBoundingClientRect().top + window.pageYOffset - offset;
+        const position =
+          target.getBoundingClientRect().top + window.pageYOffset - offset;
         window.scrollTo({ top: position, behavior: "smooth" });
       });
     });

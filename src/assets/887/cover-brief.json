@@ -37,11 +37,29 @@
   "selected_style_prompt_descriptor": "children's fairy-tale illustration, simple magical forms, friendly proportions, bright storybook palette, safe wonder",
   "selected_style_reason": "用户未指定风格，本篇从风格池随机选中（序号39）；决策指南主题用童话风的简洁魔幻形式来表现'从混乱到有序'的叙事弧线，让技术内容更亲切可读",
   "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
-  "allowed_visible_text": ["散落的状态追踪", "Save/Restore闭环", "四条路径选一条"],
+  "allowed_visible_text": [
+    "散落的状态追踪",
+    "Save/Restore闭环",
+    "四条路径选一条"
+  ],
   "color_palette": ["明亮暖黄", "柔和蓝", "草绿", "暖橙"],
-  "avoid": ["漂浮芯片", "无意义代码雨", "霓虹高楼背景", "通用机器人站姿", "赛博朋克紫蓝光污染", "巨量 HUD 浮层", "假 dashboard", "假终端输出", "假架构标签"],
+  "avoid": [
+    "漂浮芯片",
+    "无意义代码雨",
+    "霓虹高楼背景",
+    "通用机器人站姿",
+    "赛博朋克紫蓝光污染",
+    "巨量 HUD 浮层",
+    "假 dashboard",
+    "假终端输出",
+    "假架构标签"
+  ],
   "reference_strategy": "纯文本生成",
   "draft_goal": "验证混乱→有序的叙事弧线 + 儿童童话风在技术决策指南中的可读性：Save/Restore 闭环是否清晰、决策分岔是否可辨",
-  "revision_targets": ["如果童话风太过幼化掩盖了技术主题，增加结构线条", "如果决策分岔路口不够清楚，增强路径标注的对比度", "如果散落状态的混乱感不够，增加不一致连接的视觉提示"],
+  "revision_targets": [
+    "如果童话风太过幼化掩盖了技术主题，增加结构线条",
+    "如果决策分岔路口不够清楚，增强路径标注的对比度",
+    "如果散落状态的混乱感不够，增加不一致连接的视觉提示"
+  ],
   "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: C# Memento pattern decision guide — recognizing when to use state snapshots through structured signals, scenario matching, and code refactoring. The reader should feel equipped with a practical framework to decide when Memento fits and when it does not.\n\nSummary angle: A three-question decision flow — need rollback? state complex? encapsulation matters? — with a contrast of suitable scenarios vs overkill situations.\nNarrative flow: conflict-to-resolution. In a 2.35:1 frame, keep one dominant focal subject and 2-4 supporting narrative beats.\nInformation blocks:\n- Problem: Manual undo tracking with one backup field per property, no history stack, fragile scaling. Visual: a messy object with scattered backup fields, arrows pointing to inconsistent state, labeled '散落的状态追踪'.\n- Mechanism: Originator.Save() returns opaque IMemento; Caretaker stores on stack; Originator.Restore() reads nested class. Visual: a clean three-party structure — originator creates snapshot → caretaker stores → originator restores, snapshot as opaque box, labeled 'Save/Restore闭环'.\n- Contrast: Memento vs Command vs Serialization vs Event Sourcing decision fork. Visual: a fork in the road with four labeled paths, Memento path illuminated, labeled '四条路径选一条'.\n\nMain metaphor: A path from chaos to order — left side shows scattered manual backups (problem), center shows the Save/Restore cycle (solution), right side shows a decision fork with four paths (choice).\nSubject: A structured Save→Stack→Restore cycle flow, connected left to a problem scene and right to a decision fork.\nSubject action: Data flows from chaotic manual tracking through the Save/Restore cycle toward a four-path decision junction.\nComposition/framing: Left-to-right contrast or diagonal progression, horizontal storytelling from chaos to order. Prefer horizontal storytelling that stays legible in a wide cover.\nStyle/medium: combine editorial technical illustration with the selected visual style descriptor: children's fairy-tale illustration, simple magical forms, friendly proportions, bright storybook palette, safe wonder. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: warm yellow, soft blue, grass green, warm orange.\nVisible text policy: allow only 1-3 short Chinese labels or number chips by default, sourced from the information blocks. Each label <= 6 Chinese characters. No poster title, no long sentences, no English slogans, no fake UI labels.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: floating chips, meaningless code rain, neon city backgrounds, generic robot poses, cyberpunk purple-blue light pollution, massive HUD overlays, fake dashboards, fake terminal output, fake architecture labels."
 }

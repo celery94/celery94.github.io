@@ -49,6 +49,10 @@
   "avoid": ["假终端界面", "假架构图表", "漂浮芯片", "代码雨", "霓虹高楼"],
   "reference_strategy": "纯文本生成",
   "draft_goal": "第一轮验证左右对照构图、before-after 叙事是否清晰",
-  "revision_targets": ["确保代理链的层次感清楚", "确保不出现假图表元素", "确保主视觉聚焦在链条结构上"],
+  "revision_targets": [
+    "确保代理链的层次感清楚",
+    "确保不出现假图表元素",
+    "确保主视觉聚焦在链条结构上"
+  ],
   "final_prompt": "Wide cover illustration, aspect ratio 2.35:1. Game concept art illustration style, clear hero object, readable environment storytelling, polished cinematic lighting, production-art detail. Editorial technical illustration type. Left-right contrast composition: LEFT SIDE shows a single chaotic monolithic class with multiple tangled responsibilities stacked on top of each other, dark messy look, label '混乱单类'. RIGHT SIDE shows a clean layered proxy chain with 4 distinct modules connected by arrows flowing from inside out, each module clearly labeled with one responsibility, bright structured look, label '链式代理'. Center connecting element: an arrow labeled '4层 DI 组合' bridging the two sides. Color palette: deep navy blue background, teal-green accents for the proxy chain modules, warm orange for the single class problem, neutral gray connectors. NO fake terminal output, NO fake dashboard, NO fake chart axes, NO fake architecture node names, NO floating chip decorations, NO code rain. Allow maximum 4 short Chinese labels from the information blocks. Wide cinematic composition with strong focal contrast between the two sides."
 }

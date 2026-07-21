@@ -80,7 +80,11 @@ Utah 没有手搓文件 I/O 和 shell 执行，它直接引入 `pi-coding-agent`
 Utah 在此基础上加了几个自定义工具：`remember`（把笔记持久化到每日日志）、`web_fetch`、`delegate_task`。
 
 ```typescript
-import { createReadTool, createWriteTool, createBashTool /* ... */ } from "@mariozechner/pi-coding-agent";
+import {
+  createReadTool,
+  createWriteTool,
+  createBashTool /* ... */,
+} from "@mariozechner/pi-coding-agent";
 
 const tools = [
   createReadTool(config.workspace.root),
@@ -98,12 +102,12 @@ Utah 不是一个做所有事的函数，而是六个通过事件通信的函数
 
 ```typescript
 const functions = [
-  handleMessage,      // 主 Agent 循环
-  sendReply,          // 向渠道发回响应
+  handleMessage, // 主 Agent 循环
+  sendReply, // 向渠道发回响应
   acknowledgeMessage, // 打字指示器——消息到达时立即触发
-  failureHandler,     // 跨函数的全局错误处理
-  heartbeat,          // 周期性定时检查
-  subAgent,           // 通过 step.invoke() 运行隔离子 Agent
+  failureHandler, // 跨函数的全局错误处理
+  heartbeat, // 周期性定时检查
+  subAgent, // 通过 step.invoke() 运行隔离子 Agent
 ];
 ```
 

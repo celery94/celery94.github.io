@@ -35,10 +35,10 @@ source: "https://dev.to/topuzas/vector-search-and-queryable-encryption-in-net-en
 
 两种主流选型，适用场景不同：
 
-| 方案 | 特点 | 适用场景 |
-|---|---|---|
-| PostgreSQL + pgvector | ACID 合规，支持关系查询，通过 Npgsql 集成 | 需要关联业务数据的系统 |
-| Qdrant | Rust 构建的专用向量数据库，gRPC 支持良好 | 要求 P99 < 50ms、复杂元数据过滤的场景 |
+| 方案                  | 特点                                      | 适用场景                              |
+| --------------------- | ----------------------------------------- | ------------------------------------- |
+| PostgreSQL + pgvector | ACID 合规，支持关系查询，通过 Npgsql 集成 | 需要关联业务数据的系统                |
+| Qdrant                | Rust 构建的专用向量数据库，gRPC 支持良好  | 要求 P99 < 50ms、复杂元数据过滤的场景 |
 
 ## 领域模型定义
 
@@ -120,11 +120,11 @@ float similarity = TensorPrimitives.Dot(vectorA.Span, vectorB.Span);
 
 在生产环境中，不可度量的系统无法管理。原文给出了三个关键指标和目标：
 
-| 指标 | 工具 | P99 目标 |
-|---|---|---|
-| 嵌入生成延迟 | Azure Monitor | < 200ms |
-| 向量索引搜索 | Prometheus / Grafana | < 50ms |
-| 解密开销 | 自定义 DotNetCounters | < 5ms |
+| 指标         | 工具                  | P99 目标 |
+| ------------ | --------------------- | -------- |
+| 嵌入生成延迟 | Azure Monitor         | < 200ms  |
+| 向量索引搜索 | Prometheus / Grafana  | < 50ms   |
+| 解密开销     | 自定义 DotNetCounters | < 5ms    |
 
 此外还有两个需要持续监控的质量指标：
 

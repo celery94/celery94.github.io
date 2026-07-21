@@ -2,7 +2,15 @@
 pubDatetime: 2026-03-19T16:00:00+08:00
 title: "用后台响应处理 AI Agent 的长时间运行操作"
 description: "Microsoft Agent Framework 引入后台响应机制，让 AI Agent 可以在后台处理耗时的复杂推理、长内容生成任务，客户端通过 continuation token 轮询结果或断点续传流式输出，彻底解决连接超时和进度丢失问题。"
-tags: ["AI", "Agent Framework", "Microsoft", ".NET", "Python", "Background Processing"]
+tags:
+  [
+    "AI",
+    "Agent Framework",
+    "Microsoft",
+    ".NET",
+    "Python",
+    "Background Processing",
+  ]
 slug: "handling-long-running-operations-background-responses"
 source: "https://devblogs.microsoft.com/agent-framework/handling-long-running-operations-with-background-responses"
 ---

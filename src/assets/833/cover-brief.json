@@ -39,7 +39,14 @@
   "style_safety_note": "该风格不指向任何品牌、工作室或艺术家，无需安全改写",
   "allowed_visible_text": ["理解", "执行", "4"],
   "color_palette": ["#1b2838", "#5c9ead", "#f0c27f", "#e8e8e8"],
-  "avoid": ["假 dashboard", "假终端输出", "假代码编辑器截图", "赛博朋克紫蓝光", "漂浮芯片", "通用机器人站姿"],
+  "avoid": [
+    "假 dashboard",
+    "假终端输出",
+    "假代码编辑器截图",
+    "赛博朋克紫蓝光",
+    "漂浮芯片",
+    "通用机器人站姿"
+  ],
   "reference_strategy": "纯文本生成",
   "draft_goal": "第一轮验证左右对照构图 + Chat vs Agent 双路径是否清晰",
   "revision_targets": ["对比关系清晰度", "厚涂质感", "信息块可读性"],

@@ -37,9 +37,18 @@
   "comic_style_reason": "analysis 类型文章，核心是判断和反驳——仓储模式的承诺 vs 实际结果，american-comic 的对照和张力感适合这种揭穿式叙事",
   "allowed_visible_text": ["套娃 vs 直连", "6ms vs 14ms", "3种例外"],
   "color_palette": ["#1a1a2e", "#e94560", "#0f3460", "#f5f0e8"],
-  "avoid": ["真实 UI 截图", "假仪表盘", "假终端输出", "超级英雄形象", "假代码标签"],
+  "avoid": [
+    "真实 UI 截图",
+    "假仪表盘",
+    "假终端输出",
+    "超级英雄形象",
+    "假代码标签"
+  ],
   "reference_strategy": "纯文本生成",
   "draft_goal": "验证左右对照构图——套娃抽象 vs 直连——是否清晰传递出'多余的抽象层'主题",
-  "revision_targets": ["如果套娃形象不够清晰，改用脚手架/中间层形象", "如果数据对比不够醒目，放大速度表的差距"],
+  "revision_targets": [
+    "如果套娃形象不够清晰，改用脚手架/中间层形象",
+    "如果数据对比不够醒目，放大速度表的差距"
+  ],
   "final_prompt": "Wide cover illustration, aspect ratio 2.35:1. American comic graphic novel style: bold ink outlines, halftone dot shading, dark navy background (#1a1a2e), red accent highlights (#e94560), off-white highlights. LEFT-RIGHT split composition. LEFT PANEL: A developer struggling with a towering stack of nested boxes/wrappers — Russian matryoshka doll style layers labeled with small Chinese tags '套娃 vs 直连' — overwhelming, fragile, one layer inside another, the innermost being DbContext. The developer looks frustrated. RIGHT PANEL: Same developer, now confident, a single clean direct arrow from their code straight to a glowing database cylinder — no intermediary boxes, clean and fast. BOTTOM: Two speedometer gauges side by side — left gauge pointer at the slow end labeled '14ms', right gauge pointer at the fast end labeled '6ms'. Small Chinese label '6ms vs 14ms' between them. TOP RIGHT corner: three small green checkmark shields labeled '3种例外' to show the rare valid use cases. Style: dramatic American comic panel borders, high-contrast graphic novel composition, halftone textures. NO fake UI, NO fake terminal, NO fake code boxes, NO English text labels, NO superhero imagery. Wide cinematic banner crop 2.35:1."
 }

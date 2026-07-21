@@ -37,9 +37,21 @@
   "comic_style_reason": "这是一篇 analysis 类型文章，核心叙事是判断与冲突（提示词驱动 vs 规范先行），american-comic 的粗轮廓、halftone 和强对照编辑感最适合表达这种判断张力",
   "allowed_visible_text": ["提示词驱动", "规范先行", "合约驱动"],
   "color_palette": ["#1a1a2e", "#e63946", "#457b9d", "#f1faee"],
-  "avoid": ["超级英雄海报", "赛博朋克霓虹灯", "真实 UI 截图", "假终端输出", "假架构节点标签", "漂浮芯片背景", "无意义代码雨"],
+  "avoid": [
+    "超级英雄海报",
+    "赛博朋克霓虹灯",
+    "真实 UI 截图",
+    "假终端输出",
+    "假架构节点标签",
+    "漂浮芯片背景",
+    "无意义代码雨"
+  ],
   "reference_strategy": "纯文本生成",
   "draft_goal": "验证左右对照构图是否清晰表达混乱提示 vs 有序规范的核心对比",
-  "revision_targets": ["如果左右分界不明确则加强对照线", "如果标签文字过多则删减至 1-2 个", "如果主体不清楚则突出工程师+AI智能体的协作关系"],
+  "revision_targets": [
+    "如果左右分界不明确则加强对照线",
+    "如果标签文字过多则删减至 1-2 个",
+    "如果主体不清楚则突出工程师+AI智能体的协作关系"
+  ],
   "final_prompt": "Wide cover illustration, aspect ratio 2.35:1. American comic graphic novel style: bold outlines, halftone shading, high contrast, editorial graphic novel tension. Two-panel split composition: LEFT panel shows chaotic prompt-driven development — a lone developer surrounded by scattered chat bubbles, overlapping prompts, tangled code fragments floating in the air, dark background, red-tinted disorder. RIGHT panel shows structured Agentic-Agile — an engineer and a glowing AI companion figure standing side by side in front of an organized kanban board with neat story cards, blue-tinted order and clarity. A bold vertical dividing line separates the two panels. Small Chinese text labels: '提示词驱动' on left panel, '规范先行' on right panel. No watermarks, no fake dashboards, no terminal output, no architecture diagrams, no hero slogans, no English text."
 }

@@ -26,7 +26,15 @@
   "comic_style": "japanese-manga",
   "comic_style_reason": "Tutorial类文章，讲的是渐进式状态分离和工厂复用流程，日漫的分镜式构图最能体现'前后对比'和'步骤推进'的叙事节奏",
   "color_palette": "黑白墨线为主，局部蓝色（内存/数据）与橙色（粒子/火焰）点缀",
-  "forbidden_elements": ["主标题文字", "英文口号", "假UI截图", "假dashboard", "假图表坐标", "假终端输出", "假架构节点名"],
+  "forbidden_elements": [
+    "主标题文字",
+    "英文口号",
+    "假UI截图",
+    "假dashboard",
+    "假图表坐标",
+    "假终端输出",
+    "假架构节点名"
+  ],
   "visible_text": ["5000→3", "内在", "外在"],
   "reference_materials": "None",
   "final_prompt": "Japanese manga wide cover illustration, aspect ratio 2.35:1, black and white ink lines with limited color. Left panel: a programmer character overwhelmed by 5000 identical glowing memory blocks/particles stacked everywhere, CPU/RAM meter going red. Center panel: a sleek factory machine labeled with Chinese characters '内在' and '外在', sorting objects into shared flyweight pools, arrow flowing down to just 3 glowing prototype objects. Right panel: the programmer relieved, 5000 particles dancing freely but sharing 3 object cores, a bold number '5000→3' floating in the air. Speed lines, manga panel borders, monochrome with orange and blue accents on particles and memory blocks. No fake UI, no chart axes, no terminal text, no main title text. Only 1-3 short Chinese labels for infographic navigation."

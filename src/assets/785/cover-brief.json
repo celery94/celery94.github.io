@@ -28,7 +28,15 @@
   "comic_style": "japanese-manga",
   "comic_style_reason": "教程类型默认 japanese-manga；分镜化叙事能清晰展示 API 认证的请求→验证→授权线性流程",
   "color_palette": "黑白灰为主，蓝色高亮哈希符号和缓存层，绿色标注授权通过节点",
-  "forbidden_elements": ["假 UI 截图", "假 dashboard", "假终端输出", "假架构节点标签", "英文口号", "主标题文字", "伪造图表坐标"],
+  "forbidden_elements": [
+    "假 UI 截图",
+    "假 dashboard",
+    "假终端输出",
+    "假架构节点标签",
+    "英文口号",
+    "主标题文字",
+    "伪造图表坐标"
+  ],
   "visible_text": ["SHA-256", "HybridCache", "401/403"],
   "aspect_ratio": "2.35:1",
   "final_prompt": "Wide cover illustration, aspect ratio 2.35:1. Japanese manga panel style with ink lines and speed lines, black-and-white with selective blue highlights on key nodes and green on success paths. A server-to-server authentication flow: on the left, a mechanical robot client sends an HTTP request with X-API-Key header (small Chinese label '请求头'). In the center, an ASP.NET Core AuthenticationHandler node receives the key, transforms it through a SHA-256 hash funnel (label '哈希'), then queries a HybridCache layer shown as a glowing blue memory chip with lightning bolt (label 'HybridCache'). On the right, after successful validation, a green ClaimsPrincipal token grants access to a protected API endpoint with a checkmark. Two small branch paths show 401 rejection (red X, no key) and 403 forbidden (orange warning, insufficient scope). Manga panel composition: left panel shows request, center panel shows validation mechanics with speed lines emphasizing speed, right panel shows authorization result. No text other than the three short labels. No fake UI, no dashboard, no terminal, no chart axes. Cinematic wide format."

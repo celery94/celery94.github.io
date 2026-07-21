@@ -37,9 +37,19 @@
   "comic_style_reason": "analysis 类型默认选 american-comic；本文讲的是语言设计中的一个冲突判断——旧的开放继承 vs 新的封闭约束——左右对照的冲突叙事非常适合 american-comic 的 halftone 张力风格",
   "allowed_visible_text": ["closed", "缺默认", "无需默认"],
   "color_palette": ["深蓝", "钢灰", "亮橙", "白"],
-  "avoid": ["超级英雄形象", "真实终端截图", "假 IDE 界面", "真实代码编辑器", "品牌 logo"],
+  "avoid": [
+    "超级英雄形象",
+    "真实终端截图",
+    "假 IDE 界面",
+    "真实代码编辑器",
+    "品牌 logo"
+  ],
   "reference_strategy": "纯文本生成",
   "draft_goal": "验证左右对照构图是否清晰传达 closed 的约束感与 switch 穷举的收益",
-  "revision_targets": ["如果 halftone 不够明显可加强", "如果左右分界不够清晰可加边界线", "如果中间 closed 标签淹没可放大"],
+  "revision_targets": [
+    "如果 halftone 不够明显可加强",
+    "如果左右分界不够清晰可加边界线",
+    "如果中间 closed 标签淹没可放大"
+  ],
   "final_prompt": "Wide cover illustration, aspect ratio 2.35:1. American-comic graphic-novel style, halftone texture, bold ink outlines, high contrast. Split composition: left panel shows a programmer frustrated, multiple class hierarchies branching out chaotically, a warning sign labeled '缺默认' hovers over incomplete switch arms. Right panel shows a sealed gate/door with the word 'closed' carved on it, a programmer confidently matching all subtypes in a switch expression, a green checkmark labeled '无需默认'. Center dividing line is a dramatic crack or thick panel border. Dark navy and steel gray background, bright orange accents on key elements, clean white labels. No real code editors, no superhero imagery, no brand logos. Cinematic tension, editorial clarity."
 }

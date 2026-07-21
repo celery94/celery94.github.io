@@ -34,7 +34,13 @@
   "background": "深色格纹背景带halftone点阵效果，体现graphic novel质感",
   "color_palette": "深黑 + 警告红（致命级）+ 橙色（损钱级）+ 黄色（拖速级）+ 白灰（外观级）",
   "visible_text": ["致命", "🔴", "🟠", "🟡"],
-  "forbidden_elements": ["假终端截图", "假仪表盘", "假图表坐标", "英文口号", "超级英雄电影海报风格"],
+  "forbidden_elements": [
+    "假终端截图",
+    "假仪表盘",
+    "假图表坐标",
+    "英文口号",
+    "超级英雄电影海报风格"
+  ],
   "aspect_ratio": "2.35:1",
   "prompt": "Wide cover illustration, aspect ratio 2.35:1, american comic style with bold outlines and halftone dot shading, graphic novel aesthetic. Left 40%: a developer engineer character standing at a crossroads, looking determined, viewed from a slight low angle. Right 60%: four horizontally stacked comic panels each representing one severity tier — top panel red background with skull icon (async void kills production), second panel orange background with money/socket icon (HttpClient socket exhaustion costs money), third panel yellow background with slow turtle icon (fat controller slows velocity), fourth panel light gray with magnifying glass (throw ex is just cosmetic). Each panel has a short Chinese label: '致命', one orange panel, one yellow panel, one gray. Black ink bold outlines, halftone shadows, no fake UI or terminal screenshots, no long English text."
 }

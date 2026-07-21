@@ -46,9 +46,20 @@
   "style_safety_note": "游戏原画风不强指向特定品牌或艺术家，无需改写",
   "allowed_visible_text": ["半成功", "3类副作用", "Outbox"],
   "color_palette": ["深蓝", "琥珀橙", "灰白", "警示红"],
-  "avoid": ["假仪表盘", "假终端输出", "赛博朋克霓虹灯", "通用机器人站姿", "浮夸 HUD 浮层", "代码雨背景"],
+  "avoid": [
+    "假仪表盘",
+    "假终端输出",
+    "赛博朋克霓虹灯",
+    "通用机器人站姿",
+    "浮夸 HUD 浮层",
+    "代码雨背景"
+  ],
   "reference_strategy": "纯文本生成",
   "draft_goal": "第一轮先验证：三条路径的分叉结构是否清楚、主焦点（订单节点）是否突出、可见中文标签是否在 3 个以内",
-  "revision_targets": ["如果路径数量不清晰，减少视觉元素突出3条分支", "如果主标签不可读，加深背景对比", "如果出现假图表或假代码，移除并改用抽象图形"],
+  "revision_targets": [
+    "如果路径数量不清晰，减少视觉元素突出3条分支",
+    "如果主标签不可读，加深背景对比",
+    "如果出现假图表或假代码，移除并改用抽象图形"
+  ],
   "final_prompt": "A wide cover illustration, aspect ratio 2.35:1. Isometric conceptual systems scene with game concept art illustration style — clear hero object, readable environment storytelling, polished lighting, production-art detail. The scene shows a central order-processing node splitting into three diverging pipeline paths. One path (database transaction) leads to a solid secure endpoint shown last in the sequence. One path (external payment) has a visible crack or break in the middle — suggesting partial failure. One path (email notification) feeds into a floating outbox container. The composition uses isometric equal-distance spatial layout with warm amber highlights on the secure path, warning red on the cracked path, and cool blue on the outbox path. Deep blue and grey-white background. A small Chinese label chip '半成功' near the cracked section, '3类副作用' near the branching origin, 'Outbox' near the notification container. No dashboard, no fake terminal, no fake chart axes, no hero title text, no English slogans, no watermark, no neon cityscape background."
 }

@@ -318,32 +318,32 @@ await context.BulkInsertOrUpdateAsync(productsToUpsert, cancellationToken: ct);
 
 ### 插入基准
 
-| 方式 | 100 条 | 1K 条 | 10K 条 | 100K 条 | 内存（100K）|
-|------|--------|-------|--------|---------|------------|
-| 逐条 Add + SaveChanges | 45 ms | 380 ms | 3,800 ms | 41,200 ms | 285 MB |
-| AddRange + SaveChanges | 12 ms | 95 ms | 920 ms | 9,500 ms | 180 MB |
-| BulkExtensions BulkInsert | 8 ms | 35 ms | 180 ms | 1,200 ms | 42 MB |
-| 原生 Npgsql COPY | 5 ms | 18 ms | 95 ms | 650 ms | 28 MB |
+| 方式                      | 100 条 | 1K 条  | 10K 条   | 100K 条   | 内存（100K） |
+| ------------------------- | ------ | ------ | -------- | --------- | ------------ |
+| 逐条 Add + SaveChanges    | 45 ms  | 380 ms | 3,800 ms | 41,200 ms | 285 MB       |
+| AddRange + SaveChanges    | 12 ms  | 95 ms  | 920 ms   | 9,500 ms  | 180 MB       |
+| BulkExtensions BulkInsert | 8 ms   | 35 ms  | 180 ms   | 1,200 ms  | 42 MB        |
+| 原生 Npgsql COPY          | 5 ms   | 18 ms  | 95 ms    | 650 ms    | 28 MB        |
 
 `AddRange` 比逐条插入快 4 倍。100–1,000 条时，`AddRange` 与批量库的差距很小，仅毫秒级。10K+ 时差距就拉开了：`BulkInsert` 在 10K 时快 5 倍，100K 时快 8 倍，内存占用少 77%。
 
 ### 更新基准
 
-| 方式 | 100 条 | 1K 条 | 10K 条 | 100K 条 |
-|------|--------|-------|--------|---------|
-| 加载 + 修改 + SaveChanges | 38 ms | 310 ms | 3,200 ms | 35,800 ms |
-| ExecuteUpdate | 3 ms | 3 ms | 4 ms | 5 ms |
-| BulkExtensions BulkUpdate | 10 ms | 22 ms | 85 ms | 520 ms |
+| 方式                      | 100 条 | 1K 条  | 10K 条   | 100K 条   |
+| ------------------------- | ------ | ------ | -------- | --------- |
+| 加载 + 修改 + SaveChanges | 38 ms  | 310 ms | 3,200 ms | 35,800 ms |
+| ExecuteUpdate             | 3 ms   | 3 ms   | 4 ms     | 5 ms      |
+| BulkExtensions BulkUpdate | 10 ms  | 22 ms  | 85 ms    | 520 ms    |
 
 `ExecuteUpdate` 是第一梯队——无论匹配多少行，它发送的都是单条 SQL，始终 3–5 ms。跟踪方式（加载 + 修改 + 保存）随数据量线性增长，超过 1,000 条就会很痛苦。`BulkUpdate` 介于两者之间，适合需要对每行设置不同值（`ExecuteUpdate` 只能对所有匹配行应用同一转换）的场景。
 
 ### 删除基准
 
-| 方式 | 100 条 | 1K 条 | 10K 条 | 100K 条 |
-|------|--------|-------|--------|---------|
-| 加载 + Remove + SaveChanges | 35 ms | 290 ms | 2,900 ms | 32,000 ms |
-| ExecuteDelete | 2 ms | 2 ms | 3 ms | 4 ms |
-| BulkExtensions BulkDelete | 8 ms | 18 ms | 65 ms | 380 ms |
+| 方式                        | 100 条 | 1K 条  | 10K 条   | 100K 条   |
+| --------------------------- | ------ | ------ | -------- | --------- |
+| 加载 + Remove + SaveChanges | 35 ms  | 290 ms | 2,900 ms | 32,000 ms |
+| ExecuteDelete               | 2 ms   | 2 ms   | 3 ms     | 4 ms      |
+| BulkExtensions BulkDelete   | 8 ms   | 18 ms  | 65 ms    | 380 ms    |
 
 和更新一样——`ExecuteDelete` 靠单条 SQL `DELETE` + `WHERE` 子句大幅领先。先查询再逐条删除是最差的选择，因为它先把所有匹配行查出来跟踪，然后逐条生成 `DELETE`。
 
@@ -351,17 +351,17 @@ await context.BulkInsertOrUpdateAsync(productsToUpsert, cancellationToken: ct);
 
 ## 决策矩阵
 
-| 场景 | 推荐方案 | 说明 |
-|------|---------|----|
-| 插入 10–10K 条 | AddRange + SaveChanges | 批处理自动处理，支持变更追踪、生成 ID、拦截器 |
-| 插入 10K–100K+ 条（数据导入）| BulkInsert（EFCore.BulkExtensions）| 快 8 倍、省 77% 内存 |
-| 按条件统一更新多行 | ExecuteUpdate | 单条 SQL，始终用这个 |
-| 每行更新不同值 | 加载 + 修改 + SaveChanges | ExecuteUpdate 不支持按行差异化值 |
-| 每行不同值且 10K+ 规模 | BulkUpdate（EFCore.BulkExtensions）| 跟踪更新太慢但每行值不同时 |
-| 按条件删除 | ExecuteDelete | 单条 SQL，最快 |
-| 有软删除的实体删除 | ExecuteUpdate（设 IsDeleted = true）| ExecuteDelete 会绕过拦截器和全局过滤器 |
-| Upsert（插入或更新）| BulkInsertOrUpdate（EFCore.BulkExtensions）| EF Core 原生不支持 upsert |
-| 混合操作 | 显式事务包裹各操作 | 在单个事务中组合不同方案 |
+| 场景                          | 推荐方案                                    | 说明                                          |
+| ----------------------------- | ------------------------------------------- | --------------------------------------------- |
+| 插入 10–10K 条                | AddRange + SaveChanges                      | 批处理自动处理，支持变更追踪、生成 ID、拦截器 |
+| 插入 10K–100K+ 条（数据导入） | BulkInsert（EFCore.BulkExtensions）         | 快 8 倍、省 77% 内存                          |
+| 按条件统一更新多行            | ExecuteUpdate                               | 单条 SQL，始终用这个                          |
+| 每行更新不同值                | 加载 + 修改 + SaveChanges                   | ExecuteUpdate 不支持按行差异化值              |
+| 每行不同值且 10K+ 规模        | BulkUpdate（EFCore.BulkExtensions）         | 跟踪更新太慢但每行值不同时                    |
+| 按条件删除                    | ExecuteDelete                               | 单条 SQL，最快                                |
+| 有软删除的实体删除            | ExecuteUpdate（设 IsDeleted = true）        | ExecuteDelete 会绕过拦截器和全局过滤器        |
+| Upsert（插入或更新）          | BulkInsertOrUpdate（EFCore.BulkExtensions） | EF Core 原生不支持 upsert                     |
+| 混合操作                      | 显式事务包裹各操作                          | 在单个事务中组合不同方案                      |
 
 ---
 

@@ -39,9 +39,23 @@
   "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
   "allowed_visible_text": ["24h缓存保留", "按需工具搜索", "WebSocket传输"],
   "color_palette": ["柔粉", "淡紫", "浅蓝绿", "暖金"],
-  "avoid": ["漂浮芯片", "无意义代码雨", "霓虹高楼背景", "通用机器人站姿", "赛博朋克紫蓝光污染", "巨量 HUD 浮层", "假 dashboard", "假终端输出", "假架构标签"],
+  "avoid": [
+    "漂浮芯片",
+    "无意义代码雨",
+    "霓虹高楼背景",
+    "通用机器人站姿",
+    "赛博朋克紫蓝光污染",
+    "巨量 HUD 浮层",
+    "假 dashboard",
+    "假终端输出",
+    "假架构标签"
+  ],
   "reference_strategy": "纯文本生成",
   "draft_goal": "验证三重过滤管道 + 日漫少女风在架构主题下的可行性：主体是否清晰、三条支路是否可辨、信息块是否可读",
-  "revision_targets": ["如果整体构图偏离等距布局，收紧构图方向", "如果少女漫风格掩盖了技术主题，增加结构化元素", "如果信息块标签不可读，调整字号和位置"],
+  "revision_targets": [
+    "如果整体构图偏离等距布局，收紧构图方向",
+    "如果少女漫风格掩盖了技术主题，增加结构化元素",
+    "如果信息块标签不可读，调整字号和位置"
+  ],
   "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: How VS Code optimizes GitHub Copilot's agentic harness for token efficiency through three strategies: caching, tool search, and WebSocket transport. The reader should quickly feel that token cost can be systematically reduced through engineering optimizations.\n\nSummary angle: Three optimization paths (extend cache retention → load tools on-demand → switch to WebSocket) compound to cut token costs without sacrificing task success.\nNarrative flow: 3-beat process. In a 2.35:1 frame, keep one dominant focal subject and 2-4 supporting narrative beats. Each beat must map to the article's information blocks rather than generic decoration.\nInformation blocks:\n- Mechanism: 24h cache retention boosted hit rate up to +919% at 40-60min idle gaps. Visual: a clock/sandglass with a glowing cache crystal inside, labeled \"24h缓存保留\".\n- Mechanism: Tool search deferred definitions, cutting per-user session tokens by ~18%. Visual: a filter/funnel structure with many tool cards waiting outside, only a few selected into context flow, labeled \"按需工具搜索\".\n- Mechanism: WebSocket persistent connections reduced TTFT by ~19% and TTC by ~13%. Visual: a continuous glowing connection line replacing multiple broken HTTP request arrows, labeled \"WebSocket传输\".\n\nMain metaphor: A three-stage filtration pipeline system — a central agent harness core surrounded by three optimization branches, each representing one cost-reduction strategy. Token streams become leaner after passing through each filter.\nSubject: A structured agent harness core module with three optimization branches, processing token streams through cache retention, on-demand tool filtering, and persistent connections.\nComposition/framing: Isometric or layered relational layout, central subject with three branches radiating outward. Prefer horizontal storytelling that stays legible in a wide cover.\nStyle/medium: combine isometric conceptual systems scene with the selected visual style descriptor: soft shojo-inspired manga look, elegant linework, expressive faces, gentle decorative details, luminous pastel accents. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: soft pink, light purple, pale blue-green, warm gold.\nVisible text policy: allow only 1-3 short Chinese labels or number chips by default, and no more than 4 when strictly necessary, all sourced from the information blocks. Each label <= 6 Chinese characters or one required product/model name. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: floating chips, meaningless code rain, neon city backgrounds, generic robot poses, cyberpunk purple-blue light pollution, massive HUD overlays, fake dashboards, fake terminal output, fake architecture labels."
 }

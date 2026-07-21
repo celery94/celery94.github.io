@@ -39,9 +39,23 @@
   "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
   "allowed_visible_text": ["手动 Prompt", "9/10", "5 大组件", "14 步通关"],
   "color_palette": ["明亮橙黄", "天蓝", "草绿", "暖灰"],
-  "avoid": ["漂浮芯片", "霓虹高楼", "机器人站姿", "代码雨", "赛博朋克紫蓝光", "HUD 浮层", "假终端输出", "假架构图标签", "假仪表盘"],
+  "avoid": [
+    "漂浮芯片",
+    "霓虹高楼",
+    "机器人站姿",
+    "代码雨",
+    "赛博朋克紫蓝光",
+    "HUD 浮层",
+    "假终端输出",
+    "假架构图标签",
+    "假仪表盘"
+  ],
   "reference_strategy": "纯文本生成",
   "draft_goal": "第一轮验证：14级阶梯+三平台+5块积木的信息结构是否可读，美式卡通风是否到位但不过分幼稚",
-  "revision_targets": ["如果阶梯/积木隐喻不够清楚，改用简洁进度条+标注", "如果卡通感过重削弱工程可信度，收紧角色比例增加技术道具", "如果信息块叠成海报，删到 2-3 个"],
+  "revision_targets": [
+    "如果阶梯/积木隐喻不够清楚，改用简洁进度条+标注",
+    "如果卡通感过重削弱工程可信度，收紧角色比例增加技术道具",
+    "如果信息块叠成海报，删到 2-3 个"
+  ],
   "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration. Theme: Loop Engineering 14-step roadmap — the journey from manual prompter to autonomous loop designer. The reader should feel a clear progression path with measurable milestones.\n\nSummary angle: A 14-step staircase from 'typing prompts by hand' at the bottom to 'designing autonomous loop systems' at the top. Three tiered platforms mark the stages: Decision → Build → Production.\nNarrative flow: 3-beat process. In a 2.35:1 frame, keep one dominant focal subject and 2-3 supporting narrative beats.\nInformation blocks:\n- Problem: a cartoon character typing prompts at a desk, labeled '手动 Prompt' with '9/10'\n- Mechanism: five building block pieces forming a loop mechanism, labeled '5 大组件' with number 5\n- Takeaway: a 14-step staircase going upward, labeled '14 步通关' with number 14\n\nMain metaphor: a staircase made of cartoon building blocks with 14 steps, divided into 3 tiered platforms, leading from a manual typing desk to an automated gear system.\nSubject: an American cartoon style small engineer character climbing a 14-step staircase divided into 3 platforms, with 5 iconic building blocks beside it.\nSubject action: the engineer climbs upward from the typing desk toward the autonomous gear system.\nComposition/framing: diagonal upward progression from bottom-left to top-right. The staircase is the main axis, with information beats placed beside platform levels. Horizontal storytelling, wide cover.\nStyle/medium: combine editorial technical illustration with the selected visual style descriptor: American cartoon illustration, elastic shapes, clear expressions, bold color fields, light comedic timing. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: bright orange-yellow, sky blue, grass green, warm gray.\nVisible text policy: allow only 3-4 short Chinese labels or number chips, all sourced from the information blocks. Each label <= 6 Chinese characters or one required product name. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: floating chips, neon skylines, robot standing poses, code rain, cyberpunk purple-blue light, HUD overlays, fake terminal output, fake architecture labels, fake dashboards."
 }

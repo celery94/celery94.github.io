@@ -32,6 +32,12 @@
   "comic_style_reason": "tutorial 类型，按规则默认选 japanese-manga；分镜化布局适合展示层级结构和步骤递进",
   "color_palette": "深蓝黑主色调，青绿色高亮代码元素，少量红色标注陷阱（BindingFlags 缺少 Instance 标志）",
   "visible_text": ["PropertyInfo", "MethodInfo", "缓存"],
-  "forbidden_elements": ["假 UI 截图", "假 dashboard", "假终端输出", "假图表坐标", "英文长句口号"],
+  "forbidden_elements": [
+    "假 UI 截图",
+    "假 dashboard",
+    "假终端输出",
+    "假图表坐标",
+    "英文长句口号"
+  ],
   "prompt": "japanese manga comic cover illustration, wide 2.35:1 aspect ratio, C# developer at code editor, PropertyInfo and MethodInfo objects floating as glowing tools, reflection hierarchy Assembly→Type→MemberInfo in background, concurrentdictionary cache pattern shown as organized bookshelf, TargetInvocationException wrapped in safety net visual metaphor, manga panel layout with 2x2 info grid on right side, bold ink lines, speed lines, limited color palette deep blue and cyan highlights, small chinese labels: PropertyInfo MethodInfo 缓存, no fake UI no dashboard no terminal output no english slogans, clean manga storytelling"
 }

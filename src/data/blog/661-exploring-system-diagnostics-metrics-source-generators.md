@@ -10,7 +10,7 @@ source: "https://andrewlock.net/creating-strongly-typed-metics-with-a-source-gen
 
 ![评测 System.Diagnostics.Metrics Source Generator](../../assets/661/01-cover.png)
 
-这是 Andrew Lock *System.Diagnostics.Metrics APIs* 系列的第 2 篇。上一篇展示了如何手写 `Meter` 和 `Instrument` 并接入 DI；这篇走得更深——引入 `Microsoft.Extensions.Telemetry.Abstractions` 的 Source Generator，观察它具体生成什么、有什么限制，以及最终值不值得用。
+这是 Andrew Lock _System.Diagnostics.Metrics APIs_ 系列的第 2 篇。上一篇展示了如何手写 `Meter` 和 `Instrument` 并接入 DI；这篇走得更深——引入 `Microsoft.Extensions.Telemetry.Abstractions` 的 Source Generator，观察它具体生成什么、有什么限制，以及最终值不值得用。
 
 ---
 
@@ -77,6 +77,7 @@ public partial class ProductMetrics  // 必须是 partial
 ```
 
 变化要点：
+
 - 类必须声明为 `partial`
 - 用 `[Counter<int>]` 特性标注一个 `partial` 工厂方法，Source Generator 补全它的实现
 - `PricingPageViewed` 从一个方法变成了一个属性，类型是生成的 `PricingPageViewed` 类
@@ -196,6 +197,7 @@ public enum Environment { Development, QA, Production }
 ```
 
 约束：
+
 - 标签属性只能是 `string` 或 `enum` 类型
 - 用 `[TagName]` 自定义标签名，否则默认用属性名
 

@@ -40,6 +40,9 @@
   "avoid": ["真实终端截图", "假 CVE 报告界面", "超级英雄形象", "假图表坐标轴"],
   "reference_strategy": "纯文本生成",
   "draft_goal": "验证剪刀切断依赖图节点的主视觉是否清晰，before-after 对比是否可读",
-  "revision_targets": ["如果依赖图节点太乱，简化为 3-4 个节点", "如果剪刀不够显眼，放大并加速度线"],
+  "revision_targets": [
+    "如果依赖图节点太乱，简化为 3-4 个节点",
+    "如果剪刀不够显眼，放大并加速度线"
+  ],
   "final_prompt": "Wide cover illustration, aspect ratio 2.35:1. Japanese manga style: clean ink outlines, speed lines, limited color palette with deep navy background (#0d1b2a), bright cyan accent (#00b4d8), light cyan highlights (#90e0ef), off-white. CENTER composition. MAIN SUBJECT: A large glowing pair of scissors cutting through a tangled web of dependency graph nodes — some nodes are red (false-positive vulnerability markers labeled '误报' in small Chinese) and get snipped away, the remaining nodes after the cut are clean blue circles connected by neat lines. The scissors are dynamic, with manga-style speed lines radiating outward. LEFT side of cut: messy red-highlighted nodes (redundant platform packages). RIGHT side of cut: clean minimal graph (only real dependencies). BOTTOM: Two simple bar charts side by side — left bar taller labeled '之前', right bar 70% shorter labeled '之后', with small Chinese text '-70% 误报' above them. Style: manga panel composition with dramatic speed lines, halftone dot textures in background, high-contrast ink outlines. NO fake terminal windows, NO fake UI, NO fake code, NO English text labels, NO superhero imagery. Wide 2.35:1 banner crop."
 }

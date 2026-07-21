@@ -46,9 +46,19 @@
   "style_safety_note": "极简线稿风无品牌或艺术家强指向，无需安全改写",
   "allowed_visible_text": ["依赖混乱", "ArchUnitNET", "5 类守护", "CI 拦截"],
   "color_palette": ["#1A1A2E", "#4A90D9", "#F5F5F5", "#E8B84B"],
-  "avoid": ["真实仪表盘截图", "假代码终端", "赛博朋克霓虹背景", "通用机器人", "浮动 HUD"],
+  "avoid": [
+    "真实仪表盘截图",
+    "假代码终端",
+    "赛博朋克霓虹背景",
+    "通用机器人",
+    "浮动 HUD"
+  ],
   "reference_strategy": "纯文本生成",
   "draft_goal": "第一轮验证：层级图主体清晰，ArchUnitNET 工具感可见，4 个信息块可读，极简线稿风格到位",
-  "revision_targets": ["如果信息块文字过密，减少到 3 个", "如果层级图不清晰，改用更明确的箭头指向", "如果背景太空，增加轻量网格或虚线辅助"],
+  "revision_targets": [
+    "如果信息块文字过密，减少到 3 个",
+    "如果层级图不清晰，改用更明确的箭头指向",
+    "如果背景太空，增加轻量网格或虚线辅助"
+  ],
   "final_prompt": "Wide cover illustration, aspect ratio 2.35:1. Editorial technical illustration with minimalist line-art style: sparse clean strokes, ample negative space, precise symbolic objects, limited accent color. Show a Clean Architecture layer diagram (Domain, Application, Infrastructure, Presentation as horizontal bands) with directional arrows enforced by a scanning tool. Four small callout chips in the composition: Chinese labels '依赖混乱' (crossed-out left side), 'ArchUnitNET' (center tool), '5 类守护' (right side list), 'CI 拦截' (bottom green check). Diagonal composition from problem (upper-left, broken arrows) to solution (lower-right, correct arrows + green check). Color palette: dark navy #1A1A2E, clear blue #4A90D9, light gray #F5F5F5, amber #E8B84B. No dashboard, no terminal, no fake chart axes, no English slogans, no watermark, no decorative clutter."
 }

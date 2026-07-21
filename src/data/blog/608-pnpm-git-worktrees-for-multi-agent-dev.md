@@ -82,7 +82,7 @@ git worktree add ./fix-api fix/api-error
 
 ```yaml
 packages:
-  - 'packages/*'
+  - "packages/*"
 
 enableGlobalVirtualStore: true
 ```

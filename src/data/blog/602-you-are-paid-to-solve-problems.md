@@ -2,7 +2,13 @@
 pubDatetime: 2026-03-13T00:34:31+00:00
 title: "AI 把写代码变便宜之后，工程师更值钱的那部分反而更清楚了"
 description: "Milan 这篇文章最值得带走的，不是一句“你不是来写代码的”鸡汤，而是一个越来越现实的判断：当 AI 把实现速度拉满，工程师的核心价值就更集中在问题定义、约束判断、方案取舍和结果验证上。代码依然重要，但它已经越来越像手段，而不是工作的终点。"
-tags: ["AI Coding", "Software Engineering", "Developer Workflow", "Engineering Judgment"]
+tags:
+  [
+    "AI Coding",
+    "Software Engineering",
+    "Developer Workflow",
+    "Engineering Judgment",
+  ]
 slug: "you-are-paid-to-solve-problems"
 ogImage: "../../assets/602/01-cover.png"
 source: "https://newsletter.techworld-with-milan.com/p/youre-not-paid-to-write-code"

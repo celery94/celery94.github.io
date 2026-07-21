@@ -45,10 +45,25 @@
   "selected_style_reason": "随机从 40 项风格池中选中。游戏原画风的「英雄主体突出 + 环境叙事」特质，适合呈现 SKILL.md 作为工具库核心的角色感，画面信息层次清晰，符合教程类封面要求。",
   "style_safety_note": "游戏原画风无强指向特定品牌、工作室或艺术家，直接使用原描述词，无需改写。",
   "allowed_visible_text": ["prompt 漂移", "SKILL.md", "47 skills"],
-  "color_palette": ["深蓝 #1a2744", "金黄 #f5a623", "冷白 #e8ecf4", "橙红 #e84c3d"],
-  "avoid": ["赛博朋克霓虹光污染", "假终端截图", "假架构节点", "通用机器人站姿", "floating chip"],
+  "color_palette": [
+    "深蓝 #1a2744",
+    "金黄 #f5a623",
+    "冷白 #e8ecf4",
+    "橙红 #e84c3d"
+  ],
+  "avoid": [
+    "赛博朋克霓虹光污染",
+    "假终端截图",
+    "假架构节点",
+    "通用机器人站姿",
+    "floating chip"
+  ],
   "reference_strategy": "纯文本生成",
   "draft_goal": "验证「SKILL.md 作为工具库枢纽」的主隐喻是否清晰，信息块布局是否可读，游戏原画风格是否呈现出来",
-  "revision_targets": ["如果 SKILL.md 主体不够突出，增加光源集中在文件上", "如果风格偏向普通 editorial，加强 concept art 细节质感", "如果文字标签不可读，缩减至 2 个"],
+  "revision_targets": [
+    "如果 SKILL.md 主体不够突出，增加光源集中在文件上",
+    "如果风格偏向普通 editorial，加强 concept art 细节质感",
+    "如果文字标签不可读，缩减至 2 个"
+  ],
   "final_prompt": "Wide cover illustration, aspect ratio 2.35:1. Game concept art illustration, clear hero object, readable environment storytelling, polished lighting, production-art detail. Editorial technical illustration style.\n\nScene: A dark deep-blue tech workspace. CENTER: A glowing SKILL.md file document as the hero object, emanating branching arrows to 3-4 workflow nodes (scaffold / review / migrate). LEFT SIDE: faded scattered prompt text fragments labeled '漂移' suggesting disorder. RIGHT SIDE: a clean numbered grid of 47 tool icons, with a small chip reading '47 skills'. BOTTOM: a fork-branch symbol with label 'context: fork' indicating subagent isolation.\n\nColors: deep navy #1a2744 background, golden highlight #f5a623 on the hero SKILL.md, cool white #e8ecf4 for arrows and nodes, accent orange-red #e84c3d for one workflow node.\n\nAllowed visible text (3 items only): '漂移' as a faded label on left, 'SKILL.md' on the hero file, '47 skills' on the right grid chip. No other text.\n\nNo: fake terminal output, no fake dashboard, no fake chart axes, no generic robot figure, no cyberpunk neon pollution, no floating decorative chips, no watermark, no English slogans."
 }

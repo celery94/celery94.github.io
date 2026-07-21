@@ -18,6 +18,7 @@ source: https://www.milanjovanovic.tech/blog/whats-new-in-ef-core-10-leftjoin-an
 在关系型数据库术语中，**LEFT JOIN**（左外连接）是一种连接操作，它会返回左表中的所有行，以及右表中与之匹配的行。当右表中没有匹配的记录时，结果集中右表的列会填充为 `null`。
 
 这种连接方式的应用场景非常广泛。例如：
+
 - 显示所有产品及其评论（即使某些产品没有评论）
 - 列出所有用户及其可选的个人资料设置
 - 展示所有订单及其可能存在的物流信息
@@ -28,7 +29,7 @@ source: https://www.milanjovanovic.tech/blog/whats-new-in-ef-core-10-leftjoin-an
 
 ![左外连接示意图](../../assets/516/left-join-animation.gif)
 
-*图片来源：[Data School](https://dataschool.com/how-to-teach-people-sql/left-right-join-animated/)*
+_图片来源：[Data School](https://dataschool.com/how-to-teach-people-sql/left-right-join-animated/)_
 
 从图中可以看出，左表的所有记录都会保留在结果集中，而右表只有匹配的记录才会出现，未匹配的部分用 null 填充。
 
@@ -60,6 +61,7 @@ var query =
 ```
 
 这段代码的工作流程如下：
+
 1. 使用 `join ... into` 语法创建分组连接
 2. 使用 `from ... in reviewGroup.DefaultIfEmpty()` 确保即使某个产品没有评论，该产品记录也会出现在结果中
 3. 在投影中对可能为 null 的字段使用 null 合并操作符 `??`
@@ -108,6 +110,7 @@ var query = dbContext.Products
 ```
 
 这个实现包含以下步骤：
+
 1. **GroupJoin**：按照连接键对两个集合进行分组，将每个产品与其对应的评论列表关联
 2. **SelectMany + DefaultIfEmpty**：展平分组结果，当某个产品没有评论时，`DefaultIfEmpty` 会插入一个 null 对象，确保该产品仍然出现在结果中
 3. **投影**：创建最终的匿名类型结果，并处理可能的 null 值
@@ -196,6 +199,7 @@ RIGHT JOIN "Products" AS p ON r."ProductId" = p."Id"
 ### 何时使用 RightJoin
 
 使用 `RightJoin` 的典型场景包括：
+
 - 查询逻辑从次要实体开始，但需要保留主要实体的完整性
 - 某些复杂的多表连接中，调换顺序会导致逻辑混乱
 - 维护现有 SQL 查询的语义一致性（如从 SQL 迁移到 LINQ）
@@ -254,14 +258,14 @@ var query = dbContext.Products
 
 ## 与旧方法的对比总结
 
-| 特性 | GroupJoin + DefaultIfEmpty | LeftJoin / RightJoin |
-|------|---------------------------|---------------------|
-| 代码行数 | 较多（需要多步操作） | 较少（一步完成） |
-| 可读性 | 低（需要理解复杂组合） | 高（意图明确） |
-| 学习曲线 | 陡峭 | 平缓 |
-| SQL 生成 | 相同 | 相同 |
-| 支持版本 | EF Core 1.0+ | EF Core 10.0+ |
-| 查询语法支持 | 支持 | 暂不支持 |
+| 特性         | GroupJoin + DefaultIfEmpty | LeftJoin / RightJoin |
+| ------------ | -------------------------- | -------------------- |
+| 代码行数     | 较多（需要多步操作）       | 较少（一步完成）     |
+| 可读性       | 低（需要理解复杂组合）     | 高（意图明确）       |
+| 学习曲线     | 陡峭                       | 平缓                 |
+| SQL 生成     | 相同                       | 相同                 |
+| 支持版本     | EF Core 1.0+               | EF Core 10.0+        |
+| 查询语法支持 | 支持                       | 暂不支持             |
 
 可以看出，新的操作符在保持功能完整性的同时，大幅提升了代码的可读性和可维护性。
 

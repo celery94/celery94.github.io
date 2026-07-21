@@ -39,7 +39,14 @@
   "style_safety_note": "该风格不指向任何品牌、工作室或艺术家，无需安全改写",
   "allowed_visible_text": ["Domain", "4", "155ms"],
   "color_palette": ["#1a1a2e", "#e94560", "#f5f5f5", "#16213e"],
-  "avoid": ["假 dashboard", "假终端输出", "假架构节点名", "赛博朋克紫蓝光", "漂浮芯片", "代码雨"],
+  "avoid": [
+    "假 dashboard",
+    "假终端输出",
+    "假架构节点名",
+    "赛博朋克紫蓝光",
+    "漂浮芯片",
+    "代码雨"
+  ],
   "reference_strategy": "纯文本生成",
   "draft_goal": "第一轮先验证四层同心环构图 + 极简线稿风格是否成立",
   "revision_targets": ["信息块可读性", "线稿风格纯净度", "箭头方向明确性"],

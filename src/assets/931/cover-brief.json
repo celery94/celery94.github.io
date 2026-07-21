@@ -38,10 +38,27 @@
   "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；分镜的序列感和阶段性推进适合表达 MCP 从定义→暴露→调用的流程",
   "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
   "allowed_visible_text": ["定义工具", "协议握手", "Agent 调用"],
-  "color_palette": ["slate blue", "electric teal", "warm amber accent", "dark charcoal"],
-  "avoid": ["水印", "假 UI", "假代码编辑器截图", "假 terminal", "代码雨", "霓虹", "机器人", "英文口号"],
+  "color_palette": [
+    "slate blue",
+    "electric teal",
+    "warm amber accent",
+    "dark charcoal"
+  ],
+  "avoid": [
+    "水印",
+    "假 UI",
+    "假代码编辑器截图",
+    "假 terminal",
+    "代码雨",
+    "霓虹",
+    "机器人",
+    "英文口号"
+  ],
   "reference_strategy": "纯文本生成",
   "draft_goal": "验证从代码定义 → 协议暴露 → Agent 调用的三段叙事是否成立",
-  "revision_targets": ["三段的分镜面板区分不够清晰时加强", "标签太小或模糊时放大"],
+  "revision_targets": [
+    "三段的分镜面板区分不够清晰时加强",
+    "标签太小或模糊时放大"
+  ],
   "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide infographic-story cover illustration. Theme: Building MCP servers and clients in C# - exposing C# methods as MCP tools for AI agents to discover and call.\n\nSummary angle: From C# code methods → exposed as MCP tools via [McpServerTool] → discovered and called by AI agents through MCP Client.\nNarrative flow: 3-beat process. 2.35:1 wide frame.\nInformation blocks:\n- Step (left): C# methods annotated with [McpServerTool] attribute ready to be exposed — label '定义工具', fact '[McpServerTool]'\n- Mechanism (center): MCP Server and Client handshake over JSON-RPC, Client lists available tools — label '协议握手', fact 'JSON-RPC'\n- Takeaway (right): AI agent calling discovered tools through IChatClient — label 'Agent 调用', fact 'IChatClient'\n\nMain metaphor: C# methods traveling across the MCP protocol bridge to become callable AI agent capabilities.\nSubject: A left-to-right flow: C# code methods (left) → MCP Server exposing tools → JSON-RPC protocol bridge → MCP Client discovering tools → AI agent calling them (right).\nComposition: Left-to-right progressive panels.\nStyle: combine editorial technical illustration with selected visual style descriptor: dynamic cinematic storyboard style, sequential panels, camera-motion feeling, strong cuts, clear narrative beats. Stylized, editorial, visually strong. Do not imitate a specific brand, studio, or living artist.\nColor palette: slate blue, electric teal, warm amber accent, dark charcoal.\nVisible text: only 3 Chinese labels: '定义工具', '协议握手', 'Agent 调用'. No poster title, no long sentences, no English slogans.\nConstraints: no watermark, no screenshots, no fake UIs, no fake code editors, no fake terminals, no fabricated metrics.\nAvoid: code rain, neon lighting, robot figures, cyberpunk colors, decorative clutter, fake IDE panels."
 }

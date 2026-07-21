@@ -288,16 +288,16 @@ public async Task<string> AskQuestionAsync(string question)
 
 `Microsoft.Extensions.VectorData` 通过官方连接器支持多种向量数据库：
 
-| 向量存储 | NuGet 包 |
-|---------|---------|
-| Azure AI Search | `Microsoft.Extensions.VectorData.AzureAISearch` |
-| Qdrant | `Microsoft.SemanticKernel.Connectors.Qdrant` |
-| Redis | `Microsoft.SemanticKernel.Connectors.Redis` |
-| PostgreSQL | `Microsoft.SemanticKernel.Connectors.Postgres` |
-| Azure Cosmos DB (NoSQL) | `Microsoft.SemanticKernel.Connectors.AzureCosmosDBNoSQL` |
-| SQL Server | `Microsoft.SemanticKernel.Connectors.SqlServer` |
-| SQLite | `Microsoft.SemanticKernel.Connectors.Sqlite` |
-| In-Memory | `Microsoft.SemanticKernel.Connectors.InMemory`（适合测试和开发） |
+| 向量存储                | NuGet 包                                                         |
+| ----------------------- | ---------------------------------------------------------------- |
+| Azure AI Search         | `Microsoft.Extensions.VectorData.AzureAISearch`                  |
+| Qdrant                  | `Microsoft.SemanticKernel.Connectors.Qdrant`                     |
+| Redis                   | `Microsoft.SemanticKernel.Connectors.Redis`                      |
+| PostgreSQL              | `Microsoft.SemanticKernel.Connectors.Postgres`                   |
+| Azure Cosmos DB (NoSQL) | `Microsoft.SemanticKernel.Connectors.AzureCosmosDBNoSQL`         |
+| SQL Server              | `Microsoft.SemanticKernel.Connectors.SqlServer`                  |
+| SQLite                  | `Microsoft.SemanticKernel.Connectors.Sqlite`                     |
+| In-Memory               | `Microsoft.SemanticKernel.Connectors.InMemory`（适合测试和开发） |
 
 完整的连接器列表（包括 Elasticsearch、MongoDB、Weaviate、Pinecone 等）可以查看[官方文档](https://learn.microsoft.com/semantic-kernel/concepts/vector-store-connectors/out-of-the-box-connectors/?pivots=programming-language-csharp)。
 

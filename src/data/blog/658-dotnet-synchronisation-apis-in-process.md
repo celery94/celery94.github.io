@@ -10,7 +10,7 @@ source: "https://developmentwithadot.blogspot.com/2026/02/net-synchronisation-ap
 
 ![.NET 进程内同步 API](../../assets/658/01-cover.png)
 
-多线程编程里，同步是绕不过去的话题。用不好，轻则数据错乱，重则程序卡死。这篇文章来自 Ricardo Peres 的系列博客 *Development with a Dot*，系统整理了 .NET 进程内（in-process）所有主要的同步原语，并给出分类对照和实用建议。
+多线程编程里，同步是绕不过去的话题。用不好，轻则数据错乱，重则程序卡死。这篇文章来自 Ricardo Peres 的系列博客 _Development with a Dot_，系统整理了 .NET 进程内（in-process）所有主要的同步原语，并给出分类对照和实用建议。
 
 这是该系列第一篇，后续还会覆盖同机器上的跨进程同步和分布式同步。
 
@@ -280,16 +280,16 @@ int first = WaitHandle.WaitAny(mutexes);
 
 ## 分类汇总
 
-| 维度 | 单种模式 | 读写分离 |
-|------|----------|----------|
+| 维度     | 单种模式                                                                           | 读写分离                              |
+| -------- | ---------------------------------------------------------------------------------- | ------------------------------------- |
 | 访问模式 | lock/Lock/Monitor/Mutex/Semaphore/SemaphoreSlim/SpinLock/SpinWait/Event 类/Barrier | ReaderWriterLock/ReaderWriterLockSlim |
 
-| 维度 | 同步 | 异步 |
-|------|------|------|
+| 维度         | 同步                                                                                   | 异步                               |
+| ------------ | -------------------------------------------------------------------------------------- | ---------------------------------- |
 | 是否支持异步 | lock/Monitor/Mutex/Semaphore/ReaderWriterLock/SpinLock/Event 类/CountdownEvent/Barrier | SemaphoreSlim/ReaderWriterLockSlim |
 
-| 维度 | 内核级 | 用户级（托管） |
-|------|--------|---------------|
+| 维度     | 内核级                                                   | 用户级（托管）                                                            |
+| -------- | -------------------------------------------------------- | ------------------------------------------------------------------------- |
 | 运行层级 | Mutex/Semaphore/ReaderWriterLock/Event 类/CountdownEvent | Lock/Monitor/SemaphoreSlim/ReaderWriterLockSlim/SpinLock/SpinWait/Barrier |
 
 ---

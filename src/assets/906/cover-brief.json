@@ -44,11 +44,28 @@
   "selected_style_prompt_descriptor": "youthful campus romance illustration, clean school-life setting, soft backlight, subtle emotional gestures, fresh color palette",
   "selected_style_reason": "用户未指定风格，从 40 项风格池随机选中（#6）；用清新干净的校园美学表现「干净的客户端实例」和「有序的关系管理」",
   "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
-  "allowed_visible_text": ["Socket 耗尽", "DNS 过期", "Handler 池化", "基础/命名/类型化"],
+  "allowed_visible_text": [
+    "Socket 耗尽",
+    "DNS 过期",
+    "Handler 池化",
+    "基础/命名/类型化"
+  ],
   "color_palette": ["软青蓝", "暖米白", "淡珊瑚粉", "柔和灰绿"],
-  "avoid": ["漂浮芯片", "代码雨", "霓虹高楼", "赛博朋克紫蓝光", "假 dashboard", "假终端", "假架构图标签"],
+  "avoid": [
+    "漂浮芯片",
+    "代码雨",
+    "霓虹高楼",
+    "赛博朋克紫蓝光",
+    "假 dashboard",
+    "假终端",
+    "假架构图标签"
+  ],
   "reference_strategy": "纯文本生成",
   "draft_goal": "验证工厂主体 + 左侧问题 / 右侧方案的元素关系是否清晰可读",
-  "revision_targets": ["handler 池化循环的表达是否清楚", "三层模式递进的可读性", "风格与基础设施主题的融合度"],
+  "revision_targets": [
+    "handler 池化循环的表达是否清楚",
+    "三层模式递进的可读性",
+    "风格与基础设施主题的融合度"
+  ],
   "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: IHttpClientFactory solves socket exhaustion and DNS staleness through handler pooling, with three progressive usage patterns. The reader should quickly feel the clear path from broken approaches to the correct solution.\n\nSummary angle: Show the journey from two broken approaches (socket exhaustion from new/dispose, DNS staleness from static singleton) to the single correct IHttpClientFactory solution.\nNarrative flow: before-after. In a 2.35:1 frame, keep one dominant focal subject and 2-4 supporting narrative beats. Each beat must map to the article's information blocks rather than generic decoration.\nInformation blocks:\n- Problem 1: Socket exhaustion — scattered broken connection lines, fading TIME_WAIT socket fragments on the left side, labeled with short Chinese chip 「Socket 耗尽」and number 4min\n- Problem 2: DNS staleness — a rigid pipe stuck to a faded address label, labeled 「DNS 过期」\n- Mechanism: Handler pooling — a central factory/distributor hub in the middle, outputting clean fresh HttpClient objects to the right, with a visible internal handler rotation cycle, labeled 「Handler 池化」with 2min\n- Takeaway: Pattern progression — three-tier steps or pipeline on the right side showing basic → named → typed, labeled 「基础/命名/类型化」\n\nMain metaphor: A factory/assembly-line hub that centrally manages a handler pool and distributes clean client objects.\nSubject: A central factory/distributor, actively distributing fresh HttpClient objects while recycling handlers internally.\nComposition/framing: Single focal center, left problems → center factory → right solution, subtle horizontal progression. Prefer horizontal storytelling that stays legible in a wide cover.\nStyle/medium: combine editorial technical illustration with the selected visual style descriptor: youthful campus romance illustration, clean school-life setting, soft backlight, subtle emotional gestures, fresh color palette. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: soft cyan-blue, warm off-white, light coral pink, muted sage green.\nVisible text policy: allow only 4 short Chinese labels or number chips sourced from the information blocks. Each label <= 6 Chinese characters. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: floating chips, code rain, neon skyscrapers, cyberpunk purple-blue light pollution, fake dashboards, fake terminals, fake architecture labels."
 }

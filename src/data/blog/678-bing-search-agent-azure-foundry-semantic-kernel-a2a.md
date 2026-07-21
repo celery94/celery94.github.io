@@ -201,14 +201,14 @@ class FoundryAgentExecutor(AgentExecutor):
 
 搭建这套方案需要配置以下环境变量：
 
-| 变量名 | 用途 |
-|---|---|
-| `AZURE_OPENAI_API_KEY` | Azure OpenAI API 密钥 |
-| `AZURE_OPENAI_ENDPOINT` | Azure OpenAI 端点 |
-| `AZURE_OPENAI_DEPLOYMENT_NAME` | 模型部署名称 |
-| `AZURE_OPENAI_API_VERSION` | API 版本 |
-| `AZURE_AI_ENDPOINT` | Azure AI Foundry 端点 |
-| `BING_CONNECTION_ID` | Bing Search 连接 ID（Azure AI Studio 中获取） |
+| 变量名                         | 用途                                          |
+| ------------------------------ | --------------------------------------------- |
+| `AZURE_OPENAI_API_KEY`         | Azure OpenAI API 密钥                         |
+| `AZURE_OPENAI_ENDPOINT`        | Azure OpenAI 端点                             |
+| `AZURE_OPENAI_DEPLOYMENT_NAME` | 模型部署名称                                  |
+| `AZURE_OPENAI_API_VERSION`     | API 版本                                      |
+| `AZURE_AI_ENDPOINT`            | Azure AI Foundry 端点                         |
+| `BING_CONNECTION_ID`           | Bing Search 连接 ID（Azure AI Studio 中获取） |
 
 ## 参考
 

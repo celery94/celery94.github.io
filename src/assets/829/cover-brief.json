@@ -46,9 +46,19 @@
   "style_safety_note": "韩漫条漫风不指向特定作者、工作室或平台品牌，无需安全改写",
   "allowed_visible_text": ["1 定义", "2 反射读取", "3 个场景", "缓存"],
   "color_palette": ["靛蓝色", "浅青色", "白色", "暖黄色"],
-  "avoid": ["假终端输出", "假类图 UML", "假 IDE 截图", "漂浮代码雨", "通用机器人"],
+  "avoid": [
+    "假终端输出",
+    "假类图 UML",
+    "假 IDE 截图",
+    "漂浮代码雨",
+    "通用机器人"
+  ],
   "reference_strategy": "纯文本生成",
   "draft_goal": "第一轮验证三步流程的斜向推进构图和模块化色块是否清晰",
-  "revision_targets": ["确保三个步骤模块视觉上可区分", "确保不出现假 UML 类图", "确保信息块标签可读"],
+  "revision_targets": [
+    "确保三个步骤模块视觉上可区分",
+    "确保不出现假 UML 类图",
+    "确保信息块标签可读"
+  ],
   "final_prompt": "Wide cover illustration, aspect ratio 2.35:1. Polished webtoon-inspired rendering adapted to wide cover, clean gradients, sharp geometric shapes, glossy color blocks. Editorial technical illustration type. Diagonal flow composition showing a 3-beat tutorial process from left to right: STEP 1 on the left shows a code element (class or property box) with a tag label being attached to it, label chip '1 定义', indigo blue color block. STEP 2 in the center shows a scanning beam or magnifying glass reading the tags at runtime, label chip '2 反射读取', cyan color block. STEP 3 on the right shows three small scenario icons representing validation checkmark, plugin puzzle piece, and routing arrow, label '3 个场景', warm yellow color block. Small badge at bottom right: '缓存' performance tip chip. Overall diagonal left-to-right flow with arrow connectors between steps. Indigo, cyan, white, warm yellow palette on clean dark background. NO fake UML class diagram, NO fake terminal output, NO fake IDE screenshot, NO code rain, NO floating robot. Wide 2.35:1 cinematic composition."
 }

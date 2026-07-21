@@ -23,12 +23,12 @@ source: "https://www.devleader.ca/2026/04/19/feature-slicing-without-mediatr-in-
 
 不用 MediatR，这两个问题有直接的替代方案：
 
-| MediatR 机制 | 纯 C# 替代 |
-|---|---|
-| `IRequest<T>` + `IRequestHandler<TRequest, TResult>` | 通过 DI 直接注入 handler 类 |
-| `mediator.Send(command)` | `handler.HandleAsync(request)` |
-| `IPipelineBehavior<TRequest, TResult>` | 装饰器模式或中间件 |
-| assembly scan 自动注册 handler | `services.AddScoped<CreateTaskHandler>()` |
+| MediatR 机制                                         | 纯 C# 替代                                |
+| ---------------------------------------------------- | ----------------------------------------- |
+| `IRequest<T>` + `IRequestHandler<TRequest, TResult>` | 通过 DI 直接注入 handler 类               |
+| `mediator.Send(command)`                             | `handler.HandleAsync(request)`            |
+| `IPipelineBehavior<TRequest, TResult>`               | 装饰器模式或中间件                        |
+| assembly scan 自动注册 handler                       | `services.AddScoped<CreateTaskHandler>()` |
 
 代价是：你写的代码会稍微显式一些。换来的是更少的抽象、更简单的依赖图、没有许可证顾虑。
 

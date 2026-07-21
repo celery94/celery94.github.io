@@ -252,7 +252,7 @@ public async Task<IActionResult> GetOrderById(
     CancellationToken cancellationToken)
 {
     var response = await handler.HandleAsync(id, cancellationToken);
-    
+
     if (response is null)
     {
         return NotFound();
@@ -263,8 +263,8 @@ public async Task<IActionResult> GetOrderById(
         linkService.Create(nameof(CreateOrder), "create", HttpMethods.Post),
         linkService.Create(nameof(UpdateOrder), "update", HttpMethods.Put, new { id }),
         linkService.Create(nameof(DeleteOrder), "delete", HttpMethods.Delete, new { id }),
-        linkService.Create(nameof(OrderItemsController.AddItemToOrder), "add-item", 
-            HttpMethods.Post, new { orderId = id }, 
+        linkService.Create(nameof(OrderItemsController.AddItemToOrder), "add-item",
+            HttpMethods.Post, new { orderId = id },
             nameof(OrderItemsController).Replace("Controller", ""))
     ];
 
@@ -296,18 +296,18 @@ public async Task<IActionResult> GetOrderItemById(
     CancellationToken cancellationToken)
 {
     var response = await handler.HandleAsync(orderId, itemId, cancellationToken);
-    
+
     if (response is null)
     {
         return NotFound();
     }
 
     response.Links = [
-        linkService.Create(nameof(GetOrderItemById), "self", 
+        linkService.Create(nameof(GetOrderItemById), "self",
             HttpMethods.Get, new { orderId, itemId }),
-        linkService.Create(nameof(UpdateOrderItem), "update", 
+        linkService.Create(nameof(UpdateOrderItem), "update",
             HttpMethods.Put, new { orderId, itemId }),
-        linkService.Create(nameof(DeleteOrderItem), "delete", 
+        linkService.Create(nameof(DeleteOrderItem), "delete",
             HttpMethods.Delete, new { orderId, itemId })
     ];
 
@@ -378,24 +378,24 @@ response.Links = [
 // 只有订单处于待处理状态时才允许更新
 if (response.Status == OrderStatus.Pending)
 {
-    response.Links.Add(linkService.Create(nameof(UpdateOrder), "update", 
+    response.Links.Add(linkService.Create(nameof(UpdateOrder), "update",
         HttpMethods.Put, new { id }));
-    response.Links.Add(linkService.Create(nameof(DeleteOrder), "cancel", 
+    response.Links.Add(linkService.Create(nameof(DeleteOrder), "cancel",
         HttpMethods.Delete, new { id }));
 }
 
 // 只有订单已支付时才允许发货
 if (response.Status == OrderStatus.Paid)
 {
-    response.Links.Add(linkService.Create(nameof(ShipOrder), "ship", 
+    response.Links.Add(linkService.Create(nameof(ShipOrder), "ship",
         HttpMethods.Post, new { id }));
 }
 
 // 除非已发货或已取消，否则始终允许添加项目
 if (response.Status != OrderStatus.Shipped && response.Status != OrderStatus.Cancelled)
 {
-    response.Links.Add(linkService.Create(nameof(OrderItemsController.AddItemToOrder), 
-        "add-item", HttpMethods.Post, new { orderId = id }, 
+    response.Links.Add(linkService.Create(nameof(OrderItemsController.AddItemToOrder),
+        "add-item", HttpMethods.Post, new { orderId = id },
         nameof(OrderItemsController).Replace("Controller", "")));
 }
 ```
@@ -410,11 +410,11 @@ if (response.Status != OrderStatus.Shipped && response.Status != OrderStatus.Can
 
 ```javascript
 // 前端重复业务逻辑
-if (order.status === 'Pending') {
-    showUpdateButton();
-    showCancelButton();
-} else if (order.status === 'Paid') {
-    showShipButton();
+if (order.status === "Pending") {
+  showUpdateButton();
+  showCancelButton();
+} else if (order.status === "Paid") {
+  showShipButton();
 }
 ```
 
@@ -422,12 +422,12 @@ if (order.status === 'Pending') {
 
 ```javascript
 // 前端只检查链接
-if (order.links.find(l => l.rel === 'update')) {
-    showUpdateButton();
+if (order.links.find(l => l.rel === "update")) {
+  showUpdateButton();
 }
 
-if (order.links.find(l => l.rel === 'ship')) {
-    showShipButton();
+if (order.links.find(l => l.rel === "ship")) {
+  showShipButton();
 }
 ```
 
@@ -441,66 +441,69 @@ if (order.links.find(l => l.rel === 'ship')) {
 
 ```tsx
 // components/OrderItemRow.tsx
-import React from 'react';
-import { OrderItem } from '../types/api';
-import { hasLink, findLink } from '../utils/linkHelper';
-import { apiClient } from '../services/apiClient';
+import React from "react";
+import { OrderItem } from "../types/api";
+import { hasLink, findLink } from "../utils/linkHelper";
+import { apiClient } from "../services/apiClient";
 
 interface OrderItemRowProps {
-    item: OrderItem;
-    onUpdate: () => void;
+  item: OrderItem;
+  onUpdate: () => void;
 }
 
-export const OrderItemRow: React.FC<OrderItemRowProps> = ({ item, onUpdate }) => {
-    const handleUpdateQuantity = async () => {
-        const updateLink = findLink(item.links, 'update');
-        if (!updateLink) return;
+export const OrderItemRow: React.FC<OrderItemRowProps> = ({
+  item,
+  onUpdate,
+}) => {
+  const handleUpdateQuantity = async () => {
+    const updateLink = findLink(item.links, "update");
+    if (!updateLink) return;
 
-        const newQuantity = prompt('Enter new quantity:', item.quantity.toString());
-        if (!newQuantity) return;
+    const newQuantity = prompt("Enter new quantity:", item.quantity.toString());
+    if (!newQuantity) return;
 
-        try {
-            await apiClient.followLink(updateLink, {
-                quantity: parseInt(newQuantity),
-            });
-            onUpdate();
-        } catch (err) {
-            alert('Failed to update item');
-        }
-    };
+    try {
+      await apiClient.followLink(updateLink, {
+        quantity: parseInt(newQuantity),
+      });
+      onUpdate();
+    } catch (err) {
+      alert("Failed to update item");
+    }
+  };
 
-    const handleDelete = async () => {
-        const deleteLink = findLink(item.links, 'delete');
-        if (!deleteLink) return;
+  const handleDelete = async () => {
+    const deleteLink = findLink(item.links, "delete");
+    if (!deleteLink) return;
 
-        if (!confirm('Remove this item?')) return;
+    if (!confirm("Remove this item?")) return;
 
-        try {
-            await apiClient.followLink(deleteLink);
-            onUpdate();
-        } catch (err) {
-            alert('Failed to remove item');
-        }
-    };
+    try {
+      await apiClient.followLink(deleteLink);
+      onUpdate();
+    } catch (err) {
+      alert("Failed to remove item");
+    }
+  };
 
-    return (
-        <div className="order-item-row">
-            <div className="item-info">
-                <span className="product-name">{item.productName}</span>
-                <span className="quantity">Qty: {item.quantity}</span>
-                <span className="price">${item.unitPrice.toFixed(2)}</span>
-                <span className="total">${item.lineTotal.toFixed(2)}</span>
-            </div>
-            <div className="item-actions">
-                {hasLink(item.links, 'update') && (
-                    <button onClick={handleUpdateQuantity}>Update</button>
-                )}
-                {hasLink(item.links, 'delete') && (
-                    <button onClick={handleDelete}>Remove</button>
-                )}
-            </div>
-        </div>
-    );
+  return (
+    <div className="order-item-row">
+      <div className="item-info">
+        <span className="product-name">{item.productName}</span>
+        <span className="quantity">Qty: {item.quantity}</span>
+        <span className="price">${item.unitPrice.toFixed(2)}</span>
+        <span className="total">${item.lineTotal.toFixed(2)}</span>
+      </div>
+      <div className="item-actions">
+        {hasLink(item.links, "update") && (
+          <button onClick={handleUpdateQuantity}>Update</button>
+        )}
+        {hasLink(item.links, "delete") && (
+          <button onClick={handleDelete}>Remove</button>
+        )}
+      </div>
+    </div>
+  );
 };
 ```
 
@@ -510,26 +513,29 @@ export const OrderItemRow: React.FC<OrderItemRowProps> = ({ item, onUpdate }) =>
 
 ```tsx
 // hooks/useHateoas.ts
-import { Link } from '../types/api';
-import { useMemo } from 'react';
+import { Link } from "../types/api";
+import { useMemo } from "react";
 
 export const useHateoas = (links: Link[]) => {
-    const linkMap = useMemo(() => {
-        return links.reduce((acc, link) => {
-            acc[link.rel] = link;
-            return acc;
-        }, {} as Record<string, Link>);
-    }, [links]);
+  const linkMap = useMemo(() => {
+    return links.reduce(
+      (acc, link) => {
+        acc[link.rel] = link;
+        return acc;
+      },
+      {} as Record<string, Link>
+    );
+  }, [links]);
 
-    const hasAction = (rel: string): boolean => {
-        return rel in linkMap;
-    };
+  const hasAction = (rel: string): boolean => {
+    return rel in linkMap;
+  };
 
-    const getLink = (rel: string): Link | undefined => {
-        return linkMap[rel];
-    };
+  const getLink = (rel: string): Link | undefined => {
+    return linkMap[rel];
+  };
 
-    return { hasAction, getLink, links };
+  return { hasAction, getLink, links };
 };
 ```
 
@@ -537,24 +543,22 @@ export const useHateoas = (links: Link[]) => {
 
 ```tsx
 export const OrderDetail: React.FC<OrderDetailProps> = ({ orderId }) => {
-    const [order, setOrder] = useState<Order | null>(null);
-    const { hasAction, getLink } = useHateoas(order?.links || []);
+  const [order, setOrder] = useState<Order | null>(null);
+  const { hasAction, getLink } = useHateoas(order?.links || []);
 
-    // ... 其他代码 ...
+  // ... 其他代码 ...
 
-    return (
-        <div className="order-actions">
-            {hasAction('update') && (
-                <button onClick={handleUpdate}>Update Order</button>
-            )}
-            {hasAction('delete') && (
-                <button onClick={handleDelete}>Cancel Order</button>
-            )}
-            {hasAction('ship') && (
-                <button onClick={handleShip}>Ship Order</button>
-            )}
-        </div>
-    );
+  return (
+    <div className="order-actions">
+      {hasAction("update") && (
+        <button onClick={handleUpdate}>Update Order</button>
+      )}
+      {hasAction("delete") && (
+        <button onClick={handleDelete}>Cancel Order</button>
+      )}
+      {hasAction("ship") && <button onClick={handleShip}>Ship Order</button>}
+    </div>
+  );
 };
 ```
 

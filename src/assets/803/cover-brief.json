@@ -29,12 +29,7 @@
   "comic_style": "japanese-manga",
   "comic_style_reason": "文章类型为 release（版本发布记录），默认选 japanese-manga；分镜布局适合展示版本演进时间轴",
   "color_palette": "黑白主调 + 少量青色 / 绿色高亮标注版本号节点",
-  "allowed_text": [
-    "NET 6",
-    "NET 9",
-    "NET 10",
-    "LINQ"
-  ],
+  "allowed_text": ["NET 6", "NET 9", "NET 10", "LINQ"],
   "forbidden_elements": [
     "假 dashboard",
     "假终端输出",

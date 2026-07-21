@@ -47,8 +47,7 @@ $custom-typography: mat.define-typography-config(
   $font-family: "Roboto, sans-serif",
   $headline-1: mat.define-typography-level(32px, 48px, 700),
   $headline-2: mat.define-typography-level(24px, 36px, 500),
-  $body-1: mat.define-typography-level(16px, 24px, 400),
-  // 更多自定义设置...
+  $body-1: mat.define-typography-level(16px, 24px, 400), // 更多自定义设置...
 );
 
 // 创建主题

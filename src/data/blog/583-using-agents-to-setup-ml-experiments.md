@@ -2,7 +2,8 @@
 pubDatetime: 2026-03-09
 title: "用 Agent 自动化搭建机器学习实验"
 description: "微软 ISE 团队分享了如何用 GitHub Copilot Agent 替代繁琐的 ML 实验配置流程：通过四段式 Prompt 驱动 Agent 收集参数、生成配置文件、执行校验清单，实验搭建速度和可靠性大幅提升，同时揭示了模型选择、用户沟通等实际挑战。"
-tags: ["AI", "Agents", "GitHub Copilot", "Machine Learning", "Prompt Engineering"]
+tags:
+  ["AI", "Agents", "GitHub Copilot", "Machine Learning", "Prompt Engineering"]
 slug: "using-agents-to-setup-ml-experiments"
 source: "https://devblogs.microsoft.com/ise/using-agents-to-setup-experiments"
 ---

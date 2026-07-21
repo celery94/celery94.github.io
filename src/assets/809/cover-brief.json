@@ -44,9 +44,20 @@
   "comic_style_reason": "architecture 类型，叙事方向是左到右流程推进（定义→持久化→并行→云端），符合 japanese-manga 的分镜节奏；三段式 + 四格布局与漫画分镜天然契合",
   "allowed_visible_text": ["定义流程", "持久化", "并行 AI", "云+MCP"],
   "color_palette": ["#1a1a2e", "#16213e", "#0f3460", "#e94560"],
-  "avoid": ["伪造终端输出", "假 dashboard 截图", "假图表坐标", "通用机器人站姿", "霓虹高楼背景", "赛博朋克紫蓝光污染"],
+  "avoid": [
+    "伪造终端输出",
+    "假 dashboard 截图",
+    "假图表坐标",
+    "通用机器人站姿",
+    "霓虹高楼背景",
+    "赛博朋克紫蓝光污染"
+  ],
   "reference_strategy": "纯文本生成",
   "draft_goal": "第一轮先验证四格分镜布局、工作流节点-箭头主视觉、日漫线条风格是否成立",
-  "revision_targets": ["如果节点太模糊改清晰", "如果文字太多精简标签", "如果构图拥挤则减少细节"],
+  "revision_targets": [
+    "如果节点太模糊改清晰",
+    "如果文字太多精简标签",
+    "如果构图拥挤则减少细节"
+  ],
   "final_prompt": "Wide cover illustration, aspect ratio 2.35:1. Japanese manga style: clean ink lines, speed lines, limited color palette (dark navy, red accent), panel gutters. Four-panel comic strip layout from left to right, each panel showing one stage of a software workflow evolution. Panel 1 (定义流程): three rectangles labeled as nodes connected by arrows forming a simple left-to-right pipeline. Panel 2 (持久化): same pipeline with checkpoint stamp icons on each node, DTS storage layer beneath. Panel 3 (并行 AI): center node splits into two parallel AI agent branches then merges at aggregator node. Panel 4 (云+MCP): cloud icon above the workflow with HTTP arrow and MCP badge. Minimal visible Chinese short labels: 定义流程, 持久化, 并行AI, 云+MCP. No fake terminal output, no dashboard screenshots, no chart axes, no watermark. Clean manga ink lines, monochrome with red highlights."
 }

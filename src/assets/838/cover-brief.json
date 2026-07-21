@@ -39,7 +39,13 @@
   "style_safety_note": "该风格不指向特定品牌、工作室或艺术家，无需安全改写",
   "allowed_visible_text": ["密钥泄漏", "托管标识", "8"],
   "color_palette": ["白色", "深蓝", "浅灰", "红色点缀"],
-  "avoid": ["假 Azure Portal 截图", "假终端输出", "假 dashboard", "赛博朋克霓虹", "无关机器人"],
+  "avoid": [
+    "假 Azure Portal 截图",
+    "假终端输出",
+    "假 dashboard",
+    "赛博朋克霓虹",
+    "无关机器人"
+  ],
   "reference_strategy": "纯文本生成",
   "draft_goal": "验证左右对照（密钥 vs 标识）的视觉隐喻是否清晰",
   "revision_targets": ["线稿精度", "左右对比的可读性", "8 步清单信息块"],

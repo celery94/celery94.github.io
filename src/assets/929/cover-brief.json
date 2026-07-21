@@ -39,7 +39,17 @@
   "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
   "allowed_visible_text": ["手动散乱", "拦截自动", "审计完整"],
   "color_palette": ["black", "white", "warm paper off-white"],
-  "avoid": ["水印", "假 UI 截图", "假代码编辑器", "假数据库界面", "假 terminal", "代码雨", "英文口号", "长句标题", "霓虹灯光"],
+  "avoid": [
+    "水印",
+    "假 UI 截图",
+    "假代码编辑器",
+    "假数据库界面",
+    "假 terminal",
+    "代码雨",
+    "英文口号",
+    "长句标题",
+    "霓虹灯光"
+  ],
   "reference_strategy": "纯文本生成",
   "draft_goal": "验证从散乱到拦截再到完整的三个信息块是否可辨认",
   "revision_targets": ["拦截层不够突出时强化", "标签太小或模糊时放大"],

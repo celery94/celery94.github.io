@@ -85,7 +85,7 @@ export OPENAI_API_KEY='your-key-here'
 接下来搭建 PostgreSQL。如果尚未安装，可以从官网下载，也可以使用 Docker 简化安装。一个简单的 `docker-compose.yml` 配置如下：
 
 ```yaml
-version: '3'
+version: "3"
 services:
   db:
     image: ankane/pgvector

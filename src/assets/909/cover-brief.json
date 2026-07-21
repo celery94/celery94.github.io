@@ -44,11 +44,28 @@
   "selected_style_prompt_descriptor": "children's fairy-tale illustration, simple magical forms, friendly proportions, bright storybook palette, safe wonder",
   "selected_style_reason": "用户未指定风格，从 40 项风格池随机选中（#40）；童话风格可以软化架构对比文章的技术冷感，用亲切的「信使传递消息」隐喻表达 agent 间通信",
   "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
-  "allowed_visible_text": ["上下文断裂", "3 种方案", "内嵌上下文", "无状态优先"],
+  "allowed_visible_text": [
+    "上下文断裂",
+    "3 种方案",
+    "内嵌上下文",
+    "无状态优先"
+  ],
   "color_palette": ["温暖蜜橘", "柔和天蓝", "奶油白", "淡草绿"],
-  "avoid": ["假终端", "假 dashboard", "代码雨", "赛博朋克紫蓝光", "漂浮芯片", "霓虹高楼", "HUD 浮层"],
+  "avoid": [
+    "假终端",
+    "假 dashboard",
+    "代码雨",
+    "赛博朋克紫蓝光",
+    "漂浮芯片",
+    "霓虹高楼",
+    "HUD 浮层"
+  ],
   "reference_strategy": "纯文本生成",
   "draft_goal": "验证 coordinator→message→domain agent 的三段通信结构是否清楚",
-  "revision_targets": ["agent 间消息传递的可读性", "童话风格与架构主题的融合", "内嵌上下文的视觉表达"],
+  "revision_targets": [
+    "agent 间消息传递的可读性",
+    "童话风格与架构主题的融合",
+    "内嵌上下文的视觉表达"
+  ],
   "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide infographic-story cover illustration. Theme: Passing context between agents in multi-agent A2A systems — three approaches compared. Summary angle: From broken context across microservice boundaries to the embedded context pattern with summarized conversation history. Narrative flow: 3-beat process. In a 2.35:1 frame, keep one dominant focal subject and 3-4 supporting narrative beats.\nInformation blocks:\n- Problem: Broken context line between two independently deployed agents on the left, labeled broken-context\n- Contrast: Three parallel paths or boxes in the center showing the three approaches (shared storage, embedded context, per-agent state), labeled 3-approaches with number 3\n- Mechanism: Coordinator node sending a message with embedded context to a stateless domain agent, labeled embedded-context with 10-turns\n- Takeaway: Decision matrix or flow pointing to the stateless-first recommendation, labeled stateless-first\n\nMain metaphor: A messenger delivery system — the coordinator packages context into an envelope (message payload), the domain agent just opens the envelope and reads, no external storage needed.\nSubject: A coordinator agent node sending a context-wrapped message to a domain agent node.\nComposition: Left-right structure: coordinator packaging on the left, message pipeline in the center, domain agent receiving on the right.\nStyle/medium: combine isometric conceptual systems scene with children's fairy-tale illustration, simple magical forms, friendly proportions, bright storybook palette, safe wonder. Stylized, polished, editorial. Do not imitate a specific brand, studio, or living artist.\nColor palette: warm tangerine, soft sky blue, cream white, pale grass green.\nVisible text policy: allow only 4 short Chinese labels or number chips. No poster title, no long sentences, no English slogans, no fake UI labels, no fake architecture node names.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no unrelated icon collage.\nAvoid: fake terminals, fake dashboards, code rain, cyberpunk purple-blue light, floating chips, neon skyscrapers, HUD overlays."
 }

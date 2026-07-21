@@ -37,9 +37,20 @@
   "comic_style_reason": "tutorial 类型，叙事是'旧写法三步 vs 新 API 一行'的前后对比，适合日漫分镜节奏：左格旧写法苦恼，右格新 API 清爽，推进感强",
   "allowed_visible_text": ["内连接", "LeftJoin", ".NET 10", "位置配对"],
   "color_palette": ["深靛蓝", "白/浅灰", "墨线黑", "强调紫"],
-  "avoid": ["假终端截图", "假代码雨", "霓虹赛博朋克背景", "浮动UI芯片", "机器人站姿", "漫画主角与主题无关"],
+  "avoid": [
+    "假终端截图",
+    "假代码雨",
+    "霓虹赛博朋克背景",
+    "浮动UI芯片",
+    "机器人站姿",
+    "漫画主角与主题无关"
+  ],
   "reference_strategy": "纯文本生成",
   "draft_goal": "验证左右分镜对比构图、程序员主体动作、以及内连接/LeftJoin/位置配对三个信息块是否清晰可读",
-  "revision_targets": ["如果分镜文字太多改短标签", "如果程序员形象过于卡通化则强化墨线风格", "如果背景干扰主体则简化为纯色/网格"],
+  "revision_targets": [
+    "如果分镜文字太多改短标签",
+    "如果程序员形象过于卡通化则强化墨线风格",
+    "如果背景干扰主体则简化为纯色/网格"
+  ],
   "final_prompt": "Wide cover illustration, aspect ratio 2.35:1. Japanese manga style: clean ink lines, limited color (deep indigo, white, black ink, accent purple), panel-based composition. TWO-PANEL left-right contrast layout divided by a bold panel gutter. LEFT PANEL (before): a manga programmer character looks stressed, tangled in three chained pipe connectors labeled '内连接' -- three steps, messy wires, frustrated expression. RIGHT PANEL (after): same programmer relaxed and confident, holding one clean connector labeled 'LeftJoin' with '.NET 10' chip badge, single streamlined pipe. Between panels a bold arrow indicating transformation. Bottom-left small panel shows a zipper-like pairing labeled '位置配对'. Speed lines suggest transition from old to new. No fake terminal output, no dashboard, no UI screenshot, no floating code rain, no hero text, no English slogans."
 }

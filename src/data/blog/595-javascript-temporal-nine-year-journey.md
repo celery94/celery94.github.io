@@ -111,7 +111,7 @@ const now = Temporal.Now.zonedDateTimeISO();
 ```js
 // 伦敦夏令时开始：2026-03-29 01:00 → 02:00
 const zdt = Temporal.ZonedDateTime.from(
-  "2026-03-29T00:30:00+00:00[Europe/London]",
+  "2026-03-29T00:30:00+00:00[Europe/London]"
 );
 
 const plus1h = zdt.add({ hours: 1 });

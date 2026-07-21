@@ -180,12 +180,12 @@ Console.WriteLine(value); // 输出：Hello world!
 
 `[UnsafeAccessorType]` 中的类型名称遵循 `Type.GetType()` 的命名规范，需要包含完整的命名空间和程序集信息。对于泛型和嵌套类，需要特殊的格式：
 
-| 场景 | 格式示例 |
-|------|---------|
-| 简单类型 | `"PrivateLib.Class1, PrivateLib"` |
-| 泛型类型 | `"PrivateLib.GenericClass\`1[[!0]], PrivateLib"` |
-| 嵌套类型 | `"PrivateLib.OuterClass+InnerClass, PrivateLib"` |
-| 开放泛型 | `!0` 代表类型参数，`!!0` 代表方法泛型参数 |
+| 场景             | 格式示例                                                                |
+| ---------------- | ----------------------------------------------------------------------- |
+| 简单类型         | `"PrivateLib.Class1, PrivateLib"`                                       |
+| 泛型类型         | `"PrivateLib.GenericClass\`1[[!0]], PrivateLib"`                        |
+| 嵌套类型         | `"PrivateLib.OuterClass+InnerClass, PrivateLib"`                        |
+| 开放泛型         | `!0` 代表类型参数，`!!0` 代表方法泛型参数                               |
 | List<T> 闭合泛型 | `"System.Collections.Generic.List\`1[[PrivateLib.Class1, PrivateLib]]"` |
 
 ### 复杂场景实战演示
@@ -227,7 +227,7 @@ public extern static bool CallGenericClassGenericWithConstraints<V, W>(
 实际基准测试（来自 .NET 团队）显示：
 
 - 传统反射：~500-1000 ns per call
-- [UnsafeAccessor]（直接引用类型）：~10-20 ns per call  
+- [UnsafeAccessor]（直接引用类型）：~10-20 ns per call
 - [UnsafeAccessor]（字符串指定类型）：~15-25 ns per call
 
 性能差异高达 **20-50 倍**，这对高频调用场景至关重要。

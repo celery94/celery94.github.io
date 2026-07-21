@@ -44,7 +44,13 @@
   "comic_style_reason": "architecture 类型，叙事是流程推进（单体→模块化单体→微服务），左到右三步推进，选 japanese-manga",
   "allowed_visible_text": ["过早拆分", "模块化单体", "痛点驱动"],
   "color_palette": ["#1a1a2e", "#16213e", "#e94560", "#f5a623"],
-  "avoid": ["假架构图标签", "假仪表板", "UI截图", "霓虹科技背景", "超级英雄海报风格"],
+  "avoid": [
+    "假架构图标签",
+    "假仪表板",
+    "UI截图",
+    "霓虹科技背景",
+    "超级英雄海报风格"
+  ],
   "reference_strategy": "纯文本生成",
   "draft_goal": "验证三阶段演进主线清楚、主体明确、漫画分镜风格成立",
   "revision_targets": ["信息块可读性", "构图方向清晰度", "漫画叙事感"],

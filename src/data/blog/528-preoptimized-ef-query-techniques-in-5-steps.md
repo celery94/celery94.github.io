@@ -60,7 +60,7 @@ var blogs = context.Blogs.ToList();
 foreach (var blog in blogs)
 {
     // N 次查询：每次访问 Posts 都会触发数据库调用
-    var posts = blog.Posts; 
+    var posts = blog.Posts;
 
     foreach (var post in posts)
     {
@@ -89,9 +89,9 @@ foreach (var blog in blogs)
 
 **关键点：**
 
-*   **Include 方法**：告诉 EF Core 在初始查询中就加载相关的 `Posts`。
-*   **单一查询执行**：`context.Blogs.Include(b => b.Posts).ToList()` 会生成并执行一条包含 JOIN 的 SQL 语句，一次性取回所有数据。
-*   **简化逻辑**：代码意图更明确，即我们需要博客及其文章。
+- **Include 方法**：告诉 EF Core 在初始查询中就加载相关的 `Posts`。
+- **单一查询执行**：`context.Blogs.Include(b => b.Posts).ToList()` 会生成并执行一条包含 JOIN 的 SQL 语句，一次性取回所有数据。
+- **简化逻辑**：代码意图更明确，即我们需要博客及其文章。
 
 ## 3. 使用 .AsNoTracking()
 
@@ -113,8 +113,8 @@ var products = context.Products
 
 **注意事项：**
 
-*   **不适用于 CUD 操作**：如果你计划更新 (Update)、删除 (Delete) 实体，不要使用 `AsNoTracking`，因为 EF Core 需要追踪实体状态才能将更改保存回数据库。
-*   **最适合无状态操作**：例如 API 的 GET 请求，通常只需要返回数据给客户端，不需要在当前上下文中保持实体状态。
+- **不适用于 CUD 操作**：如果你计划更新 (Update)、删除 (Delete) 实体，不要使用 `AsNoTracking`，因为 EF Core 需要追踪实体状态才能将更改保存回数据库。
+- **最适合无状态操作**：例如 API 的 GET 请求，通常只需要返回数据给客户端，不需要在当前上下文中保持实体状态。
 
 ## 4. 避免笛卡尔积爆炸 (Cartesian Explosion)
 
@@ -130,7 +130,7 @@ var query = from a in context.Authors
             from b in context.Books
             select new { a.Name, b.Title };
 
-var results = query.ToList(); 
+var results = query.ToList();
 ```
 
 在这个查询中，我们错误地将**每个**作者与**每本**书进行了组合（Cross Join），无论这本书是否由该作者编写。如果作者有 100 人，书有 1000 本，结果将是 100,000 条记录。
@@ -148,9 +148,9 @@ var results = query.ToList();
 
 **影响：**
 
-*   **性能下降**：数据库需要处理海量数据，查询变慢。
-*   **资源密集**：消耗大量 CPU 和内存。
-*   **结果不准确**：结果中充斥着重复或无关的数据，毫无意义。
+- **性能下降**：数据库需要处理海量数据，查询变慢。
+- **资源密集**：消耗大量 CPU 和内存。
+- **结果不准确**：结果中充斥着重复或无关的数据，毫无意义。
 
 ## 5. 使用 AsSplitQuery()
 
@@ -181,8 +181,8 @@ var authors = context.Authors
 
 **收益与权衡：**
 
-*   **收益**：避免了 JOIN 带来的数据冗余，减少了内存开销，对于包含大型集合的查询，执行计划通常更高效。
-*   **权衡**：会导致更多的数据库往返次数 (Round-Trips)。在数据库延迟较高的环境中需要权衡使用。它并不总是最好的选择，但在特定的大数据量场景下非常有效。
+- **收益**：避免了 JOIN 带来的数据冗余，减少了内存开销，对于包含大型集合的查询，执行计划通常更高效。
+- **权衡**：会导致更多的数据库往返次数 (Round-Trips)。在数据库延迟较高的环境中需要权衡使用。它并不总是最好的选择，但在特定的大数据量场景下非常有效。
 
 ## 总结
 
@@ -191,5 +191,7 @@ var authors = context.Authors
 除了这些，还有很多其他的最佳实践值得学习，但这 5 点是迈向高性能 EF Core 之旅的坚实第一步。
 
 ---
+
 **参考资料：**
-*   [Pre-Optimized EF Query Techniques 5 Steps to Success](https://thecodeman.net/posts/preoptimized-ef-query-techniques-5-steps-to-success)
+
+- [Pre-Optimized EF Query Techniques 5 Steps to Success](https://thecodeman.net/posts/preoptimized-ef-query-techniques-5-steps-to-success)

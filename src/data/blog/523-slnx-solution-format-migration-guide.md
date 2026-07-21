@@ -141,7 +141,7 @@ dotnet sln MySolution.sln migrate
 
 1. 在 Solution Explorer 选中解决方案节点。
 2. 进入 **File → Save Solution As…**。
-3. 在文件类型中选择 **XML Solution File (*.slnx)**。
+3. 在文件类型中选择 **XML Solution File (\*.slnx)**。
 
 这种方式的优势是对“非纯 .NET”解决方案也更友好（例如混合 C++/JS/TS 等项目类型的仓库）。
 

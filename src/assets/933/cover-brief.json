@@ -39,9 +39,20 @@
   "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
   "allowed_visible_text": ["1行=10端点", "非JWT", "自建JWT"],
   "color_palette": ["深蓝", "暖橙", "炭灰"],
-  "avoid": ["漂浮芯片", "代码雨", "霓虹高楼", "机器人站姿", "假仪表盘", "假终端输出"],
+  "avoid": [
+    "漂浮芯片",
+    "代码雨",
+    "霓虹高楼",
+    "机器人站姿",
+    "假仪表盘",
+    "假终端输出"
+  ],
   "reference_strategy": "纯文本生成",
   "draft_goal": "第一轮先验证三岔路口隐喻是否成立、叙事信息块是否可读、高对比电影风格是否到位",
-  "revision_targets": ["信息块标签太大像海报标题", "光影过于扁平缺少电影感", "岔路结构不够清楚"],
+  "revision_targets": [
+    "信息块标签太大像海报标题",
+    "光影过于扁平缺少电影感",
+    "岔路结构不够清楚"
+  ],
   "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: MapIdentityApi adds 10 auth endpoints with one line but the token is not JWT — the trade-off decision between fast setup and scalable architecture. The reader should quickly feel the weight of choosing between three auth paths in .NET.\n\nSummary angle: One line gives you 10 endpoints vs the token is not a real JWT — two paths converging at a fork, choose right to actually save time.\nNarrative flow: conflict-to-resolution. In a 2.35:1 frame, keep one dominant focal subject and 2-4 supporting narrative beats. Each beat must map to the article's information blocks rather than generic decoration.\nInformation blocks:\n- mechanism: MapIdentityApi adds ten endpoints with a single call (1行=10端点, number: 10)\n- contrast: The tokens are opaque, not JWTs — no second service can validate them (非JWT)\n- solution: Keep Identity for user store, write custom login endpoint that issues real signed JWT (自建JWT)\n\nMain metaphor: A three-way fork in the road representing the auth architecture decision — left path is fast MapIdentityApi, right path is custom JWT, a third elevated path hints at OIDC Provider.\nSubject: An abstract three-way directional signpost or path marker at a crossroads, each direction labeled with a different technical path.\nComposition/framing: single focal point with the signpost as the dominant subject, three branches extending naturally, horizontally legible in a wide cover. Prefer horizontal storytelling that stays legible in a wide cover.\nStyle/medium: combine editorial technical illustration with the selected visual style descriptor: high-contrast cinematic illustration, strong key light, deep shadows, wide-screen composition, dramatic but realistic color grading. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: deep blue, warm orange, charcoal gray.\nVisible text policy: allow only 1-3 short Chinese labels or number chips by default, and no more than 4 when strictly necessary, all sourced from the information blocks. Each label <= 6 Chinese characters or one required product/model name. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: floating chips, code rain, neon skyscrapers, generic robot poses, fake dashboards, fake terminal output."
 }

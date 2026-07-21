@@ -2,7 +2,8 @@
 pubDatetime: 2026-03-13T02:50:22+00:00
 title: "当 Agent 真要落到生产里，难点就不再是会不会聊天，而是这四层怎么接起来：Framework、Foundry、MCP、Aspire"
 description: "Microsoft 这篇 Interview Coach 实战文真正有价值的地方，不是又做了一个能对话的 agent demo，而是把生产化 agent 应用常见的四层拼图摊开了：Agent Framework 负责 agent 逻辑与编排，Foundry 负责模型与治理后端，MCP 负责工具边界，Aspire 负责多服务编排与部署。它讲清楚的，其实是 agent 从 demo 走向系统时，责任该怎么分层。"
-tags: ["AI Agents", "Microsoft Agent Framework", "MCP", "Aspire", "Azure Foundry"]
+tags:
+  ["AI Agents", "Microsoft Agent Framework", "MCP", "Aspire", "Azure Foundry"]
 slug: "agent-framework-foundry-mcp-aspire-real-world"
 ogImage: "../../assets/604/01-cover.png"
 source: "https://developer.microsoft.com/blog/build-a-real-world-example-with-microsoft-agent-framework-microsoft-foundry-mcp-and-aspire"

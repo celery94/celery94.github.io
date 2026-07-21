@@ -39,9 +39,20 @@
   "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
   "allowed_visible_text": ["3 种通信", "禁止直引", "发布/订阅"],
   "color_palette": ["柔粉蓝", "嫩绿", "暖黄", "奶油白"],
-  "avoid": ["代码雨", "通用机器人", "假UI界面", "假终端", "假架构图标签", "黑暗元素"],
+  "avoid": [
+    "代码雨",
+    "通用机器人",
+    "假UI界面",
+    "假终端",
+    "假架构图标签",
+    "黑暗元素"
+  ],
   "reference_strategy": "纯文本生成",
   "draft_goal": "第一轮先验证三个模块是否清晰独立、Contracts 桥接是否可见、童话风是否过度幼稚",
-  "revision_targets": ["模块独立性是否清晰", "合约桥接是否突出", "童话风格是否盖过架构信息"],
+  "revision_targets": [
+    "模块独立性是否清晰",
+    "合约桥接是否突出",
+    "童话风格是否盖过架构信息"
+  ],
   "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide infographic-story cover illustration. Theme: In a modular monolith, modules communicate through three clean patterns -- module interfaces for sync queries, MediatR INotification for async pub/sub, and shared Contracts projects. The golden rule: never reference another module's Application or Infrastructure layer. Only Contracts are safe cross-module references. The reader should feel the clean separation: each module is independent, communication flows only through well-defined contracts.\n\nSummary angle: Three independent modules (Tasks, Projects, Notifications) connected only through a shared Contracts bridge -- no direct cross-module dependencies.\nNarrative flow: 3-beat process. In a 2.35:1 frame, keep one dominant focal subject and 2-4 supporting narrative beats.\nInformation blocks:\n- Step: Three communication patterns -- module interfaces, in-process events, shared contracts. Label: 3 种通信.\n- Evidence: Anti-pattern crossed out -- Tasks must NOT directly reference Projects.Application. Label: 禁止直引.\n- Mechanism: MediatR INotification pub/sub decoupling -- events fan out to subscribers. Label: 发布/订阅.\n\nMain metaphor: Three independent buildings (modules), connected only through a shared bridge (Contracts layer). No one walks directly from inside one building into another.\nSubject: Three independent module structures (Tasks, Projects, Notifications) distributed around a central Contracts bridge.\nComposition/framing: Isometric or layered spatial arrangement -- three modules around a centralized contracts connection point, horizontal storytelling for wide cover.\nStyle/medium: combine isometric conceptual systems scene with the selected visual style descriptor: children's fairy-tale illustration, simple magical forms, friendly proportions, bright storybook palette, safe wonder. Stylized, polished, editorial. Do not imitate a specific brand, studio, or living artist.\nColor palette: soft pink-blue, fresh green, warm yellow, cream white.\nVisible text policy: allow only 1-3 short Chinese labels. Each label <= 6 Chinese characters. No poster title, no long sentences, no English slogans, no fake UI, no fake charts, no fake terminal.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter, no dark or scary elements.\nAvoid: code rain, generic robots, fake UI, fake terminal, fake architecture labels, dark themes, scary imagery."
 }

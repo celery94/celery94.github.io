@@ -164,7 +164,7 @@ MagenticOrchestration orchestration = new(
     LoggerFactory = this.LoggerFactory
 };
 
-string input = @"Prepare a comprehensive energy efficiency report 
+string input = @"Prepare a comprehensive energy efficiency report
                  comparing ResNet-50, BERT-base, and GPT-2 models...";
 
 OrchestrationResult<string> result = await orchestration.InvokeAsync(input, runtime);
@@ -174,13 +174,13 @@ OrchestrationResult<string> result = await orchestration.InvokeAsync(input, runt
 
 理解这两者的区别至关重要，因为：
 
-| 维度 | Agentic Workflows | Agentic Architectures |
-|------|-------------------|----------------------|
-| **关注点** | 执行步骤和逻辑流程 | 技术框架和系统结构 |
-| **回答的问题** | "做什么" | "如何做" |
-| **抽象层次** | 业务流程层 | 技术实现层 |
-| **变化频率** | 相对稳定 | 可根据需求灵活调整 |
-| **描述方式** | 步骤序列、决策树 | 组件图、架构图 |
+| 维度           | Agentic Workflows  | Agentic Architectures |
+| -------------- | ------------------ | --------------------- |
+| **关注点**     | 执行步骤和逻辑流程 | 技术框架和系统结构    |
+| **回答的问题** | "做什么"           | "如何做"              |
+| **抽象层次**   | 业务流程层         | 技术实现层            |
+| **变化频率**   | 相对稳定           | 可根据需求灵活调整    |
+| **描述方式**   | 步骤序列、决策树   | 组件图、架构图        |
 
 **核心洞察**：**同一个工作流可以用不同的架构来实现**。这就像同一份菜谱（工作流）可以在不同的厨房设置（架构）中烹饪。
 

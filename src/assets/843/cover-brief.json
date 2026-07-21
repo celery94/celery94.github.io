@@ -38,10 +38,28 @@
   "selected_style_reason": "随机选择；线稿风格适合教程类的清晰流程图叙事，避免堆砌华丽元素",
   "style_safety_note": "无品牌或艺术家强指向，无需改写",
   "allowed_visible_text": ["裁剪", "保留成员", "编译期生成", "1", "2", "3"],
-  "color_palette": ["off-white #F6F4EE", "ink black #1A1A1A", "muted teal #2F6E6A", "warm accent #D97A4B"],
-  "avoid": ["poster title", "long English slogan", "fake terminal", "fake dashboard", "neon cyberpunk", "floating chips", "fake architecture node names", "watermark"],
+  "color_palette": [
+    "off-white #F6F4EE",
+    "ink black #1A1A1A",
+    "muted teal #2F6E6A",
+    "warm accent #D97A4B"
+  ],
+  "avoid": [
+    "poster title",
+    "long English slogan",
+    "fake terminal",
+    "fake dashboard",
+    "neon cyberpunk",
+    "floating chips",
+    "fake architecture node names",
+    "watermark"
+  ],
   "reference_strategy": "纯文本生成",
   "draft_goal": "确认 3-beat 流程清晰、主类型方块居中可识别、线稿风格成立",
-  "revision_targets": ["如果信息块过密就压成 3 个", "如果出现假图表 / 假 UI 就在下一轮明确禁用", "如果颜色过冷加入一抹暖色作为重点"],
+  "revision_targets": [
+    "如果信息块过密就压成 3 个",
+    "如果出现假图表 / 假 UI 就在下一轮明确禁用",
+    "如果颜色过冷加入一抹暖色作为重点"
+  ],
   "final_prompt": "Wide cover illustration, aspect ratio 2.35:1, minimalist line-art illustration, sparse clean strokes, ample negative space, precise symbolic objects, limited accent color, editorial technical illustration tone. Composition: a clean three-beat horizontal process. Left beat: a small group of type blocks (labeled with abstract angle brackets) being snipped away by stylized scissors, leaving empty silhouettes; tiny Chinese label chip \"裁剪\" with a small numeral \"1\". Middle beat: a single central type block (the anchor of the whole image) covered by a soft circular protective canopy / umbrella shape, with small annotations like .ctor / method ticks preserved underneath; tiny Chinese label chip \"保留成员\" with numeral \"2\". Right beat: a gear / template symbol on a code-leaf shape emitting clean duplicated code line strokes that connect into the central type block; tiny Chinese label chip \"编译期生成\" with numeral \"3\". Use off-white background #F6F4EE, ink black line work, a muted teal accent for the protective canopy, and a single warm coral accent for the gear/output beat. Keep visible text to only the three short Chinese chips and the three small numerals; absolutely no English slogans, no poster title, no long sentences, no fake UI, no fake dashboard, no fake terminal, no fake chart axes, no fake architecture node names, no watermark, no prompt residue, no neon cyberpunk lighting, no floating chips clutter."
 }

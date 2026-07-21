@@ -2,7 +2,8 @@
 pubDatetime: 2026-02-27
 title: "微软大规模多模态后训练的工程与算法优化实践"
 description: "Copilot 后训练团队在生产级多模态智能体训练中遭遇的五类失败模式，以及他们如何通过分阶段目标课程、ESS 自适应课程、方差校正归一化、约束软化和混合视野训练来修复这些问题——这些问题只在真实生产规模下才会现身。"
-tags: ["AI", "Machine Learning", "Reinforcement Learning", "Microsoft", "Copilot"]
+tags:
+  ["AI", "Machine Learning", "Reinforcement Learning", "Microsoft", "Copilot"]
 slug: "multimodal-post-training-at-scale"
 source: "https://devblogs.microsoft.com/engineering-at-microsoft/engineering-and-algorithmic-interventions-for-multimodal-post-training-at-microsoft-scale"
 ---

@@ -46,9 +46,25 @@
   "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
   "allowed_visible_text": ["不可见", "日志", "追踪", "指标"],
   "color_palette": ["deep navy", "electric cyan", "amber", "soft purple"],
-  "avoid": ["水印", "假 UI 截图", "假 dashboard", "假图表坐标", "假终端", "代码雨", "霓虹高楼", "通用机器人", "英文口号", "长句标题", "真实仪表盘复刻"],
+  "avoid": [
+    "水印",
+    "假 UI 截图",
+    "假 dashboard",
+    "假图表坐标",
+    "假终端",
+    "代码雨",
+    "霓虹高楼",
+    "通用机器人",
+    "英文口号",
+    "长句标题",
+    "真实仪表盘复刻"
+  ],
   "reference_strategy": "纯文本生成",
   "draft_goal": "验证从不透明到可视的三层递进叙事是否成立，四个信息块标签是否清晰可辨",
-  "revision_targets": ["请求箭头主线不够清晰时强化", "三层滤片的视觉区分不明显时加强对比", "信息块标签太小或模糊时放大"],
+  "revision_targets": [
+    "请求箭头主线不够清晰时强化",
+    "三层滤片的视觉区分不明显时加强对比",
+    "信息块标签太小或模糊时放大"
+  ],
   "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide infographic-story cover illustration. Theme: .NET 10 HttpClient observability from blind HTTP calls to full stack logging + tracing + metrics.\n\nSummary angle: From invisible, untraceable HTTP requests → clear structured logs → distributed traces → metrics dashboards.\nNarrative flow: 3-beat process. 2.35:1 wide frame, one dominant focal subject and 3-4 supporting narrative beats.\nInformation blocks:\n- Problem (left): opaque HTTP request arrow, hidden, no visibility — label '不可见', fact '1'\n- Mechanism (center-left): request arrow passing through a logging lens, tagged with Method/URL/StatusCode — label '日志', fact '2'\n- Evidence (center-right): request spans expanding into a distributed trace tree — label '追踪', fact 'Trace'\n- Takeaway (right): histogram and gauge panels showing latency distribution and connection health — label '指标', fact '3'\n\nMain metaphor: An HTTP request arrow traveling left to right through three observability lenses that reveal its hidden details.\nSubject: A diagonal flowing HTTP request arrow, left side dark and hidden, right side revealed and expanded into trace tree and metric panels. The arrow passes through three layered lens/filter stages.\nComposition: Diagonal progression, dark-to-light left-to-right reveal.\nStyle: combine editorial technical illustration with selected visual style descriptor: retro pixel-art inspired illustration, blocky forms, limited palette, old game composition cues, readable wide layout. Stylized, polished, editorial, visually strong. Do not imitate a specific brand, studio, or living artist.\nColor palette: deep navy, electric cyan, amber, soft purple.\nVisible text: only 4 short Chinese labels: '不可见', '日志', '追踪', '指标'. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes.\nConstraints: no watermark, no screenshots, no dashboards, no fake diagrams, no fake charts with real axes, no fake terminal output, no fabricated metrics.\nAvoid: code rain, neon skyscrapers, generic robot poses, cyberpunk purple-blue overuse, dense HUD overlays, fake dashboard with numerical values."
 }

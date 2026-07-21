@@ -53,12 +53,14 @@ source: https://bytesauna.com/post/coding-vs-software-engineering
 ### 演示与生产的差距
 
 一个功能演示通常只需要:
+
 - 实现核心的"快乐路径"(Happy Path)
 - 在理想条件下运行
 - 处理少量测试数据
 - 忽略边缘情况和异常处理
 
 而生产级应用需要:
+
 - **错误处理** - 优雅地处理各种异常情况,提供有意义的错误信息
 - **安全性** - 防止 SQL 注入、XSS 攻击、身份验证和授权机制
 - **性能** - 处理高并发请求,优化数据库查询,实施缓存策略
@@ -220,7 +222,7 @@ public class UserService : IUserService
 
             // 数据库查询
             var user = await _userRepository.GetByIdAsync(id, cancellationToken);
-            
+
             if (user == null)
             {
                 _logger.LogInformation("User {UserId} not found", id);
@@ -245,6 +247,7 @@ public class UserService : IUserService
 ```
 
 工程师添加的改进包括:
+
 - **依赖注入**:提高可测试性和灵活性
 - **参数验证**:防止无效输入
 - **缓存策略**:提升性能

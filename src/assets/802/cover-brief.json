@@ -38,10 +38,24 @@
   "selected_style_reason": "随机从 40 项风格池中选中，游戏原画风的清晰视觉层次和制作精良的光影感适合技术教程封面",
   "style_safety_note": "「游戏原画风」不强指向任何特定品牌、工作室或艺术家，使用通用描述词，无需安全改写",
   "allowed_visible_text": ["无需专用库", "向量列", "余弦距离"],
-  "color_palette": ["深蓝 #1a2d5a", "蓝绿 #00b4d8", "白色 #f5f5f5", "琥珀高亮 #ffa726"],
-  "avoid": ["假终端输出", "假仪表盘", "霓虹高楼", "无意义代码雨", "通用机器人站姿"],
+  "color_palette": [
+    "深蓝 #1a2d5a",
+    "蓝绿 #00b4d8",
+    "白色 #f5f5f5",
+    "琥珀高亮 #ffa726"
+  ],
+  "avoid": [
+    "假终端输出",
+    "假仪表盘",
+    "霓虹高楼",
+    "无意义代码雨",
+    "通用机器人站姿"
+  ],
   "reference_strategy": "纯文本生成",
   "draft_goal": "验证主焦点（pgvector 数据库主体）和左右对照（专用库 vs 扩展）叙事弧线是否清晰",
-  "revision_targets": ["如果左右对照不清楚，优先强化两侧对比", "如果向量射线视觉太抽象，改为箭头+编号贴片"],
+  "revision_targets": [
+    "如果左右对照不清楚，优先强化两侧对比",
+    "如果向量射线视觉太抽象，改为箭头+编号贴片"
+  ],
   "final_prompt": "Wide cover illustration, aspect ratio 2.35:1. Game concept art illustration, clear hero object, readable environment storytelling, polished lighting, production-art detail. Editorial technical illustration style.\n\nScene: A PostgreSQL database object as the central hero — a glowing cylindrical database tower with blue-teal vector ray beams emanating outward in a radial pattern. Left side shows a cluttered multi-database cluster (representing Pinecone/Qdrant/Weaviate) with complex connecting wires, labeled with a small Chinese chip '无需专用库'. Right side shows clean simplicity — the single pgvector-enhanced PostgreSQL tower. In the center foreground, a vector query arrow labeled '余弦距离' connects to a table schema with a highlighted row labeled '向量列 1024'. The background is a deep blue-navy gradient. A small callout chip near the database column reads '1024'. No fake terminal output, no dashboard, no fabricated metrics. Polished game-art lighting with amber highlights. Wide horizontal composition.\n\nAllow visible text: up to 3 Chinese short labels ('无需专用库', '向量列', '余弦距离') and number '1024'. No English slogans, no watermarks, no hero title text."
 }

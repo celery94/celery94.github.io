@@ -44,11 +44,28 @@
   "selected_style_prompt_descriptor": "black-and-white printmaking look, carved textures, bold shadows, high contrast, poster-like but no title text",
   "selected_style_reason": "用户未指定风格，从 40 项风格池随机选中（#19）；高对比度版画风格适合表达「错误 vs 正确」的强烈对照，和三种反模式的戏剧性对比",
   "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
-  "allowed_visible_text": ["3 个反模式", "Handler 池化", "类型化客户端", ".NET 10 就绪"],
+  "allowed_visible_text": [
+    "3 个反模式",
+    "Handler 池化",
+    "类型化客户端",
+    ".NET 10 就绪"
+  ],
   "color_palette": ["黑白高对比度", "深灰", "中度灰", "少量强调色（可选）"],
-  "avoid": ["代码雨", "假终端", "假 dashboard", "赛博朋克紫蓝光", "漂浮芯片", "霓虹高楼", "彩鲜艳杂色"],
+  "avoid": [
+    "代码雨",
+    "假终端",
+    "假 dashboard",
+    "赛博朋克紫蓝光",
+    "漂浮芯片",
+    "霓虹高楼",
+    "彩鲜艳杂色"
+  ],
   "reference_strategy": "纯文本生成",
   "draft_goal": "验证左侧反模式/中央工厂/右侧方案的版画式对比布局",
-  "revision_targets": ["反模式的视觉区分度", "handler 池化的循环表达", "版画风格与技术主题的兼容性"],
+  "revision_targets": [
+    "反模式的视觉区分度",
+    "handler 池化的循环表达",
+    "版画风格与技术主题的兼容性"
+  ],
   "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide infographic-story cover illustration. Theme: The complete guide to HttpClient in C# — from 3 antipatterns (socket exhaustion, DNS staleness, wrong-scope using) to the correct IHttpClientFactory pattern with typed clients, resilience, streaming, and HTTP/3. Summary angle: The journey from three broken approaches to a production-ready typed client pattern. Narrative flow: before-after. In a 2.35:1 frame, keep one dominant focal subject and 3-4 supporting narrative beats.\nInformation blocks:\n- Problem: Three antipatterns on the left — new/dispose socket exhaustion, static singleton DNS staleness, wrong-scope using — each as a distinct broken symbol, labeled 3反模式 with number 3\n- Mechanism: Central factory hub in the middle with handler pool rotation cycle, outputting clean HttpClient objects, labeled Handler池化 with 2min\n- Step: Right side showing typed client pattern progression with resilience handler, streaming, and HTTP/3 layers, labeled 类型化客户端\n- Takeaway: Production-ready symbol at bottom right, labeled dotnet-10-ready\n\nMain metaphor: A factory assembly line — broken inputs enter from the left, handler pooling core processes them in the center, production-ready typed client + resilience + streaming outputs on the right.\nSubject: A central factory/distributor hub, transforming broken approaches into modern HttpClient patterns.\nComposition: Center factory hub, left problem inputs → center pooling mechanism → right structured output.\nStyle/medium: combine editorial technical illustration with black-and-white printmaking look, carved textures, bold shadows, high contrast, poster-like but no title text. Stylized, polished, editorial, visually strong. Do not imitate a specific brand, studio, or living artist.\nColor palette: black and white high contrast, dark gray, mid gray, optional single accent color sparingly.\nVisible text policy: allow only 4 short Chinese labels or number chips. No poster title, no long sentences, no English slogans, no fake UI labels.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no unrelated icon collage.\nAvoid: code rain, fake terminals, fake dashboards, cyberpunk purple-blue light, floating chips, neon skyscrapers, excessive bright colors that clash with printmaking style."
 }

@@ -32,6 +32,12 @@
   "comic_style_reason": "analysis 类型，场景是安全对抗与策略冲突，american-comic 的粗轮廓、halftone 和对抗张力更适合表达攻防博弈",
   "color_palette": "深红黑对抗色，蓝色标签标注，绿色安全区，halftone 网点背景",
   "visible_text": ["untrusted", "策略围栏", "拦截"],
-  "forbidden_elements": ["假 UI 截图", "假 dashboard", "假终端输出", "假图表坐标", "英文长句口号"],
+  "forbidden_elements": [
+    "假 UI 截图",
+    "假 dashboard",
+    "假终端输出",
+    "假图表坐标",
+    "英文长句口号"
+  ],
   "prompt": "american comic graphic novel cover illustration, wide 2.35:1 aspect ratio, dramatic security confrontation scene, a malicious [SYSTEM] arrow flying from shadowy attacker figure on the left, stopped by a glowing LABEL FENCE barrier in the center with trusted/untrusted and public/private tags glowing on it, on the right side safe tool execution zone with policy shield icons, halftone dot pattern background, bold thick outlines, deep red and black threat colors on left, blue labels on barrier, green safe zone on right, small chinese text labels: untrusted 策略围栏 拦截, no fake UI no dashboard no terminal no long english slogans, graphic novel storytelling tension"
 }

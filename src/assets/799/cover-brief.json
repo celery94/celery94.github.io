@@ -42,10 +42,26 @@
   "selected_style_reason": "从40项风格池中随机选中第35项；游戏原画风擅长展示模块化系统关系，清晰的英雄主体加辅助环境叙事，适合架构型文章",
   "style_safety_note": "游戏原画风为通用视觉风格描述，不指向特定游戏品牌、工作室或艺术家，无需额外安全改写",
   "allowed_visible_text": ["上下文", "套件", "循环", "40"],
-  "color_palette": ["深海蓝 #1A2D4F", "琥珀橙 #E87B2F", "白 #F5F5F5", "深灰 #2A2A35"],
-  "avoid": ["伪造的 VS Code 界面截图", "真实代码片段", "假终端输出", "假图表坐标轴", "漂浮芯片堆积", "通用机器人形象"],
+  "color_palette": [
+    "深海蓝 #1A2D4F",
+    "琥珀橙 #E87B2F",
+    "白 #F5F5F5",
+    "深灰 #2A2A35"
+  ],
+  "avoid": [
+    "伪造的 VS Code 界面截图",
+    "真实代码片段",
+    "假终端输出",
+    "假图表坐标轴",
+    "漂浮芯片堆积",
+    "通用机器人形象"
+  ],
   "reference_strategy": "纯文本生成",
   "draft_goal": "先验证：等距三层架构（上下文→模型→动作）+ 循环箭头 + 游戏原画质感是否成立",
-  "revision_targets": ["如果模型主体不够突出，加强中心发光效果", "如果信息块太密，压缩为2个可见标签", "如果出现假界面元素，改为抽象几何形式"],
+  "revision_targets": [
+    "如果模型主体不够突出，加强中心发光效果",
+    "如果信息块太密，压缩为2个可见标签",
+    "如果出现假界面元素，改为抽象几何形式"
+  ],
   "final_prompt": "Wide cover illustration, aspect ratio 2.35:1. Game concept art illustration, clear hero object, readable environment storytelling, polished lighting, production-art detail. Isometric conceptual systems scene. Deep navy background #1A2D4F. Central glowing language model core (abstract luminous sphere or crystal) surrounded by three orbital modules labeled with small Chinese chips: '上下文' '套件' '循环'. A stylized VS Code-inspired editor window frame (isometric, abstracted, not a real UI screenshot) acting as the harness container that transforms text output into code edit actions. Flowing amber #E87B2F information streams connecting model core to action arrows. Small '40' numeric chip in corner representing 40 VSC-Bench evaluation runs. Strong focal contrast, polished game-art lighting, no fake UI, no dashboard, no chart axes, no terminal output, no English slogans, no watermarks. Wide cinematic composition."
 }

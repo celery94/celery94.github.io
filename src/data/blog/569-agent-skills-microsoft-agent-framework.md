@@ -2,7 +2,14 @@
 pubDatetime: 2026-03-03
 title: "用 Agent Skills 给你的智能体注入领域专业知识"
 description: "Microsoft Agent Framework 新推出 FileAgentSkillsProvider，支持在运行时动态加载 Agent Skills，让智能体按需获取领域知识，无需修改核心指令，同时通过渐进式披露机制有效控制上下文窗口消耗。"
-tags: ["AI Agents", "Microsoft Agent Framework", "Semantic Kernel", ".NET", "Python"]
+tags:
+  [
+    "AI Agents",
+    "Microsoft Agent Framework",
+    "Semantic Kernel",
+    ".NET",
+    "Python",
+  ]
 slug: "agent-skills-microsoft-agent-framework"
 source: "https://devblogs.microsoft.com/semantic-kernel/give-your-agents-domain-expertise-with-agent-skills-in-microsoft-agent-framework"
 ---
@@ -34,13 +41,12 @@ name: expense-report
 description: >-
   File and validate employee expense reports according to company policy.
   Use when asked about expense submissions, reimbursement rules, or spending limits.
-license: Apache-2.0                   # 可选
-compatibility: Requires python3       # 可选
-metadata:                             # 可选
+license: Apache-2.0 # 可选
+compatibility: Requires python3 # 可选
+metadata: # 可选
   author: contoso-finance
   version: "2.1"
 ---
-
 ## Instructions
 
 1. Ask the employee for their receipt and expense details...
@@ -78,7 +84,6 @@ description: >-
   Summarize meeting transcripts into structured notes with action items.
   Use when asked to process or summarize meeting recordings or transcripts.
 ---
-
 ## Instructions
 
 1. Extract key discussion points from the transcript.
@@ -211,6 +216,7 @@ skills_provider = FileAgentSkillsProvider(
 - **技能执行（Agent skill execution）**：支持智能体执行技能包内的脚本，让技能从单纯的指令和参考资料扩展到主动执行代码。
 
 相关资源：
+
 - [Agent Skills 文档（Microsoft Learn）](https://learn.microsoft.com/en-us/agent-framework/agents/skills)
 - [.NET 示例](https://github.com/microsoft/agent-framework/tree/main/dotnet/samples/02-agents/AgentSkills)
 - [Python 示例](https://github.com/microsoft/agent-framework/tree/main/python/samples/02-agents/skills/basic_skill)

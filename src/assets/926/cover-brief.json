@@ -39,9 +39,24 @@
   "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
   "allowed_visible_text": ["失控", "分层", "可观测"],
   "color_palette": ["warm ochre", "muted teal", "soft charcoal", "dusty rose"],
-  "avoid": ["水印", "假 UI 截图", "假 dashboard", "假图表", "假终端输出", "代码雨", "霓虹高楼", "通用机器人", "英文口号", "长句标题"],
+  "avoid": [
+    "水印",
+    "假 UI 截图",
+    "假 dashboard",
+    "假图表",
+    "假终端输出",
+    "代码雨",
+    "霓虹高楼",
+    "通用机器人",
+    "英文口号",
+    "长句标题"
+  ],
   "reference_strategy": "纯文本生成",
   "draft_goal": "先验证从混乱文本到结构化管线的 left-to-right 叙事是否成立，三个信息块是否可辨认",
-  "revision_targets": ["主体日志流不够清晰时强化对比", "信息块标签太小时放大", "背景太复杂时简化"],
+  "revision_targets": [
+    "主体日志流不够清晰时强化对比",
+    "信息块标签太小时放大",
+    "背景太复杂时简化"
+  ],
   "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: .NET logging from chaotic Console.WriteLine to structured, production-grade observability pipeline. The reader should quickly feel they can build a queryable, traceable logging system.\n\nSummary angle: From chaotic, unsearchable Console.WriteLine text streams → structured, categorized, queryable log entries flowing into analysis tools.\nNarrative flow: before-after. In a 2.35:1 frame, keep one dominant focal subject and 2-4 supporting narrative beats. Each beat must map to the article's information blocks rather than generic decoration.\nInformation blocks:\n- Problem (left): chaotic raw text log stream, unsearchable — visible label \"失控\", numeric fact \"Console.WriteLine\"\n- Mechanism (center transition): log entries being categorized, tagged with Info/Warn/Error levels, transforming into structured properties — visible label \"分层\", numeric fact \"Info / Warn / Error\"\n- Takeaway (right): structured clean log entries flowing into analysis tools and trace panels — visible label \"可观测\", numeric fact \"OTel\"\n\nMain metaphor: A log stream transforming from chaotic text into structured data pipeline.\nSubject: A flowing log stream moving left to right. Left side shows messy raw text lines. Center shows categorization and structuring happening. Right shows clean structured property-chips flowing into analysis tool silhouettes., The stream transforms from left chaos to right clarity.\nComposition/framing: Left-to-right horizontal progression. Prefer horizontal storytelling that stays legible in a wide cover.\nStyle/medium: combine editorial technical illustration with the selected visual style descriptor: indie comic illustration, personal hand-drawn marks, muted palette, imperfect line texture, intimate editorial feeling. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: warm ochre, muted teal, soft charcoal, dusty rose.\nVisible text policy: allow only 1-3 short Chinese labels or number chips, sourced from the information blocks: \"失控\", \"分层\", \"可观测\". No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: floating chips, meaningless code rain, neon skyscrapers, generic robot poses, cyberpunk purple-blue light pollution, dense HUD overlays, poster titles, English slogans, fake terminals."
 }

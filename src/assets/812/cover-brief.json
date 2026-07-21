@@ -35,7 +35,13 @@
   "background": "简洁深色背景带轻微格纹，代码字符散落其间作点缀",
   "color_palette": "深蓝黑 + 青色高亮 + 警示橙（标注性能陷阱）",
   "visible_text": ["反射", "缓存", "FrozenDictionary"],
-  "forbidden_elements": ["假 UI 截图", "假终端输出", "假图表坐标", "英文口号", "长段说明文字"],
+  "forbidden_elements": [
+    "假 UI 截图",
+    "假终端输出",
+    "假图表坐标",
+    "英文口号",
+    "长段说明文字"
+  ],
   "aspect_ratio": "2.35:1",
   "prompt": "Wide cover illustration, aspect ratio 2.35:1, japanese manga style with bold ink lines, limited color palette of dark navy blue and cyan highlights with orange accent. Left 60% panel: a developer character holding a magnifying glass over a glowing .NET assembly code object, the magnifying glass reveals PropertyInfo / MethodInfo / Type fragments floating inside. Right side: three vertically stacked manga panels — top panel shows a code block with caching (ConcurrentDictionary) and speed lines; middle panel shows a FrozenDictionary icon with fast arrow and '缓存' label; bottom panel shows [UnsafeAccessor] attribute tag glowing with native-speed lightning bolt. Background: dark grid with scattered code glyphs. Text labels in Chinese: '反射' near the magnifying glass, '缓存' on middle panel, 'FrozenDictionary' on bottom label. No fake dashboards, no fake terminal, no long English phrases. Manga ink style, halftone dots in shadow areas."
 }

@@ -38,10 +38,24 @@
   "selected_style_reason": "随机从 40 项风格池中选中；像素复古风的格子状图像语言天然契合步骤演进的叙事结构，三段并排的工厂场景能用像素块清晰区分阻塞/异步/队列三个阶段",
   "style_safety_note": "像素复古风不强指向任何特定品牌、工作室或在世艺术家，无需安全改写",
   "allowed_visible_text": ["阻塞", "202", "队列解耦"],
-  "color_palette": ["深海蓝 #1a2a4a", "像素米白 #e8dcc8", "信号绿 #4ecb71", "珊瑚橙 #e86b3a"],
-  "avoid": ["真实系统架构图标注", "假终端输出", "浮动芯片", "通用机器人站姿", "霓虹赛博朋克光污染"],
+  "color_palette": [
+    "深海蓝 #1a2a4a",
+    "像素米白 #e8dcc8",
+    "信号绿 #4ecb71",
+    "珊瑚橙 #e86b3a"
+  ],
+  "avoid": [
+    "真实系统架构图标注",
+    "假终端输出",
+    "浮动芯片",
+    "通用机器人站姿",
+    "霓虹赛博朋克光污染"
+  ],
   "reference_strategy": "纯文本生成",
   "draft_goal": "第一轮验证：三段像素场景能否清楚表达阻塞→异步→队列的演进逻辑，等距构图和像素色块是否可读",
-  "revision_targets": ["如果三段场景不清晰，加轻量流向箭头", "如果像素风格不明显，强化格子纹理和有限调色板"],
+  "revision_targets": [
+    "如果三段场景不清晰，加轻量流向箭头",
+    "如果像素风格不明显，强化格子纹理和有限调色板"
+  ],
   "final_prompt": "Wide cover illustration, aspect ratio 2.35:1. Isometric conceptual systems scene with retro pixel-art inspired illustration style: blocky pixel forms, limited 4-color palette (deep navy #1a2a4a, cream #e8dcc8, signal green #4ecb71, coral orange #e86b3a), old game composition cues, readable wide layout. Three side-by-side isometric factory zones showing API request scaling progression. Left zone: single-lane pixel factory, blocked queue of tasks, visible congestion. Middle zone: fast intake counter with job ticket, background worker alcove. Right zone: conveyor belt queue connecting intake to multiple independent worker cells. Small Chinese labels: 阻塞 on left zone, 202 on middle counter, 队列解耦 on right conveyor. No fake UI, no fake charts, no terminal output, no floating chips, no neon cyberpunk lights. Crisp pixel art textures, isometric top-down perspective, coherent pixel grid, minimal decorative clutter."
 }

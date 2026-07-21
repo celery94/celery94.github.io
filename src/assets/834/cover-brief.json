@@ -39,7 +39,14 @@
   "style_safety_note": "该风格不指向任何品牌、工作室或艺术家，无需安全改写",
   "allowed_visible_text": ["反射", "3"],
   "color_palette": ["#0d1b2a", "#1b3a4b", "#52b788", "#d4ecdd"],
-  "avoid": ["假终端输出", "假代码编辑器", "假 dashboard", "赛博朋克紫蓝光", "通用机器人站姿", "代码雨"],
+  "avoid": [
+    "假终端输出",
+    "假代码编辑器",
+    "假 dashboard",
+    "赛博朋克紫蓝光",
+    "通用机器人站姿",
+    "代码雨"
+  ],
   "reference_strategy": "纯文本生成",
   "draft_goal": "验证递归反射机制的单点聚焦构图 + 科幻机甲风格是否成立",
   "revision_targets": ["信息块可读性", "主体辨识度", "色调统一"],

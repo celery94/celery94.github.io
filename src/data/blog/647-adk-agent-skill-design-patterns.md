@@ -12,7 +12,7 @@ source: "https://x.com/GoogleCloudTech/status/2033953579824758855"
 
 现在有超过 30 个 agent 工具——Claude Code、Gemini CLI、Cursor——都在收敛到同一套 SKILL.md 格式。格式本身已经不是障碍，工具链会帮你验证 YAML 是否合法、目录结构是否对齐。
 
-真正让 skill 效果参差不齐的是内容。一个封装 FastAPI 规范的 skill，和一个四步走的文档生成 pipeline，外表长得一模一样，但内部逻辑完全不同。Google Cloud 的 @Saboo_Shubham_ 和 @lavinigam 从 Anthropic、Vercel、Google 内部的实践里提炼出了 5 种可复用的设计模式。
+真正让 skill 效果参差不齐的是内容。一个封装 FastAPI 规范的 skill，和一个四步走的文档生成 pipeline，外表长得一模一样，但内部逻辑完全不同。Google Cloud 的 @Saboo*Shubham* 和 @lavinigam 从 Anthropic、Vercel、Google 内部的实践里提炼出了 5 种可复用的设计模式。
 
 ## Tool Wrapper
 
@@ -223,5 +223,5 @@ Report results. Fix issues before presenting the final document.
 
 ## 参考
 
-- [5 Agent Skill design patterns every ADK developer should know](https://x.com/GoogleCloudTech/status/2033953579824758855) — Google Cloud Tech (@Saboo_Shubham_, @lavinigam)
+- [5 Agent Skill design patterns every ADK developer should know](https://x.com/GoogleCloudTech/status/2033953579824758855) — Google Cloud Tech (@Saboo*Shubham*, @lavinigam)
 - [Google Agent Development Kit (ADK) 文档](https://google.github.io/adk-docs/)

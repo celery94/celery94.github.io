@@ -2,7 +2,16 @@
 pubDatetime: 2026-03-17T15:42:46+08:00
 title: "Outbox Pattern 扩展实践：每天处理 20 亿条消息"
 description: "从 1,350 MPS 到 32,500 MPS，通过逐步优化 PostgreSQL 查询、批量更新和 RabbitMQ 批量发布，把 Outbox Pattern 扩展到每天处理超过 28 亿条消息。"
-tags: ["C#", ".NET", "Outbox Pattern", "RabbitMQ", "MassTransit", "PostgreSQL", "性能优化"]
+tags:
+  [
+    "C#",
+    ".NET",
+    "Outbox Pattern",
+    "RabbitMQ",
+    "MassTransit",
+    "PostgreSQL",
+    "性能优化",
+  ]
 slug: "scaling-outbox-pattern-2b-messages-per-day"
 ogImage: "../../assets/645/01-cover.png"
 source: "https://www.milanjovanovic.tech/blog/scaling-the-outbox-pattern"

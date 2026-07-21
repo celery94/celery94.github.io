@@ -34,7 +34,15 @@
   "composition": "宽横向分镜，四格从左到右，每格一个叙事节点，速度线强调数据高速流动",
   "style_detail": "日漫分镜，墨线轮廓，高对比黑白+少量蓝色/红色点缀，速度线表示数据流速，技术图标（Redis logo 概念化处理为六边形缓存容器，手机GPS信号）",
   "color_palette": "黑白墨线为主，蓝色代表数据流，红色圈出关键节点，少量绿色代表成功响应",
-  "forbidden_elements": ["真实 UI 截图", "假 dashboard", "假代码终端截图", "假图表坐标", "英文口号", "主标题文字", "Uber 商标或logo"],
+  "forbidden_elements": [
+    "真实 UI 截图",
+    "假 dashboard",
+    "假代码终端截图",
+    "假图表坐标",
+    "英文口号",
+    "主标题文字",
+    "Uber 商标或logo"
+  ],
   "allowed_text": ["每4秒/司机", "状态覆盖写", "Redis GEO", "SignalR"],
   "aspect_ratio": "2.35:1",
   "final_prompt": "Japanese manga style wide cover illustration, aspect ratio 2.35:1. Four horizontal comic panels from left to right with speed lines throughout: Panel 1 - shock expression of .NET developer seeing '125万/秒' GPS data flood with multiple arrows from phone icons; Panel 2 - ConcurrentDictionary grid with latest value overwriting old ones (old values crossed out), small label '状态覆盖写'; Panel 3 - circular map radar with Redis hexagonal container at center, nearby driver dots highlighted in radius, label 'Redis GEO'; Panel 4 - WebSocket connection lines flowing from server to rider smartphone showing moving map dot, label 'SignalR'. Manga ink lines, high contrast black-white with blue data flow accents and red highlights on key nodes. No UI screenshots, no fake dashboards, no English slogans, no title text overlay."

@@ -32,7 +32,13 @@
   "composition": "宽封面 2.35:1，左侧展示旧代码死锁场景（红色警告），右侧展示新 RunAndCaptureText 一行代码（绿色成功），中间穿插速度线象征性能提升",
   "style": "japanese-manga, ink lines, speed lines, limited color palette, black and white with accent colors",
   "color_palette": "墨线黑白主调，错误用红色，成功用绿色，速度线用金色",
-  "forbidden_elements": ["fake UI", "fake dashboard", "fake charts", "English slogans", "fake terminal output"],
+  "forbidden_elements": [
+    "fake UI",
+    "fake dashboard",
+    "fake charts",
+    "English slogans",
+    "fake terminal output"
+  ],
   "visible_text": ["旧方法", "一行搞定", "98x"],
   "final_prompt": "Wide cover illustration in japanese manga style, aspect ratio 2.35:1. Split-panel composition: left panel shows a developer frustrated by a deadlock (red warning signs, pipe buffer overflow symbols, code fragments in chaos), right panel shows the same developer triumphant holding a single line of code 'RunAndCaptureText()' with green success glow and dynamic speed lines. Background has manga speed lines radiating outward. Small Chinese labels: '旧方法' on left panel, '一行搞定' on right panel, '98x' as a bold accent number. Ink line art style with minimal colors - mostly black/white with red for error and green for success. No fake UI, no dashboard, no English slogans."
 }

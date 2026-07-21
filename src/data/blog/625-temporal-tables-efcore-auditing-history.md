@@ -321,13 +321,13 @@ var shortLivedStatuses = await _db.Orders
 
 ### 5 种运算符对比
 
-| 运算符 | 返回条件 | 典型用途 |
-|---|---|---|
-| `TemporalAll()` | 所有版本 | 完整审计日志 |
-| `TemporalAsOf(t)` | `ValidFrom <= t < ValidTo` | 时间点状态恢复 |
-| `TemporalBetween(s, e)` | `ValidFrom >= s AND ValidFrom < e` | 查哪些行在窗口内发生了变更 |
-| `TemporalFromTo(s, e)` | `ValidFrom < e AND ValidTo > s` | 查哪些行在窗口内活跃过 |
-| `TemporalContainedIn(s, e)` | `ValidFrom >= s AND ValidTo <= e` | 查在窗口内创建又消失的行 |
+| 运算符                      | 返回条件                           | 典型用途                   |
+| --------------------------- | ---------------------------------- | -------------------------- |
+| `TemporalAll()`             | 所有版本                           | 完整审计日志               |
+| `TemporalAsOf(t)`           | `ValidFrom <= t < ValidTo`         | 时间点状态恢复             |
+| `TemporalBetween(s, e)`     | `ValidFrom >= s AND ValidFrom < e` | 查哪些行在窗口内发生了变更 |
+| `TemporalFromTo(s, e)`      | `ValidFrom < e AND ValidTo > s`    | 查哪些行在窗口内活跃过     |
+| `TemporalContainedIn(s, e)` | `ValidFrom >= s AND ValidTo <= e`  | 查在窗口内创建又消失的行   |
 
 ## 生产环境迁移注意事项
 
@@ -390,6 +390,7 @@ public partial class EnableTemporalOnOrders : Migration
 **写入开销**：每次 `UPDATE` 或 `DELETE` 都需要额外写一行到历史表。在典型 OLTP 场景下，开销约为 **5–15%**。对写入吞吐量极高的表（实时遥测、会话状态、事件日志）影响可能更大，需要实测。
 
 **历史表增长**：随着时间推移，历史表会持续增长。管理策略：
+
 - 对旧数据归档（INSERT 旧行到归档表，然后关闭系统版本、删除历史、重新开启）
 - 给历史表加非聚集索引加速点时间查询：
 
