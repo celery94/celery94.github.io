@@ -1,0 +1,47 @@
+{
+  "article_title": "System.Threading.Channels：.NET 内置的生产者-消费者管道，不需要 RabbitMQ",
+  "cover_type": "tutorial",
+  "core_theme": "用 System.Threading.Channels 在 .NET 里搭建带背压的生产者-消费者管道，把突发流量变成有序消费",
+  "reader_takeaway": "学会用 Channels 替代 Task.Run 做后台处理，掌握有界队列、背压和平滑关停",
+  "summary_angle": "把 Task.Run 的坑 → 有界 Channel 的背压 → BackgroundService 消费 → 平滑关停，压成一条可读的管道封面",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "Task.Run fire-and-forget: no concurrency limit, CPU pinned, dropped work on restart",
+      "visual_idea": "画面左侧：多个散乱的 Task.Run 箭头砸向一个过载的齿轮，齿轮冒烟",
+      "visible_label": "散乱 Task.Run",
+      "numeric_fact": ""
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "Bounded Channel with Wait mode: capacity 100, backpressure when full, producers await",
+      "visual_idea": "画面中央：一个有界的管道结构，管壁上有容量标记 '100'，入口有背压阀，排队的项有序进入",
+      "visible_label": "Channel<100>",
+      "numeric_fact": ""
+    },
+    {
+      "role": "step",
+      "source_anchor": "BackgroundService consumer with ReadAllAsync, graceful drain on shutdown",
+      "visual_idea": "画面右侧：有序的消费管线，多个消费者从 Channel 中拉取，管道末端有平滑关停标识",
+      "visible_label": "BackgroundService",
+      "numeric_fact": ""
+    }
+  ],
+  "main_metaphor": "一条带压力阀的工业管道：左侧混乱的输入被 Channel 收束成有序流，经限流阀进入右侧稳定的消费端",
+  "primary_subject": "一条水平方向的有界管道，中间有容量标记和背压阀",
+  "subject_action": "左侧散乱的箭头流入管道入口，通过限流阀后有序地流向右侧消费端",
+  "composition": "斜向推进",
+  "base_style": "editorial technical illustration",
+  "selected_style": "蒸汽朋克风",
+  "selected_style_prompt_descriptor": "steampunk adventure illustration, brass mechanisms, gears, goggles, warm industrial light, handcrafted machinery",
+  "selected_style_reason": "用户未指定风格，从 40 项风格池随机选中；管道/阀门/限流的机械隐喻天然适配蒸汽朋克的黄铜齿轮和工业管道视觉语言",
+  "style_safety_note": "蒸汽朋克风为泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["Channel<100>", "BackgroundService"],
+  "color_palette": ["暖棕铜 tone", "深灰铁色", "暖金色光", "暗蓝绿点缀"],
+  "avoid": ["漂浮芯片", "代码雨", "霓虹高楼", "通用机器人站姿", "赛博朋克紫蓝光", "HUD 浮层", "假 dashboard", "假终端", "假图表"],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮验证管道隐喻和背压阀是否成立、蒸汽朋克风格是否到位",
+  "revision_targets": ["管道结构清晰度", "信息块标签可读性", "背景杂物"],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article, aspect ratio 2.35:1\nPrimary request: Create a wide cinematic infographic-story cover illustration for a .NET tutorial. Theme: System.Threading.Channels as a bounded pipeline with backpressure for producer-consumer pattern. The reader should quickly feel the transformation from chaotic Task.Run fire-and-forget to an orderly bounded channel pipeline.\n\nSummary angle: Chaotic unbound Task.Run items entering from left → a bounded Channel pipe with a pressure valve (backpressure) in the center → orderly consumption by BackgroundService on the right.\nNarrative flow: 3-beat process. In a 2.35:1 frame, keep one dominant focal subject (the channel pipeline) and 3 supporting narrative beats.\nInformation blocks:\n- Left beat: scattered task arrows hitting an overloaded smoking gear, labeled 'Task.Run'\n- Center beat: a bounded mechanical pipe with capacity gauge showing limit, a brass pressure valve regulating flow, labeled 'Channel'\n- Right beat: orderly pipeline with consumer gears processing items one by one, labeled 'BackgroundService'\n\nMain metaphor: An industrial steam-age pipeline with a pressure valve. Chaotic input is channeled through a bounded pipe with a regulator, flowing into stable orderly consumption.\nSubject: A horizontal bounded pipeline structure with brass pressure valve and capacity markings at center.\nComposition/framing: diagonal forward push composition. Items flow from top-left chaos into center bounded channel, then exit bottom-right orderly into consumer processing.\nStyle/medium: combine editorial technical illustration with the selected visual style descriptor: steampunk adventure illustration, brass mechanisms, gears, goggles, warm industrial light, handcrafted machinery. Stylized, polished, editorial, visually strong, and clearly readable as a tutorial infographic cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: warm brass copper, dark iron gray, warm golden industrial light, muted blue-green accents.\nVisible text policy: allow only 2-3 short labels from information blocks, each at most 20 chars. No poster title, no long sentences, no English slogans, no fake UI labels, no fake charts.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no decorative clutter.\nAvoid: floating chips, code rain, neon skyscrapers, generic robot poses, cyberpunk purple-blue glow, HUD overlays, fake dashboards, fake terminals, fake charts, digital UI elements."
+}
