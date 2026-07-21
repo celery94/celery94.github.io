@@ -1,0 +1,54 @@
+{
+  "article_title": "消费级 AI 在烧钱，企业级 AI 在印钞：隔离运行时才是那道分水岭",
+  "cover_type": "analysis",
+  "core_theme": "消费端 AI 共享聊天框、无状态、往免费卷 vs 企业端 AI 隔离运行时、有状态、高付费意愿 —— 经济模型完全相反",
+  "reader_takeaway": "看清消费 AI 和企业 AI 的真正分水岭不在模型能力，而在隔离运行时",
+  "summary_angle": "用一道分界线把画面切成两半：左边是共享聊天框的无状态世界（空旷、漂浮、商品化），右边是隔离沙箱的有状态世界（结构化、安全、高价值）",
+  "narrative_flow": "conflict-to-resolution",
+  "information_blocks": [
+    {
+      "role": "contrast",
+      "source_anchor": "Consumption: shared, stateless chatbox scales infinitely, commoditizes, trends toward free. 21% annual retention.",
+      "visual_idea": "画面左侧：一个空旷的、公共的聊天框飘在空中，气泡散落，没有归属感",
+      "visible_label": "共享聊天框",
+      "numeric_fact": "21% 留存"
+    },
+    {
+      "role": "evidence",
+      "source_anchor": "Enterprise AI: $37B spend in 2025, 110-125% NRR, top 1% spend $7,449/mo — 650x gap. Buying agents as labor.",
+      "visual_idea": "画面右侧：一个锁定的、个人化的沙箱环境，结构坚实，有自己的文件、token、状态",
+      "visible_label": "隔离沙箱",
+      "numeric_fact": "$37B / 650x"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "Firecracker microVM: ~50,000 lines of Rust. 'Each session runs in its own dedicated MicroVM, no shared kernel, no shared resources.'",
+      "visual_idea": "画面中央分界线处：一层清晰的隔离结构示意，表示真正隔离是 microVM 而非共享内核容器",
+      "visible_label": "MicroVM",
+      "numeric_fact": "15 万亿/月"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "The moat isn't 'has a sandbox.' It's 'made the sandbox usable by a non-engineer.' Isolation block alone is ~15 engineer-months.",
+      "visual_idea": "右侧沙箱上方的 Harness 层 —— 对话界面、调度器、跨会话记忆、连接器 —— 包裹着核心沙箱",
+      "visible_label": "端到端 Harness",
+      "numeric_fact": ""
+    }
+  ],
+  "main_metaphor": "一道分界线切开两个世界：左边是共享长椅（公共聊天框），右边是个人保险库（隔离运行时）",
+  "primary_subject": "画面中央的一道垂直分界线，切成左右两个完全不同的世界",
+  "subject_action": "左边漂浮的空洞聊天气泡向下消散，右边一个坚实的多层沙箱结构向上构建",
+  "composition": "左右对照",
+  "base_style": "conceptual editorial illustration",
+  "selected_style": "独立漫画风",
+  "selected_style_prompt_descriptor": "indie comic illustration, personal hand-drawn marks, muted palette, imperfect line texture, intimate editorial feeling",
+  "selected_style_reason": "用户未指定风格，本篇从 40 项风格池随机选中；文章主题的对照冲突适合用独立漫画的亲密编辑感和手绘质感表达，不浮夸不煽情",
+  "style_safety_note": "独立漫画风为泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["共享聊天框", "21% 留存", "隔离沙箱", "$37B / 650x", "MicroVM", "15 万亿/月", "端到端 Harness"],
+  "color_palette": ["左侧暖灰/米白（空旷感）", "右侧深蓝/墨绿（信任感）", "分界线金橙/铜色（分水岭感）"],
+  "avoid": ["漂浮芯片", "代码雨", "霓虹高楼", "通用机器人站姿", "赛博朋克紫蓝光", "HUD 浮层", "假 dashboard", "假终端", "假图表"],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮验证主题对照关系（共享 vs 隔离）是否成立、构图分界是否清晰",
+  "revision_targets": ["信息块可读性", "独立漫画风格质感", "背景杂物"],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article, aspect ratio 2.35:1\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes a tech analysis article. Theme: Consumer AI burns money (shared stateless free chatbox) vs Enterprise AI prints money (isolated stateful paid sandbox). The reader should quickly feel the fundamental divide between commoditized free AI chat and high-value isolated AI runtimes.\n\nSummary angle: A vertical dividing line splits the frame into two worlds — left is an empty shared chatbox world (commoditized, floating, impersonal), right is a locked personal sandbox world (structured, secure, valuable).\nNarrative flow: conflict-to-resolution. In a 2.35:1 frame, keep one dominant focal subject (the dividing line itself) and 4 supporting narrative beats. Each beat must map to the article's information blocks.\nInformation blocks:\n- Left side contrast: an empty public chat interface, floating speech bubbles dissolving into air, labeled '共享聊天框' with '21% 留存'\n- Right side evidence: a solid locked sandbox/vault structure with personal files and tokens inside, labeled '隔离沙箱' with '$37B / 650x'\n- Center mechanism: at the dividing line, a clear isolation layer structure showing layered microVM instead of shared kernel, labeled 'MicroVM' with '15 万亿/月'\n- Right side top layer: a Harness wrapper around the sandbox (chat interface, scheduler, memory, connectors), labeled '端到端 Harness'\n\nMain metaphor: A dividing line cutting two worlds apart — shared bench (public chatbox) vs personal vault (isolated runtime).\nSubject: A strong vertical dividing line at center, left side dissolving empty, right side building solid structure upward.\nComposition/framing: left-right contrast composition. Left: ethereal, dissolving, desaturated warm tones. Right: structured, layered, solid, deep blue-green tones. Dividing line in copper/gold.\nStyle/medium: combine conceptual editorial illustration with the selected visual style descriptor: indie comic illustration, personal hand-drawn marks, muted palette, imperfect line texture, intimate editorial feeling. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: muted warm gray/cream left side, deep blue-green right side, copper/gold dividing line.\nVisible text policy: allow only 3-4 short Chinese labels or number chips sourced from the information blocks. Each label <= 6 Chinese characters or one required product/model name. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: floating chips, code rain, neon skyscrapers, generic robot poses, cyberpunk purple-blue glow, HUD overlays, fake dashboards, fake terminals, fake charts."
+}
