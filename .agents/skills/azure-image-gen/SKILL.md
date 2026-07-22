@@ -153,3 +153,15 @@ Use `--skip-post-process` when the user wants:
 - **Missing input files**: CLI validation fails before any network call.
 - **API errors**: HTTP status code and response body are surfaced clearly.
 - **Missing Pillow**: Warning printed; post-processing skipped and the raw API output is kept.
+- **Windows emoji encoding**: If the script crashes with `UnicodeEncodeError` on emoji characters (common on Windows terminals using cp1252), set `PYTHONIOENCODING=utf-8` before running, or upgrade to a script version that auto-reconfigures stdout to UTF-8.
+
+## No-Vision Workflow (when generated images cannot be visually inspected)
+
+When the agent or calling environment cannot view images for verification (e.g., no vision-capable model available), use this fallback flow instead of the full sketch → inspect → refine cycle:
+
+1. **Generate one draft** with the sketch prompt at lower quality/resolution.
+2. **Immediately generate one final** using a refinement prompt that polishes rather than redesigns: focus on `Refine: sharper details, cleaner composition, preserve the same metaphor and information blocks` — do not introduce new structural changes.
+3. **Accept the final** as the cover; skip visual inspection.
+4. If the article has reusable local reference images (e.g., saved step screenshots), attach 1–2 as `--input-image` to help the model stay on topic.
+
+This avoids the dead-end of trying to visually evaluate an image the agent cannot see.

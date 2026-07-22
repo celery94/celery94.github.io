@@ -19,6 +19,10 @@ from contextlib import ExitStack
 from pathlib import Path
 from typing import Optional, Sequence
 
+# Ensure Unicode output on Windows terminals that default to cp1252
+if sys.stdout.encoding and sys.stdout.encoding.lower() in ("cp1252", "cp1250", "cp1251"):
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+
 
 # ---------------------------------------------------------------------------
 # Environment / .env helpers
