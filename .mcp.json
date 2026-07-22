@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "chrome-devtools": {
+      "command": "npx",
+      "args": ["-y", "chrome-devtools-mcp@latest"],
+      "lifecycle": "keep-alive",
+      "directTools": true
+    }
+  }
+}
