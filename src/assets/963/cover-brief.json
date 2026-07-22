@@ -1,0 +1,61 @@
+{
+  "article_title": "ASP.NET Core 面试 30 问：2026 年真会被问到的内部原理题",
+  "cover_type": "analysis",
+  "core_theme": "ASP.NET Core 内部原理面试——6 大类别、30 道真题，考察开发者对托管、中间件管道、DI 生命周期、配置选项、过滤器和请求生命周期的理解深度",
+  "reader_takeaway": "读完能理解 ASP.NET Core 面试中真正会被问到的内部原理问题，知道每道题的机制、后果和常见错误答法",
+  "summary_angle": "从「面试问定义」到「面试问内部原理」的转变——不再是「什么是中间件」，而是「你的 CORS 为什么在高负载下消失」这类调试场景",
+  "narrative_flow": "layered reveal",
+  "information_blocks": [
+    {
+      "role": "mechanism",
+      "source_anchor": "Q5-Q10 中间件管道章节：中间件是 RequestDelegate 链，洋葱模型，顺序决定行为",
+      "visual_idea": "一个抽象的多层洋葱/管道结构，每层标注一个简洁的技术关键词",
+      "visible_label": "中间件管道",
+      "numeric_fact": "①"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "Q11-Q15 DI 生命周期章节：Transient/Scoped/Singleton 三种生命周期及俘虏依赖",
+      "visual_idea": "三个嵌套的时间环或容器，不同生命周期用不同颜色区分",
+      "visible_label": "DI 生命周期",
+      "numeric_fact": "②"
+    },
+    {
+      "role": "evidence",
+      "source_anchor": "Q25-Q30 请求生命周期章：HttpContext per-request，不能捕获，线程不绑定",
+      "visual_idea": "一条流动的请求路径箭头，跨越多个抽象线程/节点",
+      "visible_label": "请求生命周期",
+      "numeric_fact": "③"
+    }
+  ],
+  "main_metaphor": "洋葱式管道——请求层层深入又层层退出，每一层都是面试中一道关键题",
+  "primary_subject": "一个抽象的多层管道/圆环结构，中心是 ASP.NET Core 运行时核心",
+  "subject_action": "管道层从外到内依次展开，每层带有不同的技术关注点标签，体现「层层深入」的面试节奏",
+  "composition": "居中主物体",
+  "base_style": "conceptual editorial illustration",
+  "selected_style": "韩漫条漫风",
+  "selected_style_prompt_descriptor": "polished vertical-webtoon-inspired rendering adapted to a wide cover, clean gradients, sharp character shapes, glossy color blocks",
+  "selected_style_reason": "用户未指定风格，本篇从 40 项风格池随机选中；条漫风格干净的渐变和锐利的形状适合表现分层管道结构，glossy color blocks 可强化信息块的视觉区分度",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["中间件管道", "DI 生命周期", "请求生命周期"],
+  "color_palette": ["深蓝灰", "青蓝", "暖橙", "白色"],
+  "avoid": [
+    "漂浮芯片",
+    "无意义代码雨",
+    "霓虹高楼背景",
+    "通用机器人站姿",
+    "赛博朋克紫蓝光污染",
+    "巨量 HUD 浮层",
+    "假 UI 标签",
+    "假 dashboard",
+    "假终端输出"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮先验证分层管道隐喻是否成立，三信息块是否清晰可辨识，韩漫条漫风的渐变和色块风格是否到位",
+  "revision_targets": [
+    "管道层次不够清晰，分层感不够强",
+    "信息块标签过于密集或太小",
+    "背景杂物太多干扰主焦点"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: ASP.NET Core internals interview preparation — 30 questions across 6 categories testing deep understanding of the request pipeline, DI lifetimes, configuration, filters, and request lifecycle. The reader should quickly feel this is a structured, in-depth interview guide for experienced .NET developers.\n\nSummary angle: The shift from definition-based interview questions to internals and debugging scenarios — not \"what is middleware\" but \"why does your CORS break under load.\"\nNarrative flow: layered reveal. In a 2.35:1 frame, keep one dominant focal subject and 2-4 supporting narrative beats. Each beat must map to the article's information blocks rather than generic decoration.\nInformation blocks:\n- mechanism: Middleware pipeline as a RequestDelegate chain with onion model, order determines behavior → visual: abstract layered pipeline/onion rings → visible label: 中间件管道, numeric: ①\n- mechanism: DI lifetimes — Transient/Scoped/Singleton and captive dependencies → visual: three nested rings/containers in different colors → visible label: DI 生命周期, numeric: ②\n- evidence: Request lifecycle — HttpContext per-request, not capturable, no thread affinity → visual: a flowing request path arrow spanning multiple abstract nodes → visible label: 请求生命周期, numeric: ③\n\nMain metaphor: The request pipeline as an onion — requests enter layer by layer and exit in reverse, each layer is a key interview question.\nSubject: An abstract multi-layered pipeline/ring structure with the ASP.NET Core runtime core at center, layers unfolding from outside to inside, each bearing different technical concern labels representing the progressive interview rhythm.\nComposition/framing: centered dominant subject. Prefer horizontal or radial storytelling that stays legible in a wide cover.\nStyle/medium: combine conceptual editorial illustration with the selected visual style descriptor: polished vertical-webtoon-inspired rendering adapted to a wide cover, clean gradients, sharp character shapes, glossy color blocks. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: deep blue-grey, cyan-blue, warm orange, white.\nVisible text policy: allow only 3 short Chinese labels: 中间件管道, DI 生命周期, 请求生命周期, each with a number ① ② ③. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: floating chips, meaningless code rain, neon city backgrounds, generic robot poses, cyberpunk purple-blue light pollution, massive HUD overlays, fake UI labels, fake dashboards, fake terminal output."
+}
