@@ -1,7 +1,7 @@
 ---
 pubDatetime: 2026-07-22T05:16:01+08:00
 title: "Less is More：当精简的 Harness 在基准测试中击败了功能完备的对手"
-description: "Databricks 百万行代码基准测试揭示了一个反直觉的结果：Pi 每轮发送的上下文仅为 Claude Code 的约 1/3，但任务完成率持平。这篇文章深入分析两种截然不同的 harness 设计哲学，以及为什么在 Transformer 架构下"更少的信息"反而能带来更好的决策质量。"
+description: "Databricks 百万行代码基准测试揭示了一个反直觉的结果：Pi 每轮发送的上下文仅为 Claude Code 的约 1/3，但任务完成率持平。这篇文章深入分析两种截然不同的 harness 设计哲学，以及为什么在 Transformer 架构下更少的信息反而能带来更好的决策质量。"
 tags:
   - ai
   - coding-agent
