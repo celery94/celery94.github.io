@@ -1,0 +1,64 @@
+{
+  "article_title": "模块化单体数据库设计：一个库还是多个库？",
+  "cover_type": "architecture",
+  "core_theme": "在 C# 模块化单体（Modular Monolith）中，数据库设计有三种策略：共享 DbContext、共享数据库+独立 DbContext、独立数据库，每种策略在隔离性、运维复杂度和未来微服务提取难度之间有不同的取舍",
+  "reader_takeaway": "理解三种数据库策略的代码实现、各自代价和适用场景，掌握一套可操作的决策框架，知道自己当前的项目该选哪一条路",
+  "summary_angle": "从「所有模块共用一个 DbContext 的混乱废墟」到「每个模块独立数据库的秩序之城」——三种策略像三种生存环境，团队需要根据自身条件选择落脚点",
+  "narrative_flow": "conflict-to-resolution",
+  "information_blocks": [
+    {
+      "role": "contrast",
+      "source_anchor": "Option A: shared DbContext breaks module boundaries through hidden cross-module joins. Option B: separate DbContext per module, shared database. Option C: separate database per module.",
+      "visual_idea": "三个并排区域：左侧混乱纠缠的线团（共享DbContext），中间有隔断但共用地面（共享DB+独立Context），右侧独立隔间各自独立（独立数据库）",
+      "visible_label": "三种策略",
+      "numeric_fact": "3"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "Each module registers its own DbContext independently. The module exposes only IProjectsModule to the rest of the application.",
+      "visual_idea": "模块通过接口暴露，DbContext 隐藏在 Infrastructure 层内部",
+      "visible_label": "接口隔离",
+      "numeric_fact": null
+    },
+    {
+      "role": "evidence",
+      "source_anchor": "Decision framework table: Isolation level, Operational complexity, Cross-module joins, Microservice extraction, Team discipline required, Schema evolution",
+      "visual_idea": "一个简化的决策矩阵或对比标尺",
+      "visible_label": "决策框架",
+      "numeric_fact": null
+    }
+  ],
+  "main_metaphor": "从废墟中重建秩序——共享 DbContext 如同纠缠的废土，独立模块数据库是逐步重建的营地",
+  "primary_subject": "三个数据库策略区域从左到右排列，从混乱到有序过渡",
+  "subject_action": "视线从左向右移动，从碎片化的共享DbContext区域过渡到独立模块数据库的干净结构",
+  "composition": "水平三段式从左到右渐进",
+  "base_style": "isometric conceptual systems scene",
+  "selected_style": "废土末日风",
+  "selected_style_prompt_descriptor": "post-apocalyptic wasteland illustration, weathered materials, dusty atmosphere, survival objects, desaturated contrast",
+  "selected_style_reason": "用户未指定风格，本篇从 40 项风格池随机选中 #27；共享 DbContext 造成的模块耦合可以隐喻为「废墟」，独立数据库策略则代表从废墟中重建秩序，适配废土美学",
+  "style_safety_note": "风格名为泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["三种策略", "接口隔离", "决策框架"],
+  "color_palette": [
+    "沙黄 #c4a35a",
+    "暗灰 #3a3a3a",
+    "锈橙 #b85c38",
+    "淡蓝灰 #7a8b99"
+  ],
+  "avoid": [
+    "漂浮芯片",
+    "代码雨",
+    "霓虹高楼",
+    "HUD 浮层",
+    "假终端输出",
+    "假架构图",
+    "假图表坐标"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证三段式从混乱到有序的视觉叙事是否清晰可辨，以及废土风格是否盖过了架构图的可读性",
+  "revision_targets": [
+    "三段式从左到右的渐进是否被识别",
+    "废土材质是否过重",
+    "信息块标签可读性"
+  ],
+  "final_prompt": ""
+}
