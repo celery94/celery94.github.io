@@ -1,0 +1,64 @@
+{
+  "article_title": "Microsoft Agent Framework Harness 正式发布：一行代码把 Chat Client 变成生产级 Agent",
+  "cover_type": "release",
+  "core_theme": "Microsoft Agent Framework 的 Harness（Agent 运行时/脚手架）正式发布，一次调用即可获得函数调用、规划、记忆、审批、上下文管理、遥测等 9 项内置能力",
+  "reader_takeaway": "理解什么是 Agent Harness，它帮开发者省掉了哪些胶水代码，以及用 Python 或 .NET 一行调用就能从 Chat Client 跨越到生产就绪 Agent",
+  "summary_angle": "从「模型只会生成文本」到「能规划、记东西、调工具、找人审批的完整 Agent」，差距仅在于一个 Harness 包裹",
+  "narrative_flow": "before-after",
+  "information_blocks": [
+    {
+      "role": "mechanism",
+      "source_anchor": "The harness collapses the whole pipeline into a single call. That single call gives you function invocation, per-service-call history persistence, a todo list and plan/execute mode tracking, compaction, approvals, web search, and telemetry",
+      "visual_idea": "一个 chat client 核心被 harness 框架包裹、激活后变成完整 agent 流水线",
+      "visible_label": "一次调用",
+      "numeric_fact": "9 项"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "Function invocation, Per-service-call history persistence, Compaction, Todo & agent-mode providers, File memory, Skills, Web search, Tool approval, Telemetry",
+      "visual_idea": "9 个小型功能模块围绕 agent 核心，标注各自角色",
+      "visible_label": "9 项内置",
+      "numeric_fact": null
+    },
+    {
+      "role": "contrast",
+      "source_anchor": "Python and .NET code examples side by side",
+      "visual_idea": "左右分镜分别展示 Python 和 .NET 的代码调用",
+      "visible_label": "双语言",
+      "numeric_fact": null
+    }
+  ],
+  "main_metaphor": "给语言模型装上骨骼和肌肉——从只能说话的「大脑」变成能做事的「身体」",
+  "primary_subject": "一个 chat client 模型核心被 harness 框架层层包裹",
+  "subject_action": "harness 框架从四周向中心注入能力，激活模型从被动文本生成变为主动任务执行",
+  "composition": "居中主物体 + 能力模块环形分布",
+  "base_style": "product-poster style illustration",
+  "selected_style": "动态分镜电影风",
+  "selected_style_prompt_descriptor": "dynamic cinematic storyboard style, sequential panels, camera-motion feeling, strong cuts, clear narrative beats",
+  "selected_style_reason": "用户未指定风格，本篇从 40 项风格池随机选中 #36；Harness 发布本身有「从零到一」的叙事推进感，适合用分镜节奏表达",
+  "style_safety_note": "风格名为泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["一次调用", "9 项内置", "双语言"],
+  "color_palette": [
+    "深蓝灰 #1a1d2e",
+    "微软蓝 #0078d4",
+    "亮橙 #ff6b35",
+    "暖白 #f5f5f5"
+  ],
+  "avoid": [
+    "漂浮芯片",
+    "代码雨",
+    "霓虹高楼",
+    "通用机器人站姿",
+    "HUD 浮层",
+    "假终端输出",
+    "假架构图"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证「核心被包裹→能力注入」的主隐喻和「一次调用」的叙事摘要是否清晰",
+  "revision_targets": [
+    "主焦点的 Harness 包裹视觉是否可辨识",
+    "信息块是否过于密集",
+    "风格是否过于碎片化"
+  ],
+  "final_prompt": ""
+}
