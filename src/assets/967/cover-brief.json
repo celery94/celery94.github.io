@@ -1,0 +1,63 @@
+{
+  "article_title": "ASP.NET Core + SSE：构建流式 AI 聊天应用",
+  "cover_type": "tutorial",
+  "core_theme": "用 Server-Sent Events 在 ASP.NET Core 中实现 AI 聊天响应的流式输出",
+  "reader_takeaway": "学会用 SSE 构建实时流式 AI 聊天应用，理解 SSE vs 轮询的本质区别",
+  "summary_angle": "传统轮询「多次请求、延迟等待」vs SSE 流式「一次连接、实时推送」——用一张图讲清两者差距和选择理由",
+  "narrative_flow": "before-after",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "Why Use SSE Instead of Polling 章节——轮询需要多次 HTTP 请求、延迟高、服务器负载大",
+      "visual_idea": "画面左半部分：多条虚线箭头在客户端和服务端之间来回弹跳，代表轮询的反复请求，视觉上显得杂乱低效",
+      "visible_label": "轮询：多次请求",
+      "numeric_fact": null
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "What Are Server-Sent Events 章节——SSE 保持单条长连接，服务端有新数据就推送",
+      "visual_idea": "画面中央偏右：一条发光的连续数据管道从服务端通向客户端，彩色 token 光块在管道中流动",
+      "visible_label": "SSE：单连接推送",
+      "numeric_fact": null
+    },
+    {
+      "role": "evidence",
+      "source_anchor": "Simple Chat Flow 章节——用户提问→服务端转发 AI→逐块生成→实时显示",
+      "visual_idea": "画面最右端：浏览器窗口中聊天气泡内文字逐字高亮出现",
+      "visible_label": "逐块生成，即时显示",
+      "numeric_fact": null
+    }
+  ],
+  "main_metaphor": "数据管道/流水线——token 像发光粒子一样从服务端沿管道流向客户端浏览器",
+  "primary_subject": "一条发光的流式数据管道，连接左侧简化齿轮/芯片符号（服务端）和右侧浏览器窗口（带聊天气泡）",
+  "subject_action": "彩色 token 光点沿管道从服务端流向浏览器，浏览器内聊天气泡文字逐字高亮出现",
+  "composition": "左右对照",
+  "base_style": "editorial technical illustration",
+  "selected_style": "国漫二次元风",
+  "selected_style_prompt_descriptor": "contemporary Chinese anime-comic illustration, crisp linework, ornate but controlled details, vibrant fantasy-tech color accents",
+  "selected_style_reason": "用户未指定风格，从 40 项风格池随机选中（ID 967 取模）；教程流程适合用清晰线稿和鲜明的二次元视觉节奏表达步骤推进感",
+  "style_safety_note": "使用泛中国动漫风格描述词，不涉及具体品牌、工作室或艺术家复刻",
+  "allowed_visible_text": [
+    "轮询：多次请求",
+    "SSE：单连接推送",
+    "逐块生成，即时显示"
+  ],
+  "color_palette": ["深蓝背景", "青蓝管道光", "橙/金色 token 光点", "白色高亮"],
+  "avoid": [
+    "漂浮芯片",
+    "代码雨",
+    "霓虹高楼",
+    "通用机器人站姿",
+    "HUD 浮层",
+    "假 UI 截图",
+    "假 dashboard"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证左右对照构图能否清楚区分轮询（左侧杂乱箭头）和 SSE（右侧流式管道），信息块标签可读",
+  "revision_targets": [
+    "如果左侧轮询箭头过于混乱，简化为 3-4 条代表性虚线箭头",
+    "如果管道不够突出，增强光效和 token 粒子大小",
+    "如果风格偏离国漫二次元，加强线稿清晰度和色彩饱和度"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: Using Server-Sent Events (SSE) in ASP.NET Core to build AI chat applications with real-time streaming responses. The reader should quickly feel the contrast between inefficient polling and smooth SSE streaming.\n\nSummary angle: Traditional polling with multiple round-trip requests causing latency and server load vs SSE with a single persistent connection pushing data in real-time — showing the gap and the better choice at a glance.\nNarrative flow: before-after. In a 2.35:1 frame, keep one dominant focal subject (the glowing SSE data pipeline) and 2 supporting narrative beats. Each beat must map to the article's information blocks rather than generic decoration.\nInformation blocks:\n- Problem (left side): Multiple dashed arrows bouncing back and forth between client and server icons, representing wasted polling requests. Label: 轮询：多次请求\n- Mechanism (center-right): A single glowing continuous data pipeline flowing from server to client, with colored token particles traveling through. Label: SSE：单连接推送\n- Evidence (far right): A browser window with a chat bubble showing text appearing character by character in real-time. Label: 逐块生成，即时显示\n\nMain metaphor: A data pipeline / conduit — tokens flow like luminous particles from server to client browser.\nSubject: A glowing streaming data pipeline connecting a simplified server symbol (gear/chip icon) on the left to a browser window (with chat bubbles) on the right. The token particles travel along the pipeline and arrive at the chat bubble where text highlights incrementally.\nComposition/framing: Left-right comparison composition. Left half shows messy polling arrows; right half shows the clean SSE streaming pipeline. Keep legible in a wide 2.35:1 cover.\nStyle/medium: combine editorial technical illustration with the selected visual style descriptor: contemporary Chinese anime-comic illustration, crisp linework, ornate but controlled details, vibrant fantasy-tech color accents. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: deep blue background, cyan-blue glowing pipeline, orange/gold token particles, white highlights.\nVisible text policy: allow only 3 short Chinese labels: 轮询：多次请求, SSE：单连接推送, 逐块生成，即时显示. Each label <= 6 Chinese characters. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: floating chips, code rain, neon skyscrapers, generic robot poses, HUD overlays, fake UI screenshots, fake dashboards."
+}
