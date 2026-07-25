@@ -1,0 +1,47 @@
+{
+  "article_title": "ASP.NET Core 请求路径参考：Path、PathBase 和 URL 拼接",
+  "cover_type": "tutorial",
+  "core_theme": "ASP.NET Core 中 HttpRequest 将请求 URL 拆分为 PathBase、Path、QueryString 等独立属性，理解它们的关系和正确使用方式",
+  "reader_takeaway": "搞清楚每个请求路径属性该在什么场景用，避免手动拼接 URL 踩坑",
+  "summary_angle": "一个完整 URL 被拆成三个标注块（PathBase / Path / QueryString），再重新拼回完整地址，直观展示拆分与组合关系",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "step",
+      "source_anchor": "PathBase 是应用前缀，由中间件或反向代理配置决定，可为空",
+      "visual_idea": "左侧一个标注为 PathBase 的 URL 前缀段被高亮切分出来",
+      "visible_label": "PathBase",
+      "numeric_fact": "1"
+    },
+    {
+      "role": "step",
+      "source_anchor": "Path 包含应用内部路由路径，与 PathBase 分开管理",
+      "visual_idea": "中间一个标注为 Path 的 URL 路径段",
+      "visible_label": "Path",
+      "numeric_fact": "2"
+    },
+    {
+      "role": "step",
+      "source_anchor": "QueryString 和 Query 用于读取查询参数",
+      "visual_idea": "右侧一个标注为 QueryString 的查询参数段",
+      "visible_label": "QueryString",
+      "numeric_fact": "3"
+    }
+  ],
+  "main_metaphor": "一个 URL 地址栏被解析成三个带标签的彩色积木块，拼在一起形成完整地址",
+  "primary_subject": "一根水平展开的 URL 地址栏，被拆分为三个颜色不同的标注段",
+  "subject_action": "URL 段从左到右依次排列，箭头和标注说明每个段的含义，最后重新组合成完整 URL",
+  "composition": "单点聚焦，水平方向从左到右展开三个信息块",
+  "base_style": "editorial technical illustration",
+  "selected_style": "彩铅绘本风",
+  "selected_style_prompt_descriptor": "colored-pencil picture-book illustration, tactile strokes, gentle palette, warm narrative objects, soft educational tone",
+  "selected_style_reason": "用户未指定风格，本篇从 40 项风格池随机选中（第 38 项）；彩铅绘本的温暖教育感适合技术速查类文章的封面，让枯燥的 URL 属性对比看起来更亲和",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["PathBase", "Path", "QueryString", "?"],
+  "color_palette": ["暖米色背景", "柔蓝", "暖橙", "深灰标注"],
+  "avoid": ["漂浮芯片", "无意义代码雨", "霓虹高楼背景", "通用机器人", "赛博朋克光污染", "假 terminal 窗口", "假浏览器截图", "假 dashboard"],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮先验证 URL 拆分三段 + 彩铅纹理 + 水平构图的可行性",
+  "revision_targets": ["彩铅纹理是否足够明显", "三段 URL 标注是否可读", "背景是否简洁不抢戏"],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: ASP.NET Core splits a request URL into PathBase, Path, and QueryString properties — understanding how they split and combine. The reader should quickly feel confident about which property to use in each scenario.\n\nSummary angle: A complete URL is split into three labeled segments (PathBase / Path / QueryString), then reassembled back into a full address, showing the split-and-combine relationship at a glance.\nNarrative flow: 3-beat process. In a 2.35:1 frame, keep one dominant focal subject and 2-4 supporting narrative beats. Each beat must map to the article's information blocks rather than generic decoration.\nInformation blocks:\n- Step 1: PathBase is the app prefix, configured by middleware or reverse proxy, can be empty. Visual: left URL segment highlighted and labeled \"PathBase\", with a small \"①\" chip.\n- Step 2: Path contains the route path inside the application, separated from PathBase. Visual: middle URL segment labeled \"Path\", with a small \"②\" chip.\n- Step 3: QueryString carries query parameters. Visual: right segment labeled \"QueryString\" and a \"?\" marker, with a small \"③\" chip.\n\nMain metaphor: A horizontal URL address bar parsed into three color-coded labeled building blocks that snap together to form the complete address.\nSubject: A horizontally laid-out URL address bar, split into three distinctly colored segments with labels, arrows connecting them back to a complete URL at the bottom.\nComposition/framing: single focal point, horizontal left-to-right flow of three information blocks. Prefer horizontal or radial storytelling that stays legible in a wide cover.\nStyle/medium: combine editorial technical illustration with the selected visual style descriptor: colored-pencil picture-book illustration, tactile strokes, gentle palette, warm narrative objects, soft educational tone. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: warm cream background, soft blue, warm orange, dark gray labels.\nVisible text policy: allow only 1-3 short Chinese labels or number chips by default, and no more than 4 when strictly necessary, all sourced from the information blocks. Each label <= 6 Chinese characters or one required product/model name. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: floating chips, meaningless code rain, neon skyscraper backgrounds, generic robot poses, cyberpunk purple-blue light pollution, fake terminal windows, fake browser screenshots, fake dashboards."
+}
