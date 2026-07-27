@@ -1,0 +1,47 @@
+{
+  "article_title": "Microsoft Agent Framework 原生记忆：CosmosMemoryContextProvider",
+  "cover_type": "release",
+  "core_theme": "CosmosMemoryContextProvider 作为一个机械核心模块，插入 Microsoft Agent Framework 的 context_providers 插槽后，为 AI Agent 赋予持久化长期记忆能力——before_run 检索注入，after_run 存储提取",
+  "reader_takeaway": "理解 CosmosMemoryContextProvider 的设计理念和接入方式，能用 3 步给 Agent Framework agent 挂上 Cosmos DB 长期记忆",
+  "summary_angle": "记忆模块（CosmosMemoryContextProvider）作为即插即用的机械核心，插入 agent 后自动在 before_run/after_run 生命周期中完成记忆检索、事实提取和用户画像更新",
+  "narrative_flow": "before-after (before_run 注入 → after_run 提取闭环)",
+  "information_blocks": [
+    {
+      "role": "mechanism",
+      "source_anchor": "before_run section——搜索 Cosmos 记忆库，将匹配结果和用户画像注入模型上下文",
+      "visual_idea": "一个光信号从数据库流向 agent 核心的箭头，表示上下文注入",
+      "visible_label": "检索注入",
+      "numeric_fact": ""
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "after_run section——存储对话、提取事实、更新摘要和用户画像",
+      "visual_idea": "agent 核心向外流出数据到数据库的箭头，表示记忆存储",
+      "visible_label": "存储提取",
+      "numeric_fact": ""
+    },
+    {
+      "role": "evidence",
+      "source_anchor": "交互示例——Alice 新线程中 agent 记得 hiking 和 peanut allergy",
+      "visual_idea": "一个用户图标跨新线程持续连接记忆，表示跨会话持久化",
+      "visible_label": "跨会话记忆",
+      "numeric_fact": "user_id"
+    }
+  ],
+  "main_metaphor": "一个可插拔的机械记忆核心模块，插入 agent 框架的 context_providers 插槽后，before_run 从 Cosmos DB 抽取记忆光缆注入 agent，after_run 把新体验写回数据库",
+  "primary_subject": "一个发光的机械记忆核心（类似硬核科幻的插件模块），上下各有一条光缆连接——上方是从 Cosmos DB 注入的蓝色记忆流，下方是写回的绿色存储流",
+  "subject_action": "记忆核心正被插入 agent 框架的 context_providers 接口槽，接口处有对接光效",
+  "composition": "居中主物体（记忆核心模块）带有上下两条数据流管道，左侧是 Agent Framework agent 轮廓，右侧是 Cosmos DB 数据库象征",
+  "base_style": "product-poster style illustration",
+  "selected_style": "科幻机甲风",
+  "selected_style_prompt_descriptor": "science-fiction mecha concept illustration, mechanical forms, hard-surface details, cockpit-scale cues, cool industrial palette",
+  "selected_style_reason": "用户未指定风格，从 40 项风格池随机选中；CosmosMemoryContextProvider 的即插即用模块化设计与科幻机甲的插件、模块、硬表面机械感天然契合",
+  "style_safety_note": "使用泛科幻机甲描述，不引用具体作品或设计师",
+  "allowed_visible_text": ["检索注入", "存储提取", "跨会话记忆"],
+  "color_palette": ["冷钢蓝", "暖橙金", "深灰", "信号绿"],
+  "avoid": ["赛博朋克紫蓝光污染", "假终端输出", "假 dashboard", "假图表坐标轴", "浮夸 HUD", "代码雨", "漂浮芯片", "霓虹高楼"],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "先验证记忆核心模块的机械美学是否成立、上下数据流管道清晰度、三个中文标签可读性",
+  "revision_targets": ["如果太过冰冷机械缺少 product-poster 感，增加 polished 光泽", "如果标签过多，保持 3 个", "如果构图太散，收紧到核心模块"],
+  "final_prompt": ""
+}
