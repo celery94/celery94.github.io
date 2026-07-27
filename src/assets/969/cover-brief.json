@@ -1,0 +1,46 @@
+{
+  "article_title": "OpenTelemetry in .NET：可观测性完整指南",
+  "cover_type": "tutorial",
+  "core_theme": "用 .NET 原生 System.Diagnostics API（Activity、Meter、ILogger）构建 vendor-neutral 的三信号可观测性管线——Traces、Metrics、Logs 统一采集并通过 OTLP 导出到任意后端",
+  "reader_takeaway": "理解 OpenTelemetry 的三大信号在 .NET 中如何落地，能照着代码在自己的 ASP.NET Core 项目里配置 Trace、Metric、Log 采集与导出",
+  "summary_angle": "三信号（Trace / Metric / Log）通过 .NET BCL 原生 API 统一采集 → 经 OTLP 管道汇聚到统一出口 → 接入任意可观测后端，一次 instrument，切换后端只改配置不改代码",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "mechanism",
+      "source_anchor": "Traces in Depth 章节——自定义 ActivitySource 为业务逻辑创建 Span，包括 CheckoutService 示例",
+      "visual_idea": "一支发光追踪链/调用树从左上方延伸出来，节点上有时间标记",
+      "visible_label": "Trace 链路",
+      "numeric_fact": "1 trace = N spans"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "Metrics in Depth 章节——ApiMetrics 类使用 Counter 和 Histogram，通过 IMeterFactory 创建 meter",
+      "visual_idea": "一组计数器/仪表盘形状的图形符号，表示请求计数和延迟分布",
+      "visible_label": "Metrics 聚合",
+      "numeric_fact": "p99 < 500ms"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "Logging in Depth 章节——ILogger 输出经 OTel 自动附加 TraceId/SpanId，与 Trace 关联",
+      "visual_idea": "一组结构化的日志条目卡片，每条带 trace badge 编号",
+      "visible_label": "Log 关联"
+    }
+  ],
+  "main_metaphor": "三条发光管道（三种信号）从三个方向汇聚到一个中央分光棱镜，经 OTLP 统一光束射向远端",
+  "primary_subject": "一个发光的中枢棱镜/圆盘装置，三条管线从不同角度接入",
+  "subject_action": "棱镜正将三束不同颜色的数据流汇聚成一条统一光束输出",
+  "composition": "居中主物体 + 三向汇聚，采用水平宽幅叙事布局",
+  "base_style": "editorial technical illustration",
+  "selected_style": "吉卜力动画风",
+  "selected_style_prompt_descriptor": "warm hand-drawn animation feeling, natural environments, gentle fantasy everyday mood, soft painterly backgrounds, no studio imitation",
+  "selected_style_reason": "用户未指定风格，本篇从 40 项风格池随机选中；OTel「让观测变得自然而然」的定位与吉卜力日常感、温和手工质地的气质契合，教程型内容用这种柔和画风能降低技术恐惧感",
+  "style_safety_note": "原风格名强指向在世工作室，最终 prompt 只使用 warm hand-drawn、soft painterly backgrounds、gentle fantasy everyday mood 等非仿冒描述",
+  "allowed_visible_text": ["Trace 链路", "Metrics 聚合", "Log 关联"],
+  "color_palette": ["柔绿", "暖黄", "淡蓝", "米白"],
+  "avoid": ["赛博朋克紫蓝光污染", "霓虹高楼", "假终端输出", "假 dashboard", "假图表坐标轴", "浮夸 HUD", "代码雨", "漂浮芯片"],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "先验证三管道汇聚的构图是否清晰、吉卜力温和画风是否成立、三个中文标签是否可读",
+  "revision_targets": ["如果画风偏科技冷感，加 warm hand-drawn texture", "如果标签过多，减少到 3 个", "如果构图太对称死板，微调管道角度"],
+  "final_prompt": ""
+}
