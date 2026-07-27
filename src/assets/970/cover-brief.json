@@ -1,0 +1,45 @@
+{
+  "article_title": "OpenTelemetry Traces .NET：ActivitySource、Span 与追踪管线",
+  "cover_type": "tutorial",
+  "core_theme": "用 .NET 原生 System.Diagnostics.Activity / ActivitySource 创建分布式 Trace，通过 OTel SDK 监听并导出 Span 数据——从 span 创建、上下文传播到完整跨服务追踪管线",
+  "reader_takeaway": "理解 Trace 与 Span 的区别，能用 ActivitySource 在业务代码中创建父子 span、设置 tags/events/exception，并配置 OTel tracing pipeline 实现跨服务 W3C 上下文传播",
+  "summary_angle": "一个 Trace 就是一棵 Span 树——从入站 HTTP 请求（自动）到业务操作（手动），Activity.Current 通过 async/await 自动流动，traceparent 头把跨服务 span 串联成统一调用链",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "mechanism",
+      "source_anchor": "What Are Traces and Spans 章节——trace = 完整请求旅程，由 span 树构成；span 有 ID、parentId、时间戳、状态",
+      "visual_idea": "一棵发光的调用树/瀑布节点图，根节点是 HTTP POST /orders，子节点分叉到下游操作",
+      "visible_label": "Trace 树",
+      "numeric_fact": "1 Trace = N Spans"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "Setting Up Pipeline 章节——AddSource 注册、ConfigureResource 设置 service.name、Console/Otlp exporter",
+      "visual_idea": "ActivitySource 发出信号被 listener 捕获，经过 OTel SDK 管道，输出到后端",
+      "visible_label": "Pipeline"
+    },
+    {
+      "role": "step",
+      "source_anchor": "Service-to-Service Example——HttpClient 自动注入 traceparent，下游 AspNetCore 读取并创建子 span",
+      "visual_idea": "两个服务之间通过 traceparent 头连接，上方是 OrderService 的 span，下方是 InventoryService 的子 span",
+      "visible_label": "跨服务"
+    }
+  ],
+  "main_metaphor": "一棵发光的数据流管道树——根干从 HTTP 端点长出，分支到各业务操作节点，traceparent 作为跨进程连接器",
+  "primary_subject": "一棵有机生长的发光调用树，根从 HTTP 入口开始，逐层分叉出业务 span 节点，节点间有 traceparent 连接器",
+  "subject_action": "调用树正在生长分叉，各节点有不同颜色的光晕表示不同状态（ok/error），traceparent 如光纤连接跨进程节点",
+  "composition": "从左到右的水平树形叙事——左端 HTTP 入口 → 中间业务 span 分支 → 右端跨服务连接",
+  "base_style": "editorial technical illustration",
+  "selected_style": "国漫二次元风",
+  "selected_style_prompt_descriptor": "contemporary Chinese anime-comic illustration, crisp linework, ornate but controlled details, vibrant fantasy-tech color accents",
+  "selected_style_reason": "用户未指定风格，从 40 项风格池随机选中；Trace 的树形结构适合用国漫利落线稿和幻想科技感配色来表现，既有结构清晰又有视觉张力",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["Trace 树", "Pipeline", "跨服务"],
+  "color_palette": ["墨蓝", "暖金", "翠绿", "浅灰白"],
+  "avoid": ["赛博朋克紫蓝光污染", "假终端输出", "假 dashboard", "假图表坐标轴", "浮夸 HUD", "代码雨", "漂浮芯片", "霓虹高楼"],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "先验证树形调用结构是否清晰、国漫线稿风格是否成立、span 节点层次可读性",
+  "revision_targets": ["如果树形太乱，压缩分支数", "如果画风偏科技冷感，加强 crisp ink lines 和 fantasy-tech accent", "如果标签太多，保持 3 个"],
+  "final_prompt": ""
+}
