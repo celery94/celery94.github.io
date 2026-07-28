@@ -1,0 +1,60 @@
+{
+  "article_title": "从 MCP 服务器发现 Agent Skills：.NET 中的一次发布、随处可用",
+  "cover_type": "release",
+  "core_theme": "Agent Skills 通过 MCP 服务器集中分发，多个 Agent 按需发现和加载",
+  "reader_takeaway": "理解 MCP 技能的工作机制，知道如何把技能从嵌入变为集中分发",
+  "summary_angle": "一次发布 → 按需发现 → 无需部署：把技能分发从文件拷贝升级为基础设施",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "mechanism",
+      "source_anchor": "平台团队把技能发布到 MCP 服务器，skill-md 或 archive 形式",
+      "visual_idea": "中心服务器节点向外辐射，技能包从服务器发出",
+      "visible_label": "发布技能",
+      "numeric_fact": ""
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "Agent 通过 UseMcpSkills(client) 连接服务器并发现技能",
+      "visual_idea": "多个 Agent 节点从同一个 MCP 服务器拉取技能",
+      "visible_label": "按需发现",
+      "numeric_fact": ""
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "更新技能不需要重新部署 Agent，下一次发现自动生效",
+      "visual_idea": "Agent 和服务器之间的虚线连接，表示动态更新",
+      "visible_label": "无需部署",
+      "numeric_fact": ""
+    }
+  ],
+  "main_metaphor": "中央枢纽分发站，技能包像标准化模块从中心流向各 Agent 终端",
+  "primary_subject": "一个简洁的 MCP 服务器/中枢节点，连接着多个 Agent 终端",
+  "subject_action": "服务器居中，技能以模块化包的形式向四周的 Agent 终端分发",
+  "composition": "居中主物体 + 少量辅助符号",
+  "base_style": "product-poster style illustration",
+  "selected_style": "欧漫清线风",
+  "selected_style_prompt_descriptor": "European clear-line comic style, precise outlines, flat readable colors, tidy environments, restrained humor and detail",
+  "selected_style_reason": "用户未指定风格，本篇从 40 项风格池随机选中；release 类型适合用清晰线条和干净配色突出中心产品符号",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["发布技能", "按需发现", "无需部署"],
+  "color_palette": ["深蓝色 #1a3a5c", "白色/浅灰背景", "橙色暖色点缀 #e8870a"],
+  "avoid": [
+    "漂浮芯片",
+    "代码雨",
+    "霓虹高楼",
+    "通用机器人站姿",
+    "赛博朋克紫蓝光污染",
+    "HUD 浮层",
+    "假终端输出",
+    "假 dashboard"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证主题（中心服务器向多 Agent 分发技能）和叙事信息块是否清晰可读",
+  "revision_targets": [
+    "如果主体不够突出，加强中心枢纽的视觉权重",
+    "如果信息块标签太多或太密，减少到 2 个",
+    "如果风格偏赛博朋克，收紧色彩控制回到欧漫清线风"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: Agent Skills distributed from a central MCP server to multiple agents — publish once, discover everywhere. The reader should quickly feel this is about centralized skill distribution infrastructure for AI agents.\n\nSummary angle: Publish once → Discover on demand → No redeploy. Turn skill distribution from file-copying into infrastructure.\nNarrative flow: 3-beat process. In a 2.35:1 frame, keep one dominant focal subject and 2-4 supporting narrative beats. Each beat must map to the article's information blocks rather than generic decoration.\nInformation blocks:\n- mechanism: A central server hub emitting skill packages outward, labeled 「发布技能」\n- mechanism: Multiple agent nodes pulling skills from the same MCP server, labeled 「按需发现」\n- takeaway: Dynamic dotted connections between agents and server indicating updates flow without redeploy, labeled 「无需部署」\n\nMain metaphor: A central distribution hub where standardized skill modules flow from the center to surrounding agent terminals.\nSubject: A clean MCP server/hub node at center, connecting to multiple agent terminal nodes around it, with skill packages flowing outward.\nComposition/framing: Centered main subject with supporting symbolic elements. Prefer horizontal or radial storytelling that stays legible in a wide cover.\nStyle/medium: combine product-poster style illustration with the selected visual style descriptor: European clear-line comic style, precise outlines, flat readable colors, tidy environments, restrained humor and detail. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: deep blue (#1a3a5c), white/light gray background, warm orange accent (#e8870a).\nVisible text policy: allow only 2-3 short Chinese labels from the information blocks: 「发布技能」「按需发现」「无需部署」. Each label <= 4 Chinese characters. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: floating chips, code rain, neon buildings, generic robot stances, cyberpunk purple-blue light pollution, HUD overlays, fake terminals, fake dashboards."
+}
