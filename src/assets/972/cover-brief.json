@@ -1,0 +1,54 @@
+{
+  "article_title": "ASP.NET Core 健康检查完全指南：从 Hello World 到生产环境",
+  "cover_type": "tutorial",
+  "core_theme": "ASP.NET Core 健康检查的正确做法：不只是返回 Healthy，而是让探针信号诚实、可控、低成本",
+  "reader_takeaway": "学会从零搭建生产级健康检查体系，理解 liveness/readiness 拆分、探针成本优化和优雅排水",
+  "summary_angle": "一个「Healthy」返回值骗了整个集群 → liveness/readiness 拆分 + 成本预算 + 优雅排水，三条防线让健康信号从谎言变成真相",
+  "narrative_flow": "conflict-to-resolution",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "进程返回 Healthy 但数据库已挂，负载均衡器继续往坏 Pod 灌流量",
+      "visual_idea": "一个系统外壳显示绿色 Healthy 指示灯，但内部数据库连接断裂、冒红烟",
+      "visible_label": "假健康信号",
+      "numeric_fact": null
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "liveness 只查进程、readiness 查依赖，用 tags 拆分两个端点",
+      "visual_idea": "三条分叉通道，分别标注 liveness/readiness/startup，每条通道有不同样式的守卫",
+      "visible_label": "三探针拆分",
+      "numeric_fact": null
+    },
+    {
+      "role": "evidence",
+      "source_anchor": "4 副本 × 10s 间隔 × 4 检查 = 每天 138,000 次依赖往返",
+      "visual_idea": "一个计数仪表，指针指向 138K，背景有数据库图标被反复击打",
+      "visible_label": "探针成本",
+      "numeric_fact": "138K/天"
+    },
+    {
+      "role": "step",
+      "source_anchor": "ShortCircuit + 输出缓存 + 优雅排水 preStop sleep",
+      "visual_idea": "一个护盾或闸门挡在数据库前面，截断多余的探针请求",
+      "visible_label": "降本三招",
+      "numeric_fact": null
+    }
+  ],
+  "main_metaphor": "一个信号中枢系统——外面看是一个简单的 Healthy/Unhealthy 指示灯，内部却是三条独立通道各司其职的守卫体系。放错守卫就误判，漏掉成本预算就压垮后方",
+  "primary_subject": "一个中心化健康信号中枢，三条水平排布的通道各有一个风格化的守卫/指示器",
+  "subject_action": "Liveness 守卫盯着一个简单的心跳监测器；Readiness 守卫正在检查连接数据库和 Redis 的管线；第三条通道的守卫举起 STOP 手势，表示正在排水关停",
+  "composition": "水平三通道展开，中间主焦点是信号中枢 hub，三条通道从左到右推进",
+  "base_style": "editorial technical illustration",
+  "selected_style": "美漫超级英雄风",
+  "selected_style_prompt_descriptor": "American superhero-comic energy, bold outlines, halftone texture, dramatic perspective, high-contrast color blocking",
+  "selected_style_reason": "用户未指定风格，本篇从 40 项风格池随机选中；健康检查的三探针拆分对应超级英雄团队分工明确的叙事节奏，bold outlines 和 dramatic perspective 能强化「系统防线」的视觉张力",
+  "style_safety_note": "使用泛美漫超级英雄风格描述（bold outlines, halftone, dramatic perspective），不引用特定漫画、角色、工作室或艺术家",
+  "allowed_visible_text": ["假健康信号", "三探针拆分", "138K/天", "降本三招"],
+  "color_palette": ["深蓝（技术信任）", "橙红（告警/断裂）", "青绿（健康信号）", "深灰（基础设施）"],
+  "avoid": ["真实 UI 截图", "dashboard", "假图表坐标", "假终端输出", "漂浮芯片", "代码雨", "霓虹高楼", "通用机器人", "赛博朋克紫蓝光污染", "HUD 浮层", "英文口号", "长段文字"],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮验证：三条通道的守卫分工是否清晰可辨、信息块映射是否准确、美漫风格是否成立",
+  "revision_targets": ["如果守卫角色不够清晰，强化每个通道的视觉差异化", "如果信息块太多导致画面拥挤，压缩到 3 个", "如果美漫风格偏海报化，收紧 halftone 和 bold outlines 的比例"],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: ASP.NET Core health checks done right — splitting liveness/readiness probes, budgeting probe cost, and graceful shutdown drain. The reader should quickly feel that a reliable health signal comes from putting the right check in the right probe, not from returning a blind 'Healthy'.\n\nSummary angle: A blind 'Healthy' signal lies to the entire cluster → three defensive lines (liveness/readiness split + cost budgeting + graceful drain) turn the signal from a lie into the truth.\nNarrative flow: conflict-to-resolution. In a 2.35:1 frame, keep one dominant focal subject (a central signal hub) and 3-4 supporting narrative beats. Each beat must map to the article's information blocks rather than generic decoration.\n\nInformation blocks:\n- Problem: 'Fake healthy signal' — a system shell showing green Healthy indicator while the internal database connection is broken and smoking red. Source: app returns Healthy but database is dead, load balancer keeps routing to broken pod.\n- Mechanism: 'Three-probe split' — three branching channels labeled for liveness (process-only heartbeat), readiness (dependency checks), and startup, each guarded by a stylized sentinel with distinct visual role.\n- Evidence: 'Probe cost: 138K/day' — a gauge or counter showing 138K, background hint of database being repeatedly pinged. Source: 4 replicas × 10s interval × 4 checks = 138,000 dependency round-trips per day at idle.\n- Step: 'Three cost-cutting moves' — a shield or gate intercepting excessive probe traffic before it hits the database. Source: ShortCircuit + output caching + preStop sleep.\n\nMain metaphor: A signal hub system — outwardly a simple Healthy/Unhealthy indicator light, internally three independent channels each guarded by a sentinel with a specific duty. Wrong guard placement causes misjudgment; missing cost budget crushes the backend.\n\nSubject: A centralized health signal hub with three horizontally-arranged channels, each with a stylized sentinel/indicator. One sentinel watches a simple heartbeat monitor (liveness); one inspects connection pipelines to database and Redis (readiness); one holds up a STOP gesture signaling drain/shutdown.\n\nComposition/framing: Horizontal three-channel layout, central dominant hub, left-to-right narrative progression. Prefer horizontal or radial storytelling that stays legible in a wide cover.\n\nStyle/medium: combine editorial technical illustration with the selected visual style descriptor: American superhero-comic energy, bold outlines, halftone texture, dramatic perspective, high-contrast color blocking. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\n\nColor palette: deep blue (technical trust), orange-red (alert/broken), teal-green (healthy signal), dark grey (infrastructure).\n\nVisible text policy: allow only up to 4 short Chinese labels sourced from the information blocks: '假健康信号', '三探针拆分', '138K/天', '降本三招'. Each label <= 6 Chinese characters. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names.\n\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\n\nAvoid: floating chips, meaningless code rain, neon skyscrapers, generic robot poses, cyberpunk purple-blue light pollution, excessive HUD overlays, English slogans, long text blocks."
+}
