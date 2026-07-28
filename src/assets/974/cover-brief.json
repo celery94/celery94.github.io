@@ -1,0 +1,47 @@
+{
+  "article_title": "用 MCP Inspector 调试 C# MCP Server：从连接到排错",
+  "cover_type": "tutorial",
+  "core_theme": "使用官方 MCP Inspector 工具调试 C# MCP Server —— 从连接验证到 JSON-RPC 日志解读，再到五种 .NET 故障模式的系统排查",
+  "reader_takeaway": "学会用 MCP Inspector 高效调试 C# MCP Server，能区分连接问题、契约问题和运行时问题，建立「先看协议证据、再往外排查」的调试习惯",
+  "summary_angle": "你写的 C# MCP Server 连不上宿主？别急着怀疑编辑器——先用 Inspector 隔离到协议层，连接 → 列出能力 → 调一个工具 → 读 JSON-RPC 日志 → 逐步排除五种 .NET 典型故障",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "step",
+      "source_anchor": "启动 Inspector，通过 stdio 或 Streamable HTTP 连接 C# MCP Server，验证能力协商",
+      "visual_idea": "一个命令行终端窗口叠着一个浏览器 UI 面板，两者之间由连线/箭头连接——展示 Inspector 的代理架构",
+      "visible_label": "连接",
+      "numeric_fact": "1"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "在 Tools/Resources/Prompts 标签页交互测试，查看 JSON-RPC 原始日志定位 schema 不匹配和调用失败",
+      "visual_idea": "一个放大镜聚焦在 JSON-RPC 请求/响应报文上，旁边有 tools/list 和 tools/call 的标注",
+      "visible_label": "检查",
+      "numeric_fact": "2"
+    },
+    {
+      "role": "step",
+      "source_anchor": "五种 .NET 故障模式：stdout 污染、传输错误、schema 不匹配、环境漂移、依赖行为——用 Inspector 逐一隔离",
+      "visual_idea": "五个带编号的小问题卡片/便利贴，分别标注不同故障类型，被一条诊断线串联起来",
+      "visible_label": "排错",
+      "numeric_fact": "3"
+    }
+  ],
+  "main_metaphor": "一个手绘风格的调试工作台——命令行 + 浏览器 UI + JSON-RPC 日志 + 故障卡片，所有元素被铅笔线条和箭头连接成一条清晰的排查路径",
+  "primary_subject": "一张由手绘线条串联的调试工作流：左上角是终端命令启动 Inspector，中间是放大镜检视 JSON-RPC 日志的核心区域，下方是五张故障排查卡片",
+  "subject_action": "从左上到右下推进的工作流：命令行 → 浏览器 UI 面板 → 放大镜聚焦 JSON-RPC → 五个故障卡片被诊断路径串联",
+  "composition": "左上到右下的斜向推进布局，放大镜 + JSON-RPC 日志区域是主焦点，终端在左上角，故障卡片在右下区域排开",
+  "base_style": "editorial technical illustration",
+  "selected_style": "手绘铅笔草稿风",
+  "selected_style_prompt_descriptor": "hand-drawn pencil sketch look, visible construction lines, graphite texture, loose but intentional composition",
+  "selected_style_reason": "用户未指定风格，本篇从 40 项风格池随机选中；调试排错天然适配手绘草稿的工作感——construction lines 暗示排查路径，loose composition 传达探索式调试的开放性",
+  "style_safety_note": "使用泛手绘草稿风格描述（pencil sketch, graphite texture, construction lines），不引用特定艺术家或工作室",
+  "allowed_visible_text": ["连接", "1", "检查", "2", "排错", "3"],
+  "color_palette": ["石墨灰（铅笔主调）", "暖橙（高亮/诊断焦点）", "米白（纸纹底色）", "深蓝灰（终端/代码元素）"],
+  "avoid": ["真实 UI 截图", "dashboard", "假图表坐标", "假终端输出", "漂浮芯片", "代码雨", "霓虹高楼", "通用机器人", "赛博朋克紫蓝光污染", "HUD 浮层", "英文长句"],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮验证：手绘铅笔草稿的工作流表达是否清晰、三个信息块（连接/检查/排错）的视觉顺序是否可读、石墨灰 + 暖橙的配色是否成立",
+  "revision_targets": ["如果手绘线条太乱导致工作流不清，减少构造线密度", "如果放大镜+JSON-RPC 区域不够突出，加大视觉比重", "如果故障卡片太密集，减少到 3 张代表性卡片"],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: Debugging a C# MCP server using the official MCP Inspector tool — connect, inspect JSON-RPC logs, and diagnose five common .NET failure patterns.\n\nSummary angle: Your C# MCP server won't connect to the host? Don't blame the editor first — isolate to the protocol layer with Inspector: connect → list capabilities → invoke one tool → read JSON-RPC log → diagnose five .NET failure patterns step by step.\nNarrative flow: 3-beat process (connect → inspect → debug). In a 2.35:1 frame, keep one dominant focal subject (a debugging workstation with Inspector UI and JSON-RPC log under a magnifying glass) and 3 supporting narrative beats.\n\nInformation blocks:\n- Step 1 Connect: A terminal window launching Inspector, connected via arrows to a browser UI panel — showing the proxy architecture that bridges Node.js to the C# server. Label: connect/连接, number: 1.\n- Step 2 Inspect: A magnifying glass focused on JSON-RPC request/response payloads, with tools/list and tools/call annotations visible. This is the dominant focal area. Label: inspect/检查, number: 2.\n- Step 3 Debug: Five small numbered problem cards/sticky notes arranged in the lower area, each representing a .NET failure pattern (stdout contamination, transport mismatch, schema mismatch, environment drift, dependency behavior), connected by a diagnostic path line. Label: debug/排错, number: 3.\n\nMain metaphor: A hand-drawn debugging workbench — terminal + browser UI + JSON-RPC log + problem cards, all connected by pencil lines and arrows forming a clear diagnostic path.\n\nSubject: A debugging workflow drawn with pencil lines. Top-left: terminal launching Inspector. Center: magnifying glass over JSON-RPC log. Bottom-right: five diagnostic cards connected by a path line. The elements feel like a developer's notebook sketch.\n\nComposition/framing: Diagonal flow from top-left to bottom-right. The magnifying glass + JSON-RPC log area is the dominant focal point. Terminal at top-left, problem cards spread across bottom. Prefer diagonal storytelling that stays legible in a wide cover.\n\nStyle/medium: combine editorial technical illustration with the selected visual style descriptor: hand-drawn pencil sketch look, visible construction lines, graphite texture, loose but intentional composition. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\n\nColor palette: graphite grey (pencil primary), warm orange (diagnostic highlights), cream white (paper texture), deep blue-grey (terminal/code accents).\n\nVisible text policy: allow only up to 6 short labels/number chips sourced from the information blocks: connect/连接, 1, inspect/检查, 2, debug/排错, 3. Each label <= 3 Chinese characters or one digit. No poster title, no long sentences, no English slogans, no fake UI labels, no fake code, no fake terminal output.\n\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fabricated metrics, no unrelated icon collage, no decorative clutter.\n\nAvoid: floating chips, meaningless code rain, neon skyscrapers, generic robot poses, cyberpunk purple-blue light pollution, excessive HUD overlays, English slogans, long text blocks, fake IDE screenshots."
+}
