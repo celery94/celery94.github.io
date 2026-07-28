@@ -1,0 +1,47 @@
+{
+  "article_title": "从 GPT-2 到 KimiK3：七年 22580 倍的架构演进",
+  "cover_type": "research",
+  "core_theme": "七年 LLM 架构演进：从 GPT-2 的简单 softmax attention 到 KimiK3 的多机制混合系统，22580 倍参数量增长背后是注意力机制的六次根本性改变",
+  "reader_takeaway": "理解 LLM 注意力机制从 O(N²) 到线性、从纯累加到精确改写、从无门控到细粒度衰减、从单机制到混合架构的完整技术脉络",
+  "summary_angle": "22580× 是标题数字，但真正的故事是注意力机制的六次质变——从「存什么」「怎么更新」「怎么检索」三个维度，每次架构变更都在重新定义模型的记忆方式",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "mechanism",
+      "source_anchor": "GPT-2 (2019): decoder-only, softmax attention O(N²), KV cache, 124M params — 简单的 Q·Kᵀ·V 范式",
+      "visual_idea": "一个简洁的单层结构：token emb + pos emb → 12 层相同 block → output。画面左侧，风格朴素",
+      "visible_label": "GPT-2",
+      "numeric_fact": "124M"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "Linear Attention → DeltaNet → Gated DeltaNet：从 O(N²) 降到 O(N)，从累加变为 delta 改写，从无遗忘到门控衰减 — 三次 attention 机制质变",
+      "visual_idea": "三个连续分镜 panel，每个展示一个关键变化：ELU+1 特征映射 / delta rule 差异写入 / alpha 门控衰减",
+      "visible_label": "Attention 三变",
+      "numeric_fact": "O(N²)→O(N)"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "KimiK3 (2026): 23 macrocycles, KDA+MLA+MoE+SiTU+AttnRes 混合架构, 2.8T params = 22580× GPT-2",
+      "visual_idea": "画面右侧，一个复杂但有序的多层结构：macrocycle 循环、MLA 和 DeltaNet 交替、MoE 分支",
+      "visible_label": "KimiK3",
+      "numeric_fact": "22580×"
+    }
+  ],
+  "main_metaphor": "一条从简洁到复杂的电影时间线——左侧是干净的 2019 年单层架构，随着时间向右推进，每一帧分镜展示一次机制革新，最终到达右侧 2026 年的多组件混合系统",
+  "primary_subject": "一条从左到右展开的「架构演进胶片」——由连续电影分镜 panel 组成的时间线，每个 panel 代表一个关键架构节点",
+  "subject_action": "从左到右的画面推进：GPT-2 面板简单干净 → 中间三个 panel 展示 attention 机制的三次关键转变 → 右侧 KimiK3 面板结构复杂但排列有序",
+  "composition": "水平推进的 storyboard 分镜布局，左到右时间流动，每个 panel 之间用箭头或过渡线连接，单点主焦点落在中间 attention 三变上",
+  "base_style": "abstract technical concept art",
+  "selected_style": "动态分镜电影风",
+  "selected_style_prompt_descriptor": "dynamic cinematic storyboard style, sequential panels, camera-motion feeling, strong cuts, clear narrative beats",
+  "selected_style_reason": "用户未指定风格，本篇从 40 项风格池随机选中；架构演进天然适合分镜叙事——每个 panel 展示一个关键技术节点，连续推进形成完整技术脉络",
+  "style_safety_note": "使用泛分镜电影风格描述（sequential panels, camera-motion, strong cuts），不引用特定导演、电影或工作室",
+  "allowed_visible_text": ["GPT-2", "124M", "O(N²)→O(N)", "Attention 三变", "KimiK3", "22580×"],
+  "color_palette": ["深蓝紫（技术演进/理性）", "暖橙金（关键转折/创新高亮）", "冷灰白（基底/过渡）", "深绿（最终到达/完成）"],
+  "avoid": ["真实 UI 截图", "dashboard", "假图表坐标", "假终端输出", "漂浮芯片", "代码雨", "霓虹高楼", "通用机器人", "赛博朋克紫蓝光污染", "HUD 浮层", "英文长句", "论文截图", "假公式"],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮验证：分镜 panel 的时间线推进是否清晰、三个信息块（GPT-2 / Attention 三变 / KimiK3）的视觉区分度是否足够、动态分镜风格是否成立",
+  "revision_targets": ["如果 panel 之间过渡不够流畅，加强箭头/时间线连接", "如果中间三个 attention 变化不够突出，加大视觉比重", "如果分镜风格偏静态，增加 camera-motion / strong cuts 的感觉"],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: LLM architecture evolution over 7 years — from GPT-2 simple softmax attention to KimiK3 hybrid system. The 22580× parameter growth is the headline, but the real story is six fundamental changes in how attention mechanisms store, update, and retrieve information.\n\nSummary angle: 22580× is the headline number, but the real story is six qualitative changes in attention — each architectural step redefines the model's memory along three dimensions: what to store, how to update, and how to retrieve.\nNarrative flow: 3-beat process (simple → transformed → complex hybrid). In a 2.35:1 frame, keep one dominant focal subject (a horizontal storyboard timeline of 5-6 sequential panels) and 3 supporting narrative beats.\n\nInformation blocks:\n- GPT-2 (2019): A clean simple panel on the left — decoder-only architecture, Q·Kᵀ·V softmax attention. Label: 'GPT-2', number: '124M'. Minimalist, single-structure.\n- Attention Three Transformations (center): Three sequential sub-panels showing the key attention innovations — (1) ELU+1 feature map for linear attention O(N²)→O(N), (2) delta rule for precise memory rewriting v_old→delta→write, (3) alpha gate for controlled decay. Label: 'Attention 三变', number: 'O(N²)→O(N)'. This is the dominant visual area.\n- KimiK3 (2026): A complex but ordered multi-component panel on the right — 23 macrocycles, KDA+MLA+MoE+SiTU+AttnRes hybrid. Label: 'KimiK3', number: '22580×'. Layered, sophisticated but legible.\n\nMain metaphor: A cinematic storyboard timeline — like film storyboard frames scrolling from left to right. The leftmost frame is clean and simple (2019), each sequential frame adds a mechanism, the rightmost frame is the fully assembled hybrid (2026).\n\nSubject: A horizontal storyboard strip of 5-6 connected panels representing the architectural evolution timeline. Left: GPT-2 simple structure. Center: three key attention innovations. Right: KimiK3 multi-component system. Connected by timeline arrows or filmstrip edges.\n\nComposition/framing: Horizontal storyboard layout, left-to-right time progression, connected panels with transitional arrows or filmstrip gutters. Center-weighted dominance on the three attention transformations. Prefer horizontal storytelling that stays legible in a wide cover.\n\nStyle/medium: combine abstract technical concept art with the selected visual style descriptor: dynamic cinematic storyboard style, sequential panels, camera-motion feeling, strong cuts, clear narrative beats. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\n\nColor palette: deep blue-purple (technical evolution), warm gold-orange (key breakthroughs), cool grey-white (base transitions), deep teal-green (final arrival/completion).\n\nVisible text policy: allow only up to 6 short labels/number chips sourced from the information blocks: 'GPT-2', '124M', 'O(N²)→O(N)', 'Attention 三变', 'KimiK3', '22580×'. Each label <= 6 Chinese characters or one necessary model/technical name. No poster title, no long sentences, no English slogans, no fake UI labels, no fake formulas, no fake chart axes.\n\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake paper figures, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\n\nAvoid: floating chips, meaningless code rain, neon skyscrapers, generic robot poses, cyberpunk purple-blue light pollution, excessive HUD overlays, English slogans, long text blocks, paper-screenshot look."
+}
