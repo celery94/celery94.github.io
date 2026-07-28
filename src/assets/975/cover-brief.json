@@ -1,0 +1,47 @@
+{
+  "article_title": "在 Node.js 中直接调用 Windows 原生 API：动态 WinRT 投影进入公开预览",
+  "cover_type": "release",
+  "core_theme": "微软发布 Node.js 动态 WinRT 投影——一个 npm 包让 JS/TS 直接调用 Windows 原生 API，告别 C++/C# 桥接层",
+  "reader_takeaway": "了解这一新工具能做什么、如何接入现有 Electron/Node.js 项目，判断是否值得在自己的 Windows 桌面应用开发中采用",
+  "summary_angle": "以前在 Node.js 里调用 Windows 原生 API 需要 C++ bridge + node-gyp + 手写 wrapper → 现在一个 npm 包 + 一条命令搞定：元数据驱动代码生成 + 共享运行时调度",
+  "narrative_flow": "before-after",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "Electron 调用 Windows API 需要 C++/C# 桥接层、手动翻译 WinRT 类型、为每个 API 写 wrapper",
+      "visual_idea": "左侧画面：多个碎片化的工具链（C++、C#、node-gyp）被虚线连向一个 Windows API 图标，显得杂乱低效",
+      "visible_label": "旧方式",
+      "numeric_fact": null
+    },
+    {
+      "role": "contrast",
+      "source_anchor": "一个 npm 包 (@microsoft/dynwinrt) + 元数据驱动代码生成 → .js wrapper + .d.ts 声明",
+      "visual_idea": "右侧画面：一个干净的 npm 包图标直接连通 Windows API，中间经过三个有序协作的模块（代码生成 → 共享运行时 → JS 调用）",
+      "visible_label": "新方式",
+      "numeric_fact": "3"
+    },
+    {
+      "role": "evidence",
+      "source_anchor": "设备端 AI（Phi Silica）、通知、文件选择器、传感器、加密——全面覆盖非 UI API",
+      "visual_idea": "底部一排简洁的能力图标：AI 芯片、通知铃铛、文件夹、传感器波、锁",
+      "visible_label": "覆盖 API",
+      "numeric_fact": null
+    }
+  ],
+  "main_metaphor": "左边是旧时代的碎片化桥接（多种语言和工具拼凑），右边是新时代的统一通路（一个入口、自动生成、统一调度）——before-after 的对比构图",
+  "primary_subject": "一条从旧到新的转变路径：左侧是碎片化的语言桥接层（C++/C#/node-gyp → ???），右侧是 npm 包直连 Windows Runtime 的干净通路（@microsoft/dynwinrt → Windows API）",
+  "subject_action": "画面从左侧的混乱碎片过渡到右侧的简洁统一——中间的箭头/过渡线标志这次发布的转变",
+  "composition": "左右对比布局，左侧旧方式碎片化，右侧新方式统一流畅。中央有一条明显的分界/过渡线。画面偏右是主焦点（新工具 + API 能力图标）",
+  "base_style": "product-poster style illustration",
+  "selected_style": "动态分镜电影风",
+  "selected_style_prompt_descriptor": "dynamic cinematic storyboard style, sequential panels, camera-motion feeling, strong cuts, clear narrative beats",
+  "selected_style_reason": "用户未指定风格，本篇从 40 项风格池随机选中；产品发布 + before-after 叙事天然适配分镜的 panel cut 表达——左侧旧方式、右侧新方式，一张图讲清转变",
+  "style_safety_note": "使用泛分镜电影风格描述（sequential panels, camera-motion, strong cuts），不引用特定导演、电影或工作室",
+  "allowed_visible_text": ["旧方式", "新方式", "3", "@microsoft/dynwinrt"],
+  "color_palette": ["微软蓝（品牌/技术信任）", "暖橙金（新发布/转变强调）", "冷灰白（旧方式的过渡/背景）", "深绿（Windows Runtime / 原生能力）"],
+  "avoid": ["真实 UI 截图", "dashboard", "假图表坐标", "假终端输出", "漂浮芯片", "代码雨", "霓虹高楼", "通用机器人", "赛博朋克紫蓝光污染", "HUD 浮层", "英文长句", "假 IDE 截图"],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮验证：before-after 对比是否清晰可读、npm 包 → Windows API 的通路是否醒目、分镜 cut 是否成立",
+  "revision_targets": ["如果左右对比不够鲜明，强化分界线", "如果能力图标太小不清晰，放大并减少数量", "如果分镜风格偏静态，增加 panel cut 的动态感"],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: Microsoft releases dynamic WinRT API projections for Node.js — one npm package replaces C++/C# bridges, enabling direct Windows native API calls from JavaScript/TypeScript.\n\nSummary angle: Before: calling Windows APIs from Node.js meant C++ bridges, node-gyp, and hand-written wrappers for every API. After: one npm package, metadata-driven code generation, and a shared runtime — .js wrappers and .d.ts declarations generated automatically.\nNarrative flow: before-after contrast. In a 2.35:1 frame, keep one dominant focal subject (the transition from fragmented old way to unified new way) and 2-3 supporting narrative beats.\n\nInformation blocks:\n- Old way (left panel): Fragmented toolchain — C++, C#, node-gyp icons loosely connected by dashed lines to a Windows API icon, messy and inefficient. Label: old way/旧方式.\n- New way (right panel, dominant): Clean pathway — one npm package (@microsoft/dynwinrt) icon connected through three ordered modules (codegen → shared runtime → JS call) directly to Windows Runtime. Label: new way/新方式, number: 3 (packages).\n- API coverage (bottom row): Small neat capability icons — AI chip, notification bell, folder picker, sensor wave, lock — showing the breadth of supported non-UI APIs.\n\nMain metaphor: A before-after contrast like two storyboard panels side by side. Left panel shows the fragmented past (multiple languages and tools cobbled together). Right panel shows the unified present (one entry point, auto-generated, shared dispatch).\n\nSubject: A two-panel storyboard layout. Left: messy fragmented bridge layers. Right: clean npm-to-WinRT pathway. The transition between them is marked by a strong panel cut.\n\nComposition/framing: Side-by-side contrast layout with a clear dividing line. Left panel smaller/darker (old way). Right panel larger/brighter (new way). Bottom row: capability icons. The npm-to-WinRT pathway on the right is the dominant focal area.\n\nStyle/medium: combine product-poster style illustration with the selected visual style descriptor: dynamic cinematic storyboard style, sequential panels, camera-motion feeling, strong cuts, clear narrative beats. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\n\nColor palette: Microsoft blue, warm gold-orange, cool grey-white, deep green.\n\nVisible text policy: allow only up to 4 short labels/number chips from the information blocks: old way/旧方式, new way/新方式, 3, @microsoft/dynwinrt. Each label short and precise. No poster title, no long sentences, no English slogans.\n\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\n\nAvoid: floating chips, meaningless code rain, neon skyscrapers, generic robot poses, cyberpunk purple-blue light pollution, excessive HUD overlays, English slogans, fake IDE screenshots."
+}
