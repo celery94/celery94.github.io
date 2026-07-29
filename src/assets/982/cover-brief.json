@@ -1,0 +1,47 @@
+{
+  "article_title": "MCP C# SDK v2.0 发布：无状态默认、原生 HTTP 扩展与多轮交互",
+  "cover_type": "release",
+  "core_theme": "官方 MCP C# SDK v2.0 随 2026-07-28 协议修订发布，三大核心变化：默认无状态、原生 HTTP 路由支持、Multi Round-Trip Requests（MRTR）替代 session，让 MCP 服务器变成普通 ASP.NET Core 应用",
+  "reader_takeaway": "了解 v2.0 的核心变化和向后兼容策略，判断何时升级、如何利用新的无状态架构和 MRTR 模式构建可水平扩展的 MCP 服务器",
+  "summary_angle": "从 v1 到 v2 的三级跳：状态连接 → 无状态请求 → 原生 HTTP → 多轮交互新模式，最终汇聚为一个向后兼容的 v2.0 发布",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "step",
+      "source_anchor": "Stateless by default — no more initialize handshake or Mcp-Session-Id, any server instance can handle any request",
+      "visual_idea": "多个无状态服务器实例均匀接收请求，没有 session 粘连",
+      "visible_label": "无状态默认",
+      "numeric_fact": ""
+    },
+    {
+      "role": "step",
+      "source_anchor": "Built to scale on plain HTTP — Mcp-Method/Mcp-Name/Mcp-Param-* headers let load balancers route without body inspection",
+      "visual_idea": "HTTP 请求带着 Mcp-* header 标签流过负载均衡器，路由到正确后端",
+      "visible_label": "原生 HTTP",
+      "numeric_fact": ""
+    },
+    {
+      "role": "step",
+      "source_anchor": "Multi Round-Trip Requests — one pattern replaces three (tools, prompts, resources), interactive tools no longer need long-lived sessions",
+      "visual_idea": "客户端和服务器之间多轮请求-响应的交互环，标注 MRTR",
+      "visible_label": "多轮交互",
+      "numeric_fact": "3→1"
+    }
+  ],
+  "main_metaphor": "v1 到 v2 的进化：旧的 session-bound 服务器（单线连接）被替换为无状态的 HTTP API（多实例并行），MCP 请求像普通 HTTP 流量一样流动",
+  "primary_subject": "一个 MCP C# SDK v2.0 的发布标识，周围环绕三个核心特性节点：无状态、原生 HTTP、多轮交互",
+  "subject_action": "v2.0 标识居中，三个特性节点从左到右依次展开并高亮",
+  "composition": "居中主符号 + 三点环绕叙事",
+  "base_style": "product-poster style illustration",
+  "selected_style": "欧漫清线风",
+  "selected_style_prompt_descriptor": "European clear-line comic style, precise outlines, flat readable colors, tidy environments, restrained humor and detail",
+  "selected_style_reason": "用户未指定风格，本篇从 40 项风格池随机选中欧漫清线风；SDK 发布公告适合用清线风格的精确线条和扁平可读配色来表达技术产品的整洁与克制",
+  "style_safety_note": "清单风格为泛类型描述（European clear-line），不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["v2.0", "无状态", "原生 HTTP", "MRTR"],
+  "color_palette": [".NET 紫色主调", "清线墨蓝", "暖灰辅助", "极简白底"],
+  "avoid": ["假终端输出", "假 dashboard", "假架构图节点名", "霓虹光污染", "海报标题文字", "杂乱装饰"],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮先验证：v2.0 发布标识是否清晰、三点环绕叙事是否可读、清线风格是否保持了技术公告的克制感",
+  "revision_targets": ["如果三点环绕过于拥挤，改为横向推进", "如果清线风格缺了技术感，强化几何精确度", "如果配色偏灰，增加 .NET 紫色饱和度"],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration. Theme: MCP C# SDK v2.0 release — official .NET SDK implements the 2026-07-28 MCP specification revision with three major changes: stateless by default, native HTTP routing, and Multi Round-Trip Requests (MRTR).\n\nSummary angle: The v1 to v2 evolution: session-bound connections replaced by stateless HTTP APIs, standard HTTP infrastructure can route MCP traffic, and one MRTR pattern replaces three old patterns (tools, prompts, resources).\nNarrative flow: 3-beat process. In a 2.35:1 frame, keep one dominant focal subject and 2-4 supporting narrative beats.\nInformation blocks:\n- Step: Stateless by default — no initialize handshake or Mcp-Session-Id; any server instance handles any request; visual: multiple stateless server instances evenly receiving requests without session stickiness; visible label: 「无状态」\n- Step: Native HTTP — Mcp-Method/Mcp-Name/Mcp-Param-* headers let load balancers route without body inspection; visual: HTTP requests with Mcp-* header labels flowing through a load balancer; visible label: 「原生 HTTP」\n- Step: MRTR — one pattern replaces three (tools, prompts, resources), interactive tools no longer need long-lived sessions; visual: multi-round request-response interaction loop between client and server; visible label: 「MRTR」\n\nMain metaphor: The evolution from v1 to v2 — old session-bound servers replaced by stateless HTTP APIs where MCP requests flow like ordinary HTTP traffic.\nSubject: A v2.0 release badge/emblem at center, surrounded by three feature nodes: Stateless, Native HTTP, MRTR.\nComposition/framing: Center-dominant symbol with three-point narrative surround. Prefer horizontal storytelling that stays legible in a wide cover.\nStyle/medium: combine product-poster style illustration with the selected visual style descriptor: European clear-line comic style, precise outlines, flat readable colors, tidy environments, restrained humor and detail. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: .NET purple as primary, clear-line ink blue, warm gray accents, minimal white background.\nVisible text policy: allow only 4 short labels (「v2.0」「无状态」「原生 HTTP」「MRTR」). No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams with invented labels, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: fake terminal output, fake dashboards, fake architecture diagram node names, neon light pollution, poster title text, messy decoration."
+}
