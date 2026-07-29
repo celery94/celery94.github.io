@@ -1,0 +1,47 @@
+{
+  "article_title": "Clean Architecture vs 模块化单体：它们根本不是对手",
+  "cover_type": "architecture",
+  "core_theme": "Clean Architecture 和模块化单体（Modular Monolith）在 C# 架构讨论中常被当作对立选项，但它们工作在完全不同的抽象层级上——一个管内部层次，一个管系统边界。理解这层关系后，两者不仅能共存，组合使用反而是生产环境的最佳实践",
+  "reader_takeaway": "理解 Clean Architecture 和模块化单体各自解决什么问题、在什么层级工作、什么时候单独用、什么时候组合用，不再把两者当成二选一的对手",
+  "summary_angle": "两个正交维度的对比：一边是同心圆层次（内部组织），一边是模块边界（系统分解），中间交汇处是「同时使用两者」的最佳实践",
+  "narrative_flow": "conflict-to-resolution",
+  "information_blocks": [
+    {
+      "role": "contrast",
+      "source_anchor": "The Key Insight section — Clean Architecture answers 'How do I organize code inside a single boundary?' — concentric rings: Domain → Application → Infrastructure → Presentation",
+      "visual_idea": "左侧一个同心圆环结构，从内到外依次标注，表达内部层次组织",
+      "visible_label": "内部层次",
+      "numeric_fact": ""
+    },
+    {
+      "role": "contrast",
+      "source_anchor": "Modular Monolith section — each module has Contracts + Domain + Application + Infrastructure, enforced via internal access modifier",
+      "visual_idea": "右侧多个独立模块方块，每个模块有清晰的边界和对外 Contract，表达系统级模块分解",
+      "visible_label": "模块边界",
+      "numeric_fact": ""
+    },
+    {
+      "role": "resolution",
+      "source_anchor": "Combined approach section — 'modular monolith with clean internals' — each module internally uses Clean Architecture, modules communicate via Contracts",
+      "visual_idea": "中间交汇区域：一个模块内部展开同心圆，表达「模块内部用 Clean Architecture」的组合方式",
+      "visible_label": "组合使用",
+      "numeric_fact": ""
+    }
+  ],
+  "main_metaphor": "建筑蓝图对比：左侧是楼层剖面图（内部结构分层），右侧是建筑群总平面图（地块划分），中间交汇处是「每栋楼内部也按剖面图设计」的组合方案",
+  "primary_subject": "两个并置的架构示意图：左半边的同心圆层次结构 vs 右半边的模块边界方块群，中间以发光连接线表示组合关系",
+  "subject_action": "两种架构模式从对立走向组合，交汇处亮起表示最佳实践",
+  "composition": "左右对照 + 中间交汇",
+  "base_style": "isometric conceptual systems scene",
+  "selected_style": "日漫少女风",
+  "selected_style_prompt_descriptor": "soft shojo-inspired manga look, elegant linework, expressive faces, gentle decorative details, luminous pastel accents",
+  "selected_style_reason": "用户未指定风格，本篇从 40 项风格池随机选中日漫少女风；架构对比可以用柔和线条和清晰层次表达，少女漫画的优雅线稿适合表现精细的架构示意图",
+  "style_safety_note": "清单风格为泛类型描述（shojo manga），不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["内部层次", "模块边界", "组合使用"],
+  "color_palette": ["柔和粉紫底", "浅蓝辅助", "暖白高亮", "淡金点缀"],
+  "avoid": ["假架构图节点名", "假 dashboard", "假终端输出", "霓虹光污染", "漂浮芯片", "代码雨", "海报标题文字"],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮先验证：左右对照构图是否清晰、同心圆与模块方块的视觉区分度、少女漫画线条风格是否与架构主题协调",
+  "revision_targets": ["如果少女漫画风格太「甜」掩盖了架构主题的理性感，收紧色彩饱和度", "如果左右对比不够清晰，强化同心圆与方块群的视觉差异", "如果中间交汇区域太拥挤，简化组合示意"],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration. Theme: Clean Architecture vs Modular Monolith in C# — two architectural patterns that work at different abstraction levels and can be combined. The reader should understand they are not competing choices but orthogonal dimensions.\n\nSummary angle: Conflict-to-resolution: Left side shows concentric rings (Clean Architecture's internal layers), right side shows module blocks with boundaries (Modular Monolith's system decomposition), center shows the combined approach where each module internally uses Clean Architecture.\nNarrative flow: conflict-to-resolution. In a 2.35:1 frame, keep one dominant focal subject and 2-4 supporting narrative beats.\nInformation blocks:\n- Contrast: Clean Architecture — concentric rings (Domain → Application → Infrastructure → Presentation), internal layer organization; visual: elegant concentric ring structure on the left; visible label: 「内部层次」\n- Contrast: Modular Monolith — independent module blocks each with Contracts + Domain + Application + Infrastructure boundaries; visual: distinct module blocks with clear boundary lines on the right; visible label: 「模块边界」\n- Resolution: Combined — each module internally uses Clean Architecture layers, modules communicate via Contracts; visual: center area showing one module opened up revealing internal concentric rings, glowing connection; visible label: 「组合使用」\n\nMain metaphor: Architectural blueprint comparison — floor plan section view (internal layers) vs site plan (module boundaries), center shows the combined building design.\nSubject: Two side-by-side architectural diagrams: concentric ring layers on left, modular block boundaries on right, with a glowing connection zone in the center showing the combined approach.\nComposition/framing: Left-right contrast with center resolution. Prefer horizontal storytelling that stays legible in a wide cover.\nStyle/medium: combine isometric conceptual systems scene with the selected visual style descriptor: soft shojo-inspired manga look, elegant linework, expressive faces, gentle decorative details, luminous pastel accents. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: soft pink-purple background, light blue accents, warm white highlights, subtle gold touches.\nVisible text policy: allow only 3 short Chinese labels (「内部层次」「模块边界」「组合使用」). No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams with invented labels, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: fake architecture diagram node names, fake dashboards, fake terminal output, neon light pollution, floating chips, code rain, poster title text."
+}
