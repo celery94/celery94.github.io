@@ -1,0 +1,47 @@
+{
+  "article_title": "驾驭 Copilot，而不是追新工具：一个从原型到交付的实战工作流",
+  "cover_type": "tutorial",
+  "core_theme": "不必追逐层出不穷的 AI 工具，关键在于掌握 GitHub Copilot 的 harness（代理框架），用一套可重复的工作流完成原型→规划→实现→审查→交付",
+  "reader_takeaway": "学会一套稳定的 GitHub Copilot 八步工作流，从原型探索到交叉审查，每一步都有可操作的方法",
+  "summary_angle": "把八步工作流压缩为三阶段叙事：先原型探索找方向 → 再规划+自动实现 → 最后人工审查+交叉 review 交付。不追新工具，驾驭 harness 本身就够了",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "step",
+      "source_anchor": "Section 3: Start with a prototype — 用 AI 一次性生成 20 个 date picker 原型变体，快速探索方案空间",
+      "visual_idea": "多个不同风格的 UI 组件草图从终端/面板中飞出，呈现发散探索的姿态",
+      "visible_label": "原型探索",
+      "numeric_fact": "20"
+    },
+    {
+      "role": "step",
+      "source_anchor": "Section 4-5: Plan methodically + Implement with Autopilot — /plan 模式梳理边界条件，Autopilot 自动循环实现",
+      "visual_idea": "结构化的计划节点与自动执行循环箭头连接，表达从规划到自动实现的推进",
+      "visible_label": "规划+实现",
+      "numeric_fact": "1/2"
+    },
+    {
+      "role": "step",
+      "source_anchor": "Section 6-7: Human review + Rubber duck — 人工迭代打磨细节，再请不同模型家族的 AI 交叉审查",
+      "visual_idea": "两只不同风格的眼睛（或光学镜片/扫描光）审视同一份代码，表达交叉审查",
+      "visible_label": "交叉审查",
+      "numeric_fact": "3"
+    }
+  ],
+  "main_metaphor": "驾驭 harness（控制缰绳）：开发者手握缰绳，控制面板上的工作流节点依次点亮，表达「控制流程」而非「被工具牵着走」",
+  "primary_subject": "一个开发者角色的手/半身剪影，握着发光的 harness 缰绳，面前是三个依次点亮的流程节点",
+  "subject_action": "开发者主动驾驭流程，三个流程节点（原型→实现→审查）从左到右依次点亮",
+  "composition": "居中主物体 + 左右叙事推进",
+  "base_style": "editorial technical illustration",
+  "selected_style": "赛博朋克风",
+  "selected_style_prompt_descriptor": "cyberpunk comic mood, neon accents, rain-slick surfaces, dense urban tech atmosphere, controlled purple-blue usage",
+  "selected_style_reason": "用户未指定风格，本篇从 40 项风格池随机选中赛博朋克风；代码工作流的精密感与控制感可以借助赛博朋克的科技视觉语言表达，但需要控制霓虹和紫蓝光污染",
+  "style_safety_note": "清单风格为泛类型描述（cyberpunk），不涉及特定品牌、工作室或艺术家复刻；需额外控制 neon purple-blue 的泛滥使用",
+  "allowed_visible_text": ["原型探索", "规划+实现", "交叉审查", "20"],
+  "color_palette": ["深蓝黑底", "暖橙/琥珀高亮", "冷白边缘光", "少量受控的紫蓝点缀"],
+  "avoid": ["霓虹高楼背景", "漂浮芯片", "无意义代码雨", "赛博朋克紫蓝光污染", "HUD 浮层", "假终端输出", "假 UI 截图", "机器人站姿"],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮先验证：主隐喻（harness 缰绳+开发者）是否清晰、三阶段叙事节点是否可读、赛博朋克氛围是否克制",
+  "revision_targets": ["如果霓虹/紫蓝过重，收紧色彩控制", "如果 harness 缰绳隐喻不清晰，强化开发者手部与发光缰绳的关系", "如果三节点过于密集，拉宽间距或减少到两节点+第三节点用暗示"],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: Mastering GitHub Copilot's harness (agent framework) — a repeatable workflow from prototype to delivery. The reader should quickly feel empowered to use a stable, repeatable AI coding workflow without chasing every new tool.\n\nSummary angle: An 8-step workflow compressed into a 3-beat narrative: prototype exploration → planning + auto-implementation → human review + cross-model rubber duck review. Don't chase new tools; master the harness itself.\nNarrative flow: 3-beat process. In a 2.35:1 frame, keep one dominant focal subject and 2-4 supporting narrative beats. Each beat must map to the article's information blocks rather than generic decoration.\nInformation blocks:\n- Step 1: Prototype exploration — AI generates 20 date picker variants at once; visual: multiple UI sketch variations flying out from a terminal/panel, showing divergent exploration; visible label: 「原型探索」; numeric fact: 20\n- Step 2: Planning + Implementation — /plan mode maps out edge cases, Autopilot auto-loops implementation; visual: structured plan nodes connected by auto-execution loop arrows; visible label: 「规划+实现」; numeric fact: 1/2\n- Step 3: Cross-model review — human iterates details, then a different AI model family performs rubber duck review; visual: two distinct eyes or scanning lenses examining the same code, expressing cross-validation; visible label: 「交叉审查」; numeric fact: 3\n\nMain metaphor: Harness reins — a developer's hand/silhouette gripping glowing harness reins, with three workflow nodes lighting up sequentially on a control surface.\nSubject: A developer silhouette (hands/upper body) grasping glowing harness reins, facing three sequentially lit workflow nodes.\nComposition/framing: Center-dominant subject with left-to-right narrative progression. Prefer horizontal storytelling that stays legible in a wide cover.\nStyle/medium: combine editorial technical illustration with the selected visual style descriptor: cyberpunk comic mood, neon accents, rain-slick surfaces, dense urban tech atmosphere, controlled purple-blue usage. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: deep blue-black background, warm amber/orange highlights, cool white edge light, minimal controlled purple-blue accents.\nVisible text policy: allow only 3 short Chinese labels (「原型探索」「规划+实现」「交叉审查」) and one numeric fact (20). No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: neon skyline backgrounds, floating chips, meaningless code rain, cyberpunk purple-blue light pollution, HUD overlays, fake terminal output, fake UI screenshots, generic robot poses."
+}
