@@ -1,0 +1,47 @@
+{
+  "article_title": "OpenTelemetry Logging in .NET：从 ILogger 到结构化日志导出",
+  "cover_type": "tutorial",
+  "core_theme": "在 .NET 中通过 OpenTelemetry SDK 将 ILogger 日志集成到可观测性管线，实现自动 trace 关联、结构化日志导出和与 traces/metrics 的统一后端查询",
+  "reader_takeaway": "学会从零配置 OpenTelemetry logging，理解 ILogger 集成原理、trace context 自动关联、OTLP 导出和生产环境最佳实践",
+  "summary_angle": "三信号汇聚：从 ILogger 日志出发 → 自动关联 traceId/spanId → 通过 OTLP exporter 统一导出到可观测后端，形成一个完整的可观测性日志闭环",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "mechanism",
+      "source_anchor": "How ILogger Integrates section — ILogger integrates at provider level via AddOpenTelemetry(), no code changes needed at call sites",
+      "visual_idea": "左侧 ILogger 调用点 → 中间的 OpenTelemetry Provider 作为桥梁 → 右侧结构化 LogRecord 流出",
+      "visible_label": "Provider 集成",
+      "numeric_fact": ""
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "Automatic Trace Context Correlation section — Activity.Current provides traceId/spanId automatically, no extra code",
+      "visual_idea": "追踪跨度（span）和日志记录之间用虚线高亮连接，traceId/spanId 标签自动注入日志",
+      "visible_label": "自动关联",
+      "numeric_fact": ""
+    },
+    {
+      "role": "step",
+      "source_anchor": "Exporting with OTLP section — AddOtlpExporter() with BatchLogRecordExportProcessor for production",
+      "visual_idea": "批量日志记录汇聚成数据流，通过 OTLP 协议箭头指向远端的 Grafana/Seq/Azure Monitor 后端",
+      "visible_label": "OTLP 导出",
+      "numeric_fact": ""
+    }
+  ],
+  "main_metaphor": "信号流水线：ILogger 日志像原材料从左侧流入，经过 OpenTelemetry Provider 的加工站（自动注入 trace context），最后通过 OTLP 管道输送到右侧的可观测后端",
+  "primary_subject": "一条从左到右的信号处理流水线，ILogger 日志 → Provider 加工 → 结构化 LogRecord → OTLP 导出 → 后端可视化",
+  "subject_action": "日志信号在流水线上从左到右流动，经过标注的加工节点，最终汇聚到可观测后端",
+  "composition": "横向流水线推进",
+  "base_style": "editorial technical illustration",
+  "selected_style": "黑白版画风",
+  "selected_style_prompt_descriptor": "black-and-white printmaking look, carved textures, bold shadows, high contrast, poster-like but no title text",
+  "selected_style_reason": "用户未指定风格，本篇从 40 项风格池随机选中黑白版画风；高对比度线条和粗犷纹理适合表达技术流水线的结构感和清晰信号流",
+  "style_safety_note": "清单风格为泛类型描述（black-and-white printmaking），不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["ILogger", "Provider", "OTLP"],
+  "color_palette": ["纯黑白", "深灰中间调", "高对比留白"],
+  "avoid": ["假终端输出", "假 dashboard", "假架构图节点名", "霓虹光污染", "多色彩", "海报标题文字"],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮先验证：横向流水线构图是否清晰、黑白版画风格的结构感、三个信息节点是否可辨识",
+  "revision_targets": ["如果黑白对比不够、画面偏灰，强化黑白对比度", "如果流水线节点不够清晰，加大节点间距和标注", "如果版画纹理干扰了技术信息的可读性，简化纹理"],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration. Theme: OpenTelemetry Logging in .NET — integrating ILogger with OpenTelemetry SDK to export structured logs with automatic trace correlation. The reader should understand the complete logging pipeline from ILogger to observability backend.\n\nSummary angle: Three-beat signal pipeline: ILogger logs flow in → OpenTelemetry Provider injects traceId/spanId automatically → OTLP exporter sends structured LogRecords to observability backends (Grafana, Seq, Azure Monitor).\nNarrative flow: 3-beat process. In a 2.35:1 frame, keep one dominant focal subject and 2-4 supporting narrative beats.\nInformation blocks:\n- Mechanism: Provider integration — ILogger calls flow through OpenTelemetry provider via AddOpenTelemetry(), no code changes needed; visual: ILogger call sites on left, Provider bridge in center, structured LogRecord flowing right; visible label: 「Provider」\n- Mechanism: Auto correlation — Activity.Current provides traceId/spanId automatically injected into logs; visual: span and log record connected by highlighted dotted line with traceId/spanId tags; visible label: 「traceId」\n- Step: OTLP export — AddOtlpExporter() with BatchLogRecordExportProcessor for production; visual: batched log records flowing through OTLP protocol arrow to backend icons; visible label: 「OTLP」\n\nMain metaphor: Signal processing pipeline — raw ILogger logs flow in from left, pass through the OpenTelemetry Provider processing station (auto-injecting trace context), then flow through OTLP pipe to observability backends on the right.\nSubject: A left-to-right signal processing pipeline: ILogger logs → Provider processing → structured LogRecord → OTLP export → backend visualization.\nComposition/framing: Horizontal pipeline progression. Prefer horizontal storytelling that stays legible in a wide cover.\nStyle/medium: combine editorial technical illustration with the selected visual style descriptor: black-and-white printmaking look, carved textures, bold shadows, high contrast, poster-like but no title text. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: pure black and white, dark gray mid-tones, high contrast negative space.\nVisible text policy: allow only 3 short labels (「ILogger」「Provider」「OTLP」). No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams with invented labels, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: fake terminal output, fake dashboards, fake architecture diagram node names, neon light pollution, multi-color palettes, poster title text."
+}
