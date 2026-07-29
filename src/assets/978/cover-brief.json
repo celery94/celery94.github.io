@@ -1,0 +1,61 @@
+{
+  "article_title": "如何记住你读过的一切，以及为什么你不该这么做",
+  "cover_type": "analysis",
+  "core_theme": "理解比记忆重要，学习是通过目标驱动的项目实践自然发生的过程",
+  "reader_takeaway": "理解控制论学习模型，获得一套不需要死记硬背的知识内化方法",
+  "summary_angle": "对抗「囤积知识」的焦虑：目标 → 过滤 → 相关性 → 自然记忆，学习是输出驱动的闭环",
+  "narrative_flow": "conflict-to-resolution",
+  "information_blocks": [
+    {
+      "role": "mechanism",
+      "source_anchor": "控制论模型：目标创造误差信号，误差信号创造过滤器，过滤器创造相关性，相关性创造记忆",
+      "visual_idea": "一个循环流程：目标 → 过滤器 → 相关性 → 记忆，形成闭环",
+      "visible_label": "目标驱动",
+      "numeric_fact": ""
+    },
+    {
+      "role": "contrast",
+      "source_anchor": "别先学，先做项目；After Effects 的例子：想清楚要做什么再学需要的技巧",
+      "visual_idea": "项目中心节点连接所需技能，而非泛泛学习",
+      "visible_label": "先做项目",
+      "numeric_fact": ""
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "学习是输出过程，不是输入过程；输出才驱动输入",
+      "visual_idea": "从大脑到外部的输出箭头，表示写作/创作/表达",
+      "visible_label": "输出驱动",
+      "numeric_fact": ""
+    }
+  ],
+  "main_metaphor": "舵手在知识海洋中航行，目标指引方向，过滤掉无关风浪，留下真正重要的航线",
+  "primary_subject": "一个舵手/领航者在知识海洋中控制方向，周围是信息洪流但只有一部分被聚焦",
+  "subject_action": "舵手握舵轮，前方有明确的目标标记，身边的噪音和信息流被过滤机制筛掉",
+  "composition": "左右对照：左侧杂乱信息流 vs 右侧清晰聚焦路径",
+  "base_style": "conceptual editorial illustration",
+  "selected_style": "水彩漫画风",
+  "selected_style_prompt_descriptor": "watercolor comic illustration, translucent washes, visible paper texture, soft edges, light ink structure",
+  "selected_style_reason": "用户未指定风格，本篇从 40 项风格池随机选中；文章关于阅读、学习和思考，水彩的温柔质感适合表达反思性主题",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["目标驱动", "先做项目", "输出驱动"],
+  "color_palette": ["靛蓝 #2c3e50", "暖黄 #e8c547", "浅灰白背景"],
+  "avoid": [
+    "漂浮芯片",
+    "代码雨",
+    "霓虹高楼",
+    "通用机器人",
+    "赛博朋克光污染",
+    "HUD 浮层",
+    "假 UI",
+    "假图表",
+    "水印"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证主题（舵手/知识航行隐喻）和左右对照构图是否清晰",
+  "revision_targets": [
+    "如果隐喻不够清楚，加强舵手与知识海洋的联系",
+    "如果左右对照太生硬，柔化为动态过渡",
+    "如果水彩质感被科技风覆盖，收紧风格词"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide infographic-story cover illustration. Theme: Knowledge and learning — understanding over memorization, learning as a goal-driven cybernetic process. The reader should feel this is about a smarter approach to learning and retaining knowledge.\n\nSummary angle: Against knowledge hoarding anxiety — goal creates filter, filter creates relevance, relevance creates natural memory. Learning is an output-driven closed loop.\nNarrative flow: conflict-to-resolution. In a 2.35:1 frame, keep one dominant focal subject and 2-3 supporting narrative beats.\nInformation blocks:\n- mechanism: A cybernetic flow: goal → filter → relevance → memory, labeled 「目标驱动」\n- contrast: A project-centered node connecting needed skills rather than scattered general learning, labeled 「先做项目」\n- takeaway: An output arrow from mind to external world representing writing/creating, labeled 「输出驱动」\n\nMain metaphor: A steersman navigating through a sea of knowledge, the goal guiding direction, filtering out irrelevant noise.\nSubject: A navigator/helmsman steering through knowledge currents, with clear target ahead and noise filtered away.\nComposition: Left-right contrast — cluttered information flow on the left vs. clear focused path on the right. Prefer horizontal storytelling that stays legible in a wide cover.\nStyle/medium: combine conceptual editorial illustration with the selected visual style descriptor: watercolor comic illustration, translucent washes, visible paper texture, soft edges, light ink structure. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: indigo blue (#2c3e50), warm yellow (#e8c547), light gray-white background.\nVisible text policy: allow only 2-3 short Chinese labels: 「目标驱动」「先做项目」「输出驱动」. Each label <= 4 Chinese characters. No poster title, no long sentences, no English slogans, no fake UI.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: floating chips, code rain, neon buildings, generic robots, cyberpunk light pollution, HUD overlays, fake UI, fake charts, watermarks."
+}
