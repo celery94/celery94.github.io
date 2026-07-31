@@ -4,17 +4,17 @@
     {
       "id": 1,
       "prompt": "请把这篇文章改写成一篇中文博客并生成封面，然后发布到微信公众号草稿箱：https://www.anthropic.com/engineering/building-effective-agents",
-      "expected_output": "会先用 Chrome DevTools MCP 抓取正文并形成结构化笔记，再生成中文 Markdown 博客。写作前会在用户未指定风格时从 40 项风格池随机选择 1 个 `selected_style`，并让文章表达、封面 brief、封面 prompt 和图片验收使用同一个风格。封面阶段默认读取 `references/cover-prompt-template.md`，创建 `src/assets/{ID}/cover-brief.json`，记录 `summary_angle`、`narrative_flow`、`information_blocks`、`selected_style`、`selected_style_prompt_descriptor`、`selected_style_reason` 和 `style_safety_note`，再用可用的图像生成 / 编辑技能完成封面，把最终选中图保存为 `src/assets/{ID}/01-cover.{ext}`，并把 `ogImage` 与 `wechat-draft` 的 `cover-image` 都指向这个最终实际路径。",
+      "expected_output": "会先用可交互浏览器抓取完整正文并形成结构化笔记，再生成独立的中文 Markdown 博客。进入封面阶段后，用户未指定风格时从 40 项风格池随机选择 1 个 `selected_style`；该风格只用于封面 brief、封面 prompt 和图片验收，不影响正文语气。封面阶段读取 `references/cover-prompt-template.md`，创建 `src/assets/{ID}/cover-brief.json`，再用可用的图像生成或编辑技能完成封面，把最终选中图保存为 `src/assets/{ID}/01-cover.{ext}`，并把 `ogImage` 与 `wechat-draft` 的 `cover-image` 都指向这个最终路径。",
       "files": [],
       "assertions": [
         {
           "text": "Cover generation stays backend-agnostic by default instead of hardcoding a specific image-generation skill."
         },
         {
-          "text": "When no style is specified, the workflow randomly selects exactly one style from the 40-item style pool before writing."
+          "text": "When no style is specified, the workflow randomly selects exactly one style from the 40-item style pool when entering the cover stage."
         },
         {
-          "text": "The same selected style is used for article expression, cover brief, cover prompt, and cover acceptance."
+          "text": "The selected style is used for the cover brief, cover prompt, and cover acceptance, but does not affect article voice or facts."
         },
         {
           "text": "The cover brief records `summary_angle`, `narrative_flow`, `information_blocks`, `selected_style`, `selected_style_prompt_descriptor`, `selected_style_reason`, and `style_safety_note`."
@@ -33,7 +33,7 @@
     {
       "id": 2,
       "prompt": "把这个产品发布页写成中文博客，封面用默认方式生成，不要做成产品截图：https://openai.com/index/introducing-gpt-image-2/",
-      "expected_output": "会把文章类型识别为产品更新 / 发布型，封面 brief 中选择 `release`。用户未指定风格时，不再按 release 固定选择日漫，而是从 40 项风格池随机选择 1 个 `selected_style`，并把对应的 `selected_style_prompt_descriptor` 写进封面 prompt。封面不是泛主题插画，而是单张宽封面的 infographic summary：用 `2-4` 个来源可追溯的信息块概括发布重点，文字默认只保留 `1-3` 处少量中文短标签或数字，但仍然禁止主标题、假 UI、假 dashboard、假图表和假终端。",
+      "expected_output": "会把文章类型识别为产品更新 / 发布型，封面 brief 中选择 `release`。用户未指定风格时，从 40 项风格池随机选择 1 个 `selected_style`，并把对应的 `selected_style_prompt_descriptor` 写进封面 prompt。封面采用单张宽图的 infographic summary，用 `2-4` 个来源可追溯的信息块概括发布重点，避免泛主题插画；文字默认只保留 `1-3` 处少量中文短标签或数字，同时禁止主标题、假 UI、假 dashboard、假图表和假终端。",
       "files": [],
       "assertions": [
         {
@@ -99,7 +99,7 @@
     {
       "id": 5,
       "prompt": "只把这个链接写成博客，不要生成封面，也不要发微信：https://example.com/short-note",
-      "expected_output": "会尊重用户明确的范围限制：仍然抓取 URL、生成中文 Markdown、写入 frontmatter 和参考链接，并在写作前随机确定 1 个 `selected_style` 作为文章表达的轻量风格方向；但跳过封面生成，不写 `ogImage`，也不调用 `wechat-draft`。",
+      "expected_output": "会尊重用户明确的范围限制：仍然抓取完整 URL、生成独立中文 Markdown、写入 frontmatter 和参考链接；由于用户不要封面，因此不选择随机封面风格、不生成图片、不写 `ogImage`，也不调用 `wechat-draft`。",
       "files": [],
       "assertions": [
         {
@@ -112,7 +112,7 @@
           "text": "The blog article is still generated normally without `ogImage`."
         },
         {
-          "text": "A selected style may still guide article expression lightly without triggering image generation."
+          "text": "No random cover style is selected when cover generation is explicitly skipped."
         },
         {
           "text": "The explicit no-WeChat request also skips the post-publish git commit and push flow."
@@ -219,6 +219,48 @@
         },
         {
           "text": "The explicit no-WeChat request also prevents any post-publish git commit or push."
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "prompt": "把这个只有标题和摘要、正文需要登录才能看的链接写成博客：https://example.com/members-only",
+      "expected_output": "尝试浏览器交互和允许的公开来源后，如果仍无法取得完整正文，就停止成文，列出缺失内容，并请用户提供正文或可访问链接；不得根据标题、摘要或搜索片段补写文章，也不得进入封面、微信发布或 Git 推送。",
+      "files": [],
+      "assertions": [
+        {
+          "text": "Incomplete source access stops article generation instead of producing a best-effort article from fragments."
+        },
+        {
+          "text": "No cover, WeChat publish, commit, or push occurs after source completeness fails."
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "prompt": "把这篇两年前的 API 教程改写成中文博客，原文使用的接口版本可能已经变化：https://example.com/old-api-guide",
+      "expected_output": "完整读取原文后，继续用最新官方文档核对接口版本、参数、兼容性和示例。若原文已过期，正文采用当前官方信息，并简短说明原文当时的做法；保留可追溯来源，不把旧命令当成当前有效步骤。",
+      "files": [],
+      "assertions": [
+        {
+          "text": "Drift-prone technical claims are checked against current primary official documentation."
+        },
+        {
+          "text": "Current official behavior governs the article while historical source context is stated briefly."
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "prompt": "把这个教程写成博客、生成封面并自动发布：https://example.com/tutorial-with-missing-image",
+      "expected_output": "生成文章和资源后先运行 Prettier 与 validate-article.mjs --wechat。若 frontmatter、标题摘要、封面 brief 或本地资源路径校验失败，保留本地文件并报告具体错误，同时停止微信发布、Git 提交和推送。",
+      "files": [],
+      "assertions": [
+        {
+          "text": "Validation runs before WeChat publishing."
+        },
+        {
+          "text": "A validation failure prevents WeChat publishing, commit, and push while preserving generated local files."
         }
       ]
     }
