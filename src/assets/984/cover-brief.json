@@ -1,0 +1,54 @@
+{
+  "article_title": "重构能省多少 Token？一次 Agent 代码库的经济实验",
+  "cover_type": "research",
+  "core_theme": "对 Agent 生成的巨型单文件代码进行系统重构，量化 token 消耗的经济收益",
+  "reader_takeaway": "理解重构在 Agent 开发模式下的直接经济价值——83% 的 token 节省不是代码审美，是可复现的经济决策",
+  "summary_angle": "一个 17,155 行的单体文件，经 15 步重构后拆成 19 个模块——代码总量没变，但同任务的输入 token 从 15.9 万降到 2.7 万，降幅 83%",
+  "narrative_flow": "before-after",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "原文描述 17,155 行单体文件的重复代码问题",
+      "visual_idea": "一个巨大的、重复堆叠的单体方块结构",
+      "visible_label": "17,155行",
+      "numeric_fact": "17155"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "15 步重构流程：提取客户端类、函数、trait、拆分文件",
+      "visual_idea": "从单体中逐步分离出有序的模块化小块，箭头连接表示重构步骤",
+      "visible_label": "15步重构",
+      "numeric_fact": "15"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "输入 token 从 159,564 降到 27,360，下降 83%",
+      "visual_idea": "一条急剧下降的曲线或对比柱，从高到低",
+      "visible_label": "↓83%",
+      "numeric_fact": "83%"
+    },
+    {
+      "role": "evidence",
+      "source_anchor": "总代码量几乎不变（~16.5k），只是从 1 个文件变成 19 个文件",
+      "visual_idea": "同样的体积总量，左边堆成一坨，右边整齐排列成 19 个方块",
+      "visible_label": "1→19文件",
+      "numeric_fact": "19"
+    }
+  ],
+  "main_metaphor": "一个巨大的代码巨石被系统性地雕琢和分解为有序的模块化组件——总量不变，但可访问性翻天覆地",
+  "primary_subject": "一个正在被分解的大代码块结构，右侧已经整齐排列的小模块",
+  "subject_action": "单体结构从左向右逐步分解，右边的模块化结构清晰有序",
+  "composition": "左右对照",
+  "base_style": "abstract technical concept art",
+  "selected_style": "极简线稿风",
+  "selected_style_prompt_descriptor": "minimalist line-art illustration, sparse clean strokes, ample negative space, precise symbolic objects, limited accent color",
+  "selected_style_reason": "用户未指定风格，随机选中极简线稿风；实验型文章的数据驱动和结构化特性适合用干净、克制的线稿表达，避免过度装饰干扰信息层次",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["17,155行", "15步重构", "↓83%", "1→19文件"],
+  "color_palette": ["深灰 #2d2d2d", "暖橙 #e07b4c", "淡蓝灰 #8ba4b5", "米白背景"],
+  "avoid": ["漂浮芯片", "霓虹背景", "机器人和人物", "假图表坐标", "代码雨", "HUD 浮层", "通用科技感装饰"],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮先验证左右对照构图和四个信息块的可读性",
+  "revision_targets": ["如果信息块过于密集，减少到 3 个", "如果风格偏写实，加强极简线稿的方向", "如果出现人物或机器人，替换为抽象代码块结构"],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: The economic benefit of refactoring agent-generated code — systematically restructuring a 17,155-line monolith into organized modules reduces input token consumption by 83% for the same coding task. The reader should quickly feel that refactoring in the agent era is a measurable economic decision, not just code aesthetics.\n\nSummary angle: A 17,155-line monolith file, after 15-step systematic refactoring, becomes 19 organized files. Total code volume stays roughly the same, but input tokens for an identical change drop from 159k to 27k — an 83% reduction. The saving comes from the agent being able to read less irrelevant code.\nNarrative flow: before-after. In a 2.35:1 frame, keep one dominant focal subject and 2-4 supporting narrative beats. Each beat must map to the article's information blocks rather than generic decoration.\nInformation blocks:\n- Problem: A giant monolithic block labeled \"17,155行\" representing the single oversized file with repeated patterns visible inside\n- Mechanism: 15-step refactoring arrows breaking the monolith into organized modular blocks, with a subtle \"15步重构\" callout\n- Takeaway: A steep downward curve or contrast bar showing an 83% token reduction, with \"↓83%\" as a small label\n- Evidence: Same total volume on both sides — one side a single massive block, the other 19 neatly arranged smaller blocks with \"1→19文件\" label\n\nMain metaphor: A code monolith being systematically carved and decomposed into organized modular components — same volume, radically different accessibility.\nSubject: A large monolithic code structure on the left that is being decomposed through visible refactoring steps into neat modular blocks on the right, connected by clean directional arrows.\nComposition/framing: Left-right contrast (monolith vs organized modules). Prefer horizontal storytelling that stays legible in a wide cover.\nStyle/medium: combine abstract technical concept art with the selected visual style descriptor: minimalist line-art illustration, sparse clean strokes, ample negative space, precise symbolic objects, limited accent color. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: deep charcoal #2d2d2d, warm orange accent #e07b4c, muted steel blue #8ba4b5, off-white background.\nVisible text policy: allow only 4 short Chinese labels sourced from the information blocks: \"17,155行\", \"15步重构\", \"↓83%\", \"1→19文件\". No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: floating chips, neon backgrounds, robots or human figures, fake chart coordinates, code rain, HUD overlays, generic tech-decoration, cyberpunk purple-blue glow."
+}
