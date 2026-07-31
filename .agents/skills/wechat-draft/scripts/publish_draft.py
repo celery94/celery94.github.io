@@ -53,7 +53,9 @@ from style_manager import (
 
 WECHAT_API_BASE = "https://api.weixin.qq.com"
 MAX_NEWSPIC_IMAGES = 20
-MAX_NEWSPIC_TITLE_BYTES = 64
+MAX_TITLE_CHARS = 32
+MAX_AUTHOR_CHARS = 16
+MAX_DIGEST_CHARS = 120
 SUPPORTED_IMAGE_SUFFIXES = {".jpg", ".jpeg", ".png", ".gif", ".webp", ".bmp"}
 LIST_RE = re.compile(r"^(\s*)([*+-]|\d+\.)\s+(.*)$")
 HEADING_RE = re.compile(r"^(#{1,6})\s+(.*)$")
@@ -774,11 +776,6 @@ def normalize_plain_text(text: str) -> str:
     return re.sub(r"\s+", " ", "\n".join(lines)).strip()
 
 
-def utf8_len(text: str) -> int:
-    """返回文本按 UTF-8 编码后的字节数。"""
-    return len(text.encode("utf-8"))
-
-
 def collect_newspic_image_paths(args: argparse.Namespace) -> List[str]:
     """汇总 newspic 模式的图片路径，保持输入顺序并限制最多 20 张。"""
     image_paths: List[str] = []
@@ -884,7 +881,7 @@ def build_news_article(args: argparse.Namespace, access_token: str) -> dict:
         if thumb_media_id:
             print(f"      thumb_media_id: {thumb_media_id}")
         else:
-            print("      封面图片上传失败，将继续使用已有参数创建草稿")
+            raise RuntimeError("封面图片上传失败，已停止创建草稿")
     else:
         print("[2/4] 跳过封面图片上传")
 
@@ -896,7 +893,7 @@ def build_news_article(args: argparse.Namespace, access_token: str) -> dict:
         "title": args.title,
         "content": html_content,
         "author": args.author,
-        "digest": args.digest[:120] if args.digest else "",
+        "digest": args.digest,
         "content_source_url": args.content_source_url,
         "need_open_comment": 1,
         "only_fans_can_comment": 0,
@@ -975,25 +972,32 @@ def validate_args(parser: argparse.ArgumentParser, args: argparse.Namespace) -> 
         parser.error("缺少 AppSecret：请通过 --secret 传入、设置环境变量 WECHAT_APP_SECRET，或在 .env 中配置")
     if not args.title.strip():
         parser.error("标题不能为空")
+    if len(args.title) > MAX_TITLE_CHARS:
+        parser.error(
+            f"标题过长：当前 {len(args.title)} 个字符，微信限制为 {MAX_TITLE_CHARS} 个字符"
+        )
 
     if args.article_type == "news":
         if not args.content_file and args.content is None:
             parser.error("news 模式必须提供 --content 或 --content-file")
         if args.image or args.image_dir:
             parser.error("news 模式不支持 --image 或 --image-dir；请改用 --article-type newspic")
+        if not args.cover_image and not args.thumb_media_id:
+            parser.error("news 模式必须提供 --cover-image 或 --thumb-media-id")
+        if len(args.author) > MAX_AUTHOR_CHARS:
+            parser.error(
+                f"作者名过长：当前 {len(args.author)} 个字符，微信限制为 {MAX_AUTHOR_CHARS} 个字符"
+            )
+        if len(args.digest) > MAX_DIGEST_CHARS:
+            parser.error(
+                f"摘要过长：当前 {len(args.digest)} 个字符，微信限制为 {MAX_DIGEST_CHARS} 个字符"
+            )
         return
 
     if args.cover_image or args.thumb_media_id:
         parser.error("newspic 模式不支持 --cover-image 或 --thumb-media-id；首张图片即封面图")
     if not args.image and not args.image_dir:
         parser.error("newspic 模式必须提供 --image 或 --image-dir")
-    title_bytes = utf8_len(args.title)
-    if title_bytes > MAX_NEWSPIC_TITLE_BYTES:
-        parser.error(
-            "newspic 模式标题过长："
-            f"当前 {title_bytes} 字节，微信限制为 {MAX_NEWSPIC_TITLE_BYTES} 字节。"
-            "中文标题通常建议控制在 21 个汉字以内，或改成更短的结论式标题。"
-        )
 
     if args.style_preset != "auto":
         print("      newspic 模式会忽略 --style-preset；图片消息正文只支持纯文本")

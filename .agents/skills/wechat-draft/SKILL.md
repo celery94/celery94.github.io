@@ -21,7 +21,7 @@ description: 将图文文章或图片消息发布到微信公众号草稿箱。�
 
 ### `news` 图文草稿流程
 
-1. 可选上传封面图，获取 `thumb_media_id`
+1. 上传封面图或使用已有永久素材，获取 `thumb_media_id`
 2. 将 Markdown/HTML 正文中的本地图片上传到微信 `uploadimg` 接口并替换为 HTTPS URL
 3. 调用 `draft/add` 新增图文草稿
 
@@ -33,7 +33,7 @@ description: 将图文文章或图片消息发布到微信公众号草稿箱。�
 4. 调用 `draft/add` 新增图片消息草稿
 
 > 图片消息限制：最多 20 张，首张图片即封面图。若目录中图片超过 20 张，脚本会按文件名顺序取前 20 张并打印提示。
-> `newspic` 标题长度按 UTF-8 字节数计算，最多 64 字节；中文标题通常建议控制在 21 个汉字以内。
+> `news` 和 `newspic` 标题最多 32 个字符。
 
 ## 所需参数
 
@@ -42,12 +42,12 @@ description: 将图文文章或图片消息发布到微信公众号草稿箱。�
 | `article_type` | 草稿类型：`news` 或 `newspic` | 可选，默认 `news` |
 | `app_id` | 公众号的 AppID | 用户输入，或环境变量 `WECHAT_APP_ID`（可由 `.env` 文件加载） |
 | `app_secret` | 公众号的 AppSecret | 用户输入，或环境变量 `WECHAT_APP_SECRET`（可由 `.env` 文件加载） |
-| `title` | 文章标题 | 用户提供 |
+| `title` | 文章标题（最多 32 个字符） | 用户提供 |
 | `content` | `news` 模式下为文章正文；`newspic` 模式下为图片消息纯文本说明 | 用户提供 |
-| `author` | 作者名（可选） | 用户提供，默认空 |
+| `author` | 作者名（可选，最多 16 个字符） | 用户提供，默认空 |
 | `digest` | 摘要（可选，最多 120 字） | 用户提供，默认空 |
-| `thumb_media_id` | 封面图片的媒体 ID（可选，若有封面图文件则自动上传获取） | 用户提供或自动上传 |
-| `cover_image` | 本地封面图片路径（可选） | 用户提供 |
+| `thumb_media_id` | 封面图片的永久素材 ID，与 `cover_image` 二选一 | 用户提供或自动上传 |
+| `cover_image` | 本地封面图片路径，与 `thumb_media_id` 二选一 | 用户提供 |
 | `content_source_url` | 原文链接（可选） | 用户提供 |
 | `content_format` | 内容格式，支持 `auto` / `markdown` / `html` | 可选，默认 `auto` |
 | `style_preset` | 正文样式预设，支持 `auto` / `default` / `code` / `essay` / `guide` / `none` | 可选，默认 `auto` |
@@ -60,10 +60,20 @@ description: 将图文文章或图片消息发布到微信公众号草稿箱。�
 ### 参数约束
 
 - `news` 模式必须提供 `content` 或 `content_file`
+- `news` 模式必须提供 `cover_image` 或永久素材 `thumb_media_id`
+- 所有文章标题最多 32 个字符
+- `news` 模式作者最多 16 个字符，摘要最多 120 个字符；超限时直接报错
 - `newspic` 模式必须提供 `image` 或 `image_dir`
 - `newspic` 模式不使用 `cover_image` / `thumb_media_id`，因为首张图片就是封面图
 - `newspic` 模式若未显式提供 `content`，脚本会回退使用 `digest`，再回退到 `title`
-- `newspic` 模式会校验标题长度，超过 64 个 UTF-8 字节时直接报错；生成标题时优先压缩为短结论句
+- `newspic` 模式会校验标题长度，超过 32 个字符时直接报错
+
+### 原创与广告限制
+
+- 微信官方草稿新增、更新和查询接口没有原创声明或广告设置字段
+- 发布草稿接口只接收 `media_id`，无法补充原创声明或广告设置
+- 不要构造 `is_original`、广告开关等未公开字段
+- 如需声明原创或开启广告，请在微信公众号后台编辑草稿后手动设置
 
 ## 执行步骤
 
@@ -94,7 +104,7 @@ description: 将图文文章或图片消息发布到微信公众号草稿箱。�
 - 图片会通过永久素材接口上传，得到 `image_media_id`
 - 组装图片消息请求体：`article_type=newspic`、`image_info.image_list[].image_media_id`
 - 首张图片即封面图；正文 `content` 仅保留纯文本，不做 HTML/CSS 内联
-- 标题必须控制在 64 个 UTF-8 字节以内；如果主标题过长，先压缩再调用脚本，不要把超限标题直接传给微信接口
+- 标题必须控制在 32 个字符以内；如果主标题过长，先压缩再调用脚本
 
 ### Step 4：运行脚本
 
@@ -128,13 +138,15 @@ python <skill-dir>/scripts/publish_draft.py \
   --content-file "/path/to/content.html" \
   [--content-format auto] \
   [--style-preset auto] \
-  [--extra-css-file "/path/to/extra.css"] \
-  [--author "作者名"] \
-  [--digest "摘要"] \
-  [--cover-image "/path/to/cover.jpg"] \
-  [--thumb-media-id "已有的media_id"] \
-  [--content-source-url "https://example.com/original"]
+    [--extra-css-file "/path/to/extra.css"] \
+    [--author "作者名"] \
+    [--digest "摘要"] \
+    --cover-image "/path/to/cover.jpg" \
+    [--content-source-url "https://example.com/original"]
 ```
+
+如果已有封面永久素材，可将 `--cover-image` 替换为
+`--thumb-media-id "已有的media_id"`。
 
 或者直接传入内容字符串（.env 已配置时可省略 --appid/--secret）：
 
@@ -143,7 +155,8 @@ python <skill-dir>/scripts/publish_draft.py \
   --article-type news \
   --title "文章标题" \
   --content "# 正文标题\n\n这是一段 Markdown 正文" \
-  --content-format markdown
+  --content-format markdown \
+  --thumb-media-id "已有的永久素材media_id"
 ```
 
 #### 发布 `newspic` 图片消息草稿
@@ -185,6 +198,7 @@ python <skill-dir>/scripts/publish_draft.py \
 - 若为 `newspic`，补充本次提交的图片数量
 - 说明 Markdown 已被转换为带内联样式的 HTML（如果输入是 `news` 且输入是 Markdown）
 - 提醒用户在微信公众平台后台检查草稿箱并最终发布
+- 如果用户需要原创声明或广告，提醒其在后台手动设置
 
 ## 常见错误处理
 
@@ -200,14 +214,14 @@ python <skill-dir>/scripts/publish_draft.py \
 
 ## 注意事项
 
-- 草稿箱接口需要公众号为**服务号**并已完成认证；订阅号可能无权限
+- 草稿箱接口适用于公众号和服务号，实际调用权限以公众平台后台的接口权限为准
 - access_token 有效期 7200 秒，脚本每次运行都会重新获取
-- `thumb_media_id` 虽在 API 中标记为可选字段，但微信后台显示时封面为空；建议尽量提供封面图
+- `news` 必须提供永久素材 `thumb_media_id`；可直接传入，或通过 `--cover-image` 自动上传获取
 - 正文中的本地图片现在会自动上传到 `/cgi-bin/media/uploadimg` 并替换为微信返回的 URL；相对路径按内容文件所在目录解析
 - Markdown 转 HTML 时，`参考链接` 章节里的链接会使用原始 URL 作为最终 HTML 中的链接地址与显示文本
 - `--extra-css-file` 适合补充简单标签/类选择器规则；最终只保留内联样式，不保留外部 CSS
 - 图片消息使用 `article_type=newspic`，图片相关信息写入 `image_info.image_list[].image_media_id`
 - 图片消息里的图片数量最多 20 张，首张图片即封面图；超过 20 张时脚本会截断为前 20 张
-- 图片消息标题最多 64 个 UTF-8 字节；中文通常约为 21 个汉字，超限时脚本会在提交前直接失败并提示缩短
+- 图文和图片消息标题最多 32 个字符，超限时脚本会在提交前直接失败
 - 图片消息正文只支持纯文本和部分特殊功能标签；本脚本默认会把输入收敛为纯文本
 - `info-card-designer` 可以在生成信息卡 PNG 后直接调用本脚本的 `newspic` 模式，把产出的单图或分割图自动写入微信草稿箱
