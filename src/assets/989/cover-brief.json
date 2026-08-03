@@ -1,0 +1,54 @@
+{
+  "article_title": "从生成代码到可信代码：微软开源单测 agent",
+  "cover_type": "release",
+  "core_theme": "微软开源 code-testing-generator：一个 polyglot 单元测试生成 agent，用「学习仓库→规划→写作→验证」四步工作流把一行模糊 prompt 变成可信、可运行、可被 CI 发现的测试",
+  "reader_takeaway": "装好插件后，一行 Generate unit tests 也能产出通过构建、断言有效、仓库测试命令能发现的测试；基准显示完成率 92.1% 对 78.9%",
+  "summary_angle": "一行模糊 prompt 进入四步「信任工坊」，产出经过验证的可信测试；同样的模型和工作量，可靠性大幅领先",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "step",
+      "source_anchor": "原文工作流第一步：agent 先搜索仓库、检测语言与测试框架、学习现有测试约定",
+      "visual_idea": "工坊入口处一份展开的仓库蓝图/代码页，代表先学习仓库",
+      "visible_label": "学习",
+      "numeric_fact": ""
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文四步工作流：学习仓库→确定工作量→计划并写测试→检查测试有用性",
+      "visual_idea": "一台精致的加工装置把一条流水线分四段处理，代表四步工作流",
+      "visible_label": "规划",
+      "numeric_fact": ""
+    },
+    {
+      "role": "evidence",
+      "source_anchor": "原文基准：内部 152 任务中 agent 完成 140（92.1%），stock Copilot 120（78.9%），失败减少 63%",
+      "visual_idea": "流水线末端一枚带对勾的完成徽章，旁边标注完成率",
+      "visible_label": "验证",
+      "numeric_fact": "92.1%"
+    }
+  ],
+  "main_metaphor": "一行模糊 prompt 像未加工的材料，进入一台精致的「信任工坊」，经过学习、规划、写作、验证四道工序，变成盖过检验章的可信测试",
+  "primary_subject": "一台精致的信任工坊装置（中央加工枢纽）",
+  "subject_action": "把一条输入流经过四段工序处理后，输出一份带检验章的测试成品",
+  "composition": "居中主物体 + 少量辅助符号",
+  "base_style": "product-poster style illustration",
+  "selected_style": "洛丽塔幻想风",
+  "selected_style_prompt_descriptor": "ornate fantasy fashion illustration, lace-like detail, dollhouse elegance, soft magical palette, controlled decorative density",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["学习", "规划", "验证", "92.1%"],
+  "color_palette": ["藕荷紫", "奶油白", "金色"],
+  "avoid": [
+    "代码雨",
+    "漂浮芯片",
+    "真实 dashboard",
+    "假终端输出",
+    "英文长标签",
+    "赛博朋克紫蓝光污染"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮验证主题（信任工坊四段工序）与三段式叙事是否成立",
+  "revision_targets": ["工序分段更清晰", "减少装饰性杂物", "验证徽章更明确"],
+  "final_prompt": "Use case: infographic-story. Asset type: wide cover infographic illustration for a Chinese tech blog article. Primary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: 微软开源单测生成 agent 的四步工作流把一行模糊 prompt 变成可信测试。The reader should quickly feel: 一行 Generate unit tests 也能产出经过验证、可靠可信的测试。Summary angle: 一行模糊 prompt 进入四步「信任工坊」，产出带检验章的可信测试，完成率 92.1%。Narrative flow: 3-beat process. In a 2.35:1 frame, keep one dominant focal subject and 3 supporting narrative beats. Information blocks: (1) step 学习: 工坊入口处一份展开的仓库代码蓝图，代表 agent 先学习仓库约定; (2) mechanism 规划: 一台精致加工装置把输入流分四段工序处理，代表学习-规划-写作-验证工作流; (3) evidence 验证: 流水线末端一枚带对勾的检验徽章，标注 92.1% 完成率。Main metaphor: 一行模糊 prompt 像未加工的材料，进入一台精致的「信任工坊」，经过四道工序后变成盖过检验章的可信测试。Subject: 一台精致的信任工坊装置（中央加工枢纽），把一条输入流经过四段工序处理后输出带检验章的测试成品。Composition/framing: 居中主物体加少量辅助符号，宽幅下保持可读。Style/medium: combine product-poster style illustration with the selected visual style descriptor: ornate fantasy fashion illustration, lace-like detail, dollhouse elegance, soft magical palette, controlled decorative density. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist. Color palette: 藕荷紫、奶油白、金色。Visible text policy: allow only 1-3 short Chinese labels or number chips by default, and no more than 4 when strictly necessary, all sourced from the information blocks: 学习, 规划, 验证, 92.1%. Each label <= 6 Chinese characters. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names. Constraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter. Avoid: 代码雨、漂浮芯片、真实 dashboard、假终端输出、英文长标签、赛博朋克紫蓝光污染。Wide cover illustration, aspect ratio 2.35:1."
+}
