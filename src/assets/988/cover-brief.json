@@ -1,0 +1,54 @@
+{
+  "article_title": "NLog 完整指南：.NET 灵活日志框架上手",
+  "cover_type": "tutorial",
+  "core_theme": "在 .NET 应用中接入 NLog，用 Targets / Layout Renderers / Rules 三大概念实现灵活日志路由与结构化输出",
+  "reader_takeaway": "装好包、配好目标和规则，日志按需分流并输出结构化 JSON",
+  "summary_angle": "一条日志流经过路由规则枢纽，被分流到文件、控制台等不同目标，最终产出结构化 JSON",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "step",
+      "source_anchor": "原文安装章节：dotnet add package NLog.Web.AspNetCore",
+      "visual_idea": "一个发光的安装包/接入节点，代表把 NLog 装进项目",
+      "visible_label": "装包",
+      "numeric_fact": ""
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文 Rules 章节：logger 名称模式 + minlevel/maxlevel + writeTo 把日志路由到不同 target",
+      "visual_idea": "中心路由枢纽把一条日志流分成多条，分别流向文件、控制台等出口",
+      "visible_label": "路由",
+      "numeric_fact": ""
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文结构化日志章节：JsonLayout includeAllProperties=true 输出可查询 JSON",
+      "visual_idea": "出口末端汇聚成一份整齐的结构化 JSON 文档",
+      "visible_label": "结构化",
+      "numeric_fact": ""
+    }
+  ],
+  "main_metaphor": "日志消息像水流经过一个路由枢纽，按规则分向不同目标出口，末端汇成结构化 JSON",
+  "primary_subject": "一个发光的日志路由枢纽（中心节点）",
+  "subject_action": "接收一条日志流并按规则分流到文件、控制台等不同出口",
+  "composition": "单点聚焦 + 斜向推进（中心枢纽向两侧分出管道）",
+  "base_style": "editorial technical illustration",
+  "selected_style": "日漫少年风",
+  "selected_style_prompt_descriptor": "energetic shonen-inspired manga look, clean ink lines, dynamic poses, readable action rhythm, bright restrained color accents",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["装包", "路由", "结构化"],
+  "color_palette": ["深蓝", "青色", "暖橙"],
+  "avoid": [
+    "代码雨",
+    "漂浮芯片",
+    "真实 dashboard",
+    "假终端输出",
+    "英文长标签",
+    "赛博朋克紫蓝光污染"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮验证主题（日志分流枢纽）与三段式叙事是否成立",
+  "revision_targets": ["分流管道方向更清晰", "减少背景杂物", "JSON 出口更明确"],
+  "final_prompt": "Use case: infographic-story. Asset type: wide cover infographic illustration for a Chinese tech blog article. Primary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: NLog 在 .NET 中把日志按规则路由到不同目标并结构化输出。The reader should quickly feel: 装包、配规则、日志按需分流并变成结构化 JSON。Summary angle: 一条日志流经过路由规则枢纽，被分流到文件、控制台等不同目标，最终产出结构化 JSON。Narrative flow: 3-beat process. In a 2.35:1 frame, keep one dominant focal subject and 2-4 supporting narrative beats. Information blocks: (1) step 装包: 一个发光的接入节点代表安装 NLog 包; (2) mechanism 路由: 中心枢纽把一条日志流分成多条管道，分别流向文件与控制台形状的出口; (3) takeaway 结构化: 末端汇成一份整齐的 JSON 文档。Main metaphor: 日志消息像水流经过路由枢纽，按规则分向不同目标出口，末端汇成结构化 JSON。Subject: 一个发光的日志路由枢纽（中心节点），接收一条日志流并按规则分流到不同出口。Composition/framing: 单点聚焦加斜向推进，中心枢纽向两侧分出清晰管道，宽幅下保持可读。Style/medium: combine editorial technical illustration with the selected visual style descriptor: energetic shonen-inspired manga look, clean ink lines, dynamic poses, readable action rhythm, bright restrained color accents. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist. Color palette: 深蓝、青色、暖橙。Visible text policy: allow only 1-3 short Chinese labels or number chips by default, and no more than 4 when strictly necessary, all sourced from the information blocks. Each label <= 6 Chinese characters or one required product/model name. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names. Constraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter. Avoid: 代码雨、漂浮芯片、真实 dashboard、假终端输出、英文长标签、赛博朋克紫蓝光污染。"
+}
