@@ -80,7 +80,7 @@ python .agents/skills/create-blog-post-from-url/scripts/pick-cover-style.py
 - 随机风格只影响封面 brief、图片提示词和封面验收，不影响正文语气。
 - 先保存 `src/assets/{ID}/cover-brief.json`（`final_prompt` 必须非空，生图 prompt 定稿后回填），再生成、检查和按需精修封面。
 - 最终封面保存为 `src/assets/{ID}/01-cover.{ext}`，同步更新 `ogImage` 和微信封面路径。
-- 当前模型不支持看图时，按 `azure-image-gen` 技能的 No-Vision 工作流执行，并在发布或提交前把封面路径与摘要角度交给用户确认。
+- 当前模型不支持看图时，按 `azure-image-gen` 技能的 No-Vision 工作流执行；封面直接验收，不再要求用户逐篇确认，在最终报告中说明封面路径与摘要角度即可（用户不满意可要求重新生成）。
 
 ### 5. 校验
 

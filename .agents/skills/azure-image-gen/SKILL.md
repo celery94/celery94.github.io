@@ -162,7 +162,7 @@ When the agent or calling environment cannot view images for verification (e.g.,
 1. **Generate one draft** with the sketch prompt at lower quality/resolution.
 2. **Immediately generate one final** using a refinement prompt that polishes rather than redesigns: focus on `Refine: sharper details, cleaner composition, preserve the same metaphor and information blocks` — do not introduce new structural changes.
 3. **Accept the final** as the cover; skip visual inspection.
-4. **Hand the cover back to the user**: before publishing or committing, report the cover path and the summary angle it encodes, and ask the user to confirm the cover is acceptable. If the user is not reachable, note in the final report that visual acceptance was skipped.
+4. **Report instead of asking**: do not block on user confirmation. In the final report, state the cover path and the summary angle it encodes, and note that visual acceptance was skipped (the user can request a regeneration if the cover is not satisfactory).
 5. If the article has reusable local reference images (e.g., saved step screenshots), attach 1–2 as `--input-image` to help the model stay on topic.
 
-This avoids the dead-end of trying to visually evaluate an image the agent cannot see, while keeping a human confirmation checkpoint.
+This avoids the dead-end of trying to visually evaluate an image the agent cannot see, while keeping the user informed via the final report instead of blocking the flow with a confirmation round-trip.
