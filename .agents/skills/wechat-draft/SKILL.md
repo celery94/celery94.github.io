@@ -54,6 +54,8 @@ description: 将图文文章或图片消息发布到微信公众号草稿箱。�
 | `extra_css_file` | 额外 CSS 文件路径，会继续内联到最终 HTML 中 | 可选 |
 | `image` | 图片消息图片路径，可重复传入 | `newspic` 模式使用 |
 | `image_dir` | 图片消息目录，按文件名顺序收集图片 | `newspic` 模式使用 |
+| `ignore_image_errors` | 正文图片上传失败时继续发布（不推荐，草稿内图片会缺失） | 可选，默认失败即中止 |
+| `delete_draft` | 直接删除指定 `media_id` 的草稿并退出，无需其他内容参数 | 可选 |
 
 **安全提示**：app_id 和 app_secret 属于敏感凭据，优先从环境变量读取，避免明文出现在命令行日志中。建议用户设置 `WECHAT_APP_ID` 和 `WECHAT_APP_SECRET`，并可通过 `.env` 文件统一加载。
 
@@ -67,6 +69,9 @@ description: 将图文文章或图片消息发布到微信公众号草稿箱。�
 - `newspic` 模式不使用 `cover_image` / `thumb_media_id`，因为首张图片就是封面图
 - `newspic` 模式若未显式提供 `content`，脚本会回退使用 `digest`，再回退到 `title`
 - `newspic` 模式会校验标题长度，超过 32 个字符时直接报错
+- 封面图与正文图片如果是 `webp`/`gif`/`bmp`/`tiff` 格式，脚本会用 Pillow 自动转换为 `jpg` 后上传（微信只接受 jpg/png）；未安装 Pillow 或转换失败时直接报错，不会带着坏图继续发布
+- `news` 模式正文图片上传失败默认**中止发布**并报错，避免产出图片缺失的坏草稿；确需强发时使用 `--ignore-image-errors`
+- `--delete-draft MEDIA_ID` 用于清理重复或失败的草稿，删除后可从草稿箱列表确认
 
 ### 原创与广告限制
 
@@ -190,6 +195,12 @@ python <skill-dir>/scripts/publish_draft.py \
 6. 调用 `https://api.weixin.qq.com/cgi-bin/draft/add` 新增草稿
 7. 输出结果 JSON（含 `media_id`、`article_type`，图片消息还会返回 `image_count`）
 
+清理草稿：
+
+```bash
+python <skill-dir>/scripts/publish_draft.py --delete-draft "MEDIA_ID"
+```
+
 ### Step 5：反馈结果
 
 成功后向用户展示：
@@ -211,6 +222,7 @@ python <skill-dir>/scripts/publish_draft.py \
 | 48001 | api 功能未授权 | 确认公众号已开通草稿箱功能 |
 | 40007 | invalid media_id | 检查封面图或图片消息图片是否已成功上传为永久素材 |
 | 45166 | invalid content | 检查图片消息正文是否包含 HTML，或图文正文是否超限 |
+| 40005 | invalid file type | 图片格式不受支持；脚本已自动把 webp/gif/bmp/tiff 转为 jpg，若仍出现说明转换被跳过或文件损坏 |
 
 ## 注意事项
 

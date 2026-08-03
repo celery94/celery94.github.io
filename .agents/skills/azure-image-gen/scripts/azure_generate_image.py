@@ -210,15 +210,14 @@ DEFAULT_QUALITY = "medium"
 DEFAULT_OUTPUT_FORMAT = "png"
 DEFAULT_OUTPUT_COMPRESSION = 100
 SIZE_PATTERN = re.compile(r"^\d+x\d+$")
+# Azure Images API 只接受 png/jpeg（webp 会返回 400 invalid_value）
 FORMAT_SUFFIXES = {
     "png": {".png"},
     "jpeg": {".jpg", ".jpeg"},
-    "webp": {".webp"},
 }
 PRIMARY_SUFFIX = {
     "png": ".png",
     "jpeg": ".jpg",
-    "webp": ".webp",
 }
 
 
@@ -312,7 +311,7 @@ def _build_generation_payload(
     }
     if background:
         payload["background"] = background
-    if output_format in {"jpeg", "webp"}:
+    if output_format == "jpeg":
         payload["output_compression"] = output_compression
     return payload
 
@@ -652,14 +651,14 @@ Examples:
         "--format",
         "-f",
         default=DEFAULT_OUTPUT_FORMAT,
-        choices=["png", "jpeg", "webp"],
-        help="Raw output format returned by the API.",
+        choices=["png", "jpeg"],
+        help="Raw output format returned by the API. Azure Images API supports png and jpeg only.",
     )
     parser.add_argument(
         "--compression",
         type=_parse_compression,
         default=DEFAULT_OUTPUT_COMPRESSION,
-        help="Output compression 0-100. Applies to JPEG and WebP API output.",
+        help="Output compression 0-100. Applies to JPEG API output.",
     )
     parser.add_argument(
         "--background",

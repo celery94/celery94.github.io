@@ -19,11 +19,16 @@ publish_draft.py - 将文章发布到微信公众号草稿箱
     [--thumb-media-id EXISTING_MEDIA_ID] \
     [--content-source-url https://example.com] \
     [--image /path/to/card-1.png --image /path/to/card-2.png] \
-    [--image-dir /path/to/card-output]
+    [--image-dir /path/to/card-output] \
+    [--ignore-image-errors] \
+    [--delete-draft MEDIA_ID]
 
 凭据优先级: 命令行参数 > 环境变量 WECHAT_APP_ID / WECHAT_APP_SECRET > .env 文件
 样式预设: auto(自动推断) | default(通用) | code(代码密集) | essay(散文) | guide(教程) | none(无样式)
 消息类型: news(默认，图文草稿) | newspic(图片消息草稿，首张图即封面，最多 20 张)
+图片格式: webp/gif/bmp/tiff 会在上传前自动转换为 jpg（微信只接受 jpg/png）
+图片失败: 正文图片上传失败默认中止发布；可用 --ignore-image-errors 跳过（草稿内图片会缺失）
+删除草稿: --delete-draft MEDIA_ID 直接删除已有草稿，无需其他内容参数
 """
 
 import argparse
@@ -57,6 +62,8 @@ MAX_TITLE_CHARS = 32
 MAX_AUTHOR_CHARS = 16
 MAX_DIGEST_CHARS = 120
 SUPPORTED_IMAGE_SUFFIXES = {".jpg", ".jpeg", ".png", ".gif", ".webp", ".bmp"}
+# 微信 uploadimg / 素材接口只接受 jpg/png，其余格式上传前自动转换
+UNSUPPORTED_UPLOAD_SUFFIXES = {".webp", ".gif", ".bmp", ".tif", ".tiff"}
 LIST_RE = re.compile(r"^(\s*)([*+-]|\d+\.)\s+(.*)$")
 HEADING_RE = re.compile(r"^(#{1,6})\s+(.*)$")
 FENCE_RE = re.compile(r"^```([\w+-]+)?\s*$")
@@ -178,6 +185,41 @@ def infer_temp_image_suffix(url: str, content_type: str) -> str:
     return ".jpg"
 
 
+def convert_image_for_upload(image_path: str) -> Tuple[str, bool]:
+    """将微信不支持的图片格式转换为临时 jpg，返回 (上传用路径, 是否为临时文件)。
+
+    微信 uploadimg 与永久素材接口只接受 jpg/png；webp/gif/bmp/tiff 会触发
+    errcode 40005 invalid file type。转换依赖 Pillow，缺失或失败时直接抛错，
+    避免带着坏图继续发布。
+    """
+    suffix = os.path.splitext(image_path)[1].lower()
+    if suffix not in UNSUPPORTED_UPLOAD_SUFFIXES:
+        return image_path, False
+
+    print(
+        f"      转换图片格式以适配微信: {os.path.basename(image_path)} "
+        f"({suffix} -> .jpg)"
+    )
+    try:
+        from PIL import Image
+    except ImportError as exc:
+        raise RuntimeError(
+            f"图片 {image_path} 是微信不支持的 {suffix} 格式，且未安装 Pillow。"
+            "请先 pip install Pillow，或手动转换为 jpg/png 后再发布。"
+        ) from exc
+
+    try:
+        with Image.open(image_path) as img:
+            img = img.convert("RGB")
+            temp_handle = tempfile.NamedTemporaryFile(suffix=".jpg", delete=False)
+            temp_path = temp_handle.name
+            temp_handle.close()
+            img.save(temp_path, format="JPEG", quality=90)
+        return temp_path, True
+    except Exception as exc:
+        raise RuntimeError(f"图片格式转换失败: {image_path} ({exc})") from exc
+
+
 def upload_cover_image(access_token: str, image_path: str, max_retries: int = 3) -> Optional[str]:
     """上传封面图片，返回可用于图文草稿的封面 media_id。"""
     # 草稿接口要求永久素材的封面 media_id，临时素材接口返回的 thumb_media_id
@@ -185,30 +227,35 @@ def upload_cover_image(access_token: str, image_path: str, max_retries: int = 3)
     if not os.path.exists(image_path):
         raise FileNotFoundError(f"封面图片不存在: {image_path}")
 
-    url = f"{WECHAT_API_BASE}/cgi-bin/material/add_material"
-    params = {"access_token": access_token, "type": "thumb"}
-    mime_type = guess_image_mime_type(image_path)
+    upload_path, is_temp = convert_image_for_upload(image_path)
+    try:
+        url = f"{WECHAT_API_BASE}/cgi-bin/material/add_material"
+        params = {"access_token": access_token, "type": "thumb"}
+        mime_type = guess_image_mime_type(upload_path)
 
-    for attempt in range(1, max_retries + 1):
-        try:
-            with open(image_path, "rb") as handle:
-                files = {"media": (os.path.basename(image_path), handle, mime_type)}
-                resp = requests.post(url, params=params, files=files, timeout=30)
-            resp.raise_for_status()
-            data = resp.json()
-            if "media_id" in data:
-                return data["media_id"]
-            print(
-                "      封面上传失败 "
-                f"({attempt}/{max_retries}): errcode={data.get('errcode')}, errmsg={data.get('errmsg')}"
-            )
-        except Exception as exc:
-            print(f"      封面上传异常 ({attempt}/{max_retries}): {exc}")
+        for attempt in range(1, max_retries + 1):
+            try:
+                with open(upload_path, "rb") as handle:
+                    files = {"media": (os.path.basename(upload_path), handle, mime_type)}
+                    resp = requests.post(url, params=params, files=files, timeout=30)
+                resp.raise_for_status()
+                data = resp.json()
+                if "media_id" in data:
+                    return data["media_id"]
+                print(
+                    "      封面上传失败 "
+                    f"({attempt}/{max_retries}): errcode={data.get('errcode')}, errmsg={data.get('errmsg')}"
+                )
+            except Exception as exc:
+                print(f"      封面上传异常 ({attempt}/{max_retries}): {exc}")
 
-        if attempt < max_retries:
-            time.sleep(2 * attempt)
+            if attempt < max_retries:
+                time.sleep(2 * attempt)
 
-    return None
+        return None
+    finally:
+        if is_temp and os.path.exists(upload_path):
+            os.unlink(upload_path)
 
 
 def upload_inline_image(access_token: str, image_path: str, max_retries: int = 3) -> Optional[str]:
@@ -216,38 +263,43 @@ def upload_inline_image(access_token: str, image_path: str, max_retries: int = 3
     if not os.path.exists(image_path):
         raise FileNotFoundError(f"正文图片不存在: {image_path}")
 
-    url = f"{WECHAT_API_BASE}/cgi-bin/media/uploadimg"
-    mime_type = guess_image_mime_type(image_path)
+    upload_path, is_temp = convert_image_for_upload(image_path)
+    try:
+        url = f"{WECHAT_API_BASE}/cgi-bin/media/uploadimg"
+        mime_type = guess_image_mime_type(upload_path)
 
-    for attempt in range(1, max_retries + 1):
-        try:
-            with open(image_path, "rb") as handle:
-                files = {"media": (os.path.basename(image_path), handle, mime_type)}
-                resp = requests.post(
-                    url,
-                    params={"access_token": access_token},
-                    files=files,
-                    timeout=30,
+        for attempt in range(1, max_retries + 1):
+            try:
+                with open(upload_path, "rb") as handle:
+                    files = {"media": (os.path.basename(upload_path), handle, mime_type)}
+                    resp = requests.post(
+                        url,
+                        params={"access_token": access_token},
+                        files=files,
+                        timeout=30,
+                    )
+                resp.raise_for_status()
+                data = resp.json()
+                if "url" in data:
+                    return data["url"]
+                print(
+                    "      正文图片上传失败 "
+                    f"({attempt}/{max_retries}) - {os.path.basename(image_path)}: "
+                    f"errcode={data.get('errcode')}, errmsg={data.get('errmsg')}"
                 )
-            resp.raise_for_status()
-            data = resp.json()
-            if "url" in data:
-                return data["url"]
-            print(
-                "      正文图片上传失败 "
-                f"({attempt}/{max_retries}) - {os.path.basename(image_path)}: "
-                f"errcode={data.get('errcode')}, errmsg={data.get('errmsg')}"
-            )
-        except BaseException as exc:
-            print(
-                "      正文图片上传异常 "
-                f"({attempt}/{max_retries}) - {os.path.basename(image_path)}: {exc}"
-            )
+            except BaseException as exc:
+                print(
+                    "      正文图片上传异常 "
+                    f"({attempt}/{max_retries}) - {os.path.basename(image_path)}: {exc}"
+                )
 
-        if attempt < max_retries:
-            time.sleep(2 * attempt)
+            if attempt < max_retries:
+                time.sleep(2 * attempt)
 
-    return None
+        return None
+    finally:
+        if is_temp and os.path.exists(upload_path):
+            os.unlink(upload_path)
 
 
 def upload_newspic_image(access_token: str, image_path: str, max_retries: int = 3) -> Optional[str]:
@@ -255,34 +307,39 @@ def upload_newspic_image(access_token: str, image_path: str, max_retries: int = 
     if not os.path.exists(image_path):
         raise FileNotFoundError(f"图片消息图片不存在: {image_path}")
 
-    url = f"{WECHAT_API_BASE}/cgi-bin/material/add_material"
-    params = {"access_token": access_token, "type": "image"}
-    mime_type = guess_image_mime_type(image_path)
+    upload_path, is_temp = convert_image_for_upload(image_path)
+    try:
+        url = f"{WECHAT_API_BASE}/cgi-bin/material/add_material"
+        params = {"access_token": access_token, "type": "image"}
+        mime_type = guess_image_mime_type(upload_path)
 
-    for attempt in range(1, max_retries + 1):
-        try:
-            with open(image_path, "rb") as handle:
-                files = {"media": (os.path.basename(image_path), handle, mime_type)}
-                resp = requests.post(url, params=params, files=files, timeout=30)
-            resp.raise_for_status()
-            data = resp.json()
-            if "media_id" in data:
-                return data["media_id"]
-            print(
-                "      图片消息图片上传失败 "
-                f"({attempt}/{max_retries}) - {os.path.basename(image_path)}: "
-                f"errcode={data.get('errcode')}, errmsg={data.get('errmsg')}"
-            )
-        except Exception as exc:
-            print(
-                "      图片消息图片上传异常 "
-                f"({attempt}/{max_retries}) - {os.path.basename(image_path)}: {exc}"
-            )
+        for attempt in range(1, max_retries + 1):
+            try:
+                with open(upload_path, "rb") as handle:
+                    files = {"media": (os.path.basename(upload_path), handle, mime_type)}
+                    resp = requests.post(url, params=params, files=files, timeout=30)
+                resp.raise_for_status()
+                data = resp.json()
+                if "media_id" in data:
+                    return data["media_id"]
+                print(
+                    "      图片消息图片上传失败 "
+                    f"({attempt}/{max_retries}) - {os.path.basename(image_path)}: "
+                    f"errcode={data.get('errcode')}, errmsg={data.get('errmsg')}"
+                )
+            except Exception as exc:
+                print(
+                    "      图片消息图片上传异常 "
+                    f"({attempt}/{max_retries}) - {os.path.basename(image_path)}: {exc}"
+                )
 
-        if attempt < max_retries:
-            time.sleep(2 * attempt)
+            if attempt < max_retries:
+                time.sleep(2 * attempt)
 
-    return None
+        return None
+    finally:
+        if is_temp and os.path.exists(upload_path):
+            os.unlink(upload_path)
 
 
 def markdown_to_html(md_text: str) -> str:
@@ -847,6 +904,12 @@ def prepare_content(args: argparse.Namespace, access_token: str) -> str:
             f"成功 {image_stats['uploaded']}，"
             f"失败 {image_stats['failed']}"
         )
+        if image_stats["failed"] > 0 and not args.ignore_image_errors:
+            raise RuntimeError(
+                f"正文图片上传失败 {image_stats['failed']} 张，已停止创建草稿。"
+                "请修复图片后重试，或使用 --ignore-image-errors 跳过"
+                "（不推荐，草稿内对应图片会缺失）"
+            )
     else:
         print("      未发现需要处理的正文图片")
     extra_css = load_extra_css(args.extra_css_file)
@@ -964,12 +1027,35 @@ def add_draft(access_token: str, article: dict) -> str:
     return data["media_id"]
 
 
+def delete_draft(access_token: str, media_id: str) -> dict:
+    """删除已有草稿，返回微信响应。"""
+    url = f"{WECHAT_API_BASE}/cgi-bin/draft/delete"
+    body = json.dumps({"media_id": media_id}).encode("utf-8")
+    resp = requests.post(
+        url,
+        params={"access_token": access_token},
+        data=body,
+        headers={"Content-Type": "application/json"},
+        timeout=30,
+    )
+    resp.raise_for_status()
+    data = resp.json()
+    if data.get("errcode", 0) != 0:
+        raise RuntimeError(
+            f"删除草稿失败: errcode={data.get('errcode')}, "
+            f"errmsg={data.get('errmsg')}"
+        )
+    return data
+
+
 def validate_args(parser: argparse.ArgumentParser, args: argparse.Namespace) -> None:
-    """校验不同草稿类型所需参数。"""
+    """校验不同草稿类型所需参数。删除草稿模式跳过内容参数校验。"""
     if not args.appid:
         parser.error("缺少 AppID：请通过 --appid 传入、设置环境变量 WECHAT_APP_ID，或在 .env 中配置")
     if not args.secret:
         parser.error("缺少 AppSecret：请通过 --secret 传入、设置环境变量 WECHAT_APP_SECRET，或在 .env 中配置")
+    if args.delete_draft:
+        return
     if not args.title.strip():
         parser.error("标题不能为空")
     if len(args.title) > MAX_TITLE_CHARS:
@@ -1023,7 +1109,7 @@ def main():
         default="news",
         help="草稿类型: news(图文草稿，默认) | newspic(图片消息草稿)",
     )
-    parser.add_argument("--title", required=True, help="文章标题")
+    parser.add_argument("--title", required=False, help="文章标题")
     parser.add_argument("--content", default=None, help="文章内容字符串（HTML 或 Markdown，与 --content-file 二选一）")
     parser.add_argument("--content-file", default=None, help="文章内容文件路径（.html 或 .md）")
     parser.add_argument("--content-format", choices=("auto", "markdown", "html"), default="auto", help="内容格式，默认自动识别")
@@ -1050,7 +1136,39 @@ def main():
         default=None,
         help="图片消息图片目录，会按文件名顺序收集图片；仅用于 --article-type newspic",
     )
+    parser.add_argument(
+        "--ignore-image-errors",
+        action="store_true",
+        help="正文图片上传失败时继续发布（不推荐，草稿内对应图片会缺失）",
+    )
+    parser.add_argument(
+        "--delete-draft",
+        default=None,
+        metavar="MEDIA_ID",
+        help="删除指定草稿并退出，无需其他内容参数",
+    )
     args = parser.parse_args()
+
+    if args.delete_draft:
+        if not args.appid:
+            parser.error("缺少 AppID：请通过 --appid 传入、设置环境变量 WECHAT_APP_ID，或在 .env 中配置")
+        if not args.secret:
+            parser.error("缺少 AppSecret：请通过 --secret 传入、设置环境变量 WECHAT_APP_SECRET，或在 .env 中配置")
+        print("[1/2] 获取 access_token ...")
+        token = get_access_token(args.appid, args.secret)
+        print("      access_token 已获取（已隐藏）")
+        print(f"[2/2] 删除草稿: {args.delete_draft} ...")
+        response = delete_draft(token, args.delete_draft)
+        result = {
+            "success": True,
+            "deleted_media_id": args.delete_draft,
+            "errcode": response.get("errcode", 0),
+            "errmsg": response.get("errmsg", "ok"),
+            "message": "草稿已删除。",
+        }
+        print("\n删除成功")
+        print(json.dumps(result, ensure_ascii=False, indent=2))
+        return result
 
     validate_args(parser, args)
 

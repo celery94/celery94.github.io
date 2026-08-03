@@ -87,7 +87,7 @@ python azure_generate_image.py <prompt> [options]
 | `--output`, `-o` | `generated_image.png` | Output file path. The raw file extension is adjusted to match the API format when needed |
 | `--size`, `-s` | `1024x1024` | `auto` or any `WIDTHxHEIGHT` string, such as `1536x1024` or `2048x1152` |
 | `--quality`, `-q` | `medium` | `low`, `medium`, `high`, `auto` |
-| `--format`, `-f` | `png` | Raw API output format: `png`, `jpeg`, `webp` |
+| `--format`, `-f` | `png` | Raw API output format: `png`, `jpeg`（Azure Images API 不支持 webp，传入会报 400） |
 | `--compression` | `100` | 0-100 compression for JPEG / WebP API output |
 | `--background` | none | Optional background mode: `auto`, `opaque`, `transparent` |
 | `--skip-post-process` | off | Keep the raw API output instead of resizing/compressing it |
@@ -104,9 +104,9 @@ python azure_generate_image.py <prompt> [options]
 python .agents/skills/azure-image-gen/scripts/azure_generate_image.py "Wide cinematic skyline" --size 2048x1152 --quality auto
 ```
 
-### Keep raw WebP output
+### Keep raw JPEG output
 ```bash
-python .agents/skills/azure-image-gen/scripts/azure_generate_image.py "Minimal product hero" --format webp --compression 70 --skip-post-process
+python .agents/skills/azure-image-gen/scripts/azure_generate_image.py "Minimal product hero" --format jpeg --compression 70 --skip-post-process
 ```
 
 ### Inpaint an uploaded image
@@ -162,6 +162,7 @@ When the agent or calling environment cannot view images for verification (e.g.,
 1. **Generate one draft** with the sketch prompt at lower quality/resolution.
 2. **Immediately generate one final** using a refinement prompt that polishes rather than redesigns: focus on `Refine: sharper details, cleaner composition, preserve the same metaphor and information blocks` — do not introduce new structural changes.
 3. **Accept the final** as the cover; skip visual inspection.
-4. If the article has reusable local reference images (e.g., saved step screenshots), attach 1–2 as `--input-image` to help the model stay on topic.
+4. **Hand the cover back to the user**: before publishing or committing, report the cover path and the summary angle it encodes, and ask the user to confirm the cover is acceptable. If the user is not reachable, note in the final report that visual acceptance was skipped.
+5. If the article has reusable local reference images (e.g., saved step screenshots), attach 1–2 as `--input-image` to help the model stay on topic.
 
-This avoids the dead-end of trying to visually evaluate an image the agent cannot see.
+This avoids the dead-end of trying to visually evaluate an image the agent cannot see, while keeping a human confirmation checkpoint.

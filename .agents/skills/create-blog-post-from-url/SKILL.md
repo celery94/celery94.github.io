@@ -59,13 +59,28 @@ description: 从公开 URL 取证并生成可信、自然、可执行的中文�
 - 图片保存到 `src/assets/{ID}/`，正文使用
   `../../assets/{ID}/{filename}`。
 - 保留 `## 参考`，列出原文和正文实际引用的关键来源。
+- 参考链接写完后运行链接检查，失效链接替换为 Internet Archive 存档后再继续：
+
+```bash
+python .agents/skills/create-blog-post-from-url/scripts/check-references.py \
+  src/data/blog/{ID}-{slug}.md
+```
+
+- 保存图片时统一转为微信支持的 jpg/png（微信 uploadimg 不接受 webp/gif/bmp），或确认 `wechat-draft` 发布时会自动转换。
 
 ### 4. 生成封面
 
-- 用户未指定风格时，从封面参考文件的 40 项风格池随机选择 1 项；用户指定风格时使用其选择。
+- 用户未指定风格时，用随机选择脚本从风格池选 1 项（不要手写随机逻辑）：
+
+```bash
+python .agents/skills/create-blog-post-from-url/scripts/pick-cover-style.py
+```
+
+- 脚本输出 `selected_style` 与 `selected_style_prompt_descriptor`，直接填入 `cover-brief.json`。
 - 随机风格只影响封面 brief、图片提示词和封面验收，不影响正文语气。
-- 先保存 `src/assets/{ID}/cover-brief.json`，再生成、检查和按需精修封面。
+- 先保存 `src/assets/{ID}/cover-brief.json`（`final_prompt` 必须非空，生图 prompt 定稿后回填），再生成、检查和按需精修封面。
 - 最终封面保存为 `src/assets/{ID}/01-cover.{ext}`，同步更新 `ogImage` 和微信封面路径。
+- 当前模型不支持看图时，按 `azure-image-gen` 技能的 No-Vision 工作流执行，并在发布或提交前把封面路径与摘要角度交给用户确认。
 
 ### 5. 校验
 
@@ -90,6 +105,8 @@ node .agents/skills/create-blog-post-from-url/scripts/validate-article.mjs \
 ## 完成标准
 
 - 原文证据完整，易变化信息已核对。
+- 参考链接通过 `check-references.py` 检查，失效链接已替换为存档。
+- 正文图片为微信支持的 jpg/png（或确认 `wechat-draft` 会转换）。
 - 正文自然、准确，教程可以照着执行。
 - frontmatter、资源路径、封面 brief 和微信长度限制通过校验。
 - 随机视觉风格没有进入正文语气。
