@@ -1,0 +1,58 @@
+{
+  "article_title": "WPA MCP 预览：用 AI 分析 Windows trace",
+  "cover_type": "release",
+  "core_theme": "微软发布 WPA MCP 早期预览：把 GitHub Copilot CLI 接入 Windows Performance Analyzer，用自然语言提问 trace 数据，快速定位 CPU、延迟与瓶颈根因",
+  "reader_takeaway": "在 WPA 中打开 trace、点 Copilot 按钮、自然语言提问，就能获得可验证的分析线索；但输出需对照 trace 复查",
+  "summary_angle": "从手动翻表和调时间范围，变成对 trace 直接提问——AI 副驾驶把自然语言问题翻译成 trace 里的证据路径",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "step",
+      "source_anchor": "原文工作方式：在 WPA 打开 trace 后点击右上角 GitHub Copilot 按钮，在面板中提问",
+      "visual_idea": "一个对话输入框出现在波形视图旁，代表自然语言提问",
+      "visible_label": "提问",
+      "numeric_fact": ""
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文：Copilot 基于 prompt 检查可用 trace 数据，识别相关表和信号，定位高成本 CPU 活动、调用栈、输入延迟",
+      "visual_idea": "一条波形时间线上出现聚光灯/定位标记，指向高成本区段",
+      "visible_label": "定位",
+      "numeric_fact": ""
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文重要提醒：LLM 输出应作为起点而非最终诊断，需对照底层 trace 数据验证",
+      "visual_idea": "分析结果旁一枚核对徽章，代表对照 trace 复查验证",
+      "visible_label": "验证",
+      "numeric_fact": ""
+    }
+  ],
+  "main_metaphor": "一位 AI 副驾驶坐在 WPA 波形数据旁，把自然语言问题翻译成 trace 中的证据路径，并提示你哪些结论需要复查",
+  "primary_subject": "波形时间线视图上的对话面板（AI 副驾驶）",
+  "subject_action": "把一句自然语言问题变成指向波形高成本区段的定位标记，旁边带一枚验证徽章",
+  "composition": "居中主物体 + 少量辅助符号",
+  "base_style": "product-poster style illustration",
+  "selected_style": "欧漫清线风",
+  "selected_style_prompt_descriptor": "European clear-line comic style, precise outlines, flat readable colors, tidy environments, restrained humor and detail",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["提问", "定位", "验证"],
+  "color_palette": ["深空蓝", "青色", "暖黄"],
+  "avoid": [
+    "真实 WPA 界面截图",
+    "代码雨",
+    "漂浮芯片",
+    "假终端输出",
+    "英文长标签",
+    "赛博朋克紫蓝光污染"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮验证主题（AI 副驾驶对话面板 + 波形定位）与三段式叙事是否成立",
+  "revision_targets": [
+    "波形与对话面板的主次关系更清晰",
+    "减少装饰性杂物",
+    "定位标记更明确"
+  ],
+  "final_prompt": "Use case: infographic-story. Asset type: wide cover infographic illustration for a Chinese tech blog article. Primary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: WPA MCP 把 GitHub Copilot 接入 Windows Performance Analyzer，用自然语言提问 trace 分析。The reader should quickly feel: 对 trace 直接提问就能获得可验证的分析线索。Summary angle: 从手动翻表和调时间范围，变成对 trace 直接提问——AI 副驾驶把自然语言问题翻译成 trace 里的证据路径。Narrative flow: 3-beat process. In a 2.35:1 frame, keep one dominant focal subject and 3 supporting narrative beats. Information blocks: (1) step 提问: a clean dialogue input panel beside an abstract waveform timeline, representing asking about the trace in natural language; (2) mechanism 定位: a spotlight marker on the waveform pointing to a high-cost segment, representing locating expensive CPU activity and call stacks; (3) takeaway 验证: a verification badge next to the analysis result, representing checking findings against the underlying trace. Main metaphor: an AI co-pilot sits beside the waveform trace data, translating natural-language questions into evidence paths and flagging what needs verification. Subject: a dialogue panel (AI co-pilot) above an abstract waveform timeline, turning a question into a spotlight marker with a verification badge. Composition/framing: centered main object with a few supporting symbols, readable in a wide frame. Style/medium: combine product-poster style illustration with the selected visual style descriptor: European clear-line comic style, precise outlines, flat readable colors, tidy environments, restrained humor and detail. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist. Color palette: deep space blue, cyan, warm yellow. Visible text policy: allow only 1-3 short Chinese labels by default: 提问, 定位, 验证. Each label <= 6 Chinese characters. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names. Constraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter. Avoid: 真实 WPA 界面截图、代码雨、漂浮芯片、假终端输出、英文长标签、赛博朋克紫蓝光污染。Wide cover illustration, aspect ratio 2.35:1."
+}
