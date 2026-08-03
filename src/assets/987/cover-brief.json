@@ -1,0 +1,59 @@
+{
+  "article_title": "拆不拆微服务？先回答这 5 个问题",
+  "cover_type": "analysis",
+  "core_theme": "拆微服务前先用 5 个问题自查（扩展需求、团队阻塞、数据边界、独立发布、平台税），按诚实 yes 的数量评分：4-5 拆服务、2-3 上模块化单体、0-1 保持单体",
+  "reader_takeaway": "读者能理解：拆分的决定应该晚于理由，5 个可核对的问题加一套评分规则能替团队做出决定",
+  "summary_angle": "五个问题像五道关卡，诚实作答后按 yes 数量走向三条岔路：拆服务、模块化单体、保持单体——先过问，再决定",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "contrast",
+      "source_anchor": "原文：microservices exchange local complexity for distributed complexity；方法调用变网络跳转",
+      "visual_idea": "左侧单体一次方法调用，右侧多个服务节点之间的网络调用，中间一道交换/天平",
+      "visible_label": "本地→分布式",
+      "numeric_fact": null
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文：The five questions below are how I find out；五问分别是扩展、团队、数据边界、隔离、平台税",
+      "visual_idea": "五道竖立的关卡/门依次排开，一位开发者剪影正在闯关",
+      "visible_label": "5 问",
+      "numeric_fact": "5"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文：Four or five yes answers: split；Two or three: modular monolith；Zero or one: keep the monolith",
+      "visual_idea": "关卡尽头的路分成三条岔路：一条通向服务集群，一条通向模块化建筑，一条通向稳固的单体大楼",
+      "visible_label": "看分数",
+      "numeric_fact": null
+    }
+  ],
+  "main_metaphor": "闯关清单：五道关卡从左到右推进，闯完按通过数走进三条岔路之一",
+  "primary_subject": "一位开发者剪影站在五道关卡前",
+  "subject_action": "开发者依次通过五道关卡，关卡尽头出现三条通向不同架构形态的岔路",
+  "composition": "斜向推进",
+  "base_style": "conceptual editorial illustration",
+  "selected_style": "热血战斗风",
+  "selected_style_prompt_descriptor": "high-energy battle comic look, strong silhouettes, speed lines, impact framing, bold contrast without excessive clutter",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["本地→分布式", "5 问", "看分数"],
+  "color_palette": ["高饱和正红", "深蓝", "明黄", "纸白"],
+  "avoid": [
+    "赛博朋克紫蓝光污染",
+    "漂浮芯片",
+    "代码雨",
+    "HUD 浮层",
+    "真实 UI 截图感",
+    "虚假架构图节点名",
+    "通用机器人站姿"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证「五问关卡 → 三条岔路评分」摘要弧线与热血战斗风是否成立",
+  "revision_targets": [
+    "可见标签文字渲染是否清晰",
+    "五道关卡是否可读",
+    "三条岔路与主题的对应关系"
+  ],
+  "final_prompt": "Use case: infographic-story. Asset type: wide cover infographic illustration for a Chinese tech blog article. Primary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: 拆微服务前先用 5 个问题自查，按诚实回答的数量评分，三个分数档对应三条路：拆服务、模块化单体、保持单体。The reader should quickly feel: 拆分决定应该晚于理由，先过问再决定。 Summary angle: 五个问题像五道关卡，诚实作答后按 yes 数量走向三条岔路——先过问，再决定。 Narrative flow: 3-beat process. In a 2.35:1 frame, keep one dominant focal subject and 3 supporting narrative beats. Information blocks: (1) contrast: 左侧单体一次方法调用，右侧多个服务节点之间的网络调用，可见标签「本地→分布式」；(2) mechanism: 五道竖立的关卡依次排开，一位开发者剪影正在闯关，可见标签「5 问」；(3) takeaway: 关卡尽头的路分成三条岔路：一条通向服务集群，一条通向模块化建筑，一条通向稳固的单体大楼，可见标签「看分数」。 Main metaphor: 闯关清单：五道关卡从左到右推进，闯完按通过数走进三条岔路之一。 Subject: 一位开发者剪影站在五道关卡前，依次通过，关卡尽头出现三条通向不同架构形态的岔路。 Composition/framing: 斜向推进，关卡透视纵深，宽封面水平延展，热血战斗风的速度线与冲击力构图。 Style/medium: combine conceptual editorial illustration with the selected visual style descriptor: high-energy battle comic look, strong silhouettes, speed lines, impact framing, bold contrast without excessive clutter. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist. Color palette: 高饱和正红、深蓝、明黄、纸白。 Visible text policy: allow only 3 short Chinese labels: 「本地→分布式」「5 问」「看分数」，每个标签不超过 6 个汉字。No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names. Constraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter. Avoid: 赛博朋克紫蓝光污染、漂浮芯片、代码雨、HUD 浮层、真实 UI 截图感、虚假架构图节点名、通用机器人站姿。"
+}
