@@ -1,0 +1,59 @@
+{
+  "article_title": "Squad 接入 Agent Framework：会学习的团队",
+  "cover_type": "release",
+  "core_theme": "预览包 Squad.Agents.AI 把 Squad 团队（协调者+专家）包装成 Microsoft Agent Framework 的标准 AIAgent，一行 DI 注册即可接入，团队会随使用积累领域知识",
+  "reader_takeaway": "读者能理解：一支会记忆、会沉淀技能的智能体团队，可以作为单个 AIAgent 接入 MAF 管线，注册只需一次 DI 调用",
+  "summary_angle": "一个 AIAgent 接口外壳里，是一支会学习的团队——MAF 只看到一个智能体，底层是带机构记忆的协调者与专家",
+  "narrative_flow": "layered reveal",
+  "information_blocks": [
+    {
+      "role": "mechanism",
+      "source_anchor": "原文：coordinator dispatches the work, lets the specialists argue, and ships a result；团队由协调者加若干各有章程的专家组成",
+      "visual_idea": "中央一位协调者智能体向四周三位专家智能体分发任务卡片",
+      "visible_label": "协调者",
+      "numeric_fact": null
+    },
+    {
+      "role": "step",
+      "source_anchor": "原文：The seam is one DI call；AddSquadAgent() 一行注册把 Squad 团队注册为 AIAgent",
+      "visual_idea": "团队整体被一个简洁的接口插槽/外壳接入一条管线，强调单点接入",
+      "visible_label": "1 行接入",
+      "numeric_fact": "1"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文：self-learning team that accumulates domain knowledge：remembers decisions, extracts skills, respects corrections",
+      "visual_idea": "专家把写有决策/技能的卡片归档进团队的文件夹，卡片带着温暖的复古动画质感",
+      "visible_label": "会学习",
+      "numeric_fact": null
+    }
+  ],
+  "main_metaphor": "套娃式外壳：外面是统一的 AIAgent 接口壳，里面是一支围着圆桌工作的团队，知识以卡片形式沉淀进团队文件夹",
+  "primary_subject": "一位发光的协调者智能体位于中央",
+  "subject_action": "协调者向三位专家智能体分发任务，专家把学到的决策写回记忆卡片，整体被半透明的统一接口外壳环绕",
+  "composition": "居中主物体",
+  "base_style": "product-poster style illustration",
+  "selected_style": "90年代复古动画风",
+  "selected_style_prompt_descriptor": "1990s retro animation look, cel-shaded color, analog grain, bold simple backgrounds, nostalgic broadcast texture",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["协调者", "1 行接入", "会学习"],
+  "color_palette": ["暖珊瑚橙", "钴蓝", "奶油米色", "复古青绿"],
+  "avoid": [
+    "赛博朋克紫蓝光污染",
+    "漂浮芯片",
+    "代码雨",
+    "通用机器人站姿",
+    "HUD 浮层",
+    "真实 UI 截图感",
+    "虚假架构图节点名"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证「AIAgent 外壳 + 内部协调者与专家团队 + 会学习」摘要弧线与 90 年代复古动画风格是否成立",
+  "revision_targets": [
+    "可见标签文字渲染是否清晰",
+    "专家数量与分工是否可读",
+    "复古颗粒是否过重"
+  ],
+  "final_prompt": "Use case: infographic-story. Asset type: wide cover infographic illustration for a Chinese tech blog article. Primary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: 一个开源的智能体团队（协调者+专家）被包装成统一的 AIAgent 接口，一行代码接入智能体框架，团队会随使用积累领域知识。The reader should quickly feel: 一支会学习的团队以单个智能体接口的形式接入管线。 Summary angle: 一个 AIAgent 接口外壳里，是一支会学习的团队——框架只看到一个智能体，底层是带机构记忆的协调者与专家。 Narrative flow: layered reveal. In a 2.35:1 frame, keep one dominant focal subject and 3 supporting narrative beats. Information blocks: (1) mechanism: 中央协调者向四周三位专家智能体分发任务卡片，可见标签「协调者」；(2) step: 团队整体被一个简洁插槽接入一条管线，强调单点接入，可见标签「1 行接入」；(3) takeaway: 专家把写有决策的技能卡片归档进团队文件夹，可见标签「会学习」。 Main metaphor: 套娃式外壳：外面是统一的 AIAgent 接口壳，里面是一支围着圆桌工作的团队，知识以卡片形式沉淀。 Subject: 一位发光的协调者智能体坐在中央，向三位专家智能体分发任务，专家把学到的决策写回记忆卡片，整体被半透明的统一接口外壳环绕。 Composition/framing: 居中主物体，圆形围坐布局，水平延展适合宽封面。 Style/medium: combine product-poster style illustration with the selected visual style descriptor: 1990s retro animation look, cel-shaded color, analog grain, bold simple backgrounds, nostalgic broadcast texture. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist. Color palette: 暖珊瑚橙、钴蓝、奶油米色、复古青绿。 Visible text policy: allow only 3 short Chinese labels: 「协调者」「1 行接入」「会学习」，每个标签不超过 6 个汉字。No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names. Constraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter. Avoid: 赛博朋克紫蓝光污染、漂浮芯片、代码雨、通用机器人站姿、HUD 浮层、真实 UI 截图感、虚假架构图节点名。"
+}
