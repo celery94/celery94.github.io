@@ -1,0 +1,66 @@
+{
+  "article_title": "什么时候该用微服务？一份务实的架构决策指南",
+  "cover_type": "architecture",
+  "core_theme": "微服务解决的是组织与扩展问题，不是代码质量问题；默认从模块化单体开始，只有具体压力出现才抽取服务",
+  "reader_takeaway": "判断自己的团队或产品是否需要微服务，并理解为什么模块化单体通常是正确起点",
+  "summary_angle": "用「一个部署单元 vs 多个服务」的对照，突出「最少部署单元数」这一决策核心",
+  "narrative_flow": "before-after",
+  "information_blocks": [
+    {
+      "role": "contrast",
+      "source_anchor": "微服务定义：独立部署 + 私有数据库 + 网络调用，边界是网络而不是进程内方法",
+      "visual_idea": "多个独立的小盒子通过虚线网络连线彼此通信",
+      "visible_label": "独立部署",
+      "numeric_fact": null
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "模块化单体：边界在代码里强制，不在网络上；一个部署单元保留单体的一切优点",
+      "visual_idea": "一个大型容器内部有清晰隔间，隔间之间用实体隔板而不是网络线",
+      "visible_label": "模块化单体",
+      "numeric_fact": null
+    },
+    {
+      "role": "evidence",
+      "source_anchor": "Amazon Prime Video 2023 年把 serverless 分布式监控服务合并回单进程，基础设施成本下降约 90%",
+      "visual_idea": "一个标注了成本下降的对照箭头，从散落的小盒子指向单个大盒子",
+      "visible_label": "成本降",
+      "numeric_fact": "90%"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "决策矩阵结论：最少部署单元数通常是 1——一个干净模块化的 1",
+      "visual_idea": "画面中央的单个大型模块化容器作为唯一主焦点",
+      "visible_label": "最少部署单元",
+      "numeric_fact": "1"
+    }
+  ],
+  "main_metaphor": "架构选择的岔路：一个内部有清晰隔间的大型容器（模块化单体）与一堆必须联网协作的小盒子（微服务）",
+  "primary_subject": "一个带清晰内部隔间的大型模块化容器",
+  "subject_action": "容器安静地立在前景中央，隔间整齐排列；远景散落的小服务盒子以虚线连接，形成对照",
+  "composition": "左右对照",
+  "base_style": "isometric conceptual systems scene",
+  "selected_style": "韩漫条漫风",
+  "selected_style_prompt_descriptor": "polished vertical-webtoon-inspired rendering adapted to a wide cover, clean gradients, sharp character shapes, glossy color blocks",
+  "selected_style_reason": "用户未指定风格，本篇从 40 项风格池随机选中韩漫条漫风；等距系统场景配干净的渐变与光泽色块适合表达架构对照",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["独立部署", "模块化单体", "90%"],
+  "color_palette": ["深海军蓝", "青绿", "暖橙点缀"],
+  "avoid": [
+    "霓虹高楼背景",
+    "漂浮芯片",
+    "代码雨",
+    "真实架构图",
+    "仪表盘",
+    "假图表标签",
+    "伪造节点名"
+  ],
+  "reference_strategy": "纯文本生成，不使用参考图",
+  "draft_goal": "第一轮验证「单个大容器 vs 多个联网小盒子」的对照是否清晰，信息块是否可读",
+  "revision_targets": [
+    "主焦点对照的清晰度",
+    "信息块标签可读性",
+    "宽幅 2.35:1 构图平衡"
+  ],
+  "final_prompt": "Create a wide cinematic infographic-story cover illustration. Theme: microservices solve an organizational and scaling problem, not a code-quality problem; start with a modular monolith and extract services only when a specific pressure appears. Summary angle: contrast of one deployable unit versus many networked services. Narrative flow: before-after, in a 2.35:1 frame with one dominant focal subject and 2-4 supporting beats. Information blocks: (1) several small independent boxes communicating through dashed network lines (label 独立部署); (2) one large container with clear internal compartments separated by solid dividers (label 模块化单体); (3) an arrow from scattered small boxes toward the single large container with a 90 percent cost-reduction chip; (4) the single large modular container in the center is the main focal subject. Main metaphor: a fork in the road of architecture choice. Subject: a large modular container with clear internal compartments in the foreground center; scattered small service boxes connected by dashed lines in the distance. Composition: left-right contrast, horizontal storytelling. Style/medium: combine isometric conceptual systems scene with polished vertical-webtoon-inspired rendering adapted to a wide cover, clean gradients, sharp character shapes, glossy color blocks. Do not imitate a specific brand, studio, or living artist. Color palette: deep navy blue, teal green, warm orange accents. Visible text policy: allow only 1-3 short Chinese labels or number chips: 独立部署, 模块化单体, 90%. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names. Constraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter. Avoid: neon skyscraper backgrounds, floating chips, code rain, realistic architecture diagrams, dashboards, fake diagram labels."
+}
