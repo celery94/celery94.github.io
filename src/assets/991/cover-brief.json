@@ -1,0 +1,60 @@
+{
+  "article_title": "Copilot CLI vs Claude Code 怎么选",
+  "cover_type": "analysis",
+  "core_theme": "2026 年终端 AI 编程代理选型：GitHub Copilot CLI 与 Claude Code 各自站在不同生态主场，选择应匹配团队约束",
+  "reader_takeaway": "读完后能根据自己是 GitHub 重度还是 Claude 重度，判断该先选哪个终端代理",
+  "summary_angle": "一个岔路口、两块方向牌：一块指向 GitHub 生态，一块指向 Claude 生态；选哪条路取决于你的工作流默认值",
+  "narrative_flow": "conflict-to-resolution",
+  "information_blocks": [
+    {
+      "role": "contrast",
+      "source_anchor": "对比总表：产品哲学（GitHub 集成终端代理 vs Claude-first 编码代理）；自定义指令 AGENTS.md vs CLAUDE.md",
+      "visual_idea": "岔路口的两个木质方向牌，分别指向两个方向的风景，牌上各写一个文件名",
+      "visible_label": "AGENTS.md",
+      "numeric_fact": ""
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "自定义指令章节：Claude Code 读 CLAUDE.md 不读 AGENTS.md，用 @AGENTS.md 导入共享单一规则源",
+      "visual_idea": "两座小屋之间一条共享的木质桥/同一本书被两个方向同时使用，表达单一事实来源",
+      "visible_label": "CLAUDE.md",
+      "numeric_fact": ""
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "结尾结论：选默认值与约束匹配的工具，收紧权限、写指令、跑测试、审 diff，工程决策仍由人负责",
+      "visual_idea": "岔路口中心站着背包的开发者剪影，阳光照亮路口，面前是两扇门/两条路",
+      "visible_label": "",
+      "numeric_fact": ""
+    }
+  ],
+  "main_metaphor": "阳光下的森林岔路口：一个开发者在路口中央选择通往两个不同世界（GitHub 生态 / Claude 生态）的路",
+  "primary_subject": "岔路口中心背包的开发者剪影，面前是两块分别写着 AGENTS.md 与 CLAUDE.md 的方向牌",
+  "subject_action": "站在路口中央，手持项目清单，正在选择走向哪条路",
+  "composition": "左右对照：左路通往 GitHub 风格的工作坊建筑，右路通往 Claude 风格的暖色书房，中央留主焦点",
+  "base_style": "conceptual editorial illustration",
+  "selected_style": "吉卜力动画风",
+  "selected_style_prompt_descriptor": "warm hand-drawn animation feeling, natural environments, gentle fantasy everyday mood, soft painterly backgrounds, no studio imitation",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；对比选型主题适合用温暖治愈的岔路口场景表达，降低工具评测的冷硬感",
+  "style_safety_note": "清单风格为泛类型描述，prompt 已改写为安全描述词，不涉及工作室或艺术家复刻",
+  "allowed_visible_text": ["AGENTS.md", "CLAUDE.md"],
+  "color_palette": ["暖米色", "森林绿", "暖橙", "柔和天蓝"],
+  "avoid": [
+    "终端窗口",
+    "命令行文本",
+    "真实产品 Logo",
+    "HUD 浮层",
+    "代码雨",
+    "赛博朋克紫蓝光",
+    "机器人站姿",
+    "对话气泡"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮验证岔路口构图、两块方向牌与中央开发者剪影是否清晰可读，暖色手绘质感是否成立",
+  "revision_targets": [
+    "方向牌文字是否清晰且只有两处",
+    "中央焦点是否突出",
+    "画面是否像概括文章而不是泛科技氛围图"
+  ],
+  "final_prompt": "Use case: infographic-story. Asset type: wide cover infographic illustration for a Chinese tech blog article. Primary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: choosing between two terminal AI coding agents in 2026, each rooted in its own ecosystem — GitHub Copilot CLI on the GitHub side and Claude Code on the Claude side. The reader should quickly feel the decision between two equally good but differently-centered tools. Summary angle: a forest crossroads with two wooden signposts — one pointing to the GitHub world, the other to the Claude world; the choice depends on which workflow defaults match your team. Narrative flow: conflict-to-resolution. In a 2.35:1 frame, keep one dominant focal subject and 2-4 supporting narrative beats. Information blocks: (1) contrast — two wooden signposts at the crossroads labeled AGENTS.md and CLAUDE.md, pointing toward two different landscape directions; (2) mechanism — a shared wooden bridge or single open book connecting the two paths, expressing one source of truth shared by both tools; (3) takeaway — a backpacker developer silhouette standing at the center of the crossroads under warm sunlight, holding a small project checklist, choosing a path. Main metaphor: a sunlit forest crossroads where a developer picks between two worlds. Subject: a backpacker developer silhouette at the crossroads center, facing two signposts, choosing a path. Composition/framing: left-right contrast with the focal point at center; left path leads to a warm workshop-like building, right path leads to a cozy study hut; readable in a wide cover. Style/medium: combine conceptual editorial illustration with the selected visual style descriptor: warm hand-drawn animation feeling, natural environments, gentle fantasy everyday mood, soft painterly backgrounds, no studio imitation. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist. Color palette: warm beige, forest green, warm orange, soft sky blue. Visible text policy: allow only 2 short labels AGENTS.md and CLAUDE.md on the signposts, no more. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names. Constraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter. Avoid: terminal windows, command-line text, real product logos, HUD overlays, code rain, cyberpunk purple-blue glow, generic robot stance, speech bubbles."
+}
