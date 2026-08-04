@@ -1,0 +1,60 @@
+{
+  "article_title": "ASP.NET Core 集成 NLog 完整入门",
+  "cover_type": "tutorial",
+  "core_theme": "在 ASP.NET Core 项目里从零接入 NLog：安装包、选择配置方式、接入 Program.cs、验证日志输出",
+  "reader_takeaway": "读完后能照着把 NLog 配置进自己的 .NET 8 项目，并验证文件与控制台日志正常输出",
+  "summary_angle": "把「装包 → 配置 → 跑起来」的日志接入流程压成一张封面：整洁桌面上一次完整的日志整理课",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "step",
+      "source_anchor": "安装章节：dotnet add package NLog.Web.AspNetCore，一个包包含 UseNLog()、aspnet-* renderers 与 MEL 集成",
+      "visual_idea": "桌面上一只打开的工具箱，里面是日志主题的整理工具",
+      "visible_label": "装包",
+      "numeric_fact": ""
+    },
+    {
+      "role": "step",
+      "source_anchor": "两种配置方式章节：nlog.config（XML）与 appsettings.json（JSON）可随时切换，autoReload + throwConfigExceptions 是基线选项",
+      "visual_idea": "桌面上两份整洁的笔记本/配置文件并列摆放，代表两种等价配置风格",
+      "visible_label": "配置",
+      "numeric_fact": ""
+    },
+    {
+      "role": "step",
+      "source_anchor": "验证章节：检查 ${basedir}/logs/ 日志文件出现、控制台 NLog 格式输出、internal-nlog.txt 干净",
+      "visual_idea": "打开的文件柜/日志本，里面是一排整齐的按日期排列的日志文件，柔和逆光照亮",
+      "visible_label": "验证",
+      "numeric_fact": ""
+    }
+  ],
+  "main_metaphor": "一间整洁温暖的学习书桌前，把项目日志整理成一本清晰有序的笔记",
+  "primary_subject": "书桌前整洁的桌面，中间是一本展开的日志笔记本，旁边放着配置文件与工具箱",
+  "subject_action": "桌面上呈现装包、配置、验证三个递进步骤，光线柔和聚焦在笔记本上",
+  "composition": "单点聚焦：桌面中央的日志笔记本为主焦点，左右两侧辅助元素轻微斜向推进",
+  "base_style": "editorial technical illustration",
+  "selected_style": "校园恋爱风",
+  "selected_style_prompt_descriptor": "youthful campus romance illustration, clean school-life setting, soft backlight, subtle emotional gestures, fresh color palette",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；教程流程适合用干净清爽的校园书桌场景表达，柔和逆光突出秩序感",
+  "style_safety_note": "清单风格为泛类型描述，prompt 只使用校园场景、柔和逆光、清爽配色等安全描述，不涉及任何艺术家复刻",
+  "allowed_visible_text": ["装包", "配置", "验证"],
+  "color_palette": ["暖白", "浅木色", "清新蓝", "淡橙"],
+  "avoid": [
+    "终端窗口截图",
+    "真实代码编辑器 UI",
+    "dashboard",
+    "代码雨",
+    "漂浮芯片",
+    "机器人站姿",
+    "对话气泡",
+    "赛博朋克紫蓝光"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮验证书桌主焦点、三个步骤标签与日志笔记本是否清晰可读，清爽校园风是否成立",
+  "revision_targets": [
+    "三个中文标签是否清晰且只有三处",
+    "主焦点笔记本是否突出",
+    "画面是否像教程概括而不是泛科技氛围图"
+  ],
+  "final_prompt": "Use case: infographic-story. Asset type: wide cover infographic illustration for a Chinese tech blog article. Primary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: setting up NLog logging in an ASP.NET Core project from scratch — install the package, choose a configuration style, wire it into Program.cs, and verify log output. The reader should quickly feel a clear, ordered, three-step getting-started process. Summary angle: one tidy study-desktop scene compressing the flow of install, configure, and verify into a single readable cover. Narrative flow: 3-beat process. In a 2.35:1 frame, keep one dominant focal subject and 2-4 supporting narrative beats. Information blocks: (1) step — an open tool box on the desk labeled with a short Chinese chip 装包, representing installing the NLog.Web.AspNetCore package; (2) step — two neat notebooks or config sheets placed side by side on the desk with a short Chinese chip 配置, representing the two equivalent configuration styles nlog.config and appsettings.json; (3) step — an open log folder with tidy date-ordered log books, with a short Chinese chip 验证, representing verifying the logs directory and console output. Main metaphor: a clean warm study desk where project logging is organized into a neat, readable notebook. Subject: the tidy desktop with an open log notebook as the center focal point, flanked by the tool box and config sheets. Composition/framing: single focal point at center with mild diagonal progression toward the notebook; readable in a wide cover. Style/medium: combine editorial technical illustration with the selected visual style descriptor: youthful campus romance illustration, clean school-life setting, soft backlight, subtle emotional gestures, fresh color palette. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist. Color palette: warm white, light wood, fresh blue, soft orange. Visible text policy: allow only 3 short Chinese chips 装包, 配置, 验证, each <= 6 characters, no more. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names. Constraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter. Avoid: terminal window screenshots, real code editor UI, dashboards, code rain, floating chips, generic robot stance, speech bubbles, cyberpunk purple-blue glow."
+}
