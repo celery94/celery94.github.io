@@ -1,0 +1,57 @@
+{
+  "article_title": "用 Claude 重构遗留 .NET：不是重写是工作流",
+  "cover_type": "tutorial",
+  "core_theme": "遗留 .NET 代码库（.NET Framework 4.8、WinForms、无测试）用 Claude 安全现代化：不是一次性重写，而是「只读评估 → 特征测试兜底 → 先修安全漏洞 → 拆缝并逐主版本升级」的增量工作流。",
+  "reader_takeaway": "掌握四步工作流与每步所用 agent（legacy-modernization-assistant、test-coverage-gap-finder、xunit-test-generator、dotnet-upgrade-agent），能照搬到自己的遗留项目。",
+  "summary_angle": "老楼加固而不是推倒重建：脚手架（测试）先撑住旧楼，再一层层加固换梁，楼一直保持运行。",
+  "narrative_flow": "conflict-to-resolution",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "原文：遗留服务「works, and that's why nobody wants to change it」；大爆炸重写会冻结功能、复制旧 bug、无法证明新旧行为一致",
+      "visual_idea": "左侧：一座老旧但仍在冒烟的楼房，挂着「不敢动」的告示，摇摇欲坠但还在运行",
+      "visible_label": "不敢动"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文 Step 2：characterization tests 捕获当前行为（无论对错），重构前先给要改的代码铺安全网",
+      "visual_idea": "老楼外搭起脚手架与安全网，测试像网兜住楼体，施工人员在网内作业",
+      "visible_label": "先测后改"
+    },
+    {
+      "role": "step",
+      "source_anchor": "原文 Step 4：net48 → .NET 8 → .NET 9 一次一个主版本，每步构建+测试通过（one major at a time, verify between）",
+      "visual_idea": "右侧：逐级升高的台阶通往崭新楼层，每级台阶上都有一面绿色小旗（构建通过）",
+      "visible_label": "逐级升级"
+    }
+  ],
+  "main_metaphor": "老楼加固：脚手架（特征测试）先撑住旧楼，再一层层加固、换梁（修债、拆缝），每完成一级就验证一次，楼始终在运行；推倒重建（重写）会让用户无楼可用且新楼未必更好。",
+  "primary_subject": "一座卡通风格的老式楼房（带脚手架与安全网）",
+  "subject_action": "左侧老楼挂着脚手架，施工人员在安全网内修葺；右侧逐级台阶通往崭新楼层，每级台阶插着绿色小旗；楼下一名工程师拿着路线图审批",
+  "composition": "斜向推进：左低右高的升级阶梯，老楼为起始焦点",
+  "base_style": "editorial technical illustration",
+  "selected_style": "儿童童话风",
+  "selected_style_prompt_descriptor": "children's fairy-tale illustration, simple magical forms, friendly proportions, bright storybook palette, safe wonder",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["不敢动", "先测后改", "逐级升级"],
+  "color_palette": ["砖红", "奶白", "暖黄", "墨蓝"],
+  "avoid": [
+    "真实 IDE 或代码截图",
+    "仪表盘",
+    "HUD 浮层",
+    "赛博朋克紫蓝光污染",
+    "无意义代码雨",
+    "漂浮芯片",
+    "机器人",
+    "推土机与废墟"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证「老楼加固」隐喻与儿童童话风组合：老楼为主体、三级叙事可读、无废墟感",
+  "revision_targets": [
+    "老楼与台阶的对比是否清楚",
+    "三个标签是否可读",
+    "背景是否杂乱"
+  ],
+  "final_prompt": "Wide cover infographic illustration, aspect ratio 2.35:1. Use case: infographic-story for a Chinese tech blog tutorial about refactoring a legacy .NET codebase with Claude AI agents. Theme: 遗留 .NET 代码库用 AI 安全现代化：不是一次性重写，而是「只读评估 → 特征测试兜底 → 先修安全漏洞 → 拆缝并逐主版本升级」的增量工作流，系统全程保持运行。Summary angle: 老楼加固而不是推倒重建：脚手架（测试）先撑住旧楼，再一层层加固换梁，楼一直保持运行。Narrative flow: conflict-to-resolution, left-to-right rising steps. Main metaphor: 老楼加固——脚手架（特征测试）撑住旧楼，逐级加固验证，推倒重建会让用户无楼可用。Primary subject: 一座卡通风格的老式楼房，挂着脚手架与安全网，施工人员在安全网内修葺；右侧逐级台阶通往崭新楼层，每级台阶插着一面绿色小旗；楼下一名工程师拿着路线图审批。Composition: 斜向推进，左低右高的升级阶梯，老楼为起始焦点，2.35:1 宽幅内保留一个主焦点和三个叙事信息块。Style/medium: combine editorial technical illustration with the selected visual style descriptor: children's fairy-tale illustration, simple magical forms, friendly proportions, bright storybook palette, safe wonder. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist. Color palette: 砖红、奶白、暖黄、墨蓝。Visible text policy: allow only 3 short Chinese labels — 「不敢动」on the old building, 「先测后改」on the scaffolding net, 「逐级升级」on the steps. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes. Constraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter. Avoid: 真实 IDE 或代码截图、仪表盘、HUD 浮层、赛博朋克紫蓝光污染、无意义代码雨、漂浮芯片、机器人、推土机与废墟。"
+}
