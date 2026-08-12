@@ -1,0 +1,58 @@
+{
+  "article_title": "NLog 性能调优：AsyncWrapper 与缓冲日志",
+  "cover_type": "tutorial",
+  "core_theme": "用 AsyncWrapper 把日志 I/O 移出调用线程、用 BufferingWrapper 批量写入，配合文件 target 调优与基准测试，打造高吞吐 NLog 配置",
+  "reader_takeaway": "读完后能按参数表调优 AsyncWrapper 与 BufferingWrapper，并拿到可直接使用的生产级 NLog 高吞吐配置",
+  "summary_angle": "把「同步写入阻塞请求 → 异步队列解耦 → 批量写入提速」的优化弧线压成一张封面：日志从拥堵的单车道变成畅通的队列与批量车队",
+  "narrative_flow": "conflict-to-resolution",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "原文第一节：同步写每次 0.1–1ms，1000 请求/秒 × 5 条日志 = 每秒 5000 次同步写争用文件句柄",
+      "visual_idea": "分镜第一格：调用线程被一串密集的日志信封堵住，狭窄单车道上的拥堵画面",
+      "visible_label": "同步阻塞",
+      "numeric_fact": "5000/秒"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文第二节：AsyncWrapper 让调用线程只入队即返回，后台线程负责写入",
+      "visual_idea": "分镜第二格：日志信封快速滑入一个有容量刻度的队列，调用线程轻松离开",
+      "visible_label": "异步队列",
+      "numeric_fact": ""
+    },
+    {
+      "role": "step",
+      "source_anchor": "原文第四节：AsyncWrapper + BufferingWrapper 组合，数据库 target 每轮批量写入 200 条",
+      "visual_idea": "分镜第三格：后台线程把一摞打包好的日志批量送往数据库/文件目标，车道畅通",
+      "visible_label": "批量写入",
+      "numeric_fact": "200条/批"
+    }
+  ],
+  "main_metaphor": "日志流量从拥堵的单车道改造为「入队即走 + 批量运输」的高效物流通道",
+  "primary_subject": "一个带容量刻度的日志队列装置，信封形数据包从左侧滑入、右侧批量装车出发",
+  "subject_action": "信封形日志包快速入队后由后台搬运车批量送往目的地，三个分镜格呈现从阻塞到畅通的转变",
+  "composition": "斜向推进：三格连续分镜从左到右递进，第二格队列为主焦点，两侧格为铺垫与结果",
+  "base_style": "editorial technical illustration",
+  "selected_style": "动态分镜电影风",
+  "selected_style_prompt_descriptor": "dynamic cinematic storyboard style, sequential panels, camera-motion feeling, strong cuts, clear narrative beats",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；教程的优化前后对比适合用连续分镜表达推进感",
+  "style_safety_note": "清单风格为泛类型描述，prompt 只使用连续分镜、镜头运动、强切等安全描述，不涉及任何品牌或艺术家复刻",
+  "allowed_visible_text": ["同步阻塞", "异步队列", "批量写入", "5000/秒"],
+  "color_palette": ["深蓝", "青绿", "暖橙点缀"],
+  "avoid": [
+    "真实日志文件截图",
+    "真实代码界面",
+    "仪表盘",
+    "无意义代码雨",
+    "霓虹高楼背景",
+    "漂浮芯片"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮先验证三格分镜叙事是否清楚、队列主焦点是否突出、无代码/终端类杂物",
+  "revision_targets": [
+    "分镜格之间的递进关系",
+    "主焦点队列的视觉权重",
+    "可见标签的中文渲染正确性"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: 用异步队列与批量写入优化 NLog 日志性能。The reader should quickly feel 日志写入从阻塞请求变成畅通无阻。\n\nSummary angle: 把「同步写入阻塞 → 异步队列解耦 → 批量写入提速」的优化弧线压成三格连续分镜。\nNarrative flow: conflict-to-resolution. In a 2.35:1 frame, keep one dominant focal subject (the middle queue panel) and 2-4 supporting narrative beats.\nInformation blocks:\n- 问题：调用线程被密集的日志信封堵在窄道上，每秒 5000 次同步写争用文件句柄；标签「同步阻塞」+ 数字「5000/秒」\n- 机制：日志信封快速滑入带容量刻度的异步队列，调用线程入队即走；标签「异步队列」\n- 步骤：后台搬运车把打包好的日志批量送往文件/数据库目标，每批 200 条；标签「批量写入」+ 「200条/批」\n\nMain metaphor: 日志流量从拥堵的单车道改造为「入队即走 + 批量运输」的高效物流通道。\nSubject: 一个带容量刻度的日志队列装置，信封形数据包从左侧滑入、右侧批量装车出发。\nComposition/framing: 三格连续分镜从左到右递进，中间的队列场景为主焦点并放大，两侧为铺垫与结果；横向叙事，宽幅下保持可读。\nStyle/medium: combine editorial technical illustration with the selected visual style descriptor: dynamic cinematic storyboard style, sequential panels, camera-motion feeling, strong cuts, clear narrative beats. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: 深蓝为主，青绿强调队列通道，暖橙点缀批量搬运，克制使用。\nVisible text policy: allow only 1-3 short Chinese labels or number chips by default, and no more than 4 when strictly necessary, all sourced from the information blocks. Each label <= 6 Chinese characters or one required product/model name. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: 真实日志文件截图、真实代码界面、仪表盘、无意义代码雨、霓虹高楼背景、漂浮芯片。"
+}
