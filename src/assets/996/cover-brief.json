@@ -1,0 +1,53 @@
+{
+  "article_title": "EF Core 持久化富领域模型：完整实战",
+  "cover_type": "tutorial",
+  "core_theme": "EF Core 不需要 public setter 也能持久化完全封装的富领域聚合：私有构造函数、backing field、值转换、复杂类型逐段映射，「ORM 强迫贫血模型」的说法已经过时。",
+  "reader_takeaway": "能照着教程把封装聚合（私有构造函数、私有 setter、封装集合、领域事件、值对象）完整映射到 EF Core，并理解每段配置的作用与真实限制。",
+  "summary_angle": "同一个实体两种写法：贫血实体任何 service 都能直接改，富聚合所有变更走方法先查不变式；EF Core 两者都能存，封装不会丢。",
+  "narrative_flow": "conflict-to-resolution",
+  "information_blocks": [
+    {
+      "role": "contrast",
+      "source_anchor": "原文对比图：Anemic entity（BottlingService 等任何 service 可改 public setters、Clear() 集合）vs Rich aggregate（batch.Bottle(...) 走方法、先查不变式、抛 DomainException）",
+      "visual_idea": "左侧：松散散落、开口的方块堆（贫血实体，任何 service 都能伸手改）；右侧：锁住的保险箱（富聚合）",
+      "visible_label": "两种实体"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文：EF Core 物化时调用私有无参构造函数、通过 backing field 写入属性；状态锁在私有字段里，只有方法能改",
+      "visual_idea": "保险箱侧面有一个专用的钥匙孔（backing field 通道），EF Core 的钥匙只插这个孔，不打开正门",
+      "visible_label": "私有状态"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文总结：The ORM was never the thing keeping your domain model anemic. It's a mapping exercise, done once per aggregate.",
+      "visual_idea": "保险箱正面贴一张简洁的配置清单卡片，标着「一次映射」，其余保持不变",
+      "visible_label": "一次映射"
+    }
+  ],
+  "main_metaphor": "保险箱：富聚合把状态锁在私有字段里，只有通过方法（正门钥匙）才能改；EF Core 从不开正门，它只用侧面专用的 backing field 钥匙孔完成物化与写入，从不绕过不变式。",
+  "primary_subject": "一个卡通风格的保险箱",
+  "subject_action": "左侧散落的开口方块堆（贫血实体）对比右侧锁住的保险箱（富聚合），EF Core 的钥匙插在保险箱侧面的专用钥匙孔里",
+  "composition": "左右对照：贫血实体在左、保险箱在右，中间一条分界线，宽幅内保持单焦点（保险箱）",
+  "base_style": "editorial technical illustration",
+  "selected_style": "美式卡通风",
+  "selected_style_prompt_descriptor": "American cartoon illustration, elastic shapes, clear expressions, bold color fields, light comedic timing",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["两种实体", "私有状态", "一次映射"],
+  "color_palette": ["深蓝", "奶油黄", "橙红", "墨黑"],
+  "avoid": [
+    "真实代码截图",
+    "真实数据库/ORM 界面",
+    "仪表盘",
+    "HUD 浮层",
+    "赛博朋克紫蓝光污染",
+    "无意义代码雨",
+    "漂浮芯片",
+    "机器人"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证「保险箱钥匙」隐喻与左右对照构图：保险箱为主体、三个标签可读、无杂乱背景",
+  "revision_targets": ["保险箱是否突出", "左右对照是否清楚", "标签是否可读"],
+  "final_prompt": "Wide cover infographic illustration, aspect ratio 2.35:1. Use case: infographic-story for a Chinese tech blog tutorial about persisting a rich domain model with EF Core. Theme: EF Core 不需要 public setter 也能持久化完全封装的富领域聚合——私有构造函数、backing field、值转换、复杂类型逐段映射，「ORM 强迫贫血模型」的说法已经过时。Summary angle: 同一个实体两种写法：贫血实体任何 service 都能直接改，富聚合所有变更走方法先查不变式；EF Core 两者都能存，封装不会丢。Narrative flow: conflict-to-resolution, left-to-right comparison. Main metaphor: 保险箱——富聚合把状态锁在私有字段里，只有方法能改；EF Core 从不开正门，只用侧面专用的 backing field 钥匙孔完成物化。Primary subject: 一个卡通风格的保险箱（居右），左侧是松散散落的开口方块堆（贫血实体），中间一条分界线；EF Core 风格的钥匙插在保险箱侧面的专用钥匙孔里，保险箱正面贴一张简洁配置卡片。Composition: 左右对照，保险箱为单一焦点，2.35:1 宽幅内保留一个主焦点和三个叙事信息块。Style/medium: combine editorial technical illustration with the selected visual style descriptor: American cartoon illustration, elastic shapes, clear expressions, bold color fields, light comedic timing. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist. Color palette: 深蓝、奶油黄、橙红、墨黑。Visible text policy: allow only 3 short Chinese labels — 「两种实体」above the left-right contrast, 「私有状态」on the safe, 「一次映射」on the config card. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes. Constraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter. Avoid: 真实代码截图、真实数据库或 ORM 界面、仪表盘、HUD 浮层、赛博朋克紫蓝光污染、无意义代码雨、漂浮芯片、机器人。"
+}
