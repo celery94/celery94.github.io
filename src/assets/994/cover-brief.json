@@ -1,0 +1,58 @@
+{
+  "article_title": "2026 高级 .NET 面试：35 道真实考题拆解",
+  "cover_type": "tutorial",
+  "core_theme": "35 道高级 .NET 面试题的真实答法：GC 内存、线程池饥饿、生产诊断、性能测量、数据规模、架构判断与 .NET 10 迁移，每题附雷区回答与追问",
+  "reader_takeaway": "面试前能按 7 大主题复习，学会用「先说测量、再说机制」的方式回答高级题，并避开雷区回答",
+  "summary_angle": "把「高级面试考的是测量与判断，不是背知识点」压成一张封面：一本翻开的面试备考笔记，问题标签与放大镜/仪表等测量符号并置",
+  "narrative_flow": "layered reveal",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "原文引言：高级面试不问「是什么」，问「着火了你又不知道原因时怎么做」；没有证据断言原因是最常见的被拒理由",
+      "visual_idea": "笔记本页面边缘贴着一张显眼的黄色标签，放大镜压在页面中央",
+      "visible_label": "先测量",
+      "numeric_fact": ""
+    },
+    {
+      "role": "evidence",
+      "source_anchor": "原文目录：35 道题、7 大主题（Runtime/GC、线程池、生产诊断、性能、数据、架构、迁移）",
+      "visual_idea": "笔记本封面上方一排七枚小标签代表七大主题，下方一本厚厚的问题册标着 35",
+      "visible_label": "35题",
+      "numeric_fact": "7大主题"
+    },
+    {
+      "role": "step",
+      "source_anchor": "原文每题格式：真实场景 + 示范回答 + 雷区回答（red flag）+ 追问（follow-up）",
+      "visual_idea": "笔记本右侧一张便签条上画着对勾与叉号两个小符号，代表正确答法与雷区回答的对照",
+      "visible_label": "雷区与追问",
+      "numeric_fact": ""
+    }
+  ],
+  "main_metaphor": "一本被翻得卷边的 .NET 面试备考笔记：问题、测量工具与对错对照签摊开在桌面上",
+  "primary_subject": "翻开的大笔记本，页面中央是压在问题清单上的放大镜与小型仪表盘符号",
+  "subject_action": "笔记本页面摊开呈现问题标签与测量符号的对照，暖色光线聚焦在页面中央的放大镜上",
+  "composition": "单点聚焦：桌面中央的笔记本为主焦点，七枚主题标签与便签条在两侧做辅助叙事",
+  "base_style": "editorial technical illustration",
+  "selected_style": "彩铅绘本风",
+  "selected_style_prompt_descriptor": "colored-pencil picture-book illustration, tactile strokes, gentle palette, warm narrative objects, soft educational tone",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；备考笔记的温暖教育感与彩铅绘本的柔和笔触契合",
+  "style_safety_note": "清单风格为泛类型描述，prompt 只使用彩铅笔触、柔和色调、温暖叙事物体等安全描述，不涉及任何品牌或艺术家复刻",
+  "allowed_visible_text": ["先测量", "35题", "7大主题", "雷区与追问"],
+  "color_palette": ["暖米色", "墨蓝", "橙黄点缀"],
+  "avoid": [
+    "真实面试场景照片",
+    "真实代码界面",
+    "仪表盘截图",
+    "无意义代码雨",
+    "漂浮芯片",
+    "霓虹背景"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮先验证笔记本主体与测量符号的主焦点是否成立、标签与数字渲染正确",
+  "revision_targets": [
+    "中央放大镜的视觉权重",
+    "7 大主题标签的可读性",
+    "彩铅笔触的质感"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: 用 35 道真实考题拆解高级 .NET 面试的答法。The reader should quickly feel 高级面试考的是测量与判断力，不是背知识点。\n\nSummary angle: 把「先说测量、再说机制、避开雷区回答」的面试应对方式压成一张翻开的备考笔记封面。\nNarrative flow: layered reveal. In a 2.35:1 frame, keep one dominant focal subject (the open notebook with a magnifying glass in the center) and 2-4 supporting narrative beats.\nInformation blocks:\n- 问题：黄色便签条写着「先测量」，放大镜压在问题清单上；对应「高级题要先说测量，没有证据的断言是主要被拒理由」\n- 证据：笔记本上方一排七枚小标签代表七大主题，旁边一本厚问题册标着数字 35；对应「35 道题、7 大主题」\n- 步骤：便签条上对勾与叉号两个小符号对照，代表正确答法与雷区回答；对应每题格式含雷区回答与追问\n\nMain metaphor: 一本被翻得卷边的 .NET 面试备考笔记，问题、测量工具与对错对照签摊开在暖色桌面上。\nSubject: 翻开的大笔记本，页面中央是压在问题清单上的放大镜，旁边一支铅笔与一枚小型仪表符号。\nComposition/framing: 单点聚焦：桌面中央笔记本为主焦点并放大，七枚主题标签与便签条在两侧做辅助叙事；宽幅下保持横向可读。\nStyle/medium: combine editorial technical illustration with the selected visual style descriptor: colored-pencil picture-book illustration, tactile strokes, gentle palette, warm narrative objects, soft educational tone. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: 暖米色桌面为主，墨蓝用于笔记文字与符号，橙黄点缀便签条，柔和克制。\nVisible text policy: allow only 1-3 short Chinese labels or number chips by default, and no more than 4 when strictly necessary, all sourced from the information blocks. Each label <= 6 Chinese characters or one required product/model name. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: 真实面试场景照片、真实代码界面、仪表盘截图、无意义代码雨、霓虹高楼背景、漂浮芯片。"
+}
