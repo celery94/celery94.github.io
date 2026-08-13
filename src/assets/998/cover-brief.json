@@ -1,0 +1,57 @@
+{
+  "article_title": ".NET RAG 稳定架构：边界先于实现",
+  "cover_type": "architecture",
+  "core_theme": "RAG 与 embeddings 是数据系统而不是聊天功能：来源→可信 chunk、查询→兼容向量、检索→授权范围、回答→引用证据四条边界；契约、数据所有权与失败处理先于模型、向量库、框架的选择。",
+  "reader_takeaway": "理解 RAG 系统的四条稳定边界与责任链（批准来源→版本化 chunk→兼容 embedding→授权检索→证据→引用回答→完整删除），在换模型客户端、向量存储或框架时不必重写系统。",
+  "summary_angle": "一条生产流水线：文档从左侧进入，经过摄取贴标签、授权检查站、检索筛选，右侧只输出带引用的答案；每条边界都有检查站，谁也别想跳过。",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "mechanism",
+      "source_anchor": "原文：摄取时分配持久文档身份（源 URI、修订、时间戳、内容哈希、准入主体），每个 chunk 携带来源与访问范围，chunk 没有来源就是等待变成安全 bug 的孤儿",
+      "visual_idea": "传送带起点：文档块进入管道，被贴上哈希与溯源标签，标签随块一起走",
+      "visible_label": "溯源"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文：访问范围必须由服务端从已认证调用者推导；OWASP 要求访问控制在内容到达模型之前完成，模型不能决定调用者能否看 chunk",
+      "visual_idea": "传送带中段：一道授权检查站，只有带通行证的 chunk 通过，没有的被打回",
+      "visible_label": "先授权"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文：生成在最后；IAnswerComposer 在无合格证据或引用越界时返回 AnswerWithheld；引用是契约不是渲染细节",
+      "visual_idea": "传送带末端：输出一张带引文脚注的答案卡片，旁边注明来源修订与哈希",
+      "visible_label": "有引用"
+    }
+  ],
+  "main_metaphor": "生产流水线：文档从源头进入传送带，摄取站贴溯源标签，授权站查通行证，检索站筛选证据，组装站只输出带引用的答案；任何一站都能把不合格的挡回去（AnswerWithheld）。",
+  "primary_subject": "一条等距视角的传送带与三道检查站",
+  "subject_action": "文档块从左侧进入，经过贴标签站、授权检查站（部分被打回）、检索筛选站，右侧输出带引文脚注的答案卡片",
+  "composition": "等距空间：从左到右的流水线，三个检查站依次排开，2.35:1 宽幅内保持一个主焦点（授权检查站）",
+  "base_style": "isometric conceptual systems scene",
+  "selected_style": "热血战斗风",
+  "selected_style_prompt_descriptor": "high-energy battle comic look, strong silhouettes, speed lines, impact framing, bold contrast without excessive clutter",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["溯源", "先授权", "有引用"],
+  "color_palette": ["墨黑", "电光橙", "钢青", "纸白"],
+  "avoid": [
+    "真实代码截图",
+    "真实模型或向量库品牌",
+    "仪表盘",
+    "HUD 浮层",
+    "赛博朋克紫蓝光污染",
+    "无意义代码雨",
+    "漂浮芯片",
+    "机器人"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证「流水线+检查站」隐喻与热血战斗风组合：传送带为主体、三个信息块可读、无杂乱背景",
+  "revision_targets": [
+    "授权检查站是否突出",
+    "三个标签是否可读",
+    "背景是否杂乱"
+  ],
+  "final_prompt": "Wide cover infographic illustration, aspect ratio 2.35:1. Use case: infographic-story for a Chinese tech blog article about a stable RAG architecture in .NET. Theme: RAG 与 embeddings 是数据系统而不是聊天功能：来源→可信 chunk、查询→兼容向量、检索→授权范围、回答→引用证据四条边界；契约与失败处理先于模型、向量库、框架的选择。Summary angle: 一条生产流水线：文档从左侧进入，经过摄取贴标签、授权检查站、检索筛选，右侧只输出带引用的答案；每条边界都有检查站。Narrative flow: 3-beat process, left-to-right conveyor. Main metaphor: 生产流水线——摄取站贴溯源标签，授权站查通行证，检索站筛选证据，组装站只输出带引用的答案，不合格的被打回。Primary subject: 一条等距视角的传送带与三道检查站，文档块从左侧进入，经过贴标签站、授权检查站（部分被打回）、检索筛选站，右侧输出带引文脚注的答案卡片。Composition: 等距空间，从左到右的流水线，三个检查站依次排开，授权检查站为单一焦点，2.35:1 宽幅内保留一个主焦点和三个叙事信息块。Style/medium: combine isometric conceptual systems scene with the selected visual style descriptor: high-energy battle comic look, strong silhouettes, speed lines, impact framing, bold contrast without excessive clutter. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist. Color palette: 墨黑、电光橙、钢青、纸白。Visible text policy: allow only 3 short Chinese labels — 「溯源」at the tagging station, 「先授权」at the authorization gate, 「有引用」at the answer card. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes. Constraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter. Avoid: 真实代码截图、真实模型或向量库品牌、仪表盘、HUD 浮层、赛博朋克紫蓝光污染、无意义代码雨、漂浮芯片、机器人。"
+}
