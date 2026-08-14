@@ -1,0 +1,57 @@
+{
+  "article_title": "NLog vs Serilog：2026 该怎么选",
+  "cover_type": "analysis",
+  "core_theme": "NLog 与 Serilog 都是成熟的 .NET 日志库（都通过 Microsoft.Extensions.Logging 集成），但设计取向相反：NLog 配置文件优先（ops 可改 XML、规则路由强、AOT 支持全）；Serilog 代码优先（fluent C#、@ 对象结构化、200+ sinks）。选择取决于团队与场景。",
+  "reader_takeaway": "通过六维对比（配置风格、结构化日志、路由能力、性能、生态、迁移成本）和决策矩阵，判断自己的团队该选 NLog 还是 Serilog，并知道迁移成本近零。",
+  "summary_angle": "天平两侧的对决：一侧是「配置文件说话」（NLog：ops 友好、规则路由、热重载），另一侧是「代码说话」（Serilog：dev 友好、@ 结构化、生态大）；横梁是 ILogger<T>，无论倾向哪边应用代码都不变。",
+  "narrative_flow": "conflict-to-resolution",
+  "information_blocks": [
+    {
+      "role": "contrast",
+      "source_anchor": "原文：NLog 是 config-file first，nlog.config XML、autoReload 热重载、按名字+级别+条件的规则引擎；ops 团队可改配置而不动代码",
+      "visual_idea": "天平左侧托盘：一份 XML 配置卷轴与分叉路由的图标",
+      "visible_label": "配置优先"
+    },
+    {
+      "role": "contrast",
+      "source_anchor": "原文：Serilog 是 code-first fluent API，@ destructuring 操作符把整个对象图变成结构化字段，200+ 社区 sinks",
+      "visual_idea": "天平右侧托盘：几行代码与结构化对象块（带 @ 标记的嵌套字段）",
+      "visible_label": "代码优先"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文：两者都注册为 ILoggerProvider，应用代码用 ILogger<T>；切换只需 Program.cs 一行（AddNLog() → UseSerilog()），迁移成本近零",
+      "visual_idea": "天平横梁中央：ILogger<T> 的横杆标记，两边托盘平衡",
+      "visible_label": "一行切换"
+    }
+  ],
+  "main_metaphor": "天平：NLog 与 Serilog 各占一端，横梁是 Microsoft.Extensions.Logging 的 ILogger<T> 抽象——无论天平倾向哪边，应用代码都不需要变。",
+  "primary_subject": "一架对称的等距天平",
+  "subject_action": "左侧托盘上是 XML 配置卷轴与路由分叉，右侧托盘上是代码行与结构化对象块，横梁中央挂着 ILogger<T> 标记，天平微微向一侧倾斜但整体平衡",
+  "composition": "左右对照：对称天平，横梁为焦点中心，2.35:1 宽幅内保留一个主焦点和三个叙事信息块",
+  "base_style": "conceptual editorial illustration",
+  "selected_style": "赛博朋克风",
+  "selected_style_prompt_descriptor": "cyberpunk comic mood, neon accents, rain-slick surfaces, dense urban tech atmosphere, controlled purple-blue usage",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["配置优先", "代码优先", "一行切换"],
+  "color_palette": ["墨黑", "霓虹青", "紫蓝", "纸白"],
+  "avoid": [
+    "赛博朋克紫蓝光污染",
+    "霓虹高楼背景",
+    "无意义代码雨",
+    "漂浮芯片",
+    "HUD 浮层",
+    "机器人",
+    "真实日志界面截图",
+    "真实代码编辑器截图"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证「天平」隐喻与受控赛博朋克风组合：天平为主体、两侧对照清楚、三个标签可读、无光污染",
+  "revision_targets": [
+    "天平横梁是否突出",
+    "两侧托盘对照是否清楚",
+    "标签是否可读"
+  ],
+  "final_prompt": "Wide cover infographic illustration, aspect ratio 2.35:1. Use case: infographic-story for a Chinese tech blog article comparing NLog vs Serilog logging libraries in .NET. Theme: NLog 与 Serilog 都是成熟的 .NET 日志库，但设计取向相反：NLog 配置文件优先（ops 可改 XML、规则路由强、AOT 支持全）；Serilog 代码优先（fluent C#、@ 对象结构化、200+ sinks）。选择取决于团队与场景，两者都通过 ILogger<T> 集成。Summary angle: 天平两侧的对决：一侧是「配置文件说话」，另一侧是「代码说话」；横梁是 ILogger<T>，无论倾向哪边应用代码都不变。Narrative flow: conflict-to-resolution, balanced left-right comparison. Main metaphor: 天平——NLog 与 Serilog 各占一端，横梁是 Microsoft.Extensions.Logging 的 ILogger<T> 抽象，迁移成本近零。Primary subject: 一架对称的等距天平，左侧托盘上是 XML 配置卷轴与路由分叉图标，右侧托盘上是代码行与结构化对象块，横梁中央挂着 ILogger<T> 标记，天平整体平衡。Composition: 左右对照，对称天平横梁为焦点中心，2.35:1 宽幅内保留一个主焦点和三个叙事信息块。Style/medium: combine conceptual editorial illustration with the selected visual style descriptor: cyberpunk comic mood, neon accents, rain-slick surfaces, dense urban tech atmosphere, controlled purple-blue usage. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist. Color palette: 墨黑、霓虹青、紫蓝、纸白。Visible text policy: allow only 3 short Chinese labels — 「配置优先」on the left tray, 「代码优先」on the right tray, 「一行切换」on the beam. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes. Constraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter. Avoid: 赛博朋克紫蓝光污染、霓虹高楼背景、无意义代码雨、漂浮芯片、HUD 浮层、机器人、真实日志界面截图、真实代码编辑器截图。"
+}
