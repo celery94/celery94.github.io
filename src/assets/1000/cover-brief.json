@@ -1,0 +1,74 @@
+{
+  "article_title": "社交信息流系统设计：从读时扇出到混合扇出",
+  "cover_type": "architecture",
+  "core_theme": "社交信息流的系统设计演进：信息流看起来最简单，却被读写比例逼着从读时计算搬到写时计算。",
+  "reader_takeaway": "理解信息流为什么要从读时扇出搬到写时扇出，以及每一步的代价。",
+  "summary_angle": "核心反差——最简单的功能（拉取关注列表、合并排序）恰恰是被读写比例逼出的一连串架构演进。",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "读时扇出：一个关注 800 个账号的用户，一次页面浏览变成 800 路合并",
+      "visual_idea": "一个用户节点连向大量帖子节点，读取时全部汇聚合并",
+      "visible_label": "读时扇出",
+      "numeric_fact": "800 路合并"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "写时扇出：发布时把帖子 id 追加到每个粉丝的时间线，上限约 800 条",
+      "visual_idea": "一个作者节点向大量粉丝时间线节点发散写入",
+      "visible_label": "写时扇出",
+      "numeric_fact": "800 条上限"
+    },
+    {
+      "role": "contrast",
+      "source_anchor": "写放大：一个 5000 万粉丝的账号发布一次，变成 5000 万次缓存写入",
+      "visual_idea": "一个超大节点爆出巨量写入",
+      "visible_label": "写放大",
+      "numeric_fact": "5000 万"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "混合扇出：普通作者写时扇出、名人写入紧凑索引在读时合并；60:1 的读写比",
+      "visual_idea": "两条路径汇入一条信息流",
+      "visible_label": "混合扇出",
+      "numeric_fact": "60:1"
+    }
+  ],
+  "main_metaphor": "扇出——一个中心点向大量末端辐射的分支结构，读时汇聚、写时发散",
+  "primary_subject": "一条从单个作者/帖子向大量粉丝时间线节点辐射的分支流",
+  "subject_action": "分支从单点发散出去，又在另一侧汇合成一条信息流",
+  "composition": "斜向推进",
+  "base_style": "isometric conceptual systems scene",
+  "selected_style": "动态分镜电影风",
+  "selected_style_prompt_descriptor": "dynamic cinematic storyboard style, sequential panels, camera-motion feeling, strong cuts, clear narrative beats",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中",
+  "style_safety_note": "使用泛动态分镜描述，不引用具体作品、工作室或在世艺术家",
+  "allowed_visible_text": [
+    "读时扇出",
+    "写时扇出",
+    "写放大",
+    "混合扇出",
+    "800",
+    "5000 万",
+    "60:1"
+  ],
+  "color_palette": ["deep indigo", "teal", "amber", "soft gray"],
+  "avoid": [
+    "漂浮芯片",
+    "代码雨",
+    "霓虹高楼",
+    "通用机器人站姿",
+    "赛博朋克紫蓝光污染",
+    "巨量 HUD 浮层",
+    "真实 dashboard"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮验证核心反差（读放大 vs 写放大）是否清晰、四个信息块是否可读",
+  "revision_targets": [
+    "主体分支流是否清晰",
+    "写放大的数字冲击力",
+    "去除多余文字与伪仪表盘元素"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: 社交信息流的系统设计演进——信息流看起来最简单，却被读写比例逼着从读时计算搬到写时计算. The reader should quickly feel 读和写之间的比例才是信息流架构的核心.\n\nSummary angle: 核心反差——最简单的功能（拉取关注列表、合并排序）恰恰是被读写比例逼出的一连串架构演进.\nNarrative flow: 3-beat process. In a 2.35:1 frame, keep one dominant focal subject and 2-4 supporting narrative beats. Each beat must map to the article's information blocks rather than generic decoration.\nInformation blocks:\n- 读时扇出（problem）：一次读取对所有关注账号做合并，形成读放大；label 读时扇出；number 800 路合并\n- 写时扇出（mechanism）：发布时把帖子 id 追加到每个粉丝时间线；label 写时扇出；number 800 条上限\n- 写放大（contrast）：一个高粉账号发布一次变成数千万次写；label 写放大；number 5000 万\n- 混合扇出（takeaway）：普通作者写时扇出、名人读时合并；label 混合扇出；number 60:1\n\nMain metaphor: 扇出——一个中心点向大量末端辐射的分支结构，读时汇聚、写时发散.\nSubject: 一条从单个作者/帖子向大量粉丝时间线节点辐射的分支流, 分支从单点发散又在另一侧汇合成一条信息流.\nComposition/framing: 斜向推进，从左到右 3-4 个分镜节拍，宽幅 2.35:1.\nStyle/medium: combine isometric conceptual systems scene with the selected visual style descriptor: dynamic cinematic storyboard style, sequential panels, camera-motion feeling, strong cuts, clear narrative beats. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: deep indigo, teal, amber, soft gray.\nVisible text policy: allow only 1-3 short Chinese labels or number chips by default, and no more than 4 when strictly necessary, all sourced from the information blocks. Each label <= 6 Chinese characters or one required product/model name. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: 漂浮芯片, 代码雨, 霓虹高楼, 通用机器人站姿, 赛博朋克紫蓝光污染, 巨量 HUD 浮层, 真实 dashboard."
+}
