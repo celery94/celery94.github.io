@@ -1,0 +1,61 @@
+{
+  "article_title": "用 C# 构建你的第一个 MCP Server",
+  "cover_type": "tutorial",
+  "core_theme": "用官方 ModelContextProtocol C# SDK 与 .NET 10 从空项目构建一个真实可用的 MCP Server（查 NuGet 真实版本的工具），stdout 干净与工具描述决定成败",
+  "reader_takeaway": "读完能自己跑通一个 stdio/HTTP 双传输的 C# MCP Server，并知道它为什么不工作",
+  "summary_angle": "把「写工具 -> 接 stdio -> 问出真实版本」压成一张可执行封面：C# 方法变成编码助手能调用的真实工具，回话里是核对过的版本号",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "step",
+      "source_anchor": "Writing Your First Tool：类加 [McpServerToolType]、方法加 [McpServerTool] 即成工具",
+      "visual_idea": "一个 C# 方法块被贴上「工具」标签，两个特性符号按在块上",
+      "visible_label": "写工具",
+      "numeric_fact": ""
+    },
+    {
+      "role": "step",
+      "source_anchor": "Wiring Up the Stdio Transport：stdout 是协议通道，日志必须走 stderr（LogToStandardErrorThreshold）",
+      "visual_idea": "一条干净的数据线缆接入对话窗口，旁路分出一小股「日志」流被引到一边",
+      "visible_label": "接 stdio",
+      "numeric_fact": ""
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "Building Something You Would Actually Keep：agent 幻觉版本号，工具返回 NuGet feed 上的真实版本（当前最新稳定版 2.2.0）",
+      "visual_idea": "对话窗口弹出一个带对勾的版本号小牌，幻觉版本被划掉",
+      "visible_label": "真实版本",
+      "numeric_fact": "2.2.0"
+    }
+  ],
+  "main_metaphor": "C# 方法块装箱成「插件工具」，通过 stdio 线缆接入对话窗口",
+  "primary_subject": "一个贴着工具标签的 C# 方法块",
+  "subject_action": "方法块插进一条数据线缆，线缆把结果送进右侧的对话窗口",
+  "composition": "单点聚焦（主体居中偏左，线缆向右接入对话窗口）",
+  "base_style": "editorial technical illustration",
+  "selected_style": "涂鸦街头风",
+  "selected_style_prompt_descriptor": "street-graffiti comic style, spray-paint texture, bold outlines, urban wall energy, vivid but controlled color clashes",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；教程的「接线、装配」动作感适合街头涂鸦的粗描边与喷漆质感",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["写工具", "接 stdio", "真实版本", "2.2.0"],
+  "color_palette": ["深海军蓝", "青色", "暖橙"],
+  "avoid": [
+    "代码雨",
+    "漂浮芯片",
+    "霓虹高楼背景",
+    "通用机器人站姿",
+    "赛博朋克紫蓝光污染",
+    "HUD 浮层",
+    "终端窗口截图",
+    "假架构图",
+    "英文口号"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮验证「三步叙事 + 单焦点主体 + 线缆接入对话窗口」是否成立",
+  "revision_targets": [
+    "主体与线缆的关系清晰度",
+    "三个中文标签可读性",
+    "背景杂物密度"
+  ],
+  "final_prompt": "Use the current cover direction as the base.\nKeep the strongest part of the composition and preserve the summary angle: a \"write the tool -> wire up stdio -> get the real version\" three-beat executable cover for a C# MCP server tutorial.\nPreserve the core metaphor: a C# method block packed into a plug-in tool, connected through a stdio cable into a chat window.\n\nKeep these information beats readable and source-grounded:\n- beat 1: a C# method block wearing a pressed-on tool badge, Chinese label 写工具\n- beat 2: a clean cyan data cable plugging into a compact chat window, a thin side branch diverted away as logs, Chinese label 接 stdio\n- beat 3: the chat window showing a crossed-out fake version and a checkmarked version chip 2.2.0, Chinese label 真实版本\n\nChange only these points:\n- sharpen details, edge definition and spray-paint texture\n- cleaner composition with one dominant focal subject and clearer left-to-right cable flow\n- keep only the three approved Chinese labels and the 2.2.0 chip; remove any extra text, labels or stickers\n\nMake the image feel more like editorial technical illustration combined with this selected visual style descriptor: street-graffiti comic style, spray-paint texture, bold outlines, urban wall energy, vivid but controlled color clashes. Preserve one clear focal subject and three supporting narrative beats in a wide 2.35:1 frame. Do not imitate a specific brand, studio, or living artist.\nPrimary subject should remain: one C# method block wearing a tool tag, plugged into a cable that feeds a chat window.\nSimplify the background so that only a plain deep navy wall texture remains as supporting context.\nColor palette: deep navy background, cyan cable, warm orange accent.\n\nVisible text policy: keep only the approved Chinese labels 写工具, 接 stdio, 真实版本 and the number chip 2.2.0, never more than 4 items. No poster title, no long sentence captions, no English slogans, no fake UI labels, no fake chart axes, and no fake architecture node names.\nRemove any watermark, prompt residue, screenshots, dashboards, fake diagrams, fake charts, fake terminal output, fabricated metrics, unrelated icons, and decorative clutter.\nAvoid floating chips, meaningless code rain, neon skyscraper background, generic robot standing pose, cyberpunk purple-blue light pollution, heavy HUD overlays, terminal window screenshots.\n\nWide cover illustration, aspect ratio 2.35:1."
+}
