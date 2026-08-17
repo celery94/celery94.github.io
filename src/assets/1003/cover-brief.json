@@ -1,0 +1,61 @@
+{
+  "article_title": "Microsoft.Extensions.AI 路由与故障转移",
+  "cover_type": "architecture",
+  "core_theme": "Microsoft.Extensions.AI 10.9 的四个实验性路由原语：RoutingChatClient 按请求选客户端、SemanticRoutingChatClient 按语义匹配、FailoverChatClient 失败重选、OrderedFailoverChatClient 按序降级",
+  "reader_takeaway": "理解四个原语的层次关系与各自边界（选择/重试/降级），能自己搭一条路由加故障转移的 IChatClient 管道",
+  "summary_angle": "把「选路 -> 失败重选 -> 按序降级」的层级流程压成一张封面：一条请求流经过选择装置，遇到故障时自动拐入备用岔道，1 2 3 按序前进",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "step",
+      "source_anchor": "原文 RoutingChatClient 一节：每个请求调用 SelectClientAsync 选择并转发到一个客户端",
+      "visual_idea": "一条发光的请求流进入一个选择闸口装置，闸口分出多条候选管道",
+      "visible_label": "选择",
+      "numeric_fact": ""
+    },
+    {
+      "role": "step",
+      "source_anchor": "原文 SemanticRoutingChatClient 一节：最后一条用户消息做 embedding，与每个客户端的示例话语比较相似度",
+      "visual_idea": "选择闸口上方悬浮一组话语气泡与向量光点，表示按语义匹配",
+      "visible_label": "语义",
+      "numeric_fact": ""
+    },
+    {
+      "role": "step",
+      "source_anchor": "原文 OrderedFailoverChatClient 一节：按序走客户端列表，第一个失败试第二个，全部失败重抛最后一个异常",
+      "visual_idea": "一条候选管道带闪电标记失败，请求流自动拐入下一条备用管道，标注 1 2 3",
+      "visible_label": "降级",
+      "numeric_fact": "1 2 3"
+    }
+  ],
+  "main_metaphor": "精密管道交通：请求流经过选择闸口，故障时自动切换备用岔道",
+  "primary_subject": "一条发光的请求流经过选择装置，分成多条候选管道",
+  "subject_action": "请求流遇到带闪电标记的故障管道，自动拐入下一条备用管道继续前进",
+  "composition": "斜向推进（左到右的流程），单一主焦点在选择装置处",
+  "base_style": "isometric conceptual systems scene",
+  "selected_style": "洛丽塔幻想风",
+  "selected_style_prompt_descriptor": "ornate fantasy fashion illustration, lace-like detail, dollhouse elegance, soft magical palette, controlled decorative density",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；管道与岔路的精密结构用克制的装饰密度表达",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["选择", "语义", "降级", "1", "2", "3"],
+  "color_palette": ["淡紫", "奶油金", "薄荷绿"],
+  "avoid": [
+    "漂浮芯片",
+    "代码雨",
+    "霓虹高楼",
+    "赛博朋克紫蓝光污染",
+    "HUD 浮层",
+    "假仪表盘",
+    "假架构节点名",
+    "真实图表坐标轴",
+    "英文口号"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮验证「请求流经选择装置 + 故障拐入备用道」的流程是否可读",
+  "revision_targets": [
+    "故障拐弯的动作清晰度",
+    "三个中文标签可读性",
+    "装饰密度是否压过主体"
+  ],
+  "final_prompt": "Use the current cover direction as the base.\nKeep the strongest part of the composition and preserve the summary angle: a glowing request stream passes through a selection gate, and on encountering a fault it automatically turns into the next backup path, numbered 1 2 3.\nPreserve the core metaphor: precision pipeline traffic - a request stream passes a selection device and automatically switches to backup lanes on fault.\n\nKeep these information beats readable and source-grounded:\n- beat 1: glowing request stream entering a selection gate that splits into candidate pipes, Chinese label 选择\n- beat 2: small speech-bubble tokens and vector light dots above the gate representing semantic matching, Chinese label 语义\n- beat 3: one lightning-marked failed pipe deflecting the stream into the next backup pipe, numbered 1 2 3, Chinese label 降级\n\nChange only these points:\n- sharpen edges and the isometric structure\n- make the fault deflection action unmistakable: the failed pipe clearly stops the stream and the stream clearly curves into the next lane\n- keep only the approved Chinese labels and the 1 2 3 number chips; remove any extra text, labels or ornaments\n\nMake the image feel more like isometric conceptual systems scene combined with this selected visual style descriptor: ornate fantasy fashion illustration, lace-like detail, dollhouse elegance, soft magical palette, controlled decorative density. Preserve one clear focal subject and three supporting narrative beats in a wide 2.35:1 frame. Do not imitate a specific brand, studio, or living artist.\nPrimary subject should remain: one glowing request stream flowing through a selection device, splitting into candidate pipes, with a lightning-marked failed pipe deflecting the stream into the next lane.\nSimplify the background so that only a soft pastel gradient with subtle texture remains as supporting context.\nColor palette: soft lavender, cream gold, mint green.\n\nVisible text policy: keep only the approved Chinese labels 选择, 语义, 降级 and the number chips 1 2 3, never more than 4 items. No poster title, no long sentence captions, no English slogans, no fake UI labels, no fake chart axes, and no fake architecture node names.\nRemove any watermark, prompt residue, screenshots, dashboards, fake diagrams, fake charts, fake terminal output, fabricated metrics, unrelated icons, and decorative clutter.\nAvoid floating chips, meaningless code rain, neon skyscrapers, cyberpunk purple-blue light pollution, heavy HUD overlays, fake dashboards, fake architecture node names, real chart axes, English slogans.\n\nWide cover illustration, aspect ratio 2.35:1."
+}
