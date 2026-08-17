@@ -1,0 +1,60 @@
+{
+  "article_title": "C# 实时语音转文字：Foundry Local 本地运行",
+  "cover_type": "tutorial",
+  "core_theme": "用 Foundry Local 在 Windows 本地运行 Nemotron 0.6B 流式语音模型，C# 控制台应用实时转录麦克风：模型目录解析与下载、直播会话、部分与最终结果异步流，无需 API key",
+  "reader_takeaway": "能照着构建一个本地实时语音转文字应用，理解 Foundry Local 的模型生命周期管理与直播转录会话",
+  "summary_angle": "「说话即出字」：麦克风采集 → 本地模型转写 → 字幕实时浮现（中间结果即时出现，最终结果定稿）",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "step",
+      "source_anchor": "原文：NAudio.WaveInEvent 以 16 kHz、16 位、单声道采集麦克风，音频块放进有界 channel",
+      "visual_idea": "一个麦克风图标，声波波纹从左发出",
+      "visible_label": "麦克风",
+      "numeric_fact": "16kHz"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文：FoundryLocalManager 按别名解析模型、下载并缓存、加载推理；无下载脚本、无 API key",
+      "visual_idea": "一台笔记本形状的设备，内部有一个模型芯片，设备上画着「本地」标记，无云端连线",
+      "visible_label": "本地模型",
+      "numeric_fact": "0.6B"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文：GetStream() 异步流，IsFinal 区分中间结果与最终结果，中间结果青色、[FINAL] 白色",
+      "visual_idea": "右侧一条字幕条：前面半透明的青色文字正在浮现，末尾一段实心白色文字带对勾",
+      "visible_label": "实时字幕",
+      "numeric_fact": ""
+    }
+  ],
+  "main_metaphor": "本地语音速记员：麦克风捕捉声音，设备内速记，字幕实时浮现",
+  "primary_subject": "一台承载本地模型的笔记本设备，接在麦克风与字幕条之间",
+  "subject_action": "声波从麦克风进入笔记本，笔记本吐出一条正在实时增长的字幕",
+  "composition": "轻微斜向推进（左到右的流程），单点聚焦在笔记本上",
+  "base_style": "editorial technical illustration",
+  "selected_style": "韩漫条漫风",
+  "selected_style_prompt_descriptor": "polished vertical-webtoon-inspired rendering adapted to a wide cover, clean gradients, sharp character shapes, glossy color blocks",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；声音到文字的流转适合用干净渐变与利落色块表达",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["麦克风", "本地模型", "实时字幕", "16kHz", "0.6B"],
+  "color_palette": ["青色", "白色", "深蓝"],
+  "avoid": [
+    "代码雨",
+    "漂浮芯片",
+    "霓虹高楼",
+    "HUD 浮层",
+    "假终端输出",
+    "假波形图坐标轴",
+    "通用机器人站姿",
+    "英文口号"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮验证「麦克风 → 笔记本（本地模型）→ 实时字幕」三步流程是否可读",
+  "revision_targets": [
+    "笔记本与模型芯片的辨识度",
+    "字幕条的增长感",
+    "装饰密度"
+  ],
+  "final_prompt": "Use the current cover direction as the base.\nKeep the strongest part of the composition and preserve the summary angle: \"speak and the words appear\" - microphone capture, local model transcription, live subtitles with interim results appearing instantly and final results settling.\nPreserve the core metaphor: a local speech stenographer - the microphone captures sound, the device takes notes, subtitles appear live.\n\nKeep these information beats readable and source-grounded:\n- beat 1: microphone icon emitting sound waves from the left, Chinese label 麦克风, number chip 16kHz\n- beat 2: laptop-shaped device containing a model chip marked as local, no cloud connections, Chinese label 本地模型, number chip 0.6B\n- beat 3: subtitle bar on the right with semi-transparent cyan text appearing at the front and a solid white segment with a small checkmark at the end, Chinese label 实时字幕\n\nChange only these points:\n- sharpen edges, clean gradients and glossy color blocks\n- make the left-to-right flow unmistakable: sound waves -> laptop -> growing subtitle bar\n- keep only the approved Chinese labels and the number chips; remove any extra text, labels or ornaments\n\nMake the image feel more like editorial technical illustration combined with this selected visual style descriptor: polished vertical-webtoon-inspired rendering adapted to a wide cover, clean gradients, sharp character shapes, glossy color blocks. Preserve one clear focal subject and three supporting narrative beats in a wide 2.35:1 frame. Do not imitate a specific brand, studio, or living artist.\nPrimary subject should remain: one laptop device holding a local model chip, connected between a microphone and a growing subtitle bar.\nSimplify the background so that only a plain deep blue gradient with subtle texture remains as supporting context.\nColor palette: cyan, white, deep blue.\n\nVisible text policy: keep only the approved Chinese labels 麦克风, 本地模型, 实时字幕 and the number chips 16kHz, 0.6B, never more than 4 items. No poster title, no long sentence captions, no English slogans, no fake UI labels, no fake chart axes, and no fake architecture node names.\nRemove any watermark, prompt residue, screenshots, dashboards, fake diagrams, fake charts, fake terminal output, fabricated metrics, unrelated icons, and decorative clutter.\nAvoid meaningless code rain, floating chips, neon skyscrapers, heavy HUD overlays, fake terminal output, fake waveform chart axes, generic robot standing pose, English slogans.\n\nWide cover illustration, aspect ratio 2.35:1."
+}
