@@ -1,0 +1,60 @@
+{
+  "article_title": "Azure DevOps 远程 MCP Server 正式发布",
+  "cover_type": "release",
+  "core_theme": "Azure DevOps 远程 MCP Server 正式 GA：零部署接入，AI 助手通过 streamable HTTP 连接托管端点，安全访问工作项、PR、仓库与流水线",
+  "reader_takeaway": "知道远程版已 GA、一行 mcp.json 即可接入、哪些客户端现在可用（VS Code+Copilot、Foundry、Copilot Studio），以及认证依赖 Entra 的约束",
+  "summary_angle": "「零部署上线」的登场感：一行配置把 AI 助手接进 Azure DevOps，认证交给 Entra 完成",
+  "narrative_flow": "before-after",
+  "information_blocks": [
+    {
+      "role": "step",
+      "source_anchor": "原文 Getting Started：mcp.json 里加一段服务器信息，url 为 https://mcp.dev.azure.com/{organization}，type http",
+      "visual_idea": "一张简单的配置卡片滑入一个聊天窗口，一行 URL 变成一条发光的连接线",
+      "visible_label": "一行接入",
+      "numeric_fact": ""
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文：Remote MCP Server 由 Azure DevOps 服务托管，使用 Microsoft Entra 认证，组织必须由 Entra 租户支撑",
+      "visual_idea": "连接线经过一把盾牌（Entra 认证），盾牌上带对勾",
+      "visible_label": "Entra 认证",
+      "numeric_fact": ""
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文：今天无需额外配置即可使用的客户端：VS Code with GitHub Copilot、Microsoft Foundry、Microsoft Copilot Studio，另有 Visual Studio、Copilot CLI 等",
+      "visual_idea": "聊天窗口另一侧浮现工作项、PR、仓库、流水线的四枚小图标，表示助手现在能访问研发数据",
+      "visible_label": "工作项 PR 流水线",
+      "numeric_fact": ""
+    }
+  ],
+  "main_metaphor": "插头即插即用：一行配置把 AI 助手安全接进 Azure DevOps",
+  "primary_subject": "一块写着 URL 的配置卡片，插进 AI 助手聊天窗口",
+  "subject_action": "配置卡片变成发光连接线，穿过 Entra 盾牌，连到工作项/PR/仓库/流水线图标",
+  "composition": "居中主物体 + 少量辅助符号（配置卡片居中，左右各有助手窗口与 DevOps 图标）",
+  "base_style": "product-poster style illustration",
+  "selected_style": "涂鸦街头风",
+  "selected_style_prompt_descriptor": "street-graffiti comic style, spray-paint texture, bold outlines, urban wall energy, vivid but controlled color clashes",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；发布消息的「连接、接入」动作感适合街头涂鸦的粗描边",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["一行接入", "Entra 认证", "工作项 PR 流水线"],
+  "color_palette": ["Azure 蓝", "橙色", "深灰"],
+  "avoid": [
+    "真实 UI 截图",
+    "代码雨",
+    "漂浮芯片",
+    "霓虹高楼",
+    "赛博朋克紫蓝光污染",
+    "HUD 浮层",
+    "英文口号",
+    "假仪表盘"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮验证「配置卡片接入 + Entra 盾牌 + 三类 DevOps 数据」是否成立",
+  "revision_targets": [
+    "配置卡片与连接线的可读性",
+    "Entra 盾牌与数据图标的辨识度",
+    "装饰密度"
+  ],
+  "final_prompt": "Use the current cover direction as the base.\nKeep the strongest part of the composition and preserve the summary angle: zero-deployment launch - one config card plugs an AI assistant into Azure DevOps, authentication handled by Entra.\nPreserve the core metaphor: plug and play - one line of config safely connects the AI assistant to Azure DevOps.\n\nKeep these information beats readable and source-grounded:\n- beat 1: config card with a URL line sliding into a chat window, becoming a glowing connection, Chinese label 一行接入\n- beat 2: the connection crossing a shield with a checkmark for Entra authentication, Chinese label Entra 认证\n- beat 3: four small icons for work items, pull requests, repositories and pipelines on the far side, Chinese label 工作项 PR 流水线\n\nChange only these points:\n- sharpen edges, spray-paint texture and bold outlines\n- make the left-to-right connection flow unmistakable: chat window -> config card -> Entra shield -> DevOps icons\n- keep only the approved Chinese labels; remove any extra text, labels or stickers\n\nMake the image feel more like product-poster style illustration combined with this selected visual style descriptor: street-graffiti comic style, spray-paint texture, bold outlines, urban wall energy, vivid but controlled color clashes. Preserve one clear focal subject and three supporting narrative beats in a wide 2.35:1 frame. Do not imitate a specific brand, studio, or living artist.\nPrimary subject should remain: one config card with a URL line plugged into an AI assistant chat window, glowing connection crossing an Entra shield toward DevOps data icons.\nSimplify the background so that only a plain deep gray wall with subtle spray texture remains as supporting context.\nColor palette: Azure blue, orange accent, deep gray.\n\nVisible text policy: keep only the approved Chinese labels 一行接入, Entra 认证, 工作项 PR 流水线, never more than 3 items. No poster title, no long sentence captions, no English slogans, no fake UI labels, no fake chart axes, and no fake architecture node names.\nRemove any watermark, prompt residue, screenshots, dashboards, fake diagrams, fake charts, fake terminal output, fabricated metrics, unrelated icons, and decorative clutter.\nAvoid real UI screenshots, meaningless code rain, floating chips, neon skyscrapers, cyberpunk purple-blue light pollution, heavy HUD overlays, fake dashboards, English slogans.\n\nWide cover illustration, aspect ratio 2.35:1."
+}
