@@ -1,0 +1,60 @@
+{
+  "article_title": "ASP.NET Core API 版本化实战（.NET 10）",
+  "cover_type": "tutorial",
+  "core_theme": "用 Asp.Versioning 10.2 在 .NET 10 上给 API 做版本化：URL 段默认方案、控制器与 Minimal API 写法、每版本 OpenAPI 文档、字段级版本化与 Sunset 头",
+  "reader_takeaway": "掌握四种版本策略的取舍、两套端到端配置写法，以及从发 v1 到 Sunset 退休的完整流程",
+  "summary_angle": "把「v1 与 v2 并行共存」画成一条有版本闸门的 API 路径：同一端点经闸门分流到两条并行轨道，各自形态不同且都有文档",
+  "narrative_flow": "before-after",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "原文 What Is API Versioning：第一个破坏性变更会静默打断所有线上集成",
+      "visual_idea": "路径起点一个端点分出两个箭头，表示一次请求被版本分流",
+      "visible_label": "v1",
+      "numeric_fact": "1"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文 The Four Ways to Version：URL 段 /api/v1/products 是公开 REST API 默认",
+      "visual_idea": "两条并行轨道，各自端点形状不同但来源同一个入口，轨道旁有版本标签",
+      "visible_label": "v2",
+      "numeric_fact": "2"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文 Key Takeaways：URL-segment versioning 是公开 REST API 的正确默认",
+      "visual_idea": "入口处的版本闸门与轨道尽头的文档图标，表示每版本都有独立 OpenAPI 文档",
+      "visible_label": "API",
+      "numeric_fact": "3"
+    }
+  ],
+  "main_metaphor": "一条架在温暖自然场景中的双轨 API 路径：请求从同一个入口进入，经版本闸门分流到 v1/v2 两条并行轨道",
+  "primary_subject": "由版本闸门分流的双轨路径，数据块沿两条轨道并行前进",
+  "subject_action": "一个数据块在闸门处分成两路，沿不同形状的轨道前进，尽头各有一份文档标记",
+  "composition": "轻微斜向推进，主焦点在版本闸门分叉处",
+  "base_style": "editorial technical illustration",
+  "selected_style": "吉卜力动画风",
+  "selected_style_prompt_descriptor": "warm hand-drawn animation feeling, natural environments, gentle fantasy everyday mood, soft painterly backgrounds, no studio imitation",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；温暖手绘自然场景适合把版本分流讲成一条有故事的路径",
+  "style_safety_note": "使用泛动画风格描述，不引用具体工作室或导演",
+  "allowed_visible_text": ["v1", "v2", "API"],
+  "color_palette": ["暖草绿", "天蓝", "奶油白", "暖橙点缀"],
+  "avoid": [
+    "真实 IDE 截图",
+    "真实架构图节点名",
+    "代码雨",
+    "漂浮芯片",
+    "霓虹高楼",
+    "紫色光污染",
+    "UI 面板",
+    "对话气泡"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮先验证：版本闸门分流到两条并行轨道的关系清楚，吉卜力式温暖手绘氛围成立，不像真实架构图",
+  "revision_targets": [
+    "双轨与分叉点更清楚",
+    "减少装饰性元素",
+    "手绘笔触与暖色更统一"
+  ],
+  "final_prompt": "Use case: infographic-story. Asset type: wide cover infographic illustration for a Chinese tech blog article. Primary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: 用 Asp.Versioning 10.2 在 .NET 10 上给 API 做版本化，同一端点可同时服务 v1 与 v2，各自形状不同。The reader should quickly feel 请求从一个入口进入，经版本闸门分流到两条并行轨道，互不干扰。 Summary angle: 把「v1 与 v2 并行共存」画成一条有版本闸门的 API 路径，同一端点分流到两条并行轨道。 Narrative flow: before-after. In a 2.35:1 frame, keep one dominant focal subject and 2-4 supporting narrative beats. Each beat must map to the article's information blocks rather than generic decoration. Information blocks: - 问题：路径起点一个数据块在闸门处分成两路，表示一次请求被版本分流，可见标签「v1」 - 机制：两条并行轨道形状不同但同源，轨道旁有版本标签，可见标签「v2」 - 结论：轨道尽头各有一份文档标记，表示每版本有独立 OpenAPI 文档，可见标签「API」。 Main metaphor: 一条架在温暖自然场景中的双轨 API 路径，请求从同一入口进入，经版本闸门分流到 v1/v2 两条并行轨道。 Subject: 由版本闸门分流的双轨路径，数据块沿两条轨道并行前进。 Subject action: 一个数据块在闸门处分成两路，沿不同形状的轨道前进，尽头各有一份文档标记。 Composition/framing: 轻微斜向推进，主焦点在版本闸门分叉处，横向叙事在宽幅中保持可读。 Style/medium: combine editorial technical illustration with the selected visual style descriptor: warm hand-drawn animation feeling, natural environments, gentle fantasy everyday mood, soft painterly backgrounds, no studio imitation. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist. Color palette: 暖草绿、天蓝、奶油白、暖橙点缀。 Visible text policy: allow only 3 short labels: 「v1」「v2」「API」。No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names. Constraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter. Avoid: 真实 IDE 截图、真实架构图节点名、代码雨、漂浮芯片、霓虹高楼、紫色光污染、UI 面板、对话气泡。"
+}
