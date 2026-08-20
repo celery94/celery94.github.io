@@ -1,0 +1,60 @@
+{
+  "article_title": "系统设计入门：每个系统都要做的 7 个决策",
+  "cover_type": "architecture",
+  "core_theme": "系统设计不是背组件，而是做决策：新鲜度、存储、扩展、缓存、同步异步、过载、部署形态，每个决策都有代价",
+  "reader_takeaway": "拿到一套每次设计前必问自己的 7 问清单，理解每个决策背后的权衡与常见坑",
+  "summary_angle": "把「7 个关键决策」画成一条等距的决策之路：数据块依次穿过 7 个闸门，每个闸门代表一个决策点，沿途有取舍分支",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "原文开头：Every real system is the result of a handful of decisions and trade-offs, and each one costs you something",
+      "visual_idea": "路径起点的数据块，旁边挂着一个天平，表示每个决策都在权衡代价",
+      "visible_label": "权衡",
+      "numeric_fact": "1"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文 7 个决策列表：freshness / storage / scaling / cache / call-vs-event / overload / deployment",
+      "visual_idea": "一条等距轨道上依次排列 7 个模块化闸门，数据块穿过闸门时形态略有变化，表示每个决策点转换一次",
+      "visible_label": "7 决策",
+      "numeric_fact": "7"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文结尾：The right choice depends on your context, your constraints, and what you can afford to trade",
+      "visual_idea": "路径终点有一枚「上下文与约束」的结节点，表示选择取决于自己的上下文",
+      "visible_label": "上下文",
+      "numeric_fact": "3"
+    }
+  ],
+  "main_metaphor": "一条等距视角的决策之路：数据沿轨道穿过 7 个闸门，每个闸门是一个决策点，分支表示取舍",
+  "primary_subject": "由 7 个模块化闸门组成的等距轨道，数据块在闸门间穿行",
+  "subject_action": "数据块依次通过每个闸门并发生微小形态变化，终点汇入一个代表最终方案的结节点",
+  "composition": "等距空间，轨道从左下斜向右上，主焦点在轨道中段",
+  "base_style": "isometric conceptual systems scene",
+  "selected_style": "日漫少女风",
+  "selected_style_prompt_descriptor": "soft shojo-inspired manga look, elegant linework, expressive faces, gentle decorative details, luminous pastel accents",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；柔和粉彩与精致线稿适合把抽象决策路径画得轻盈可读",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["权衡", "7 决策", "上下文"],
+  "color_palette": ["粉彩蓝", "柔粉", "奶油白", "青色点缀"],
+  "avoid": [
+    "真实系统图",
+    "真实仪表盘",
+    "代码雨",
+    "漂浮芯片",
+    "霓虹高楼",
+    "紫色光污染",
+    "UI 面板",
+    "对话气泡"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮先验证：7 个闸门与数据穿行的等距关系清楚，日漫少女风的线稿与粉彩成立，不像真实架构图",
+  "revision_targets": [
+    "7 个闸门顺序更清楚",
+    "减少装饰性元素",
+    "粉彩配色更柔和统一"
+  ],
+  "final_prompt": "Use case: infographic-story. Asset type: wide cover infographic illustration for a Chinese tech blog article. Primary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: 系统设计不是背组件而是做决策：新鲜度、存储、扩展、缓存、同步异步、过载、部署形态，每个决策都有代价。The reader should quickly feel 这是一条由 7 个决策闸门组成的路径，每个闸门都要求一次取舍。 Summary angle: 把「7 个关键决策」画成一条等距的决策之路，数据块依次穿过 7 个闸门，沿途有取舍分支。 Narrative flow: 3-beat process. In a 2.35:1 frame, keep one dominant focal subject and 2-4 supporting narrative beats. Each beat must map to the article's information blocks rather than generic decoration. Information blocks: - 问题：路径起点的数据块旁挂一只天平，表示每个决策都在权衡代价，可见标签「权衡」 - 机制：等距轨道上依次排列 7 个模块化闸门，数据块穿过时形态略微变化，可见标签「7 决策」 - 结论：路径终点汇入一个代表最终方案的结节点，表示选择取决于上下文，可见标签「上下文」。 Main metaphor: 一条等距视角的决策之路，数据沿轨道穿过 7 个闸门，每个闸门是一个决策点，分支表示取舍。 Subject: 由 7 个模块化闸门组成的等距轨道，数据块在闸门间穿行。 Subject action: 数据块依次通过每个闸门并发生微小形态变化，终点汇入结节点。 Composition/framing: 等距空间，轨道从左下斜向右上，主焦点在轨道中段，横向叙事在宽幅中保持可读。 Style/medium: combine isometric conceptual systems scene with the selected visual style descriptor: soft shojo-inspired manga look, elegant linework, expressive faces, gentle decorative details, luminous pastel accents. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist. Color palette: 粉彩蓝、柔粉、奶油白、青色点缀。 Visible text policy: allow only 3 short Chinese labels: 「权衡」「7 决策」「上下文」，每个不超过 4 个汉字。No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names. Constraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter. Avoid: 真实系统图、真实仪表盘、代码雨、漂浮芯片、霓虹高楼、紫色光污染、UI 面板、对话气泡。"
+}
