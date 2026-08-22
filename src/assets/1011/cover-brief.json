@@ -1,0 +1,59 @@
+{
+  "article_title": "从 17ms 到 0.04ms：如何设计正确的 SQL 索引",
+  "cover_type": "tutorial",
+  "core_theme": "设计数据库索引时，列的顺序决定了索引能否被查询用上；用 EXPLAIN ANALYZE 实测，把全表扫描的慢查询改成秒回的复合索引",
+  "reader_takeaway": "明白复合索引的列顺序规则——等值列在前、排序列在后——以及为什么索引要按真实查询来设计",
+  "summary_angle": "用一张对比封面呈现「全表扫描 17ms」和「正确复合索引 0.04ms」的强烈反差",
+  "narrative_flow": "conflict-to-resolution",
+  "information_blocks": [
+    {
+      "role": "contrast",
+      "source_anchor": "慢查询：全表扫描 1 百万行，Execution Time 17.066ms",
+      "visual_idea": "左侧是一叠陈旧的卡片/堆栈，上面贴着笨拙的扫描箭头，标注 17ms",
+      "visible_label": "全表扫描",
+      "numeric_fact": "17ms"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "复合索引 (issue_id, user_id, created_at DESC)：三个条件全进 Index Cond，Sort 消失，0.04ms",
+      "visual_idea": "右侧是一棵整齐的 B-tree 结构，箭头直指对应的一小格，标注 0.04ms",
+      "visible_label": "复合索引",
+      "numeric_fact": "0.04ms"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "列顺序规则：等值列在前，然后才是排序列",
+      "visual_idea": "索引树的一角用醒目的标签标出「等值列 → 排序列」",
+      "visible_label": "列顺序",
+      "numeric_fact": "1/2/3"
+    }
+  ],
+  "main_metaphor": "把一棵排序整齐的索引树与乱序堆叠的扫描卡堆并置，表现「正确列顺序」与「全表扫描」的对比",
+  "primary_subject": "一棵整齐的 B-tree 索引树",
+  "subject_action": "树的正中有一格被箭头精准定位并读出",
+  "composition": "左右对照",
+  "base_style": "editorial technical illustration",
+  "selected_style": "吉卜力动画风",
+  "selected_style_prompt_descriptor": "warm hand-drawn animation feeling, natural environments, gentle fantasy everyday mood, soft painterly backgrounds, no studio imitation",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；教程类型用温暖手绘动画感可以把枯燥的索引结构表达得清晰可亲，不改变正文语气",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["17ms", "0.04ms", "列顺序", "全表扫描", "复合索引"],
+  "color_palette": ["暖木色", "苔绿色", "奶油白", "墨蓝点缀"],
+  "avoid": [
+    "真实数据库截图",
+    "仪表盘",
+    "图表坐标轴",
+    "英文章节长句",
+    "装饰性芯片堆砌",
+    "代码雨",
+    "霓虹光污染"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮先验证左右对照是否成立、两个时间数字是否清晰可读、索引树主体是否明确",
+  "revision_targets": [
+    "强化左侧卡堆与右侧索引树的对比",
+    "补全时间数字的辨识度",
+    "让主焦点集中到被定位的那一格"
+  ],
+  "final_prompt": "Use case: infographic-story. Asset type: wide cover infographic illustration for a Chinese tech blog article. Primary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: 设计正确的 SQL 复合索引，列顺序决定查询能否被索引用上。The reader should quickly feel 从慢查询到秒回的差别。Summary angle: 用一张对比封面呈现「全表扫描 17ms」和「正确复合索引 0.04ms」的强烈反差。Narrative flow: conflict-to-resolution. In a 2.35:1 frame, keep one dominant focal subject (a tidy B-tree index tree) and 2-3 supporting narrative beats. Information blocks: (1) contrast 左侧叠放陈旧的卡片堆与笨拙扫描箭头 label 全表扫描 numeric 17ms; (2) mechanism 右侧整齐 B-tree 树、箭头精准指到一小格 label 复合索引 numeric 0.04ms; (3) takeaway 索引树一角标出「等值列→排序列」 label 列顺序 numeric 1/2/3. Main metaphor: 把排序整齐的索引树与乱序堆叠的扫描卡堆并置，表现正确列顺序与全表扫描的对比。Subject: 一棵整齐的 B-tree 索引树，正中一格被箭头精准定位并读出。Composition/framing: 左右对照，图表式的水平叙述，在宽封面里保持可读。Style/medium: combine editorial technical illustration with the selected visual style descriptor: warm hand-drawn animation feeling, natural environments, gentle fantasy everyday mood, soft painterly backgrounds, no studio imitation. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist. Color palette: 暖木色、苔绿色、奶油白、墨蓝点缀。Visible text policy: allow only 1-3 short Chinese labels or number chips by default, and no more than 4 when strictly necessary: 17ms, 0.04ms, 列顺序, 全表扫描, 复合索引. Each label <= 6 Chinese characters. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names. Constraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter. Avoid: 真实数据库截图、仪表盘、图表坐标轴、英文章节长句、装饰性芯片堆砌、代码雨、霓虹光污染。"
+}
