@@ -1,0 +1,67 @@
+{
+  "article_title": "AI 工程能力地图：从模型到生产",
+  "cover_type": "analysis",
+  "core_theme": "AI 工程师需要把不确定的模型组件组织成可观察、可评测、可维护的应用系统",
+  "reader_takeaway": "读者能用六类能力检查 AI 项目的短板，并理解从模型、数据到生产运维的连接",
+  "summary_angle": "AI 工程的核心不是单独掌握一个模型，而是把模型、数据、Agent、评测和生产系统连成持续改进的工程循环",
+  "narrative_flow": "layered reveal",
+  "information_blocks": [
+    {
+      "role": "mechanism",
+      "source_anchor": "原文 LLM foundations 段落",
+      "visual_idea": "主系统中心的模型核心，周围出现 token、上下文窗口和工具调用的简洁符号",
+      "visible_label": "模型基础"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文 Grounding models with data 段落",
+      "visual_idea": "数据文档和结构化资料沿着清晰路径汇入模型核心，表现上下文供应",
+      "visible_label": "数据上下文"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文 Building agentic systems 段落",
+      "visual_idea": "模型核心向几个明确工具动作延伸，表现工作流、工具和安全边界",
+      "visible_label": "Agent 工作流"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文 Evaluation-driven development 与 Operating in production 段落",
+      "visual_idea": "输出经过评测环和生产观测环返回系统，形成持续改进的回路",
+      "visible_label": "评测生产"
+    }
+  ],
+  "main_metaphor": "一座从模型核心向数据、工具、评测和生产环境展开的发光工程地图，所有路径最终回到反馈回路",
+  "primary_subject": "一个由模型核心、数据入口、工具节点和反馈环组成的抽象 AI 应用系统",
+  "subject_action": "系统沿着地图路径处理不确定输出，并通过评测与生产反馈修正下一步行动",
+  "composition": "居中主物体，向左右展开四条清晰叙事路径，保留宽画幅留白",
+  "base_style": "conceptual editorial illustration",
+  "selected_style": "儿童童话风",
+  "selected_style_prompt_descriptor": "children's fairy-tale illustration, simple magical forms, friendly proportions, bright storybook palette, safe wonder",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；用轻巧的童话地图隐喻降低抽象工程主题的阅读门槛",
+  "style_safety_note": "最终提示词使用安全的童话绘本描述，不模仿特定品牌、工作室或艺术家",
+  "allowed_visible_text": [
+    "模型基础",
+    "数据上下文",
+    "Agent 工作流",
+    "评测生产"
+  ],
+  "color_palette": ["暖黄色", "松石绿", "珊瑚橙", "深蓝灰"],
+  "avoid": [
+    "海量代码雨",
+    "通用机器人站姿",
+    "霓虹紫蓝背景",
+    "真实仪表盘",
+    "假数据图表",
+    "长标题文字",
+    "无关图标拼贴"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "先验证宽画幅里一个 AI 系统主焦点与四条源于原文的能力路径是否清晰",
+  "revision_targets": [
+    "减少装饰元素",
+    "提高四个短标签的可读性",
+    "保持模型核心和反馈回路为唯一主焦点"
+  ],
+  "final_prompt": "Use case: illustration-story. Asset type: wide cover illustration for a Chinese technology blog article. Primary request: Create a wide cinematic infographic-story cover illustration summarizing an AI engineering skills map. Theme: reliable AI applications are built by connecting model knowledge, data context, agent workflows, evaluation, production operation, and machine learning foundations. The reader should quickly feel that engineering reliability comes from a continuous feedback loop around uncertain AI components. Summary angle: the core of AI engineering is connecting models, data, agents, evaluation, and production into an iterative engineering loop, not mastering one model in isolation. Narrative flow: layered reveal. In a 2.35:1 frame, keep one dominant focal subject and four supporting narrative beats, each grounded in the article: a glowing model core with concise token and context symbols labeled 模型基础; clean document and structured-data streams feeding the core labeled 数据上下文; a few explicit tool paths extending from the core labeled Agent 工作流; an evaluation ring and production observation loop returning feedback to the system labeled 评测生产. Main metaphor: a luminous engineering map that unfolds from one AI system into data, tools, evaluation, and production feedback. Subject: one abstract AI application system made of a model core, data entry, tool actions, and a feedback loop, actively processing uncertain output and correcting its next action. Composition/framing: centered dominant subject with four clear paths spreading horizontally, readable wide layout, generous negative space, one focal point. Style/medium: conceptual editorial illustration combined with children's fairy-tale illustration, simple magical forms, friendly proportions, bright storybook palette, safe wonder; polished, editorial, readable, no imitation of a specific brand, studio, or living artist. Color palette: warm yellow, teal green, coral orange, deep blue-gray. Visible text policy: allow only the four short Chinese labels 模型基础, 数据上下文, Agent 工作流, 评测生产, each as a small readable label; no poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names. Constraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter. Avoid code rain, generic standing robots, neon purple-blue lighting, dense HUD overlays, and a multi-panel poster layout."
+}
