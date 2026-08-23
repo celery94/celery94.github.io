@@ -1,0 +1,58 @@
+{
+  "article_title": "C# 异步流水线：顺序等待、取消与完成",
+  "cover_type": "tutorial",
+  "core_theme": "用 Task 和 await 把三个有依赖的 I/O 阶段串成顺序流水线，并让取消、完成和资源释放都有明确归属。",
+  "reader_takeaway": "读者能照着写出可运行的文档导入流水线，并用返回的 Task 表示完成、传播同一个 CancellationToken、在所有权边界释放资源。",
+  "summary_angle": "把依赖顺序、同一取消令牌和返回任务压成一条从左到右流动的机械传送链路。",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "加载文档、规范化内容、写入文件必须按依赖顺序执行，一个阶段的输出是下一个阶段的输入。",
+      "visual_idea": "一张文档登记卡从左端进入，沿主干通过三个黄铜机械处理站，站与站之间的连接线上有明确的 1、2、3 顺序。",
+      "visible_label": "顺序依赖",
+      "numeric_fact": "1/2/3"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "同一个 CancellationToken 被传入加载、读取、规范化和写入边界，任何一层丢失令牌都会让取消停留在半程。",
+      "visual_idea": "一条连续的蒸汽压力管贯穿三个处理站，管上的同一个小阀门控制各站是否停止。",
+      "visible_label": "同一取消"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "RunAsync 返回的 Task 代表整次流水线执行，完成、取消和异常都通过这一个任务被调用方观察。",
+      "visual_idea": "传送线末端只连接一个圆形任务仪表，旁边没有散落状态灯或额外完成按钮。",
+      "visible_label": "一个任务"
+    }
+  ],
+  "main_metaphor": "把异步导入比作一条手工机械传送线：文档卡依次经过加载、规范化、写入三站，一条公共阀门管负责控制每站的取消请求。",
+  "primary_subject": "一张从左端进入传送线的文档登记卡",
+  "subject_action": "依次通过三个黄铜机械处理站，并由一条连续的阀门管控制取消。",
+  "composition": "轻微斜向推进",
+  "base_style": "editorial technical illustration",
+  "selected_style": "蒸汽朋克风",
+  "selected_style_prompt_descriptor": "steampunk adventure illustration, brass mechanisms, gears, goggles, warm industrial light, handcrafted machinery",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；手工机械传送链适合表达依赖顺序和明确所有权。",
+  "style_safety_note": "蒸汽朋克风在此作为泛化视觉类型，不涉及具体品牌、工作室或在世艺术家复刻。",
+  "allowed_visible_text": ["顺序依赖", "同一取消", "一个任务", "1/2/3"],
+  "color_palette": ["Warm brass", "Deep teal", "Charcoal", "Cream"],
+  "avoid": [
+    "通用机器人站姿",
+    "真实仪表盘",
+    "代码截图",
+    "伪造终端输出",
+    "架构图节点名",
+    "霓虹高楼",
+    "代码雨",
+    "过多 HUD 浮层"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "先确认一条清晰的三站传送线、一个主焦点和三个中文短标签是否可读。",
+  "revision_targets": [
+    "让文档登记卡和三个处理站成为唯一焦点",
+    "降低机械装饰密度，避免像场景海报",
+    "让公共阀门和末端单任务仪表保持简单可懂"
+  ],
+  "final_prompt": "Use case: infographic-story. Asset type: wide cover infographic illustration for a Chinese tech blog article. Primary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: a sequential C# async pipeline where each stage depends on the previous stage, one cancellation token is propagated to every cancellable boundary, and one returned Task represents completion. The reader should quickly feel that dependency order, cooperative cancellation, and completion ownership stay explicit. Summary angle: compress dependency order, one shared cancellation token, and one completion task into a left-to-right handcrafted machinery transfer line. Narrative flow: 3-beat process. In a 2.35:1 frame, keep one dominant focal subject and 3 supporting narrative beats. Each beat must map to the article's information blocks rather than generic decoration. Information blocks: (1) problem: a document card enters from the left and passes through three brass processing stations in sequence, with small markers 1/2/3 on the connecting line; visible label '顺序依赖'. (2) mechanism: one continuous steam-pressure valve pipe runs through all three stations and controls whether each station may stop; visible label '同一取消'. (3) takeaway: at the end of the line, only one circular task meter receives the completion signal; visible label '一个任务'. Main metaphor: the async import is a handcrafted mechanical transfer line where a document card passes through load, normalize, and write stations, and a common valve pipe handles cancellation. Subject: one document card moving from the left through three brass mechanical stations. Composition/framing: slight diagonal progression, horizontal and radial storytelling, legible in a wide cover. Style/medium: combine editorial technical illustration with the selected visual style descriptor: steampunk adventure illustration, brass mechanisms, gears, goggles, warm industrial light, handcrafted machinery. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist. Color palette: warm brass, deep teal, charcoal, cream. Visible text policy: allow only 1-3 short Chinese labels or number chips by default, and no more than 4 when strictly necessary, all sourced from the information blocks. Each label <= 6 Chinese characters or one required product/model name. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names. Constraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter. Avoid: generic robot poses, real dashboards, code screenshots, fake terminal output, architecture node names, neon skyscrapers, code rain, excessive HUD overlays."
+}
