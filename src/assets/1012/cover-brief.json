@@ -1,0 +1,57 @@
+{
+  "article_title": "Azure AI Search 向量查询：.NET 直连检索模型",
+  "cover_type": "tutorial",
+  "core_theme": "用 Azure.Search.Documents 12 的稳定 API，把查询向量、索引字段和检索证据放进一次可解释的直连向量查询。",
+  "reader_takeaway": "读者能按同一嵌入模型、正确字段、元数据过滤和分数含义排查检索结果，并看懂三类失败分别从哪里修。",
+  "summary_angle": "把「同一嵌入空间、指定向量字段、保留来源证据」压成一条清晰的检索链路；封面避免渲染泛科技氛围。",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "contract",
+      "source_anchor": "查询向量必须与索引字段同维度、同嵌入模型，模型或维度变化需要重索引。",
+      "visual_idea": "两串同尺寸的波点向量从左右进入同一个雕花槽位，槽位用细蕾丝纹和柔光勾勒。",
+      "visible_label": "同模型",
+      "numeric_fact": "1536"
+    },
+    {
+      "role": "step",
+      "source_anchor": "VectorizedQuery 接收 ReadOnlyMemory<float>，KNearestNeighborsCount 设 top hits，Fields 指定字段名。",
+      "visual_idea": "一把发光的向量钥匙命中唯一的字段插槽，旁边出现几枚近邻卡片。",
+      "visible_label": "指定字段"
+    },
+    {
+      "role": "evidence",
+      "source_anchor": "保留 chunk ID、SourceUri、TenantId 等元数据，Score 只作为排序证据而非置信度。",
+      "visual_idea": "每张近邻卡片带小型来源标签，分数只用于说明位置关系。",
+      "visible_label": "保留证据"
+    }
+  ],
+  "main_metaphor": "把向量检索看作一把由嵌入模型签发的钥匙，必须插进同一锁具的专用槽位，并带走带来源标签的结果。",
+  "primary_subject": "一只嵌在华丽技术容器中的发光向量钥匙",
+  "subject_action": "进入唯一的索引字段槽位，并引出一组带来源标签的近邻文档。",
+  "composition": "单点聚焦 + 轻微斜向推进",
+  "base_style": "editorial technical illustration",
+  "selected_style": "洛丽塔幻想风",
+  "selected_style_prompt_descriptor": "ornate fantasy fashion illustration, lace-like detail, dollhouse elegance, soft magical palette, controlled decorative density",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；用精致的装饰化技术物件表达检索合同的严谨。",
+  "style_safety_note": "洛丽塔幻想风在此作为泛化视觉类型，不涉及具体品牌、工作室或在世艺术家复刻。",
+  "allowed_visible_text": ["同模型", "指定字段", "保留证据", "1536"],
+  "color_palette": ["Deep navy", "Dusk lavender", "Pearl ivory", "Soft gold"],
+  "avoid": [
+    "真实仪表盘",
+    "伪造坐标轴",
+    "架构图节点名",
+    "通用机器人",
+    "霓虹高楼",
+    "代码雨",
+    "过多 HUD 浮层"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "先确认一个主焦点、三块叙事信息和中文短标签是否清楚可读。",
+  "revision_targets": [
+    "让向量钥匙和字段槽位成为唯一焦点",
+    "降低装饰密度，避免像服装或娃娃海报",
+    "确保短标签与数字不变成句子"
+  ],
+  "final_prompt": "Use case: infographic-story. Asset type: wide cover infographic illustration for a Chinese tech blog article. Primary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: Azure AI Search direct vector query with the stable Azure.Search.Documents SDK. The reader should quickly feel that a query vector must use the same embedding space as the index field, target one exact vector field, and retain metadata that explains each result. Summary angle: compress same-embedding contract, named vector field, and source evidence into one clear retrieval path. Narrative flow: 3-beat process. In a 2.35:1 frame, keep one dominant focal subject and 3 supporting narrative beats. Each beat must map to the article's information blocks rather than generic decoration. Information blocks: (1) contract: two matching dot-vector sequences entering the same ornate field slot; visible label '同模型'; numeric fact 1536. (2) step: a glowing vector key hits the one named field slot and leads to several neighbor cards; visible label '指定字段'. (3) evidence: each neighbor card carries a small source tag, and a subtle score marker only indicates position; visible label '保留证据'. Main metaphor: the query vector is a key issued by the embedding model and must enter the dedicated slot of the same lock, returning source-tagged documents. Subject: one ornate vector key in a technical container, entering the unique field slot. Composition/framing: single-point focus with a slight diagonal progression, legible in a wide cover. Style/medium: combine editorial technical illustration with the selected visual style descriptor: ornate fantasy fashion illustration, lace-like detail, dollhouse elegance, soft magical palette, controlled decorative density. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist. Color palette: deep navy, dusk lavender, pearl ivory, soft gold. Visible text policy: allow only 1-3 short Chinese labels or number chips by default, and no more than 4 when strictly necessary, all sourced from the information blocks. Each label <= 6 Chinese characters or one required product/model name. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names. Constraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter. Avoid: real dashboards, fake chart axes, architecture node names, generic robots, neon skyscrapers, code rain, excessive HUD overlays."
+}
