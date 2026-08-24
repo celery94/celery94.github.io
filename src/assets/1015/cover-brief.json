@@ -1,0 +1,67 @@
+{
+  "article_title": "Agent Harness 是什么？模型之外的运行环境",
+  "cover_type": "architecture",
+  "core_theme": "Agent harness 是模型的运行环境，由系统提示词、工具、agentic loop 与模型转换层组成",
+  "reader_takeaway": "能拆解 agent 的四个组成部分，并理解模型可更换与本地运行带来的控制权",
+  "summary_angle": "把模型装进一副模块化安全装备中，装备提供规则、工具、循环与换模型能力",
+  "narrative_flow": "layered reveal",
+  "information_blocks": [
+    {
+      "role": "mechanism",
+      "source_anchor": "系统提示词每轮注入，用于约束模型行为，位于模型外部且可修改",
+      "visual_idea": "装备中央的发光指令芯片，代表规则",
+      "visible_label": "规则",
+      "numeric_fact": ""
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "工具是 harness 描述并提供的能力，模型自行决定何时调用",
+      "visual_idea": "侧挂的搜索、代码与邮件模块",
+      "visible_label": "工具",
+      "numeric_fact": ""
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "模型理解任务、调用工具、检查结果，再决定继续或结束",
+      "visual_idea": "围绕主体的环形箭头，表示 agentic loop",
+      "visible_label": "循环",
+      "numeric_fact": ""
+    },
+    {
+      "role": "contrast",
+      "source_anchor": "转换层用统一接口连接不同模型供应方，可在循环内切换模型",
+      "visual_idea": "右侧一组可替换的模型插槽与连接端口",
+      "visible_label": "换模型",
+      "numeric_fact": ""
+    }
+  ],
+  "main_metaphor": "把 Agent harness 画成一副可调整、可插件的模块化安全装备",
+  "primary_subject": "中央模型核心与环绕它的 harness 框架",
+  "subject_action": "模型核心被框架固定，四个模块沿着等距结构插入对应位置",
+  "composition": "等距空间 / 层级式关系",
+  "base_style": "isometric conceptual systems scene",
+  "selected_style": "像素复古风",
+  "selected_style_prompt_descriptor": "retro pixel-art inspired illustration, blocky forms, limited palette, old game composition cues, readable wide layout",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中像素复古风",
+  "style_safety_note": "泛类型描述，不涉及品牌、工作室或艺术家仿冒",
+  "allowed_visible_text": ["规则", "工具", "循环", "换模型"],
+  "color_palette": ["深石板蓝", "暖橙", "青色", "米白"],
+  "avoid": [
+    "真实系统图界面",
+    "仪表盘",
+    "图表坐标轴",
+    "悬浮芯片",
+    "正文标题",
+    "英文长标签",
+    "水印",
+    "代码雨"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证四组件、等距构图与主焦点是否清晰可读",
+  "revision_targets": [
+    "减少面板细节",
+    "强化中央模型主体",
+    "让四个中文短标签清楚可读"
+  ],
+  "final_prompt": "Use case: infographic-story. Asset type: wide cover infographic illustration for a Chinese tech blog article. Primary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: Agent harness is the operating environment around an AI model, combining system prompt, tools, agentic loop, and model translation layer. The reader should quickly feel that an agent is model plus a modular harness. Summary angle: put the model inside a modular safety harness with slots for rules, tools, loop, and model switching. Narrative flow: layered reveal. In a 2.35:1 frame, keep one dominant focal subject and four supporting narrative beats. Main metaphor: a modular technical safety harness adapted from the climbing-harness idea. Subject: central glowing model core held by an isometric modular framework, with four modules plugged into it. Composition/framing: isometric spatial arrangement with one central focus and a structured hierarchy, staying legible in a wide cover. Style/medium: combine isometric conceptual systems scene with the selected visual style descriptor: retro pixel-art inspired illustration, blocky forms, limited palette, old game composition cues, readable wide layout. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist. Color palette: deep slate blue, warm orange, cyan, off-white. Visible text policy: allow only four short simplified Chinese label chips: 规则, 工具, 循环, 换模型. Each label is short and source-grounded. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names. Constraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter. Avoid: real interface screenshots, dashboards, chart axes, floating chips, article title text, English long labels, code rain, generic robot pose."
+}
