@@ -1,0 +1,67 @@
+{
+  "article_title": "Agent 成本高，先查 Harness",
+  "cover_type": "architecture",
+  "core_theme": "Agent 的 token 成本由模型外的 Harness 运行时上下文和调用方式共同决定",
+  "reader_takeaway": "理解延迟加载、结果卸载、子代理、Code Mode 与上下文压缩如何减少重复上下文",
+  "summary_angle": "Agent 成本高时，真正需要先检查的是运行时如何搬运上下文，而不是只更换模型",
+  "narrative_flow": "layered reveal",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "Why the same task can cost three times more：50,000 token 结果在 16 次调用中被重复读取",
+      "visual_idea": "一条输入模型的长数据流在运行时被分流，重复搬运形成沉重尾部",
+      "visible_label": "重复上下文",
+      "numeric_fact": "50K"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "What TrueForge loads before the run starts 与 What happens during the run：按需发现工具、卸载大结果、子代理隔离、Code Mode",
+      "visual_idea": "中心 Harness 管道连接四个轻量分支：延迟加载、文件卸载、子代理、代码处理",
+      "visible_label": "按需加载",
+      "numeric_fact": "4"
+    },
+    {
+      "role": "evidence",
+      "source_anchor": "Benchmarks：TrueForge 与 Claude Managed Agents 使用同一模型时分别为 3.7M 与 10.0M token",
+      "visual_idea": "同一条任务流在右侧汇聚为短而清晰的 token 流，强调运行时带来的差异",
+      "visible_label": "2.7×",
+      "numeric_fact": "2.7×"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "Why the sandbox never holds your credentials：凭据留在 Harness，沙箱处理代码与文件",
+      "visual_idea": "锁形凭据停留在服务端一侧，沙箱只接收受控工具结果",
+      "visible_label": "凭据隔离"
+    }
+  ],
+  "main_metaphor": "一座把大数据流切分、压缩并分发给多个工作单元的运行时控制塔",
+  "primary_subject": "围绕模型循环的 Agent Harness 控制塔与数据管道",
+  "subject_action": "将重复上下文分流到文件、子代理和代码处理路径，同时把凭据锁在服务端",
+  "composition": "等距空间中的单点主控塔，左侧是膨胀的原始数据流，右侧是更短的摘要流，周围布置 3-4 个模块化分支",
+  "base_style": "isometric conceptual systems scene",
+  "selected_style": "吉卜力动画风",
+  "selected_style_prompt_descriptor": "warm hand-drawn animation feeling, natural environments, gentle fantasy everyday mood, soft painterly backgrounds, no studio imitation",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中",
+  "style_safety_note": "最终 prompt 只使用温暖手绘动画、自然环境和柔和绘画质感等泛化描述，不指向具体工作室或作品",
+  "allowed_visible_text": ["重复上下文", "按需加载", "2.7×", "凭据隔离"],
+  "color_palette": ["深蓝灰", "暖米色", "青绿色", "低饱和橙色"],
+  "avoid": [
+    "真实产品界面",
+    "真实仪表盘",
+    "伪造图表坐标轴",
+    "伪造架构节点名称",
+    "长标题和英文口号",
+    "水印",
+    "无意义代码雨",
+    "通用机器人",
+    "漂浮芯片和过量 HUD"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "先确认单一 Harness 主焦点、左右 token 流对比和四个机制分支在宽幅画面中清楚可读",
+  "revision_targets": [
+    "减少装饰元素，保留一个主控塔",
+    "让左侧重复上下文流明显长于右侧摘要流",
+    "确保可见文字只有 brief 中批准的短标签"
+  ],
+  "final_prompt": "Use case: infographic-diagram. Asset type: wide cover illustration for a Chinese technology blog article. Primary request: create a wide 2.35:1 editorial architecture illustration explaining why an AI agent can spend too many tokens and how an Agent Harness reduces repeated context. Theme: token cost is shaped by the runtime layer around the model. Reader takeaway: delayed loading, large-result offloading, subagent isolation, Code Mode, and compaction keep the model context smaller and protect credentials. Summary angle: when an agent is expensive, inspect how the runtime carries context before changing the model. Narrative flow: layered reveal. Main subject: one dominant isometric Harness control tower surrounding a small model-loop core, routing a large noisy data stream through several controlled paths. Left side: an oversized tangled stream labeled only with the short Chinese chip 重复上下文 and the number chip 50K, showing repeated payload weight. Center: the Harness tower with a few clean, abstract modules, one short Chinese chip 按需加载, and small numbered markers 1 2 3 4 for source-grounded mechanisms. Right side: a shorter organized summary stream with the chip 2.7×, visually showing less repeated material. A small locked credential symbol stays on the server side while a separate sandbox module handles files and code, labeled 凭据隔离. Composition: one focal tower in isometric space, horizontal left-to-right flow, 2-4 supporting narrative beats, generous negative space, readable wide layout. Style/medium: combine isometric conceptual systems scene with warm hand-drawn animation feeling, natural environments, gentle fantasy everyday mood, soft painterly backgrounds, no studio imitation. Use mature editorial clarity, restrained detail, soft paper texture, deep blue-gray, warm cream, teal green, and muted orange accents. Visible text policy: allow only the four approved short Chinese labels 重复上下文, 按需加载, 2.7×, 凭据隔离, plus the number 50K and markers 1 2 3 4; no poster title, no long sentences, no English slogans. Constraints: one clear focal subject, source-grounded conceptual relationships, no real product screenshot, no dashboard, no fake chart axes, no fake architecture node names, no fabricated metrics beyond 50K and 2.7×, no watermark, no prompt residue, no unrelated icon collage, no decorative clutter, no floating chips, no code rain, no generic robot, no excessive HUD, no imitation of a specific brand, studio, or living artist."
+}
