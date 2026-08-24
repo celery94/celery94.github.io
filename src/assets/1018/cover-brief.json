@@ -1,0 +1,61 @@
+{
+  "article_title": ".NET 用 AVX-512 加速 IPv4 解析",
+  "cover_type": "research",
+  "core_theme": "用 AVX-512 SIMD 快路径解析常见 IPv4 点分十进制字符串",
+  "reader_takeaway": "读者能理解 UTF-16 输入、masked load、81 种点位布局和标准库回退如何共同构成高性能解析器",
+  "summary_angle": "把一串看似简单的 IPv4 文本拆成 UTF-16 字符、点位掩码和四段数字，经过向量化处理后汇入一个可靠的 IP 地址结果",
+  "narrative_flow": "layered reveal",
+  "information_blocks": [
+    {
+      "role": "mechanism",
+      "source_anchor": "原文关于 .NET 10、AVX-512 masked load 与 UTF-16 的段落",
+      "visual_idea": "左侧将 UTF-16 字符流穿过带遮罩的向量闸门，只让有效字符进入",
+      "visible_label": "AVX-512",
+      "numeric_fact": ""
+    },
+    {
+      "role": "evidence",
+      "source_anchor": "原文关于 81 种点位布局与查表重排的段落",
+      "visual_idea": "中央把四段数字和三个发光分隔点排列成少量固定布局，汇成一个向量核心",
+      "visible_label": "81",
+      "numeric_fact": "81"
+    },
+    {
+      "role": "contrast",
+      "source_anchor": "原文 Xeon Gold 6548N、.NET 10 基准表",
+      "visual_idea": "右侧用两条速度轨迹对照标准库与 SIMD 快路径，最后都回到可靠的 IP 地址结果",
+      "visible_label": "3x",
+      "numeric_fact": "3x"
+    }
+  ],
+  "main_metaphor": "一座带蕾丝装饰的向量闸门，把 UTF-16 字符流编织成四段 IPv4 数值",
+  "primary_subject": "一个中央发光的 SIMD IPv4 解析器核心",
+  "subject_action": "解析器用遮罩筛选字符、重排点位布局，并把多条输入线汇入一个 IP 地址晶体",
+  "composition": "宽幅水平推进，左侧字符流与遮罩闸门，中部为唯一主焦点，右侧为四段数字与两条速度轨迹",
+  "base_style": "abstract technical concept art",
+  "selected_style": "洛丽塔幻想风",
+  "selected_style_prompt_descriptor": "ornate fantasy fashion illustration, lace-like detail, dollhouse elegance, soft magical palette, controlled decorative density",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中",
+  "style_safety_note": "使用蕾丝、玩偶屋式精致结构和柔和幻想色彩表达泛类型风格，不模仿具体品牌、工作室或艺术家",
+  "allowed_visible_text": ["AVX-512", "81", "3x"],
+  "color_palette": ["deep navy", "ivory", "rose pink", "cool cyan"],
+  "avoid": [
+    "真实 IDE 截图",
+    "长段代码",
+    "伪造图表",
+    "伪造终端输出",
+    "通用机器人",
+    "浮动芯片",
+    "霓虹紫蓝污染",
+    "水印",
+    "海报标题"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮验证向量闸门、点位布局和速度对照能否在宽幅画面中保持一个清晰主焦点",
+  "revision_targets": [
+    "减少装饰性蕾丝密度",
+    "确保字符流到 IP 结果的方向清楚",
+    "保留 81 与 3x 两个短数字标签但不做成真实图表"
+  ],
+  "final_prompt": "Use case: infographic-story. Asset type: wide cover illustration for a Chinese technical blog article, aspect ratio 2.35:1. Primary request: create a polished abstract technical concept art cover about parsing common IPv4 dotted-decimal text with C# and AVX-512. Theme: UTF-16 characters become validated IPv4 bytes through a masked SIMD path. Reader takeaway: understand masked load, 81 delimiter layouts, vector validation, and the fallback to the standard library. Summary angle: a simple IPv4 string is decomposed into UTF-16 lanes, delimiter masks, and four numeric octets, processed in parallel, then converges into one reliable IP address result. Narrative flow: layered reveal from left to right. Keep one dominant focal subject and three source-grounded beats: an AVX-512 masked gate selecting valid UTF-16 characters, 81 delimiter layouts resolving into one vector arrangement, and a 3x speed contrast that ends in a correct IP address crystal. Main metaphor: an ornate vector gate with lace-like mechanical details weaving a stream of characters into four IPv4 octets. Primary subject: one glowing SIMD IPv4 parser core at the center. Subject action: the core masks incoming characters, rearranges delimiter positions, validates digits, and sends one luminous address result to the right. Composition/framing: wide horizontal progression with input text streams on the left, one central focal parser core, four numeric octet beads and two restrained speed trails on the right; ample negative space, no collage, no real chart. Style/medium: abstract technical concept art combined with ornate fantasy fashion illustration, lace-like detail, dollhouse elegance, soft magical palette, controlled decorative density; precise, elegant, editorial, readable, no imitation of any brand, studio, or living artist. Color palette: deep navy, ivory, rose pink, cool cyan. Allow only these short visible labels: AVX-512, 81, 3x; no poster title, no long captions, no English slogans, no fake UI labels, no fake chart axes, no fake terminal output, no fake architecture node names. Constraints: one clear focal subject, three supporting narrative beats, wide 2.35:1 composition, source-grounded visual logic, no implication that the benchmark is universal. Avoid IDE screenshots, long code blocks, fake charts, fake terminal output, fabricated metrics, generic robots, floating chips, neon purple-blue overload, unrelated icon collage, decorative clutter, watermark, and prompt residue."
+}
