@@ -1,0 +1,65 @@
+{
+  "article_title": ".NET 数据格式与查询语言速查",
+  "cover_type": "analysis",
+  "core_theme": "数据的形状决定适合它的查询语言和 .NET 工具",
+  "reader_takeaway": "读者能根据数据形状判断查询应发生在数据源还是 C# 内存对象中",
+  "summary_angle": "同一条筛选语句穿过平面文本、关系表、树、文档和对象时，会换用不同的语言；LINQ 是共同终点，也有清晰边界",
+  "narrative_flow": "layered reveal",
+  "information_blocks": [
+    {
+      "role": "contrast",
+      "source_anchor": "原文 CSV 与关系数据库章节",
+      "visual_idea": "左侧用平面行列与关系表形成对照，分别通向解析和 SQL 的路径",
+      "visible_label": "CSV / SQL",
+      "numeric_fact": ""
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文 XML、JSON、文档数据库与图数据章节",
+      "visual_idea": "中央展示树、JSON 文档和关系节点三种不同形状，突出各自的导航方向",
+      "visible_label": "JSON",
+      "numeric_fact": ""
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文 Objects in Memory 章节",
+      "visual_idea": "右侧让不同数据形状汇入一个清晰的 C# 对象，再由查询线条汇总",
+      "visible_label": "LINQ",
+      "numeric_fact": ""
+    }
+  ],
+  "main_metaphor": "不同形状的数据像一组相连的房间，查询语言是穿过各个房间的路径，最后汇入内存对象",
+  "primary_subject": "一枚由数据形状组成的立体查询罗盘",
+  "subject_action": "罗盘把平面、树、文档和关系结构导向不同的查询路径，再汇入 LINQ",
+  "composition": "宽幅左右推进，左侧呈现多种数据形状，中部为主焦点，右侧收束到一个 C# 对象",
+  "base_style": "conceptual editorial illustration",
+  "selected_style": "暗黑哥特风",
+  "selected_style_prompt_descriptor": "dark gothic illustration, pointed arches, lace shadows, candlelit contrast, ornate black shapes, restrained horror mood",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中",
+  "style_safety_note": "保留暗黑哥特的建筑轮廓、烛光和黑色装饰语汇，不模仿具体品牌、工作室或艺术家",
+  "allowed_visible_text": ["CSV / SQL", "JSON", "LINQ"],
+  "color_palette": [
+    "charcoal black",
+    "aged parchment",
+    "muted teal",
+    "warm amber"
+  ],
+  "avoid": [
+    "海量代码雨",
+    "通用机器人",
+    "真实 IDE 截图",
+    "仪表盘",
+    "虚假图表",
+    "霓虹紫蓝污染",
+    "长标题",
+    "水印"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮验证数据形状到查询路径的叙事是否清晰，确保宽幅画面只有一个主焦点",
+  "revision_targets": [
+    "减少无关装饰",
+    "让 CSV、JSON、LINQ 三个短标签清晰但不变成海报",
+    "强化右侧汇入内存对象的收束感"
+  ],
+  "final_prompt": "Use case: infographic-story. Asset type: wide cover illustration for a Chinese technology blog article, aspect ratio 2.35:1. Primary request: create a polished conceptual editorial illustration about .NET data formats and query languages. Theme: the shape of data determines how it should be navigated. Reader takeaway: recognize whether a query belongs in the data source or in C# memory objects. Summary angle: flat text, relational tables, XML trees, JSON documents, graph relationships, and in-memory objects each create a different route; LINQ is a common destination with clear execution boundaries. Narrative flow: layered reveal from left to right. Keep one dominant focal subject and three source-grounded beats: flat rows versus relational tables, tree/document/relationship shapes, and different inputs converging into a clean C# object with LINQ. Main metaphor: a sculptural query compass made from data shapes, guiding paths through connected rooms. Primary subject: one dimensional query compass with a central C# object core, visibly guiding the paths. Subject action: the compass routes each data shape toward its native navigation style and then converges into LINQ. Composition/framing: wide horizontal progression, left-side data shapes, central focal compass, right-side convergence into one object; ample negative space, readable silhouette, no collage. Style/medium: conceptual editorial illustration combined with dark gothic illustration, pointed arches, lace shadows, candlelit contrast, ornate black shapes, restrained horror mood; polished, precise, restrained, no imitation of any brand, studio, or living artist. Color palette: charcoal black, aged parchment, muted teal, warm amber. Allow only these short visible labels: CSV / SQL, JSON, LINQ; no poster title, no long captions, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names. Constraints: one clear focal subject, three supporting narrative beats, wide 2.35:1 composition, editorial technology illustration, source-grounded visual logic. Avoid code rain, generic robots, IDE screenshots, dashboards, fake diagrams, fake charts, fake terminal output, fabricated metrics, unrelated icon collage, neon purple-blue overload, decorative clutter, watermark, prompt residue."
+}
