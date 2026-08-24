@@ -1,0 +1,69 @@
+{
+  "article_title": "Staff 工程师如何发现值得解决的问题",
+  "cover_type": "analysis",
+  "core_theme": "通过吸收真实困难、让问题积累、寻找共同形状并验证假设，发现值得投入的问题",
+  "reader_takeaway": "理解 Staff 工程师的选题过程，并知道如何从散落请求中识别共同需求",
+  "summary_angle": "把看似无关的请求汇成一个共同形状，再通过验证闸门决定是否投入",
+  "narrative_flow": "conflict-to-resolution",
+  "information_blocks": [
+    {
+      "role": "step",
+      "source_anchor": "作者在会议、聊天、演示和邮件中吸收困难，并追问真实目标",
+      "visual_idea": "左侧散落的便签与连线，代表日常听到的问题",
+      "visible_label": "倾听",
+      "numeric_fact": ""
+    },
+    {
+      "role": "evidence",
+      "source_anchor": "让问题积累，等待同一问题重复出现并收集更多证据",
+      "visual_idea": "叠放的卡片和隐约的时间指针，表示等待",
+      "visible_label": "积累",
+      "numeric_fact": ""
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "Perfetto 团队的不同小请求最后归结为扩展 UI 的共同需求",
+      "visual_idea": "多条线索汇聚成一个醒目的共同形状",
+      "visible_label": "找共性",
+      "numeric_fact": ""
+    },
+    {
+      "role": "step",
+      "source_anchor": "低风险直接做，不确定先原型，大想法先写 RFC 和沟通验证",
+      "visual_idea": "共同形状穿过右侧的验证闸门",
+      "visible_label": "先验证",
+      "numeric_fact": ""
+    }
+  ],
+  "main_metaphor": "把散落的线索织成一张网，最后收束成一个需要验证的共同形状",
+  "primary_subject": "中央由线索汇聚形成的发光共同形状",
+  "subject_action": "线索从四角汇聚到中央，形成完整形状后穿过一道验证闸门",
+  "composition": "单点聚焦 / 汇聚式构图",
+  "base_style": "conceptual editorial illustration",
+  "selected_style": "悬疑惊悚风",
+  "selected_style_prompt_descriptor": "suspense thriller comic mood, low-key lighting, sharp shadows, uneasy framing, controlled tension without gore",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中悬疑惊悚风",
+  "style_safety_note": "使用低照度、锐利阴影和克制紧张感，不包含血腥或恐怖内容",
+  "allowed_visible_text": ["倾听", "积累", "找共性", "先验证"],
+  "color_palette": ["米白", "深墨蓝", "暖橙", "苔绿"],
+  "avoid": [
+    "真实产品截图",
+    "仪表盘",
+    "信息图芯片堆叠",
+    "对白气泡",
+    "血红色",
+    "怪诞形象",
+    "文字海报",
+    "英文长标签",
+    "水印",
+    "代码雨"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证线索汇聚、共同形状和验证闸门是否能概括文章方法",
+  "revision_targets": [
+    "减少面板细节",
+    "强化中央共同形状",
+    "让四个中文短标签清楚可读"
+  ],
+  "final_prompt": "Use case: infographic-story. Asset type: wide cover infographic illustration for a Chinese tech blog article. Primary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: a staff engineer finds useful work by absorbing real problems, letting them accumulate, finding a common shape, and pressure-testing before investing. The reader should quickly feel that scattered requests converge into one verified shared need. Summary angle: turn unrelated requests into one common shape, then pass it through a validation gate. Narrative flow: conflict-to-resolution. In a 2.35:1 frame, keep one dominant focal subject and four supporting narrative beats. Information blocks: listen to daily difficulties, let signals accumulate, discover the common shape behind Perfetto UI requests, then validate before building. Main metaphor: threads of scattered notes weave into one luminous shape that passes through a gate. Subject: central glowing common shape formed by converging thread-like signal lines, with four small labeled points at the edges. Composition/framing: single-point radial convergence, one strong focal subject, legible in a wide cover. Style/medium: combine conceptual editorial illustration with the selected visual style descriptor: suspense thriller comic mood, low-key lighting, sharp shadows, uneasy framing, controlled tension without gore. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist. Color palette: off-white, deep ink blue, warm orange, moss green. Visible text policy: allow only four short simplified Chinese label chips: 倾听, 积累, 找共性, 先验证. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names. Constraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter. Avoid: real product screenshots, dashboard style, stacked chips, speech bubbles, blood red, grotesque figures, text poster, English long labels, code rain, watermarks."
+}
