@@ -1,0 +1,64 @@
+{
+  "article_title": "C# 生成发票 PDF 全流程教程（.NET 10）",
+  "cover_type": "tutorial",
+  "core_theme": ".NET 10 中用 HTML 模板加渲染引擎生成多页发票 PDF，打印 CSS 分页规则决定成品是否成立",
+  "reader_takeaway": "照着实现一个表头重复、货币按发票格式化、页码正确且不阻塞请求线程的 PDF 端点",
+  "summary_angle": "屏幕上的完美模板翻到第二页就崩坏：表头消失、列宽错位；真正起作用的是 @page、break-inside 等打印规则和渲染器设置",
+  "narrative_flow": "conflict-to-resolution",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "原文「What does the model always get wrong?」：模型生成的模板缺少真实 @page 规则，46 行明细跨页后第二页表头消失、列宽塌陷，发票从两页变三页",
+      "visual_idea": "一张 A4 发票的第二页卷边露出：表格没有表头行、列错位，纸张边缘微微撕裂",
+      "visible_label": "第二页崩坏",
+      "numeric_fact": "46 行"
+    },
+    {
+      "role": "contrast",
+      "source_anchor": "原文「What does the model always get wrong?」与「How do I build an invoice template that survives printing?」：@page 边距、break-inside: avoid、tabular-nums 三条规则让表头重复、行不跨页、金额列对齐",
+      "visual_idea": "三条打印规则被画成彩色铅笔写在页面边缘的清单，旁边是恢复完好的深色表格表头",
+      "visible_label": "打印 CSS",
+      "numeric_fact": ""
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文「How do I add page numbers」与「How do I format currency correctly」：页码由渲染器在分页后替换 {page} 与 {total-pages}；金额用 ToString(\"C\", culture) 按发票货币格式化",
+      "visual_idea": "页脚处清晰显示 Page 1 of 2，金额符号 £ 与数字列成行对齐",
+      "visible_label": "页码 货币",
+      "numeric_fact": ""
+    }
+  ],
+  "main_metaphor": "一份发票从屏幕走进打印纸：屏幕预览是第一页的完美表象，翻到第二页才暴露打印规则的真实缺口，彩色铅笔线条像说明书一样补上缺口",
+  "primary_subject": "一张深色表头的 A4 发票纸，正被翻开到第二页",
+  "subject_action": "发票纸被翻起一角，第二页上部是修复后重复显示的深色表头，页面边缘用彩色铅笔标注三条打印规则",
+  "composition": "左右对照",
+  "base_style": "editorial technical illustration",
+  "selected_style": "彩铅绘本风",
+  "selected_style_prompt_descriptor": "colored-pencil picture-book illustration, tactile strokes, gentle palette, warm narrative objects, soft educational tone",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；彩铅手绘质感适合把「打印规则」画成可读的教程说明，与教程类型的 editorial technical illustration 基础风格互补",
+  "style_safety_note": "彩铅绘本风为泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["第二页崩坏", "打印 CSS", "页码 货币"],
+  "color_palette": [
+    "深墨蓝 #1f2430",
+    "纸米白 #f7f3ea",
+    "珊瑚红 #c25a4a",
+    "石墨灰 #4a4a4a"
+  ],
+  "avoid": [
+    "代码雨",
+    "霓虹光",
+    "HUD 浮层",
+    "真实网页截图感",
+    "电脑显示器特写",
+    "漂浮芯片",
+    "人物"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证「发票第二页 + 表头缺失对照 + 彩色铅笔规则说明」这一主题是否成立，主体是否一眼可读",
+  "revision_targets": [
+    "第二页崩坏的表头缺失是否清楚",
+    "彩色铅笔规则标注是否喧宾夺主",
+    "深色表头主焦点是否醒目"
+  ],
+  "final_prompt": "Use case: infographic-story. Asset type: wide cover infographic illustration for a Chinese tech blog article. Primary request: Create a wide editorial technical illustration cover that summarizes the .NET 10 invoice PDF generation tutorial. Theme: building a multi-page invoice PDF from an HTML template with print CSS. The reader should quickly feel that a screen-perfect template falls apart on page two unless print CSS (@page, break-inside, tabular-nums) and renderer settings are applied. Summary angle: the screen-perfect invoice breaks on page two; print rules are what keep headers repeating, rows together and money columns aligned. Narrative flow: conflict-to-resolution. In a 2.35:1 frame, keep one dominant focal subject and 3 supporting narrative beats. Information blocks: (1) problem: the second page of the invoice has no table header row, columns misaligned, a torn page corner, small chip \"第二页崩坏\" and the number 46 rows; (2) contrast: three print rules drawn as colored-pencil checklist notes next to the restored dark table header, small chip \"打印 CSS\"; (3) takeaway: footer shows Page 1 of 2 and GBP currency symbol £ in aligned numeric columns, small chip \"页码 货币\". Main metaphor: an invoice walking from screen onto paper: the screen preview is the perfect first page, and turning to page two reveals what print rules really fix. Subject: one A4 invoice sheet with a dark #1f2430 table header, being flipped open to the second page. Subject action: the sheet is lifted at one corner, page two shows the repeated dark header, and colored-pencil annotations at the page edge list the three print rules. Composition/framing: left-right contrast, with the screen-perfect page one on the left and the flipped page two on the right; prefer horizontal storytelling that stays legible in a wide cover. Style/medium: combine editorial technical illustration with the selected visual style descriptor: colored-pencil picture-book illustration, tactile strokes, gentle palette, warm narrative objects, soft educational tone. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist. Color palette: deep ink blue #1f2430, paper cream #f7f3ea, muted coral red #c25a4a, graphite #4a4a4a. Visible text policy: allow only 1-3 short Chinese labels or number chips, all sourced from the information blocks. Each label <= 6 Chinese characters. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names. Constraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter. Avoid: code rain, neon glow, HUD overlays, real-webpage-screenshot look, close-up computer monitor, floating chips, people."
+}
