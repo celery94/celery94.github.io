@@ -1,0 +1,64 @@
+{
+  "article_title": "ASP.NET Core 竞态条件识别与防护",
+  "cover_type": "tutorial",
+  "core_theme": "识别并发下的竞态条件（读改写、先检查后执行），用 lock、SemaphoreSlim、线程安全集合与 EF Core 乐观并发四种方案防护",
+  "reader_takeaway": "能识别两种竞态形态，并按场景选对防护方案，把「静默覆盖」变成「可处理的冲突」",
+  "summary_angle": "两个线程同时读同一数据，一个更新悄悄覆盖另一个；正确结果 80 变成 60。防护的本质是给写入加门禁——版本号守住最后一步",
+  "narrative_flow": "conflict-to-resolution",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "原文 Read-Modify-Write：两个线程同读 50，A 加 20 写回 70，B 加 10 一秒后写回 60，覆盖 A 的更新；正确结果应为 80",
+      "visual_idea": "两个机械单元同时冲进同一数据盒，左边已写入蓝色 70，右边晚一秒用红色 60 覆盖，数据带显示最终 60",
+      "visible_label": "更新丢失",
+      "numeric_fact": "60"
+    },
+    {
+      "role": "contrast",
+      "source_anchor": "原文「Avoiding Race Conditions」四节：lock、SemaphoreSlim、ConcurrentDictionary、EF Core 乐观并发，分别对应同步锁、异步限流、并发集合与数据库行级冲突",
+      "visual_idea": "数据盒前方并排四道不同颜色的防护闸门（锁、信号量、并发集合、版本号），闸门的机械警示灯依次亮起",
+      "visible_label": "四种防护",
+      "numeric_fact": ""
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文 Optimistic Concurrency：Stock=10 Version=1，A 更新为 Stock=9 Version=2 成功；B 用旧版本提交时抛出 DbUpdateConcurrencyException，放弃写入",
+      "visual_idea": "版本标签从 1 翻到 2，第二个机械单元撞上红色警示门被拦停，记录未被覆盖",
+      "visible_label": "版本号",
+      "numeric_fact": ""
+    }
+  ],
+  "main_metaphor": "两个线程像两把同时插入同一把锁的钥匙，只有持有最新版本令牌的一方能够完成写入；版本门禁把静默覆盖变成一次可捕获的冲突",
+  "primary_subject": "一台中央数据盒，两个机械单元（代表线程 A 与 B）从两侧冲向它，其中一个拿到写入权",
+  "subject_action": "左侧机械单元将本单元更新写入数据盒，右侧单元晚一步到达，被版本门禁亮起的红色警示拦停",
+  "composition": "单点聚焦",
+  "base_style": "editorial technical illustration",
+  "selected_style": "科幻机甲风",
+  "selected_style_prompt_descriptor": "science-fiction mecha concept illustration, mechanical forms, hard-surface details, cockpit-scale cues, cool industrial palette",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；机械结构与硬表面细节适合表达「线程如机械单元争夺写入权」的并发画面，与教程基础风格互补",
+  "style_safety_note": "泛科幻机甲描述，不引用具体作品、工作室或设计师",
+  "allowed_visible_text": ["更新丢失", "四种防护", "版本号", "60"],
+  "color_palette": [
+    "钢青 #3b4a5a",
+    "电蓝 #2f7fd4",
+    "警示橙 #e0762f",
+    "铝灰 #c8cdd4"
+  ],
+  "avoid": [
+    "人物",
+    "代码雨",
+    "紫蓝霓虹光污染",
+    "HUD 浮层",
+    "真实仪表盘",
+    "网页截图感",
+    "漂浮芯片"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证「两个机械单元争夺中央数据盒、一方被版本门禁拦停」主题是否成立，主焦点与三块信息是否可读",
+  "revision_targets": [
+    "版本门禁拦停是否清楚",
+    "四个防护闸门是否过于拥挤",
+    "信息 chip 是否清晰不重叠"
+  ],
+  "final_prompt": "Use case: infographic-story. Asset type: wide cover infographic illustration for a Chinese tech blog article. Primary request: Create a wide editorial technical illustration cover that summarizes the ASP.NET Core race conditions tutorial. Theme: two threads racing to read-modify-write the same shared data, and four guard approaches (lock, SemaphoreSlim, concurrent collections, optimistic concurrency with EF Core) that protect it. The reader should quickly feel that concurrent writes to shared state must be guarded, and that a version token turns a silent overwrite into a detectable conflict. Summary angle: two threads read 50 at the same time; thread A writes 70, thread B overwrites it with 60 a second later; the correct result was 80. Protection means adding gates to writes, and the version number is the last gate. Narrative flow: conflict-to-resolution. In a 2.35:1 frame, keep one dominant focal subject and 3 supporting narrative beats. Information blocks: (1) problem: two mechanical units race into the same central data box, left unit writes blue 70, right unit overwrites with red 60 one second later, small chip 更新丢失 and the number 60; (2) contrast: four differently colored guard gates in front of the data box: lock, semaphore, concurrent collection, version token, small chip 四种防护; (3) takeaway: the version tag flips from 1 to 2 and the second unit is stopped by a red warning gate so the record is not overwritten, small chip 版本号. Main metaphor: two threads like two keys inserted into the same lock, only the holder of the newest version token can complete the write. Subject: one central data box with two mecha-like machine units converging from both sides, one of them earning the write access. Subject action: the left unit writes its update into the data box, the right unit arrives late and is stopped by a red version-gate warning. Composition/framing: single focal point, box centered with two converging mechanical paths, prefer horizontal storytelling that stays legible in a wide cover. Style/medium: combine editorial technical illustration with the selected visual style descriptor: science-fiction mecha concept illustration, mechanical forms, hard-surface details, cockpit-scale cues, cool industrial palette. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist. Color palette: steel blue, electric blue, warning orange, aluminum gray. Visible text policy: allow only 1-3 short Chinese labels or number chips, all sourced from the information blocks. Each label <= 6 Chinese characters. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names. Constraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter, no people. Avoid: code rain, purple-blue neon light pollution, HUD overlays, cockpit interiors, real webpage screenshots, floating chips."
+}
