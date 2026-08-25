@@ -1,0 +1,64 @@
+{
+  "article_title": "Azure AI Search 混合检索：BM25、向量与RRF",
+  "cover_type": "tutorial",
+  "core_theme": "Azure AI Search 混合检索：BM25 词法检索与向量稠密检索并行各出一份候选，RRF 按名次融合成一份有序响应",
+  "reader_takeaway": "会写一次混合查询，理解「融合名次而非原始分数」，并能按「检索失败 vs 生成失败」边界排错",
+  "summary_angle": "两条管道并行取水——精确词与概念相似各走各的，中央融合机按名次齿轮咬合，输出单一有序候选；不要拿两份量纲不同的分数互相比较",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "step",
+      "source_anchor": "原文「Lexical candidate retrieval」：BM25 对 searchable 字段排名，错误码、具名 API、版本等精确 token 场景；示例 ERR-AUTH-4017",
+      "visual_idea": "左侧黄铜文字管道，纸带上的词条（如错误码）被齿轮挑选送入中央",
+      "visible_label": "BM25",
+      "numeric_fact": ""
+    },
+    {
+      "role": "step",
+      "source_anchor": "原文「Dense candidate retrieval」：查询嵌入在目标向量字段中找最近邻，覆盖改写与概念相似；维度必须匹配嵌入模型输出",
+      "visual_idea": "右侧泛着暖光的向量光束管道，光粒沿管壁流入中央",
+      "visible_label": "向量",
+      "numeric_fact": ""
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文「Reciprocal rank fusion」：RRF = Σ 1/(rank + k)，按位置分配贡献求和排序；教学示例 rankConstant=60；融合的是名次而非 BM25 与向量分的算术组合",
+      "visual_idea": "中央黄铜融合机内部两个刻度圆盘（代表两份名次清单）咬合成一条有序输出管道，输出端显示名次刻度",
+      "visible_label": "名次融合",
+      "numeric_fact": "60"
+    }
+  ],
+  "main_metaphor": "一座蒸汽朋克双管道工厂：文字管道与向量光管并行向中央融合机送料，融合机只认名次不认原始分数，按齿轮齿序把两份清单咬合成一条有序输出",
+  "primary_subject": "中央一台黄铜 RRF 融合机，两条管道从左右两侧汇入",
+  "subject_action": "融合机齿轮转动，两份候选清单按名次齿序咬合，从右侧输出单一有序管道",
+  "composition": "单点聚焦",
+  "base_style": "editorial technical illustration",
+  "selected_style": "蒸汽朋克风",
+  "selected_style_prompt_descriptor": "steampunk adventure illustration, brass mechanisms, gears, goggles, warm industrial light, handcrafted machinery",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；黄铜机械与齿轮意象适合表达「双管道并行、按名次咬合融合」的机械流程，与教程基础风格互补",
+  "style_safety_note": "泛蒸汽朋克描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["BM25", "向量", "名次融合", "60"],
+  "color_palette": [
+    "黄铜金 #b8863b",
+    "铁灰 #4a4a4a",
+    "暖琥珀光 #e8a34c",
+    "暖纸米 #f4ead8"
+  ],
+  "avoid": [
+    "人物",
+    "真实 UI 截图",
+    "仪表盘",
+    "代码雨",
+    "现代霓虹",
+    "HUD 浮层",
+    "漂浮芯片"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证「双管道汇入中央融合机、按名次咬合」主题是否成立，主焦点与三块信息是否可读",
+  "revision_targets": [
+    "中央融合机是否醒目",
+    "两条管道区别是否清楚",
+    "文本标签是否超出三处"
+  ],
+  "final_prompt": "Use case: infographic-story. Asset type: wide cover infographic illustration for a Chinese tech blog article. Primary request: Create a wide editorial technical illustration cover that summarizes the Azure AI Search hybrid retrieval tutorial. Theme: BM25 lexical retrieval and dense vector retrieval run in parallel, each producing one ranked candidate list, and reciprocal rank fusion merges them by rank into one ordered response. The reader should quickly feel that the two pipelines are separate and that fusion respects positions, not raw scores. Summary angle: two pipelines feed the same maker funnel — exact terms and conceptual similarity each take their own channel, and the central machine meshes them by rank position. Narrative flow: 3-beat process. In a 2.35:1 frame, keep one dominant focal subject and 3 supporting narrative beats. Information blocks: (1) step: left brass text pipeline carrying paper strips with precise terms, small chip BM25; (2) step: right warm-glowing light conduit carrying vector particles, small chip 向量; (3) takeaway: central brass fusion machine meshing two rank dials into one ordered output pipeline with a rank scale, small chip 名次融合 and the number 60. Main metaphor: a steampunk two-pipeline factory: the text pipeline and the vector light conduit feed the central fusion machine in parallel, and the machine only respects rank order. Subject: one central brass RRF fusion machine with two pipelines converging from left and right. Subject action: the fusion machine gears mesh the two ranked lists by rank order and push a single ordered pipeline out on the right. Composition/framing: single focal point, machine centered with two converging pipelines, prefer horizontal storytelling that stays legible in a wide cover. Style/medium: combine editorial technical illustration with the selected visual style descriptor: steampunk adventure illustration, brass mechanisms, gears, goggles, warm industrial light, handcrafted machinery. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist. Color palette: brass gold, iron gray, warm amber light, warm paper cream. Visible text policy: allow only 1-3 short Chinese labels or number chips, all sourced from the information blocks. Each label <= 6 Chinese characters. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names. Constraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter, no people. Avoid: code rain, modern neon, purple-blue light pollution, HUD overlays, floating chips, real webpage screenshots."
+}
