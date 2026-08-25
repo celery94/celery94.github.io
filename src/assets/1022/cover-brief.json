@@ -1,0 +1,64 @@
+{
+  "article_title": "Loop 与 Graph Engineering 不是二选一",
+  "cover_type": "analysis",
+  "core_theme": "Loop Engineering 与 Graph Engineering 的关系辨析：循环是图的节点而非替代品；应从单个 Loop 起步，按三条判据决定是否升级为图",
+  "reader_takeaway": "理解两者的包含关系，掌握「何时只用 Loop、何时上 Graph」的三条判据，不再把潮流当选择题",
+  "summary_angle": "「Loop 已死」的传闻六周内走红又过时；真实结构是 Loop 嵌入 Graph 作为节点，改名链背后的工作没有变，变的是组织方式与看得见的控制流",
+  "narrative_flow": "layered reveal",
+  "information_blocks": [
+    {
+      "role": "contrast",
+      "source_anchor": "原文「The Case That It's Just a Rebrand」：命名链 prompt→context→harness→loop→graph，同一份工作换个距离观察；中文媒体补充：Loop 走红后仅六周就被宣布过时，Steinberger 帖子约 307 万浏览",
+      "visual_idea": "一条装配线流上传送带，同一件包裹连续贴上五个不同的标签（Prompt、Context、Harness、Loop、Graph），最后一个标签撕下来露出还是那件工作",
+      "visible_label": "6 周",
+      "numeric_fact": "307 万"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文「The relationship between the two is the part the debate kept missing」：loop 是 graph 的一个节点，如同一个人做完整件事与一个分工团队的关系；图内每个节点可以是自己的 loop",
+      "visual_idea": "中央一个循环箭头（Plan/Act/Verify）作为节点，接入旁边更大的网络节点与连线中，循环符号被放大展示在画面中央",
+      "visible_label": "节点即循环",
+      "numeric_fact": ""
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文「Choosing Between Them in Practice」三条判据：并行轨道、不同上下文/记忆/权限、可审计控制流；单一可验证任务应保留 Loop",
+      "visual_idea": "纸张下面夹着的三张彩色便签分别画着并行箭头、隔离的小屋、透明的流程线，引导向主图右侧的「保持 Loop」指示",
+      "visible_label": "三条判据",
+      "numeric_fact": ""
+    }
+  ],
+  "main_metaphor": "同一个车间：一个全能工人（Loop）能独立完成整件活；当活被拆成并行工序、需要不同权限与可审计记录时，车间升级为分工体系（Graph），但每个工位仍在转自己的小循环",
+  "primary_subject": "中央一个彩铅手绘的循环符号（往复箭头），作为节点嵌入旁边更大的网络图",
+  "subject_action": "循环符号在画面中央转动，通过一条连线接入右侧更大的节点网络，左侧传送带上五个标签滑过",
+  "composition": "单点聚焦",
+  "base_style": "conceptual editorial illustration",
+  "selected_style": "彩铅绘本风",
+  "selected_style_prompt_descriptor": "colored-pencil picture-book illustration, tactile strokes, gentle palette, warm narrative objects, soft educational tone",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；彩铅手绘质感适合把抽象的结构关系画成可读的说明画面，与分析类概念插画互补",
+  "style_safety_note": "彩铅绘本风为泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["6 周", "节点即循环", "三条判据"],
+  "color_palette": [
+    "暖米纸 #f4efe6",
+    "石墨蓝 #3e4a5a",
+    "焦糖橙 #d98337",
+    "鼠尾草绿 #9aae8f"
+  ],
+  "avoid": [
+    "人物",
+    "真实 UI 截图",
+    "仪表盘",
+    "伪架构节点名",
+    "英文长标签",
+    "代码雨",
+    "漂浮芯片"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证「中央循环符号嵌入网络节点 + 传送带改名链」主题是否成立，主焦点与三块信息是否可读",
+  "revision_targets": [
+    "中央循环符号是否足够醒目",
+    "改名链是否影响主焦点",
+    "三张便签是否杂乱"
+  ],
+  "final_prompt": "Use case: infographic-story. Asset type: wide cover infographic illustration for a Chinese tech blog article. Primary request: Create a wide conceptual editorial illustration cover that summarizes the Loop vs Graph Engineering analysis. Theme: a loop is one node inside a graph, not its replacement; you start with one loop and reach for a graph when three criteria appear. The reader should quickly feel that the naming chain changed but the work did not, and that the real change is explicit organization. Summary angle: Loop Engineering was declared dead six weeks after it became hot; the real structure is a loop embedded as a node in a graph, and the decision rests on three criteria. Narrative flow: layered reveal. In a 2.35:1 frame, keep one dominant focal subject and 3 supporting narrative beats. Information blocks: (1) contrast: a conveyor belt carrying one parcel that gets five different labels stuck on it, small chip 6 周 and the number 307 万; (2) mechanism: a central loop symbol (repeating arrow) drawn as one node wired into a larger network of nodes and edges on the right, small chip 节点即循环; (3) takeaway: three small sticky notes with a parallel arrows icon, an isolated booth icon and a transparent flow line icon, small chip 三条判据. Main metaphor: one workshop where a single versatile worker can finish a whole job, upgraded into a division-of-labor system when parallel tracks, different permissions and auditable records are needed, while every station still spins its own small loop. Subject: one hand-drawn colored-pencil loop symbol in the center, connected as a node into the larger network diagram. Subject action: the central loop symbol spins, one connection line links it into the network on the right, five labels slide past on the conveyor on the left. Composition/framing: single focal point, loop symbol centered with the network spreading to the right, prefer horizontal storytelling that stays legible in a wide cover. Style/medium: combine conceptual editorial illustration with the selected visual style descriptor: colored-pencil picture-book illustration, tactile strokes, gentle palette, warm narrative objects, soft educational tone. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist. Color palette: warm paper cream, graphite blue, caramel orange, sage green. Visible text policy: allow only 1-3 short Chinese labels or number chips, all sourced from the information blocks. Each label <= 6 Chinese characters. No poster title, no long sentences, no English slogans, no fake UI labels, no fake architecture node names. Constraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter, no people. Avoid: code rain, neon glow, purple-blue light pollution, HUD overlays, floating chips, real webpage screenshots."
+}
