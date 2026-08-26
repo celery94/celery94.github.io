@@ -1,0 +1,62 @@
+{
+  "article_title": "代码代理为何烧掉 Token：语义导航何时值得用",
+  "cover_type": "research",
+  "core_theme": "代码代理在定位修改位置时可能因为文本搜索噪声、同名符号和隐式结构关系产生大量无效读取；语义代码导航用节点与边回答结构问题，减少发现阶段的回合。",
+  "reader_takeaway": "读者能分辨文本搜索与语义导航的边界，并用任务形状判断何时值得引入结构查询。",
+  "summary_angle": "把左侧混乱的文本命中与右侧清晰的代码关系路径放在同一条发现流程中，突出省下的是定位成本，而非编译测试成本。",
+  "narrative_flow": "conflict-to-resolution",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "Sonar 研究的 Where grep and find fall short in code navigation：噪声洪水、错误命中、隐形位置三类盲区。",
+      "visual_idea": "左侧一团相互重复、难以区分的文本碎片和搜索光点，形成迷雾，但不显示真实代码或终端界面。",
+      "visible_label": "文本搜索",
+      "numeric_fact": ""
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "Sonar 研究的 How our graph navigation engine solves the grep problem：节点、关系边，以及带文件和行位置的结构查询。",
+      "visual_idea": "中央主体是一张简洁的抽象代码关系网，节点之间有少量明确的实现、引用和调用路径，像一束穿过迷雾的地图光线。",
+      "visible_label": "语义关系",
+      "numeric_fact": ""
+    },
+    {
+      "role": "evidence",
+      "source_anchor": "Sonar 研究实验表：BloomFilter self-typing 的平均成本变化为 -36%，中位数变化为 -34%。",
+      "visual_idea": "右侧是从关系网通向少量精确编辑点的干净路径，放置一个克制的小型数字芯片，表达受控实验中的最高降幅。",
+      "visible_label": "-36%",
+      "numeric_fact": "-36%"
+    }
+  ],
+  "main_metaphor": "代码搜索迷雾被一张结构关系地图切开，散乱命中汇聚成少量精确路径。",
+  "primary_subject": "中央发光的抽象代码关系地图",
+  "subject_action": "将左侧的重复文本命中转译成右侧少量、清晰、带方向的结构路径",
+  "composition": "左右对照，中间单点聚焦；左侧混乱、中央关系地图、右侧精确路径，保持宽幅阅读节奏",
+  "base_style": "abstract technical concept art",
+  "selected_style": "低饱和文艺风",
+  "selected_style_prompt_descriptor": "low-saturation arthouse illustration, quiet composition, subtle grain, muted colors, reflective emotional tone",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；低饱和、克制的画面适合表达成本分析和工具边界。",
+  "style_safety_note": "使用泛类型的低饱和文艺插画描述，不涉及品牌、工作室或艺术家复刻。",
+  "allowed_visible_text": ["文本搜索", "语义关系", "-36%"],
+  "color_palette": ["雾灰", "深蓝灰", "低饱和青绿", "少量暖黄"],
+  "avoid": [
+    "真实代码编辑器界面",
+    "真实终端输出",
+    "真实产品 Logo",
+    "伪造图表坐标轴",
+    "机器人角色",
+    "代码雨",
+    "霓虹赛博朋克背景",
+    "巨量 HUD 浮层",
+    "无关图标拼贴",
+    "长标题和英文口号"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "先验证宽幅构图能否同时读出文本搜索的混乱、语义关系地图和受控研究中的 -36% 证据点。",
+  "revision_targets": [
+    "保持中央关系地图为唯一主焦点",
+    "减少左侧重复碎片，避免画面像真实搜索结果页",
+    "确保 -36% 仅作为小型证据标签，不生成假图表"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration summarizing a research article about semantic code navigation and AI coding agent token cost. Theme: an agent can waste tokens while building a codebase map through noisy text search, while structural navigation turns code relationships into precise edit paths. The reader should quickly feel the difference between searching through fog and receiving a clear map.\nSummary angle: Put chaotic text-search matches on the left and a clean semantic relationship path on the right; make clear that the saving comes from reducing discovery work, not from eliminating build or test work.\nNarrative flow: conflict-to-resolution. In a wide 2.35:1 frame, keep one dominant focal subject and three supporting narrative beats: a noisy text-search fog, a central semantic relationship map, and a precise path ending at a small evidence badge.\nInformation blocks:\n- problem: noisy text matches, same names, and invisible structural locations create a reading fog; visible label: 文本搜索\n- mechanism: a central abstract graph of code entities and relationships maps implementations, references, and calls; visible label: 语义关系\n- evidence: a controlled Sonar study reports a maximum mean cost reduction of -36% for the BloomFilter self-typing task; visible label: -36%\nMain metaphor: a code-search fog is cut open by a structural relationship map, turning scattered hits into a few precise paths.\nSubject: a central glowing abstract code relationship map, with restrained nodes and directional edges, transforming repeated text fragments into precise locations.\nComposition/framing: left-right contrast with the central map as the single focal point; muted fog on the left, calm structural paths in the center, clean destination points on the right; wide horizontal storytelling and ample breathing room.\nStyle/medium: combine abstract technical concept art with the selected visual style descriptor: low-saturation arthouse illustration, quiet composition, subtle grain, muted colors, reflective emotional tone. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: fog gray, deep blue-gray, desaturated teal, and a small amount of warm ochre; quiet contrast, no neon saturation.\nVisible text policy: allow only these three short labels or numeric chips, each small and readable: 文本搜索, 语义关系, -36%. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: realistic code editor interfaces, terminal windows, logos, robots, code rain, neon cyberpunk cityscapes, giant HUD overlays, dense UI panels, unrelated floating chips, and long title text."
+}
