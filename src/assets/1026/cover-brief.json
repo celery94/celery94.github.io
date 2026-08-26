@@ -1,0 +1,65 @@
+{
+  "article_title": "OpenWiki 的自我纠错记忆：让 Agent 知道何时遗忘",
+  "cover_type": "research",
+  "core_theme": "OpenWiki 用 claim、源代码证据和证据版本追踪代码 wiki 中的重要事实；源代码变化后，stale claim 进入定向复核，仍成立的事实刷新证据，改变的事实同步修正。",
+  "reader_takeaway": "读者能理解长期 Agent 记忆为何需要证据版本与持久化的不确定性，并用 Git 历史回放评估自己的知识系统是否能发现和修正过期事实。",
+  "summary_angle": "把一条会变化的代码知识画成被证据锁定的记忆卷轴：源代码变更会让旧印记失效，系统沿着 claim 关联找到受影响页面并定向复核。",
+  "narrative_flow": "layered reveal",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "X 帖文 Memory Has a Forgetting Problem：代码 wiki 的事实会因源代码变化而漂移。",
+      "visual_idea": "一卷中央悬浮的 wiki 记忆卷轴，左侧连接不断变化的代码符文，旧金色印记出现裂纹并褪色，表现 stale 状态。",
+      "visible_label": "记忆会过期",
+      "numeric_fact": ""
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "X 帖文 Grounding What the Wiki Believes 与 GitHub README Grounded Claims：claim 指向带版本的源代码证据，变化后进入定向复核。",
+      "visual_idea": "卷轴中央有一枚冷青色证据封印，把一条短事实与下方代码片段连接起来；旁边有一条从旧版本通向新版本的细金线。",
+      "visible_label": "证据版本",
+      "numeric_fact": ""
+    },
+    {
+      "role": "evidence",
+      "source_anchor": "X 帖文 Evaluating the Ability to Forget：stale claims 80 降至 9，hallucinated claims 15 降至 0。",
+      "visual_idea": "右侧是一座小型校验祭坛，裂开的旧印记被重新核对后归档，两个醒目的数字以简洁石刻方式出现，不做坐标图。",
+      "visible_label": "80→9",
+      "numeric_fact": "80→9"
+    }
+  ],
+  "main_metaphor": "一幅中国古风仙侠卷轴中的证据记忆祭坛：代码如流动符文，知识如被封印的卷轴，版本变化让旧封印显出裂纹，复核后重新加印。",
+  "primary_subject": "中央悬浮的自我纠错知识卷轴与证据封印",
+  "subject_action": "沿着 claim 与代码证据之间的连接，识别过期记忆并完成定向复核",
+  "composition": "宽幅横向构图；中央卷轴与证据封印为唯一主焦点，左侧呈现代码变动导致的旧记忆裂纹，右侧呈现复核后的归档结果，背景留出山云与墨色负空间",
+  "base_style": "abstract technical concept art",
+  "selected_style": "中国古风仙侠风",
+  "selected_style_prompt_descriptor": "Chinese xianxia fantasy illustration, flowing robes, ink-wash atmosphere, mountains and clouds, elegant magical motion",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；仙侠卷轴与证据封印能表现记忆、版本变化和复核过程。",
+  "style_safety_note": "使用泛类型中国古风仙侠插画描述，不涉及品牌、工作室或艺术家复刻。",
+  "allowed_visible_text": ["记忆会过期", "证据版本", "80→9"],
+  "color_palette": ["墨黑", "青灰", "旧金色", "少量冷青色"],
+  "avoid": [
+    "真实代码编辑器界面",
+    "真实终端输出",
+    "真实仪表盘",
+    "伪造架构节点名",
+    "假图表坐标轴",
+    "品牌 Logo",
+    "通用机器人",
+    "代码雨",
+    "巨量 HUD 浮层",
+    "长标题和英文口号",
+    "过度复杂的法术特效",
+    "多个人物抢占主体",
+    "把 80→9 画成精确统计图"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "先验证宽幅画面能否读出记忆过期、证据版本和定向复核三层含义，同时保持中央知识卷轴与证据封印为唯一主焦点。",
+  "revision_targets": [
+    "减少仙侠装饰，突出卷轴、证据连接和裂纹封印",
+    "让 80→9 成为简短可辨的证据提示，避免生成统计坐标轴",
+    "确保三个中文标签短小清晰，不生成额外文字"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration for an article about self-correcting memory in OpenWiki. The central idea is that long-term Agent memory must preserve both a factual claim and the versioned source-code evidence behind it. When source code changes, the old belief becomes stale and should be rechecked, refreshed, rewritten, or retired. The reader should feel that a memory system can acknowledge uncertainty instead of silently trusting old knowledge.\nSummary angle: show one central floating knowledge scroll protected by an evidence seal, with flowing source-code runes changing on the left, a cracked old seal indicating stale memory, and a restrained verification altar on the right showing the reported result 80→9.\nNarrative flow: layered reveal. Use a wide 2.35:1 frame with one dominant central subject and three supporting beats: memory can expire, evidence has a version, and targeted verification reduces stale claims.\nInformation blocks:\n- problem: a code wiki fact becomes stale when its supporting source changes; visible label: 记忆会过期\n- mechanism: a claim is linked to exact source evidence and the evidence version observed when it was established; visible label: 证据版本\n- evidence: the source post reports stale claims decreasing from 80 to 9 in its comparison; show only the short visible label 80→9, not a chart\nMain metaphor: a Chinese xianxia knowledge scroll and evidence altar, where source-code runes flow like mountain-cloud energy and a cracked old seal is rechecked and renewed.\nSubject: a central floating parchment-like knowledge scroll bound to a cold-cyan evidence seal, with one fine thread linking the scroll to changing code runes and a small repaired archive seal to the right.\nComposition/framing: centered main scroll and seal as the sole focal point; left side shows changing ink-like code symbols and a fading golden mark, right side shows a restrained verification altar; wide horizontal framing, calm negative space, layered misty mountains in the distance.\nStyle/medium: combine abstract technical concept art with the selected visual style descriptor: Chinese xianxia fantasy illustration, flowing robes, ink-wash atmosphere, mountains and clouds, elegant magical motion. Use a polished editorial illustration with readable symbolic structure, subtle technical details, and no imitation of a specific brand, studio, or living artist.\nColor palette: ink black, blue-gray, aged gold, and a small amount of cold cyan; soft parchment highlights and restrained saturation.\nVisible text policy: allow only these three short Chinese labels, each small and readable: 记忆会过期, 证据版本, 80→9. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no unrelated icon collage, no decorative clutter.\nAvoid: realistic code editors, terminal windows, product logos, generic robots, code rain, neon cyberpunk lighting, giant HUD overlays, dense UI panels, long title text, excessive magic effects, multiple competing characters, and ornate decoration that hides the relationship between the scroll and its evidence seal."
+}
