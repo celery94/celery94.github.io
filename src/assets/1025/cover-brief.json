@@ -1,0 +1,62 @@
+{
+  "article_title": "AgentHarness：把 Agent 运行时变得可验证",
+  "cover_type": "architecture",
+  "core_theme": "AgentHarness 将 Agent 运行时拆成当前配置、单轮快照、已持久化会话和待写入队列，并用 phase 与 save point 规定异步状态何时交汇。",
+  "reader_takeaway": "读者能用状态分类、生命周期顺序和恢复边界评审自己的 Agent runtime 设计，并区分已实现能力与计划方向。",
+  "summary_angle": "把一个混乱的异步 Agent 控制台压缩成一条有边界的生命周期：当前请求被快照保护，未来配置在保存点生效，持久化状态与待写入队列按顺序汇合。",
+  "narrative_flow": "layered reveal",
+  "information_blocks": [
+    {
+      "role": "mechanism",
+      "source_anchor": "agent-harness.md 的 State model：Harness config、Turn snapshot、Session、Pending session writes 四类状态。",
+      "visual_idea": "中央主体是四层环形或阶梯式状态结构，每层有不同材质与少量连接箭头，表现状态隔离与受控交汇。",
+      "visible_label": "四类状态",
+      "numeric_fact": ""
+    },
+    {
+      "role": "step",
+      "source_anchor": "agent-harness.md 的 Save points：先持久化 Agent 消息，再刷新 pending writes，最后创建下一份 turn snapshot。",
+      "visual_idea": "中心结构下方有一条清晰的保存点路径，三个小型节点按顺序亮起，不做真实流程图或 UI。",
+      "visible_label": "保存点",
+      "numeric_fact": ""
+    },
+    {
+      "role": "boundary",
+      "source_anchor": "durable-harness.md：provider stream 不可恢复，未完成的非幂等 tool call 默认不自动重试。",
+      "visual_idea": "右侧是带锁的断开边界和一个被安全封存的工具符号，表达恢复时优先保护外部副作用。",
+      "visible_label": "安全恢复",
+      "numeric_fact": ""
+    }
+  ],
+  "main_metaphor": "一座把异步 Agent 状态分层、锁定并在保存点汇合的生命周期钟塔。",
+  "primary_subject": "中央分层的 AgentHarness 生命周期结构",
+  "subject_action": "将配置、快照、会话和待写入状态沿明确的时间边界组织起来，并在保存点安全汇合",
+  "composition": "居中主结构 + 三层向外展开；主体占据画面中心，左右只保留少量状态与恢复线索，保持宽幅层次",
+  "base_style": "isometric conceptual systems scene",
+  "selected_style": "暗黑哥特风",
+  "selected_style_prompt_descriptor": "dark gothic illustration, pointed arches, lace shadows, candlelit contrast, ornate black shapes, restrained horror mood",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；哥特式分层建筑适合表现生命周期、持久化边界与恢复风险。",
+  "style_safety_note": "使用泛类型的暗黑哥特插画描述，不涉及品牌、工作室或艺术家复刻。",
+  "allowed_visible_text": ["四类状态", "保存点", "安全恢复"],
+  "color_palette": ["黑曜石黑", "深紫灰", "旧金色", "少量冷青色"],
+  "avoid": [
+    "真实代码编辑器界面",
+    "真实终端输出",
+    "真实仪表盘",
+    "伪造架构节点名",
+    "假图表坐标轴",
+    "品牌 Logo",
+    "通用机器人",
+    "代码雨",
+    "巨量 HUD 浮层",
+    "长标题和英文口号"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "先验证宽幅画面能否读出四类状态、保存点时序和恢复安全边界，同时保持中央生命周期结构为唯一主焦点。",
+  "revision_targets": [
+    "压缩装饰性建筑细节，突出四层状态结构",
+    "让保存点路径保持顺序感，但避免真实流程图外观",
+    "确保三个中文标签短小清晰，不生成额外文字"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration summarizing an architecture article about AgentHarness lifecycle design. Theme: an asynchronous AI agent runtime becomes testable when current harness configuration, one-turn snapshots, persisted session state, and pending session writes are separated and allowed to meet only at explicit save points. The reader should quickly feel that time boundaries turn concurrency into an understandable structure.\nSummary angle: show a layered AgentHarness lifecycle structure in the center, with the current request protected by a snapshot, future configuration applied at a save point, persisted history kept separate from pending writes, and conservative recovery protecting external side effects.\nNarrative flow: layered reveal. In a wide 2.35:1 frame, keep one dominant central focal subject and three supporting narrative beats: four separated state layers, a sequential save-point path, and a locked safe-recovery boundary.\nInformation blocks:\n- mechanism: four state categories, Harness config, Turn snapshot, Session, Pending session writes, are separated into a central layered structure; visible label: 四类状态\n- step: a save point persists Agent messages, flushes pending writes, then creates the next turn snapshot; visible label: 保存点\n- boundary: provider streams are not resumable and unfinished non-idempotent tool calls should not be retried by default; visible label: 安全恢复\nMain metaphor: a dark architectural clock tower that layers and locks asynchronous Agent state, allowing it to converge safely at a save point.\nSubject: a central tiered AgentHarness lifecycle structure with four distinct chambers, restrained directional paths, and one small locked recovery chamber.\nComposition/framing: centered main structure with layered reveal; three small supporting cues radiate left, below, and right without becoming a real flowchart; wide horizontal framing, one clear focal point, ample negative space.\nStyle/medium: combine isometric conceptual systems scene with the selected visual style descriptor: dark gothic illustration, pointed arches, lace shadows, candlelit contrast, ornate black shapes, restrained horror mood. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: obsidian black, deep purple-gray, aged gold, and a small amount of cold cyan; candlelit contrast with restrained saturation.\nVisible text policy: allow only these three short Chinese labels, each small and readable: 四类状态, 保存点, 安全恢复. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: realistic code editors, terminal windows, product logos, generic robots, code rain, neon cyberpunk lighting, giant HUD overlays, dense UI panels, long title text, and excessive ornamental architecture that hides the state boundaries."
+}
