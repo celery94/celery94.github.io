@@ -253,14 +253,109 @@
     {
       "id": 13,
       "prompt": "把这个教程写成博客、生成封面并自动发布：https://example.com/tutorial-with-missing-image",
-      "expected_output": "生成文章和资源后先运行 Prettier 与 validate-article.mjs --wechat。若 frontmatter、标题摘要、封面 brief 或本地资源路径校验失败，保留本地文件并报告具体错误，同时停止微信发布、Git 提交和推送。",
+      "expected_output": "生成文章和资源后先完成发布前内容审查，再运行 Prettier 与 validate-article.mjs --wechat。若核心结论、文章新增价值、章节主线或结尾未通过内容审查，先修改文章；来源不足导致无法修正时保留本地文件并停止后续流程。若 frontmatter、标题摘要、封面 brief 或本地资源路径校验失败，同样保留本地文件并停止微信发布、Git 提交和推送。",
       "files": [],
       "assertions": [
         {
           "text": "Validation runs before WeChat publishing."
         },
         {
+          "text": "A qualitative content review runs before formatting and structural validation, and an unresolved content-review failure blocks WeChat publishing, commit, and push."
+        },
+        {
           "text": "A validation failure prevents WeChat publishing, commit, and push while preserving generated local files."
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "prompt": "只把这篇技术教程生成一篇完整中文博客 Markdown，不要生成封面、不要发微信，也不要用执行计划代替文章：https://www.devleader.ca/2026/08/24/hybrid-search-for-rag-in-net-bm25-vectors-and-reciprocal-rank-fusion",
+      "expected_output": "直接生成带 frontmatter、完整正文和参考链接的 Markdown 文件。开头从精确词匹配与概念匹配不能互相覆盖的检索问题进入，尽早给出混合查询的目标结果和最短可行代码路径，再逐步解释 BM25、向量检索、RRF 与排错边界。文章应增加当前官方资料核对、可运行示例或排错判断等明确价值，删去重复定义，结尾给出读者可以执行的检索检查步骤。",
+      "files": [],
+      "assertions": [
+        {
+          "text": "The result is a complete Markdown article artifact with frontmatter, substantive body, and references rather than a plan or workflow description."
+        },
+        {
+          "text": "The opening enters a concrete hybrid-search problem quickly and does not default to a source-attribution plus `本文/适合/读完` template."
+        },
+        {
+          "text": "The tutorial shows the target result and a minimal workable query path before deeper implementation detail."
+        },
+        {
+          "text": "The article adds verifiable value such as current official API checks, runnable code, or a retrieval-versus-generation troubleshooting boundary."
+        },
+        {
+          "text": "Sections form a progressive explanation without repeating the same BM25, vector, or RRF definitions, and the ending gives a concrete next step."
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "prompt": "把这篇工程师成长观点文章写成一篇完整中文博客 Markdown，只生成博客，不要封面、微信发布或执行计划：https://lalitm.com/post/find-problems-staff-engineer/",
+      "expected_output": "从 Senior 工程师找不到值得投入的问题这一具体困境进入，尽早给出核心判断：好问题来自持续接触真实工作、积累重复信号和投入前验证。正文保留失败案例、方法边界和可执行动作，避免扩写成泛泛的职场建议；结尾给出读者下周可以尝试的观察或验证动作。",
+      "files": [],
+      "assertions": [
+        {
+          "text": "The result is a complete Markdown article artifact, not an outline or a description of how the article would be written."
+        },
+        {
+          "text": "The opening uses the reader's concrete Staff-level problem and states the article's thesis early."
+        },
+        {
+          "text": "The article preserves source-grounded failures, counterexamples, and organizational limits instead of inflating the source into generic career advice."
+        },
+        {
+          "text": "Each major section advances the decision process from observing signals through validation, and redundant summaries are removed."
+        },
+        {
+          "text": "The ending gives a specific observation or validation action and does not rely on a generic Aide Hub follow sentence."
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "prompt": "把这篇长篇研究论文解读成一篇完整中文博客 Markdown，只生成博客，不要封面、微信发布或执行计划：https://arxiv.org/html/2601.20245v2",
+      "expected_output": "开头先给出研究问题、实验对象和最重要发现，再解释实验设计、交互模式、结果与限制。正文区分论文证据、作者解释和文章给开发者的实践建议，不按论文目录逐节翻译；对于统计数字保留来源和条件，结尾说明在需要学习新技能的任务中应如何安排 AI 使用方式。",
+      "files": [],
+      "assertions": [
+        {
+          "text": "The result is a complete Markdown research article with frontmatter, body, and references rather than a plan."
+        },
+        {
+          "text": "The opening presents the research question, experimental population, and main finding before extended background."
+        },
+        {
+          "text": "The article clearly separates reported evidence, source-author interpretation, and the blog's practical implications."
+        },
+        {
+          "text": "Long source material is prioritized around the central finding and limitations instead of being translated section by section."
+        },
+        {
+          "text": "All quantitative claims retain their conditions and sources, and the ending offers a bounded decision for AI-assisted learning."
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "prompt": "把这个产品发布页写成一篇完整、简洁的中文博客 Markdown，只生成博客，不要封面、微信发布或执行计划：https://openai.com/index/introducing-gpt-image-2/",
+      "expected_output": "直接生成完整 Markdown。开头用最影响使用者的变化或结果进入，正文围绕变化、适合谁、使用价值和限制组织，帮助读者判断是否值得尝试。发布页信息较短时保持克制，不为增加篇幅补写通用背景；结尾给出清晰的尝试条件或观察点。",
+      "files": [],
+      "assertions": [
+        {
+          "text": "The result is a complete concise Markdown article artifact rather than a workflow description."
+        },
+        {
+          "text": "The opening starts with the most consequential product change or outcome instead of generic AI-image background."
+        },
+        {
+          "text": "The structure helps a reader decide whether to try the release by covering changes, target users, practical value, and limits."
+        },
+        {
+          "text": "A short source remains a short article and is not padded with unsupported history, broad trend commentary, or repeated summaries."
+        },
+        {
+          "text": "The ending gives a concrete trial condition or observation point without a generic follow call."
         }
       ]
     }

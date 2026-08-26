@@ -54,7 +54,9 @@ description: 从公开 URL 取证并生成可信、自然、可执行的中文�
 - 读取现有文章编号，使用最大数字前缀加一；文件名为
   `src/data/blog/{ID}-{slug}.md`。
 - 根据原文选择教程、发布、架构、观点、研究、复盘或工具评测写法。
+- 写作前确定目标读者、核心结论、原文最强内容、文章新增价值、读者行动和应删内容。
 - 生成独立中文重述，保留事实、必要步骤、代码和证据锚点，避免逐段翻译和大段复刻。
+- 初稿完成后执行内容编辑和文字编辑，再通过发布前内容审查。
 - 教程必须写清前置条件、操作步骤、预期结果、验证方式和常见问题。
 - 图片保存到 `src/assets/{ID}/`，正文使用
   `../../assets/{ID}/{filename}`。
@@ -84,7 +86,8 @@ python .agents/skills/create-blog-post-from-url/scripts/pick-cover-style.py
 
 ### 5. 校验
 
-先对新文件运行 Prettier 检查，再运行：
+先按 `source-and-writing.md` 完成发布前内容审查，再对新文件运行 Prettier
+检查并运行：
 
 ```bash
 node .agents/skills/create-blog-post-from-url/scripts/validate-article.mjs \
@@ -92,7 +95,8 @@ node .agents/skills/create-blog-post-from-url/scripts/validate-article.mjs \
   --wechat
 ```
 
-如果用户明确只生成博客且不要封面，省略 `--wechat`。校验失败时停止微信发布、提交和推送，报告具体错误及已生成文件。
+如果用户明确只生成博客且不要封面，省略 `--wechat`。内容审查或校验失败时
+停止微信发布、提交和推送，报告具体问题及已生成文件。
 
 ### 6. 发布与推送
 
@@ -107,6 +111,9 @@ node .agents/skills/create-blog-post-from-url/scripts/validate-article.mjs \
 - 原文证据完整，易变化信息已核对。
 - 参考链接通过 `check-references.py` 检查，失效链接已替换为存档。
 - 正文图片为微信支持的 jpg/png（或确认 `wechat-draft` 会转换）。
+- 正文有明确核心结论，并提供原文摘要之外的具体价值。
+- 开头较快进入实质内容，章节形成连贯主线，重复和无关旁支已删除。
+- 结尾给出行动、选择条件、风险边界或后续问题；关注引导不使用固定套话。
 - 正文自然、准确，教程可以照着执行。
 - frontmatter、资源路径、封面 brief 和微信长度限制通过校验。
 - 随机视觉风格没有进入正文语气。
