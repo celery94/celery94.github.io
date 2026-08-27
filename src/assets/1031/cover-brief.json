@@ -1,0 +1,69 @@
+{
+  "article_title": "RAG 其实没那么复杂：六种检索架构怎么选",
+  "cover_type": "analysis",
+  "core_theme": "RAG 不应默认从向量数据库开始，应先用简单全文检索建立基线，再根据数据新鲜度、查询类型、规模和实测失败逐步增加查询改写、混合检索与向量化。",
+  "reader_takeaway": "读者能用数据新鲜度、查询模式、规模和团队能力判断六种检索方案的起点与升级条件。",
+  "summary_angle": "检索复杂度应由真实失败和工作负载特征推动，技术潮流不应预先决定方案。",
+  "narrative_flow": "layered reveal",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "原文开头关于团队直接跳到 embeddings、vector databases、reranking，而用户只想找到具体文档的判断",
+      "visual_idea": "一张简单的文档卡片放在桌面检索盒前，旁边堆着尚未拆封的复杂设备箱",
+      "visible_label": "Measure"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文 Recipe 1 和 Recipe 2 关于 BM25 全文检索、查询改写和专有术语精确匹配的说明",
+      "visual_idea": "第一层抽屉用关键词卡片直接命中文档，第二层用一支铅笔把自然语言问题改写成检索词",
+      "visible_label": "BM25"
+    },
+    {
+      "role": "contrast",
+      "source_anchor": "原文 Recipe 3 到 Recipe 6 关于混合检索、在线向量化、冷热分层和全量预向量化的取舍",
+      "visual_idea": "四层透明抽屉逐层增加向量工具，旁边用速度与新鲜度的小标签提示取舍",
+      "visible_label": "Hybrid",
+      "numeric_fact": "200-500ms"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文决策树关于先做 BM25、测量 2-4 周、再按用户反馈和规模升级的建议",
+      "visual_idea": "一条从简单搜索盒通往不同检索工具的温和阶梯，终点由测量记录决定是否继续",
+      "visible_label": "Rewrite",
+      "numeric_fact": "2-4 weeks"
+    }
+  ],
+  "main_metaphor": "一张安静的工程工作台，把 RAG 检索方案做成从基础工具到精密工具的分层抽屉与选择阶梯。",
+  "primary_subject": "中央的分层检索工作台",
+  "subject_action": "工作台从一张文档卡片出发，将查询依次引向 BM25、Rewrite、Hybrid 等层级，并保留测量记录决定是否升级",
+  "composition": "宽幅横向构图，中央工作台为单一主焦点，左侧是简单文档检索盒，右侧是逐层增加复杂度的抽屉和阶梯，四个短标签沿路径分布。",
+  "base_style": "conceptual editorial illustration",
+  "selected_style": "治愈日常风",
+  "selected_style_prompt_descriptor": "cozy slice-of-life illustration, warm natural light, soft domestic details, calm pacing, gentle hand-drawn texture",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中",
+  "style_safety_note": "治愈日常风为泛类型描述，最终提示词使用温暖自然光、手绘质感和安静工作台，不指向特定作者或品牌。",
+  "allowed_visible_text": ["Measure", "BM25", "Hybrid", "Rewrite"],
+  "color_palette": [
+    "warm cream",
+    "soft sage",
+    "dusty blue",
+    "terracotta accent"
+  ],
+  "avoid": [
+    "poster title",
+    "long paragraphs",
+    "fake dashboard",
+    "floating random icons",
+    "neon cyberpunk effects",
+    "brand logos",
+    "watermark"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "先确认简单到复杂的检索升级路径清楚，中央工作台保持唯一主焦点，且生活化风格没有削弱架构判断。",
+  "revision_targets": [
+    "压低无关装饰",
+    "强化四层检索关系",
+    "删除多余文字和品牌符号"
+  ],
+  "final_prompt": "Create a wide 2.35:1 conceptual editorial illustration for a Chinese technical article about choosing among six RAG retrieval architectures. Core theme: RAG should start with simple full-text search and only add query rewriting, hybrid retrieval, online embeddings, hot/cold tiers, or full pre-embedding when workload evidence requires it. Summary angle: retrieval complexity should be driven by measured failures and workload characteristics, not by technology fashion. Use a cozy slice-of-life illustration with warm natural light, soft domestic details, calm pacing, and gentle hand-drawn texture. Show one central layered retrieval workbench as the dominant focal subject: on the left, a simple document card enters a plain keyword search box; across the workbench, four clear steps unfold toward more elaborate tools, with short visible labels exactly 'Measure', 'BM25', 'Rewrite', and 'Hybrid'. Include the source-grounded numeric cues '2-4 weeks' and '200-500ms' as small unobtrusive note cards, with no other text. The workbench should visually suggest a layered path from a simple tool to selective upgrades, with transparent drawers, index cards, a small ruler, and a calm decision staircase. Keep it editorial and conceptual, not a real UI, dashboard, screenshot, or flowchart. Use warm cream, soft sage, dusty blue, and a restrained terracotta accent. No poster title, no slogans, no long explanations, no fake chart axes, no fake metrics, no code paragraphs, no brand logos, no random floating icons, no neon effects, no people, and no watermark."
+}
