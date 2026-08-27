@@ -1,0 +1,65 @@
+{
+  "article_title": "C# Specification 组合：AND、OR 与 NOT",
+  "cover_type": "tutorial",
+  "core_theme": "把纯内存 Specification 和可被 EF Core 翻译的表达式 Specification 分开实现，并安全组合 AND、OR、NOT。",
+  "reader_takeaway": "知道何时使用委托、何时保留表达式树，能用参数重绑定和真值测试减少查询组合隐患。",
+  "summary_angle": "三个逻辑操作符背后有两个执行面：内存短路规则与数据库翻译边界需要同时可见。",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "contrast",
+      "source_anchor": "原文 Combining C# Specifications Starts With Two Predicate Models：纯规格以 bool IsSatisfiedBy 立即计算，表达式规格保存 Expression<Func<T,bool>> 供 LINQ provider 检查。",
+      "visual_idea": "左侧同一条规则分成一条内存路径和一张表达式纸卷，最后在同一候选对象前汇合。",
+      "visible_label": "C#"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文 Complete Composition Implementation 与 Read the Expression Composition Step by Step：And、Or、Not 通过参数重绑定和 AndAlso、OrElse、Not 构造新表达式树。",
+      "visual_idea": "中央复古规则机器把两根 candidate 参数线接到一个共享端口，再生成清晰的逻辑轨道。",
+      "visible_label": "AND"
+    },
+    {
+      "role": "evidence",
+      "source_anchor": "原文 AND, OR, and NOT Truth Tables 与 What the Tests Prove：真值表、布尔恒等式、De Morgan 变换和 SQLite 关系提供程序测试共同检查行为。",
+      "visual_idea": "右侧测试灯箱展示四格真值表和一个 SQLite 数据库圆盘，作为验证终点。",
+      "visible_label": "OR",
+      "numeric_fact": "4 rows"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文 Predicate Composition Is Not Query-Envelope Composition 与 Composition Guardrails：组合器只处理 Boolean criteria，排序、投影、分页、Include 等查询状态需要单独规则。",
+      "visual_idea": "最后一道边界门只允许 predicate 卡片通过，排序、分页、投影卡片停在边界外。",
+      "visible_label": "NOT"
+    }
+  ],
+  "main_metaphor": "一台 1990 年代电视动画风格的规则实验机，展示同一谓词从内存路径到表达式树再到关系查询验证。",
+  "primary_subject": "中央发光的 Specification 组合机器",
+  "subject_action": "把两个 candidate 参数重接到一个共享端口，并将 AND、OR、NOT 规则送入可验证的查询轨道。",
+  "composition": "水平左到右单点聚焦，左侧输入，中间规则机器，右侧测试和边界出口。",
+  "base_style": "editorial technical illustration",
+  "selected_style": "90年代复古动画风",
+  "selected_style_prompt_descriptor": "1990s retro animation look, cel-shaded color, analog grain, bold simple backgrounds, nostalgic broadcast texture",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；规则组合适合用清晰的复古动画机器和分支动作表达。",
+  "style_safety_note": "使用泛化的 1990 年代复古动画质感，不指向具体作品、品牌、工作室或艺术家。",
+  "allowed_visible_text": ["C#", "AND", "OR", "NOT"],
+  "color_palette": ["深靛蓝", "奶油白", "珊瑚红", "青绿色"],
+  "avoid": [
+    "海报标题",
+    "长段文字",
+    "真实产品界面截图",
+    "真实数据库管理界面",
+    "伪造 SQL、坐标轴或指标",
+    "无关图标拼贴",
+    "水印",
+    "提示词残留",
+    "过多装饰和难以辨认的文字"
+  ],
+  "reference_strategy": "纯文本生成，不使用原文图片；画面只借用文章中的双执行面、参数重绑定、真值测试和谓词边界。",
+  "draft_goal": "第一轮验证中央规则机器是否清楚、两条执行路径是否能读懂，以及复古动画质感是否仍保持技术信息的可辨认性。",
+  "revision_targets": [
+    "如果双路径不清楚，强化左侧内存路径与表达式纸卷的分流",
+    "如果画面像仪表盘，删除小面板并保留中央机器与右侧验证出口",
+    "如果文字变形，只保留 C#、AND、OR、NOT"
+  ],
+  "final_prompt": "Use case: infographic-story. Asset type: wide cover illustration for a Chinese technology blog, aspect ratio 2.35:1. Primary request: create a polished editorial technical illustration about combining C# specifications with AND, OR, and NOT. Theme: the same business predicate has two execution surfaces, a pure in-memory delegate and a provider-bound expression tree, and both need a clear composition boundary. Summary angle: make the short-circuit logic, parameter rebinding, truth-table verification, and predicate-only boundary readable in one wide scene. Information blocks: a C# rule enters from the left and splits into an in-memory path and an expression-tree parchment; a central retro rule machine reconnects two candidate parameters into one shared port and emits AND, OR, and NOT branches; a small four-row truth-table lightbox and SQLite verification disk mark the test boundary; a final gate admits predicate criteria while ordering, projection, and paging cards remain outside. Main metaphor: a retro animation-era rule laboratory machine. Subject: one glowing Specification composition machine. Subject action: reconnect two candidate parameters to one shared port and send AND, OR, and NOT rules through a verifiable query track. Composition/framing: horizontal left-to-right storytelling, one dominant central focal subject, 2-4 supporting narrative beats, input on the left, split execution paths around the machine, verification on the right, generous negative space, wide 2.35:1 frame. Style/medium: combine editorial technical illustration with 1990s retro animation look, cel-shaded color, analog grain, bold simple backgrounds, nostalgic broadcast texture. Polished, readable, lightly playful, with clear engineering forms; do not imitate a specific brand, studio, or living artist. Color palette: deep indigo, cream white, coral red, teal green, restrained amber highlights. Visible text policy: allow only the short marks C#, AND, OR, and NOT if rendered cleanly; no poster title, no long sentences, no English slogans, no fake UI labels, no fake SQL, no fake chart axes, no fake metrics. Constraints and avoid: no watermark, no prompt residue, no screenshots, no dashboards, no fabricated database output, no unrelated icon collage, no decorative clutter, no pixelated unreadable labels."
+}
