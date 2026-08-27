@@ -1,0 +1,61 @@
+{
+  "article_title": "C# 管道错误处理：Result、异常与短路",
+  "cover_type": "tutorial",
+  "core_theme": "C# 管道需要把预期拒绝、意外异常、调用方取消和成功结果区分开，并让短路、幂等、重试与遥测边界清晰可见。",
+  "reader_takeaway": "看懂一个带验证、库存预留和收据生成的失败感知管道，知道哪些结果应返回 Result，哪些错误应抛出，以及副作用后的重试边界。",
+  "summary_angle": "同一条管道里，预期拒绝应该有类型并立即短路，取消应保持协作语义，意外异常应保留诊断信息；副作用阶段只在可重复安全的边界重试。",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "原文开头与 Separate Expected Rejection From Unexpected Failure：成功、预期拒绝、取消和意外失败需要分开处理。",
+      "visual_idea": "让一条主流程在中央出现四个清晰的终点门，分别以不同颜色表达成功、拒绝、取消和异常，保持抽象且不画真实 UI。",
+      "visible_label": "Result"
+    },
+    {
+      "role": "step",
+      "source_anchor": "原文 A Complete Failure-Aware Pipeline 与 Short-Circuiting Must Be Part of the Contract：验证失败后不进入库存预留。",
+      "visual_idea": "左侧验证闸门在拒绝路径上关闭后续管道，表现明确的短路动作，后面的副作用区域保持未触发。",
+      "visible_label": "短路"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文 Partial Effects Change the Retry Decision 与 Give Retry to One Repeat-Safe Boundary：库存预留使用稳定 OperationId，并由一个边界拥有重试。",
+      "visual_idea": "中部库存预留节点由一把带钥匙孔的安全锁保护，旁边只有一条回退线，表达幂等键与单一重试边界。",
+      "visible_label": "幂等"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文 Cancellation、Unexpected Exceptions 与 Instrument Outcomes：取消保持协作路径，异常重新抛出，遥测使用有限的 outcome 值。",
+      "visual_idea": "右侧收据出口上方保留简洁的追踪光线和有限状态标记，背景不出现日志、图表或敏感输入。"
+    }
+  ],
+  "main_metaphor": "一条穿过古堡闸门的工程管道，每个闸门决定继续、短路、取消或把异常交给上层。",
+  "primary_subject": "带验证、库存预留和收据出口的 C# 失败感知管道",
+  "subject_action": "管道正在让订单经过验证闸门，在副作用边界执行一次受控重试，并把不同终态分流到清晰的出口。",
+  "composition": "轻微斜向推进的横向三阶段管道，中央聚焦验证与库存边界，左侧输入，右侧多个终态出口，保留宽幅留白。",
+  "base_style": "editorial technical illustration",
+  "selected_style": "暗黑哥特风",
+  "selected_style_prompt_descriptor": "dark gothic illustration, pointed arches, lace shadows, candlelit contrast, ornate black shapes, restrained horror mood",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中。",
+  "style_safety_note": "最终 prompt 使用安全的暗黑哥特视觉描述词，不要求复刻品牌、工作室或艺术家。",
+  "allowed_visible_text": ["Result", "短路", "幂等"],
+  "color_palette": ["深靛蓝", "炭黑", "冷青色", "少量琥珀金与暗红色"],
+  "avoid": [
+    "长标题或宣传口号",
+    "超过三个可见短标签",
+    "真实 IDE 或代码截图",
+    "伪造的日志、图表、坐标轴、仪表盘或终端输出",
+    "把异常画成通用机器人或骷髅",
+    "无关的齿轮、漂浮芯片、代码雨和装饰性 HUD",
+    "密集文字、无关图标拼贴、水印和 prompt 残留"
+  ],
+  "reference_strategy": "纯文本生成，不使用原文 hero 图；画面只借用文章中的管道阶段和结果分类。",
+  "draft_goal": "第一轮验证横向管道、验证短路、副作用重试边界和四种终态是否能在宽幅画面中一眼读懂。",
+  "revision_targets": [
+    "如果画面过于恐怖，降低哥特装饰并提高技术结构的清晰度",
+    "如果路径过于像真实流程图，改成更具叙事性的古堡闸门概念场景",
+    "如果文字变形，删除非必要标签，只保留 Result"
+  ],
+  "final_prompt": "Use case: infographic-story. Asset type: wide cover illustration for a Chinese technology blog, aspect ratio 2.35:1. Primary request: create a polished wide editorial technical illustration about error handling in C# pipelines. Theme: distinguish success, expected rejection, caller cancellation, and unexpected exception, while making short-circuiting, idempotency, retry ownership, and bounded telemetry visible. Summary angle: expected rejection stops the next stage, cancellation remains cooperative, unexpected exceptions preserve diagnostics, and one repeat-safe side-effect boundary owns retry. Information blocks: a C# input document; a validation gate that closes later work; a locked inventory boundary with one retry path and a stable idempotency key; four colored terminal outcome rails on the right. Main metaphor: an engineering pipeline passing through gothic gates. Subject: a failure-aware C# pipeline. Subject action: move an order through validation, hold the side-effect boundary behind an idempotency lock, and route each terminal outcome to a clear exit. Composition/framing: horizontal left-to-right flow, three gothic gates, central lock as focal subject, four outcome rails on the right, one dominant focal subject and 2-4 supporting beats in a wide 2.35:1 frame. Style/medium: combine editorial technical illustration with dark gothic illustration, pointed arches, lace shadows, candlelit contrast, ornate black shapes, restrained horror mood, precise readable engineering forms, no imitation of a specific brand, studio, or living artist. Color palette: deep indigo, charcoal, cool cyan, restrained amber gold, muted red. Visible text policy: allow only a clean C# mark and at most one short label Result; no poster title, long sentences, English slogans, fake UI labels, fake charts, fake metrics, or fake terminal output. Constraints and avoid: remove bottom legend strips, numbered step badges, excessive text, skulls, generic robots, floating chips, code rain, neon cityscapes, giant HUD overlays, unrelated gears, watermarks, and prompt residue."
+}
