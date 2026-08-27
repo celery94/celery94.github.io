@@ -1,0 +1,63 @@
+{
+  "article_title": "C# 获取机器逻辑处理器总数",
+  "cover_type": "tutorial",
+  "core_theme": "在 .NET 中区分当前进程可用的处理器数量与主机操作系统报告的活动/在线逻辑处理器总数，并展示 Windows、macOS、Linux 的取值路径。",
+  "reader_takeaway": "读者能根据问题选择 Environment.ProcessorCount 或平台原生入口，并知道容器、热插拔和失败结果的边界。",
+  "summary_angle": "同一个 CPU 数字有两种核心语义：进程可用预算与 OS active/online 逻辑处理器总数。",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "contrast",
+      "source_anchor": "原文开头关于 Environment.ProcessorCount 与机器总数语义不同的说明",
+      "visual_idea": "左侧窄面板显示进程资源预算与一组受限的逻辑处理器指示灯",
+      "visible_label": "Process"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文 Windows 部分关于 GetActiveProcessorCount 和 ALL_PROCESSOR_GROUPS 的说明",
+      "visual_idea": "Windows 仪表盘把多个 processor group 汇入同一个 active 计数器",
+      "visible_label": "Windows",
+      "numeric_fact": "0xFFFF"
+    },
+    {
+      "role": "evidence",
+      "source_anchor": "原文 Linux 部分关于 /sys/devices/system/cpu/online CPU 列表格式的说明",
+      "visual_idea": "Linux 仪表盘显示在线 CPU 编号范围与分散编号汇成一列亮灯",
+      "visible_label": "Linux",
+      "numeric_fact": "0-3,8"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文跨平台组合部分关于 Windows、macOS、Linux 分流及缓存建议的说明",
+      "visual_idea": "中央控制台向 Windows、macOS、Linux 三个分支发送同一个查询，底部用边界线隔开物理核心与容器限制",
+      "visible_label": "macOS"
+    }
+  ],
+  "main_metaphor": "一间废土环境中的 CPU 控制室，中央控制台把同一个问题分流到 Windows、macOS、Linux 三块带有磨损标记的仪表板。",
+  "primary_subject": "中央处理器控制台与三组操作系统仪表盘",
+  "subject_action": "控制台将进程资源查询与主机在线逻辑处理器查询分开，并从平台专属入口返回结果",
+  "composition": "横向构图，中央控制台为焦点，左侧显示 Process 资源预算，右侧分出 Windows、macOS、Linux 三条路径，底部用 Host 标记边界；保持清晰的教程封面信息层级。",
+  "base_style": "editorial technical illustration",
+  "selected_style": "废土末日风",
+  "selected_style_prompt_descriptor": "post-apocalyptic wasteland illustration, weathered materials, dusty atmosphere, survival objects, desaturated contrast",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中",
+  "style_safety_note": "废土末日风为随机风格名，最终提示词使用材质、空气和色彩描述，不指向特定作者或品牌。",
+  "allowed_visible_text": ["Process", "Windows", "macOS", "Linux"],
+  "color_palette": ["dusty sand", "charcoal", "oxidized orange", "muted teal"],
+  "avoid": [
+    "poster title",
+    "long paragraphs",
+    "fake dashboard",
+    "unrelated robots",
+    "neon clutter",
+    "watermark"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "先确认四个语义节点清楚、中央 CPU 控制台是唯一主焦点，且废土材质没有压低技术图示的可读性。",
+  "revision_targets": [
+    "减少装饰性废墟元素",
+    "强化四个平台分支",
+    "删除模型生成的额外文字"
+  ],
+  "final_prompt": "Create a wide 2.35:1 editorial technical illustration for a Chinese .NET programming tutorial. Use a post-apocalyptic wasteland illustration style with weathered metal, dusty atmosphere, survival-console details, and desaturated contrast, while keeping the diagram clean and readable. Show a central CPU control console routing one question into four clearly separated concepts: a left panel labeled 'Process' for Environment.ProcessorCount as the current process budget, a Windows panel labeled 'Windows' with 'ALL GROUPS', a macOS panel labeled 'macOS' with 'hw.logicalcpu', and a Linux panel labeled 'Linux' with '/sys/.../online' and '0-3,8'. Remove any large title or slogan. Use a simple lower boundary line to distinguish host online logical processors from physical cores and container limits, with no extra label. The central focal point is a grid of glowing logical processor indicators connected to platform-specific gauges. Use sparse, accurate technical diagram composition, strong hierarchy, generous negative space, crisp edges, no people, no operating-system brand logos or mascots, no code paragraphs, no extra explanatory text, and no watermarks. All visible labels must be exactly the four short labels Process, Windows, macOS, and Linux, plus the necessary short technical tokens already named above. Do not add slogans, fake UI labels, chart axes, terminal output, decorative text, or title text."
+}
