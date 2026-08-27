@@ -1,0 +1,64 @@
+{
+  "article_title": "Agent Framework：同一 Agent 接入多渠道",
+  "cover_type": "architecture",
+  "core_theme": "Microsoft Agent Framework 的 Python hosting channels 让同一个 Agent 或 Workflow 通过 Responses、Telegram、A2A、MCP 等协议被访问，同时保留共享目标和会话状态模型。",
+  "reader_takeaway": "理解协议适配器、共享 hosting 层和应用侧身份映射的关系，知道如何规划多渠道 Agent 的会话与权限边界。",
+  "summary_angle": "一个 Agent 或 Workflow 可以通过多个协议入口复用同一套核心逻辑；共享会话是否成立取决于应用定义的身份到 canonical session_id 的映射。",
+  "narrative_flow": "layered reveal",
+  "information_blocks": [
+    {
+      "role": "mechanism",
+      "source_anchor": "原文 One shared target and state model：AgentState 与 WorkflowState 位于共享 hosting core，负责解析目标与会话状态。",
+      "visual_idea": "画面中央用一个发光的分层 hosting hub 表示共享核心，内部包含两个清晰的模块形状和一个会话存储图标。",
+      "visible_label": "共享状态"
+    },
+    {
+      "role": "contrast",
+      "source_anchor": "原文 Choose the channels your application needs：Responses、Telegram、A2A、MCP 四个 channel packages 分别处理协议边界。",
+      "visual_idea": "四个风格统一的协议入口从画面四周汇入中央 hub，每个入口用抽象符号区分，避免做成真实 UI。",
+      "visible_label": "四种渠道",
+      "numeric_fact": "4"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文 Build your own channel mix：应用定义 channel identity 到 session ID 的 resolver，并继续负责认证、授权、存储和部署。",
+      "visual_idea": "中央上方放一个简洁的身份解析节点，几条不同颜色的线汇聚为一个 canonical session 轨道，表达跨渠道连续会话。",
+      "visible_label": "身份映射"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文 A2A and MCP：适配器生成原生 agent card 或 tool，应用继续拥有 executor、task、route 与 handler。",
+      "visual_idea": "右侧以两个稳定的终端实体表示 Agent 和 Workflow，协议入口只通过适配层连接，不画伪造的节点名称或数据表。",
+      "visible_label": "Agent"
+    }
+  ],
+  "main_metaphor": "一座把多个协议入口连接到同一智能核心的分层桥梁。",
+  "primary_subject": "中央的 Agent Framework hosting hub",
+  "subject_action": "hosting hub 正在把四个协议通道的输入汇聚到 Agent 与 Workflow，并通过身份解析线连接共享会话状态。",
+  "composition": "等距空间，中央主焦点，四个入口在左侧和上方形成平衡的环绕关系，Agent 与 Workflow 在右侧作为输出实体。",
+  "base_style": "isometric conceptual systems scene",
+  "selected_style": "国漫二次元风",
+  "selected_style_prompt_descriptor": "contemporary Chinese anime-comic illustration, crisp linework, ornate but controlled details, vibrant fantasy-tech color accents",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中。",
+  "style_safety_note": "最终 prompt 使用安全的视觉描述词，不要求复刻品牌、工作室或艺术家。",
+  "allowed_visible_text": ["Agent", "Workflow", "MCP"],
+  "color_palette": ["深海军蓝", "青绿色", "明亮青蓝", "少量暖金色"],
+  "avoid": [
+    "长标题或宣传口号",
+    "超过三个可见短标签",
+    "真实 UI 截图",
+    "伪造的架构节点名称",
+    "伪造图表、坐标轴、仪表盘或终端输出",
+    "漂浮芯片、代码雨、通用机器人站姿",
+    "无关图标拼贴、巨量 HUD、装饰性杂乱",
+    "水印和 prompt 残留"
+  ],
+  "reference_strategy": "纯文本生成；正文架构图仅作为事实理解依据，不作为像素级复刻参考图。",
+  "draft_goal": "第一轮验证中央 hosting hub、四个协议入口、Agent/Workflow 输出和共享会话线是否形成清晰的宽幅层级关系。",
+  "revision_targets": [
+    "如果入口过多，先减少背景装饰并保持四个协议通道的相对分布",
+    "如果画面像真实系统图，改成更具叙事性的概念场景",
+    "如果文字变形，删除非必要标签，只保留 Agent 或 Workflow"
+  ],
+  "final_prompt": "Use case: infographic-story. Asset type: wide cover illustration for a Chinese technology blog, aspect ratio 2.35:1. Primary request: create a polished wide cover about Microsoft Agent Framework hosting channels in Python. Theme: one Agent or Workflow can be reached through Responses, Telegram, A2A, and MCP while sharing one hosting and session-state core. Summary angle: many protocol entrances connect to one reusable core, while application-owned identity mapping decides whether conversations continue across channels. Information blocks: a central shared hosting hub for AgentState, WorkflowState, and session state; four distinct abstract protocol gateways for Responses, Telegram, A2A, and MCP; an identity resolver above the hub that converges channel identities into one session track; Agent and Workflow as the two target entities on the right. Main metaphor: a layered bridge connecting protocol entrances to one intelligent core. Subject: central Agent Framework hosting hub. Subject action: receive four protocol streams, resolve shared state, and route execution to Agent and Workflow. Composition/framing: isometric conceptual systems scene with one dominant central focal subject, four supporting gateways on the left and upper side, Agent and Workflow on the right, clean horizontal storytelling in a wide 2.35:1 frame. Style/medium: isometric conceptual systems scene combined with contemporary Chinese anime-comic illustration, crisp linework, ornate but controlled details, vibrant fantasy-tech color accents, polished editorial technology illustration, no imitation of a specific brand, studio, or living artist. Color palette: deep navy, teal, bright cyan, restrained warm gold accents, light sky-and-water background. Visible text policy: allow only the short labels Agent and Workflow, and only if rendered cleanly; no poster title, long sentences, English slogans, fake UI labels, fake chart axes, or fake architecture node names. Constraints and avoid: no human characters, no brand logos, no game-controller symbols, no watermark, prompt residue, screenshots, dashboards, fake diagrams, fake charts, fake terminal output, fabricated metrics, unrelated icon collage, floating chips, code rain, neon skyscrapers, generic robot poses, excessive HUD overlays, or decorative clutter."
+}
