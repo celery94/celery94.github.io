@@ -1,0 +1,69 @@
+{
+  "article_title": "Agent Harness：让本地 Agent 变成生产级服务",
+  "cover_type": "tutorial",
+  "core_theme": "按「定义一次、三个宿主」改造 agent 后，用四条线把本地 agent 变成生产服务：OpenTelemetry 可观测、Purview 合规治理、Foundry Hosted Agent 托管部署、本地检查+模型评分双重评估",
+  "reader_takeaway": "知道本地 agent 上生产要补的四件事（可观测、治理、部署、评估）是如何各自独立加装上去的，并能照着检查清单迁移自己的 agent",
+  "summary_angle": "把「works on my machine」到「production ready」的跃迁画成一次装备升级：一台本地控制台 agent 被装上监测眼、合规盾、云端发射架和评估记分卡，而 agent 本体不变",
+  "narrative_flow": "before-after",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "原文开场：前三部分让 claw 变成一个能规划、读持仓、下单前确认、记住重要信息、按需加载技能、用 shell 整理文件、CodeAct 计算、派发后台研究的 agent，但「works on my machine isn’t the same as ready to run for other people」",
+      "visual_idea": "左下角本地桌面工作台：control console 窗口与一杯咖啡，代表「只在本机可用」，一根斜向推进管线由此出发",
+      "visible_label": "本地→生产",
+      "numeric_fact": null
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "『See what it’s doing: observability』：harness 为模型调用、工具调用与 token 用量产出 OpenTelemetry spans/metrics/logs，宿主接 exporter；本机配 OTLP，托管零配置",
+      "visual_idea": "管线旁一只发光的监测目镜/仪表，读取流动的 trace 与 token 指标，代表「看得见它在干什么」",
+      "visible_label": "可观测",
+      "numeric_fact": null
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "『Keep it governed: Purview』与『Turn off risky features』：Purview 中间件筛查提示词与响应并留审计日志（opt-in）；托管容器关掉文件访问与 shell、需要时用外部 AgentFileStore；CodeAct 在容器里用 LocalCodeAct 而非沙箱",
+      "visual_idea": "管线中段一面盾牌拦截敏感内容（信用卡号、保密持仓），旁边有文件锁与禁用的 shell 标记",
+      "visible_label": "合规护栏",
+      "numeric_fact": null
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "『Ship it: deploy as a Foundry Hosted Agent』与『Prove it’s good: evals』：Responses 协议薄壳宿主（.NET AddFoundryResponses / Python ResponsesHostServer）部署为 Foundry Hosted Agent；本地函数检查 + Foundry 模型评分（relevance/coherence），每次变更都跑",
+      "visual_idea": "右上角云端 Foundry 容器与记分卡（检查表 + 对勾），管线终点在上云端，旁边挂着「每次变更都跑」的评估清单",
+      "visible_label": "托管上线",
+      "numeric_fact": null
+    }
+  ],
+  "main_metaphor": "一次「装备升级」：本地控制台 agent 不变，沿斜向管线加装监测眼、合规盾、发射架与记分卡，从桌面飞向云端容器",
+  "primary_subject": "中央等距工作台上不变的 agent 控制台（屏幕 + 终端窗口），管线从它出发",
+  "subject_action": "agent 控制台正在沿斜向管线被「接入生产」：监测目镜读取轨迹、盾牌立在合规关口、云端容器在管线终点、记分卡挂在旁边",
+  "composition": "单点聚焦 + 轻微斜向推进（左下本地 → 右上云端），工作台为主焦点，四件装备沿管线分布",
+  "base_style": "editorial technical illustration",
+  "selected_style": "美漫超级英雄风",
+  "selected_style_prompt_descriptor": "American superhero-comic energy, bold outlines, halftone texture, dramatic perspective, high-contrast color blocking",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；美漫明确的轮廓与高对比色块适合把「本地到生产的装备升级」画得醒目但可执行",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室、艺术家或具体漫画角色复刻",
+  "allowed_visible_text": ["本地→生产", "可观测", "合规护栏", "托管上线"],
+  "color_palette": ["深海军蓝", "亮红", "橙黄", "米白"],
+  "avoid": [
+    "霓虹高楼背景",
+    "赛博朋克紫蓝光污染",
+    "通用机器人站姿",
+    "巨量 HUD 浮层",
+    "无意义代码雨",
+    "漂浮芯片",
+    "伪仪表盘",
+    "伪图表",
+    "假终端输出",
+    "真实产品截图"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮验证：单点主焦点是否成立、斜向推进是否可读、四件装备（眼/盾/云端容器/记分卡）是否都能映射回信息块",
+  "revision_targets": [
+    "主工作台与装备的距离比例",
+    "标签不遮挡主体",
+    "halftone 纹理是否克制不脏"
+  ],
+  "final_prompt": "Use case: infographic-story. Asset type: wide cover infographic illustration for a Chinese tech blog article. Primary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: 本地 agent 生产化——可观测、治理、部署、评估四件装备依次加装，agent 本体不变量。The reader should quickly feel 从「只在本机可用」到「可托管可评估」的装备升级。Summary angle: 把「works on my machine」到「production ready」的跃迁画成一次装备升级：一台本地控制台 agent 被装上监测眼、合规盾、云端发射架和评估记分卡。Narrative flow: before-after. In a 2.35:1 frame, keep one dominant focal subject and 2-4 supporting narrative beats. Each beat must map to the article's information blocks rather than generic decoration. Information blocks: (1) problem: 左下角本地桌面控制台与终端窗口，代表只在本机可用，标签「本地→生产」; (2) mechanism: 监测目镜读取管线上的 trace 与 token 指标，代表可观测，标签「可观测」; (3) mechanism: 中段盾牌拦截敏感内容，附文件锁与禁用的 shell 标记，代表合规护栏，标签「合规护栏」; (4) takeaway: 右上云端容器与记分卡（对勾检查表），代表托管上线与持续评估，标签「托管上线」。Main metaphor: 一次装备升级——本地控制台 agent 不变，沿斜向管线加装监测眼、合规盾、发射架与记分卡，从桌面飞向云端容器。Subject: 中央等距工作台上一台不变的 agent 控制台，管线从此出发，监测目镜读取轨迹、盾牌立在合规关口、云端容器在终点、记分卡挂旁边。Composition/framing: 单点聚焦 + 轻微斜向推进（左下本地 → 右上云端），工作台为主焦点，四件装备沿管线分布，横向可读。Style/medium: combine editorial technical illustration with the selected visual style descriptor: American superhero-comic energy, bold outlines, halftone texture, dramatic perspective, high-contrast color blocking. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist. Color palette: 深海军蓝、亮红、橙黄、米白。Visible text policy: allow only the 4 short Chinese labels listed, each <= 6 characters: 「本地→生产」「可观测」「合规护栏」「托管上线」. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names. Constraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter. Avoid: 霓虹高楼背景、赛博朋克紫蓝光污染、通用机器人站姿、巨量 HUD 浮层、无意义代码雨、漂浮芯片、伪仪表盘、伪图表、假终端输出、真实产品截图。"
+}
