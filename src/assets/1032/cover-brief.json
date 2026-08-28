@@ -1,0 +1,67 @@
+{
+  "article_title": "Uno Platform如何用MCP让AI检查自己的应用",
+  "cover_type": "architecture",
+  "core_theme": "Uno Platform 用两个按生命周期拆分的 MCP 服务器，让 AI agent 在生成 .NET UI 后能自己检查运行结果：文档服务器负责知识接地，应用服务器负责看（截图、可视化树）、动（点击、输入）和自查（健康检查）",
+  "reader_takeaway": "明白一套 MCP 服务器该按生命周期拆（知识随发版变、状态随运行变），以及 agent 要形成「生成→运行→检查→修复」闭环需要哪些能力",
+  "summary_angle": "把「AI 生成代码便宜、验证昂贵」的不对称，画成一个双塔闭环：左边文档知识塔为 agent 接地，右边运行中的应用窗口让 agent 亲眼检查自己的产出，中间以自检回路收口",
+  "narrative_flow": "layered reveal",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "原文开场与『Generating code and functionality verification are different problems』：AI 写的 UI 能编译、能过代码审查，但只有跑起来才能发现错误；生成变便宜了，验证没有",
+      "visual_idea": "画面一侧呈现一个刚生成、表面正常但有一处被放大镜高亮标记错误的 UI 界面，代表『看起来对 ≠ 真的对』",
+      "visible_label": "生成≠验证",
+      "numeric_fact": null
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "『The docs server: grounding』：mcp.platform.uno/v1，HTTP 无状态，回答『框架现在什么是对的』，与文档一起版本化；四个工具（search/fetch/agent_rules_init/usage_rules_init）",
+      "visual_idea": "左侧一座由文档页面与检索符号构成的等距知识塔，底部有接地锚点符号，向外发出被检索命中的文档切片",
+      "visible_label": "文档接地",
+      "numeric_fact": null
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "『The app server: eyes and hands』：stdio 的 .NET 工具，桥接 Uno DevServer；uno_app_start 运行、uno_app_get_screenshot 与 uno_app_visualtree_snapshot 看、自动 peer 工具动、uno_health 自查",
+      "visual_idea": "右侧一个正在运行的等距应用窗口，窗口上方同时浮现截图取景框与 XML 可视化树节点，一支扳手/指针落在元素上，像素用于检测、结构用于诊断",
+      "visible_label": "应用验证",
+      "numeric_fact": null
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "『Skills: giving the agent the “how”』与『What it adds up to』：工具是食材、Skills 是菜谱、agent 是厨师；Studio 3.0 中 Agent Framework + Roslyn 让 agent 写完就热重载、截图、读树、点击、自判并修复",
+      "visual_idea": "中间主焦点：一个在浏览器箱体里运作的生成工作台，agent 沿闭环箭头从『生成』走向『检查』，桌面同时放着菜谱卡（Skills）与运行中的应用",
+      "visible_label": "自检闭环",
+      "numeric_fact": null
+    }
+  ],
+  "main_metaphor": "一座等距的「AI 质检台」：知识塔为右侧运行中的应用供给事实，中央的生成工作台让 agent 既写代码又亲自验收，形成生成—检查的闭环回路",
+  "primary_subject": "中央的等距生成工作台（浏览器箱体里的应用生成器），台面上立着一份菜谱卡和一个正在运行的迷你应用窗口",
+  "subject_action": "agent 正沿环形箭头对运行中的应用执行检查：截图取景框瞄准界面、XML 树节点挂在一个被高亮的元素旁，代表「先检测再诊断」",
+  "composition": "等距空间，左右对照：左侧文档知识塔、右侧运行中的应用窗口，中央工作台为主焦点并通过环形箭头连成闭环",
+  "base_style": "isometric conceptual systems scene",
+  "selected_style": "青年写实风",
+  "selected_style_prompt_descriptor": "mature realistic comic illustration, grounded anatomy, restrained expressions, cinematic everyday lighting, detailed but readable scenes",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；青年写实风的写实光线与克制表达适合把架构比喻画得可信而不夸张",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["生成≠验证", "文档接地", "应用验证", "自检闭环"],
+  "color_palette": ["深靛蓝", "青绿色", "暖橙色", "米白"],
+  "avoid": [
+    "霓虹高楼背景",
+    "赛博朋克紫蓝光污染",
+    "通用机器人站姿",
+    "巨量 HUD 浮层",
+    "无意义代码雨",
+    "漂浮芯片",
+    "真实产品截图",
+    "伪架构图标"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮先验证：三个叙事元素（知识塔、运行中的应用窗口、中央质检台）是否在宽幅画面里主次分明、闭环关系可读",
+  "revision_targets": [
+    "中央工作台与两侧的距离关系",
+    "截图取景框与 XML 树是否清晰但不杂乱",
+    "标签数量与位置避免遮挡主体"
+  ],
+  "final_prompt": "Use case: infographic-story. Asset type: wide cover infographic illustration for a Chinese tech blog article. Primary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: 一套按生命周期拆分的双 MCP 服务器架构，让 AI agent 生成 .NET 应用后能自己检查运行结果。The reader should quickly feel 知识接地与运行验证如何连成一个自检闭环。Summary angle: 把「AI 生成代码便宜、验证昂贵」的不对称画成一个带环形闭环的双塔系统，agent 在中央质检台同时写代码与实际验收。Narrative flow: layered reveal. In a 2.35:1 frame, keep one dominant focal subject and 2-4 supporting narrative beats. Each beat must map to the article's information blocks rather than generic decoration. Information blocks: (1) problem: 刚生成的 UI 表面正常、实则被放大镜高亮标记一处错误，标签「生成≠验证」; (2) mechanism: 左侧等距文档知识塔，检索符号与锚点接地符号，标签「文档接地」; (3) mechanism: 右侧运行中的应用窗口，悬浮截图取景框与 XML 可视化树节点，标签「应用验证」; (4) takeaway: 中央浏览器箱体质检台，菜谱卡与迷你应用窗口，环形箭头指向检查，标签「自检闭环」。Main metaphor: 一座等距「AI 质检台」，知识塔为运行中的应用供给事实，中央工作台让 agent 既写又验收，形成生成—检查回路。Subject: 中央等距生成工作台，agent 沿环形箭头对运行中的应用执行检查，截图取景框瞄准界面、XML 树节点挂在被高亮元素旁。Composition/framing: 等距空间，左右对照构图，中央工作台为主焦点，环形箭头连成闭环，横向可读。Style/medium: combine isometric conceptual systems scene with the selected visual style descriptor: mature realistic comic illustration, grounded anatomy, restrained expressions, cinematic everyday lighting, detailed but readable scenes. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist. Color palette: 深靛蓝、青绿色、暖橙色、米白。Visible text policy: allow only the 3-4 short Chinese labels listed, each <= 6 characters: 「生成≠验证」「文档接地」「应用验证」「自检闭环」. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names. Constraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter. Avoid: 霓虹高楼背景、赛博朋克紫蓝光污染、通用机器人站姿、巨量 HUD 浮层、无意义代码雨、漂浮芯片、真实产品截图、伪架构图标。"
+}
