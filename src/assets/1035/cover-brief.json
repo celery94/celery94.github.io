@@ -1,0 +1,57 @@
+{
+  "article_title": "ASP.NET Core Minimal API 过滤器实战",
+  "cover_type": "tutorial",
+  "core_theme": "Endpoint Filter 在 Minimal API 处理程序前后执行校验、短路与耗时记录，并能复用到路由组",
+  "reader_takeaway": "理解过滤器包装处理程序的执行方式，并能选择委托、IEndpointFilter、路由组或工厂",
+  "summary_angle": "把 Endpoint Filter 表现为环绕处理核心的检查门：请求先经过校验，合法请求进入处理，响应离开时经过记录",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "step",
+      "source_anchor": "原文 How to use filters in Minimal API：过滤器可读取参数并在处理程序前短路",
+      "visual_idea": "左侧请求包进入透明检查门，检查员确认参数",
+      "visible_label": "校验"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文 Execution Flow：过滤器调用 next 后进入 Route Handler",
+      "visual_idea": "中央处理核心接收通过检查的请求并生成结果",
+      "visible_label": "处理"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文 Multiple Endpoint Filters：处理完成后控制权按相反顺序返回过滤器",
+      "visual_idea": "响应从处理核心返回时经过计时记录装置",
+      "visible_label": "记录"
+    }
+  ],
+  "main_metaphor": "一座环绕 API 处理核心的双向检查门",
+  "primary_subject": "一位工程师操作的透明 Endpoint Filter 检查门与中央处理核心",
+  "subject_action": "工程师让请求经过校验门进入处理核心，再记录返回响应",
+  "composition": "斜向推进，中央检查门为唯一主焦点，左侧请求进入，右侧响应离开",
+  "base_style": "editorial technical illustration",
+  "selected_style": "青年写实风",
+  "selected_style_prompt_descriptor": "mature realistic comic illustration, grounded anatomy, restrained expressions, cinematic everyday lighting, detailed but readable scenes",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中",
+  "style_safety_note": "使用泛写实漫画描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["校验", "处理", "记录"],
+  "color_palette": ["深石墨灰", "青绿色", "暖琥珀色", "冷白色"],
+  "avoid": [
+    "真实 IDE 界面",
+    "仪表盘",
+    "伪造代码",
+    "复杂架构图",
+    "通用机器人",
+    "代码雨",
+    "霓虹城市",
+    "过多人物"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "先验证请求经过校验门进入处理核心、响应经过记录返回的三段叙事是否清晰",
+  "revision_targets": [
+    "保持一个主焦点",
+    "删除装饰性界面元素",
+    "确保三个中文短标签准确"
+  ],
+  "final_prompt": "Use case: infographic-story. Asset type: wide cover infographic illustration for a Chinese tech blog article. Primary request: Create a wide cinematic infographic-story cover about ASP.NET Core Minimal API Endpoint Filters. The reader should quickly understand that a request passes through validation before the handler, then the response passes back through logging after processing. Summary angle: portray an Endpoint Filter as one transparent bidirectional inspection gate wrapped around a central API processing core. Narrative flow: 3-beat process in a 2.35:1 frame with one dominant focal subject. Information blocks: step one, a request parcel enters from the left and passes an inspection gate with the approved label '校验'; step two, the central processing core receives the approved request with the label '处理'; step three, a response exits to the right through a restrained timing and logging device with the label '记录'. Main metaphor: a bidirectional inspection gate wrapping an API handler. Subject: one grounded software engineer operating the transparent filter gate and central processing core, actively guiding the request through and observing the response return. Composition/framing: diagonal left-to-right progression, the filter gate as the only strong focal point, request on the left, processing core in the center, response on the right, ample negative space, aspect ratio 2.35:1. Style/medium: combine editorial technical illustration with mature realistic comic illustration, grounded anatomy, restrained expressions, cinematic everyday lighting, detailed but readable scenes. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-story cover. Do not imitate a specific brand, studio, or living artist. Color palette: deep graphite gray, teal, warm amber, cool white. Visible text policy: allow only the three approved short Chinese labels '校验', '处理', and '记录'. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names. Constraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter. Avoid real IDE screens, fake code, complex architecture diagrams, generic robots, code rain, neon cities, and crowds."
+}
