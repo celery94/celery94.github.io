@@ -1,0 +1,59 @@
+{
+  "article_title": "ASP.NET Core 请求超时：让取消真正传到底",
+  "cover_type": "tutorial",
+  "core_theme": "ASP.NET Core 请求期限只会发出取消信号，令牌必须继续传入 EF Core 与 HttpClient，耗时工作才有机会停止",
+  "reader_takeaway": "理解请求超时的协作式取消机制，并能配置、传递和验证端点期限",
+  "summary_angle": "用一只越过 3 秒刻度的计时器触发取消脉冲，展示信号从端点继续传到数据库和外部 HTTP 调用，最终形成 504 响应",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "mechanism",
+      "source_anchor": "原文 Add a Timeout to the Endpoint：WithRequestTimeout 为端点设置 3 秒期限",
+      "visual_idea": "中央像素计时器到达红色刻度并发出清晰脉冲",
+      "visible_label": "3 秒",
+      "numeric_fact": "3"
+    },
+    {
+      "role": "step",
+      "source_anchor": "原文 The Token Has to Reach the Work：RequestAborted 需要贯穿端点、服务和依赖",
+      "visual_idea": "脉冲沿一条明亮线路依次经过端点方块、数据库圆柱和 HTTP 节点",
+      "visible_label": "取消传递"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文 Add a Timeout to the Endpoint：取消异常在响应开始前回到中间件时默认返回空白 504",
+      "visual_idea": "线路终点出现简洁的红色状态芯片",
+      "visible_label": "504",
+      "numeric_fact": "504"
+    }
+  ],
+  "main_metaphor": "计时器触发一枚沿调用链传播的取消脉冲",
+  "primary_subject": "带有 3 秒刻度的像素风服务器计时器",
+  "subject_action": "计时器越过期限后向下游依赖发送取消脉冲",
+  "composition": "斜向推进，中央计时器为唯一主焦点，右侧以两段简化线路表现下游依赖",
+  "base_style": "editorial technical illustration",
+  "selected_style": "像素复古风",
+  "selected_style_prompt_descriptor": "retro pixel-art inspired illustration, blocky forms, limited palette, old game composition cues, readable wide layout",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中",
+  "style_safety_note": "使用泛像素复古描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["3 秒", "取消传递", "504"],
+  "color_palette": ["深海军蓝", "暖琥珀色", "警示红", "冷白色"],
+  "avoid": [
+    "真实产品界面",
+    "仪表盘",
+    "伪造终端输出",
+    "代码雨",
+    "霓虹城市",
+    "通用机器人",
+    "无意义芯片",
+    "复杂架构图"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "先验证 3 秒期限、取消传递和 504 三个信息节点能否在宽画幅中沿一条清晰线路读出",
+  "revision_targets": [
+    "保留一个强主焦点",
+    "删除多余像素装饰",
+    "确保三个短标签准确且数量不增加"
+  ],
+  "final_prompt": "Use case: infographic-story. Asset type: wide cover infographic illustration for a Chinese tech blog article. Primary request: Create a wide cinematic infographic-story cover illustration that summarizes ASP.NET Core cooperative request timeouts. The reader should quickly understand that reaching a deadline sends a cancellation signal, and downstream work stops only when that signal travels through the call chain. Summary angle: a server timer crosses a three-second deadline and launches one visible cancellation pulse through an endpoint toward a database and an external HTTP dependency, ending in a compact 504 result. Narrative flow: 3-beat process. In a 2.35:1 frame, keep one dominant focal subject and three supporting narrative beats. Information blocks: mechanism, a central server timer reaches the 3-second mark with approved label '3 秒'; step, one bright pulse travels through a simplified endpoint path to a database cylinder and an HTTP node with approved label '取消传递'; takeaway, the path ends at a restrained red status chip with approved label '504'. Main metaphor: a timer-triggered cancellation pulse moving through a call chain. Subject: a pixel-art server timer with a clear three-second marker, actively sending the pulse downstream. Composition/framing: diagonal left-to-right progression, central timer as the only strong focal point, two simple downstream dependency forms on the right, generous negative space, aspect ratio 2.35:1. Style/medium: combine editorial technical illustration with retro pixel-art inspired illustration, blocky forms, limited palette, old game composition cues, readable wide layout. Stylized, polished, editorial, and clearly readable as an infographic-story cover. Do not imitate a specific brand, studio, or living artist. Color palette: deep navy, warm amber, warning red, cool white. Visible text policy: allow only the three approved short labels '3 秒', '取消传递', and '504'. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names. Constraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter. Avoid real product UI, terminal output, code rain, neon city, generic robots, floating chips, and complex architecture diagrams."
+}
