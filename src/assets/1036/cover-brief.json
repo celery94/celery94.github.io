@@ -1,0 +1,64 @@
+{
+  "article_title": "AI 编程时代，软件基础仍是核心",
+  "cover_type": "analysis",
+  "core_theme": "coding agent 能生成代码，但软件基础决定开发者能否为系统做出合适取舍",
+  "reader_takeaway": "用全栈、数据、架构、可靠生产四个方向检查自己是否真正理解 AI 应用的工程边界",
+  "summary_angle": "从代理替你写代码的便利，转向开发者必须掌握系统取舍的现实",
+  "narrative_flow": "conflict-to-resolution",
+  "information_blocks": [
+    {
+      "role": "contrast",
+      "source_anchor": "原文关于 coding agent 扩大开发者职责、但需要理解完整软件栈的段落",
+      "visual_idea": "人类开发者站在中央，把一条代码流引向多个系统层，而不是被代码流牵着走",
+      "visible_label": "全栈"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文 Managing data 段落：访问模式、数据模型、存储类型、事务与数据生命周期",
+      "visual_idea": "一组清晰的资料盒和数据管道组成稳定地基，强调数据是难以轻易更换的基础",
+      "visible_label": "数据"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文 Designing system architectures 段落：架构取决于用户量、延迟、成本和项目阶段",
+      "visual_idea": "同一条道路从原型小路逐渐连接到生产级结构，突出阶段变化和取舍",
+      "visible_label": "架构"
+    },
+    {
+      "role": "evidence",
+      "source_anchor": "原文 Making systems secure and reliable 与 Scaling and operating in production 两个段落",
+      "visual_idea": "道路尽头有安全护栏、监控灯和可扩展的多车道，表达失败处理、观测和扩容",
+      "visible_label": "可靠生产"
+    }
+  ],
+  "main_metaphor": "开发者手持罗盘，引导 coding agent 生成的代码流穿过四个工程关卡，强调方向判断比单纯产出代码更重要",
+  "primary_subject": "一名站在中央的开发者与一条被其引导的抽象代码流",
+  "subject_action": "开发者用罗盘和指示牌把代码流导向全栈、数据、架构、可靠生产四个清晰区域",
+  "composition": "左右对照并向右推进；中央主焦点，四个辅助叙事节点沿一条道路展开",
+  "base_style": "conceptual editorial illustration",
+  "selected_style": "美式卡通风",
+  "selected_style_prompt_descriptor": "American cartoon illustration, elastic shapes, clear expressions, bold color fields, light comedic timing",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；清晰的角色动作适合表达从代码生成到工程判断的冲突",
+  "style_safety_note": "使用泛类型的美式卡通插画描述，不涉及特定品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["全栈", "数据", "架构", "可靠生产"],
+  "color_palette": ["深海军蓝", "暖米白", "珊瑚红", "青绿色"],
+  "avoid": [
+    "通用机器人站姿",
+    "代码雨",
+    "真实 IDE 界面",
+    "dashboard",
+    "HUD 浮层",
+    "无意义芯片",
+    "长标题",
+    "英文口号",
+    "水印"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮验证中央开发者、代码流和四个工程节点是否能在宽画幅中形成清晰冲突与方向感",
+  "revision_targets": [
+    "如果信息过散，强化中央罗盘和道路主线",
+    "删除多余 UI 或机器人元素",
+    "保持四个中文短标签少量可读"
+  ],
+  "final_prompt": "Use case: infographic-story. Asset type: wide cover infographic illustration for a Chinese tech blog article. Primary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: coding agents can generate code, but software engineering fundamentals determine whether developers can make sound system tradeoffs. The reader should quickly feel that human judgment guides the agent toward a reliable application. Summary angle: move from the convenience of an agent writing code to the reality that developers must understand system tradeoffs. Narrative flow: conflict-to-resolution. In a 2.35:1 frame, keep one dominant focal subject and four supporting narrative beats, each grounded in the article: full-stack understanding, data management, system architecture, and secure reliable production operations. Main metaphor: a human developer holds a compass and guides an abstract stream of generated code through four engineering checkpoints. Subject: one central developer with a clear compass and a flowing ribbon-like code stream, actively directing it forward. Composition/framing: horizontal left-to-right progression with a central focal subject; four readable support zones along one road, generous negative space, strong silhouettes, no collage. Style/medium: combine conceptual editorial illustration with the selected visual style descriptor: American cartoon illustration, elastic shapes, clear expressions, bold color fields, light comedic timing. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist. Color palette: deep navy, warm cream, coral red, and teal accents. Visible text policy: allow only four short Chinese labels sourced from the article information blocks: 全栈, 数据, 架构, 可靠生产. Each label is short and secondary. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names. Constraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter. Avoid generic robot poses, code rain, floating chips, neon city backgrounds, giant HUD overlays, and dense unreadable text. Wide cover illustration, aspect ratio 2.35:1."
+}
