@@ -1,0 +1,55 @@
+{
+  "article_title": ".NET 11 Runtime Async：异步为何更快",
+  "cover_type": "research",
+  "core_theme": "Runtime Async 保留原始异步控制流，让同步完成路径直接返回，只在真实暂停时保存 continuation",
+  "reader_takeaway": "读者能理解 Runtime Async 的快路径、暂停成本和基准边界，并判断项目是否值得测试",
+  "summary_angle": "同一名异步信使遇到已完成任务时直接冲线，遇到等待时才装入小型 continuation 背包",
+  "narrative_flow": "conflict-to-resolution",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "原文 Traditional async 与 limits：编译器提前生成状态机，JIT 难以还原完整调用链",
+      "visual_idea": "信使拖着由多个齿轮箱组成的沉重状态机行李",
+      "visible_label": "状态机"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文 Runtime Async：未暂停时结果与 null continuation 直接返回",
+      "visual_idea": "已亮绿灯的任务让信使沿短直通道直接冲线",
+      "visible_label": "直达"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文 generated code：只在 await 未完成时分配 continuation 并保存存活状态",
+      "visual_idea": "红灯出现后，信使才拿起一个小型 continuation 背包等待恢复",
+      "visible_label": "挂起"
+    }
+  ],
+  "main_metaphor": "异步信使通过两种检查门，完成任务直达，未完成任务才携带恢复背包",
+  "primary_subject": "一名携带发光结果胶囊的 Q 版异步信使",
+  "subject_action": "信使从沉重状态机旁脱身，在直达快路与按需挂起岔路间完成一次连续动作",
+  "composition": "宽幅左到右推进，信使和发光结果胶囊为唯一主焦点，三段动作连续相连",
+  "base_style": "abstract technical concept art",
+  "selected_style": "Q版 Chibi 风",
+  "selected_style_prompt_descriptor": "chibi character illustration, small cute proportions, simplified expressions, playful shapes, clear infographic readability",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中",
+  "style_safety_note": "使用泛化 Q 版人物与信息图造型，不复刻具体角色、作品或作者",
+  "allowed_visible_text": ["状态机", "直达", "挂起"],
+  "color_palette": ["深海军蓝", "暖白", "明亮青绿", "少量橙红"],
+  "avoid": [
+    "真实产品标志",
+    "真实系统界面",
+    "密集基准图表",
+    "代码雨",
+    "无法辨认的小字",
+    "复杂多格漫画"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证同步直达与按需挂起的对照、单一信使焦点和三个准确标签",
+  "revision_targets": [
+    "保持信使与结果胶囊为唯一主焦点",
+    "状态机行李只作为问题背景",
+    "确保三个中文标签准确"
+  ],
+  "final_prompt": "Use case: infographic-diagram. Asset type: wide cover infographic illustration for a Chinese technology blog article, aspect ratio 2.35:1. Primary request: create a clear conceptual cover explaining why .NET 11 Runtime Async can reduce async overhead. Theme: preserve original async control flow, let synchronously completed work return directly, and save continuation state only when a real suspension occurs. Summary angle: one chibi async courier carries a luminous result capsule through a connected journey; the old path begins with heavy state-machine luggage, the completed-task path becomes a direct express lane, and the waiting path creates a small continuation backpack only at the red signal. Narrative flow: conflict-to-resolution. Information blocks: first, the courier struggles beside compact stacked gear-box luggage with the approved label exactly '状态机'; second, a green completed-task gate opens onto a short direct lane and the approved label exactly '直达'; third, a red waiting gate causes the courier to pick up one small resume backpack, with the approved label exactly '挂起'. Main metaphor: an async courier passing two task gates, paying only for the path actually used. Primary subject: one chibi courier holding one luminous result capsule. Composition: ultra-wide left-to-right continuous motion, three connected beats without separate comic panels, courier and capsule remain the only dominant focus, ample negative space, bold readable arrows, clear at thumbnail size. Style/medium: combine abstract technical concept art with chibi character illustration, small cute proportions, simplified expressions, playful shapes, clear infographic readability. Use deep navy, warm white, bright teal-green, and small orange-red accents. Visible text policy: render only '状态机', '直达', and '挂起'; no title, sentences, English words, model names, formulas, numbers, extra labels, fake UI, watermark, or prompt residue. Constraints: exactly one courier and one dominant result capsule, three supporting narrative beats, no product logos, no screenshots, no fake benchmark charts, no fake terminal output, no fabricated metrics, no unrelated icon collage. Avoid generic robots, code rain, neon city backgrounds, giant HUD overlays, dense code, excessive characters, complex multi-panel comics, decorative clutter, and illegible microtext."
+}
