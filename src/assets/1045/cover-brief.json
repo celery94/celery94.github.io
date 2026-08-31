@@ -1,0 +1,57 @@
+{
+  "article_title": ".NET 10 GC Handle：更安全的原生互操作",
+  "cover_type": "research",
+  "core_theme": ".NET 9 和 .NET 10 通过新的公开与内部 GC Handle 类型，表达对象存活、地址稳定和跨垃圾回收器生命周期",
+  "reader_takeaway": "理解泛型 GC Handle 的安全收益，以及弱内部指针和交叉引用句柄分别解决的运行时难题",
+  "summary_angle": "一个中央句柄把三类困难关系变成 GC 可跟踪的规则：类型安全、移动后更新地址、两套 GC 共同判断存活",
+  "narrative_flow": "layered reveal",
+  "information_blocks": [
+    {
+      "role": "mechanism",
+      "source_anchor": "原文 New Public GC Handle APIs：GCHandle<T>、WeakGCHandle<T> 与 PinnedGCHandle<T> 分离强、弱和固定语义",
+      "visual_idea": "中央机械句柄连接三枚形状不同但排列整齐的对象块，强调类型明确",
+      "visible_label": "类型安全"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文 Weak Interior Pointer Handles：托管对象移动后更新原生内存中的内部指针",
+      "visual_idea": "一枚对象块平移，细线指针自动滑到新位置且保持连接",
+      "visible_label": "地址更新"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文 Cross-reference Handles：CoreCLR 与 Java GC 协作识别跨堆循环垃圾",
+      "visual_idea": "左右两组对象通过中央句柄桥接，外圈循环松开并回收无外部连接的一对对象",
+      "visible_label": "双 GC"
+    }
+  ],
+  "main_metaphor": "一个精密机械句柄兼作桥梁和可移动连接器，把分散的生命周期关系交给 GC 管理",
+  "primary_subject": "位于画面中央的单个金属机械句柄枢纽",
+  "subject_action": "同时连接托管对象、原生指针槽和 Java 对象组，并让三条关系清楚可追踪",
+  "composition": "居中主结构，三条短路径向左右和远端展开，保留宽幅负空间",
+  "base_style": "abstract technical concept art",
+  "selected_style": "欧漫清线风",
+  "selected_style_prompt_descriptor": "European clear-line comic style, precise outlines, flat readable colors, tidy environments, restrained humor and detail",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；清晰线条适合表现对象关系和生命周期变化",
+  "style_safety_note": "使用泛化的欧洲清线漫画描述，不引用具体品牌、工作室或艺术家",
+  "allowed_visible_text": ["类型安全", "地址更新", "双 GC"],
+  "color_palette": ["深海蓝", "暖橙", "象牙白", "石墨灰"],
+  "avoid": [
+    "真实 UI",
+    "仪表盘",
+    "代码雨",
+    "伪造节点名",
+    "复杂图表",
+    "霓虹城市",
+    "通用机器人",
+    "重复主句柄"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "先验证中央句柄是否是唯一主焦点，三条关系能否分别读出类型、地址和双 GC 主题",
+  "revision_targets": [
+    "只保留一个中央主句柄",
+    "压缩辅助对象数量",
+    "确保中文短标签准确且不添加其他文字"
+  ],
+  "final_prompt": "Use case: infographic-diagram\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration about new GC Handle mechanisms in .NET 9 and .NET 10. The reader should quickly feel that explicit runtime handles make managed/native lifetimes safer and let two garbage collectors cooperate.\n\nSummary angle: One central precision mechanical handle turns three difficult lifetime relationships into rules the garbage collector can track: type safety, pointer updates after object movement, and joint reachability across .NET and Java GC.\nNarrative flow: layered reveal. In a 2.35:1 frame, keep one dominant focal subject and three supporting narrative beats.\nInformation blocks:\n- A central handle connects three distinct orderly object blocks, labeled \"类型安全\".\n- One managed object block shifts position while a thin pointer line updates to the new location, labeled \"地址更新\".\n- Two small object groups on opposite sides share a bridge; one unreachable paired loop gently fades away, labeled \"双 GC\".\n\nMain metaphor: a precision mechanical handle acting as both bridge and movable connector.\nSubject: one metal mechanical handle hub at the center, clearly connecting managed objects, a native pointer slot, and a Java object group.\nComposition/framing: centered main structure with three short readable paths extending sideways and into depth, generous negative space, wide cover illustration, aspect ratio 2.35:1.\nStyle/medium: combine abstract technical concept art with European clear-line comic style, precise outlines, flat readable colors, tidy environments, restrained humor and detail. Stylized, polished, editorial, and readable. Do not imitate a specific brand, studio, or living artist.\nColor palette: deep ocean blue, warm orange, ivory white, graphite gray.\nVisible text policy: render only these three short Chinese labels verbatim: \"类型安全\", \"地址更新\", \"双 GC\". No other text. No poster title, no long sentences, no English slogans, no fake UI labels, no chart axes, no architecture node names.\nConstraints: one central primary handle only; no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: repeated primary handles, code rain, neon city, generic robot, dense HUD overlays."
+}
