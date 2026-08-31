@@ -1,0 +1,57 @@
+{
+  "article_title": "最终一致性：系统为何暂时读到旧数据",
+  "cover_type": "architecture",
+  "core_theme": "写请求已经成功，但更新仍在副本之间传播；系统需要经过短暂旧读、冲突处理和异步修复后收敛",
+  "reader_takeaway": "理解最终一致性的时间窗口，并知道如何用幂等、版本控制和补偿让系统安全收敛",
+  "summary_angle": "一枚已经确认的更新信号穿过暂时失联的副本站点，旧数据藏在阴影中，最终所有节点亮起同一版本",
+  "narrative_flow": "conflict-to-resolution",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "原文开场：用户更新头像后在另一设备短暂看到旧头像",
+      "visual_idea": "起点已经亮起的新数据脉冲与远端阴影中的旧版本形成反差",
+      "visible_label": "旧数据"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文 What Eventual Consistency Actually Means：写入先确认，复制随后发生",
+      "visual_idea": "单个明亮信号沿断续链路依次穿过三个副本站点",
+      "visible_label": "传播中"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文的收敛定义：没有新写入时，各副本最终得到相同值",
+      "visual_idea": "终点三个站点呈现相同颜色与形状，阴影退去",
+      "visible_label": "已收敛"
+    }
+  ],
+  "main_metaphor": "一枚带版本印记的信号穿过黑暗中的分布式中继站，逐步驱散旧版本",
+  "primary_subject": "一枚位于画面中心、正在向前传播的发光数据脉冲",
+  "subject_action": "沿着三个副本站点移动，把不同版本逐步变成相同状态",
+  "composition": "斜向推进，中心脉冲为唯一主焦点，左侧阴影较深，右侧逐渐明亮",
+  "base_style": "isometric conceptual systems scene",
+  "selected_style": "悬疑惊悚风",
+  "selected_style_prompt_descriptor": "suspense thriller comic mood, low-key lighting, sharp shadows, uneasy framing, controlled tension without gore",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；短暂旧读和未知传播时间适合用克制的悬疑张力表达",
+  "style_safety_note": "使用泛化的悬疑漫画光影和构图，不引用具体作品、品牌或艺术家",
+  "allowed_visible_text": ["旧数据", "传播中", "已收敛"],
+  "color_palette": ["午夜蓝", "信号青", "警示橙", "冷灰"],
+  "avoid": [
+    "恐怖人物",
+    "血腥",
+    "真实数据库 UI",
+    "仪表盘",
+    "代码雨",
+    "假指标",
+    "伪造节点名",
+    "重复主脉冲"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证单个信号脉冲能否串起旧数据、异步传播和最终收敛三个阶段",
+  "revision_targets": [
+    "保持唯一主脉冲",
+    "压缩站点数量",
+    "确保三个中文标签准确且无其他文字"
+  ],
+  "final_prompt": "Use case: infographic-diagram\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover about eventual consistency in distributed systems. A write has already succeeded, but one glowing versioned data pulse still has to propagate through replicas before every node agrees. The reader should feel a short controlled period of uncertainty followed by clear convergence.\n\nSummary angle: One confirmed update signal crosses temporarily disconnected relay stations; an old version remains in shadow, then every replica lights up with the same state.\nNarrative flow: conflict-to-resolution. In a 2.35:1 frame, keep one dominant focal subject and three supporting beats.\nInformation blocks:\n- A dim replica still holds an old version, labeled \"旧数据\".\n- The single bright data pulse travels through a broken-looking but reconnecting path, labeled \"传播中\".\n- Three restrained relay stations share the same color and shape after convergence, labeled \"已收敛\".\n\nMain metaphor: a versioned signal pulse moving through distributed relay stations in the dark and gradually replacing the stale version.\nSubject: one glowing cyan-orange data pulse at the center, moving forward and synchronizing three compact replica stations.\nComposition/framing: diagonal forward movement, the central pulse is the only primary focal subject, deeper shadows on the left and clearer light on the right, wide cover illustration, aspect ratio 2.35:1.\nStyle/medium: combine an isometric conceptual systems scene with suspense thriller comic mood, low-key lighting, sharp shadows, uneasy framing, controlled tension without gore. Stylized, polished, editorial, and readable. Do not imitate a specific brand, studio, or living artist.\nColor palette: midnight blue, signal cyan, warning orange, cool gray.\nVisible text policy: render only these three Chinese labels verbatim: \"旧数据\", \"传播中\", \"已收敛\". No other text. No poster title, no long sentences, no English slogans, no fake UI labels, no chart axes, no architecture node names.\nConstraints: one primary pulse only; no watermark, no prompt residue, no screenshots, no dashboards, no fake charts, no terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: horror characters, gore, code rain, neon city, generic robot, repeated primary pulses, dense HUD overlays."
+}
