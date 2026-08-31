@@ -1,0 +1,56 @@
+{
+  "article_title": "Uber Agent 成本优化：用量增长 9.4 倍，账单趋稳",
+  "cover_type": "analysis",
+  "core_theme": "把 Agent 总成本拆成六个乘数，并通过模型路由、上下文缩减、工具循环外移和信息补全降低单位成本",
+  "reader_takeaway": "读者能识别 Agent 账单中最大的浪费来源，并按收益顺序开始优化",
+  "summary_angle": "一条高速扩张的 Agent 软件工厂流水线，通过四个调节站减少单任务成本，让吞吐增长而总表盘保持稳定",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "evidence",
+      "source_anchor": "原文 Introduction：weekly agentic requests grew 9.4x",
+      "visual_idea": "左侧大量任务单元进入软件工厂流水线",
+      "visible_label": "9.4×"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文 Optimization Levers：model routing、tokens/request、requests/turn、visibility",
+      "visual_idea": "中央四个调节站压缩重复上下文、切换模型、合并工具循环并补充信息",
+      "visible_label": "减浪费"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文 Figure 1 与 Conclusion：usage growth while total AI spend stabilized",
+      "visual_idea": "右侧任务吞吐继续上升，费用表盘保持平稳",
+      "visible_label": "成本趋稳"
+    }
+  ],
+  "main_metaphor": "一座可调节的软件工厂，用四个阀门控制任务流中的成本泄漏",
+  "primary_subject": "贯穿画面的 Agent 软件工厂流水线",
+  "subject_action": "高密度任务经过四个调节站后以更少浪费流向稳定的成本表盘",
+  "composition": "斜向推进的三段式流程",
+  "base_style": "conceptual editorial illustration",
+  "selected_style": "赛博朋克风",
+  "selected_style_prompt_descriptor": "cyberpunk comic mood, neon accents, rain-slick surfaces, dense urban tech atmosphere, controlled purple-blue usage",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；受控的工业科技氛围适合表现大规模 Agent 软件工厂",
+  "style_safety_note": "使用泛化的赛博朋克漫画描述，限制霓虹和紫蓝用量，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["9.4×", "减浪费", "成本趋稳"],
+  "color_palette": ["深石墨灰", "冷青色", "克制紫蓝", "暖橙提示色"],
+  "avoid": [
+    "真实 Uber 标志",
+    "真实仪表盘",
+    "伪造指标",
+    "通用机器人",
+    "代码雨",
+    "霓虹城市天际线",
+    "巨量 HUD"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证 9.4 倍任务增长、四个优化站和成本趋稳的三段叙事",
+  "revision_targets": [
+    "减少赛博朋克装饰",
+    "强化调节站的因果关系",
+    "保证三个标签准确"
+  ],
+  "final_prompt": "Use case: infographic-diagram. Asset type: wide cover infographic illustration for a Chinese tech blog article, aspect ratio 2.35:1. Create a wide cinematic infographic-story cover about controlling AI agent costs at software-factory scale. Summary angle: a rapidly expanding stream of agent tasks passes through four efficiency control stations that remove wasted work, so throughput grows 9.4 times while the final cost gauge stays stable. Narrative flow: 3-beat process. Keep one dominant subject: a diagonal industrial software-factory conveyor running across the frame. Information beats: on the left, a dense incoming task stream grounded in Uber's reported 9.4x request growth, labeled exactly '9.4×'; in the center, four compact control stations representing model routing, context reduction, batched tool loops, and better grounding, collectively labeled exactly '减浪费'; on the right, higher completed-task throughput feeding a calm stable cost gauge, labeled exactly '成本趋稳'. Main metaphor: four adjustable valves closing cost leaks in a software factory. Composition: diagonal left-to-right progression, one unified machine, clear cause and effect, ample breathing room. Style/medium: combine conceptual editorial illustration with cyberpunk comic mood, restrained neon accents, rain-slick industrial surfaces, dense technical atmosphere, controlled purple-blue usage. Use deep graphite gray, cool cyan, restrained purple-blue, and a warm orange indicator. Visible text policy: render only '9.4×', '减浪费', and '成本趋稳'; no title, sentences, English slogans, fake UI labels, or extra numbers. Constraints: no Uber logo, no watermark, no prompt residue, no screenshots, no dashboard, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter. Avoid generic robots, code rain, neon city skyline, floating chips, giant HUD overlays, and excessive purple-blue glow."
+}
