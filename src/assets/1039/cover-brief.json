@@ -1,0 +1,56 @@
+{
+  "article_title": "Harness 工程：让 AI Agent 真正可靠",
+  "cover_type": "architecture",
+  "core_theme": "模型负责推理，Harness 用任务契约、项目地图、工具、持久状态、验证、权限和追踪构成可靠运行环境",
+  "reader_takeaway": "可靠 Agent 需要一个能观察、约束、验证和恢复的最小闭环",
+  "summary_angle": "一位开发者在温暖安静的工作台前照料一套透明的 Agent 运行装置，七个环节围绕核心推理引擎形成闭环",
+  "narrative_flow": "single-scene architecture",
+  "information_blocks": [
+    {
+      "role": "core",
+      "source_anchor": "原文 The model is only the reasoning engine",
+      "visual_idea": "中央发光的推理核心正在提出下一步",
+      "visible_label": "模型"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文 A production harness has seven jobs",
+      "visual_idea": "外围七个小型模块通过清晰管线组成保护闭环",
+      "visible_label": "Harness"
+    },
+    {
+      "role": "outcome",
+      "source_anchor": "原文 Start with the smallest harness that closes the loop",
+      "visual_idea": "验证灯亮起，状态被保存，失败路径回到最近模块",
+      "visible_label": "可靠闭环"
+    }
+  ],
+  "main_metaphor": "温暖工作台上的透明机械生态箱，以七个模块保护并校验中央推理核心",
+  "primary_subject": "一套紧凑的 Agent Harness 桌面装置",
+  "subject_action": "信息经过七个模块后形成可验证、可恢复的闭环",
+  "composition": "宽幅单场景，中央装置为主，开发者只作为小比例观察者",
+  "base_style": "conceptual editorial illustration",
+  "selected_style": "治愈日常风",
+  "selected_style_prompt_descriptor": "cozy slice-of-life illustration, warm natural light, soft domestic details, calm pacing, gentle hand-drawn texture",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；柔和的日常工作台能减少抽象架构图的距离感",
+  "style_safety_note": "使用泛化的治愈系手绘描述，不复刻具体艺术家或作品",
+  "allowed_visible_text": ["模型", "Harness", "可靠闭环"],
+  "color_palette": ["暖米白", "木质棕", "鼠尾草绿", "柔和天蓝", "少量琥珀光"],
+  "avoid": [
+    "品牌标志",
+    "真实软件界面",
+    "通用人形机器人",
+    "代码雨",
+    "密集 HUD",
+    "不可读小字",
+    "复杂流程图"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证中央推理核心、外围 Harness 和可靠闭环的三层关系",
+  "revision_targets": [
+    "保持七个模块清晰但不过度图表化",
+    "确保文字仅有三个短标签",
+    "强化温暖工作台与可靠工程之间的联系"
+  ],
+  "final_prompt": "Use case: infographic-diagram. Asset type: wide cover illustration for a Chinese technology blog, aspect ratio 2.35:1. Scene/backdrop: a warm, quiet home-studio workbench in soft morning light, with wood grain, a small plant, paper notes without readable writing, and gentle domestic details. Primary subject: one compact transparent tabletop machine representing an AI Agent harness. At the center is a softly glowing reasoning core labeled exactly '模型'. Around it, seven distinct but simple modules form one protective loop, representing task contract, project map, tools, durable state, verification sensors, permissions, and traces with recovery; the enclosing loop is labeled exactly 'Harness'. A small green verification light and a returning path show that failures can be checked and repaired locally, labeled exactly '可靠闭环'. Composition: wide single-scene architecture, the machine dominates the frame, a developer appears only as a small calm observer adjusting one control, clear visual hierarchy, generous breathing room. Style/medium: conceptual editorial illustration combined with cozy slice-of-life illustration, warm natural light, soft domestic details, calm pacing, gentle hand-drawn texture. Color palette: warm ivory, natural wood brown, sage green, soft sky blue, small amber highlights. Visible text policy: render only '模型', 'Harness', and '可靠闭环'; no title, sentences, extra labels, numbers, code, fake UI, watermark, or prompt residue. Constraints: exactly one dominant machine, seven outer modules readable through shape and connection rather than dense labels, clear central-core versus surrounding-system relationship, no brand logos, no screenshots, no decorative icon collage. Avoid generic humanoid robots, code rain, neon cyberpunk city, giant HUD overlays, illegible microtext, overly complex flowcharts, and excessive blue-purple glow."
+}
