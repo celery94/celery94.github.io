@@ -1,0 +1,62 @@
+{
+  "article_title": "四种 LLM 缓存：省在哪里，错在哪里",
+  "cover_type": "architecture",
+  "core_theme": "区分 KV、Prefix、Prompt 与 Semantic 四种 LLM 缓存保存的对象、复用范围与风险",
+  "reader_takeaway": "读者能按缓存层次判断成本、延迟或错误回答来自哪里",
+  "summary_angle": "前三层沿着注意力状态逐步扩大复用范围，Semantic cache 跨到回答层后带来错误命中风险",
+  "narrative_flow": "layered reveal",
+  "information_blocks": [
+    {
+      "role": "mechanism",
+      "source_anchor": "原文 1) The KV cache",
+      "visual_idea": "内层保存流动中的注意力状态",
+      "visible_label": "KV"
+    },
+    {
+      "role": "step",
+      "source_anchor": "原文 2) Prefix caching",
+      "visual_idea": "第二层把相同 token 前缀扩展到推理服务",
+      "visible_label": "前缀"
+    },
+    {
+      "role": "step",
+      "source_anchor": "原文 3) Prompt caching",
+      "visual_idea": "第三层把前缀复用包装为托管 API 能力",
+      "visible_label": "Prompt"
+    },
+    {
+      "role": "contrast",
+      "source_anchor": "原文 4) Semantic caching",
+      "visual_idea": "最外层直接交付回答，同时出现一条偏离正确目标的路径",
+      "visible_label": "语义"
+    }
+  ],
+  "main_metaphor": "四层同心缓存环围绕一个正在生成 token 的核心，最外层分出一条可能走偏的回答路径",
+  "primary_subject": "由四层结构组成的 LLM 缓存核心",
+  "subject_action": "从内向外复用计算，同时在语义层显示正确复用与错误命中的分叉",
+  "composition": "居中主物体的层级式关系",
+  "base_style": "isometric conceptual systems scene",
+  "selected_style": "低饱和文艺风",
+  "selected_style_prompt_descriptor": "low-saturation arthouse illustration, quiet composition, subtle grain, muted colors, reflective emotional tone",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中",
+  "style_safety_note": "使用泛化的低饱和编辑插画描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["KV", "前缀", "Prompt", "语义"],
+  "color_palette": ["雾蓝", "灰绿", "暖米色", "暗红点缀"],
+  "avoid": [
+    "真实 UI",
+    "仪表盘",
+    "伪造架构节点",
+    "代码雨",
+    "霓虹城市",
+    "通用机器人",
+    "大段文字"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证四层关系、单一焦点与语义层风险分叉是否清楚",
+  "revision_targets": [
+    "减少无关装饰",
+    "强化四层递进",
+    "让错误命中分叉清晰但克制"
+  ],
+  "final_prompt": "Use the current wide 2.35:1 cover direction as the base. Keep the muted arthouse palette, subtle grain, centered isometric cache core, token stream, outer green correct branch, and restrained red wrong-answer branch. Preserve the summary angle: exact attention-state reuse expands across the first three layers, while only the outer semantic response cache can return a wrong answer. Add one distinct concentric cache ring between the existing '前缀' ring and the existing '语义' ring, so the structure clearly has four rings. Label the new ring exactly 'Prompt'. Keep all four labels legible and in this inside-to-outside order: 'KV', '前缀', 'Prompt', '语义'. Do not change the landscape background, lighting, focal point, or right-side fork. Render only those four labels. No title, sentences, extra labels, watermark, prompt residue, screenshots, dashboards, fake chart axes, fake terminal output, fabricated metrics, unrelated icons, floating chips, code rain, or decorative clutter."
+}
