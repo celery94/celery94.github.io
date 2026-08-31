@@ -1,0 +1,56 @@
+{
+  "article_title": "分布式系统入门：从网络不确定性到 CAP 与 FLP",
+  "cover_type": "research",
+  "core_theme": "节点隔着不可靠网络协作时，延迟与故障难以区分，CAP、PACELC 和 FLP 描述了由此产生的一致性、可用性、延迟与共识边界",
+  "reader_takeaway": "读者能从网络不确定性出发理解三个理论，并把它们用于超时、重试、一致性和共识选择",
+  "summary_angle": "两座节点堡垒隔着变幻莫测的网络峡谷传递消息，在一致性、可用性与时间之间寻找可行通路",
+  "narrative_flow": "layered reveal",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "原文 What makes a system distributed：慢节点与故障节点难以区分",
+      "visual_idea": "两座独立堡垒间的消息在雾与断桥中延迟",
+      "visible_label": "网络"
+    },
+    {
+      "role": "contrast",
+      "source_anchor": "原文 CAP 与 PACELC：分区时一致性和可用性、平时延迟和一致性的选择",
+      "visual_idea": "三股力量在峡谷中央形成清晰的拉扯关系",
+      "visible_label": "取舍"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文 FLP：完全异步模型中一个崩溃节点即可阻止确定性共识保证终止",
+      "visual_idea": "多个信使尝试在没有统一时钟的环境中完成会合",
+      "visible_label": "共识"
+    }
+  ],
+  "main_metaphor": "群侠在无统一时钟的网络峡谷中传递令牌并维持共同约定",
+  "primary_subject": "跨越两座节点堡垒的消息令牌与三方拉扯结构",
+  "subject_action": "消息在延迟、分区和协调条件下寻找可行路径",
+  "composition": "宽幅中央峡谷构图，左右节点堡垒形成关系，中心令牌为唯一主焦点",
+  "base_style": "abstract technical concept art",
+  "selected_style": "港漫武侠风",
+  "selected_style_prompt_descriptor": "bold martial-arts comic look, expressive ink strokes, dramatic stances, gritty texture, strong motion arcs",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；武侠群像的拉扯与传令动作适合表现分布式节点之间的协调难题",
+  "style_safety_note": "使用泛化的武侠漫画与水墨动作描述，不复刻具体作者或作品",
+  "allowed_visible_text": ["网络", "取舍", "共识"],
+  "color_palette": ["墨黑", "旧纸米色", "朱砂红", "冷青灰"],
+  "avoid": [
+    "真实数据库标志",
+    "真实架构图",
+    "通用机器人",
+    "代码雨",
+    "霓虹城市",
+    "密集公式",
+    "无法辨认的小字"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证网络不确定性、理论取舍和共识边界能否在一个宽幅场景中清楚呈现",
+  "revision_targets": [
+    "保持中央消息令牌为唯一主焦点",
+    "控制人物数量与装饰线条",
+    "确保仅出现三个批准标签"
+  ],
+  "final_prompt": "Use case: infographic-diagram. Asset type: wide cover infographic illustration for a Chinese technology blog article, aspect ratio 2.35:1. Primary request: create a wide conceptual cover about the foundations of distributed systems. Theme: independent nodes communicating through an uncertain network must choose among consistency, availability, latency, and progress. Summary angle: two node fortresses face each other across a misty broken network gorge while a single glowing message token travels between them; the center of the gorge shows a controlled three-way tension, and several messengers coordinate without a shared clock. Narrative flow: layered reveal. Information blocks: first, delayed and interrupted paths between the fortresses represent the uncertain network and are labeled exactly '网络'; second, three restrained forces around the central token represent the CAP and PACELC tradeoffs and are labeled exactly '取舍'; third, messengers attempting to meet around an irregular clockless ring represent the FLP consensus boundary and are labeled exactly '共识'. Main metaphor: martial artists carrying one shared seal across a changing landscape while preserving a common agreement. Primary subject: one luminous message seal at the center, with the two fortresses and a few human messengers only supporting its story. Composition: wide central-gorge composition, left and right fortresses create system relationships, strong motion arcs guide the eye toward the central seal, ample negative space, readable at thumbnail size. Style/medium: combine abstract technical concept art with bold martial-arts comic look, expressive ink strokes, dramatic stances, gritty texture, strong motion arcs. Use ink black, aged-paper ivory, restrained cinnabar red, and cool blue-gray. Visible text policy: render only '网络', '取舍', and '共识'; no title, sentences, English slogans, formulas, extra labels, numbers, fake UI, watermark, or prompt residue. Constraints: one dominant central seal, 2-4 supporting narrative beats, abstract system relationships without a real architecture diagram, no product logos, no screenshots, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage. Avoid generic robots, code rain, neon city backgrounds, giant HUD overlays, dense equations, decorative clutter, excessive characters, gore, and illegible microtext."
+}
