@@ -1,0 +1,56 @@
+{
+  "article_title": "数据复制的三条路：单主、多主与无主",
+  "cover_type": "research",
+  "core_theme": "数据复制通过多个副本提高可用性，同时带来写入协调、冲突和副本修复成本",
+  "reader_takeaway": "读者能区分单主、多主和无主复制的写入路径，并根据一致性、延迟与故障目标选择最简单的方案",
+  "summary_angle": "同一枚发光数据胶囊经过三条复制路线，分别展示单点广播、双向合并和法定人数确认",
+  "narrative_flow": "3-beat comparison",
+  "information_blocks": [
+    {
+      "role": "default",
+      "source_anchor": "原文 Single-leader replication：一个主节点接受写入并向从节点复制",
+      "visual_idea": "一座醒目的主塔把数据胶囊广播给两座较小副本塔",
+      "visible_label": "单主"
+    },
+    {
+      "role": "conflict",
+      "source_anchor": "原文 Multi-leader replication：多个节点接受写入并处理并发冲突",
+      "visual_idea": "两座主塔同时推出数据胶囊，在中央合并站相遇",
+      "visible_label": "多主"
+    },
+    {
+      "role": "quorum",
+      "source_anchor": "原文 Leaderless replication：多个副本通过读写法定人数确认操作",
+      "visual_idea": "三座平等节点中有两座点亮确认，同一数据胶囊继续前进",
+      "visible_label": "无主"
+    }
+  ],
+  "main_metaphor": "数据胶囊在三种交通路线中复制和确认，直观比较协调方式",
+  "primary_subject": "一枚贯穿整幅画面的发光数据胶囊",
+  "subject_action": "数据胶囊沿三条清楚区分的路线依次经历广播、合并和多数确认",
+  "composition": "超宽幅横向比较，中央数据胶囊为唯一主焦点，三段路线相连但不画成独立漫画格",
+  "base_style": "abstract technical concept art",
+  "selected_style": "美式卡通风",
+  "selected_style_prompt_descriptor": "American cartoon illustration, elastic shapes, clear expressions, bold color fields, light comedic timing",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中",
+  "style_safety_note": "使用泛化的美式卡通造型与色块，不复刻具体作品、角色或作者",
+  "allowed_visible_text": ["单主", "多主", "无主"],
+  "color_palette": ["深海军蓝", "暖白", "亮橙色", "青绿色"],
+  "avoid": [
+    "真实产品标志",
+    "真实系统界面",
+    "密集公式",
+    "通用机器人",
+    "代码雨",
+    "无法辨认的小字",
+    "复杂多格漫画"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证三种复制路线、唯一数据胶囊和清晰的确认关系",
+  "revision_targets": [
+    "保持数据胶囊为唯一主焦点",
+    "每种路线只保留必要节点",
+    "确保三个中文标签准确"
+  ],
+  "final_prompt": "Use case: infographic-diagram. Asset type: wide cover infographic illustration for a Chinese technology blog article, aspect ratio 2.35:1. Primary request: create a clear conceptual cover comparing three data replication strategies in distributed systems. Theme: replication improves availability but changes where coordination, conflicts, and repair happen. Summary angle: one luminous data capsule travels through three connected routes that show single-leader, multi-leader, and leaderless replication. Narrative flow: 3-beat comparison. Information blocks: first, one prominent leader tower broadcasts the capsule to two smaller follower towers, with the approved label exactly '单主'; second, two equal leader towers launch versions toward one central merge point, with the approved label exactly '多主'; third, three equal replica nodes receive the capsule and exactly two light up as acknowledgements, with the approved label exactly '无主'. Main metaphor: a lively data transit network where the same capsule follows three coordination patterns. Primary subject: one luminous data capsule that visually connects the entire frame. Composition: ultra-wide horizontal flow, three connected zones without separate comic panels, capsule remains the dominant focal point, bold readable arrows, generous negative space, clear at thumbnail size. Style/medium: combine abstract technical concept art with American cartoon illustration, elastic shapes, clear expressions suggested through tower forms, bold color fields, light comedic timing. Use deep navy, warm white, bright orange, and teal-green accents. Visible text policy: render only '单主', '多主', and '无主'; no title, sentences, English words, formulas, numbers, extra labels, fake UI, watermark, or prompt residue. Constraints: exactly one dominant luminous capsule, three supporting comparison beats, simple node counts, no product logos, no screenshots, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage. Avoid generic robots, code rain, neon city backgrounds, giant HUD overlays, dense equations, excessive characters, complex multi-panel comics, decorative clutter, and illegible microtext."
+}
