@@ -1,0 +1,55 @@
+{
+  "article_title": ".NET GC 基础：栈、堆、代际与压缩",
+  "cover_type": "research",
+  "core_theme": ".NET GC 从 roots 追踪存活对象，回收不可达空间，并在适合的区域压缩托管堆",
+  "reader_takeaway": "读者能理解可达性、代际、LOH 与暂停边界，并用正确指标排查内存问题",
+  "summary_angle": "一名安静的档案管理员在托管内存书库中标记仍被引用的书箱，清走失联箱子并合拢书架",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "mechanism",
+      "source_anchor": "原文 Mark：从 GC roots 遍历并标记可达对象",
+      "visual_idea": "管理员用柔和光线连接仍有引用路径的书箱",
+      "visible_label": "标记"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文 Sweep：回收没有根路径的对象空间",
+      "visual_idea": "失去光线连接的空箱被移出书架",
+      "visible_label": "回收"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文 Compact：移动存活对象并形成连续空闲空间",
+      "visual_idea": "剩余书箱整齐滑到一起，右侧留下连续空位",
+      "visible_label": "压缩"
+    }
+  ],
+  "main_metaphor": "托管堆是一座安静书库，引用路径像借阅线，GC 管理员按路径整理书箱",
+  "primary_subject": "一名正在整理托管内存书架的档案管理员",
+  "subject_action": "管理员沿发光引用路径标记书箱，移除失联箱并推动存活箱合拢",
+  "composition": "超宽幅横向三段连续动作，管理员与一条发光引用线为唯一主焦点",
+  "base_style": "abstract technical concept art",
+  "selected_style": "低饱和文艺风",
+  "selected_style_prompt_descriptor": "low-saturation arthouse illustration, quiet composition, subtle grain, muted colors, reflective emotional tone",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中",
+  "style_safety_note": "使用泛化低饱和插画与胶片质感，不复刻具体作品、品牌或作者",
+  "allowed_visible_text": ["标记", "回收", "压缩"],
+  "color_palette": ["灰蓝", "暖灰", "低饱和青绿", "少量琥珀色"],
+  "avoid": [
+    "真实产品标志",
+    "真实系统界面",
+    "垃圾桶卡通图标",
+    "代码雨",
+    "密集公式",
+    "无法辨认的小字"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证可达性路径、三步收集过程和单一管理员焦点",
+  "revision_targets": [
+    "保持管理员和引用线为唯一主焦点",
+    "减少无关书架装饰",
+    "确保三个中文标签准确"
+  ],
+  "final_prompt": "Use case: infographic-diagram. Asset type: wide cover infographic illustration for a Chinese technology blog article, aspect ratio 2.35:1. Primary request: create a clear conceptual cover explaining .NET garbage collection fundamentals. Theme: the garbage collector traces reachable objects from roots, reclaims unreachable space, and compacts suitable heap regions. Summary angle: one quiet archive curator manages a wide memory library; a single luminous reference thread reveals which storage boxes are still reachable, disconnected boxes are removed, and surviving boxes slide together to leave one continuous free space. Narrative flow: 3-beat process. Information blocks: first, the curator follows one luminous thread through reachable boxes with the approved label exactly '标记'; second, disconnected faded boxes leave the shelf with the approved label exactly '回收'; third, surviving boxes slide neatly together and reveal a clean continuous empty shelf with the approved label exactly '压缩'. Main metaphor: the managed heap as a calm archive library, references as borrowing threads, and GC as one careful curator. Primary subject: exactly one archive curator interacting with one luminous reference thread. Composition: ultra-wide left-to-right continuous scene, three connected beats without separate panels, curator and thread remain the dominant focus, ample negative space, simple readable shelf geometry, clear at thumbnail size. Style/medium: combine abstract technical concept art with low-saturation arthouse illustration, quiet composition, subtle grain, muted colors, reflective emotional tone. Use gray-blue, warm gray, muted teal-green, and small amber accents. Visible text policy: render only '标记', '回收', and '压缩'; no title, sentences, English words, formulas, numbers, extra labels, fake UI, watermark, or prompt residue. Constraints: exactly one curator, three supporting narrative beats, no product logos, no screenshots, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage. Avoid trash-can mascots, generic robots, code rain, neon city backgrounds, giant HUD overlays, dense equations, excessive characters, complex multi-panel comics, decorative clutter, and illegible microtext."
+}
