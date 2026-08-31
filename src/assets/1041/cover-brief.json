@@ -1,0 +1,56 @@
+{
+  "article_title": "分布式系统时间：Lamport、向量时钟与 HLC",
+  "cover_type": "research",
+  "core_theme": "分布式节点缺少统一可信时钟，需要分别用物理时间、逻辑顺序和因果关系理解事件",
+  "reader_takeaway": "读者能区分 Lamport 时钟、向量时钟与 HLC 的能力，并为排序、冲突检测和时间查询选择合适机制",
+  "summary_angle": "三名接力者跨越不同时间岛传递同一束事件之光，依次呈现现实时间、逻辑顺序和因果关系",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "原文 Why physical clocks can't be trusted：不同机器的时钟会漂移并存在同步误差",
+      "visual_idea": "第一座时间岛上的多个表盘指向略有差异的位置",
+      "visible_label": "物理时间"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文 Lamport timestamps：用递增计数器保存 happened-before 的必要顺序",
+      "visual_idea": "中央接力者把发光事件令牌按明确方向传给下一位",
+      "visible_label": "逻辑顺序"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文 Vector clocks、HLC 与 causal consistency：识别并发或在接近现实时间时尊重因果",
+      "visual_idea": "第三座岛上出现分叉与汇合路径，相关事件保持先后",
+      "visible_label": "因果关系"
+    }
+  ],
+  "main_metaphor": "跨越三座时间岛的高速接力赛，用同一枚事件令牌表现从时钟读数到因果关系的演进",
+  "primary_subject": "一枚在三名接力者之间传递的发光事件令牌",
+  "subject_action": "令牌沿着明确方向跨岛传递，并在最后显示可识别的分叉与汇合关系",
+  "composition": "宽幅斜向推进，中央令牌为唯一主焦点，三段动作形成连续节奏",
+  "base_style": "abstract technical concept art",
+  "selected_style": "日漫少年风",
+  "selected_style_prompt_descriptor": "energetic shonen-inspired manga look, clean ink lines, dynamic poses, readable action rhythm, bright restrained color accents",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；接力动作适合表现消息传递和顺序推进",
+  "style_safety_note": "使用泛化的少年漫画动作节奏与线条描述，不复刻具体作品、工作室或作者",
+  "allowed_visible_text": ["物理时间", "逻辑顺序", "因果关系"],
+  "color_palette": ["深海军蓝", "暖白", "明亮橙红", "少量青绿色"],
+  "avoid": [
+    "真实产品标志",
+    "真实系统界面",
+    "密集公式",
+    "通用机器人",
+    "代码雨",
+    "无法辨认的小字",
+    "复杂多格漫画"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证三段时间概念、单一事件令牌和清晰传递方向",
+  "revision_targets": [
+    "保持令牌为唯一主焦点",
+    "减少人物和装饰元素",
+    "确保三个中文标签准确"
+  ],
+  "final_prompt": "Use case: infographic-diagram. Asset type: wide cover infographic illustration for a Chinese technology blog article, aspect ratio 2.35:1. Primary request: create a wide conceptual cover about time, order, and causality in distributed systems. Theme: independent nodes cannot share one perfectly trusted clock, so systems use physical time, logical ordering, and causality tracking for different questions. Summary angle: three energetic relay runners cross three floating time islands while passing one luminous event token; the same token reveals the progression from imperfect clock readings to logical order and causal relationships. Narrative flow: 3-beat process. Information blocks: on the first island, several clock faces differ slightly and the approved label is exactly '物理时间'; in the center, one runner passes the glowing token forward along a clear ordered path and the approved label is exactly '逻辑顺序'; on the final island, the route splits and rejoins to show concurrent and causally related events, with the approved label exactly '因果关系'. Main metaphor: a high-speed relay race across three time islands, where the baton is one distributed event. Primary subject: one luminous event baton moving through the entire frame. Composition: wide diagonal left-to-right progression, three connected beats rather than separate comic panels, the baton remains the dominant focus, strong readable motion arcs, ample negative space, legible at thumbnail size. Style/medium: combine abstract technical concept art with energetic shonen-inspired manga look, clean ink lines, dynamic poses, readable action rhythm, bright restrained color accents. Use deep navy, warm white, bright orange-red, and small teal-green accents. Visible text policy: render only '物理时间', '逻辑顺序', and '因果关系'; no title, sentences, English slogans, formulas, numbers, extra labels, fake UI, watermark, or prompt residue. Constraints: exactly one dominant glowing baton, three supporting narrative beats, no real architecture diagram, no product logos, no screenshots, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage. Avoid generic robots, code rain, neon city backgrounds, giant HUD overlays, dense equations, excessive characters, complex multi-panel comics, decorative clutter, and illegible microtext."
+}
