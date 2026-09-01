@@ -1,0 +1,65 @@
+{
+  "article_title": "Specification、Repository 怎么区分",
+  "cover_type": "architecture",
+  "core_theme": "Specification、Repository 与 Query Object 是三个不同职责：命名判据、控制持久化访问、表达一次查询；校验、授权、规则引擎是各自独立的边界",
+  "reader_takeaway": "读者能按「什么需要名字、什么需要执行、什么需要边界」为每个查询与规则选择最小合适的抽象",
+  "summary_angle": "把「三个职责模块 + 一条独立边界」压成一张等距场景封面：判据模块、访问模块、查询模块在同一数据流上分工协作，外围一道独立边界圈住校验与授权，体现按职责而非按模式数量选型",
+  "narrative_flow": "layered reveal",
+  "information_blocks": [
+    {
+      "role": "contrast",
+      "source_anchor": "原文「Start With the Question Each Abstraction Answers」：Specification 回答候选是否满足命名条件",
+      "visual_idea": "等距场景上层的一个判据模块，像一枚印章或布尔开关",
+      "visible_label": "命名判据"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "Fowler Repository 描述：中介领域与数据映射层，通过集合风格接口",
+      "visual_idea": "中间一层控制持久化的模块，带受控出入口",
+      "visible_label": "访问边界"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "Fowler Query Object：代表数据库查询、翻译判据为查询语言",
+      "visual_idea": "底层负责执行查询的模块，输出投影与分页结果",
+      "visible_label": "查询形状"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文「Validation Is a Neighbor」「Authorization Policy Is a Security Decision」「Rules Engines Solve a Larger Problem」三节",
+      "visual_idea": "三者外围一道独立的栏板或框架，与内层模块保持距离",
+      "visible_label": "独立边界"
+    }
+  ],
+  "main_metaphor": "同一条数据流上分层协作的三个职责模块，外面一圈独立的边界栏板",
+  "primary_subject": "等距场景中的三个职责模块（判据、访问、查询）",
+  "subject_action": "判据模块把条件传给访问模块，访问模块把查询交给查询模块，三者的数据流方向明确可读",
+  "composition": "等距空间或层级式关系",
+  "base_style": "isometric conceptual systems scene",
+  "selected_style": "黑白版画风",
+  "selected_style_prompt_descriptor": "black-and-white printmaking look, carved textures, bold shadows, high contrast, poster-like but no title text",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；黑白版画的高对比与雕刻质感适合表达职责边界的结构性主题",
+  "style_safety_note": "泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["命名判据", "访问边界", "查询形状", "独立边界"],
+  "color_palette": ["黑", "白", "深浅灰", "版画雕刻般的纹理层次"],
+  "avoid": [
+    "彩色渐变",
+    "霓虹",
+    "真实系统图",
+    "真实数据库截图",
+    "仪表盘",
+    "假图表坐标轴",
+    "漂浮芯片",
+    "代码雨",
+    "通用机器人",
+    "HUD 浮层"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证「三个职责模块分层协作 + 独立边界栏板」主题成立、等距关系清楚、黑白版画质感到位且无彩色科技杂项",
+  "revision_targets": [
+    "强化三个模块在版画质感中的可辨识度（印章/闸门/查询输出）",
+    "让外围独立边界栏板与三模块拉开距离，不与模块粘连",
+    "检查标签文字在黑白高对比下是否清晰"
+  ],
+  "final_prompt": "Use case: infographic-story. Asset type: wide cover infographic illustration for a Chinese tech blog article. Primary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: .NET 里 Specification、Repository 与 Query Object 的三个不同职责——命名判据、控制持久化访问、表达一次查询，外围的校验与授权是独立边界。The reader should quickly feel that this is about three cooperating responsibility modules and one separate boundary, not about which pattern replaces another. Summary angle: 等距场景中三个职责模块沿同一条数据流分层协作：上层判据模块（如印章），中层访问模块（带受控出入口），底层查询模块（输出投影与分页结果）；三者外围一道独立栏板，与它们保持距离。Narrative flow: layered reveal. In a 2.35:1 frame, keep one dominant focal subject and 2-4 supporting narrative beats. Each beat must map to the article's information blocks rather than generic decoration. Information blocks: 1) contrast: top module naming criteria, like a seal or boolean switch; visible label「命名判据」. 2) mechanism: middle module controlling persistence access, with a controlled gateway; visible label「访问边界」. 3) mechanism: bottom module expressing a database query, outputting projection and page results; visible label「查询形状」. 4) takeaway: a separate boundary board around the three modules, at a distance; visible label「独立边界」. Main metaphor: three responsibility modules cooperating along one data flow, with an independent boundary board around them. Subject: the three layered isometric modules (criteria, access, query) connected by a clear data-flow direction. Composition/framing: isometric space with hierarchical relationship, legible in a wide cover. Style/medium: combine isometric conceptual systems scene with the selected visual style descriptor: black-and-white printmaking look, carved textures, bold shadows, high contrast, poster-like but no title text. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist. Color palette: black, white, shades of gray, printmaking carved texture. Visible text policy: allow only 1-3 short Chinese labels or number chips by default, max 4 when strictly necessary: 「命名判据」「访问边界」「查询形状」「独立边界」. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names. Constraints: no watermark, no prompt residue, no screenshots, no dashboards, no real system diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter. Avoid: 彩色渐变、霓虹、浮动芯片、代码雨、通用机器人、HUD 浮层。"
+}
