@@ -1,0 +1,66 @@
+{
+  "article_title": "ChatGPT Work 实测：与 Chat 到底差在哪",
+  "cover_type": "analysis",
+  "core_theme": "ChatGPT Work 与普通 Chat 的真实能力差异：联网代码执行、无头浏览器、跨会话持久文件、ChatGPT Sites、子代理，以及随之而来的安全边界",
+  "reader_takeaway": "读者能判断自己的任务该留在 Chat 还是换到 Work，并知道风险边界",
+  "summary_angle": "官方只用「用途」定义 Chat 与 Work，实测下来的真正差异是「多出来的能力」——把双入口对照、Work 一侧打开的「能力车间」与车间外的护栏压成一张封面",
+  "narrative_flow": "conflict-to-resolution",
+  "information_blocks": [
+    {
+      "role": "contrast",
+      "source_anchor": "原文「ChatGPT Work is actually two products」与官方「要答案用 Chat、完成任务用 Work」的对照；Simon 认为官方答案几乎没用",
+      "visual_idea": "左右两扇入口：左侧是普通对话入口，右侧打开后是一间「能力车间」，形成 Chat 与 Work 的对照",
+      "visible_label": "Chat / Work",
+      "numeric_fact": "2"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文「Code execution with Internet access!」与「A full, headless Chrome browser」两节",
+      "visual_idea": "车间内一条从终端延伸向外部网络的执行管线，加一个浏览器窗口",
+      "visible_label": "联网执行"
+    },
+    {
+      "role": "evidence",
+      "source_anchor": "原文「A list of all the tools」一节：让 Work 自述出 223 个注册工具、44 个 skills，浏览器能力藏在 control-browser skill",
+      "visual_idea": "摊开的工具目录或清单页",
+      "visible_label": "223 工具",
+      "numeric_fact": "223"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文「Is this safe?」一节：致命三要素——私有数据、不可信内容、外泄通道",
+      "visual_idea": "车间外围一道低矮的护栏或边界线",
+      "numeric_fact": "3"
+    }
+  ],
+  "main_metaphor": "一扇分左右两侧的入口：左侧是普通对话题的入口，右侧打开后是一间能力车间",
+  "primary_subject": "右侧打开的「能力车间」入口",
+  "subject_action": "车间内延伸出联网执行管线、浏览器窗口，并摊开一份工具目录",
+  "composition": "左右对照",
+  "base_style": "conceptual editorial illustration",
+  "selected_style": "低饱和文艺风",
+  "selected_style_prompt_descriptor": "low-saturation arthouse illustration, quiet composition, subtle grain, muted colors, reflective emotional tone",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；低饱和文艺风的克制氛围适合「判断与对比」类文章",
+  "style_safety_note": "泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["Chat / Work", "联网执行", "223 工具"],
+  "color_palette": ["米灰", "深灰", "低饱和暗青绿", "锈红点缀"],
+  "avoid": [
+    "赛博朋克紫蓝光污染",
+    "漂浮芯片",
+    "无意义代码雨",
+    "霓虹高楼背景",
+    "通用机器人站姿",
+    "巨量 HUD 浮层",
+    "UI 截图",
+    "仪表盘",
+    "假图表"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证「双入口对照 + 能力车间」主题成立、左右对照清楚、无冗余科技杂项",
+  "revision_targets": [
+    "强化车间内可辨识物件（终端、浏览器窗口、文件柜）",
+    "收窄取景让右侧入口成为唯一焦点",
+    "进一步降低饱和与装饰密度"
+  ],
+  "final_prompt": "Use case: infographic-story. Asset type: wide cover infographic illustration for a Chinese tech blog article. Primary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: 对比 ChatGPT 普通 Chat 与 ChatGPT Work 的真实能力差异——Work 额外拥有联网代码执行、无头浏览器、跨会话持久文件、可发布的 Sites 与子代理，并伴随安全边界。The reader should quickly feel that the official positioning only talks about purpose, while the real difference is capability: on the Work side, an opened capability workshop. Summary angle: 双入口对照——左侧是普通对话入口，右侧打开后是一间能力车间（联网执行管线、浏览器窗口、工具目录），车间外一道护栏。Narrative flow: conflict-to-resolution. In a 2.35:1 frame, keep one dominant focal subject and 2-4 supporting narrative beats. Each beat must map to the article's information blocks rather than generic decoration. Information blocks: 1) contrast: two entrances side by side, left an ordinary conversation entrance, right an opened capability workshop; visible label \"Chat / Work\", numeric fact 2. 2) mechanism: inside the workshop, a pipeline extending from a terminal toward the outer network, plus a browser window; visible label \"联网执行\". 3) evidence: an opened tool catalog / list page; visible label \"223 工具\", numeric fact 223. 4) takeaway: a low guard rail around the workshop; no text label, numeric fact 3. Main metaphor: a door with two sides, left and right. Subject: the opened capability workshop entrance on the right, with an execution pipeline, a browser window, and a tool catalog extending out of it. Composition/framing: left-right contrast (Chat on the left, Work on the right), horizontal narrative, legible in a wide cover. Style/medium: combine conceptual editorial illustration with the selected visual style descriptor: low-saturation arthouse illustration, quiet composition, subtle grain, muted colors, reflective emotional tone. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist. Color palette: 米灰、深灰、低饱和暗青绿，锈红作少量点缀. Visible text policy: allow only 1-3 short Chinese labels or number chips: \"Chat / Work\" (product name), \"联网执行\", \"223 工具\". No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names. Constraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter. Avoid: 赛博朋克紫蓝光污染、漂浮芯片、无意义代码雨、霓虹高楼背景、通用机器人站姿、巨量 HUD 浮层。"
+}
