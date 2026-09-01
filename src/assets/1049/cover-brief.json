@@ -1,0 +1,57 @@
+{
+  "article_title": "Azure AI Search 语义重排：RAG 的第二级检索",
+  "cover_type": "tutorial",
+  "core_theme": "语义重排是 RAG 的第二级精度操作：对第一级检索的候选集按语义重新排序，能力边界是 top 50、2000 token 与 0–4 分，并要给证据保留元数据",
+  "reader_takeaway": "读者能配置 Azure AI Search 语义排名、发出语义查询、读出重排分数并评估排序变化",
+  "summary_angle": "把「候选流水线经过一道语义重排闸门，乱序卡片按语义顺序重新排出」压成一张封面：主焦点是重排闸门，前后链路作为叙事节拍",
+  "narrative_flow": "before-after",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "原文开场：初始候选集 plausible but badly ordered，正确证据位置靠后",
+      "visual_idea": "画面左侧流入一份乱序卡片列表，其中一张卡片位置靠后",
+      "visible_label": "候选集"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文章节「What Azure semantic ranker actually reranks」「Issue a semantic query from .NET」：L2 排名、语义配置、RerankerScore",
+      "visual_idea": "画面中央一道重排闸门装置，卡片从闸门中经过",
+      "visible_label": "语义重排"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文章节「Read the reranker score」「Keep ranking, citations, and generation separate」：证据投影保留初始分、重排分与 caption",
+      "visual_idea": "画面右侧流水线输出已排序卡片，顶部卡片最高且带分数标记",
+      "visible_label": "证据投影"
+    }
+  ],
+  "main_metaphor": "一条卡片流水线上的语义重排闸门：乱序流入，按语义相关性排出",
+  "primary_subject": "中央的语义重排闸门装置",
+  "subject_action": "闸门正在把流入的乱序卡片按语义顺序重新排出，顶部卡片被点亮置顶",
+  "composition": "轻微斜向推进（左到右）",
+  "base_style": "editorial technical illustration",
+  "selected_style": "厚涂插画风",
+  "selected_style_prompt_descriptor": "painterly digital illustration, rich brushwork, volumetric lighting, strong focal contrast, textured color masses",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；厚涂的强焦点对比适合把重排闸门作为唯一主焦点",
+  "style_safety_note": "泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["候选集", "语义重排", "证据投影"],
+  "color_palette": ["深蓝灰背景", "暖金琥珀高光", "少量青绿点缀"],
+  "avoid": [
+    "真实搜索界面截图",
+    "仪表盘",
+    "假图表坐标轴",
+    "漂浮芯片",
+    "代码雨",
+    "HUD 浮层",
+    "霓虹紫蓝光污染",
+    "通用机器人站姿"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证「候选流水线 + 重排闸门 + 输出排序」主题成立、闸门是唯一主焦点、厚涂质感与暖金高光到位且无科技杂项",
+  "revision_targets": [
+    "强化闸门装置的质感与可读性（阀轮 / 分拣结构）",
+    "让左右两端的卡片列表大小错落、避免对称",
+    "检查三个中文标签在厚涂画面里是否清晰"
+  ],
+  "final_prompt": "Use case: infographic-story. Asset type: wide cover infographic illustration for a Chinese tech blog article. Primary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: RAG 的第二级检索——语义重排器对第一级检索给出的候选集按语义重新排序，并保留初始分、重排分与来源 caption 作为证据。The reader should quickly feel that this is about a reranking gate that fixes the ORDER of an existing candidate set, not about finding missing documents. Summary angle: 一条卡片流水线：左侧流入乱序候选卡片，中央一道语义重排闸门，右侧输出已按语义排序的卡片，顶部卡片被点亮置顶。Narrative flow: before-after. In a 2.35:1 frame, keep one dominant focal subject and 2-4 supporting narrative beats. Each beat must map to the article's information blocks rather than generic decoration. Information blocks: 1) problem: a scattered candidate list flowing in from the left, with one relevant card placed low; visible label「候选集」. 2) mechanism: the central semantic-reranking gate device, like a sorting valve, with cards passing through it; visible label「语义重排」. 3) takeaway: on the right, an ordered card list where the top card is lit and carries a small score mark; visible label「证据投影」. Main metaphor: an assembly-line reranking gate: cards flow in unordered and exit re-ordered by semantic relevance. Subject: the central reranking gate, actively sorting the cards, with the top output card highlighted. Composition/framing: slight diagonal progression from left to right, single focal subject, legible in a wide cover. Style/medium: combine editorial technical illustration with the selected visual style descriptor: painterly digital illustration, rich brushwork, volumetric lighting, strong focal contrast, textured color masses. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist. Color palette: deep blue-gray background, warm gold-amber highlights, a few teal accents. Visible text policy: allow only 1-3 short Chinese labels or number chips: 「候选集」「语义重排」「证据投影」. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names. Constraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter. Avoid: 真实搜索界面截图、仪表盘、假图表坐标轴、漂浮芯片、代码雨、HUD 浮层、霓虹紫蓝光污染、通用机器人站姿。"
+}
