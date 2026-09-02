@@ -1,0 +1,65 @@
+{
+  "article_title": "RAG 查询变换：HyDE、Step-Back 与分解",
+  "cover_type": "tutorial",
+  "core_theme": "在检索之前把用户的一个问题变成多个检索键：HyDE 用假设文档改变检索表示、Step-Back 上移抽象层级、分解把问题拆成多个证据请求；生成文本只是检索键，答案只能引用真实语料块。",
+  "reader_takeaway": "理解三种查询变换各自解决什么检索失败，用与模型、向量库无关的 .NET 契约接入，并对照原问题基线评估召回。",
+  "summary_angle": "一个问题是一把锁，变换是造出多把不同形状的钥匙去开同一把锁；答案只能来自锁内（真实语料）的文档。",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "原文「Start RAG query transformation in .NET with the unmodified question」一节：先定义原问题能检索到什么，没有基线则变换结果没有可比对象",
+      "visual_idea": "一把朴素的钥匙指向画面中央发光的锁孔，代表原问题直接嵌入检索的基线",
+      "visible_label": "原问题",
+      "numeric_fact": ""
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文 HyDE、Step-Back、Decomposition 三节：假设文档是检索键而非证据、Step-Back 与改写细节层级不同、分解产生可独立检索的子问题",
+      "visual_idea": "三把形状不同的钥匙（分别对应假设文档、上层概念、子问题）悬停在同一锁孔上方，用 ①②③ 编号区分",
+      "visible_label": "",
+      "numeric_fact": "①②③"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文「Merge candidates into an identity-qualified pool」与「Evaluate RAG query transformation in .NET against retrieval evidence」：按 (DocumentId, ChunkId) 身份合并并保留检索键溯源，再用 Recall@K 对照人工审阅的基线",
+      "visual_idea": "从三把钥匙各有一条光线汇入锁后层叠文档堆，文档上带一个确认标记，表示合并后的候选池保留了来源",
+      "visible_label": "对照基线",
+      "numeric_fact": ""
+    }
+  ],
+  "main_metaphor": "多把钥匙开同一把锁：锁孔代表检索，钥匙代表检索键，锁内层叠文档代表真实语料；最终答案只能从锁内取出。",
+  "primary_subject": "一把发光的复古钥匙，正对准画面中央的发光锁孔",
+  "subject_action": "钥匙斜向悬停并旋转，试图插入锁孔，光线自下而上照亮其后层叠的文档",
+  "composition": "单点聚焦",
+  "base_style": "editorial technical illustration",
+  "selected_style": "悬疑惊悚风",
+  "selected_style_prompt_descriptor": "suspense thriller comic mood, low-key lighting, sharp shadows, uneasy framing, controlled tension without gore",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；低照度与锐利阴影适合表达「在不确定中寻找正确检索键」的紧张感，且与密钥隐喻的藏匿氛围一致",
+  "style_safety_note": "清单风格为泛类型氛围描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["原问题", "对照基线", "①②③"],
+  "color_palette": [
+    "deep indigo",
+    "amber gold",
+    "cool gray",
+    "dark red accent"
+  ],
+  "avoid": [
+    "无意义代码雨",
+    "霓虹高楼",
+    "通用机器人站姿",
+    "赛博朋克紫蓝光污染",
+    "HUD 浮层",
+    "错误弹窗",
+    "假图表",
+    "假数据百分比"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证「多钥匙开一锁」隐喻是否成立、暗调技术插画氛围下标签是否清晰、锁孔主焦点是否突出",
+  "revision_targets": [
+    "标签数量与位置",
+    "钥匙与锁孔比例",
+    "暗度过高时提升主体与文档堆的可读性"
+  ],
+  "final_prompt": "Use the current cover direction as the base. Keep the strongest part of the composition and preserve the summary angle: one question is one lock; transformation forges several differently shaped keys to open the same lock, while the answer may only come from real documents inside the lock. Preserve the core metaphor: several keys for one lock; the answer may only be taken from real documents inside. Keep these information beats readable and source-grounded: (1) problem, visible label 原问题 on the main key entering from the left, representing baseline retrieval with the unmodified question; (2) mechanism, numeric chips ①②③ above three differently shaped keys hovering over the same keyhole, representing HyDE hypothetical document, step-back concept, and decomposed sub-questions; (3) takeaway, visible label 对照基线 with a confirmation mark on the stack of layered documents inside the vault, representing identity-qualified merge with retrieval-key provenance and baseline recall evaluation. Change only these points: sharper details on keys and keyhole, cleaner separation between the three keys and their number chips, slightly reduce faint background question marks and small decorative icon clutter so the main diagonal ray of light reads clearly, and keep all visible labels crisp and legible at small size. Make the image feel more like editorial technical illustration combined with this selected visual style descriptor: suspense thriller comic mood, low-key lighting, sharp shadows, uneasy framing, controlled tension without gore. Preserve one clear focal subject (the glowing keyhole with the main key entering it) and 2-4 supporting narrative beats in a wide 2.35:1 frame. Do not imitate a specific brand, studio, or living artist. Primary subject should remain: one glowing vintage key angled toward the central glowing keyhole, rotating and trying to insert, with light rising from below onto layered documents behind. Simplify the background so that only the dark vault wall with faint document silhouettes remains as supporting context. Color palette: deep indigo background, amber glow on the key and keyhole, cool gray documents, restrained dark-red accent. Visible text policy: keep only the approved 1-3 short Chinese labels or number chips from the brief, and never exceed 4 items: 原问题, 对照基线, and ①②③ chips. No poster title, no long sentence captions, no English slogans, no fake UI labels, no fake chart axes, and no fake architecture node names. Remove any watermark, prompt residue, screenshots, dashboards, fake diagrams, fake charts, fake terminal output, fabricated metrics, unrelated icons, and decorative clutter. Avoid meaningless code rain, neon city towers, generic robot standing pose, cyberpunk purple-blue light pollution, HUD overlays, and error dialogs."
+}
