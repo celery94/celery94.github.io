@@ -1,0 +1,39 @@
+{
+  "source_url": "https://x.com/pvncher/status/2095991462416490862",
+  "author": "eric provencher",
+  "published_at_display": "2026-09-05 05:44",
+  "evidence_method": "浏览器完整正文与两张配图视觉读取",
+  "anchors": [
+    {
+      "section": "Skill files",
+      "finding": "描述覆盖数据库所有工作会误触发迁移技能；配图对比已核对"
+    },
+    {
+      "section": "Skill files",
+      "finding": "入口精简并指向相关参考材料；共享技能需考虑其他模型"
+    },
+    {
+      "section": "AGENTS.md",
+      "finding": "配图比较每次全读文档与按服务边界、结构变更、部署任务分别读取"
+    },
+    {
+      "section": "Decision boundaries / Persistence",
+      "finding": "局部测试授权与明确完成终点"
+    }
+  ],
+  "outline": {
+    "reader": "已有技能和项目指令的编程助手用户",
+    "conclusion": "保留事实、边界和验收，清理无关固定流程",
+    "value_added": "中文示例、三类任务回归检查与当前官方机制核对",
+    "reader_action": "先修改最近导致绕路的一条规则，验证触发及停止边界",
+    "omit": "产品价格、API迁移参数、泛化性能宣称"
+  },
+  "editorial_review": {
+    "opening": "以小修改多读文档、任务提前停止的场景切入",
+    "core": "清理旧流程且保留真实边界",
+    "structure": "作用层级→触发→阅读→验证→授权→完成→检查",
+    "redundancy": "已删除重复总结和性能宣传",
+    "ending": "三类任务验证并从一条问题规则开始",
+    "examples": "中文自行编写，未宣称已在读者项目运行"
+  }
+}

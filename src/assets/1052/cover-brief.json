@@ -1,0 +1,44 @@
+{
+  "article_title": "用好 GPT-6 Astra，先清理旧指令",
+  "cover_type": "analysis",
+  "core_theme": "清理编程助手的旧指令，保留范围、约束和完成标准",
+  "reader_takeaway": "技能按需触发和读取，任务有明确完成条件",
+  "summary_angle": "从缠绕的说明书到清晰的任务路线",
+  "narrative_flow": "conflict-to-resolution",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "原文 Skill files：技能描述过宽、过长",
+      "visual_idea": "左侧缠绕纸卷被整理",
+      "visible_label": "精简指令"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文 Skill files 与 AGENTS.md：渐进披露和条件式阅读",
+      "visual_idea": "中间少量参考卡片",
+      "visible_label": "按需读取"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文 Decision boundaries 与 Persistence：边界与完成条件",
+      "visual_idea": "右侧边界内的终点旗",
+      "visible_label": "明确终点"
+    }
+  ],
+  "main_metaphor": "整理武学卷轴，如同清理积累的助手指令",
+  "primary_subject": "武侠学者",
+  "subject_action": "一笔扫开冗余纸卷，留下简短路线",
+  "composition": "左右对照与横向推进，单一主体",
+  "base_style": "conceptual editorial illustration",
+  "selected_style": "港漫武侠风",
+  "selected_style_prompt_descriptor": "bold martial-arts comic look, expressive ink strokes, dramatic stances, gritty texture, strong motion arcs",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中",
+  "style_safety_note": "泛武侠漫画风格，不模仿具体作者或作品",
+  "allowed_visible_text": ["精简指令", "按需读取", "明确终点"],
+  "color_palette": ["暖象牙白", "墨黑", "砖红", "赭金"],
+  "avoid": ["代码雨", "机器人", "霓虹背景", "伪造指标", "大标题"],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "确认整理卷轴与明确终点的摘要关系可读",
+  "revision_targets": ["中文标签准确", "主焦点清楚", "去掉多余装饰"],
+  "final_prompt": "Use case: illustration-story. Asset type: wide cover illustration for a Chinese technology blog, aspect ratio 2.35:1. Theme: clean up accumulated coding-agent instructions while preserving clear boundaries and completion goals. Summary angle: an agile editor cuts loose tangled redundant paper ribbons, leaving three concise route cards and a clear finish marker. Narrative flow: conflict-to-resolution, left to right. One dominant focal subject: a single focused martial-arts scholar at a wooden workbench, making one sweeping brush gesture that separates a tangled mass of unlettered paper scrolls on the left into an orderly small set of reference cards in the center; a simple finish pennant within a deliberate boundary on the right. Three source-grounded information beats: excessive skill descriptions become concise scope, reference guidance is loaded only when needed, completion boundary stays clear. Allow exactly three small Chinese labels: 「精简指令」「按需读取」「明确终点」 placed near those three beats, no other text. Composition: panoramic editorial scene with dominant scholar and sweeping ink arc, cards and boundary secondary, ample clear space, readable at thumbnail size. Style/medium: conceptual editorial illustration combined with bold martial-arts comic look, expressive ink strokes, dramatic stances, gritty texture, strong motion arcs. Palette: warm ivory, ink black, muted brick red, restrained golden ochre. Polished graphic ink rendering, no imitation of specific artists or brands. No poster title, hero slogan, long sentences, English slogans, sound effects, watermark, prompt residue, UI screenshots, dashboards, fake diagrams, chart axes, terminal output, fabricated metrics, architecture node names, unrelated icon collage, floating chips, code rain, neon skyscrapers, robots, purple-blue glow, HUD overlays or decorative clutter."
+}
