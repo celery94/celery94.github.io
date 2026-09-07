@@ -1,0 +1,37 @@
+{
+  "source_url": "https://www.devleader.ca/2026/09/05/rag-evaluation-metrics-in-net-measure-retrieval-and-grounding",
+  "author": "Nick Cosentino (Dev Leader)",
+  "published_at_display": "2026-09-05",
+  "evidence_method": "浏览器完整正文、代码块与链接读取；三个示例程序在 .NET 10.0.301 SDK 下实际编译运行验证",
+  "anchors": [
+    {
+      "section": "Separate failure layers",
+      "finding": "四个失败模式：低 Recall@K 表示必要证据未进提示词；低 Precision@K 表示噪声过多；检索强但 groundedness 低表示答案超出上下文；groundedness 高但答案相关性低表示答非所问"
+    },
+    {
+      "section": "Ranked retrieval list",
+      "finding": "Precision@5=0.6（前5位3个相关）；Recall@5=0.75（4个判定相关中前5命中3个）；MRR=第一个相关结果的 1/rank；nDCG 使用分级相关并按位置折扣；cutoff 必须写在指标名里"
+    },
+    {
+      "section": "Retrieval code sample",
+      "finding": "纯 BCL 程序（称 .NET 7 / C# 10 验证）：ValidateInputs 拒绝 k<=0、重复 chunk ID、负数 grade、缺 grade；DCG=(2^grade-1)/log2(index+2)；0 视为不相关，正数视为相关，nDCG 保留分级"
+    },
+    {
+      "section": "Answer measurements",
+      "finding": "Groundedness=被检索上下文支持的 claim 比例；答案相关性=是否正面回答用户问题；二元标签示例 groundedness=0.5、answer relevance=1"
+    }
+  ],
+  "checks": {
+    "arxiv_2405_07437": "Evaluation of Retrieval-Augmented Generation: A Survey 存在（arXiv:2405.07437）",
+    "arxiv_2504_20119": "Can LLMs Be Trusted for Evaluating RAG Systems? A Survey of Methods and Datasets 存在（arXiv:2504.20119）",
+    "orderdescending": "Enumerable.OrderDescending 为 .NET 7 新增 LINQ 操作符，Microsoft Learn 确认",
+    "code_run": "三个示例在 .NET 10.0.301 SDK 下全部编译运行成功；检索示例输出 Precision@3=0.667、Recall@3=0.667、MRR=0.500、nDCG@3=0.523"
+  },
+  "outline": {
+    "reader": "已有 RAG 应用、想建立评估但只用过相似度分数或凭感觉看回答的 .NET 开发者",
+    "conclusion": "把 RAG 评估拆成检索层与答案层，分别测量再对照解读，单个总分无法定位问题",
+    "value_added": "指标中文说明与手算示例、四个指标完整可运行代码与实测输出、指标变化排查表、LLM 评判器使用边界、版本核对",
+    "reader_action": "先为真实查询标注相关性，运行检索指标；再记录答案层两个指标；最后按层对比配置",
+    "omit": "原文延伸的 OpenTelemetry/中间件文章、related posts、评测数据构建与生产埋点"
+  }
+}

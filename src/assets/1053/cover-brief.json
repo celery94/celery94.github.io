@@ -1,0 +1,60 @@
+{
+  "article_title": "RAG 评估指标：先测检索，再测答案",
+  "cover_type": "tutorial",
+  "core_theme": "把 RAG 评估拆成检索层与答案层：检索排序列表用一个测量（Precision@K、Recall@K、MRR、nDCG），回答的 claim 支持度与是否切题用另一个测量（groundedness、答案相关性）",
+  "reader_takeaway": "掌握两层指标的算与读，用分开的测量定位 RAG 失败环节，而不是被单个总分迷惑",
+  "summary_angle": "一台带两层读数面板的测量仪器：上面读检索排序，下面读答案主张，指针指向需要排查的那一层",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "mechanism",
+      "source_anchor": "原文 RAG evaluation metrics in .NET: Measure the ranked retrieval list 一节：四个指标描述排序列表性质",
+      "visual_idea": "上层面板：一列按箭头排序的文档卡片，卡片带小分数标签",
+      "visible_label": "检索层",
+      "numeric_fact": ""
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文 Groundedness and answer relevance measure different answer failures 一节：claim 逐条判断是否有据、是否切题",
+      "visual_idea": "下层面板：答案被拆成几张小 claim 卡片，多数带对勾、一张带警示",
+      "visible_label": "答案层",
+      "numeric_fact": ""
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文 A practical reading of the results 一节：分层对照排查，每个模式指向不同调查方向",
+      "visual_idea": "两台面板并排读数，一个指针落在需要检查的那一层",
+      "visible_label": "分开测",
+      "numeric_fact": ""
+    }
+  ],
+  "main_metaphor": "一台两层读数的测量仪器，同时读取检索信号与答案信号",
+  "primary_subject": "一台插画风格的两层测量仪器：上层检索引擎文档卡排序面板、下层答案 claim 面板",
+  "subject_action": "两个读数面板分别工作，指针指向需要排查的层级",
+  "composition": "单点聚焦",
+  "base_style": "editorial technical illustration",
+  "selected_style": "美式卡通风",
+  "selected_style_prompt_descriptor": "American cartoon illustration, elastic shapes, clear expressions, bold color fields, light comedic timing",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；教程类流程适合用清晰的主体与轻快节奏表达",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["检索层", "答案层", "分开测"],
+  "color_palette": ["深藏蓝", "暖橙", "米白面板", "青绿细部"],
+  "avoid": [
+    "真实产品仪表盘",
+    "键盘",
+    "机器人站姿",
+    "霓虹紫蓝光",
+    "代码雨",
+    "漂浮芯片",
+    "HUD 浮层",
+    "英文标语"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮验证两层读数面板的主体关系、三块叙事和中文短标签可读性",
+  "revision_targets": [
+    "面板不要像真实软件截图，改为插画式仪器",
+    "只保留 3 个信息块",
+    "维持卡通感而不是工厂或科幻氛围"
+  ],
+  "final_prompt": "Use the current cover direction as the base. Keep the strongest part of the composition and preserve the summary angle: an illustrated two-layer measuring instrument, its upper meter reading the ranked retrieval list, its lower meter reading answer claims, with a pointer marking the layer needing attention. Preserve the core metaphor: a two-layer measuring instrument reading separate signals from the same RAG pipeline. Keep these information beats readable and source-grounded: (1) upper meter face with an arrow-ordered stack of document cards, small step numbers, visible label 检索层; (2) lower meter face with answer claim chips, most with check marks and one with a warning mark, visible label 答案层; (3) side-by-side readings with a pointer and visible label 分开测. Change only these points: remove the small decimal score numbers shown on the upper cards and replace them with plain tick symbols or empty small chips; keep the existing step numbers. Make the image feel more like editorial technical illustration combined with this selected visual style descriptor: American cartoon illustration, elastic shapes, clear expressions, bold color fields, light comedic timing. Preserve one clear focal subject and 2-4 supporting narrative beats in a wide 2.35:1 frame. Do not imitate a specific brand, studio, or living artist. Primary subject should remain: the two-layer measuring instrument with ordered document cards on top and claim chips below. Simplify the background so that only the dark navy backdrop with small supporting icons remains. Color palette: deep navy blue, warm orange accent, off-white panels, restrained teal details. Visible text policy: keep only the approved short Chinese labels 检索层 / 答案层 / 分开测 and small step numbers; no numeric scores, no poster title, no long sentence captions, no English slogans, no fake UI labels, no fake chart axes, and no fake architecture node names. Remove any watermark, prompt residue, screenshots, dashboards, fake diagrams, fake charts, fake terminal output, fabricated metrics, unrelated icons, and decorative clutter. Avoid neon purple-blue glow, robot standing pose, code rain, floating chips, HUD overlays, keyboard, terminal windows, realistic dashboard widgets."
+}
