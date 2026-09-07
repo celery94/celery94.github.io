@@ -1,0 +1,36 @@
+{
+  "source_url": "https://x.com/mwaseemzakir/status/2092496024820482381",
+  "author": "Muhammad Waseem (@mwaseemzakir)",
+  "published_at_display": "2026-08-26 14:15",
+  "evidence_method": "浏览器读取推文英文原文（已切换显示原文）与完整代码块",
+  "anchors": [
+    {
+      "section": "Why filters",
+      "finding": "在请求管道特定阶段前后运行自定义逻辑而不触碰控制器；两大价值：可复用（多控制器/操作）与可扩展（业务规则移出操作方法）"
+    },
+    {
+      "section": "Sync vs async",
+      "finding": "IActionFilter 适合轻量同步检查（OnActionExecuting/OnActionExecuted 两个方法）；IAsyncActionFilter 在检查需要 await 数据库或服务调用时使用，只有一个 OnActionExecutionAsync 包裹 next() 委托"
+    },
+    {
+      "section": "Short circuit",
+      "finding": "调用 next() 继续管道；跳过 next() 并设置 context.Result 完全短路请求（示例：ForbidResult → 403）"
+    },
+    {
+      "section": "Boundary",
+      "finding": "无数据库调用的纯角色/策略检查通常用 IAsyncAuthorizationFilter：它在模型绑定之前运行，被拒请求不必为无用的绑定工作付费"
+    }
+  ],
+  "checks": {
+    "pipeline_order": "Microsoft Learn Filters in ASP.NET Core 确认：Authorization filters 最先运行（在模型绑定之前）；Resource filters 在授权之后；Action filters 紧接着操作方法前后运行",
+    "servicefilter": "MS Learn 确认 ServiceFilterAttribute 从 DI 取实例、类型需在 Program.cs 注册（如 AddScoped），并提示 IsReusable 仅适合无状态且单例来源的过滤器",
+    "async_filter": "MS Learn 示例与推文一致：IAsyncActionFilter.OnActionExecutionAsync(ActionExecutingContext, ActionExecutionDelegate next)"
+  },
+  "outline": {
+    "reader": "在 ASP.NET Core 项目里重复写检查逻辑、尚未用过 ServiceFilter 的开发",
+    "conclusion": "检查需要等待数据库/服务时用 IAsyncActionFilter 包住 next() 可整体短路，把横切逻辑留在管道里；纯策略检查改用授权过滤器",
+    "value_added": "可运行的完整示例（含 DI 注册与应用）、验证步骤与预期结果、常见错误与 MS Learn 官方核对（管道顺序、ServiceFilter 机制、IsReusable 注意）",
+    "reader_action": "找出项目中第一个每个 action 都在重复的检查，迁移为一个 IAsyncActionFilter",
+    "omit": "推文传播数据（3123 查看等）、订阅推广、#csharp 等标签"
+  }
+}

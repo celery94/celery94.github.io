@@ -1,0 +1,61 @@
+{
+  "article_title": "IAsyncActionFilter：把异步检查留在管道里",
+  "cover_type": "tutorial",
+  "core_theme": "用 IAsyncActionFilter 把需要等待数据库或服务的检查放在操作方法前后：单方法 OnActionExecutionAsync 包裹 next() 委托，可短路请求；纯策略检查改用授权过滤器",
+  "reader_takeaway": "能照着示例做出邮箱验证过滤器：注册 DI、ServiceFilter 应用、验证 403 短路",
+  "summary_angle": "一个「等待式检查」从二十个控制器里抽出来，变成管道里一道带闸门的关卡：通过则放行（next 继续），不通过则整体短路",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "原文开篇：同样的检查逻辑被复制进多个控制器，且检查本身需要 await（数据库/服务调用）",
+      "visual_idea": "左侧：一排堆叠的控制器卡片，每张都贴着同一条检查条",
+      "visible_label": "重复检查",
+      "numeric_fact": ""
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文 OnActionExecutionAsync 单方法包裹 next() 委托段：调用 next() 继续管道，跳过并设置 context.Result 完全短路",
+      "visual_idea": "中间：一条管道上的闸门（verify 关卡），通过的箭头继续向后，被拒的箭头折返",
+      "visible_label": "一道闸门",
+      "numeric_fact": ""
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文 Good fits 与 ⚠️ 边界：邮箱/订阅验证、业务规则、条件阻塞；纯角色或策略检查改用 IAsyncAuthorizationFilter",
+      "visual_idea": "右侧：过滤后的控制器整齐一排，只有放行的请求进入，附授权过滤器小徽章",
+      "visible_label": "检查一次",
+      "numeric_fact": ""
+    }
+  ],
+  "main_metaphor": "把重复的等待式检查收敛成管道中的一道闸门",
+  "primary_subject": "一条请求管道上的闸门关卡（插画式阀门 / 检查口）",
+  "subject_action": "闸门开启放行通过检查的请求，未通过的请求被挡回并短路",
+  "composition": "单点聚焦",
+  "base_style": "editorial technical illustration",
+  "selected_style": "游戏原画风",
+  "selected_style_prompt_descriptor": "game concept art illustration, clear hero object, readable environment storytelling, polished lighting, production-art detail",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；教程流程适合用清晰的主体、光效与叙事环境表达",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["重复检查", "一道闸门", "检查一次"],
+  "color_palette": ["深蓝灰", "暖金高光", "青绿放行色", "警示橙"],
+  "avoid": [
+    "真实 MVC 项目截图",
+    "仪表盘",
+    "HUD 浮层",
+    "代码雨",
+    "霓虹紫蓝",
+    "机器人站姿",
+    "悬浮标签堆",
+    "英文标语",
+    "密钥或令牌截图"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮验证闸门关卡主体、三块叙事与中文短标签可读性",
+  "revision_targets": [
+    "闸门不要像真实交通路障",
+    "只保留 3 个信息块",
+    "维持概念艺术感而不是写实照片"
+  ],
+  "final_prompt": "Use the current cover direction as the base. Keep the strongest part of the composition and preserve the summary angle: stacked controller cards each carrying the same check tag on the left converge into one illustrated gate on the pipeline in the middle; passed requests flow through with a green light, rejected requests bounce back; on the right controllers stand in a tidy row with only cleared requests entering. Preserve the core metaphor: gather repeated waiting checks into one gate on the pipeline. Keep these narrative beats readable and source-grounded: (1) stacked controller cards with check tags, visible label 重复检查; (2) the gate with green pass and rejected arrows, visible label 一道闸门; (3) tidy controllers with cleared requests and a small authorization badge, visible label 检查一次. Change only these points: sharpen the three Chinese chip labels so they are crisp and legible; refine the gate metal and lighting so details stay clean; keep the composition and palette identical. Make the image feel more like editorial technical illustration combined with this selected visual style descriptor: game concept art illustration, clear hero object, readable environment storytelling, polished lighting, production-art detail. Preserve one clear focal subject and 2-4 supporting narrative beats in a wide 2.35:1 frame. Do not imitate a specific brand, studio, or living artist. Primary subject should remain: the illustrated check-point gate on the pipeline. Simplify the background so that only the canyon-like environment remains as supporting context. Color palette: deep blue-grey, warm gold highlights, teal green pass color, warning orange. Visible text policy: keep only the approved short Chinese labels 重复检查 / 一道闸门 / 检查一次; no poster title, no long sentence captions, no English slogans, no fake UI labels, no fake chart axes, and no fake architecture node names. Remove any watermark, prompt residue, screenshots, dashboards, fake diagrams, fake charts, fake terminal output, fabricated metrics, unrelated icons, and decorative clutter. Avoid real MVC project screenshots, dashboards, HUD overlays, code rain, neon purple-blue glow, robot standing pose, floating chip stacks, English slogans, secret or token screenshots."
+}
