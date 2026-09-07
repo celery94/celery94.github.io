@@ -1,0 +1,38 @@
+{
+  "source_url": "https://codewithmukesh.com/blog/automapper-vs-mapster-vs-manual-mapping-dotnet/",
+  "author": "Mukesh Murugan (codewithmukesh)",
+  "published_at_display": "2026-09-03",
+  "evidence_method": "浏览器完整正文、表格、代码块、FAQ 折叠内容读取；许可与版本信息经 NuGet、GitLab Advisory Database、jimmybogard.com 核对",
+  "anchors": [
+    {
+      "section": "What Changed in 2025",
+      "finding": "AutoMapper 14.0.0（2025-02-14）为最后 MIT 版本；15.0.1+ 双许可 RPL-1.5 + 商业；Community 免费门槛为年收入低于 $5M；最小商业档约 $489/年"
+    },
+    {
+      "section": "Security advisory",
+      "finding": "GHSA-rvv3-g6hj-g44x（CVE-2026-32933，High / CVSS 7.5）：15.1.1 之前及 16.0.0–16.1.0 受影响，无深度上限递归触发 StackOverflowException 终止进程；修复在商业版 15.1.1/16.1.1，未回移植；NuGet 恢复 14.0.0 出现 NU1903 警告"
+    },
+    {
+      "section": "Benchmark",
+      "finding": "BenchmarkDotNet 0.15.8 / .NET 10.0.11 / Ultra 9 275HX：Manual 33.98 ns 328 B；Mapperly 30.23 ns 296 B（0.90x）；Mapster 67.53 ns（2.01x）；AutoMapper 71.85 ns（2.13x）；Manual 与 Mapperly 的 99.9% 置信区间不重叠；Mapster 7.4.0 同款为 50.4 ns 约 1.29x"
+    },
+    {
+      "section": "Decision matrix",
+      "finding": "决策树：新项目/需 AOT → Mapperly；少于约 15-20 个 DTO 或零依赖 → 手写；想要 .Adapt<T>() 流畅配置且不需 AOT → Mapster；存量 AutoMapper 且在免费档 → 留 14.0 并接受通告；ProjectTo 重度依赖 → 先测试再替换"
+    }
+  ],
+  "checks": {
+    "nuget_mapster": "NuGet 当前稳定版 Mapster 10.0.12（2026-08-19），10.1.0-pre 在预发布",
+    "nuget_mapperly": "NuGet 当前稳定版 Riok.Mapperly 4.3.1，Apache-2.0，5.0.0-next.11 预发布中；README 确认生成代码 perfectly readable",
+    "nuget_automapper": "NuGet 当前版 AutoMapper 16.2.0，仓库迁至 LuckyPennySoftware/AutoMapper，README 含 LicenseKey 注册",
+    "advisory": "GitLab Advisory Database 确认 GHSA-rvv3-g6hj-g44x：CWE-674 Uncontrolled Recursion，CVSS 7.5 HIGH，影响 15.1.1 前全部版本及 16.0.0–16.1.0，修复于 15.1.1/16.1.1",
+    "commercial": "jimmybogard.com 存在 2025-07-02 AutoMapper 与 MediatR 商业版发布文章"
+  },
+  "outline": {
+    "reader": "存量用 AutoMapper 或正在新建 .NET 10 API、需要决定对象映射方案的 .NET 团队",
+    "conclusion": "2026 年选 mapper 先看许可、AOT、可调试性与维护成本，性能是最后才看的指标；新项目默认 Mapperly，DTO 少时手写，Mapster 不为速度选",
+    "value_added": "许可与通告的中文梳理、四方案机制对比表、实测基准与置信区间解读、何时基准才有决策意义、决策矩阵与迁移路线、AI 代理防坑指令示例、当前版本核对",
+    "reader_action": "先回答是否 AOT、是否有存量 mapper、DTO 数量，再按决策矩阵选择；留在 AutoMapper 14 的团队需建立迁移计划与安全审计节奏",
+    "omit": "课程推广、订阅与赞助、相关文章推荐、原始 Error/StdDev/Median 数值（保留 Mean/Allocated/Ratio 与置信区间结论）"
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "article_title": "AutoMapper 商业化后：.NET 映射怎么选",
+  "cover_type": "analysis",
+  "core_theme": "AutoMapper 商业许可与未修补高危通告改变了 2026 年 .NET 对象映射的默认选择：新项目默认 Mapperly（编译期生成），DTO 少用手写，Mapster 只值得为手感选",
+  "reader_takeaway": "选型先看许可、AOT 与可调试性，性能最后看；能按决策矩阵做出自己的选择",
+  "summary_angle": "一场默认映射库的换岗：旧默认 AutoMapper 带着商业许可挂锁与高危通告退场，新默认 Mapperly 拿着编译期生成的可读代码接棒",
+  "narrative_flow": "conflict-to-resolution",
+  "information_blocks": [
+    {
+      "role": "contrast",
+      "source_anchor": "原文 What Changed in 2025 一节：15.0.1+ 双授权、最小商业档约 $489/年；14.0.0 未修补高危通告",
+      "visual_idea": "左侧旧默认：一份文档挂上锁与警示标签，微微退后",
+      "visible_label": "旧默认",
+      "numeric_fact": "$489/年"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文 Mapperly 一节：编译期生成纯 C#、零反射、原生 AOT 兼容、生成代码可读",
+      "visual_idea": "右侧新默认：chibi 风格小助手手持可读代码卷轴，带对勾",
+      "visible_label": "新默认",
+      "numeric_fact": ""
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文 The Decision Matrix 一节：先问是否 AOT、是否有存量 mapper，再谈性能",
+      "visual_idea": "交接点上的判断牌/箭头，指向「许可与 AOT 优先于纳秒」",
+      "visible_label": "先看许可",
+      "numeric_fact": ""
+    }
+  ],
+  "main_metaphor": "职责交接：旧默认让位，新默认接棒",
+  "primary_subject": "一个 chibi 风格的代码生成小助手，手持可读代码卷轴",
+  "subject_action": "小助手接棒并举起代码卷轴，旧默认文档带锁退到左侧",
+  "composition": "左右对照",
+  "base_style": "conceptual editorial illustration",
+  "selected_style": "Q版 Chibi 风",
+  "selected_style_prompt_descriptor": "chibi character illustration, small cute proportions, simplified expressions, playful shapes, clear infographic readability",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；换岗与比较主题适合用轻松角色叙事表达",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["旧默认", "新默认", "先看许可"],
+  "color_palette": ["深藏蓝", "米白", "警示橙黄", "青绿对勾"],
+  "avoid": [
+    "真实合同或律师形象",
+    "成堆美元符号",
+    "真实产品截图",
+    "通用金属机器人站姿",
+    "霓虹紫蓝光",
+    "代码雨",
+    "悬浮标签堆",
+    "HUD 浮层",
+    "英文标语"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮验证左右换岗关系、三个信息块和中文短标签可读性",
+  "revision_targets": [
+    "旧默认不要像真实许可截图",
+    "只保留 3 个信息块",
+    "维持 chibi 可爱风而不是工厂或科幻氛围"
+  ],
+  "final_prompt": "Use the current cover direction as the base. Keep the strongest part of the composition and preserve the summary angle: a left-to-right handover where the retiring old-default document with a padlock and warning tag steps aside, and a small chibi code assistant holding a readable code scroll takes over; a small decision card in the middle points to license and AOT first. Preserve the core metaphor: a duty handover, the old default gives way and the new default takes over. Keep these information beats readable and source-grounded: (1) left: old default document with padlock, warning triangle, small 489 per year numeric fact, visible label 旧默认; (2) center: small decision pedestal with shield icon, visible label 先看许可; (3) right: chibi assistant with goggles holding a code scroll with a check mark, visible label 新默认. Change only these points: sharpen the three Chinese chip labels so they are crisp and legible; keep the 489 numeric fact small and subtle; ensure no watermark-like textures or moire on the paper; keep the composition and palette identical. Make the image feel more like conceptual editorial illustration combined with this selected visual style descriptor: chibi character illustration, small cute proportions, simplified expressions, playful shapes, clear infographic readability. Preserve one clear focal subject and 2-4 supporting narrative beats in a wide 2.35:1 frame. Do not imitate a specific brand, studio, or living artist. Primary subject should remain: the chibi code assistant holding the code scroll, receiving the role from the old document on the left. Simplify the background so that only the sky, path and small landscape details remain as supporting context. Color palette: deep navy blue, off-white panels, warning orange-yellow accents, restrained teal for the check mark. Visible text policy: keep only the approved short Chinese labels 旧默认 / 新默认 / 先看许可 and the small numeric fact 489 per year; no poster title, no long sentence captions, no English slogans, no fake UI labels, no fake chart axes, and no fake architecture node names. Remove any watermark, prompt residue, screenshots, dashboards, fake diagrams, fake charts, fake terminal output, fabricated metrics, unrelated icons, and decorative clutter. Avoid real contracts or lawyer characters, piles of dollar signs, real product screenshots, generic metal robot standing pose, neon purple-blue glow, code rain, floating chip stacks, HUD overlays, English slogans."
+}
