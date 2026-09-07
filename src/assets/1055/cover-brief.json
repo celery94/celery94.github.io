@@ -1,0 +1,61 @@
+{
+  "article_title": "AI 写代码之后，软件工程的价值在判断",
+  "cover_type": "analysis",
+  "core_theme": "编码 agent 让代码从最贵的部分变成最便宜的部分，软件工程的价值从写代码迁移到判断：规格翻译、验证证据、架构边界与结果责任",
+  "reader_takeaway": "看清价值迁移方向，并知道从哪四件事开始调整自己的工作与团队",
+  "summary_angle": "一幅判断与代码的对照：左侧代码如流水般廉价涌出（三周变三小时），右侧一位工程师举着方向牌——规格、验证、架构边界与责任，才是新的稀缺品",
+  "narrative_flow": "conflict-to-resolution",
+  "information_blocks": [
+    {
+      "role": "contrast",
+      "source_anchor": "原文 8. Technical debt 一节：同样功能从三周变为三小时；代码变得便宜",
+      "visual_idea": "左侧：自动化卷轴源源不断产出代码卡片，键盘退场",
+      "visible_label": "代码便宜了",
+      "numeric_fact": "3周→3小时"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文 3/4/5 节：规格成为真正的编程，验证比生成更难，架构成为约束 agent 的控制机制",
+      "visual_idea": "中间：一块路牌/蓝图，标着规格清单与带对勾的门禁",
+      "visible_label": "考判断",
+      "numeric_fact": ""
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文 9 节：最有价值的工程师几乎不写代码，但需为结果负责",
+      "visual_idea": "右侧：工程师站在高处指向方向，agent 在下方实现",
+      "visible_label": "负责结果",
+      "numeric_fact": ""
+    }
+  ],
+  "main_metaphor": "价值换岗：产出代码的手换成了做判断的手",
+  "primary_subject": "一位工程师站在岔路口的道路指示牌旁",
+  "subject_action": "举起方向牌给出判断，背后是流水般涌出的代码卷轴",
+  "composition": "左右对照",
+  "base_style": "conceptual editorial illustration",
+  "selected_style": "高对比电影风",
+  "selected_style_prompt_descriptor": "high-contrast cinematic illustration, strong key light, deep shadows, wide-screen composition, dramatic but realistic color grading",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；价值迁移的对照主题适合电影感高对比构图",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["代码便宜了", "考判断", "负责结果"],
+  "color_palette": ["深蓝夜色", "米白高光", "橙黄路牌", "青绿对勾"],
+  "avoid": [
+    "真实 IDE 截图",
+    "键盘特写",
+    "机器人站姿",
+    "霓虹紫蓝光",
+    "无意义代码雨",
+    "悬浮标签堆",
+    "HUD 浮层",
+    "英文标语",
+    "真实仪表盘"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮验证左右价值对照、三块叙事与中文短标签可读性",
+  "revision_targets": [
+    "代码卷轴不要变成代码雨或乱码",
+    "只保留 3 个信息块",
+    "维持电影风而不是科幻光污染"
+  ],
+  "final_prompt": "Use the current cover direction as the base. Keep the strongest part of the composition and preserve the summary angle: a side-by-side contrast between cheap generated code and scarce judgment - on the left an automated machine rolls out code cards fast, on the right an engineer stands at a road fork pointing the direction while small agents work below. Preserve the core metaphor: the hand that produces code is replaced by the hand that makes judgment. Keep these narrative beats readable and source-grounded: (1) left: code machine with flowing code cards and the small numeric chip 3周→3小时, visible label 代码便宜了; (2) center: a road sign with check marks, visible label 考判断; (3) right: engineer pointing direction with agents working below, visible label 负责结果. Change only these points: remove the small text rows under the road sign (the three short Chinese items) and replace them with plain simple icon symbols (pencil, gate, boundary) with no text; keep the three main Chinese chip labels 代码便宜了 / 考判断 / 负责结果 and the numeric chip 3周→3小时 crisp and legible; ensure the flowing code cards look like clean paper cards rather than messy code rain. Make the image feel more like conceptual editorial illustration combined with this selected visual style descriptor: high-contrast cinematic illustration, strong key light, deep shadows, wide-screen composition, dramatic but realistic color grading. Preserve one clear focal subject and 2-4 supporting narrative beats in a wide 2.35:1 frame. Do not imitate a specific brand, studio, or living artist. Primary subject should remain: the engineer at the fork pointing the direction. Simplify the background so that only the dusk landscape road and city skyline remain as supporting context. Color palette: deep night blue, off-white highlights, orange-yellow road sign, restrained teal check marks. Visible text policy: keep only the approved short Chinese labels 代码便宜了 / 考判断 / 负责结果 and the small numeric chip 3周→3小时; no poster title, no long sentence captions, no English slogans, no fake UI labels, no fake chart axes, and no fake architecture node names. Remove any watermark, prompt residue, screenshots, dashboards, fake diagrams, fake charts, fake terminal output, fabricated metrics, unrelated icons, and decorative clutter. Avoid real IDE screenshots, keyboard close-ups, robot standing pose, neon purple-blue glow, meaningless code rain, floating chip stacks, HUD overlays, English slogans, realistic dashboards."
+}

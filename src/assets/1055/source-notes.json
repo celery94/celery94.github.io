@@ -1,0 +1,40 @@
+{
+  "source_url": "https://newsletter.techworld-with-milan.com/p/what-is-the-future-of-software-engineering-d52",
+  "author": "Dr Milan Milanović (Tech World With Milan)",
+  "published_at_display": "2026-09-03",
+  "evidence_method": "浏览器完整正文与配图说明读取；观点均作为原作者判断转述，未改写成事实断言",
+  "anchors": [
+    {
+      "section": "1. Code was never the product",
+      "finding": "顾客不关心代码行数，关心系统是否解决问题、数据安全、随业务演进；难题转移到 SDLC 另一侧：建什么、需求含义、取舍、系统行为、如何验证、谁对结果负责"
+    },
+    {
+      "section": "3. Specification",
+      "finding": "编程是翻译不完整描述的过程；agent 擅长执行不擅长翻译。示例需求「Enable our premium customers faster withdrawals」：谁算高级客户、是否适用于挂起提现、降级怎么办；可通过 AGENTS.md/CLAUDE.md 要求不猜先问；同一需求在不同公司（初创 vs 银行）因事故、合同、预算、时限等历史语境产出不同系统"
+    },
+    {
+      "section": "4. Verification",
+      "finding": "作者团队 .NET 服务四道门禁：CI 中 warnings-as-errors + Roslyn 分析器 + .editorconfig；单元与集成测试（Testcontainers）覆盖率 60-80%；ArchUnitNET 架构测试（层边界、项目引用）；SonarQube 质量门禁与依赖检查。人工审查转向架构、意图、测试、风险与自动化结果；模型互审（Opus 5 代码让 GPT-5.6 Sol 审或 CodeRabbit）；团队做法是小步迭代、先人工后 AI"
+    },
+    {
+      "section": "8. Technical debt",
+      "finding": "三周工作量变三小时后，更多实验会留在线上；认知债（cognitive surrender）：把思考交给 AI 后不理解产出；解决：只部署能至少在高层次解释的代码；关键问题变成这个软件该不该存在"
+    },
+    {
+      "section": "7/6/9",
+      "finding": "Ringelmann 效应解释大团队慢，Jevons 悖论解释软件便宜后总量增长；juniors 靠失败-调试循环建立判断，解决方案是尽早给真实所有权（小系统或客户）；最好的工程师将几乎不写代码，但需深度理解领域、做决策并对结果负责"
+    }
+  ],
+  "checks": {
+    "swe_book": "Google《Software Engineering at Google》在线版存在（abseil.io/resources/swe-book/html/ch26.html）",
+    "cognitive_debt": "认知债相关 ACM Queue 文章「From Technical Debt to Cognitive and Intent Debt」存在（ACM Queue 10.1145/3807966），文中引述记忆债概念来源，未把具体作者署名当作铁证",
+    "attribution": "模型版本（Opus 4.5 / Opus 5 / GPT-5.6 Sol）、图表来源（Stanford Digital Economy Lab、GitHub）均表述为原作者引用"
+  },
+  "outline": {
+    "reader": "已在使用编码 agent、关心职业前景与团队组织的软件工程师与技术管理者",
+    "conclusion": "当代码变得廉价，软件工程的价值从写代码转向判断：规格、验证、架构边界与责任；组织与技术债问题随之而来",
+    "value_added": "九点判断重组为「价值转移到不可自动化一侧」主线、提现需求的追问清单、可照做的四道验证门禁、立即行动的清单、原文观点与事实的边界标注",
+    "reader_action": "挑一条模糊需求写成显式规格；为 agent 明确架构边界；建立自动化验证门禁；保持小步迭代与先人工后 AI 的审查",
+    "omit": "付费广告（SerpApi）、作者图书推广、订阅推荐与转发奖励"
+  }
+}
