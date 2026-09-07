@@ -1,0 +1,61 @@
+{
+  "article_title": "AI 工程技能地图：用好编码 agent",
+  "cover_type": "architecture",
+  "core_theme": "用编码 agent 是一项核心 AI 工程技能：三步工作流（计划写规格 → 校准自主度执行与验证 → 部署与 agent 运维）加上五项支撑技能，长时自主运行的效用被高估",
+  "reader_takeaway": "看清工作流结构与五项技能，并知道自己该补哪一项",
+  "summary_angle": "一座哥特式走廊的三段结构：三座依次升高的尖拱舱室分别是计划、执行、部署监控，工程师在最高处俯瞰，agent 光点在结构中流动",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "mechanism",
+      "source_anchor": "原文 Planning 一节：头脑风暴 + 写规格（需求、技术设计、架构）+ 生成执行计划，并审查假设、安全与过度工程",
+      "visual_idea": "第一座尖拱舱室：摊开的图纸卷轴与烛台",
+      "visible_label": "计划与规格",
+      "numeric_fact": ""
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文 Execution 一节：校准自主度构建，自动化/人工验证；对应技能 Enabling agent autonomy 与 Reviewing the work",
+      "visual_idea": "第二座尖拱舱室：锻造台铸造物件，旁边立着验证门禁闸门",
+      "visible_label": "校准自主度",
+      "numeric_fact": ""
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文 Deployment and monitoring 一节：CI/CD 或人工门控部署；agent 盯日志、暴露问题、提出并执行改进",
+      "visual_idea": "第三座尖拱舱室：塔顶瞭望台的窗口与远眺的火光",
+      "visible_label": "上线与运维",
+      "numeric_fact": ""
+    }
+  ],
+  "main_metaphor": "一座哥特式走廊（工作流），每个尖拱舱室是一步，工程师在最高处监督",
+  "primary_subject": "一座等距视角的哥特式三阶段结构，三段依次升高",
+  "subject_action": "三个舱室各亮烛光，齿轮与图纸、锻造台、瞭望哨依次展开，工程师剪影在最顶端俯瞰",
+  "composition": "等距空间 / 层级式关系",
+  "base_style": "isometric conceptual systems scene",
+  "selected_style": "暗黑哥特风",
+  "selected_style_prompt_descriptor": "dark gothic illustration, pointed arches, lace shadows, candlelit contrast, ornate black shapes, restrained horror mood",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；三阶段工作流适合用哥特式走廊的等距结构表达层级关系",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻；提示词限制为克制的哥特氛围，避免恐怖与血腥元素",
+  "allowed_visible_text": ["计划与规格", "校准自主度", "上线与运维"],
+  "color_palette": ["暗夜黑", "烛光琥珀", "石材灰", "暗金细部"],
+  "avoid": [
+    "真实系统图",
+    "仪表盘",
+    "HUD 浮层",
+    "代码雨",
+    "霓虹紫蓝",
+    "血腥恐怖元素",
+    "尖塔乱堆",
+    "英文标语",
+    "真实 UI 截图"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮验证三段依次升高的等距结构、三块叙事与中文短标签可读性",
+  "revision_targets": [
+    "不要变成真实建筑照片或游戏场景",
+    "只保留 3 个信息块",
+    "维持克制的哥特风而不是恐怖风"
+  ],
+  "final_prompt": "Use the current cover direction as the base. Keep the strongest part of the composition and preserve the summary angle: an isometric gothic corridor with three pointed-arch chambers rising step by step - blueprints with candle in the first, a forge bench in the second, a watchtower window with distant light in the third - with an engineer silhouette overlooking from the top. Preserve the core metaphor: a gothic corridor where each chamber is one workflow step. Keep these narrative beats readable and source-grounded: (1) chamber with blueprint scroll and candle, visible label 计划与规格; (2) chamber with forge bench and gate, visible label 校准自主度; (3) chamber with watchtower window and distant light, visible label 上线与运维. Change only these points: sharpen the three Chinese chip labels so they are crisp and legible; refine the stone and candlelight rendering so details stay clean; keep the engineer silhouette and the rising structure identical. Make the image feel more like isometric conceptual systems scene combined with this selected visual style descriptor: dark gothic illustration, pointed arches, lace shadows, candlelit contrast, ornate black shapes, restrained horror mood. Preserve one clear focal subject and 2-4 supporting narrative beats in a wide 2.35:1 frame. Do not imitate a specific brand, studio, or living artist. Primary subject should remain: the isometric three-stage gothic structure with the engineer at the top. Simplify the background so that only the dark night and distant arch silhouettes remain as supporting context. Color palette: deep night black, candle amber, stone grey, restrained dark gold details. Visible text policy: keep only the approved short Chinese labels 计划与规格 / 校准自主度 / 上线与运维; no poster title, no long sentence captions, no English slogans, no fake UI labels, no fake chart axes, and no fake architecture node names. Remove any watermark, prompt residue, screenshots, dashboards, fake diagrams, fake charts, fake terminal output, fabricated metrics, unrelated icons, and decorative clutter. Avoid real system diagrams, dashboards, HUD overlays, code rain, neon purple-blue glow, gore or horror explicit elements, random spires, English slogans, real UI screenshots."
+}

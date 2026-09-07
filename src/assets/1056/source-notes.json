@@ -1,0 +1,35 @@
+{
+  "source_url": "https://x.com/AndrewYNg/status/2095890279865721217",
+  "author": "Andrew Ng (@AndrewYNg)",
+  "published_at_display": "2026-09-04 23:02",
+  "evidence_method": "浏览器完整文章正文读取；附图为技能地图（AI Engineering 四分支，Using coding agents 下挂 5 项技能），已读取核对；原帖传播数据（641.2K 查看/6987 喜欢/10915 书签）仅作笔记上下文",
+  "anchors": [
+    {
+      "section": "High-level workflow",
+      "finding": "三步工作流：计划（头脑风暴 + 写规格 + 生成执行计划，并审计划质疑关键假设、查安全与过度工程）→ 执行（校准自主度构建，自动化/人工验证）→ 部署与监控（CI/CD 或人工门控；agent 盯日志、暴露问题、提出并执行改进）"
+    },
+    {
+      "section": "Key skills",
+      "finding": "五项核心技能：导航工作流、启用 agent 自主度（含上下文管理与并行编排、权限门控）、审查产出（行为+功能验证、eval 集与 LLM-as-judge、agentic code review、必要时人工审查）、定制 agent 与环境（skills/plugins/MCP、hooks、AGENTS.md/CLAUDE.md 上下文维护、状态保持与回味复盘、清理 agent 债务）、编码 agent 基础原理（检索、上下文窗口、操作影响、harness 包 LLM）"
+    },
+    {
+      "section": "Failure modes",
+      "finding": "理解原理后能识别的失败模式：过度工程化简单方案、缺少显式验证导致失去严谨性、停在离目标半步、agent 行为可能毁文件或生产数据"
+    },
+    {
+      "section": "Reality check",
+      "finding": "社交媒体常过度简化：有时让 agent 自主跑数小时烧掉数百万至上千万 token 是有用的，但超长时程任务的实用效用——尤其相对成本——被放大超过现实；多数有效使用是复杂高度迭代过程，高技能介入结果更好"
+    }
+  ],
+  "checks": {
+    "attribution": "Claude Code/Codex/Cursor（专有）与 OpenCode/Pi（开源）作为原文列举的 agent 示例转述，不另作事实断言",
+    "map_image": "原帖附图确认：AI Engineering 下四分支（构建与部署 AI 应用 / 软件工程基础 / 使用编码 agent / 塑造 build），本篇为其中一个分支"
+  },
+  "outline": {
+    "reader": "正在用或准备用编码 agent 的 AI 工程师与软件工程师",
+    "conclusion": "用好编码 agent 的关键不是提示词，而是导航工作流、校准自主度、认真审查并持续定制 agent 与环境；长时自主运行的性价比被高估",
+    "value_added": "三步工作流与五项技能的中文梳理、每项技能的可执行要点、失败模式清单、现实矫正（长时运行 token 成本警示）、可立即检查的落地清单",
+    "reader_action": "对照五项技能做一次自评，先落地权限门控与验证门禁，再把 AGENTS.md/CLAUDE.md 当成持续维护的文档",
+    "omit": "原帖传播数据、回复与引用内容、技能地图原图（仅描述不转载）"
+  }
+}
