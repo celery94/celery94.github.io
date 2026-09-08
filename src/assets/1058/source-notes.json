@@ -1,0 +1,38 @@
+{
+  "source_url": "https://codewithmukesh.com/blog/ai-agent-nuget-package-guardrails-dotnet/",
+  "author": "Mukesh Murugan (codewithmukesh)",
+  "published_at_display": "2026-09-06",
+  "evidence_method": "浏览器完整正文、表格、代码块、FAQ 折叠内容读取；许可、安全研究与工具经官方源核对",
+  "anchors": [
+    {
+      "section": "Three ways wrong",
+      "finding": "①库真实但许可变了（最常见，审查最难发现）；②省略式错误：.NET 8/10 已内置限流、健康检查、JSON 序列化、HTTP 弹性与 OpenAPI；③根本不存在的包：USENIX Security 2025 研究 16 模型 57.6 万样本中 19.7% 包引用不存在，51% 纯虚构/38% 拼接/13% 拼写变体"
+    },
+    {
+      "section": "Licensing table",
+      "finding": "AutoMapper 14.0.0（MIT，2025-02-14）→16.2.0（RPL-1.5+商业）；MediatR 12.5.0（Apache，2025-04-01）→14.2.0；MassTransit v8（Apache）→9.2.1（Massient 商业，约 $400/月 SMB、$1200/月企业、约 $1M 收入以下 100% 折扣，v8 安全补丁至 2026 年底）；FluentAssertions 7.x→8.10.0（Xceed，仅开源/非商用免费，AwesomeAssertions 9.6.0 为 Apache-2.0 兼容分支）；Polly 仍 BSD-3 但 2026-11-16 起 OSMF $20/月/组织（产品收入 ≥$20k）"
+    },
+    {
+      "section": "Polly trap",
+      "finding": "Microsoft.Extensions.Http.Resilience 为 MIT 但传递依赖 Polly.Core/Polly.Extensions/Polly.RateLimiting；OSMF 公告未明确传递消费者场景，『用一方包就绕过费用』的假设需要核实"
+    },
+    {
+      "section": "Four guardrails",
+      "finding": "①NuGet MCP Server（微软发布，VS 2026 内置，其他环境 mcp.json 经 dnx 运行，需 .NET 10 SDK）；②指令文件（CLAUDE.md/AGENTS.md/copilot-instructions.md，默认拒绝 + 已定决定 + 提新包前先报许可/版本/排除的内置方案）；③构建强制（NU1903/NU1904 转错误、中央包管理、包源映射）；④读依赖 diff（dotnet nuget why、dotnet package list --vulnerable --include-transitive）"
+    }
+  ],
+  "checks": {
+    "usenix": "USENIX Security 2025 论文（We Have a Package for You!，arXiv:2406.10279）覆盖 16 模型 57.6 万样本、19.7% 不存在包引用，与原文数字一致",
+    "slopsquatting": "Seth Larson 命名 slopsquatting；研究者在模型惯用幻觉名下发布空包三个月获 3 万+ 下载的案例见于多方转述",
+    "nuget_mcp": "Microsoft Learn「Using the NuGet Model Context Protocol (MCP) Server」确认 NuGet.Mcp.Server 包、dnx 命令与 .NET 10 SDK 要求",
+    "polly_osmf": "thepollyproject.org 2026-07-14 公告《Introducing the Open Source Maintenance Fee for Polly》存在，与原文日期/金额一致",
+    "audit_default": "Microsoft Learn 破坏性变更文档确认 .NET 10 SDK 起 dotnet restore 默认审计传递包"
+  },
+  "outline": {
+    "reader": "用编码 agent 的 .NET 团队，或正在审查 agent 添加依赖的工程师",
+    "conclusion": "库选型已变成许可与预算决策：用实时数据、指令文件、构建门禁与依赖 diff 四道护栏把错误挡在构建里；先问要不要包，再问选哪个",
+    "value_added": "2026 许可现状核对表、四道护栏的完整配置代码与分层采用建议、六条排错、快速自查法，官方核对过的关键声明（USENIX 研究、MCP Server、Polly OSMF、审计默认）",
+    "reader_action": "15 分钟装上中央包管理与 NU1903/NU1904 门禁；写清本仓库的库决定；对最不想移除的三个包执行 dotnet nuget why 并核对当前许可",
+    "omit": "课程推广、咨询与服务位、相关文章、订阅与赞助"
+  }
+}

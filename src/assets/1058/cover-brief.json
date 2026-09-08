@@ -1,0 +1,61 @@
+{
+  "article_title": "别让 AI 选错 NuGet 包：四道仓库护栏",
+  "cover_type": "tutorial",
+  "core_theme": "AI 代理按 2023 年默认值选 .NET 库，而 AutoMapper、MediatR、MassTransit 等已商业化；用实时数据（NuGet MCP Server）、指令文件、构建门禁（审计/中央包管理/源映射）与依赖 diff 四道护栏把错误挡在构建里",
+  "reader_takeaway": "有一套可以直接装进仓库的四层防护，并知道先问「要不要这个包」",
+  "summary_angle": "一辆 AI 小车拖着大袋 2023 年的旧包径直冲向仓库大门，四个路障（实时数据、指令文件、构建门禁、依赖检查）把它挡在门外",
+  "narrative_flow": "conflict-to-resolution",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "原文 Why does an AI agent suggest the wrong .NET library：训练语料停留在约 2023 年的默认选择，且许可免费门槛取决于公司营收，代理看不到",
+      "visual_idea": "左侧：AI 小车驮着贴着 2023 标签的旧包袋冲向仓库",
+      "visible_label": "旧默认",
+      "numeric_fact": "2023"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文 Guardrail 1-3：NuGet MCP Server 实时数据、指令文件写入决定、NU1903/NU1904 门禁、中央包管理与包源映射",
+      "visual_idea": "中间：四道依次排开的路障（实时数据、指令、门禁、检查），每道亮起状态灯",
+      "visible_label": "四道护栏",
+      "numeric_fact": ""
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文 先问要不要包 + Wrapping Up：框架已内置的先排除、边界库才值得依赖、判断不可自动化",
+      "visual_idea": "右侧：仓库门打开的通行口，只有过滤后的包进入，一行字强调先问要不要",
+      "visible_label": "先问要不要",
+      "numeric_fact": ""
+    }
+  ],
+  "main_metaphor": "给仓库装上四道路障，挡住带着 2023 年旧默认值的 AI「搬运车」",
+  "primary_subject": "一扇仓库大门前的四道路障（插画式关卡）",
+  "subject_action": "AI 小车被依次拦截，被查过的包才放行进入仓库",
+  "composition": "斜向推进",
+  "base_style": "editorial technical illustration",
+  "selected_style": "涂鸦街头风",
+  "selected_style_prompt_descriptor": "street-graffiti comic style, spray-paint texture, bold outlines, urban wall energy, vivid but controlled color clashes",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；拦截与门禁主题适合涂鸦墙面的街头发动机能量",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["旧默认", "四道护栏", "先问要不要"],
+  "color_palette": ["涂鸦橙红", "深蓝紫", "米白墙面", "亮绿放行灯"],
+  "avoid": [
+    "真实 NuGet 截图",
+    "仪表盘",
+    "HUD 浮层",
+    "代码雨",
+    "霓虹紫蓝光污染",
+    "机器人站姿",
+    "悬浮标签堆",
+    "英文标语",
+    "乱涂乱画不可读"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮验证四道路障的主体关系、三块叙事与中文短标签可读性",
+  "revision_targets": [
+    "路障不要像施工牌堆砌",
+    "只保留 3 个信息块",
+    "维持涂鸦漫画感而不是写实照片"
+  ],
+  "final_prompt": "Use the current cover direction as the base. Keep the strongest part of the composition and preserve the summary angle: an AI delivery cart carrying sacks labelled 2023 races toward a warehouse gate; four barrier checkpoints in sequence stop it - only filtered packages pass through the green-light gate; a sign asks whether the package is needed first. Preserve the core metaphor: four barriers at the warehouse gate against the AI cart carrying stale defaults. Keep these narrative beats readable and source-grounded: (1) AI cart with 2023-labelled sacks, visible label 旧默认, numeric fact 2023; (2) four barrier gates with status lights, visible label 四道护栏; (3) open gate with green pass and question sign, visible label 先问要不要. Change only these points: sharpen the three Chinese chip labels and the big purple banner 四道护栏 so they are crisp and legible; refine the spray-paint texture so the barriers are clearly readable; keep the composition, palette and the four barrier sequence identical. Make the image feel more like editorial technical illustration combined with this selected visual style descriptor: street-graffiti comic style, spray-paint texture, bold outlines, urban wall energy, vivid but controlled color clashes. Preserve one clear focal subject and 2-4 supporting narrative beats in a wide 2.35:1 frame. Do not imitate a specific brand, studio, or living artist. Primary subject should remain: the warehouse gate with four barrier checkpoints and the stopped AI cart. Simplify the background so that only the urban wall remains as supporting context. Color palette: graffiti orange-red, deep blue-purple, off-white wall, bright green pass light. Visible text policy: keep only the approved short Chinese labels 旧默认 / 四道护栏 / 先问要不要 and the numeric fact 2023; no poster title, no long sentence captions, no English slogans, no fake UI labels, no fake chart axes, and no fake architecture node names. Remove any watermark, prompt residue, screenshots, dashboards, fake diagrams, fake charts, fake terminal output, fabricated metrics, unrelated icons, and decorative clutter. Avoid real NuGet screenshots, dashboards, HUD overlays, code rain, neon purple-blue glow pollution, robot standing pose, floating chip stacks, English slogans, unreadable scribbles."
+}
