@@ -358,6 +358,74 @@
           "text": "The ending gives a concrete trial condition or observation point without a generic follow call."
         }
       ]
+    },
+    {
+      "id": 18,
+      "prompt": "把这个链接写成完整中文博客，只生成博客，不要封面和微信发布：https://artandbiz.substack.com/p/the-right-way-to-write-with-ai",
+      "expected_output": "完整读取原文后直接生成带 frontmatter、正文和参考的中文解读，不要求用户补充个人经历。通过解释素材质量与写作结果的关系、区分事实和作者判断、说明适用条件增加价值，保留必要基础解释，不虚构用户亲历或实测，也不把原作者的代笔经历改成用户经历。",
+      "files": [],
+      "assertions": [
+        {
+          "text": "Given complete source access, the output is a complete Markdown article rather than an interview, outline, or execution plan."
+        },
+        {
+          "text": "The article adds grounded explanation or decision criteria beyond synonym substitution while retaining necessary introductory explanations."
+        },
+        {
+          "text": "Source-author experiences remain attributed to the source author; no user biography, personal test, or user opinion is invented."
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "prompt": "把这篇文章写成中文博客，只生成博客，不要封面和微信发布：https://artandbiz.substack.com/p/the-right-way-to-write-with-ai 。加入我的经历和不同意见：上个月我给两位新同事写过部署说明，第一版加入了我排查故障的故事。他们反馈只想先知道命令和回滚步骤，我就把故事移到后面。我没有统计阅读时长。我认为操作教程应该先让读者完成任务，个人故事按需保留。",
+      "expected_output": "生成完整文章，准确保留两位新同事、故事后移及未统计阅读时长的边界。呈现用户对操作教程的判断与原文强调个人素材的观点之间的区别，不把用户改写为全面赞同原文，也不推断阅读效率提升的数字。",
+      "files": [],
+      "assertions": [
+        {
+          "text": "The article preserves the supplied situation, reader feedback, decision to move the story, and absence of reading-time measurements without requesting those details again."
+        },
+        {
+          "text": "The user's task-first view remains distinct from the source author's emphasis on personal material, without being rewritten into agreement or generalized to every article."
+        },
+        {
+          "text": "No quantitative outcome, additional personal history, or universal causal claim is fabricated from the anecdote."
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "prompt": "用我做技术写作的亲身经历来写这篇文章，写得像我的亲笔文章。只生成博客，不要封面和微信发布：https://artandbiz.substack.com/p/the-right-way-to-write-with-ai 。我还没有提供经历或本人写作样本。",
+      "expected_output": "可先完成原文取证，但在成文前集中提出最多三个具体问题，收集与技术写作有关的情境与选择、实际结果与判断，以及本人写作样本。等待必要材料后再写，不根据账号定位或普通历史转载推断用户人生经历和声音，不生成带虚构亲历的正文。",
+      "files": [],
+      "assertions": [
+        {
+          "text": "The response asks at most three concrete questions in one batch focused on missing personal experience, outcome or stance, and a writing sample."
+        },
+        {
+          "text": "The workflow waits for required personal material before drafting and does not fabricate a first-person article or fill it with invented autobiographical placeholders."
+        },
+        {
+          "text": "Account positioning and ordinary historical reposts are not treated as evidence of the user's experiences, opinions, or personal voice."
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "prompt": "把这篇文章写成完整中文博客，只生成博客，不要封面和微信发布：https://artandbiz.substack.com/p/the-right-way-to-write-with-ai 。请参考我亲笔写的表达样本：『先把输入看清楚。输出跑偏时，我会回去找缺了什么条件。日志只能说明发生了什么，原因还要验证。遇到不确定的地方，就写清楚不确定。』只参考表达方式，不把样本情境当成本篇事实，也不需要额外加入我的经历。",
+      "expected_output": "直接生成完整文章，体现样本的直接用词、短句节奏和先观察再判断的解释方式，避免机械重复原句。保留原文证据归属、必要概念解释和适用条件，不凭样本编造用户使用某工具或做过某项测试的经历。",
+      "files": [],
+      "assertions": [
+        {
+          "text": "The complete article reflects the supplied sample's direct vocabulary, sentence rhythm, and evidence-before-conclusion explanations without mechanically repeating its phrases."
+        },
+        {
+          "text": "Style adaptation retains necessary conceptual or technical explanations and the article's source attribution and uncertainty boundaries."
+        },
+        {
+          "text": "The sample is used for expression only, not as evidence of current article facts or additional user experiences, and no unnecessary interview is introduced."
+        }
+      ]
     }
   ]
 }
