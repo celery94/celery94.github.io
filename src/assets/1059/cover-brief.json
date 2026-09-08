@@ -1,0 +1,61 @@
+{
+  "article_title": "谁拥有 next：Pipeline、职责链与中间件",
+  "cover_type": "analysis",
+  "core_theme": "Pipeline、Chain of Responsibility 与 ASP.NET Core 中间件看起来都是一串组件，真正的区别是 continuation 所有权与组件契约：分阶段转换、候选处理器选择、HTTP 续延拦截",
+  "reader_takeaway": "能用「谁拥有 next」与组件职责对现有设计分类，并正确命名混合重心",
+  "summary_angle": "三个都自称「流水线」的模型并排站在同一张工作台上：左边的管道把原料一步步变成成品（Pipeline），中间的队列让每个处理器要么接单要么让位（职责链），右边的 HTTP 通道每个关卡包住下一个并逆序放行（中间件）——同一张表上由一块指示牌点出「谁说了算：continuation」",
+  "narrative_flow": "layered reveal",
+  "information_blocks": [
+    {
+      "role": "mechanism",
+      "source_anchor": "原文 Pipeline Means Staged Transformation：校验输出成为定价输入，Execute 拥有 continuation",
+      "visual_idea": "左侧：一台管道装置，原料逐段变成不同形状的成品",
+      "visible_label": "转换",
+      "numeric_fact": ""
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文 Chain of Responsibility Means Potential Handler Selection：支持请求由账单、技术支持或兜底处理",
+      "visual_idea": "中间：一条接力队列，每格要么接手要么把同一位文档往下传",
+      "visible_label": "选择",
+      "numeric_fact": ""
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文 ASP.NET Core Middleware Owns Continuation：每个中间件决定是否调用 next，可前后执行，响应逆序回卷",
+      "visual_idea": "右侧：一道 HTTP 通道，三个关卡依次包裹，返回时逆序点亮",
+      "visible_label": "拦截",
+      "numeric_fact": ""
+    }
+  ],
+  "main_metaphor": "三座都叫「流水线」的装置并排展示，由一块指示牌标出真正的区分维度",
+  "primary_subject": "一张长工作台上的三种装置（管道、接力队列、HTTP 通道）",
+  "subject_action": "三种装置各自运行一段，上方指示牌指向「谁拥有 next」",
+  "composition": "等距空间 / 三栏对照",
+  "base_style": "conceptual editorial illustration",
+  "selected_style": "水彩漫画风",
+  "selected_style_prompt_descriptor": "watercolor comic illustration, translucent washes, visible paper texture, soft edges, light ink structure",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；三种机制的并置对照适合清透、可读的纸面质感",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["转换", "选择", "拦截"],
+  "color_palette": ["纸白", "水彩蓝", "水彩橙", "水彩绿"],
+  "avoid": [
+    "真实系统图",
+    "真实 UI 截图",
+    "仪表盘",
+    "HUD 浮层",
+    "代码雨",
+    "霓虹紫蓝",
+    "机器人站姿",
+    "悬浮标签堆",
+    "英文标语"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮验证三栏并置的对照结构、三块叙事与中文短标签可读性",
+  "revision_targets": [
+    "三栏不要混成一张长海报",
+    "只保留 3 个信息块",
+    "维持水彩纸面感而不是写实产品图"
+  ],
+  "final_prompt": "Use the current cover direction as the base. Keep the strongest part of the composition and preserve the summary angle: three pipeline-named machines side by side on a workbench - a pipe device transforming material stage by stage, a relay queue passing the same document until one slot accepts it, and an HTTP corridor where nested gates light in reverse on the way back - with a small sign above marking the dividing line. Preserve the core metaphor: three pipeline-named machines, one true dividing dimension. Keep these narrative beats readable and source-grounded: (1) pipe device with staged transformation, visible label 转换; (2) relay queue with the same document passed down, visible label 选择; (3) HTTP corridor with nested gates lighting in reverse, visible label 拦截. Change only these points: remove the long Chinese text on the sign above and replace it with a simple icon symbol or a very short two-character marker with no long sentence; keep the three chip labels 转换 / 选择 / 拦截 crisp and legible; refine the watercolor washes so the machines stay readable. Make the image feel more like conceptual editorial illustration combined with this selected visual style descriptor: watercolor comic illustration, translucent washes, visible paper texture, soft edges, light ink structure. Preserve one clear focal subject and 2-4 supporting narrative beats in a wide 2.35:1 frame. Do not imitate a specific brand, studio, or living artist. Primary subject should remain: the three machines on the workbench. Simplify the background so that only the soft paper texture remains as supporting context. Color palette: paper white, watercolor blue, watercolor orange, watercolor green. Visible text policy: keep only the approved short Chinese labels 转换 / 选择 / 拦截; no poster title, no long sentence captions, no English slogans, no fake UI labels, no fake chart axes, and no fake architecture node names. Remove any watermark, prompt residue, screenshots, dashboards, fake diagrams, fake charts, fake terminal output, fabricated metrics, unrelated icons, and decorative clutter. Avoid real system diagrams, real UI screenshots, dashboards, HUD overlays, code rain, neon purple-blue glow, robot standing pose, floating chip stacks, English slogans."
+}

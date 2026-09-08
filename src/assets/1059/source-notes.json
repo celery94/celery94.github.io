@@ -1,0 +1,37 @@
+{
+  "source_url": "https://www.devleader.ca/2026/09/07/pipeline-vs-chain-of-responsibility-vs-aspnet-core-middleware",
+  "author": "Nick Cosentino (Dev Leader)",
+  "published_at_display": "2026-09-07",
+  "evidence_method": "浏览器完整正文、表格、代码块与 FAQ 读取；三个示例均在本地 .NET 10.0.301 SDK（C# 14）下编译/运行验证；middleware 行为与官方 ASP.NET Core 10 文档核对",
+  "anchors": [
+    {
+      "section": "At a glance",
+      "finding": "三者差异核心是 continuation 所有权与组件职责：Pipeline=分阶段转换（每阶段产出下一表示）；CoR=候选处理器选择（处理或转发）；middleware=基于续延的 HTTP 拦截（收到 next、决定是否调用、前后皆可执行）"
+    },
+    {
+      "section": "Middleware example",
+      "finding": "注册 A、B 与 Run 终点，正常请求输出 A:request/B:request/Endpoint/B:response/A:response；/blocked 时 B 不调用 next，endpoint 不运行，B 的 after-next 代码不存在，但 A 仍回卷执行响应侧代码"
+    },
+    {
+      "section": "Short-circuit and order",
+      "finding": "短路含义随模型不同：pipeline=到达终止结果（runner 拥有规则）；CoR=处理器接受；middleware=未调用 next 成为该分支终点。顺序分别回答转换依赖、候选优先级、请求顺序+响应逆序"
+    },
+    {
+      "section": "Boundary",
+      "finding": "middleware 绑定 HttpContext 与生命周期：约定式按应用生命周期构造一次，scoped 依赖放 InvokeAsync，工厂激活 IMiddleware 支持按请求激活；跨 HTTP/队列/CLI 复用的转换应放普通服务或 Pipeline 阶段"
+    }
+  ],
+  "checks": {
+    "middleware_docs": "ASP.NET Core 10 官方文档确认：每个 middleware 选择是否传递给下一个、可前后执行；Run 为终点；注册顺序决定请求顺序与响应逆序",
+    "code_pipeline": "本地编译 0 警告 0 错误（SDK 10.0.301）；RawOrder→ValidatedOrder→PricedOrder 语义正确",
+    "code_chain": "本地编译 0 警告 0 错误；BillingHandler/TechnicalHandler 选择逻辑与默认拒绝文案正确",
+    "code_middleware": "本地运行实际输出 A:request/B:request/Endpoint/B:response/A:response；/blocked 返回 403 且无 B:response——与原文完全一致"
+  },
+  "outline": {
+    "reader": "在 .NET/ASP.NET Core 中区分三类流水线式结构、常把 pipeline、职责链与中间件混为一谈的开发者",
+    "conclusion": "按「谁拥有 continuation 与组件职责」分类：pipeline 用于必需的分阶段转换，职责链用于候选处理器选择，中间件用于 HTTP 续延拦截与逆序回卷",
+    "value_added": "中文化对照表、三个可运行示例与本地实测输出、短路/顺序/回卷三个维度的契约差异、混合设计的重心判断法、HTTP 生命周期边界提醒",
+    "reader_action": "检查现有代码：类名是 Handler 但每阶段都运行并转换类型 → 按 Pipeline 命名与记录；middleware 里藏着业务转换 → 抽到服务",
+    "omit": "扩展阅读的相关文章、分页与推广、原文附注的其他设计模式对比链接"
+  }
+}
