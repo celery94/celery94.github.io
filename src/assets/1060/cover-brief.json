@@ -1,0 +1,61 @@
+{
+  "article_title": "把 LLM Judge 放进 Agent 运行时",
+  "cover_type": "architecture",
+  "core_theme": "LLM judge 从离线评测工具变成 agent 运行时里的判断节点，开始影响控制流，同时需要确定性逻辑围住风险。",
+  "reader_takeaway": "读者能看懂 judge 进入 agent loop 后负责什么、风险在哪里，以及如何用确定性检查和多层判断控制错误。",
+  "summary_angle": "一条长时间运行的 agent 路径走到 judge 关卡，由 judge 判断是否继续、重试或转人工，外侧有确定性检查作为护栏。",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "原文：For an agent doing twenty minutes of work, judging only the final answer tells you much less.",
+      "visual_idea": "一条很长的弯曲路径代表 20 分钟的 agent 工作，路径上散落着资料、工具和中间结果。",
+      "visible_label": "20 分钟",
+      "numeric_fact": "20 分钟"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文：put LLM judges inside the agent loops and put them in the critical path.",
+      "visual_idea": "路径中央有一座清晰的 judge 关卡，正在检查一叠工作卡片，并把它们分向三条出口。",
+      "visible_label": "判断在环内",
+      "numeric_fact": "1"
+    },
+    {
+      "role": "evidence",
+      "source_anchor": "原文：If something can be checked deterministically, check it deterministically with tests or schema checks or even a database check.",
+      "visual_idea": "judge 关卡外侧有一圈结实的确定性检查护栏，护栏上有简单的勾选和方框符号。",
+      "visible_label": "确定性检查",
+      "numeric_fact": "2"
+    }
+  ],
+  "main_metaphor": "一条 agent 工作路径穿过 judge 关卡，关卡外侧有确定性护栏。",
+  "primary_subject": "一座像小型关卡屋的判断节点，带一个大放大镜符号",
+  "subject_action": "检查一叠工作卡片，并把卡片分向继续、重试或转人工三条出口",
+  "composition": "等距空间，单点聚焦，路径从左向右穿过中央关卡",
+  "base_style": "isometric conceptual systems scene",
+  "selected_style": "吉卜力动画风",
+  "selected_style_prompt_descriptor": "warm hand-drawn animation feeling, natural environments, gentle fantasy everyday mood, soft painterly backgrounds, no studio imitation",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；温暖的手绘感适合表现一条有节奏的工作路径和清晰的关卡关系。",
+  "style_safety_note": "风格名强指向特定动画工作室，最终 prompt 只使用手绘感、自然光、柔和背景等描述词，不要求复刻该工作室。",
+  "allowed_visible_text": ["20 分钟", "判断在环内", "确定性检查"],
+  "color_palette": ["warm cream", "moss green", "slate blue", "soft amber"],
+  "avoid": [
+    "robots",
+    "neon city",
+    "purple-blue cyberpunk glow",
+    "floating chips",
+    "code rain",
+    "giant HUD overlays",
+    "UI screenshots",
+    "fake charts",
+    "decorative clutter"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "先验证 judge 关卡、长路径和确定性护栏这三个叙事节点是否清楚。",
+  "revision_targets": [
+    "judge 关卡是否成为唯一主焦点",
+    "三个可见标签是否清晰且不拥挤",
+    "护栏是否像确定性检查而不是装饰边框"
+  ],
+  "final_prompt": "Use the current cover direction as the base. Keep the strongest part of the composition and preserve the summary angle: a long agent path reaches a judge gate that decides continue, retry, or escalate, while a deterministic guardrail keeps hard constraints outside the model. Preserve the core metaphor: a winding agent path passing through a judge gate, with a sturdy deterministic fence around the gate. Keep these information beats readable and source-grounded: 20 分钟, 判断在环内, 确定性检查. Change only these points: sharpen the central gatehouse and magnifying glass; make the three exits clearer as continue, retry, and escalate; clean up the path so the 20-minute journey reads as one continuous route. Make the image feel more like isometric conceptual systems scene combined with warm hand-drawn animation feeling, natural environments, gentle fantasy everyday mood, soft painterly backgrounds, no studio imitation. Preserve one clear focal subject and 2-3 supporting narrative beats in a wide 2.35:1 frame. Do not imitate a specific brand, studio, or living artist. Simplify the background so that only the winding path, gentle landscape, and deterministic fence remain as supporting context. Color palette: warm cream, moss green, slate blue, soft amber. Visible text policy: keep only the approved three short Chinese labels 20 分钟, 判断在环内, 确定性检查, and never exceed 3 items. No poster title, no long sentence captions, no English slogans, no fake UI labels, no fake chart axes, and no fake architecture node names. Remove any watermark, prompt residue, screenshots, dashboards, fake diagrams, fake charts, fake terminal output, fabricated metrics, unrelated icons, and decorative clutter. Avoid robots, neon city, purple-blue cyberpunk glow, floating chips, code rain, giant HUD overlays, UI screenshots."
+}
