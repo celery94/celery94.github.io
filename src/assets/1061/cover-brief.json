@@ -1,0 +1,72 @@
+{
+  "article_title": "RAG 黄金评测集：一份可追溯的证据契约",
+  "cover_type": "architecture",
+  "core_theme": "把 RAG 黄金评测集做成版本化的证据契约：每个用例记录查询、预期答案、证据 chunk、来源版本与人工评审，评测数字才可追溯",
+  "reader_takeaway": "知道一个可追溯的评测用例需要哪些字段，以及如何校验、校准和随证据更新",
+  "summary_angle": "数字稳定不等于证据可溯；一册立着的「证据契约档案卡」把可变的指标钉在不可变的证据与版本上",
+  "narrative_flow": "conflict-to-resolution",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "原文开头：结果可以看起来可复现，却在对比一份已不存在的语料；评测缺少语料版本记录",
+      "visual_idea": "左侧背景一团无锚点的浮动评测数字，形态模糊、轻微颗粒感，作为对比弱化表现",
+      "visible_label": "数字存疑",
+      "numeric_fact": ""
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "GoldenCase 记录 Query、ExpectedAnswer、RelevantChunkIds、Provenance、CorpusRevision、Review",
+      "visual_idea": "中央主焦点一册立着的档案卡（证据契约），卡面呈现查询行、证据条与字段格线",
+      "visible_label": "证据契约",
+      "numeric_fact": ""
+    },
+    {
+      "role": "evidence",
+      "source_anchor": "CorpusRevision 与 ChunkProvenance 的 SourceRevision/ContentHash 区分文档版本",
+      "visual_idea": "卡角一个版本压印章，对应语料版本与内容指纹",
+      "visible_label": "版本",
+      "numeric_fact": ""
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "sentinel 用例由两位评审人独立检查，记录解决方式与理由",
+      "visual_idea": "卡面底端两道并排的签名线，对应双人评审校准",
+      "visible_label": "双评审",
+      "numeric_fact": ""
+    }
+  ],
+  "main_metaphor": "把多变的数字钉在不可变证据与版本上的「契约档案卡」",
+  "primary_subject": "一册立着的档案卡（证据契约卡）",
+  "subject_action": "正在被打上版本压印，边缘光线把它与背后模糊的数字团分开",
+  "composition": "居中主物体、单点聚焦",
+  "base_style": "isometric conceptual systems scene",
+  "selected_style": "校园恋爱风",
+  "selected_style_prompt_descriptor": "youthful campus romance illustration, clean school-life setting, soft backlight, subtle emotional gestures, fresh color palette",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；宽幅封面取其干净布景、柔和逆光与清新配色，让证据契约卡显得清晰、柔和而不冷硬",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻；已弱化「情感手势」成分，保留干净布景、柔和光照与清新配色",
+  "allowed_visible_text": ["证据契约", "版本", "双评审"],
+  "color_palette": [
+    "warm ivory paper",
+    "amber brass ink",
+    "deep teal",
+    "soft sky-blue accent"
+  ],
+  "avoid": [
+    "漂浮芯片",
+    "无意义代码雨",
+    "霓虹高楼背景",
+    "通用机器人站姿",
+    "赛博朋克紫蓝光污染",
+    "HUD 浮层",
+    "真实界面截图",
+    "仪表盘"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮验证「契约卡作为主焦点 + 版本压印 + 双签名」的构图与叙事是否成立",
+  "revision_targets": [
+    "强化主卡片与背景模糊数字团的对比",
+    "确认中文标签不超过 3 个且无乱码",
+    "检查是否误出现真实界面或图表"
+  ],
+  "final_prompt": "Use the current cover direction as the base.\nKeep the strongest part of the composition and preserve the summary angle: 数字稳定不等于证据可溯；一册立着的「证据契约档案卡」把可变的指标钉在不可变的证据与版本上。\nPreserve the core metaphor: 把多变的数字钉在不可变证据与版本上的「契约档案卡」。\n\nKeep these information beats readable and source-grounded:\n- problem: 左侧背景一团无锚点的浮动评测数字（如 0.73、0.84），形态模糊、轻微颗粒感\n- mechanism: 中央主焦点一册立着的档案卡（证据契约），卡面呈现查询行、证据条与字段格线\n- evidence: 卡角一个红色版本压印章（可见标签「版本」）\n- takeaway: 卡面底端两道并排的签名线（可见标签「双评审」）\n\nChange only these points:\n- 移除右侧两名校服学生和书桌堆书，改为安静的空教室角落：窗台透光、少量绿植与书架，保持柔和逆光与清新配色\n- 卡面文字只保留「证据条」「版本」「双评审」三个短标签，删除「查询行」文字，其余字段格线保持无文字\n- 强化中央契约卡与左侧模糊数字团的明暗对比，让卡片成为唯一主焦点\n\nMake the image feel more like isometric conceptual systems scene combined with this selected visual style descriptor: youthful campus romance illustration, clean school-life setting, soft backlight, subtle emotional gestures, fresh color palette. Preserve one clear focal subject and 3 supporting narrative beats in a wide 2.35:1 frame. Do not imitate a specific brand, studio, or living artist.\nPrimary subject should remain: 一册立着的档案卡（证据契约卡），正在被打上版本压印，边缘光线把它与背后模糊的数字团分开。\nSimplify the background so that only 窗边空教室与柔光 remains as supporting context.\nColor palette: warm ivory paper, amber brass ink, deep teal, soft sky-blue accent.\n\nVisible text policy: keep only the approved 1-3 short Chinese labels from the brief, and never exceed 4 items. No poster title, no long sentence captions, no English slogans, no fake UI labels, no fake chart axes, and no fake architecture node names.\nRemove any watermark, prompt residue, screenshots, dashboards, fake diagrams, fake charts, fake terminal output, fabricated metrics, unrelated icons, and decorative clutter.\nAvoid 漂浮芯片、无意义代码雨、霓虹高楼背景、通用机器人站姿、赛博朋克紫蓝光污染、HUD 浮层、真实界面截图、仪表盘、人物角色。"
+}
