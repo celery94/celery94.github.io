@@ -1,0 +1,62 @@
+{
+  "article_title": "Postgres RLS：EF Core 多租户的第二道防线",
+  "cover_type": "tutorial",
+  "core_theme": "在 EF Core 全局查询过滤器之下，用 PostgreSQL 行级安全策略给多租户数据加第二层隔离",
+  "reader_takeaway": "知道策略怎么写、为什么必须在每次连接打开时设置租户，以及越权读写会被挡成 0 行和 42501",
+  "summary_angle": "应用侧的查询过滤器是一道能被绕过的栅栏，数据库侧的策略才是真正锁住数据的闸门，越权写入被原路弹回",
+  "narrative_flow": "conflict-to-resolution",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "开头：原生 SQL、附加实体与 IgnoreQueryFilters 都绕过全局查询过滤器",
+      "visual_idea": "一条查询路径从薄栅栏侧面的缺口溜过去",
+      "visible_label": "绕过过滤器"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "建策略：ENABLE + FORCE ROW LEVEL SECURITY 与 USING/WITH CHECK",
+      "visual_idea": "堆叠数据行组成的数据库区块上装着一道沉重闸门和锁",
+      "visible_label": "库层策略"
+    },
+    {
+      "role": "evidence",
+      "source_anchor": "lab 场景 3/4：跨租户 UPDATE 影响 0 行，跨租户 INSERT 返回 42501",
+      "visual_idea": "越权的写入被闸门弹回，落成零行结果",
+      "visible_label": "越权写入失败"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "lab 场景 7：连接拦截器在每次连接打开时 set_config 设置租户",
+      "visual_idea": "每条连接在打开处被盖上一个租户标记"
+    }
+  ],
+  "main_metaphor": "薄栅栏后面还有一道真正上锁的闸门：栅栏可以被绕开，闸门不行",
+  "primary_subject": "一个由堆叠数据行构成的块状数据库主体",
+  "subject_action": "被闸门和锁扣住，几条简化的查询路径朝它靠近，只有被授权的那条通过",
+  "composition": "左右对照",
+  "base_style": "editorial technical illustration",
+  "selected_style": "涂鸦街头风",
+  "selected_style_prompt_descriptor": "street-graffiti comic style, spray-paint texture, bold outlines, urban wall energy, vivid but controlled color clashes",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["绕过过滤器", "库层策略", "越权写入失败"],
+  "color_palette": ["深靛蓝", "喷漆橙", "水泥灰白", "警示红"],
+  "avoid": [
+    "霓虹高楼背景",
+    "无意义代码雨",
+    "漂浮芯片",
+    "通用机器人站姿",
+    "紫蓝光污染",
+    "密集 HUD 浮层",
+    "英文标语",
+    "伪 UI 标签"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "先验证「绕过的查询 → 库层闸门 → 越权写入被弹回」这条摘要弧线是否一眼可读，且主焦点明确",
+  "revision_targets": [
+    "主焦点是否被旁支抢走",
+    "中文标签数量与可读性",
+    "背景是否喧宾夺主"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: adding a PostgreSQL row-level security policy underneath EF Core global query filters as a second isolation layer for multi-tenant data. The reader should quickly feel that application-level query filters can be walked around, while the database-level policy is what actually locks the data.\n\nSummary angle: several simplified query paths approach a table-like data block; one slips around a thin fence on the application side, but a heavy gate bolted onto the data block only lets the authorized path through and bounces the unauthorized write back as zero changed rows.\nNarrative flow: conflict-to-resolution. In a 2.35:1 frame, keep one dominant focal subject and 3 supporting narrative beats. Each beat must map to the article's information blocks rather than generic decoration.\nInformation blocks:\n- problem: a query path slips through a gap beside a thin light fence; visible label 绕过过滤器\n- mechanism: a heavy gate and chunky lock mounted on a stacked data-row block; visible label 库层策略\n- evidence: an unauthorized write is bounced back and lands as an empty zero-row result; visible label 越权写入失败\n- takeaway (no label): a small tenant marker is stamped onto each connection line where it opens\n\nMain metaphor: the application-side query filter is a thin fence that can be walked around; the database-side policy is the real locked gate behind it.\nSubject: a blocky stacked data table as the dominant focal object, secured by a heavy gate and lock, with a few simplified query paths moving toward it.\nComposition/framing: left-to-right contrast. Thin fence and a slight detour on the left, heavy gate plus locked data block on the right. Horizontal storytelling that stays legible in a wide cover.\nStyle/medium: combine editorial technical illustration with the selected visual style descriptor: street-graffiti comic style, spray-paint texture, bold outlines, urban wall energy, vivid but controlled color clashes. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: deep indigo, spray-paint orange, concrete grey-white base, warning red accent.\nVisible text policy: allow only these 3 short Chinese labels, each on one small chip: 绕过过滤器, 库层策略, 越权写入失败. No poster title, no long sentences, no English slogans, no code text, no fake UI labels, no fake chart axes, no fake architecture node names.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: neon skyscraper backgrounds, meaningless code rain, floating chips, generic standing robots, purple-blue neon glow, dense HUD overlays."
+}
