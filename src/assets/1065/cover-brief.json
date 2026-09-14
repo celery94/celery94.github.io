@@ -1,0 +1,64 @@
+{
+  "article_title": "不常用的 LINQ 方法速查：版本与易错点",
+  "cover_type": "tutorial",
+  "core_theme": "把十几组不常用的 LINQ 方法按任务分类整理，并核对每组方法在哪个 .NET 版本才可用",
+  "reader_takeaway": "知道该用哪个方法代替手写循环，以及每个方法属于 .NET 6、9、10 还是尚未发布的 11",
+  "summary_angle": "一面按 .NET 版本分层的工具架：现成工具一直挂在架上，只是没人去取；最上层还空着，因为那个版本还没正式发布",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "开头：分组求和写成循环加字典、取末尾元素手算下标、取交集自建 HashSet",
+      "visual_idea": "有人正费劲地手摇一件粗糙的自制工具，身后整架现成工具没人动",
+      "visible_label": "手写循环"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "版本表：按 .NET 3.5 / Core 2.0 / 6 / 9 / 10 / 11 分层归类方法",
+      "visual_idea": "一面向斜上方延伸的霓虹工具架，每层是一段版本区间，工具按所属层归位",
+      "visible_label": "版本分层"
+    },
+    {
+      "role": "evidence",
+      "source_anchor": "FullJoin 只存在于 main 分支，v10.0.0 里没有，.NET 11 正式版尚未发布",
+      "visual_idea": "最顶层是一只空托盘，只有轮廓灯带，没有放任何工具",
+      "visible_label": ".NET 11"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "易错点速查：空序列抛异常、集合运算结果去重、ToLookup 立即求值、Zip 以最短为准",
+      "visual_idea": "几件工具旁挂着小小的警示牌，牌上只有符号没有文字",
+      "visible_label": "易错点"
+    }
+  ],
+  "main_metaphor": "现成的工具一直挂在架子上，只是没人去取；架子按版本分层，最上层还空着",
+  "primary_subject": "一面多层霓虹工具架，每层标注一个 .NET 版本",
+  "subject_action": "处于被逐层照亮的状态，每层的工具轮廓清晰可辨，顶层托盘空置",
+  "composition": "斜向推进",
+  "base_style": "editorial technical illustration",
+  "selected_style": "赛博朋克风",
+  "selected_style_prompt_descriptor": "cyberpunk comic mood, neon accents, rain-slick surfaces, dense urban tech atmosphere, controlled purple-blue usage",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["手写循环", "版本分层", ".NET 11", "易错点"],
+  "color_palette": ["深墨蓝底", "青绿霓虹", "暖橙点缀", "冷灰金属"],
+  "avoid": [
+    "整屏紫蓝光污染",
+    "霓虹高楼背景",
+    "无意义代码雨",
+    "漂浮芯片",
+    "通用机器人站姿",
+    "密集 HUD 浮层",
+    "伪造的仪表盘或坐标轴",
+    "英文标语",
+    "伪终端输出"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证「工具架按版本分层 + 顶层空置 + 警示牌」这条摘要弧线是否一眼可读，主焦点是否落在分层工具架上",
+  "revision_targets": [
+    "层次是否清楚可数",
+    "中文短标签与 .NET 11 铭牌是否清晰",
+    "霓虹是否压过主体结构"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: a reference of lesser-known LINQ methods, organized by the .NET version in which each one became available. The reader should quickly feel that ready-made tools were on the shelf all along, and that the shelf is layered by version with the top tier still empty.\n\nSummary angle: a hand-cranked crude tool is being used in the foreground while a tall rack of ready tools sits in the background; the rack rises diagonally through clearly separated version tiers, and its topmost tray is empty except for its outline strip.\nNarrative flow: 3-beat process. In a 2.35:1 frame, keep one dominant focal subject and 4 supporting narrative beats. Each beat must map to the article's information blocks rather than generic decoration.\nInformation blocks:\n- problem: a person struggles with a rough self-made hand tool while a full rack of ready tools stands untouched behind; visible label 手写循环\n- mechanism: a tall neon rack rising diagonally, divided into distinct horizontal tiers, each tier holding differently shaped tools; visible label 版本分层\n- evidence: the topmost tier is an empty tray with only an outline light strip, holding no tool at all; visible label .NET 11\n- takeaway: a few small warning tags hang beside certain tools, carrying only symbols and no words; visible label 易错点\n\nMain metaphor: the right tool has been hanging on the shelf the whole time; the shelf is layered by release version and its top tier is still empty.\nSubject: a multi-tier neon tool rack, each tier a .NET version band, as the dominant focal object.\nComposition/framing: diagonal advance from lower left to upper right, the rack as the dominant structure, the crude hand tool and its operator as a smaller foreground beat. Keep the background clean and dark so the rack reads instantly. One clear focal point in a wide frame.\nStyle/medium: combine editorial technical illustration with the selected visual style descriptor: cyberpunk comic mood, neon accents, rain-slick surfaces, dense urban tech atmosphere, controlled purple-blue usage. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: deep ink blue base, teal-green neon, restrained warm orange accent, cool grey metal. Keep the neon restrained and the background uncluttered; avoid an all-over purple-blue glow.\nVisible text policy: allow only these 4 short chips, each on one small plate: 手写循环, 版本分层, .NET 11, 易错点. No poster title, no long sentences, no English slogans, no code text, no fake UI labels, no fake chart axes, no fake terminal output.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: full-screen purple-blue neon glow, neon skyscraper backgrounds, meaningless code rain, floating chips, generic robots, dense HUD overlays, fabricated gauges or axes, English slogans, fake terminal output."
+}
