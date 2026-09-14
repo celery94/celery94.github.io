@@ -1,0 +1,64 @@
+{
+  "article_title": "OpenTelemetry 观测 .NET RAG 的耗时与成本",
+  "cover_type": "architecture",
+  "core_theme": "用 OpenTelemetry 把 .NET RAG 管线从一次不透明的「AI 请求」拆成同一 trace 下可归因的阶段 span，并只记录元数据",
+  "reader_takeaway": "知道该在嵌入、检索、重排、拼装提示词、生成这些边界上建 span，以及为什么只带版本标识和有界计数而不带内容",
+  "summary_angle": "一个密封的黑匣被点亮成五段可辨识的机构：每段都显出自己的耗时与计数，而旁边的账册只刻数字与版本，不抄录内容",
+  "narrative_flow": "layered reveal",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "开头：一条「AI 请求 2.3 秒」的聚合指标把五个不同的失败原因压成同一个数字",
+      "visual_idea": "一块沉重、无接缝的密封黑色立方体",
+      "visible_label": "黑盒请求"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "问答 trace 的子 span：embed_query、search、rerank、build_prompt、generate",
+      "visual_idea": "黑匣被拆成五段用光线连接的等距机构，每段都能单独看清",
+      "visible_label": "分阶段追踪"
+    },
+    {
+      "role": "evidence",
+      "source_anchor": "契约表：只允许非负整数、布尔值与有界长度作为属性",
+      "visual_idea": "每一段机构上方挂着一块只显示刻度与状态的铭牌",
+      "visible_label": "有界计数"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "遥测最小化：查询文本、提示词、检索片段、用户标识都不进通用遥测",
+      "visual_idea": "旁侧一本上锁的账册，页面上只有刻痕与记号，没有文字内容",
+      "visible_label": "不记内容"
+    }
+  ],
+  "main_metaphor": "暗室里的机构被逐段点亮：原本一体的黑匣显出五段可归因的关节，旁边只留一本刻着数字与版本的账册",
+  "primary_subject": "一个被拆成五段的等距机械装置，代表 RAG 管线的五个阶段",
+  "subject_action": "被逐节点亮，每一段显出自己的刻度铭牌，冷光沿连接线依次传递",
+  "composition": "等距空间",
+  "base_style": "isometric conceptual systems scene",
+  "selected_style": "暗黑哥特风",
+  "selected_style_prompt_descriptor": "dark gothic illustration, pointed arches, lace shadows, candlelit contrast, ornate black shapes, restrained horror mood",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["黑盒请求", "分阶段追踪", "有界计数", "不记内容"],
+  "color_palette": ["墨黑", "烛光琥珀", "冷石灰", "暗紫阴影"],
+  "avoid": [
+    "英文标语",
+    "伪终端输出",
+    "伪造的坐标轴或图表",
+    "骷髅与血浆等恐怖元素",
+    "霓虹色",
+    "无意义代码雨",
+    "漂浮芯片",
+    "通用机器人",
+    "密集 HUD 浮层"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证「密封黑匣 → 五段被点亮的机构 → 旁侧只刻数字的账册」这条摘要弧线是否一眼可读，主焦点是否落在被拆开的那五段上",
+  "revision_targets": [
+    "五段机构是否清楚可数",
+    "四个中文短标签与铭牌是否清晰",
+    "哥特装饰是否压过机构主体"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: using OpenTelemetry to break a .NET RAG pipeline out of one opaque \"AI request\" into separately attributable stage spans, while recording metadata only. The reader should quickly feel that a sealed black box is opened up and each stage becomes individually visible.\n\nSummary angle: a heavy seamless black cube is revealed as five connected isometric machine segments, each lit in turn so its own dial and state become readable, with a locked ledger beside it that carries only marks and numbers.\nNarrative flow: layered reveal. In a 2.35:1 frame, keep one dominant focal subject and 4 supporting narrative beats. Each beat must map to the article's information blocks rather than generic decoration.\nInformation blocks:\n- problem: a heavy seamless sealed black cube sits in shadow; visible label 黑盒请求\n- mechanism: the cube opens into five linked isometric machine segments joined by thin light lines, each segment readable on its own; visible label 分阶段追踪\n- evidence: a small bolted plaque above each segment shows only a dial and a state mark; visible label 有界计数\n- takeaway (with label): a locked ledger with pages of carved marks and numerals but no written content; visible label 不记内容\n\nMain metaphor: a dark chamber where a single sealed machine is lit segment by segment, so every joint becomes attributable while the ledger keeps only counts and revisions.\nSubject: an isometric mechanism split into five distinct segments, the dominant focal object.\nComposition/framing: isometric three-quarter view, the five segments running diagonally across the frame, the locked ledger as a secondary object in the lower right foreground. One clear focal point, wide and legible.\nStyle/medium: combine isometric conceptual systems scene with the selected visual style descriptor: dark gothic illustration, pointed arches, lace shadows, candlelit contrast, ornate black shapes, restrained horror mood. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: ink black, candlelit amber, cold stone grey, deep violet shadow.\nVisible text policy: allow only these 4 short Chinese chips, each on one carved plate: 黑盒请求, 分阶段追踪, 有界计数, 不记内容. No poster title, no long sentences, no English slogans, no code text, no fake UI labels, no fake chart axes, no fake terminal output.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: English slogans, fake terminal output, fabricated axes or charts, skulls or gore, neon colors, meaningless code rain, floating chips, generic robots, dense HUD overlays."
+}
