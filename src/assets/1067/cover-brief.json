@@ -1,0 +1,63 @@
+{
+  "article_title": ".NET 11 RC1：亮点核对与 API 纠错",
+  "cover_type": "analysis",
+  "core_theme": "把一篇 .NET 11 RC1 亮点文章里的每个特性对着官方发布说明逐条核对，区分真特性与写错的代码示例",
+  "reader_takeaway": "知道原文哪些判断成立、哪两段示例编译不过，以及每个特性的正确 API 与官方出处",
+  "summary_angle": "一张写满亮点的高光清单被放到官方发布说明的逆光前逐条比对：四块内容亮起确认为真，两小块代码对不上被标出，旁边补上正确写法",
+  "narrative_flow": "conflict-to-resolution",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "开头：原文挑的四个方向（Linux 容器、联合类型、CI 构建、WinForms kiosk）都确实是 .NET 11 RC 1 的重点",
+      "visual_idea": "一张悬浮的高光清单，上面四块发光的内容块代表四个方向",
+      "visible_label": "四项亮点"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "核对方式：对着官方 release notes 与官网文档逐条验证每个说法",
+      "visual_idea": "清单被举到一份巨大的发光参考文档前，光从背后透过来，两层的行距对齐",
+      "visible_label": "逐条核对"
+    },
+    {
+      "role": "evidence",
+      "source_anchor": "两处代码示例编译不过：原文的 union 块语法与 EnableKioskMode/KioskOptions 都不存在；崩溃报告输出格式也不是官方描述",
+      "visual_idea": "两小块代码卡片与背后的参考行错位，边缘被标出缺口",
+      "visible_label": "示例有误"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "补上正确写法：KioskModeManager 组件、C# 15 的 union 位置参数语法、DOTNET_EnableCrashReport 开关",
+      "visual_idea": "错位卡片旁放着三块对齐的干净卡片，被同一束逆光照亮",
+      "visible_label": "正确写法"
+    }
+  ],
+  "main_metaphor": "把高光清单举到官方文档的逆光前对齐：真的内容透光发亮，错位的部分立刻显出缺口",
+  "primary_subject": "一张被举起的半透明高光清单与其背后的发光参考文档",
+  "subject_action": "处于逆光对位的过程中，两层文档的行距从错位走向对齐",
+  "composition": "左右对照",
+  "base_style": "conceptual editorial illustration",
+  "selected_style": "新海诚光影风",
+  "selected_style_prompt_descriptor": "transparent blue skies, dramatic backlight, detailed clouds, youthful cinematic lighting, rain and reflection details, no artist imitation",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中",
+  "style_safety_note": "原风格名强指向在世作者，最终 prompt 只使用逆光、天空、云层、反射等非仿冒描述",
+  "allowed_visible_text": ["四项亮点", "逐条核对", "示例有误", "正确写法"],
+  "color_palette": ["透明天蓝", "逆光金白", "云层灰蓝", "雨滴高光白"],
+  "avoid": [
+    "人物面孔与动漫角色",
+    "英文标语",
+    "伪终端输出",
+    "伪造的仪表盘、坐标轴或图表",
+    "霓虹色",
+    "无意义代码雨",
+    "漂浮芯片",
+    "密集 HUD 浮层"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证「高光清单在逆光前与参考文档对齐、错位处被标出」这条对照弧线是否一眼可读，主焦点是否落在两层文档的对位关系上",
+  "revision_targets": [
+    "两层文档的对位关系是否清楚",
+    "四个中文短标签是否清晰",
+    "天空与云层是否压过文档主体"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: fact-checking every claim in a .NET 11 RC1 highlights article against the official release notes, separating genuine features from code samples that do not compile. The reader should quickly feel that a claim sheet is being held up against an authoritative reference and that misaligned parts stand out.\n\nSummary angle: a translucent highlight sheet carrying four glowing content blocks is held up in front of one large luminous reference document; backlight passes through both, four blocks line up and shine through as true, two small code cards sit visibly out of alignment and are marked as gaps, and three crisply aligned cards beside them show the corrected form.\nNarrative flow: conflict-to-resolution. In a 2.35:1 frame, keep one dominant focal subject and 4 supporting narrative beats. Each beat must map to the article's information blocks rather than generic decoration.\nInformation blocks:\n- problem: a floating highlight sheet with four glowing content blocks representing the four topics the article picked; visible label 四项亮点\n- mechanism: the sheet held up against one huge luminous reference document, light shining through from behind, the two layers' line spacing coming into register; visible label 逐条核对\n- evidence: two small code cards visibly out of alignment with the reference lines behind them, their edges marked as gaps; visible label 示例有误\n- takeaway: three clean, crisply aligned cards beside the misaligned ones, lit by the same backlight; visible label 正确写法\n\nMain metaphor: holding a highlight sheet up to the backlight of the official document - what is real shines through, what is misaligned shows a gap.\nSubject: a translucent highlight sheet and the large luminous reference document behind it, as the dominant focal pair.\nComposition/framing: left-right comparison, the reference document as the large luminous plane on one side and the held-up sheet as the nearer subject on the other, with the misaligned cards as the tension point between them. One clear focal point in a wide frame.\nStyle/medium: combine conceptual editorial illustration with the selected visual style descriptor: transparent blue skies, dramatic backlight, detailed clouds, youthful cinematic lighting, rain and reflection details, no artist imitation. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: transparent sky blue, backlit gold-white, cloud grey-blue, raindrop highlight white. Keep the sky and clouds as lighting and depth only; the documents must stay the dominant subject.\nVisible text policy: allow only these 4 short Chinese chips, each on one small plate: 四项亮点, 逐条核对, 示例有误, 正确写法. No poster title, no long sentences, no English slogans, no code text, no fake UI labels, no fake chart axes, no fake terminal output.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: human faces or anime characters, English slogans, fake terminal output, fabricated gauges or axes, neon colors, meaningless code rain, floating chips, dense HUD overlays."
+}
