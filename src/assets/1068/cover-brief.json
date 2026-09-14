@@ -1,0 +1,64 @@
+{
+  "article_title": "分布式 .NET 隐藏延迟：CPU 报告看不出的等待",
+  "cover_type": "tutorial",
+  "core_theme": "用 Visual Studio 剖析一次跨进程的分布式 .NET 请求：CPU 报告排除计算瓶颈后，用 Stopwatch 量出流式循环里 Task.Delay 累计的 10 秒等待",
+  "reader_takeaway": "知道 CPU 报告只能排除计算、量不出等待，以及该按什么顺序定位并修掉这类累积延迟",
+  "summary_angle": "一条穿过五个进程站点的管道：仪表盘几乎不动，说明不是计算慢；管子中段每经过一个方块就被掐一下，几十次掐顿堆成十秒等待；出口处把零散方块合并成一块，而不是掐住源头",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "一次操作跨 Blazor Web UI、agent、MCP 服务器、Cosmos DB 与托管模型，用户只看到一个延迟",
+      "visual_idea": "一条横向管道依次穿过五个简单的水彩小站点",
+      "visible_label": "跨进程"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "CPU 报告显示选中时间段只有 6.7% 占用，调用树里没有主导热点，只能证明不是 CPU 瓶颈",
+      "visual_idea": "管道上方一只几乎平躺的圆形仪表，指针停在很低的位置",
+      "visible_label": "6.7%"
+    },
+    {
+      "role": "evidence",
+      "source_anchor": "流式循环里的 await Task.Delay(50) 在五次运行中累计 9.03 到 11.71 秒，中位数 10.30 秒",
+      "visual_idea": "管道中段每经过一个小方块就被掐顿一次，掐顿的刻痕层层堆成一摞",
+      "visible_label": "10 秒等待"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "正确做法是消费更新不延迟、只把 UI 刷新合并到每 50 毫秒一次，并在 finally 中强制刷新最后一次",
+      "visual_idea": "管道出口把一串零散小方块合并成一块整齐的大方块，管道本身没有变窄",
+      "visible_label": "合并渲染"
+    }
+  ],
+  "main_metaphor": "仪表的指针几乎不动，说明慢的不是计算；真正的代价是管子里每一格都被掐了五十毫秒，几十格堆成十秒",
+  "primary_subject": "一条横穿多个站点的水彩管道与它上面那只几乎不动的仪表盘",
+  "subject_action": "流体沿管道向右推进，中段反复被掐顿并堆起刻痕，出口处被合并成整齐的大块",
+  "composition": "斜向推进",
+  "base_style": "editorial technical illustration",
+  "selected_style": "水彩漫画风",
+  "selected_style_prompt_descriptor": "watercolor comic illustration, translucent washes, visible paper texture, soft edges, light ink structure",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["跨进程", "6.7%", "10 秒等待", "合并渲染"],
+  "color_palette": ["水彩蓝灰", "暖橙", "纸白", "淡墨线"],
+  "avoid": [
+    "英文标语",
+    "伪终端输出",
+    "伪造的坐标轴或图表",
+    "人物面孔",
+    "霓虹色",
+    "无意义代码雨",
+    "漂浮芯片",
+    "通用机器人",
+    "密集 HUD 浮层"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证「管道穿过多个站点 + 仪表几乎不动 + 中段掐顿堆成十秒 + 出口合并」这条弧线是否一眼可读，主焦点是否落在中段的累计刻痕上",
+  "revision_targets": [
+    "五个站点与管道的走向是否清楚",
+    "四个中文短标签是否清晰",
+    "水彩晕染是否把结构与刻痕糊掉"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: diagnosing a hidden latency in a distributed .NET request by first ruling out CPU work with a profiler, then measuring the accumulated wait inside a streaming loop. The reader should quickly feel that the gauge is nearly still while the real cost piles up as repeated small pauses along the path.\n\nSummary angle: one horizontal conduit runs through five small stations; an almost motionless round gauge sits above it, showing the slowness is not computation; in the middle of the conduit a small block is pinched once every time it passes, and the pinch marks stack into a tall pile; at the exit, a string of scattered small blocks is merged into one neat large block while the conduit itself stays wide.\nNarrative flow: 3-beat process. In a 2.35:1 frame, keep one dominant focal subject and 4 supporting narrative beats. Each beat must map to the article's information blocks rather than generic decoration.\nInformation blocks:\n- problem: a horizontal conduit passing through five simple watercolor stations in a row; visible label 跨进程\n- mechanism: a nearly flat round gauge above the conduit with its needle resting very low; visible label 6.7%\n- evidence: in the middle of the conduit, pinch marks accumulate into a stacked pile as blocks pass one by one; visible label 10 秒等待\n- takeaway: at the exit, a run of scattered small blocks merges into one tidy large block while the conduit stays wide; visible label 合并渲染\n\nMain metaphor: the gauge barely moves, so the cost is not computation - it is fifty milliseconds pinched out of every single block, stacking into ten seconds.\nSubject: a long horizontal watercolor conduit crossing several stations, with the near-motionless gauge above it, as the dominant focal structure.\nComposition/framing: diagonal advance from lower left to upper right along the conduit, with the stacked pinch marks as the focal tension point and the merged block as the resolution at the far end. One clear focal point in a wide frame.\nStyle/medium: combine editorial technical illustration with the selected visual style descriptor: watercolor comic illustration, translucent washes, visible paper texture, soft edges, light ink structure. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: watercolor blue-grey, warm orange, paper white, light ink outlines. Keep washes translucent so the conduit, the stacked marks and the merged block stay crisp and readable.\nVisible text policy: allow only these 4 short chips, each on one small plate: 跨进程, 6.7%, 10 秒等待, 合并渲染. No poster title, no long sentences, no English slogans, no code text, no fake UI labels, no fake chart axes, no fake terminal output.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: English slogans, fake terminal output, fabricated gauges or axes, human faces, neon colors, meaningless code rain, floating chips, generic robots, dense HUD overlays."
+}
