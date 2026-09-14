@@ -1,0 +1,64 @@
+{
+  "article_title": "GPT-6 Astra：删掉多余的技能与提示词",
+  "cover_type": "tutorial",
+  "core_theme": "新模型能力提升后，为旧模型写的 skill 描述、AGENTS.md 约束和任务提示词应当被削掉，而不是继续叠加",
+  "reader_takeaway": "知道该按什么标准缩短 skill 描述、怎么把 AGENTS.md 的无条件要求改成触发条件，以及哪些审批与测试要求可以直接删除",
+  "summary_angle": "一台被旧绳索和层层告示缠死的工作台，剪掉多余的部分之后只剩三张写着触发条件的短牌，机器重新开始运转",
+  "narrative_flow": "before-after",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "开头：为了防旧模型乱跑攒下的规则——每次编辑前先读文档、动手前先问、必须跑测试",
+      "visual_idea": "工作台被密密麻麻的旧绳索、褪色告示和便签一层层缠住，几乎看不见台面",
+      "visible_label": "规则堆积"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "三种形式的加载时机不同：skill 的 name+description 常驻上下文、skill 正文命中后才加载、AGENTS.md 在该仓库工作时加载",
+      "visual_idea": "三层叠放的旧木箱，越靠上层越轻越少，暗示常驻的那层最小",
+      "visible_label": "分层加载"
+    },
+    {
+      "role": "evidence",
+      "source_anchor": "官方好坏对照：坏描述写「涉及数据库就使用」，好描述写「新增、修改或评审迁移时使用」",
+      "visual_idea": "一块又长又破、字迹模糊的布告，旁边一块短小清晰的木牌",
+      "visible_label": "触发条件"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "结尾建议：让自己的 agent 审计 skill 与 AGENTS.md，然后动手删",
+      "visual_idea": "一把旧剪刀正在剪断缠住台面的多余绳索，露出的台面干净可用",
+      "visible_label": "做减法"
+    }
+  ],
+  "main_metaphor": "把缠住工作台的旧绳索剪掉，只留下写着触发条件的三两张短牌",
+  "primary_subject": "一台被旧绳索与褪色告示缠住的重型工作台",
+  "subject_action": "从近处的杂乱到远处的清爽，绳索被逐层剪断，台面重新露出来",
+  "composition": "斜向推进",
+  "base_style": "editorial technical illustration",
+  "selected_style": "废土末日风",
+  "selected_style_prompt_descriptor": "post-apocalyptic wasteland illustration, weathered materials, dusty atmosphere, survival objects, desaturated contrast",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["规则堆积", "分层加载", "触发条件", "做减法"],
+  "color_palette": ["沙尘土黄", "锈红", "灰白", "一处暗绿"],
+  "avoid": [
+    "骷髅与血浆",
+    "恐怖或尸骸元素",
+    "英文标语",
+    "伪终端输出",
+    "伪造的仪表盘或坐标轴",
+    "霓虹色",
+    "无意义代码雨",
+    "漂浮芯片",
+    "通用机器人"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证「缠死的台面 → 剪断绳索 → 只留短牌」这条 before-after 弧线是否一眼可读，主焦点是否落在剪刀与露出的台面上",
+  "revision_targets": [
+    "左右前后的杂乱与清爽对比是否明显",
+    "四个中文短标签是否清晰",
+    "废土杂物是否堆到压过主体"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: pruning the accumulated instructions, skill descriptions and repository guidance written for older coding agents now that a more capable model no longer needs them. The reader should quickly feel that a workbench has been overgrown and bound by old rules, and that cutting the excess restores it.\n\nSummary angle: a heavy workbench is wrapped in layers of old rope, faded notices and sticky notes; a pair of weathered shears cuts the surplus away, revealing three small short plaques that state only the triggering condition, and the machine starts to turn again.\nNarrative flow: before-after. In a 2.35:1 frame, keep one dominant focal subject and 4 supporting narrative beats. Each beat must map to the article's information blocks rather than generic decoration.\nInformation blocks:\n- problem: the workbench is wound in dense old rope, faded notices and notes, the surface almost invisible; visible label 规则堆积\n- mechanism: three weathered crates stacked in layers, the topmost smallest and lightest, implying the always-loaded layer is the smallest; visible label 分层加载\n- evidence: one long tattered banner with blurred writing beside one short crisp wooden plaque; visible label 触发条件\n- takeaway: old shears cut the surplus rope, the cleaned workbench surface exposed and usable; visible label 做减法\n\nMain metaphor: cutting away the rope that bound the workbench, keeping only a few short plaques that say when to use what.\nSubject: a heavy workbench bound by old rope and faded notices, as the dominant focal object.\nComposition/framing: diagonal advance from the cluttered near left to the cleared far right, the workbench as the dominant structure, the shears as the focal action. Keep the clutter dense only on the near side so the contrast reads instantly. One clear focal point in a wide frame.\nStyle/medium: combine editorial technical illustration with the selected visual style descriptor: post-apocalyptic wasteland illustration, weathered materials, dusty atmosphere, survival objects, desaturated contrast. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: dust ochre, rust red, ash grey, one restrained dark green accent for the cleared side.\nVisible text policy: allow only these 4 short chips, each on one small plaque: 规则堆积, 分层加载, 触发条件, 做减法. No poster title, no long sentences, no English slogans, no code text, no fake UI labels, no fake chart axes, no fake terminal output.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: skulls and gore, horror or corpse elements, English slogans, fake terminal output, fabricated gauges or axes, neon colors, meaningless code rain, floating chips, generic robots."
+}
