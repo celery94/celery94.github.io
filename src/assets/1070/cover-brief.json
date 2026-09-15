@@ -1,0 +1,64 @@
+{
+  "article_title": ".NET 有界 Channel 管道的完整生命周期",
+  "cover_type": "architecture",
+  "core_theme": "有界 Channel 只限制队列长度，不限制在途消息；真正需要设计的是准入、所有权、完成、取消与收尾各自归谁负责",
+  "reader_takeaway": "理解容量是队列上限而非内存公式，并知道每条消息在生产者、通道、消费者和协调者之间如何单向移交所有权",
+  "summary_angle": "一道只有两个槽位的进料闸门加三个工作台：队列里只放得下两条，但同时在途的物料却有六件，最后由唯一一个协调者关闭入口并清点收尾",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "mechanism",
+      "source_anchor": "官方 Channels 文档「bounded channels can be created with any capacity value greater than zero」与原文 Capacity counts queued items, not items currently being processed",
+      "visual_idea": "画面左侧一道工业进料闸门，门内只有两个明显可数的槽位，门外一名生产者抱着物料箱等待放行",
+      "visible_label": "容量 2",
+      "numeric_fact": "2"
+    },
+    {
+      "role": "evidence",
+      "source_anchor": "原文 With capacity 2 and three consumers, the channel can hold two queued messages while three more are actively owned by workers；本机实测在途峰值 6",
+      "visual_idea": "中部三个工作台各持一个物料箱，加上闸门内的两个槽位和门外等待的一箱，一共六件物料同时在手",
+      "visible_label": "在途 6",
+      "numeric_fact": "6"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文 One Completion Coordinator Owns the Writer 与 Fault and Abort Paths Need Cleanup Too 两节",
+      "visual_idea": "右侧一名协调者守着闸门控制杆，面前是待清点的残留物料箱，象征唯一有权关闭入口并收尾的角色",
+      "visible_label": "唯一完成权"
+    }
+  ],
+  "main_metaphor": "有界进料闸门的工作现场：队列只放得下两件物料，在途却握着六件，最后由唯一一名协调者关闸并清点残留",
+  "primary_subject": "一座带两个可数槽位的等距工业进料闸门",
+  "subject_action": "把生产者递来的物料箱按槽位放行给三个工作台，同时一名协调者在闸门侧面握着关闭入口的控制杆",
+  "composition": "斜向推进：左侧生产者与双槽闸门、中部三个等距工作台、右侧协调者与收尾清点，保持闸门为唯一主焦点",
+  "base_style": "isometric conceptual systems scene",
+  "selected_style": "青年写实风",
+  "selected_style_prompt_descriptor": "mature realistic comic illustration, grounded anatomy, restrained expressions, cinematic everyday lighting, detailed but readable scenes",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；工序现场的角色分工适合用写实漫画的日常光线和克制表情表达",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或在世艺术家复刻",
+  "allowed_visible_text": ["容量 2", "在途 6", "唯一完成权"],
+  "color_palette": ["冷灰蓝", "深青", "琥珀灯光", "浅灰白"],
+  "avoid": [
+    "真实 UI 截图",
+    "dashboard",
+    "终端输出",
+    "真实架构节点名",
+    "漂浮芯片",
+    "代码雨",
+    "霓虹高楼",
+    "赛博朋克紫蓝光污染",
+    "HUD 浮层",
+    "无关图标拼贴",
+    "长段英文标签",
+    "人物特写肖像"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮先验证：左侧双槽闸门、中部三个工作台加门外等待一箱共六件在途、右侧协调者关闸收尾这三段叙事是否一眼可读，闸门是否保持唯一焦点",
+  "revision_targets": [
+    "闸门内是否清楚只有两个可数槽位",
+    "在途物料是否明确可数到六件、而不是散乱堆叠",
+    "三个中文短标签是否清晰且没有多余文字"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: a bounded in-memory processing pipeline where capacity only limits the queue while many more items are in flight, and one coordinator owns completion. The reader should quickly feel that the queue bound is not a memory formula and that every message has exactly one owner.\n\nSummary angle: a gate with only two countable slots feeds three workbenches, yet six crates are in hand at once, and a single coordinator closes the gate and accounts for what is left.\nNarrative flow: 3-beat process. In a 2.35:1 frame, keep one dominant focal subject and 2-4 supporting narrative beats. Each beat must map to the article's information blocks rather than generic decoration.\nInformation blocks:\n- mechanism: on the left, an industrial intake gate whose interior shows exactly two countable slots; a producer stands outside holding one crate and waiting for room; visible label 容量 2 and the numeral 2\n- evidence: in the middle, three workbenches each hold one crate, and together with the two crates inside the gate and the one waiting outside, exactly six crates are in hand at the same time; visible label 在途 6 and the numeral 6\n- takeaway: on the right, one coordinator grips the gate lever while facing a small row of remaining crates to be cleared, representing the single owner of completion and cleanup; visible label 唯一完成权\n\nMain metaphor: a bounded intake gate on a workshop floor: only two crates fit in the queue, six are held at once, and one coordinator shuts the gate and clears what remains.\nSubject: an isometric industrial intake gate with two countable interior slots, passing crates to three workbenches while one coordinator stands at its side holding the closing lever.\nComposition/framing: isometric conceptual systems scene pushed diagonally from the producer and two-slot gate on the left, through three workbenches in the middle, to the coordinator and the final accounting on the right; keep the gate as the single focal point and stay legible in a wide cover. Prefer horizontal storytelling.\nStyle/medium: combine isometric conceptual systems scene with the selected visual style descriptor: mature realistic comic illustration, grounded anatomy, restrained expressions, cinematic everyday lighting, detailed but readable scenes. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: cool grey-blue metal, deep teal shadows, warm amber work lamps, pale grey-white highlights; restrained, no neon.\nVisible text policy: allow only 3 short Chinese labels or number chips, exactly 容量 2, 在途 6 and 唯一完成权, each <= 6 Chinese characters, plus the numerals 2 and 6. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: floating microchips, meaningless code rain, neon skyline, generic robot poses, cyberpunk purple-blue glow, dense HUD overlays, close-up portrait faces, unrelated icon collage, long English labels.",
+  "revision_prompt": "Second pass: edit the accepted sketch with --input-image 00-sketch.png at 2256x960 medium. Keep the composition, the metaphor, the three beats, the palette and all three Chinese labels exactly as they are. Change only three points: (1) delete the clipboard and every pseudo-text or glyph mark in the scene; the image must contain no fake writing, no unreadable characters and no placeholder letters anywhere; (2) make the total number of wooden crates exactly six and unmistakably countable — two inside the intake gate, three on the workbenches, one held by the waiting producer — and remove the row of leftover crates at the far right so the coordinator simply stands at a clean empty counter gripping the closing lever; (3) keep the three labels 容量 2, 在途 6 and 唯一完成权 with the numerals 2 and 6 crisp and legible, and add no other text. Simplify the background to a plain workshop floor with a subtle horizon glow."
+}
