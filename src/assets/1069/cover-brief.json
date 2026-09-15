@@ -1,0 +1,62 @@
+{
+  "article_title": "EF Core 动态筛选排序分页：用白名单收口",
+  "cover_type": "architecture",
+  "core_theme": "把动态筛选、排序、分页的调用方输入收进一个有界查询信封：只允许已知的值映射到已知的查询形状，并保证排序完全唯一",
+  "reader_takeaway": "理解为什么让调用方决定查询结构会失控，并知道收口点是白名单排序、完全唯一排序键、页大小上限和可见的终止操作",
+  "summary_angle": "用一道只有有限形状能通过的闸门，把散乱的外部查询输入收成少数几种规整的查询形状",
+  "narrative_flow": "conflict-to-resolution",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "原文 Treat Dynamic Filtering, Sorting, and Pagination as Data 一节：任意属性名、任意表达式、不唯一排序都从调用方进入查询结构",
+      "visual_idea": "画面左侧一堆大小不一、边缘参差、方向散乱的暗色输入块，挤向中间的边界，部分块被挡回",
+      "visible_label": "任意输入"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文 Build an Allowlisted Query Envelope 一节：newest、name、name-desc、price、price-desc 五种排序模式构成白名单",
+      "visual_idea": "中央闸门结构上有一排五个固定形状的插槽，只有对应形状的块能滑入并被压成规整矩形",
+      "visible_label": "白名单排序",
+      "numeric_fact": "5"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文 Fully Unique Ordering Is Not Optional 与 offset / keyset 两节：每个排序都以唯一键收尾，并分出两条导航路径",
+      "visual_idea": "闸门右侧两条平行的规整轨道，轨道上的每个卡片都带一个唯一编号印记，向右延伸出画面",
+      "visible_label": "唯一排序"
+    }
+  ],
+  "main_metaphor": "一道只允许有限形状通过的闸门：散乱输入被收成少数几种规整的查询形状，再沿两条确定性轨道输出",
+  "primary_subject": "一座居中的工业感闸门结构，带五个固定形状的插槽",
+  "subject_action": "把外侧形状散乱的输入块筛成少数几种规整形状，送入两条平行的输出轨道",
+  "composition": "斜向推进：左侧混乱输入区、中央闸门、右侧两条规整轨道，保持一个主焦点",
+  "base_style": "isometric conceptual systems scene",
+  "selected_style": "高对比电影风",
+  "selected_style_prompt_descriptor": "high-contrast cinematic illustration, strong key light, deep shadows, wide-screen composition, dramatic but realistic color grading",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；边界与收口的对照关系适合用强主光和深阴影强化",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或在世艺术家复刻",
+  "allowed_visible_text": ["任意输入", "白名单排序", "唯一排序", "5"],
+  "color_palette": ["深墨蓝", "冷青", "暖橙高光", "浅灰白"],
+  "avoid": [
+    "数据库 logo",
+    "真实 UI 截图",
+    "dashboard",
+    "终端输出",
+    "漂浮芯片",
+    "代码雨",
+    "霓虹高楼",
+    "赛博朋克紫蓝光污染",
+    "HUD 浮层",
+    "无关图标拼贴",
+    "长段英文标签"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮先验证：左侧散乱输入、中央五插槽闸门、右侧两条唯一编号轨道这三段叙事弧线是否一眼可读，主体是否只有闸门一个焦点",
+  "revision_targets": [
+    "闸门插槽数量与形状语义是否清楚",
+    "左侧输入块是否显得杂乱而不像装饰碎片",
+    "中文短标签是否清晰且没有多余文字"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: turning arbitrary dynamic filtering, sorting and pagination input into a bounded, allowlisted query envelope. The reader should quickly feel that a small set of known query shapes replaces unbounded caller-controlled query structure.\n\nSummary angle: a single gate that only finite, known shapes can pass through, converting messy external query input into a few regular query shapes.\nNarrative flow: conflict-to-resolution. In a 2.35:1 frame, keep one dominant focal subject and 2-4 supporting narrative beats. Each beat must map to the article's information blocks rather than generic decoration.\nInformation blocks:\n- problem: on the far left, a heap of irregular, unevenly sized dark input blocks of many random shapes pushes toward a boundary and part of it is rejected; visible label 任意输入\n- mechanism: the central gate structure carries one row of exactly five fixed-shape slots, and only matching blocks slide in and get pressed into tidy rectangles; visible label 白名单排序 plus the numeral 5\n- takeaway: on the right, two parallel tidy rails carry cards that each bear a unique index stamp and extend out of frame; visible label 唯一排序\n\nMain metaphor: a gate that only admits finite shapes; scattered input is compacted into a few regular query shapes and leaves along two deterministic rails.\nSubject: an industrial-looking gate structure in the center with five fixed-shape slots, pressing messy input blocks into a few regular forms and feeding two parallel output rails.\nComposition/framing: isometric conceptual systems scene pushed diagonally from a chaotic left region through the central gate to two orderly rails on the right; keep one clear focal point and stay legible in a wide cover. Prefer horizontal storytelling.\nStyle/medium: combine isometric conceptual systems scene with the selected visual style descriptor: high-contrast cinematic illustration, strong key light, deep shadows, wide-screen composition, dramatic but realistic color grading. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: deep ink blue base, cool teal structure, warm amber rim light, pale grey-white highlights.\nVisible text policy: allow only the three short Chinese labels 任意输入, 白名单排序, 唯一排序 and the numeral 5. Each label is six Chinese characters or fewer. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: database logos, real UI screenshots, dashboards, terminal output, floating chips, code rain, neon skylines, cyberpunk purple-blue glow, HUD overlays, unrelated icon collage, long English labels.",
+  "revision_prompt": "Second pass: edit the accepted sketch with --input-image 00-sketch.png at 2256x960 medium. Keep the composition, metaphor and the three beats; change only three points: (1) the printed index stamps on the white cards repeated numbers, so replace them with simple ascending unique index marks so no number repeats; (2) make the five slot shapes and the pressed blocks read more clearly as fixed shapes being admitted; (3) clean the lower-left clutter into one coherent mass. Simplify the background to the dark studio floor plus a subtle horizon glow, keep the palette (deep ink blue, cool teal, warm amber rim light, pale grey-white highlights), and keep the visible text limit unchanged."
+}
