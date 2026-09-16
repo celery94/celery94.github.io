@@ -1,0 +1,64 @@
+{
+  "article_title": "用 GitHub Copilot SDK 接进 .NET 应用",
+  "cover_type": "architecture",
+  "core_theme": "把 Copilot CLI 的 agent 运行时接进自己的 .NET 应用：SDK 管模型与工具循环、Agent Framework 管分工与 handoff、应用管行为；工具暴露与工具批准是两套独立开关",
+  "reader_takeaway": "理解换 provider 只需要动一层的原因，并知道接进来时必须重新声明哪些边界：给哪些工具、谁批准、客户端生命周期归谁",
+  "summary_angle": "一条从应用通往运行时车间的通道上有两道关：一道只放行少量工具托盘的收窄闸门，一道决定每次调用是否放行的批准按铃；闸门后面五个专业工位沿一条交接轨道排开",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "mechanism",
+      "source_anchor": "原文 Give Copilot interview tools, not a coding environment 一节与示例源码的 CopilotClientMode.Empty 加 AvailableTools 只列出自定义工具",
+      "visual_idea": "通道入口一道窄闸门，只放行两个形状规整的工具托盘，其余一堆带扳手和齿轮图案的内置工具托盘被挡在门外",
+      "visible_label": "工具收窄"
+    },
+    {
+      "role": "contrast",
+      "source_anchor": "原文 Tool selection controls exposure, but it is not a complete security boundary，以及 SDK FAQ 默认暴露 CLI 一手工具与 Agent Framework 文档默认不可执行 shell 的两种说法",
+      "visual_idea": "闸门侧面并排两个形状不同的控制件：一个是只放行特定托盘的机械卡口，另一个是每次都要按下的批准按铃，两者用不同的颜色区分",
+      "visible_label": "两套开关"
+    },
+    {
+      "role": "step",
+      "source_anchor": "原文 specialist 表格与 handoff 拓扑：Triage、Receptionist、Behavioural、Technical、Summariser 五个角色沿交接轨道推进",
+      "visual_idea": "闸门之后是一条等距轨道，轨道上顺序排开五个工位，每个工位朝向下一站，最后一站的工位旁放着一叠收尾卷宗",
+      "visible_label": "五角色交接",
+      "numeric_fact": "5"
+    }
+  ],
+  "main_metaphor": "运行时车间的入口关隘：工具托盘要过收窄闸门，每次调用要过批准按铃，进去之后五个专业工位沿一条交接轨道依次接力",
+  "primary_subject": "一座居中偏左的等距工业关隘结构，带一个窄槽闸门和并列的两件控制装置",
+  "subject_action": "把少量规整的工具托盘放进车间，同时由旁边的一个按铃装置对每次进料做放行决定，托盘随后沿轨道送往五个工位",
+  "composition": "斜向推进：左侧应用侧的托盘堆、中部关隘与两件控制装置、右侧沿轨道排开的五个工位，保持关隘为唯一主焦点",
+  "base_style": "isometric conceptual systems scene",
+  "selected_style": "欧漫清线风",
+  "selected_style_prompt_descriptor": "European clear-line comic style, precise outlines, flat readable colors, tidy environments, restrained humor and detail",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；分层职责与两道关口的关系适合用清线风格把结构和边界画清楚",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或在世艺术家复刻",
+  "allowed_visible_text": ["工具收窄", "两套开关", "五角色交接", "5"],
+  "color_palette": ["冷灰白", "深蓝灰", "暖橙强调", "青绿点缀"],
+  "avoid": [
+    "真实 UI 截图",
+    "dashboard",
+    "终端输出",
+    "伪代码文字",
+    "真实架构节点名",
+    "漂浮芯片",
+    "代码雨",
+    "霓虹高楼",
+    "赛博朋克紫蓝光污染",
+    "HUD 浮层",
+    "机器人",
+    "无关图标拼贴",
+    "长段英文标签"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮先验证：左侧托盘区、中部关隘的两个控制件、右侧五工位交接轨道这三段叙事是否一眼可读，关隘是否保持唯一焦点，标签是否只有允许的三处",
+  "revision_targets": [
+    "闸门是否清楚表现为「只放行少量工具托盘」而不是普通大门",
+    "两个控制件是否一眼能看出是两个不同的开关、而不是重复装饰",
+    "五个工位是否清楚可数到 5，标签文字是否正确无多余字符"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: plugging the GitHub Copilot agent runtime into your own .NET application, where tool exposure and tool approval are two separate switches. The reader should quickly feel that only a few chosen tools reach the runtime, that approval is a second independent decision, and that five specialist stations pass work along a handoff track.\n\nSummary angle: a gateway into a runtime workshop with two controls — a narrow slot gate that admits only a few tidy tool trays, and a separate approval bell that decides each admission — beyond which five specialist stations line up along a handoff track.\nNarrative flow: 3-beat process. In a 2.35:1 frame, keep one dominant focal subject and 2-4 supporting narrative beats. Each beat must map to the article's information blocks rather than generic decoration.\nInformation blocks:\n- mechanism: at the gateway entrance, a narrow slot gate admits exactly two neat tool trays while a rejected pile of tool trays marked with wrenches and gears waits outside; visible label 工具收窄\n- contrast: beside the gate stand two clearly different control devices — a mechanical slot that only passes specific trays, and an approval bell that must be pressed for each admission — kept visually distinct by shape and color; visible label 两套开关\n- step: beyond the gate, an isometric track carries work past five specialist stations in sequence, each station facing the next, with a tidy stack of finished case files at the last one; visible label 五角色交接 and the numeral 5\n\nMain metaphor: a gateway into a runtime workshop: tool trays pass a narrowing slot gate, each admission needs the approval bell, and five specialist stations relay work along one track.\nSubject: an isometric industrial gateway structure placed left of center, with one narrow slot gate and two clearly different control devices mounted beside it.\nComposition/framing: isometric conceptual systems scene pushed diagonally from a pile of tool trays on the application side, through the gateway and its two controls, to five stations along a track on the right; keep the gateway as the single focal point and stay legible in a wide cover. Prefer horizontal storytelling.\nStyle/medium: combine isometric conceptual systems scene with the selected visual style descriptor: European clear-line comic style, precise outlines, flat readable colors, tidy environments, restrained humor and detail. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: cool grey-white surfaces, deep blue-grey shadows, a warm orange accent for the approval control, a small teal accent for the admitted trays; flat, restrained, no neon.\nVisible text policy: allow only 3 short Chinese labels, exactly 工具收窄, 两套开关 and 五角色交接, each <= 6 Chinese characters, plus the numeral 5. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names, no pseudo-code text.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: floating microchips, meaningless code rain, neon skyline, robots, generic robot poses, cyberpunk purple-blue glow, dense HUD overlays, close-up faces, unrelated icon collage, long English labels.",
+  "revision_prompt": "Second pass: edit the accepted sketch with --input-image 00-sketch.png at 2256x960 medium. Keep the composition, the metaphor, the three beats, the palette and the three Chinese labels exactly as they are. Change only three points: (1) replace the angle-bracket code icon on the third station with a neutral clipboard or chat-bubble symbol, so that no code glyph and no pseudo-code mark appears anywhere in the image; (2) keep the five stations identical in structure and make them countable as exactly five, and shrink the large numeral 5 into a modest chip placed right next to the 五角色交接 label instead of a poster-sized number; (3) keep the narrow slot gate and the warm orange approval bell clearly distinguishable as two separate controls, and keep 工具收窄, 两套开关, 五角色交接 as the only text in the image. Remove any glyph placeholders or unreadable characters, and simplify the background to a plain workshop floor with a subtle horizon glow."
+}
