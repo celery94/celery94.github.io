@@ -1,0 +1,64 @@
+{
+  "article_title": ".NET 11 性能改进：从 JIT 到类库的基准数据",
+  "cover_type": "release",
+  "core_theme": "微软一年一度的 .NET 性能长文记录了数百项改进；这篇中文解读把它压成一张可决策的地图：哪些收益不用改代码，哪些要显式开启，以及硬件基线提高这条真实门槛",
+  "reader_takeaway": "看完知道该关注哪几类改进、升级到 .NET 11 前要先确认什么（硬件基线、预览特性开关、STS 支持周期），并知道怎么用自己的热点复现对比",
+  "summary_angle": "一只旋钮从 10 拧到 11 的功放面板：代表一年积累的数百项小改进，旁边的刻度说明大多数收益不用改代码，而面板侧面的标签提示硬件基线已经提高",
+  "narrative_flow": "layered reveal",
+  "information_blocks": [
+    {
+      "role": "mechanism",
+      "source_anchor": "原文开篇引用 Spinal Tap 的「这些旋钮到 11」比喻，以及全文覆盖数百项改进的规模描述",
+      "visual_idea": "画面主焦点是一只大音量旋钮，刻度从 1 排到 11，指针停在最后一格 11 上，11 的那一格用暖色高亮",
+      "visible_label": "旋钮到 11",
+      "numeric_fact": "11"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文 JIT 一节：去抽象、逃逸分析、边界检查消除等改动通常无需源码改动即可受益",
+      "visual_idea": "面板上一排标着刻度的指示灯，其中几颗自动亮起，表示这些收益不需要动手就能拿到",
+      "visible_label": "无需改代码"
+    },
+    {
+      "role": "contrast",
+      "source_anchor": ".NET 11 更新了最低硬件要求：x86/x64 基线从 x86-64-v1 提升到 x86-64-v2，ReadyToRun 目标提升到 x86-64-v3",
+      "visual_idea": "面板侧面一块铭牌，铭牌下方画着一块被挡在门外的老旧芯片插槽，表示旧硬件被新基线排除",
+      "visible_label": "基线提高"
+    }
+  ],
+  "main_metaphor": "一只旋钮刻度到 11 的功放面板：一年积累的数百项改进把整体推高一格，有些灯自己会亮，而面板侧面的铭牌标出了新的硬件门槛",
+  "primary_subject": "一只居中的等距功放面板，正面装着一只刻度到 11 的大旋钮",
+  "subject_action": "旋钮被拧到最后一格 11，面板上的指示灯随之亮起，侧面铭牌显示新的硬件基线要求",
+  "composition": "单点聚焦：功放面板居中占主要面积，左侧是刻度与指示灯，右下角一小块铭牌与被挡在门外的旧芯片插槽作为次要叙事",
+  "base_style": "product-poster style illustration",
+  "selected_style": "动态分镜电影风",
+  "selected_style_prompt_descriptor": "dynamic cinematic storyboard style, sequential panels, camera-motion feeling, strong cuts, clear narrative beats",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；一年积累的多项改进适合用分镜式的节奏感表达「一格一格推上去」",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或在世艺术家复刻；功放为通用造型，不出现任何品牌标识",
+  "allowed_visible_text": ["旋钮到 11", "无需改代码", "基线提高", "11"],
+  "color_palette": ["深炭黑面板", "暖橙刻度灯", "冷蓝高光", "米白刻度字"],
+  "avoid": [
+    "任何品牌 logo",
+    "真实产品照片",
+    "真实 UI 截图",
+    "dashboard",
+    "真实仪表盘读数",
+    "乐队或吉他手形象",
+    "音符与乐器装饰",
+    "漂浮芯片",
+    "代码雨",
+    "霓虹高楼",
+    "赛博朋克紫蓝光污染",
+    "HUD 浮层",
+    "长段英文标签"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮先验证：居中的刻度到 11 的旋钮是否一眼读出「再高一格」、面板上自动亮起的指示灯是否读作「不用改代码」、右下角的铭牌与旧插槽是否读作「硬件基线提高」",
+  "revision_targets": [
+    "旋钮刻度是否清楚排到 11 且指针停在最后一格",
+    "三处中文标签是否清晰、没有多余文字或伪字符",
+    "右下角的铭牌与旧插槽是否保持次要、不抢主焦点"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: an annual .NET performance release write-up covering hundreds of separate improvements, where most gains need no code changes and the hardware baseline has been raised. The reader should quickly feel \"one louder\" — a year of accumulated gains pushing the dial one notch higher — plus the two boundary facts on the side.\n\nSummary angle: a guitar-style amplifier panel whose dial goes one past ten, with indicator lights that light up on their own and a small nameplate recording the new hardware baseline.\nNarrative flow: layered reveal. In a 2.35:1 frame, keep one dominant focal subject and 2-4 supporting narrative beats. Each beat must map to the article's information blocks rather than generic decoration.\nInformation blocks:\n- mechanism: the dominant amplifier panel carries one large volume knob whose tick marks run from 1 to 11, with the pointer resting on the eleventh and final mark highlighted in warm amber; visible label 旋钮到 11 and the numeral 11\n- takeaway: a row of small indicator lamps along the panel lights up by itself, suggesting gains obtained without touching source code; visible label 无需改代码\n- contrast: at the lower right, a small metal nameplate sits above an old processor socket that is blocked outside a doorway, signalling a raised minimum hardware baseline; visible label 基线提高\n\nMain metaphor: an amplifier panel whose dial reaches eleven: a year of hundreds of small improvements pushes the whole thing one notch higher, some lamps light on their own, and a side nameplate marks the new hardware floor.\nSubject: a single isometric amplifier panel in the centre, with one large numbered dial facing the viewer.\nComposition/framing: single-point focus on the amplifier panel filling most of the frame; tick marks and indicator lamps read from the left, a small nameplate and the rejected old processor socket stay minor at the lower right. Keep it legible in a wide cover and prefer horizontal storytelling.\nStyle/medium: combine product-poster style illustration with the selected visual style descriptor: dynamic cinematic storyboard style, sequential panels, camera-motion feeling, strong cuts, clear narrative beats. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: deep charcoal panel, warm amber tick lighting, cool blue highlights, off-white numerals; restrained, no neon.\nVisible text policy: allow only 3 short Chinese labels, exactly 旋钮到 11, 无需改代码 and 基线提高, each <= 6 Chinese characters, plus the numeral 11 on the dial. No poster title, no long sentences, no English slogans, no brand marks, no fake UI labels, no fake chart axes, no fake meter readings, no pseudo-code text.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: any brand logo, real product photos, musicians or guitars, musical notes, floating microchips, meaningless code rain, neon skyline, cyberpunk purple-blue glow, dense HUD overlays, long English labels.",
+  "revision_prompt": "Second pass: edit the accepted sketch with --input-image 00-sketch.png at 2256x960 medium. Keep the composition, the metaphor, the three beats, the palette and the three Chinese labels exactly as they are. Change only three points: (1) make the dial scale legible and strictly increasing — exactly eleven numbered ticks from 1 to 11 in order around the dial, no duplicate numbers, no unlabeled stray tick, with the pointer resting on the final tick 11 and only the numeral 11 highlighted in warm amber; (2) keep the row of small indicator lamps self-lit and unchanged, and keep the two amber nameplates with 无需改代码 and 旋钮到 11; (3) make the lower-right element read clearly as a doorway that rejects the old processor: put the old processor socket on the near side of a closed barred gate, blocked outside the doorway, with the 基线提高 nameplate above it. Remove any pseudo-text, glyph placeholders or unreadable characters, keep exactly the three Chinese labels plus the numeral 11 as the only text, and simplify the background to a plain dark studio wall with a subtle horizon glow."
+}
