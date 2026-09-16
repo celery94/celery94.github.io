@@ -3,8 +3,8 @@
 Generate or edit images with an Azure OpenAI GPT Image deployment.
 
 Requires:
-  - AZURE_OPENAI_ENDPOINT  (e.g. https://<resource>.openai.azure.com)
-  - AZURE_OPENAI_API_KEY
+  - AZURE_IMAGE_ENDPOINT and AZURE_API_KEY, or
+  - AZURE_OPENAI_ENDPOINT and AZURE_OPENAI_API_KEY
 """
 
 import argparse
@@ -203,8 +203,8 @@ def resize_and_compress_image(output_path: str) -> str:
 # Azure OpenAI image helpers
 # ---------------------------------------------------------------------------
 
-DEFAULT_DEPLOYMENT = "gpt-image-2"
-DEFAULT_API_VERSION = "2025-04-01-preview"
+DEFAULT_DEPLOYMENT = "gpt-image-2.5-flare"
+DEFAULT_API_VERSION = "preview"
 DEFAULT_SIZE = "1024x1024"
 DEFAULT_QUALITY = "medium"
 DEFAULT_OUTPUT_FORMAT = "png"
@@ -254,34 +254,62 @@ def _parse_image_count(value: str) -> int:
     return parsed
 
 
-def _resolve_credentials(endpoint: Optional[str], api_key: Optional[str]) -> tuple[str, str]:
-    if not api_key:
-        api_key = _resolve_env("AZURE_OPENAI_API_KEY")
-    if not api_key:
-        print("❌ Error: AZURE_OPENAI_API_KEY not found!")
-        print("\nSet it via environment variable or .env file:")
-        print("  AZURE_OPENAI_API_KEY=your-key-here")
-        sys.exit(1)
+def _resolve_credentials(
+    endpoint: Optional[str], api_key: Optional[str]
+) -> tuple[str, str, str]:
+    if not endpoint:
+        endpoint = _resolve_env("AZURE_IMAGE_ENDPOINT")
+        if endpoint:
+            api_key = api_key or _resolve_env("AZURE_API_KEY")
+            auth_style = "bearer"
+        else:
+            endpoint = _resolve_env("AZURE_OPENAI_ENDPOINT")
+            api_key = api_key or _resolve_env("AZURE_OPENAI_API_KEY")
+            auth_style = "api-key"
+    else:
+        api_key = api_key or _resolve_env("AZURE_API_KEY")
+        auth_style = "bearer" if _resolve_env("AZURE_API_KEY") == api_key else "api-key"
 
     if not endpoint:
-        endpoint = _resolve_env("AZURE_OPENAI_ENDPOINT")
-    if not endpoint:
-        print("❌ Error: AZURE_OPENAI_ENDPOINT not found!")
+        print("❌ Error: AZURE_IMAGE_ENDPOINT or AZURE_OPENAI_ENDPOINT not found!")
         print("\nSet it via environment variable or .env file:")
-        print("  AZURE_OPENAI_ENDPOINT=https://<resource>.openai.azure.com")
+        print(
+            "  AZURE_IMAGE_ENDPOINT=https://<resource>/openai/deployments/"
+            "<deployment>/images/generations?api-version=preview"
+        )
+        sys.exit(1)
+    if not api_key:
+        print("❌ Error: matching Azure API key not found!")
+        print("\nSet AZURE_API_KEY for AZURE_IMAGE_ENDPOINT, or")
+        print("AZURE_OPENAI_API_KEY for AZURE_OPENAI_ENDPOINT.")
         sys.exit(1)
 
-    return endpoint.rstrip("/"), api_key
+    return endpoint.rstrip("/"), api_key, auth_style
 
 
-def _build_headers(api_key: str, *, content_type: Optional[str] = None) -> dict[str, str]:
-    headers = {"api-key": api_key}
+def _build_headers(
+    api_key: str,
+    *,
+    auth_style: str,
+    content_type: Optional[str] = None,
+) -> dict[str, str]:
+    headers = (
+        {"Authorization": f"Bearer {api_key}"}
+        if auth_style == "bearer"
+        else {"api-key": api_key}
+    )
     if content_type:
         headers["Content-Type"] = content_type
     return headers
 
 
-def _build_operation_url(endpoint: str, deployment: str, api_version: str, operation: str) -> str:
+def _build_operation_url(
+    endpoint: str, deployment: str, api_version: str, operation: str
+) -> str:
+    if re.search(r"/images/(?:generations|edits)(?:\?|$)", endpoint):
+        return re.sub(r"/images/(?:generations|edits)", f"/images/{operation}", endpoint)
+    if operation == "generations" and api_version == "preview":
+        return f"{endpoint}/openai/v1/images/generations?api-version=preview"
     return f"{endpoint}/openai/deployments/{deployment}/images/{operation}?api-version={api_version}"
 
 
@@ -311,8 +339,7 @@ def _build_generation_payload(
     }
     if background:
         payload["background"] = background
-    if output_format == "jpeg":
-        payload["output_compression"] = output_compression
+    payload["output_compression"] = output_compression
     return payload
 
 
@@ -335,8 +362,7 @@ def _build_edit_form_data(
     }
     if background:
         data["background"] = background
-    if output_format in {"jpeg", "webp"}:
-        data["output_compression"] = output_compression
+    data["output_compression"] = output_compression
     return data
 
 
@@ -472,7 +498,7 @@ def generate_image(
         print("❌ Error: 'requests' library not found. Install with: pip install requests")
         sys.exit(1)
 
-    endpoint, api_key = _resolve_credentials(endpoint, api_key)
+    endpoint, api_key, auth_style = _resolve_credentials(endpoint, api_key)
     url = _build_operation_url(endpoint, deployment, api_version, "generations")
     payload = _build_generation_payload(
         prompt,
@@ -483,6 +509,8 @@ def generate_image(
         n=n,
         background=background,
     )
+    if "/openai/v1/" in url:
+        payload["model"] = deployment
 
     print(f"🎨 Generating image via Azure OpenAI ({deployment})")
     print(f"📝 Prompt: {prompt}")
@@ -492,7 +520,11 @@ def generate_image(
 
     response = requests.post(
         url,
-        headers=_build_headers(api_key, content_type="application/json"),
+        headers=_build_headers(
+            api_key,
+            auth_style=auth_style,
+            content_type="application/json",
+        ),
         json=payload,
         timeout=120,
     )
@@ -530,7 +562,7 @@ def edit_image(
         print("❌ Error: 'requests' library not found. Install with: pip install requests")
         sys.exit(1)
 
-    endpoint, api_key = _resolve_credentials(endpoint, api_key)
+    endpoint, api_key, auth_style = _resolve_credentials(endpoint, api_key)
     url = _build_operation_url(endpoint, deployment, api_version, "edits")
     data = _build_edit_form_data(
         prompt,
@@ -567,7 +599,7 @@ def edit_image(
 
         response = requests.post(
             url,
-            headers=_build_headers(api_key),
+            headers=_build_headers(api_key, auth_style=auth_style),
             data=data,
             files=files,
             timeout=120,
@@ -658,7 +690,7 @@ Examples:
         "--compression",
         type=_parse_compression,
         default=DEFAULT_OUTPUT_COMPRESSION,
-        help="Output compression 0-100. Applies to JPEG API output.",
+        help="Output compression 0-100.",
     )
     parser.add_argument(
         "--background",
