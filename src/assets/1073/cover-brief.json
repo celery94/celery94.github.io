@@ -1,0 +1,65 @@
+{
+  "article_title": "RAG 安全：提示注入与语料投毒的 .NET 防线",
+  "cover_type": "architecture",
+  "core_theme": "RAG 的检索结果是有用证据但不是可信权威；防线是源准入、来源哈希、上下文定界、独立授权这四道各自独立、可审计的关卡，任何一道都没有权威",
+  "reader_takeaway": "知道该在哪几段边界上放控制点，以及为什么扫描器和定界符都不能替应用做准入与授权判断",
+  "summary_angle": "一份高相似度的文档可以一路抵达防线，但每一道关卡只放行自己负责的那一件事；最后的权限开关握在传送线之外，文档永远碰不到",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "开头：相似度回答的是「和这个问题有多相关」，不是「谁有权把文字写进这段上下文」",
+      "visual_idea": "一份纸张文件带着高排名标记，沿传送线右侧推进到第一道关卡前",
+      "visible_label": "检索命中"
+    },
+    {
+      "role": "step",
+      "source_anchor": "源准入小节：SourceAdmissionPolicy 校验 HTTPS、允许列表主机、声明与检测内容类型，通过后仍停在 AwaitingReview",
+      "visual_idea": "第一道关卡是一台带拦截臂与类型检测口的检录机，一份文件被拦下并停在待复核位置",
+      "visible_label": "源准入"
+    },
+    {
+      "role": "evidence",
+      "source_anchor": "来源与哈希小节：ProvenanceFactory 用 SHA256.HashData 生成指纹，哈希不匹配时隔离",
+      "visual_idea": "第二道关卡在每张文件上压印一枚指纹；一张指纹对不上的文件被扣进旁边的隔离格",
+      "visible_label": "哈希指纹"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "权限分离小节：检索内容不能授予能力、不能选择 API 凭据、不能触发工具调用；工具调用由应用代码独立判定",
+      "visual_idea": "传送线尽头之外，一只独立机械臂握着唯一的开关钥匙，文件路径够不到它",
+      "visible_label": "权限在代码"
+    }
+  ],
+  "main_metaphor": "一条由多道独立关卡组成的水平传送线：文件可以高相似度地抵达，每道关卡只放行自己负责的一件事，而最终的权限开关握在传送线之外",
+  "primary_subject": "一条由四段各司其职的关卡组成的水平防线，一份文件正停在第一道关卡前",
+  "subject_action": "文件沿传送线向右推进并逐道接受检查，其中一份被盖上隔离标记挪出主线，权限钥匙始终由关卡之外的机械臂持有",
+  "composition": "斜向推进",
+  "base_style": "isometric conceptual systems scene",
+  "selected_style": "极简线稿风",
+  "selected_style_prompt_descriptor": "minimalist line-art illustration, sparse clean strokes, ample negative space, precise symbolic objects, limited accent color",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；安全检查的分层与放行关系适合用干净、精确、少装饰的线稿表达",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["检索命中", "源准入", "哈希指纹", "权限在代码"],
+  "color_palette": ["纸白背景", "深墨线条", "单一警示橙", "浅冷灰"],
+  "avoid": [
+    "英文标语",
+    "伪终端输出",
+    "伪造的坐标轴或图表",
+    "伪造的模块名或界面标签",
+    "锁头与盾牌堆砌",
+    "霓虹色",
+    "无意义代码雨",
+    "漂浮芯片",
+    "通用机器人",
+    "密集 HUD 浮层"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证「高相似度文件抵达 → 逐道关卡放行与拦截 → 权限钥匙在传送线之外」这条摘要弧线是否一眼可读，四道关卡是否清楚可数",
+  "revision_targets": [
+    "四道关卡是否清楚可数且不糊成一条线",
+    "四个中文短标签是否清晰可读",
+    "权限钥匙是否明显处在文件路径之外"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: RAG defenses in .NET against indirect prompt injection and corpus poisoning, where retrieved documents are useful evidence but never trusted authority. The reader should quickly feel that relevance is not trust, and that authority never comes from the document itself.\n\nSummary angle: a highly ranked document travels along a horizontal line and passes through four separate checkpoints, each responsible for exactly one decision; one document is stamped with a fingerprint mismatch and diverted into a quarantine slot; the final permission lever is held by an arm outside the line, forever out of the documents' reach.\nNarrative flow: 3-beat process. In a 2.35:1 frame, keep one dominant focal subject and 4 supporting narrative beats. Each beat must map to the article's information blocks rather than generic decoration.\nInformation blocks:\n- problem: a single paper document carrying a high-rank badge approaches the first checkpoint along the line; visible label 检索命中\n- step: the first checkpoint is a clean gantry with a gate arm and a small type-inspection slot; one document is halted at it; visible label 源准入\n- evidence: the second checkpoint stamps a circular fingerprint seal onto each passing sheet, and one sheet whose seal does not match is pushed into a small side quarantine cell; visible label 哈希指纹\n- takeaway: at the far end, outside the conveyor path, a separate mechanical arm holds the only permission lever; no document on the line can reach it; visible label 权限在代码\n\nMain metaphor: a horizontal conveyor line made of separate checkpoints, where documents can arrive with high relevance but each checkpoint only clears the one thing it owns, and the permission lever stays outside the line.\nSubject: a horizontal defense line of four distinct checkpoints, with one document halted at the first one, the dominant focal object.\nComposition/framing: diagonal progression from lower left to right, the document on the line as the visual thread, one accent-colored halt mark as the focal point, the out-of-reach permission arm in the upper right as a secondary beat. One clear focal point, wide and legible.\nStyle/medium: combine isometric conceptual systems scene with the selected visual style descriptor: minimalist line-art illustration, sparse clean strokes, ample negative space, precise symbolic objects, limited accent color. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: paper-white background, deep ink-grey line work, a single warning-orange used only for the halt mark and quarantine cell, light cool grey for secondary structures. Keep the accent color usage sparse.\nVisible text policy: allow only the 4 short Chinese labels listed above, all sourced from the information blocks. Each label <= 6 Chinese characters. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: padlock and shield clichés, neon colors, code rain, floating chips, generic robot poses, dense HUD overlays, English slogans, ornate decoration that competes with the checkpoints."
+}
