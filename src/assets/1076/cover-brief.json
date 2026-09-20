@@ -1,0 +1,59 @@
+{
+  "article_title": "AI 海报的解法不是重做，而是点名风格",
+  "cover_type": "analysis",
+  "core_theme": "AI 活动海报招人烦的不是难看而是重复：不加约束时模型会退回全局共享的默认审美；给出具体风格名之后，同一份活动信息可以产出差异极大的结果",
+  "reader_takeaway": "知道该在第一句就点名风格而不是逐轮试，也要防住多轮迭代把中间产物的文案和配色带进后续每一版",
+  "summary_angle": "同一个出发点排出一列几乎一模一样的基础模板，右侧则分出几条各自成形的支路；一支笔停在分岔口上做选择，而那条默认支路上已经叠着一摞重样的成品",
+  "narrative_flow": "conflict-to-resolution",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "The problem：彩旗、手绘花、粉彩配色成为同一套默认视觉，作者说看过二十遍之后光凭重复就够让人烦躁",
+      "visual_idea": "左侧一摞几乎无法区分的成品卡片层层叠起，卡片之间只有极小的差别，堆成一堵重复的墙",
+      "visible_label": "默认模板"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "实验过程：作者要求换一套完全不同的设计美学，并追问这个风格叫什么名字，从而得到可重复调用的风格标签",
+      "visual_idea": "分岔口上有一支笔停在选项之间，笔尖旁边排着几个不同形状的小图标，代表不同的设计风格方向",
+      "visible_label": "点名风格"
+    },
+    {
+      "role": "evidence",
+      "source_anchor": "点名风格后的产出：日式极简、孟菲斯、朋克同人志、1940 年代立体主义展览海报等，视觉差异巨大",
+      "visual_idea": "右侧三条支路各自通向形状与配色完全不同的成品卡片，卡片轮廓一眼可分",
+      "visible_label": "结果分化"
+    }
+  ],
+  "main_metaphor": "同一个出发点排出一模一样的卡片墙，而旁边几条支路各通向形状完全不同的成品——区别只在出发前有没有报出风格的名字",
+  "primary_subject": "一份活动信息作为起点，向两侧分出默认的重复卡堆与几条各具形状的风格支路",
+  "subject_action": "默认支路上卡片越叠越厚且几乎相同，另一侧的支路上每张卡片轮廓各异，分岔口的笔尖指向侧面那条路",
+  "composition": "左右对照",
+  "base_style": "conceptual editorial illustration",
+  "selected_style": "像素复古风",
+  "selected_style_prompt_descriptor": "retro pixel-art inspired illustration, blocky forms, limited palette, old game composition cues, readable wide layout",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；像素风的块状图形和有限配色适合把「重复卡片」与「分化支路」的对照做得一眼可数，也不至于抢掉信息",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["默认模板", "点名风格", "结果分化"],
+  "color_palette": ["深靛蓝背景", "米白卡片", "柔和珊瑚橙强调", "冷灰蓝辅助"],
+  "avoid": [
+    "英文标语",
+    "伪终端输出",
+    "伪造的坐标轴或图表",
+    "伪造的界面标签",
+    "真实产品截图与真实海报复刻",
+    "游戏角色与血条",
+    "霓虹色滥用",
+    "无意义代码雨",
+    "漂浮芯片",
+    "密集 HUD 浮层"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证「重复卡片墙 + 分岔口点名风格 + 右侧支路结果分化」这条摘要弧线是否一眼可读，三个中文短标签是否清晰",
+  "revision_targets": [
+    "两侧对照是否清楚可数，不糊成一片卡片",
+    "默认堆与分化支路的差异是否一眼可见",
+    "像素风是否仍保持信息图可读性，而不是变成游戏画面"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: AI-generated event posters are tiresome not because they are ugly but because they are repetitive; without a named style the model falls back to one globally shared default look, while naming a specific design style produces very different results from the same event details. The reader should quickly feel that the fix is naming the style up front.\n\nSummary angle: a single event brief sits at a fork; one branch leads to a thick wall of nearly identical stacked poster cards, while the other branches lead to a few clearly different cards whose silhouettes and colour blocks are obviously distinct; a stylus rests at the fork and points toward the differing side.\nNarrative flow: conflict-to-resolution. In a 2.35:1 frame, keep one dominant focal subject and 3 supporting narrative beats, let the composition fill the width. Each beat must map to the article's information blocks rather than generic decoration.\nInformation blocks:\n- problem: on the left, a thick stack of near-identical poster cards piled higher and higher, all sharing the same bunting-and-pastel layout, forming a monotonous wall; visible label 默认模板\n- mechanism: at the centre, a fork with a stylus resting on it, indicating a choice between style directions, with a few small distinct shape icons along the branch; visible label 点名风格\n- evidence: on the right, three branch paths ending in poster cards whose silhouettes and colour blocks differ sharply from each other; visible label 结果分化\n\nMain metaphor: one shared origin produces an identical wall of cards, while a few side branches each lead to a differently shaped result — the only difference being whether a style was named before generation.\nSubject: an event brief as the shared origin, with a repetitive card wall on one side and several distinct style branches on the other.\nComposition/framing: left-right contrast, one clear focal stylus at the fork, three countable beats, legible in a wide 2.35:1 frame.\nStyle/medium: combine conceptual editorial illustration with the selected visual style descriptor: retro pixel-art inspired illustration, blocky forms, limited palette, old game composition cues, readable wide layout. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Keep the pixel treatment in service of a readable diagram, not a game screen. Do not imitate a specific brand, studio, or living artist.\nColor palette: deep indigo background, off-white poster cards, one muted coral accent for the chosen branch, cool grey-blue as support.\nVisible text policy: allow only 3 short Chinese labels sourced from the information blocks: 默认模板, 点名风格, 结果分化. Each label must be no longer than 6 Chinese characters. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake poster text of any kind.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: game characters, health bars, score counters, neon overuse, green code rain, floating chips, dense HUD overlays, realistic product UI screenshots, replicas of real posters, large empty areas."
+}
