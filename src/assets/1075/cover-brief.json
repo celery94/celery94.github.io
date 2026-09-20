@@ -1,0 +1,60 @@
+{
+  "article_title": "Postgres 更爱走新索引，但它扫错了方向",
+  "cover_type": "analysis",
+  "core_theme": "新增的 created_at 索引给规划器多了一条看起来更便宜的路径，但这条路径要走过近 50 万行才遇到目标，于是同一个查询从 16.5ms 慢到 241ms；改成 (user_id, created_at DESC) 后降到 0.067ms",
+  "reader_takeaway": "看懂 Rows Removed by Filter 和 shared buffer 计数，知道索引要和查询的过滤与排序同时匹配，也明白 ANALYZE 不是万能解",
+  "summary_angle": "两条通往同一目标的路摆在规划器面前：一条在纸上标着极低的成本，另一条看起来要先把一万行全部搬过来；规划器选了便宜的那条，而那条路的中段空无一物，走了很远才碰到第一份匹配，最后只有把过滤键和排序列放进同一段路由才真正打通",
+  "narrative_flow": "conflict-to-resolution",
+  "information_blocks": [
+    {
+      "role": "contrast",
+      "source_anchor": "Why That Plan Looked Cheap：规划器对两个方案的顶层 Limit 估算总成本是 9194.00 与 63.93，成本单位不是毫秒",
+      "visual_idea": "两条并排的手绘路径指向同一个目标，左侧路牌写着 63.93，右侧路牌写着 9194.00，规划器的指针指向数字小的那条",
+      "visible_label": "成本估算"
+    },
+    {
+      "role": "evidence",
+      "source_anchor": "Add One Index：created_at 索引计划里 Rows Removed by Filter: 495944，执行时间 241.354ms，shared hit 从 8344 涨到 497260",
+      "visual_idea": "被选中的那条路中段堆着大量被丢弃的空条目，只有路尽头才有少量匹配标记，道路显得又长又空",
+      "visible_label": "扫描空转"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "Give the Query an Index That Fits：CREATE INDEX ix_comments_user_date ON comments (user_id, created_at DESC) 后 Index Cond 覆盖过滤与排序，执行时间 0.067ms",
+      "visual_idea": "一条短直的通道把过滤键与排序列拼成同一段路，入口直接通向目标，十步之内到达",
+      "visible_label": "合键直通"
+    }
+  ],
+  "main_metaphor": "同一起点通向同一目标的两条路：规划器按路牌上的估算成本选择，而被选中的那条路中段几乎是空的，真实距离只在末端才显现",
+  "primary_subject": "一张手绘的岔路图，两条路通往同一个门洞，规划器指针指向标着低估算成本的那条",
+  "subject_action": "指针停在便宜的路径上，那条路径的条目被大量丢弃，直到路径尽头才有一小簇匹配；旁边一条短通道把过滤与排序合成一段直路",
+  "composition": "左右对照",
+  "base_style": "conceptual editorial illustration",
+  "selected_style": "洛丽塔幻想风",
+  "selected_style_prompt_descriptor": "ornate fantasy fashion illustration, lace-like detail, dollhouse elegance, soft magical palette, controlled decorative density",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；原文的核心是两条路径的对照判断，装饰性岔路图可以承载成本估算与实际距离的反差，因此保留该随机结果",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["成本估算", "扫描空转", "合键直通"],
+  "color_palette": ["浅粉米白背景", "深棕线条", "柔和青绿强调", "单一暗红标记"],
+  "avoid": [
+    "英文标语",
+    "伪终端输出",
+    "伪造的坐标轴或图表",
+    "伪造的界面标签与表名",
+    "真实产品截图",
+    "人物与洋娃娃角色",
+    "蕾丝堆满整幅画面",
+    "霓虹色",
+    "无意义代码雨",
+    "漂浮芯片",
+    "密集 HUD 浮层"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证「两条路 + 规划器选了估算更便宜的那条 + 中段大量空走 + 合键直通」这条摘要弧线是否一眼可读，并确认随机到的装饰风格没有压过信息",
+  "revision_targets": [
+    "两条路径与同一个目标的关系是否清楚可数",
+    "被选中路径中段的空走感是否明显，而不是均匀铺满装饰",
+    "三个中文短标签是否清晰，画面是否仍像一张判断图而不是装饰插画"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: a newly added Postgres index made an existing query slower, because the planner picked the cheaper-looking of two paths and that path had to walk almost half a million entries before finding a match; a composite index on the filter column plus the sort column fixed it. The reader should quickly feel that an estimated cost is not a distance.\n\nSummary angle: two paths leave the same origin toward the same destination gate; the planner pointer rests on the path whose cost sign reads the smaller number, while that chosen path is almost empty through its middle and only reveals a small cluster of matches near its far end; beside it a single short corridor merges the filter key and the sort key into one straight route that reaches the gate within a few steps.\nNarrative flow: conflict-to-resolution. In a 2.35:1 frame, keep one dominant focal subject and 3 supporting narrative beats, and let the composition fill the width. Each beat must map to the article's information blocks rather than generic decoration.\nInformation blocks:\n- contrast: two parallel paths lead to the same destination gate; the left path sign shows a small number and the right path sign shows a large number; the planner pointer points at the small-numbered path; visible label 成本估算\n- evidence: the chosen path is long and its middle stretch is littered with discarded empty entries, with only a small cluster of matching marks far along it; visible label 扫描空转\n- takeaway: a short straight corridor joins the filter key and the sort key into one segment and leads directly to the gate within a few steps; visible label 合键直通\n\nMain metaphor: two roads from one origin to one destination, chosen by an estimated cost written on a sign rather than by real distance, while the cheapest-looking road is empty for most of its length.\nSubject: a hand-drawn fork-in-the-road diagram with two routes to one destination gate and a pointer resting on the cheaper-looking route.\nComposition/framing: left-right contrast, one clear focal pointer, three countable beats, legible in a wide 2.35:1 frame.\nStyle/medium: combine conceptual editorial illustration with the selected visual style descriptor: ornate fantasy fashion illustration, lace-like detail, dollhouse elegance, soft magical palette, controlled decorative density. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Keep the ornament restrained and concentrated in the framing edges so the diagram stays the dominant subject. Do not imitate a specific brand, studio, or living artist.\nColor palette: pale pink-cream background, deep brown linework, one muted teal accent for the correct short corridor, one restrained dark red accent for the discarded entries on the wrong path.\nVisible text policy: allow only 3 short Chinese labels sourced from the information blocks: 成本估算, 扫描空转, 合键直通. Each label must be no longer than 6 Chinese characters. The two cost signs may show only very short numerals such as 63.93 and 9194.00, nothing else. No poster title, no long sentences, no English slogans, no fake UI labels, no fake table names, no fake chart axes.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: lace covering the whole frame, human or doll characters, neon colors, green code rain, floating chips, dense HUD overlays, realistic product UI screenshots, large empty paper areas."
+}
