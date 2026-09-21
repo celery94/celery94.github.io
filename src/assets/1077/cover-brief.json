@@ -1,0 +1,60 @@
+{
+  "article_title": "TPL Dataflow 流水线要写对生命周期",
+  "cover_type": "architecture",
+  "core_theme": "TPL Dataflow 的块图只是骨架，可交付的是一条带生命周期的流水线：每个块的持有量都有上限并把压力向上游传递，完成状态沿链接传播，取消与故障协同处理且必须保留原始异常",
+  "reader_takeaway": "知道 Dataflow 示例真正该显式写下来的是容量、并发与顺序、完成传播、故障与取消这四项决策，而不是只把三个块 LinkTo 起来",
+  "summary_angle": "一条三段式传送结构从左侧推进到右侧，每段之间都有可读刻度的闸门与短缓冲；下游闸门收窄后上游堆积被挡住并反向顶回入口，而整条结构下方有一条贯穿的取消/完成控制线，右侧终点托盘完整交出结果",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "原文「Bounded Capacity Is a Backpressure Decision」：BoundedCapacity 默认无界，无界默认会把一次临时速率失配变成持续增长的内存占用",
+      "visual_idea": "入口处没有闸门的一段，条目无节制地涌进去，在最窄的下游段前堆成一摞几乎要溢出的方块",
+      "visible_label": "无界堆积"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文关于 SendAsync 与 BoundedCapacity 记账的说明：容量按块计算并包含正在处理的条目，SendAsync 未完成就是背压抵达生产者",
+      "visual_idea": "三段之间各有一道带刻度槽的闸门，闸门附近有少量缓冲槽位；下游闸门收窄时，箭头反向指回上游入口",
+      "visible_label": "闸门控量"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文「Build the Lifecycle, Not Just the Blocks」：有界持有、显式条目并发、声明的顺序范围、检查过的入站、协作取消、传播完成、终点观察与故障协同",
+      "visual_idea": "整条结构正下方一条贯穿三段的控制线连到右侧终点托盘，托盘里整齐落着成品方块，控制线上有一个清晰的停止与完成符号",
+      "visible_label": "生命周期"
+    }
+  ],
+  "main_metaphor": "把有界流水线画成一条带闸门与缓冲槽的三段传送结构：闸门把持有量限死并把压力反向顶回上游，而贯穿整条结构的控制线决定它如何完成、取消和交出结果",
+  "primary_subject": "一条三段式传送结构，段与段之间各有可读刻度的闸门与短缓冲槽位",
+  "subject_action": "方块从左侧进入，第二道闸门收窄后上游出现堆积并被反向箭头挡住，控制线保持连通，右侧终点托盘接住成品方块",
+  "composition": "斜向推进",
+  "base_style": "isometric conceptual systems scene",
+  "selected_style": "独立漫画风",
+  "selected_style_prompt_descriptor": "indie comic illustration, personal hand-drawn marks, muted palette, imperfect line texture, intimate editorial feeling",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；手绘不完美的线条与低饱和配色能把「三段结构 + 闸门 + 一条控制线」这种冷结构画得不那么像真实系统图",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["无界堆积", "闸门控量", "生命周期"],
+  "color_palette": ["低饱和灰蓝底", "暖赭石强调", "米白方块", "暗墨绿控制线"],
+  "avoid": [
+    "英文标语",
+    "真实架构图节点名",
+    "伪终端输出",
+    "伪造的坐标轴或图表",
+    "伪造的界面标签",
+    "密集 HUD 浮层",
+    "漂浮芯片",
+    "无意义代码雨",
+    "霓虹紫蓝光污染",
+    "通用机器人",
+    "装饰性杂物"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证「无界堆积 -> 闸门控量 -> 贯穿的生命周期控制线交出结果」这条三段弧线是否一眼可读，三个中文短标签是否清晰",
+  "revision_targets": [
+    "三段结构是否清楚数得出来，不糊成一块机械零件",
+    "闸门与缓冲槽是否读得出「限住持有量」而不是装饰零件",
+    "反向背压箭头是否可见且不显得像流程图的伪造标注"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: a TPL Dataflow pipeline in .NET is only a skeleton until its lifecycle is written down; every block needs a bounded ownership limit that pushes pressure back upstream, completion must propagate along the links, and cancellation plus fault coordination must preserve the original failure. The reader should quickly feel that bounded handoff points and an explicit lifecycle are what make the pipeline ownable.\n\nSummary angle: a three-stage conveyor-like structure advances from left to right; each pair of stages is separated by a gate with small readable graduation slots and a short buffer bay. When the downstream gate narrows, the pile-up upstream is held back and a reverse arrow pushes pressure back toward the entrance, while one continuous control line runs beneath all three stages and connects to a terminal tray on the right that receives the finished blocks.\nNarrative flow: 3-beat process. In a 2.35:1 frame, keep one dominant focal subject and 3 supporting narrative beats, let the composition use the full width. Each beat must map to the article's information blocks rather than generic decoration.\nInformation blocks:\n- problem: at the far left, the entrance has no gate at all, so blocks flood in unchecked and pile into a nearly overflowing stack right before the narrowest downstream stage; visible label 无界堆积\n- mechanism: between the stages sit gates with graduation slots and a few limited buffer bays; a narrowed downstream gate is shown holding the pile back, with reverse arrows pointing back toward the entrance, expressing backpressure; visible label 闸门控量\n- takeaway: one continuous control line runs beneath all three stages straight into a terminal tray on the right where finished blocks land neatly, and a clear stop-and-complete mark sits on that line; visible label 生命周期\n\nMain metaphor: bounded pipeline as a three-stage conveyor with gated buffers: the gates cap how much is held and push pressure back upstream, while a single control line beneath decides how the whole structure completes, cancels and hands over results.\nSubject: a three-stage transfer structure whose stages are separated by gated buffers with readable graduation marks.\nStyle/medium: combine isometric conceptual systems scene with the selected visual style descriptor: indie comic illustration, personal hand-drawn marks, muted palette, imperfect line texture, intimate editorial feeling. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: muted grey-blue ground, warm ochre accent, off-white blocks, dark ink-green control line. Limited palette, no neon.\nVisible text policy: allow only the three short Chinese labels from the information blocks: 无界堆积, 闸门控量, 生命周期. Each label <= 6 Chinese characters. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: floating chips, meaningless code rain, neon skyscraper backgrounds, generic robot poses, cyberpunk purple-blue glow, dense HUD overlays, fake node names, decorative clutter."
+}
