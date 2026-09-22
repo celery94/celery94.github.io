@@ -1,0 +1,61 @@
+{
+  "article_title": "模型路由：97.6% 是怎么算出来的",
+  "cover_type": "analysis",
+  "core_theme": "把多个模型的能力合起来用，通过率能从 74.1% 抬到 97.6%、成本降到三分之一，但那个 97.6% 是回看出来的天花板；真正的难点是在开工之前就选对模型",
+  "reader_takeaway": "读完能判断自己的负载上有没有路由空间，并知道该用 pass@1 而不是 oracle 口径去验收路由",
+  "summary_angle": "一座山脚下摆着十几个可选入口，引路人必须在天亮之前、看不见山顶的情况下替每一支队伍选一条路；回看时的那条最优路径很清楚，开工时却只有雾",
+  "narrative_flow": "conflict-to-resolution",
+  "information_blocks": [
+    {
+      "role": "contrast",
+      "source_anchor": "Fireworks 原文：最好的单模型 GPT-6 Astra 在 113 个 DeepSWE 任务上通过 74.1%，每任务 6.52 美元",
+      "visual_idea": "山脚一排并列的入口，只有最左边一个被单独打亮，其余留在雾里，暗示固定只用其中一个",
+      "visible_label": "单模型",
+      "numeric_fact": "74.1%"
+    },
+    {
+      "role": "evidence",
+      "source_anchor": "Fireworks 原文：十八个模型按任务挑选后 oracle 达到 97.6%，每任务 1.88 美元",
+      "visual_idea": "一条被引路人指出的发光山径斜向直达最高峰，路径上标记三次转折，暗示只需少数几个互补的模型",
+      "visible_label": "路由后",
+      "numeric_fact": "97.6%"
+    },
+    {
+      "role": "problem",
+      "source_anchor": "LLMRouterBench（ACL 2026 Findings）：离 oracle 仍有明显差距，主因是持续的 model recall 失败；若干路由方法无法稳定超过简单基线",
+      "visual_idea": "引路人站在岔口，前方的路被浓雾整片吞掉，脚下只有一小圈可见的地面",
+      "visible_label": "开工前"
+    }
+  ],
+  "main_metaphor": "云雾群峰之间的一次择路：十几个入口都通向山顶，引路人必须在天亮前替每一支队伍选定一条，而回看时最优的那条路只有在结果出来以后才看得见",
+  "primary_subject": "站在岔口的引路人",
+  "subject_action": "抬手指向三条通往峰顶的山径，身后的其余入口沉在雾里",
+  "composition": "斜向推进",
+  "base_style": "conceptual editorial illustration",
+  "selected_style": "中国古风仙侠风",
+  "selected_style_prompt_descriptor": "Chinese xianxia fantasy illustration, flowing robes, ink-wash atmosphere, mountains and clouds, elegant magical motion",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；主题是「多个入口里替别人择一」，云雾层叠的山景正好承载「回看很清楚、开工时看不见」这层反差",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或在世艺术家复刻；最终 prompt 只使用安全描述词，并明确排除兵器、巨龙与打斗场面",
+  "allowed_visible_text": ["单模型", "路由后", "开工前"],
+  "color_palette": ["宣纸米白与墨色", "青绿远山", "淡金雾光", "一点朱红强调"],
+  "avoid": [
+    "刀剑兵器与打斗场面",
+    "巨龙或神兽",
+    "赛博朋克霓虹",
+    "无意义代码雨",
+    "漂浮芯片",
+    "HUD 浮层",
+    "dashboard 或图表坐标轴",
+    "通用机器人站姿",
+    "书法风格的 poster 标题或英文口号",
+    "任何仿冒在世画师的落款或印章文字"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮验证「多入口择一」的隐喻是否可读、三个中文短标签是否清晰、雾对前路的遮挡是否明确传达「开工前看不见」",
+  "revision_targets": [
+    "引路人与岔口的关系是否一眼读懂",
+    "雾的遮挡是否表达出「开工前」而不是单纯的氛围",
+    "是否混入兵器、巨龙等偏离主题的仙侠元素"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes an article about routing between many AI models. Theme: a mountain with more than a dozen possible entrances at its base, where a guide must choose one path for each group before dawn, while the path that hindsight would call optimal only becomes visible after the outcome is known. The reader should quickly feel that combining models beats using one, and that the real difficulty is choosing before the result exists.\nSummary angle: a fixed single model is one lit entrance among many; routing picks a short glowing path to the summit; but the guide stands in fog that swallows everything ahead.\nNarrative flow: conflict-to-resolution. In a 2.35:1 frame keep one dominant focal subject - the guide at the fork - with two supporting beats, and let the composition travel diagonally from lower left to upper right.\nInformation blocks:\n- Contrast (label 单模型, number chip 74.1%): a row of parallel entrances at the foot of the mountain, only the leftmost one illuminated while the rest stay in mist, mapping to a fixed single-model policy.\n- Evidence (label 路由后, number chip 97.6%): one glowing mountain path the guide points to, climbing diagonally to the highest peak with three visible turns along it, mapping to the oracle router reaching the ceiling with only a few complementary models.\n- Problem (label 开工前): the guide stands at the fork while thick fog swallows the entire path ahead, with only a small circle of ground visible at his feet, mapping to router model-recall failures before the outcome is known.\nMain metaphor: choosing a road among cloud-wrapped peaks - a dozen entrances all lead toward the summit, and the guide must commit to one before the fog lifts.\nSubject: a solitary robed guide standing at the mountain fork.\nSubject action: raising one arm toward three paths that lead up to the peak, while the remaining entrances behind him sink into the mist.\nComposition/framing: diagonal ascent from lower left to upper right, layered ink-wash ridges behind, the guide as the single focal point, the fog bank as a large calm area of negative space. Horizontal storytelling that stays legible in a wide cover.\nStyle/medium: combine conceptual editorial illustration with the selected visual style descriptor: Chinese xianxia fantasy illustration, flowing robes, ink-wash atmosphere, mountains and clouds, elegant magical motion. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: rice-paper off-white and ink black, blue-green distant ridges, pale gold mist light, one small vermilion accent.\nVisible text policy: allow only the three short Chinese labels 单模型 / 路由后 / 开工前 and the number chips 74.1% and 97.6%, all sourced from the information blocks. No poster title, no calligraphic slogans, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names, no artist seals or signature stamps.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: swords or weapons, combat scenes, dragons or mythic beasts, cyberpunk neon, meaningless code rain, floating microchips, HUD overlays, dashboards or chart axes, generic robot poses, calligraphic poster titles or English slogans."
+}
