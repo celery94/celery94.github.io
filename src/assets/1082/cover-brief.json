@@ -1,0 +1,67 @@
+{
+  "article_title": "系统设计 20 个积木：顺序比清单重要",
+  "cover_type": "architecture",
+  "core_theme": "系统设计的 20 个基础概念本身不是答案，按压力来源排出顺序才是；复制只扩读，分片才扩写，一致性按操作粒度选。",
+  "reader_takeaway": "记住一条决策链：先量压力，再选存储与分片键，最后才轮到缓存和限流。",
+  "summary_angle": "左边是一堆没排序的积木，右边同样的积木卡进一条有序的决策链；链上有两块被单独标出——复制只扩读，分片才扩写。",
+  "narrative_flow": "conflict-to-resolution",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "原文用 20 个编号小节罗列全部概念，只给清单不给顺序",
+      "visual_idea": "左下方一堆散乱堆叠的小方块，数量明显很多，没有被排列",
+      "visible_label": "20",
+      "numeric_fact": "20"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文第 9 节 Database Replication：主库处理写，副本处理读，每个副本仍存全量数据",
+      "visual_idea": "一个主节点方块，旁边三个较小的副本方块，箭头只从主节点单向指向副本，写入全部汇聚回主节点",
+      "visible_label": "复制扩读"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文第 10 节 Database Sharding：按 sharding key 把数据切成多个独立分片，解决单库写压力与数据总量",
+      "visual_idea": "一块大积木被楔形切开，分成几块各自落进独立的托盘里",
+      "visible_label": "分片扩写"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文第 5、6 节 ACID/BASE/CAP，结合正文结论：按操作粒度而不是按数据库选一致性",
+      "visual_idea": "一只铅笔手绘的小天平，两边托盘分别承托一个原子操作标记，处于轻微倾斜的状态",
+      "visible_label": "按操作选"
+    }
+  ],
+  "main_metaphor": "一页设计师的铅笔笔记本：散落的建筑积木正被排成一条有序的决策链条",
+  "primary_subject": "一只握着铅笔的手",
+  "subject_action": "把散落的方块逐块摆到一条已经成形的链条上",
+  "composition": "斜向推进：左下散乱堆积，向右上方收拢成一条有序链条，中段链条咬合处为主焦点",
+  "base_style": "isometric conceptual systems scene",
+  "selected_style": "手绘铅笔草稿风",
+  "selected_style_prompt_descriptor": "hand-drawn pencil sketch look, visible construction lines, graphite texture, loose but intentional composition",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；草稿纸质感天然适合表达「把混乱的清单整理成结构」这件事",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["20", "复制扩读", "分片扩写", "按操作选"],
+  "color_palette": ["暖纸白", "石墨灰", "砖红"],
+  "avoid": [
+    "漂浮芯片",
+    "无意义代码雨",
+    "霓虹高楼背景",
+    "通用机器人站姿",
+    "赛博朋克紫蓝光污染",
+    "巨量 HUD 浮层",
+    "真实服务器机柜照片",
+    "真实系统架构图",
+    "仪表盘",
+    "海报主标题",
+    "英文口号"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮先验证「散乱积木堆 → 有序链条」的左右对照是否一眼可读，以及四个短标签是否清晰不糊",
+  "revision_targets": [
+    "标签数量或可读性",
+    "左下堆积与右侧链条的对比强度",
+    "删除误生成的真实架构图或仪表盘元素"
+  ],
+  "final_prompt": "Use the current cover direction as the base.\nKeep the strongest part of the composition and preserve the summary angle: an unsorted heap of blocks at the lower left becomes an ordered chain of decisions toward the upper right.\nPreserve the core metaphor: a page from a designer's pencil notebook in which loose building blocks are arranged into one ordered chain.\n\nKeep these information beats readable and source-grounded:\n- the unsorted heap at the lower left with the small red chip \"20\"\n- the primary block with arrows fanning out to three smaller replica blocks, labeled \"复制扩读\"\n- the large block split into shards landing in separate shallow trays, labeled \"分片扩写\"\n- the small balance scale, labeled \"按操作选\"\n\nChange only these points:\n- remove the two small red discs and the \"操作\" characters inside the balance scale pans; leave the pans empty or holding plain unlabelled red blocks\n- simplify the diagonal row of blocks in the upper middle so it reads as one clean ordered chain of evenly spaced blocks instead of a busy strip of mixed shapes\n- keep the hand and pencil at the upper right but pull them slightly further into frame so the hand is not cut off\n\nMake the image feel more like isometric conceptual systems scene combined with this selected visual style descriptor: hand-drawn pencil sketch look, visible construction lines, graphite texture, loose but intentional composition. Preserve one clear focal subject and 3-4 supporting narrative beats in a wide 2.35:1 frame. Do not imitate a specific brand, studio, or living artist.\nPrimary subject should remain: a human hand holding a pencil, placing blocks onto the chain.\nSimplify the background so that only warm paper texture and a faint pencil grid remain as supporting context.\nColor palette: warm paper white background, graphite grey linework, one restrained brick-red accent on the emphasized blocks, no other strong colors.\n\nVisible text policy: keep only the approved four short chips from the brief, and never exceed four items: the number \"20\" and three Chinese labels of at most six characters each. No poster title, no long sentence captions, no English slogans, no fake UI labels, no fake chart axes, and no invented node names.\nRemove any watermark, prompt residue, screenshots, dashboards, realistic architecture diagrams, fake charts, fake terminal output, fabricated metrics, unrelated icons, and decorative clutter.\nAvoid floating chips, meaningless code rain, neon skyline, generic robot poses, cyberpunk purple-blue glow, dense HUD overlays, realistic server-rack photography."
+}
