@@ -1,0 +1,58 @@
+{
+  "article_title": "Jev 决策模型：调用方式、成本与边界",
+  "cover_type": "analysis",
+  "core_theme": "TypeSafe 的 Jev 把 LLM 硬挤出来的结构化决策做成原生输出：只返回带概率的类型化答案，更快更便宜，但不再给出任何解释",
+  "reader_takeaway": "读完能判断自己的场景该不该用决策模型，并知道它的调用方式、成本和官方承认的失败模式",
+  "summary_angle": "左边是一台吐出纠缠文字线团的常规模型，右边是一台只吐出一个数字的判断装置；同一个对照里，更便宜更快的代价是那台装置不再说话",
+  "narrative_flow": "before-after",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "TypeSafe 官方公告的对比表：现有 LLM 输出字符串，需要解析与校验，仍可能幻觉、拒绝或跑偏",
+      "visual_idea": "左侧一台机器吐出一大团纠缠、分叉、末端散开的细线，线团里混着难以辨认的碎形",
+      "visible_label": "文本输出"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "官方文档 primitives：Jev 返回三种类型化答案 Choice / Score / Noul，Choice 与 Score 还带概率分布和置信度",
+      "visual_idea": "右侧一台极简判断装置，从线团中牵出三条笔直、等距的线，各自指向一个干净的几何符号",
+      "visible_label": "概率判断",
+      "numeric_fact": "3"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "Simon Willison 的核心保留：输入任意多的文本，拿回来的只有一个浮点数；LLM 至少还能给你一个理由",
+      "visual_idea": "判断装置的出口只有一枚孤立的数字刻度，周围是大片空白，没有任何文字线或说明",
+      "visible_label": "没有解释"
+    }
+  ],
+  "main_metaphor": "左右对照的两台机器：左边把语言吐成一团越缠越乱的线，右边把这团线收拢成一个不肯开口的数字",
+  "primary_subject": "右侧那台极简的判定装置",
+  "subject_action": "从左侧纠缠的文字线团中抽出唯一一条笔直的线，末端只落下一枚数字刻度",
+  "composition": "左右对照",
+  "base_style": "conceptual editorial illustration",
+  "selected_style": "极简线稿风",
+  "selected_style_prompt_descriptor": "minimalist line-art illustration, sparse clean strokes, ample negative space, precise symbolic objects, limited accent color",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；极简线稿适合表现「一团乱线与一条直线」的核心对照，留白也能承载「没有解释」这一层意思",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或在世艺术家复刻；最终 prompt 只使用安全描述词",
+  "allowed_visible_text": ["文本输出", "概率判断", "没有解释"],
+  "color_palette": ["纸白留白", "墨黑细线", "单一朱红强调色"],
+  "avoid": [
+    "霓虹光效与紫蓝光污染",
+    "赛博朋克城市背景",
+    "无意义代码雨",
+    "漂浮芯片",
+    "HUD 浮层",
+    "通用机器人站姿",
+    "dashboard 或图表坐标轴",
+    "poster 标题与英文口号"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮验证左右对照是否一眼可读、三个中文短标签是否清晰、右侧装置是否明确只有单一数字出口",
+  "revision_targets": [
+    "左右两台机器的对照关系是否成立",
+    "左侧线团的混乱感是否与右侧的克制形成足够反差",
+    "是否出现多余的装饰元素或伪 UI"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes an article about Jev, a TypeSafe decision model that returns typed probabilistic judgments instead of generated text. Theme: a left-right contrast between a conventional language model that pours out a tangled mass of text and a minimal judgment device that pulls one clean straight line out of that tangle and drops a single numeric reading. The reader should quickly feel that the right machine is faster, cheaper and simpler, and that it refuses to explain itself.\nSummary angle: on the left a machine emits an increasingly tangled, branching skein of lines; on the right a precise device collapses that skein into a single isolated number. The same contrast shows that giving up text buys speed, cost and type safety, and costs you the explanation.\nNarrative flow: before-after. In a 2.35:1 frame keep one dominant focal subject - the minimal judgment device on the right - with two supporting beats, and keep generous empty space.\nInformation blocks:\n- Problem (label 文本输出): a machine on the left pouring out a large tangled, forking skein of thin lines whose ends fray and scatter, mapping to conventional LLM string output that must be parsed and validated.\n- Mechanism (label 概率判断, number chip 3): the device on the right drawing exactly three straight, evenly spaced lines out of the skein, each ending in a clean geometric symbol, mapping to the three typed answer primitives Choice, Score and Noul.\n- Takeaway (label 没有解释): the device's only outlet is one isolated numeric reading surrounded by large empty space, with no words and no annotation anywhere near it, mapping to a model that returns a float and never a reason.\nMain metaphor: two machines side by side - the left turns language into a tangle that grows messier, the right gathers that tangle into a single number that refuses to speak.\nSubject: the minimal judgment device on the right, drawn as a calm precise apparatus of a few clean strokes.\nSubject action: pulling the only straight line out of the tangled skein on the left, with a single numeric reading falling from its outlet.\nComposition/framing: left-right contrast, the left side visually denser and the right side mostly empty so the eye lands on the device. Horizontal storytelling that stays legible in a wide cover.\nStyle/medium: combine conceptual editorial illustration with the selected visual style descriptor: minimalist line-art illustration, sparse clean strokes, ample negative space, precise symbolic objects, limited accent color. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: paper-white negative space, fine ink-black linework, one single vermilion accent color used sparingly.\nVisible text policy: allow only the three short Chinese labels 文本输出 / 概率判断 / 没有解释 and the number chip 3, all sourced from the information blocks. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: neon glow or purple-blue light pollution, cyberpunk city background, meaningless code rain, floating microchips, HUD overlays, generic robot poses, dashboards or chart axes, poster titles or English slogans."
+}
