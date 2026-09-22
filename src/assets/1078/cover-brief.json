@@ -1,0 +1,59 @@
+{
+  "article_title": "ASP.NET Core CORS 配置顺序与生产排错",
+  "cover_type": "tutorial",
+  "core_theme": "ASP.NET Core 里 CORS 的三步配置本身很简单，真正决定成败的是中间件顺序、来源列表的写法，以及缓存与代理层由谁负责写响应头",
+  "reader_takeaway": "读完能配置出一条正确的 CORS 策略，并知道生产环境里 Vary: Origin 缺失和代理重复响应头该怎么查",
+  "summary_angle": "把 CORS 故障压缩成三个必须站对位置的关卡：中间件顺序、凭证与通配符的冲突、以及缓存与代理的归属，任何一关站错都会在浏览器里变成同一句误导性的报错",
+  "narrative_flow": "conflict-to-resolution",
+  "information_blocks": [
+    {
+      "role": "step",
+      "source_anchor": "官方文档：UseCors 必须放在 UseRouting 之后、UseAuthorization 之前，否则预检 OPTIONS 会被认证中间件以 401 拦掉",
+      "visual_idea": "第一道窄门关卡，一枚高速飞行的请求弹丸正在穿过门框，门框上有次序刻痕",
+      "visible_label": "顺序",
+      "numeric_fact": "1"
+    },
+    {
+      "role": "contrast",
+      "source_anchor": "CorsService.EvaluatePolicy 中 policy.AllowAnyOrigin && policy.SupportsCredentials 时抛 ArgumentException，即 AllowAnyOrigin 与 AllowCredentials 不能并存",
+      "visual_idea": "第二道闸门处两股相反方向的力正面相撞，产生明亮爆裂冲击，闸门被顶开",
+      "visible_label": "凭证冲突",
+      "numeric_fact": "2"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "同一份带 Access-Control-Allow-Origin 的响应被缓存或代理重复加盖，浏览器拒绝含多个值的响应头；CORS 只能由一层负责",
+      "visual_idea": "终点处两个印章同时砸向同一个响应方块，其中一个被挡开，只留下唯一一枚印记",
+      "visible_label": "只留一层",
+      "numeric_fact": "3"
+    }
+  ],
+  "main_metaphor": "一条从浏览器通往 API 的关卡通道：跨域请求像一发被击出的弹丸，必须依次穿过三道闸门，第一道讲究次序，第二道有两股互斥的力对撞，第三道只能由一层盖章",
+  "primary_subject": "一枚带青色数据尾迹的高速请求弹丸",
+  "subject_action": "沿斜向轨迹依次贯穿三道闸门，在第二道闸门处撞出明亮冲击",
+  "composition": "斜向推进",
+  "base_style": "editorial technical illustration",
+  "selected_style": "热血战斗风",
+  "selected_style_prompt_descriptor": "high-energy battle comic look, strong silhouettes, speed lines, impact framing, bold contrast without excessive clutter",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；三道关卡的推进与对撞关系适合用带冲击感的分镜节奏表达",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或在世艺术家复刻；最终 prompt 只使用安全描述词",
+  "allowed_visible_text": ["顺序", "凭证冲突", "只留一层"],
+  "color_palette": ["深蓝黑背景", "亮橙黄冲击光", "青色数据尾迹", "暖白高光"],
+  "avoid": [
+    "赛博朋克霓虹高楼背景",
+    "无意义代码雨",
+    "漂浮芯片",
+    "巨量 HUD 浮层",
+    "通用机器人站姿",
+    "紫蓝光污染",
+    "poster 标题与英文口号"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮验证三关通道的叙事弧线是否可读、三个中文短标签是否清晰、主体弹丸是否有明确方向感",
+  "revision_targets": [
+    "闸门数量与次序是否一眼可读",
+    "中文短标签是否清晰且不出现多余文字",
+    "背景是否被简化到只剩通道结构"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes an article about configuring and troubleshooting CORS in ASP.NET Core. Theme: three checkpoints a cross-origin request must pass - middleware order, the wildcard-origin vs credentials conflict, and the single-layer rule for cache and proxy. The reader should quickly feel that each checkpoint has exactly one correct position and that getting it wrong surfaces as the same misleading browser error.\nSummary angle: CORS failures compress into three checkpoints that must each be positioned correctly: middleware order, the credential/wildcard conflict, and who owns the response header at the cache and proxy layer.\nNarrative flow: conflict-to-resolution. In a 2.35:1 frame, keep one dominant focal subject - a single fast-moving request projectile - and three supporting beats along its diagonal flight path. Each beat must map to the article's information blocks rather than generic decoration.\nInformation blocks:\n- Step 1: a narrow gate the projectile passes through, its frame carrying three small order notches in a vertical column (label 顺序, number chip 1), mapping to the documented middleware order UseRouting then UseCors then UseAuthorization.\n- Contrast 2: at the second gate two opposed forces collide head-on in a bright burst, the gate forced open (label 凭证冲突, number chip 2), mapping to AllowAnyOrigin combined with AllowCredentials being rejected at request time.\n- Takeaway 3: at the end, two stamps strike the same response block at once while one is deflected away, leaving exactly one imprint on the paper (label 只留一层, number chip 3), mapping to the rule that only one layer may write Access-Control-Allow-Origin.\nMain metaphor: a narrow gate corridor running from the browser toward the API, where a single projectile must pass three gates in sequence; the first gate is about order, the second is where two mutually exclusive forces collide, the third accepts only one stamp.\nSubject: a single high-speed request projectile with a cyan data trail, flying diagonally through the corridor from lower left to upper right.\nComposition/framing: diagonal thrust from lower left to upper right, three gates spaced along the path, one clear focal point at the second gate's impact. Horizontal storytelling that stays legible in a wide cover. Continuous dark rock corridor floor and simple distant dark rock walls; no geometric wedges or hard cut-out shapes.\nStyle/medium: combine editorial technical illustration with the selected visual style descriptor: high-energy battle comic look, strong silhouettes, speed lines, impact framing, bold contrast without excessive clutter. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: deep blue-black background, bright orange-yellow impact light, cyan data trail, warm white highlights.\nVisible text policy: allow only the three short Chinese labels 顺序 / 凭证冲突 / 只留一层 and the number chips 1 2 3, all sourced from the information blocks. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: cyberpunk neon skyscraper background, meaningless code rain, floating microchips, dense HUD overlays, generic robot poses, purple-blue light pollution, poster titles or English slogans."
+}
