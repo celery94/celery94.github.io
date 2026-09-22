@@ -1,0 +1,61 @@
+{
+  "article_title": "RAG 检索授权：租户过滤、溯源与删除",
+  "cover_type": "architecture",
+  "core_theme": "RAG 的授权与数据生命周期必须落在检索之前：作用域由服务端从身份推导，ACL 挂在每个 chunk 上并在查询时过滤，源变更或权限变化要显式传播到向量、索引与缓存",
+  "reader_takeaway": "读完能把检索授权与生命周期拆成四个可测试的契约结构，并知道删除传播、缓存键和审计记录各自该负责什么",
+  "summary_angle": "把一条从身份到删除的链路压成三格分镜：第一格在服务端铸出作用域、把客户端递来的租户纸条退回去；第二格是逐块过滤的闸门；第三格是源被移除后三条派生支路同时被清空",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "mechanism",
+      "source_anchor": "原文：RetrievalScope 只能由 AuthenticatedIdentity 推导，代码里不存在任何接受请求 JSON 里 tenantId 并转成作用域的方法",
+      "visual_idea": "第一格等距小场景：一台服务端装置正在铸出一枚带标记的作用域令牌，旁边一张写着租户编号的纸条被退回，暗示客户端输入不是授权证明",
+      "visible_label": "服务端推导",
+      "numeric_fact": "1"
+    },
+    {
+      "role": "step",
+      "source_anchor": "OWASP RAG Security Cheat Sheet：访问控制元数据必须挂在每一个向量 chunk 上，并在查询时过滤，不能只依赖检索后过滤",
+      "visual_idea": "第二格等距小场景：一道闸门，若干数据块各自带着一张小标签排队通过，其中一块被挡在闸门外",
+      "visible_label": "逐块过滤",
+      "numeric_fact": "2"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文 DeletionWorkItem 的 Targets 枚举：ChunksAndVectors、DerivedIndexes、PermissionScopedCaches 三个删除目标",
+      "visual_idea": "第三格等距小场景：源文件被移走后，三条分叉的派生支路同时被清空，每条支路末端是一个被划掉的小方块",
+      "visible_label": "删除传播",
+      "numeric_fact": "3"
+    }
+  ],
+  "main_metaphor": "一条三段的检索通道：入口处服务端自己签发通行凭证，中段逐件验签放行，出口之外还有三条必须同步清空的派生支路",
+  "primary_subject": "通道中段的过滤闸门",
+  "subject_action": "让带着标签的数据块逐一通过，同时把标签不匹配的那一块挡在外面",
+  "composition": "等距空间",
+  "base_style": "isometric conceptual systems scene",
+  "selected_style": "动态分镜电影风",
+  "selected_style_prompt_descriptor": "dynamic cinematic storyboard style, sequential panels, camera-motion feeling, strong cuts, clear narrative beats",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；授权与生命周期本身是一串有先后的状态转移，分镜结构比单张等距图更能表达「先推导、再过滤、最后传播删除」的顺序",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或在世艺术家复刻；最终 prompt 只使用安全描述词",
+  "allowed_visible_text": ["服务端推导", "逐块过滤", "删除传播"],
+  "color_palette": ["冷灰蓝底", "青绿数据流", "琥珀色高亮", "一点朱红警示"],
+  "avoid": [
+    "赛博朋克霓虹与紫蓝光污染",
+    "无意义代码雨",
+    "漂浮芯片",
+    "HUD 浮层",
+    "dashboard 或图表坐标轴",
+    "真实系统图或伪节点名",
+    "通用机器人站姿",
+    "真人面孔",
+    "poster 标题与英文口号"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮验证三格分镜的先后关系是否一眼可读、三个中文短标签是否清晰、每一格是否只承担一个动作",
+  "revision_targets": [
+    "三格之间是递进顺序而不是并列关系",
+    "第二格中被挡下的数据块是否明显",
+    "是否混入伪 UI 面板、坐标轴或代码雨"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes an article about RAG retrieval authorization and data lifecycle. Theme: a three-beat sequence in which the server mints its own access scope instead of trusting a tenant ID from the client, retrieval filters every chunk individually against access metadata, and deleting a source must explicitly propagate to chunks, vectors and permission-scoped caches. The reader should quickly feel that authorization happens before retrieval and that deletion is a work item, not a side effect.\nSummary angle: compress an identity-to-deletion chain into three sequential panels; the first mints the scope on the server side, the second gates chunks one by one, the third clears three derived branches at once.\nNarrative flow: 3-beat process. In a 2.35:1 frame, use three sequential panels with a clear left-to-right reading order and one dominant focal subject in the middle panel.\nInformation blocks:\n- Beat 1 (label 服务端推导, number chip 1): inside an isometric server-side apparatus, a scope token is being minted with a small marker, while a paper slip bearing a tenant number is handed back, mapping to a scope that can only be derived from an authenticated identity.\n- Beat 2 (label 逐块过滤, number chip 2): an isometric gate through which several small data blocks queue, each carrying its own tiny tag, while one block with a mismatched tag is stopped outside, mapping to per-chunk access metadata enforced at query time.\n- Beat 3 (label 删除传播, number chip 3): after a source document is removed, three forked derived branches are cleared simultaneously, each ending in a small crossed-out square, mapping to the three deletion targets chunks and vectors, derived indexes, and permission-scoped caches.\nMain metaphor: a three-stage retrieval corridor - the server issues its own pass at the entrance, the middle gate verifies every item individually, and beyond the exit three derived branches must be emptied in step.\nSubject: the filtering gate in the middle panel, drawn as a clean isometric mechanism.\nSubject action: letting tagged data blocks through one at a time while holding back the block whose tag does not match.\nComposition/framing: isometric conceptual systems scene organised as three sequential storyboard panels with camera-motion feeling and strong cuts between them. Horizontal storytelling that stays legible in a wide cover, generous negative space around each panel.\nStyle/medium: combine isometric conceptual systems scene with the selected visual style descriptor: dynamic cinematic storyboard style, sequential panels, camera-motion feeling, strong cuts, clear narrative beats. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: cool grey-blue ground, teal data flow, amber highlights, one small vermilion warning accent.\nVisible text policy: allow only the three short Chinese labels 服务端推导 / 逐块过滤 / 删除传播 and the number chips 1 2 3, all sourced from the information blocks. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: cyberpunk neon or purple-blue light pollution, meaningless code rain, floating microchips, HUD overlays, dashboards or chart axes, generic robot poses, human faces, poster titles or English slogans."
+}
