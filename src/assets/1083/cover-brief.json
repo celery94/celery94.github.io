@@ -1,0 +1,61 @@
+{
+  "article_title": "PG 转 SQL Server：日期时间类型映射与陷阱",
+  "cover_type": "analysis",
+  "core_theme": "PostgreSQL 的 timestamp 会静默丢弃时区偏移，timestamptz 只存瞬间；SQL Server 的 datetime2 对应前者，datetimeoffset 才能把本地时间和偏移一起留住，代价是每行多 2 字节。",
+  "reader_takeaway": "选型只看一个问题：以后会不会有代码问「当初记的是几点几分、在哪个时区」。",
+  "summary_angle": "两块几乎一样的积木拿着同一个日期时间：左边那块身上的偏移标签滑落飘走，右边那块身上的偏移标签被丝带系住留在原位；下方一条小对比条表示留下来的代价。",
+  "narrative_flow": "conflict-to-resolution",
+  "information_blocks": [
+    {
+      "role": "contrast",
+      "source_anchor": "原文 PostgreSQL timestamp 一节：带偏移的字面量会被直接忽略，-06:00 被丢弃",
+      "visual_idea": "一块写着日期时间的绘本积木，身上贴着一枚小小的偏移标签，标签已经脱落并飘在上方",
+      "visible_label": "丢偏移"
+    },
+    {
+      "role": "contrast",
+      "source_anchor": "原文 SQL Server datetimeoffset 一节：本地日期时间和 UTC 偏移一起存下来，偏移被保留",
+      "visual_idea": "同样的一块积木，同一枚偏移标签用一条丝带牢牢系在积木上，位置没有移动",
+      "visible_label": "保偏移"
+    },
+    {
+      "role": "evidence",
+      "source_anchor": "原文存储差异表：同精度下 datetimeoffset 比 datetime2 多 2 字节，十亿行差 2 GB",
+      "visual_idea": "两块并排的矮柱，长度接近，右边略高一点点，表示多出来的存储",
+      "visible_label": "多 2 字节"
+    }
+  ],
+  "main_metaphor": "一本童话绘本的左右两页对照：两块几乎一样的时间积木，一块的标签被风吹走，一块的标签被系紧",
+  "primary_subject": "两块绘本质感的时间积木",
+  "subject_action": "左边积木身上的偏移标签脱落飘走，右边积木身上的偏移标签被丝带系住留在原位",
+  "composition": "左右对照：两块积木面对面，中间留出像书页折缝一样的柔和间隙，宽幅下两块都完整可见",
+  "base_style": "conceptual editorial illustration",
+  "selected_style": "儿童童话风",
+  "selected_style_prompt_descriptor": "children's fairy-tale illustration, simple magical forms, friendly proportions, bright storybook palette, safe wonder",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；左右两块几乎一样的积木做对照，绘本式的友好造型能让「差别只在标签」这件事一眼看懂",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["丢偏移", "保偏移", "多 2 字节"],
+  "color_palette": ["奶油黄", "天蓝", "珊瑚橙", "草绿"],
+  "avoid": [
+    "广告式主标题",
+    "英文口号",
+    "写实数据库界面",
+    "仪表盘",
+    "写实时钟照片",
+    "拟真系统架构图",
+    "漂浮芯片",
+    "无意义代码雨",
+    "霓虹高楼背景",
+    "紫蓝光污染",
+    "巨量 HUD 浮层",
+    "水印"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮先验证「两块几乎一样的积木，一块掉标签一块留标签」这个对照是否一眼可读，以及三个短标签是否清晰不糊",
+  "revision_targets": [
+    "标签数量或可读性",
+    "左右对照的差别是否足够明显",
+    "删除误生成的写实界面或时钟照片元素"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: when migrating from PostgreSQL to SQL Server, timestamp-like values either keep or silently drop their time zone offset. The reader should quickly feel that keeping the offset costs a little storage, while dropping it costs information.\n\nSummary angle: Two storybook blocks, opened like a two-page picture book spread, hold the same date and time \"2026-09-21 10:30:00\". On the left block the small offset tag slips off and drifts away; on the right block the same offset tag stays tied to the time with a ribbon. A small side-by-side bar comparison below shows the extra storage cost of keeping the tag.\nNarrative flow: conflict-to-resolution. In a 2.35:1 frame, keep one dominant focal subject and 2-4 supporting narrative beats. Each beat must map to the article's information blocks rather than generic decoration.\nInformation blocks:\n- contrast: a blue storybook block showing the date and time \"2026-09-21 10:30:00\", its small offset tag detached and drifting away above it, with faint motion lines; the only text near it is the single short label \"丢偏移\"\n- contrast: an identical orange block where the same small offset tag is tied on with a ribbon and stays in place; the only text near it is the single short label \"保偏移\"\n- evidence: a small panel at the bottom center holding exactly two plain unlabelled horizontal bars, nearly equal length, the lower one just slightly longer, with exactly one short label beside them reading \"多 2 字节\"\n\nMain metaphor: a two-page children's picture book spread showing two nearly identical time blocks, one losing its tag and one keeping it.\nSubject: two friendly storybook blocks holding the same date and time value.\nSubject action: the left block's offset tag slips away, the right block's offset tag stays tied on.\nComposition/framing: left-and-right contrast, the two blocks facing each other, a soft vertical gutter between them like a book fold, both fully visible in a wide frame. The bar panel sits at the bottom center between the two blocks.\nStyle/medium: combine conceptual editorial illustration with the selected visual style descriptor: children's fairy-tale illustration, simple magical forms, friendly proportions, bright storybook palette, safe wonder. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: warm cream yellow background, sky blue and coral orange blocks, one soft green accent. Bright but not garish.\nVisible text policy: this image must contain exactly three Chinese text chips in total and no more. Each appears only once: \"丢偏移\" near the blue block, \"保偏移\" near the orange block, and \"多 2 字节\" beside the bottom bar panel. Do not repeat any of these words anywhere else, do not add a legend, do not add row labels inside the bar panel, no poster title, no hero slogan, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no invented node names. The two small time and offset strings on the blocks are the only other text allowed.\nRefine: sharper details, cleaner composition, keep the same metaphor and information blocks, keep the same wide layout, render all Chinese characters and the date string crisply and correctly.\nConstraints: abstract blocks, a drifting tag, a ribbon and a small two-bar comparison panel are wanted; no realistic database screen, no dashboard, no fake chart, no realistic clock photograph, no fake terminal output, no fabricated metrics, no unrelated icon collage, no watermark, no prompt residue, no decorative clutter.\nAvoid: floating computer chips, meaningless code rain, neon skyline, generic robot poses, cyberpunk glow, dense HUD overlays, advertising-style headline text, duplicated labels, legends."
+}
