@@ -1,0 +1,57 @@
+{
+  "article_title": "EF Core Specification 性能与翻译陷阱",
+  "cover_type": "tutorial",
+  "core_theme": "Specification 包住的「查询信封」在 provider 边界被翻译、在物化边界变成对象；性能问题必须用 SQL、命令数、耗时和行数这四件证据来定位，而不是给模式贴标签",
+  "reader_takeaway": "能按清单定位一条 specification 查询是翻译失败、物化过早、N+1、笛卡尔积还是上界失效，并知道全局过滤器和缓存键也要算进信封",
+  "summary_angle": "把一行看似无害的 ListAsync(specification) 拆成几道可以逐一检查的关卡：表达式在 provider 闸口被拦下、四件证据被读数、十条清单从外向内推进",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "原文 Translation Fails at the Provider Boundary 一节；本机复现的 System.InvalidOperationException：Where 里不可翻译的 helper 方法在运行时被拒绝",
+      "visual_idea": "一个表达式方块被窄闸口挡住，弹回并带出错误标记",
+      "visible_label": "翻译失败"
+    },
+    {
+      "role": "evidence",
+      "source_anchor": "原文 Treat Every Materialization Call as a Boundary 与 Move From Command Counts to Plans and Measurements：SQL、命令数、耗时、行数四件证据",
+      "visual_idea": "管道侧面并排四个小读数块，记录四件证据",
+      "visible_label": "四件证据",
+      "numeric_fact": "4"
+    },
+    {
+      "role": "step",
+      "source_anchor": "原文 A Production Diagnosis Checklist for Specification Pattern Performance：从边界向内的十条排查步骤",
+      "visual_idea": "从画面外侧向数据库方向延伸的十个编号检查点",
+      "visible_label": "十条清单",
+      "numeric_fact": "10"
+    }
+  ],
+  "main_metaphor": "一行看似无害的调用其实是一条装着多道窄闸口的管道：查询必须逐道通过，而每一道都能被观察和计数",
+  "primary_subject": "provider 闸口这个检查站，以及正穿过它的表达式方块",
+  "subject_action": "表达式方块被闸口拦下并弹出错误标记，旁边的读数表记录命令数和行数",
+  "composition": "斜向推进",
+  "base_style": "editorial technical illustration",
+  "selected_style": "90年代复古动画风",
+  "selected_style_prompt_descriptor": "1990s retro animation look, cel-shaded color, analog grain, bold simple backgrounds, nostalgic broadcast texture",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；诊断流程适合用清晰的分镜式推进表达",
+  "style_safety_note": "清单风格为泛类型描述（90 年代复古动画质感），不涉及具体品牌、工作室或在世艺术家复刻",
+  "allowed_visible_text": ["翻译失败", "四件证据", "十条清单"],
+  "color_palette": ["深蓝灰", "暖琥珀", "米白", "少量青绿点缀"],
+  "avoid": [
+    "漂浮芯片",
+    "无意义代码雨",
+    "霓虹高楼背景",
+    "通用机器人站姿",
+    "赛博朋克紫蓝光污染",
+    "巨量 HUD 浮层"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮先验证：斜向关卡叙事是否成立、三个信息块在 2.35:1 里是否清晰、复古动画质感是否统一",
+  "revision_targets": [
+    "三个中文短标签的可读性",
+    "闸口主体与数据库端的空间关系",
+    "削弱背景杂物，只留支撑叙事的元素"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: an EF Core Specification query looks like one innocent line of code, but it must pass through several narrow checkable gates before rows come back, and each gate can be inspected and counted. The reader should quickly feel that query performance is diagnosed with concrete evidence rather than by blaming the pattern.\n\nSummary angle: turn a single harmless-looking ListAsync(specification) call into a few gates that can each be inspected: the expression is stopped at the provider gate, four evidence readouts are collected, and a ten-step checklist proceeds inward.\nNarrative flow: 3-beat process. In a 2.35:1 frame, keep one dominant focal subject and three supporting narrative beats. Each beat must map to the article's information blocks rather than generic decoration.\nInformation blocks:\n- problem: an expression block is stopped at a narrow provider gate and bounces back with an error mark, because an unsupported helper method cannot be translated into SQL. Visible label: 翻译失败.\n- evidence: four small readout blocks along the pipeline record the four pieces of evidence: generated SQL, command count, elapsed time, returned row count. Visible label: 四件证据, number chip 4.\n- process: a numbered path of ten small checkpoints leads from the outer boundary inward toward the database. Visible label: 十条清单, number chip 10.\n\nMain metaphor: a single harmless-looking call is actually a pipeline of narrow gates that a query must pass through, and every gate can be watched and counted.\nSubject: a narrow provider gate checkpoint, with an expression block passing through it, flanked by small readout gauges.\nComposition/framing: diagonal progression from lower-left toward upper-right in a wide cover, one dominant gate as the focal point plus three readable narrative beats. Prefer horizontal storytelling that stays legible in a wide cover.\nStyle/medium: combine editorial technical illustration with the selected visual style descriptor: 1990s retro animation look, cel-shaded color, analog grain, bold simple backgrounds, nostalgic broadcast texture. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: deep blue-grey, warm amber, cream off-white, a small teal accent.\nVisible text policy: allow only 1-3 short Chinese labels or number chips by default, and no more than 4 when strictly necessary, all sourced from the information blocks. Each label <= 6 Chinese characters or one required product/model name. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: floating microchips, meaningless code rain, neon skyscraper backgrounds, generic robot poses, cyberpunk purple-blue glow, huge floating HUD layers."
+}
