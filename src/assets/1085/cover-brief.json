@@ -1,0 +1,67 @@
+{
+  "article_title": "IdentityServer4 已停止维护：迁移路线怎么选",
+  "cover_type": "analysis",
+  "core_theme": "IdentityServer4 自 2022 年 12 月起失去支持、仓库已于 2025 年 3 月归档，继续使用等于运行无人修补的安全关键组件；文章把六条替代路线按许可证、年成本、上手成本和数据控制四个维度做对照。",
+  "reader_takeaway": "读者能判断自己团队该走哪一条路线，并知道「免费内核」往往要在管理界面等组件上另外付费。",
+  "summary_angle": "起点已经封存：一个标记为封存的旧认证服务，向前分出三条代表不同取舍的迁移路线，路线入口用成本数字标注。",
+  "narrative_flow": "conflict-to-resolution",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "IdentityServer4 仓库已归档，README 声明项目不再维护，且含有多个已知安全漏洞与缺陷",
+      "visual_idea": "画面左侧一个被封闭/封条标记的旧服务方块，作为整条路线的起点",
+      "visible_label": "已归档",
+      "numeric_fact": "2022"
+    },
+    {
+      "role": "step",
+      "source_anchor": "六条路线归为三类：商业完整产品（Duende、IdentitySuite）、开源内核加付费组件（Open.IdentityServer、OpenIddict）、托管或换栈（云 IdP、Keycloak）",
+      "visual_idea": "从起点向右侧分出三条清晰路径，每条路径由两到三个简洁的服务形块承载，形成可读的岔路口",
+      "visible_label": "三条路",
+      "numeric_fact": null
+    },
+    {
+      "role": "evidence",
+      "source_anchor": "Duende 官方定价 Lite 5,750 美元/年、Standard 12,500 美元/年、Advanced 24,900 美元/年",
+      "visual_idea": "最上方那条路线入口挂一个价格标签贴片，表示商业完整产品的成本量级",
+      "visible_label": null,
+      "numeric_fact": "$5,750"
+    },
+    {
+      "role": "contrast",
+      "source_anchor": "Open.IdentityServer SDK 免费，但 AdminUI 单独授权 2,528 英镑/年起",
+      "visual_idea": "中间那条路线分成免费内核与需要另付费的组件两段，接口处有一个小的分隔标记，暗示隐性成本",
+      "visible_label": "内核免费",
+      "numeric_fact": null
+    }
+  ],
+  "main_metaphor": "一个已经封存的旧认证服务作为起点，向前分出三条通往不同取舍的路线",
+  "primary_subject": "左侧封存的旧认证服务方块与它向右分出的三条路",
+  "subject_action": "旧服务停在原地被封闭，三条路线从它前方展开并通往不同的服务形终点",
+  "composition": "左右对照，左侧单一起点、右侧三分支，整体自左向右推进",
+  "base_style": "conceptual editorial illustration",
+  "selected_style": "校园恋爱风",
+  "selected_style_prompt_descriptor": "youthful campus romance illustration, clean school-life setting, soft backlight, subtle emotional gestures, fresh color palette",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；这里只取该风格的清新配色、柔和逆光与干净线稿质感，用于降低企业授权话题的枯燥感",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻；画面为抽象服务方块与路径，不出现学生、校园或恋爱元素",
+  "allowed_visible_text": ["已归档", "三条路", "内核免费", "$5,750", "2022"],
+  "color_palette": ["青绿", "暖沙色", "深墨绿", "柔和高光白"],
+  "avoid": [
+    "学生人物或校园场景",
+    "恋爱情感元素",
+    "漂浮芯片",
+    "无意义代码雨",
+    "霓虹高楼背景",
+    "通用机器人站姿",
+    "赛博朋克紫蓝光污染",
+    "巨量 HUD 浮层"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮先验证三件事：封存起点是否一眼可读、三条路线是否清晰分开、成本数字是否作为路线入口标注而不变成海报标题",
+  "revision_targets": [
+    "路线数量误生成为三条以上或无法区分",
+    "误生成学生、校园或恋爱元素",
+    "出现主标题或大段英文标签"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: IdentityServer4 has been end-of-life since December 2022 and its repository was archived; a .NET team must now pick one of six replacement routes, weighed by license, annual cost, effort and data control. The reader should quickly feel that the starting point is already sealed and that the remaining decision is which route to take.\n\nSummary angle: The starting point is sealed: one marked-as-archived legacy authentication service sits on the left, and three distinct migration routes open to the right, each labelled at its entrance with the cost magnitude it represents.\nNarrative flow: conflict-to-resolution. In a 2.35:1 frame, keep one dominant focal subject and 2-4 supporting narrative beats. Each beat must map to the article's information blocks rather than generic decoration.\nInformation blocks:\n- problem: on the far left, a single legacy authentication service block that is visibly sealed and retired, anchored by the year 2022 (visible label: 已归档, numeric fact: 2022)\n- step: from that sealed block, three clearly separated routes advance to the right, each carrying two or three plain service-shaped blocks (visible label: 三条路)\n- evidence: the upper route's entrance carries a small price chip reading $5,750, representing the commercial complete-product tier (numeric fact: $5,750)\n- contrast: the middle route is split into a free core segment and a separately licensed component segment, with a small divider marking the hidden cost (visible label: 内核免费)\n\nMain metaphor: a sealed legacy authentication service as the starting point, with three routes to different trade-offs opening ahead of it.\nSubject: the sealed legacy authentication service block on the left and the three routes it opens toward, in a calm conceptual arrangement.\nComposition/framing: left-to-right contrast, single origin on the left, three evenly spaced branches on the right, clear horizontal progression with generous negative space. Prefer horizontal storytelling that stays legible in a wide cover.\nStyle/medium: combine conceptual editorial illustration with the selected visual style descriptor: youthful campus romance illustration, clean school-life setting, soft backlight, subtle emotional gestures, fresh color palette. Take only the clean linework, fresh color palette and soft backlight quality from that descriptor; the scene itself must remain an abstract, adult, professional technology scene with no students, no campus and no romance elements. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: teal green, warm sand, deep ink green, soft white highlights. Muted, calm, professional.\nVisible text policy: allow only these short Chinese labels or number chips: 已归档, 三条路, 内核免费, $5,750, 2022. Each label <= 6 Chinese characters. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: student characters, campus scenes, romantic elements, floating chips, meaningless code rain, neon skyscraper backgrounds, generic robot poses, cyberpunk purple-blue light pollution, dense HUD overlays."
+}
