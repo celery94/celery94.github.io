@@ -1,0 +1,59 @@
+{
+  "article_title": "WinDbg MCP：用自然语言调试崩溃转储",
+  "cover_type": "release",
+  "core_theme": "WinDbg 新增 MCP 服务，让 AI 客户端连接真实调试会话；它的价值在于用可复现的五阶段方法产出带证据的根因，而不是给一个模式匹配的结论",
+  "reader_takeaway": "知道这个能力是什么、怎么接上、以及安全保护实际拦住了什么",
+  "summary_angle": "把「对着崩溃转储提问 → 调试命令在 WinDbg 里执行 → 得到带证据的根因」压成一条可读的证据链，而不是画成泛 AI 氛围图",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "原文：Debugging rarely starts with a clear answer. An app crashes, a service hangs, a driver fails, or a kernel dump offers few clues.",
+      "visual_idea": "画面左侧一个厚实的崩溃转储文件块，表面有裂纹质感和一簇散乱、无法解读的符号碎片",
+      "visible_label": "崩溃转储",
+      "numeric_fact": "0"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文五阶段协议：OBSERVE / HYPOTHESIZE / TEST / EVALUATE / CONCLUDE or PIVOT",
+      "visual_idea": "中间一条纵向流程带，五格只标出三个关键动作，格与格之间用箭头连接，表现方法而非工具",
+      "visible_label": "五阶段",
+      "numeric_fact": "5"
+    },
+    {
+      "role": "evidence",
+      "source_anchor": "原文：grounded in debugger evidence；Why we built it 中的 show the supporting evidence, and state any unverified assumptions",
+      "visual_idea": "右侧一叠带粘贴痕迹的证据卡，最上面一张有勾选标记和一处留空，表示结论之外还标注了未验证的假设",
+      "visible_label": "带证据",
+      "numeric_fact": "1"
+    }
+  ],
+  "main_metaphor": "把一次调试调查画成一条证据流水线：从难读的崩溃转储出发，经过可复现的阶段，产出带证据卡支撑的根因",
+  "primary_subject": "一个厚实的崩溃转储文件块",
+  "subject_action": "转储块处于画面焦点，向右展开的成分阶段与证据卡把它和结论连接起来",
+  "composition": "居中主物体 + 向两侧延伸的证据链",
+  "base_style": "product-poster style illustration",
+  "selected_style": "独立漫画风",
+  "selected_style_prompt_descriptor": "indie comic illustration, personal hand-drawn marks, muted palette, imperfect line texture, intimate editorial feeling",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；独立漫画的手绘痕迹和不完美线条适合表现「证据链」这种需要逐格阅读的编辑型内容",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或在世艺术家复刻",
+  "allowed_visible_text": ["崩溃转储", "五阶段", "带证据", "WinDbg", "5"],
+  "color_palette": ["灰蓝", "暖灰纸色", "赭石", "少量青绿点缀"],
+  "avoid": [
+    "浮动机器人",
+    "代码雨",
+    "霓虹高楼背景",
+    "赛博朋克紫蓝光污染",
+    "巨量 HUD 浮层",
+    "写实蓝屏截图",
+    "真实调试器界面截图"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "先验证左侧转储、中间阶段带、右侧证据卡三段是否一眼可读，以及五个以内的中文短标签是否清晰",
+  "revision_targets": [
+    "中间流程带是否明确读出「阶段」而不是装饰性条纹",
+    "证据卡是否有可辨识的勾选与留空对比",
+    "背景是否保持干净克制"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: WinDbg now exposes a Model Context Protocol service that connects an AI client to a real debugger session, and its value is a repeatable five-phase investigation that returns evidence-backed root causes instead of a pattern-matched guess. The reader should quickly feel that debugging went from unreadable crash data to a structured evidence chain.\n\nSummary angle: compress the flow of asking about a crash dump, running debugger commands, and receiving a root cause with supporting evidence into one readable left-to-right evidence chain.\nNarrative flow: 3-beat process. In a 2.35:1 frame, keep one dominant focal subject and 3 supporting narrative beats. Each beat must map to the article's information blocks rather than generic decoration.\nInformation blocks:\n- problem: a thick crash dump file block on the left with cracked surface texture and a burst of unreadable scattered symbol fragments; visible label 崩溃转储; numeric chip 0\n- mechanism: a vertical five-step progress strip in the center with only three key steps labeled, connected by arrows, representing a method rather than a tool; visible label 五阶段; numeric chip 5\n- evidence: a stack of taped evidence cards on the right, the top card showing tick marks plus one deliberately blank slot for an unverified assumption; visible label 带证据; numeric chip 1\n\nMain metaphor: a debugging investigation as an evidence pipeline, from an unreadable crash dump through repeatable phases to a root cause backed by evidence cards.\nSubject: a thick crash dump file block as the single focal object, with the phase strip and evidence cards extending to its right.\nComposition/framing: centered focal object with the evidence chain extending toward both sides, generous negative space, wide horizontal layout. The one required product name WinDbg may appear once as a small tag near the dump block.\nStyle/medium: combine product-poster style illustration with the selected visual style descriptor: indie comic illustration, personal hand-drawn marks, muted palette, imperfect line texture, intimate editorial feeling. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: grey-blue, warm paper off-white, ochre, with a restrained teal accent on the evidence tick marks.\nVisible text policy: allow only the short Chinese labels 崩溃转储, 五阶段, 带证据 plus the product name WinDbg and the numeric chips 5 and 1. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: floating humanoid robot, code rain, neon skyscraper skyline, cyberpunk purple-blue glow, dense HUD overlays, photorealistic blue-screen-of-death screenshot, realistic debugger UI screenshot."
+}
