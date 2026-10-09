@@ -1,0 +1,66 @@
+{
+  "article_title": "SqlClient 连接池 V2：并发建连提速 5 倍",
+  "cover_type": "release",
+  "core_theme": "Microsoft.Data.SqlClient 7.1 提供可选的连接池 V2，把冷启动建连从「一次开一条」改成并发建连，并用 Channel 替代专用后台线程",
+  "reader_takeaway": "知道这版连接池提速多少、一行 AppContext 开关就能试用、以及在什么条件下不该急着上",
+  "summary_angle": "把「旧池串行建连 → Pool V2 并发建连」的主反差做成封面主视觉，并用两档真实提速数字作为证据",
+  "narrative_flow": "before-after",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "原文：With the legacy connection pool, only one new connection can be opened at a time within a pool.",
+      "visual_idea": "左侧一条细长的单通道管道，后面排着一串等待的小方块，整体呈灰蓝冷色",
+      "visible_label": "一次一条",
+      "numeric_fact": "1"
+    },
+    {
+      "role": "contrast",
+      "source_anchor": "原文异步冷启动表：Linux 100 并发 604.1 ms → 92.0 ms，6.6x",
+      "visual_idea": "右侧展开成多条并列管道同时流出，管道末端是明快的青绿色，节奏明显更快",
+      "visible_label": "并发建连",
+      "numeric_fact": "6.6x"
+    },
+    {
+      "role": "evidence",
+      "source_anchor": "原文同步冷启动表：Windows 100 并发 219.0 ms → 22.4 ms，图表副标题 Windows up to 9.8x faster",
+      "visual_idea": "画面右下角一个小的对比度量块，用两个高度差别明显的柱形表达提速",
+      "visible_label": "最高提速",
+      "numeric_fact": "9.8x"
+    }
+  ],
+  "main_metaphor": "把数据库连接池的建连过程画成管道系统：旧池是一根单管道串行放行，Pool V2 是多根管道并行放行",
+  "primary_subject": "一组直径相近的并行连接管道",
+  "subject_action": "从左侧的单管道收束处向右侧同时分出四到五条管道，形成明显的加速流向",
+  "composition": "左右对照",
+  "base_style": "product-poster style illustration",
+  "selected_style": "厚涂插画风",
+  "selected_style_prompt_descriptor": "painterly digital illustration, rich brushwork, volumetric lighting, strong focal contrast, textured color masses",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；厚涂的体块感和强焦点对比适合表现「单通道 vs 多通道」这一结构反差",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或在世艺术家复刻",
+  "allowed_visible_text": [
+    "一次一条",
+    "并发建连",
+    "最高提速",
+    "1",
+    "6.6x",
+    "9.8x"
+  ],
+  "color_palette": ["深灰蓝", "青绿", "暖白", "少量琥珀色高光"],
+  "avoid": [
+    "漂浮芯片",
+    "代码雨",
+    "霓虹高楼背景",
+    "通用机器人",
+    "赛博朋克紫蓝光污染",
+    "HUD 浮层",
+    "数据库磁盘阵列写实照片感"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "先验证「单管道 → 多管道」的反差是否一眼可读，以及三个数字标签是否清晰且不干扰主体",
+  "revision_targets": [
+    "管道数量与间距是否形成清晰的加速感",
+    "中文短标签是否可读且不超过四个",
+    "背景是否保持干净、不出现无关科技元素"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: Microsoft.Data.SqlClient 7.1 ships an opt-in connection pool (Pool V2) that opens many physical database connections concurrently instead of one at a time. The reader should quickly feel that cold-start connection ramp-up went from a serial bottleneck to a parallel pipeline.\n\nSummary angle: contrast the old serial pool against the new concurrent pool, and back it with two real speedup figures from the article's benchmarks.\nNarrative flow: before-after. In a 2.35:1 frame, keep one dominant focal subject and 3 supporting narrative beats. Each beat must map to the article's information blocks rather than generic decoration.\nInformation blocks:\n- problem: a single narrow pipe on the left with a queue of small waiting blocks behind it, rendered in muted grey-blue; visible label 一次一条; numeric chip 1\n- contrast: the pipe opens into four or five parallel pipes flowing to the right, rendered in bright teal with visible motion; visible label 并发建连; numeric chip 6.6x\n- evidence: a small metric block in the lower right comparing two bar heights, one tall grey-blue and one short teal; visible label 最高提速; numeric chip 9.8x\n\nMain metaphor: the connection pool draw process as a pipeline system, where the legacy pool is one narrow pipe and Pool V2 is a bundle of parallel pipes.\nSubject: a bundle of parallel connection pipes, branching out from a single narrow pipe on the left into four or five parallel pipes on the right, carrying visible flow.\nComposition/framing: left-to-right contrast, single clear focal branching point placed slightly left of center, generous negative space around the pipes. Prefer horizontal storytelling that stays legible in a wide cover.\nStyle/medium: combine product-poster style illustration with the selected visual style descriptor: painterly digital illustration, rich brushwork, volumetric lighting, strong focal contrast, textured color masses. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: deep grey-blue, teal, warm off-white background, a few amber highlights on the focal branching point.\nVisible text policy: allow only three short Chinese labels 一次一条, 并发建连, 最高提速 plus the three numeric chips 1, 6.6x, 9.8x. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: floating microchips, code rain, neon skyscraper skyline, generic humanoid robot, cyberpunk purple-blue glow, dense HUD overlays, photorealistic server rack photography."
+}
