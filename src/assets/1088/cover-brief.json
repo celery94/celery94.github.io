@@ -1,0 +1,58 @@
+{
+  "article_title": "用 TimeProvider 测试时间依赖代码",
+  "cover_type": "tutorial",
+  "core_theme": "把系统时钟替换成可注入、可推动的假时钟，从而精确测试过期边界、延迟和超时取消，不必真的等待真实时间",
+  "reader_takeaway": "理解为什么时间必须作为依赖注入，并知道如何用 FakeTimeProvider 断言「正好到点」这个最容易漏掉的边界",
+  "summary_angle": "用一只可以被手推动的分针，把「差一个 tick → 正好到点 → 过一个 tick」这条判定翻转线画出来",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "step",
+      "source_anchor": "原文 Make the Clock a Dependency：把 TimeProvider 注入 InvitationPolicy，生产环境注册 TimeProvider.System",
+      "visual_idea": "一只手把一只可爱的圆形表盘从系统墙上摘下来，装进一个打开的代码模块插槽里",
+      "visible_label": "注入时钟",
+      "numeric_fact": "1"
+    },
+    {
+      "role": "evidence",
+      "source_anchor": "原文 Test the Exact Boundary：差一个 tick 为 true，正好到点与过一个 tick 均为 false",
+      "visual_idea": "表盘上的三个刻度点并排，右手依次把分针推过这三个点，前一个点亮绿色，后两个点转为灰蓝",
+      "visible_label": "边界翻转",
+      "numeric_fact": "true → false"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文 Test a Delay Without Waiting 与 Check That the Timeout Cancels the Work：同一个 provider 必须同时传给 Task.Delay 与 CancellationTokenSource",
+      "visual_idea": "沙漏与虚线等待轨道都被同一只手推动，等待条瞬间走完并停下",
+      "visible_label": "不必等待",
+      "numeric_fact": "5 分钟"
+    }
+  ],
+  "main_metaphor": "系统时钟被取下来、装进代码里，然后由一只手直接推动它的指针越过判定边界",
+  "primary_subject": "一只举着可推动表盘的年轻测试者形象，表盘指针停在到点刻度的瞬间",
+  "subject_action": "用食指把表盘指针从「到点前一格」轻推到「正好到点」的刻度上",
+  "composition": "斜向推进：左下为被取下的系统时钟，中部为代码模块插槽，右上为被推过边界的表盘与三个刻度点",
+  "base_style": "editorial technical illustration",
+  "selected_style": "日漫少女风",
+  "selected_style_prompt_descriptor": "soft shojo-inspired manga look, elegant linework, expressive faces, gentle decorative details, luminous pastel accents",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；教程类流程适合用清晰线条与柔和节奏表达推进一步骤的动作感",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或在世艺术家复刻",
+  "allowed_visible_text": ["注入时钟", "边界翻转", "不必等待"],
+  "color_palette": ["柔和靛蓝", "浅雾紫", "薄荷绿", "暖白"],
+  "avoid": [
+    "漂浮芯片",
+    "无意义代码雨",
+    "霓虹高楼背景",
+    "通用机器人站姿",
+    "赛博朋克紫蓝光污染",
+    "巨量 HUD 浮层"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮先验证「取下系统时钟 → 装进代码 → 手推指针越过三个刻度点」这条摘要弧线是否一眼可读",
+  "revision_targets": [
+    "让表盘与三个刻度点成为明确主焦点",
+    "压缩背景，只保留墙上空出来的时钟位",
+    "删除多余装饰性图标"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: replacing the system clock with an injectable, hand-pushable fake clock so that time-dependent code can be tested deterministically. The reader should quickly feel that they can stop waiting for real time to pass and instead decide exactly what time the test sees.\n\nSummary angle: a single hand pushes a clock's minute hand across the exact expiry line, so the verdict flips from true to false at that precise moment.\nNarrative flow: 3-beat process. In a 2.35:1 frame, keep one dominant focal subject and 3 supporting narrative beats. Each beat must map to the article's information blocks rather than generic decoration.\nInformation blocks:\n- Beat 1 (step): a detached, friendly round clock face is lifted off its wall bracket and slotted into an open code module socket. Visible Chinese label: 注入时钟. Numeric chip: 1.\n- Beat 2 (evidence): three tick marks in a row on the clock face; the hand is pushed from the tick just before expiry (glowing mint green) to the tick exactly at expiry and one tick past (both dull blue-grey). Visible Chinese label: 边界翻转. Numeric chip: true → false.\n- Beat 3 (takeaway): an hourglass and a dotted waiting track on the same rail are pushed by the same hand, the waiting bar collapsing instantly into a stopped state. Visible Chinese label: 不必等待. Numeric chip: 5 分钟.\n\nMain metaphor: the system clock is taken off the wall, mounted inside the code, and then driven forward by hand straight across a decision boundary.\nSubject: a single young tester figure in soft manga proportions holding the pushable clock face, finger resting on the minute hand at the exact expiry tick, calm and focused expression.\nComposition/framing: diagonal forward motion from lower left (the empty wall mount where the system clock used to be) through the centre (the code module socket) to the upper right (the clock face being pushed over the three tick marks). One dominant focal subject, wide horizontal storytelling, legible at cover scale.\nStyle/medium: combine editorial technical illustration with the selected visual style descriptor: soft shojo-inspired manga look, elegant linework, expressive faces, gentle decorative details, luminous pastel accents. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: soft indigo, pale lilac mist, mint green, warm off-white.\nVisible text policy: allow only the three short Chinese labels 注入时钟, 边界翻转, 不必等待 plus the small numeric chips 1, true → false and 5 分钟. No poster title, no long sentences, no English slogans, no extra captions, no fake UI labels, no fake chart axes, no fake architecture node names.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: floating computer chips, meaningless code rain, neon skyscraper background, generic standing robot, cyberpunk purple-blue light pollution, dense HUD overlays."
+}
