@@ -72,12 +72,6 @@
       "prompt": "请把一段包含空列表项的 Markdown 发布到微信公众号草稿箱：标题《列表清理验证》，正文是 '# T\\n\\n- \\n\\n- item one\\n\\n- \\n\\n- item two\\n\\n- '。凭据从环境变量读取。",
       "expected_output": "当前缺少 news 必需的封面，先要求用户提供本地封面图或永久素材 thumb_media_id；信息齐全后转换 Markdown，删除空白 li 和空的 ul/ol，只保留两个有效列表项。",
       "files": []
-    },
-    {
-      "id": 13,
-      "prompt": "请把 article.md 发布到微信公众号草稿箱，并直接标识为原创、开启全部广告。封面是 cover.png，凭据从环境变量读取。",
-      "expected_output": "使用 publish_draft.py 创建草稿，但明确说明微信官方草稿和发布 API 没有原创声明或广告设置字段，不构造 is_original 或广告开关等未公开参数；创建成功后提醒用户在微信公众号后台手动声明原创并开启可用广告。",
-      "files": []
     }
   ]
 }

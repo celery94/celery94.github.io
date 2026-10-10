@@ -42,7 +42,7 @@ node .agents/skills/create-blog-post-from-url/scripts/validate-article.mjs \
 
 如果用户要求不生成封面但仍要发微信，必须取得已有永久封面素材或请用户提供本地封面。封面缺失时停止发布。
 
-发布成功后报告 `media_id`，提醒用户在公众号后台检查草稿。原创声明与广告设置由用户在后台完成。
+发布成功后报告 `media_id`，提醒用户在公众号后台检查草稿。
 
 ## Git 提交与推送
 
