@@ -1,0 +1,69 @@
+{
+  "article_title": "MCP 服务器改成 HTTP 托管要动什么",
+  "cover_type": "tutorial",
+  "core_theme": "把只跑在编辑器子进程里的 stdio MCP 服务器改成 ASP.NET Core 托管的 Streamable HTTP 服务器，工具与资源完全不用改，换来的是可认证、可部署、可多副本；但默认无状态，服务器不能再主动发起对话。",
+  "reader_takeaway": "一眼看出 stdio 时代的三个硬约束（管道即协议、只属一个宿主、无法挂锁）在改成 HTTP 端点后各自变成了什么。",
+  "summary_angle": "把「一根协议管道 → 一个带端口和锁的 HTTP 端点」压成一张对照图：管道内壁就是协议所以日志必须改道，端点则第一次能挂上锁并对外暴露地址。",
+  "narrative_flow": "before-after",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "原文：stdio 模式下 stdout 就是 MCP 协议本身，任何写入 stdout 的日志都会打断连接",
+      "visual_idea": "左半幅一根粗管道直接插进机器背面，管壁内侧布满流动的数据条纹，表示管道本身就是协议；旁边另有一条细小的旁路把日志引开",
+      "visible_label": "管道即协议"
+    },
+    {
+      "role": "step",
+      "source_anchor": "原文：改动只有 WithHttpTransport() 与 app.MapMcp(\"/mcp\") 两处",
+      "visual_idea": "画面正中只有一个零件被替换：机器背面的管道接口换成一个小型网络接口模块，周围用两点高亮标出这是唯一被换掉的地方",
+      "visible_label": "两处改动"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文：MapMcp 注册的是普通 ASP.NET Core 端点，认证、CORS、限流等中间件照常生效",
+      "visual_idea": "右半幅同一台机器正面出现一个带明确端口标记的敞开闸口，闸口上第一次挂着一把锁，锁挂在闸口而不是管道上",
+      "visible_label": "端点",
+      "numeric_fact": "5000"
+    },
+    {
+      "role": "contrast",
+      "source_anchor": "原文：无状态模式下对端点发 GET 会返回 405，没有会话就没有服务器主动推送",
+      "visual_idea": "闸口旁边一条回程通道被小闸门挡住，闸门上只有一个表示禁止的短横标记，与左侧正常打开的管道形成对照",
+      "visible_label": "无状态"
+    }
+  ],
+  "main_metaphor": "同一台机器，背面那根「本身就是协议」的管道被换成正面一个带地址、能挂锁的闸口，机器内部的东西一件没动。",
+  "primary_subject": "一台被从背面与正面同时展示的等距机器，左侧是管道接口，右侧是带锁的闸口",
+  "subject_action": "数据从左边的管道流入机器，改造后改为从右边的闸口进出，钥匙挂在闸口前的锁上",
+  "composition": "左右对照；左边老旧管道占左三分之一，中间高亮唯一被替换的接口模块，右边闸口占右三分之一",
+  "base_style": "editorial technical illustration",
+  "selected_style": "低饱和文艺风",
+  "selected_style_prompt_descriptor": "low-saturation arthouse illustration, quiet composition, subtle grain, muted colors, reflective emotional tone",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；这次迁移的看点不是速度而是取舍，低饱和与安静的构图更适合表达「哪些变了、哪些没变」",
+  "style_safety_note": "清单风格为泛类型描述，不指向任何品牌、工作室或在世艺术家；prompt 只使用低饱和、颗粒感、安静构图等描述词",
+  "allowed_visible_text": ["管道即协议", "两处改动", "端点", "无状态", "5000"],
+  "color_palette": [
+    "灰绿（机器主体）",
+    "浅灰蓝（背景与管道）",
+    "暖褐（木质工作台）",
+    "柔和琥珀（唯一被替换的接口与锁）"
+  ],
+  "avoid": [
+    "真实产品截图",
+    "真实仪表盘与坐标轴",
+    "假架构节点名",
+    "代码雨",
+    "霓虹紫蓝光污染",
+    "漂浮芯片",
+    "通用机器人",
+    "装饰性图标堆砌"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮先验证三件事：左右对照是否成立、中间那个唯一被替换的接口模块是否成为视觉焦点、闸口上的锁与被挡住的小闸门是否一眼可辨",
+  "revision_targets": [
+    "第一轮结构成立，但机器两侧读起来像两台不同的设备，第二轮明确要求是同一台机器的背面与正面",
+    "第二轮把唯一被替换的接口模块用琥珀色单独高亮，其余部分全部保持低饱和，让它成为唯一焦点",
+    "第二轮要求锁只挂在右侧闸口上、管道上不允许出现锁，并确认闸口与管道在材质上可区分"
+  ],
+  "final_prompt": "Refine this wide cover illustration for a Chinese tech blog article about hosting an MCP server over HTTP.\nKeep the same structure: one single isometric machine shown at an angle, its thick back pipe on the left carrying the protocol itself, one amber-highlighted swapped interface module at the centre as the focal point, an open numbered gateway with a padlock on the right, a small closed return gate beside the gateway, and a thin side channel carrying away log slips.\nRefine: sharper details, cleaner composition, quieter and calmer layout, crisper line quality with light film grain, clearly the SAME machine on both sides rather than two machines, warmer restrained accent only on the swapped module and the padlock.\nKeep exactly the same approved short chips 管道即协议, 两处改动, 端点, 无状态 and 5000, each rendered cleanly and legibly, and no other text anywhere. Every surface stays blank.\nStyle: editorial technical illustration combined with low-saturation arthouse illustration, quiet composition, subtle grain, muted colors, reflective emotional tone. Muted grey-green machine, pale grey-blue backdrop, warm brown bench, one restrained amber accent. Soft even diffused light, no glare.\nDo not imitate a specific brand, studio, or living artist.\nNo watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icons, no decorative clutter, no poster title, no English slogans, no fake UI labels, no fake chart axes, no fake node names. Avoid neon purple-blue glow, code rain, floating chips, generic robots.\nUse case: infographic-story. Asset type: wide cover illustration, 2.35:1 aspect ratio."
+}
