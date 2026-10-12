@@ -1,0 +1,76 @@
+{
+  "article_title": "SSE 鉴权：五种方案怎么选",
+  "cover_type": "tutorial",
+  "core_theme": "浏览器原生 EventSource 不能发送自定义请求头，因此 SSE 鉴权只有 Cookie、查询串短期令牌、换成能发请求头的客户端这三条路，五种方案都是它们的组合。",
+  "reader_takeaway": "一眼看出同一条 SSE 连接有三条可行的凭证通道，并记住直接把访问令牌放进 URL 是必须避开的做法。",
+  "summary_angle": "把「一个流式端点 + 三条凭证通道」画成一张可读的对照图：Cookie 自动带上、短期令牌走查询串、请求头由客户端自己发出；URL 直放令牌的那条通道明确标成封死的岔路。",
+  "narrative_flow": "conflict-to-resolution",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "原文开头：EventSource 不支持发送请求头，因此无法直接带 Authorization",
+      "visual_idea": "画面最左侧一条被闸门封死的岔路，路面上放着一个写着 URL 的凭证箱，明确表示此路不通",
+      "visible_label": "URL"
+    },
+    {
+      "role": "step",
+      "source_anchor": "原文：短期令牌 10 秒有效且一次性，通过查询串传给 SSE 端点",
+      "visual_idea": "中间一条通道，入口一个小型令牌闸机，闸机上方挂着倒计时短标签，凭证箱通过后闸机立即扣下",
+      "visible_label": "短期令牌",
+      "numeric_fact": "10s"
+    },
+    {
+      "role": "contrast",
+      "source_anchor": "原文：fetch-event-source 与 HttpClient 都能直接设置 Authorization 请求头",
+      "visual_idea": "第三条通道是一条笔直的管道，直连终点，管道口有一枚清晰的请求头卡槽，凭证箱带着封套穿过",
+      "visible_label": "请求头"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文：SSE 端点仍由 ASP.NET Core 认证中间件保护，不会绕过鉴权",
+      "visual_idea": "右侧一个持续向外发光的等距流式端点塔，三条通道最终汇聚到它唯一的入口",
+      "visible_label": "SSE 端点"
+    }
+  ],
+  "main_metaphor": "三条凭证通道汇聚到同一个持续不断向外送数据流的端点塔，另有一条直放令牌的岔路被永久封死。",
+  "primary_subject": "一个持续向外发光、等距视角的流式端点塔",
+  "subject_action": "三条通道上的凭证箱分别经由 Cookie 托盘、令牌闸机和请求头卡槽抵达塔的唯一入口",
+  "composition": "左右对照加斜向推进；封死的岔路在最左，三条通道向右汇聚到端点塔",
+  "base_style": "editorial technical illustration",
+  "selected_style": "新海诚光影风",
+  "selected_style_prompt_descriptor": "transparent blue skies, dramatic backlight, detailed clouds, youthful cinematic lighting, rain and reflection details, no artist imitation",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；通透的逆光与云层细节可以让多通道汇流的结构读起来轻盈清晰，适合教程类封面",
+  "style_safety_note": "原风格名强指向在世作者，最终 prompt 只使用通透蓝天、逆光、云层、反光等非仿冒描述，不做任何作者或作品指涉",
+  "allowed_visible_text": [
+    "SSE 端点",
+    "Cookie",
+    "短期令牌",
+    "请求头",
+    "URL",
+    "10s"
+  ],
+  "color_palette": [
+    "通透天蓝（天空与远景）",
+    "暖白（端点塔与凭证箱）",
+    "暖琥珀（令牌闸机与数据流）",
+    "低饱和砖红（封死的岔路）"
+  ],
+  "avoid": [
+    "真实产品截图",
+    "真实仪表盘与坐标轴",
+    "假架构节点名",
+    "代码雨",
+    "霓虹紫蓝光污染",
+    "漂浮芯片",
+    "通用机器人",
+    "装饰性图标堆砌"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮先验证三件事：三条通道是否明显汇聚到同一个端点、封死的岔路是否一眼看出不可用、令牌闸机与请求头卡槽是否有明确区别",
+  "revision_targets": [
+    "第一轮把「URL 直放令牌」的岔路画成了一条仍可通行的路线，且缺少 Cookie 通道的标签，属于摘要角度错误，回到 brief 重写后重新生成",
+    "第二轮要求三条通道各自使用不同的通行装置（托盘、令牌闸机、信封卡槽），并把 URL 岔路画成断头路加实体封墙",
+    "第二轮要求所有面板留白，只保留六个批准标签，禁止英文长标签与假界面"
+  ],
+  "final_prompt": "Create a wide cover illustration for a Chinese tech blog article about authenticating Server-Sent Events.\nOne dominant focal subject on the right: a tall isometric streaming endpoint tower built of stacked translucent panels, emitting a soft continuous band of light toward the left. All working channels converge on its single gate at the bottom, labelled with one small chip SSE 端点.\nExactly three separate overhead channels lead into that gate, clearly parallel, each with its own distinct passage device in the middle:\n1. The top channel carries a flat open cookie tray, the credential box rides the tray untouched, labelled with one small chip Cookie.\n2. The middle channel passes a compact token turnstile with a swinging arm closing, labelled with two small chips 短期令牌 and 10s.\n3. The bottom channel ends in a clean frame socket that fits a sealed envelope around the credential box, labelled with one small chip 请求头.\nTo the far left, separated from the three channels and clearly unrelated to them, a short stub of road is cut off mid-air and sealed by a solid wall with a red-and-white barricade, with one small chip URL on the wall. This stub must not connect to anything and must read as a dead end nobody can use.\nComposition: left-to-right, the three clean channels fan in from the left and merge only at the tower gate; the sealed URL stub sits alone at the extreme left, visually separated with calm empty space around it. Generous negative space at the outer edges, one clear focal point.\nStyle: editorial technical illustration combined with transparent blue skies, dramatic backlight, detailed clouds, youthful cinematic lighting, rain and reflection details, no artist imitation. Stylized, polished, editorial, clearly readable as an infographic-style summary cover.\nBackground and lighting: bright transparent sky with moderate clouds, strong backlight from the upper left, subtle wet reflections on the ground. The tower light band and the amber data paths are the only other light sources.\nColor palette: translucent sky blue and warm white dominant, warm amber for the tower light band and data paths, and one desaturated brick red used only on the sealed URL stub.\nVisible text policy: allow only these six approved short chips: SSE 端点, Cookie, 短期令牌, 10s, 请求头, URL, and never more. Every other surface stays blank: no engraved lettering, no stickers, no fake readouts. No poster title, no long sentences, no English slogans other than the two approved chips, no fake UI labels, no fake chart axes, no fake node names.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter. Avoid neon purple-blue glow, code rain, floating chips, generic robots.\nUse case: infographic-story. Asset type: wide cover illustration, 2.35:1 aspect ratio, single image."
+}
