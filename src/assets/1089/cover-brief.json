@@ -1,0 +1,64 @@
+{
+  "article_title": "用 C# 实时跑 16.7 万神经元的果蝇大脑模型",
+  "cover_type": "research",
+  "core_theme": "果蝇大脑游戏演示由三层拼成：电镜测出的连接组、只有一个校准参数的 LIF 脉冲动力学、以及前后两端的工程适配器；dotFly 用纯 C# 把完整 MaleCNS 放进实时循环，并把这些边界公开标出。",
+  "reader_takeaway": "看懂「果蝇大脑玩游戏」里哪一部分是测量、哪一部分是工程，知道纯 C# 能在笔记本上实时跑完 16.7 万神经元，也知道模型现在缺什么。",
+  "summary_angle": "把「测量到的 166,700 个神经元连线 → 只有一个标定旋钮的脉冲动力学 → 手写解码器」压缩成一条可读链路，并让两端的人工接口在材质上与中间的生物网络明显不同。",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "mechanism",
+      "source_anchor": "MaleCNS v1.0 / dotFly checkpoint：166,700 个神经元，24,904,953 条边",
+      "visual_idea": "画面主导结构：一团由极密集纤维与节点构成的球形神经网络，作为唯一的视觉主角",
+      "visible_label": "连接组",
+      "numeric_fact": "166,700"
+    },
+    {
+      "role": "evidence",
+      "source_anchor": "Shiu et al. 2024：W_syn = 0.275 mV，整个模型唯一的自由参数",
+      "visual_idea": "网络正中央一个被高亮的单一标定刻度/旋钮节点，周围是同样的纤维，暗示所有突触共用一个值",
+      "visible_label": "0.275 mV",
+      "numeric_fact": "0.275 mV"
+    },
+    {
+      "role": "contrast",
+      "source_anchor": "dotFly 房间演示：编码器与解码器都是手写工程代码，被印在屏幕上并标注为 fixed",
+      "visual_idea": "网络两端各接一个人造机械接口模块，硬表面材质与中间的生物纤维形成明显对比",
+      "visible_label": "适配器"
+    }
+  ],
+  "main_metaphor": "一个测量来的生物神经团被夹在两个人造接口之间，只有正中央一个旋钮在调节整团网络",
+  "primary_subject": "一团由密集神经纤维和发光节点组成的球状网络",
+  "subject_action": "被左右两端的人造机械接口夹住，脉冲光点从一端流入、穿过网络、从另一端流出",
+  "composition": "居中主物体，左右各一个人造接口模块，水平三点式叙事",
+  "base_style": "abstract technical concept art",
+  "selected_style": "科幻机甲风",
+  "selected_style_prompt_descriptor": "science-fiction mecha concept illustration, mechanical forms, hard-surface details, cockpit-scale cues, cool industrial palette",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；把连接组抽象成一个被人工接口夹持的精密结构，适合用机械硬表面与生物纤维的材质对比表达「哪些是测出来的、哪些是造出来的」",
+  "style_safety_note": "清单风格为泛类型描述，不指向任何品牌、工作室或在世艺术家；prompt 只使用机械形态、硬表面细节、工业色调等描述词",
+  "allowed_visible_text": ["连接组", "0.275 mV", "适配器"],
+  "color_palette": [
+    "深钢蓝",
+    "冷灰",
+    "淡青（脉冲光点）",
+    "暖琥珀（唯一的校准旋钮）"
+  ],
+  "avoid": [
+    "漂浮芯片",
+    "代码雨",
+    "霓虹高楼与紫蓝光污染",
+    "通用机器人站姿",
+    "HUD 浮层与假仪表盘",
+    "假图表坐标轴",
+    "真实产品截图",
+    "装饰性图标堆砌"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮先验证三件事：中间的球状神经团是否成为唯一主焦点、两端的接口模块是否一眼看出与中间材质不同、中央的单一校准节点是否可辨识",
+  "revision_targets": [
+    "第一轮机械模块表面出现了假 UI 文字，第二轮明确要求面板留白且只保留三个批准标签",
+    "第一轮背景是偏亮的蓝色渐变，第二轮改为安静的深板岩背景，只保留脉冲线与节点自发光",
+    "第一轮神经团偏「发光能量球」，第二轮要求纤维呈现可分辨的单根走线与不规则节点"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: a fruit fly connectome measured by electron microscopy, driven by one calibrated spiking model, wrapped in hand-written engineering adapters. The reader should quickly feel that the biological network in the middle is measured data while the two ends are human-made engineering.\n\nSummary angle: compress the chain measured wiring -> one calibrated parameter -> hand-written decoder into one readable three-beat horizontal composition, and make the two artificial interfaces clearly different in material from the biological network between them.\nNarrative flow: 3-beat process. In a 2.35:1 frame, keep one dominant focal subject and 2-4 supporting narrative beats.\nInformation blocks:\n- Mechanism: a dense spherical mass of extremely fine nerve fibers with many visible individual strands and small irregular nodes dominates the center of the frame, reading as measured microscope-traced wiring rather than a smooth glowing energy ball. Small chip 连接组, placed fully inside the frame near the top of the sphere.\n- Evidence: at the exact center of that network sits one single highlighted calibrated dial node in warm amber, with all surrounding fibers identical to each other, representing the single free parameter shared by every synapse. Small chip 0.275 mV beside it.\n- Contrast: on the left and right ends of the network, two compact human-made hard-surface mechanical interface modules clamp the biological sphere, their machined panels, bolts and connectors clearly artificial. Small chip 适配器 on each.\n\nMain metaphor: a measured biological nerve-sphere held between two artificial connectors, with a single dial at its center tuning the whole structure.\nSubject: the spherical mass of dense nerve fibers, penetrated by the two mechanical interface modules, with points of light entering from the left connector, crossing the center dial, and leaving through the right connector.\nComposition/framing: centered dominant subject with one artificial interface module on each side, deliberate horizontal three-beat storytelling that stays legible in a wide cover; generous negative space at the outer edges.\nStyle/medium: combine abstract technical concept art with the selected visual style descriptor: science-fiction mecha concept illustration, mechanical forms, hard-surface details, cockpit-scale cues, cool industrial palette. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nBackground and lighting: a quiet dark slate studio backdrop with soft even lighting; the pulse line and node lights are the only self-illumination. No bright blue gradient burst.\nColor palette: deep steel blue and cool grey base, pale cyan for pulse points of light, one restrained warm amber accent reserved for the single central calibrated dial.\nVisible text policy: allow only the three approved short chips 连接组, 0.275 mV and 适配器, and never exceed 3 items. The machined panels must be purely blank metal and matte plastic with no engraved lettering, no stickers, no numbers. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: floating chips, code rain, neon skyscrapers, purple-blue neon glow, generic robot poses, dense HUD overlays, fake gauge panels, fake chart axes, product screenshots, piles of unrelated icons."
+}
