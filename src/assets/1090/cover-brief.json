@@ -1,0 +1,63 @@
+{
+  "article_title": "Agent Framework 三层中间件怎么选",
+  "cover_type": "architecture",
+  "core_theme": "Microsoft Agent Framework 的中间件不是二选一，而是套在整轮 Agent 运行、模型调用、工具调用三层上的嵌套拦截点；选层的依据是你要看的是哪一层的数据。",
+  "reader_takeaway": "一眼看懂 Agent Run / ChatClient / 函数调用三层中间件的嵌套关系，知道日志、token 统计和工具抓取分别该写在哪一层。",
+  "summary_angle": "把「一层套一层」画成一个可拆开的等距结构：最外层是整轮运行，中间层是发往模型的调用（一次工具使用会经过两次），最内层是具体的工具执行。",
+  "narrative_flow": "layered reveal",
+  "information_blocks": [
+    {
+      "role": "mechanism",
+      "source_anchor": "官方文档：Agent Run middleware 拦截每次 agent run，可检查修改输入输出",
+      "visual_idea": "最外层的等距平台外壳，像一只带开口的容器，把里面两层整个包住，外壳上只有一个标签贴片",
+      "visible_label": "整轮运行"
+    },
+    {
+      "role": "evidence",
+      "source_anchor": "官方文档：Chat middleware 在 function invocation loop 内部，多轮工具调用时每次模型调用都会执行",
+      "visual_idea": "中间层里并排两个相同的模型调用站点，用一条回环管道连起来，表示一次工具使用里模型被调用两次",
+      "visible_label": "模型调用",
+      "numeric_fact": "2"
+    },
+    {
+      "role": "step",
+      "source_anchor": "原文演示程序：只在 ResearcherAgent 上加中间件，记录 context.Function.Name == tavilyTool.Name 的调用",
+      "visual_idea": "最内层一个具体的工具工位，一个发光请求块正经过它，工位正面有日志纸带输出",
+      "visible_label": "工具调用"
+    }
+  ],
+  "main_metaphor": "一台被一层层拆开的三层机器：外壳管整轮运行，中间层管与模型对话，核心层管具体工具干活，请求从外往内穿过去再返回。",
+  "primary_subject": "一个等距视角的三层嵌套结构，外壳被切开一角露出内部两层",
+  "subject_action": "一个发光请求块从最外层进入，穿过中间的两个模型调用站点，抵达最内层的工具工位，然后沿原路返回",
+  "composition": "等距空间，斜向推进；外壳切口在左前方，内部结构向右后方层层展开",
+  "base_style": "isometric conceptual systems scene",
+  "selected_style": "治愈日常风",
+  "selected_style_prompt_descriptor": "cozy slice-of-life illustration, warm natural light, soft domestic details, calm pacing, gentle hand-drawn texture",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；三层嵌套结构适合用温和的手绘质感表达，避免画成冷硬的真实系统图",
+  "style_safety_note": "清单风格为泛类型描述，不指向任何品牌、工作室或在世艺术家；prompt 只使用暖光、手绘质感、柔和边角等描述词",
+  "allowed_visible_text": ["整轮运行", "模型调用", "工具调用", "2"],
+  "color_palette": [
+    "暖米白（外壳与桌面）",
+    "浅木棕（框架与管道）",
+    "柔和青绿（模型调用站点）",
+    "暖琥珀（请求光块与工具工位）"
+  ],
+  "avoid": [
+    "真实产品截图",
+    "真实架构图节点名",
+    "假仪表盘与坐标轴",
+    "代码雨",
+    "霓虹紫蓝光污染",
+    "漂浮芯片",
+    "通用机器人",
+    "装饰性图标堆砌"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮先验证三件事：外壳是否明显包住另外两层、中间层是否清楚画出两个模型调用站点、最内层工具工位是否一眼可辨且只有一个标签",
+  "revision_targets": [
+    "第一轮如果三层关系糊成一块，第二轮把外壳切口画得更明确并要求能看到内部",
+    "第一轮如果模型调用站点只画了一个，第二轮强调中间层必须是两个相同站点并用回环管道相连",
+    "第一轮如果出现假 UI 文字或仪表盘，第二轮要求所有面板留白且只保留四个批准标签"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: middleware in the Microsoft Agent Framework is not a choice between two options but three nested interception layers around one agent run: the run level, the model-call level, and the tool-call level. The reader should quickly feel that one request passes through all three layers on its way in and back out.\n\nSummary angle: show a layered reveal as one isometric structure that can be read from outside in: the outer shell is the whole agent run, the middle layer holds the calls to the model (a single tool use passes through it twice), and the innermost layer is where one concrete tool actually executes.\nNarrative flow: layered reveal. In a 2.35:1 frame, keep one dominant focal subject and 2-4 supporting narrative beats. Each beat must map to the article's information blocks rather than generic decoration.\nInformation blocks:\n- Mechanism: the outermost layer is a clean isometric platform shell shaped like a container with one corner cut open, wrapping the two inner layers completely, sitting on a calm desk surface. Small chip 整轮运行 on the outer shell.\n- Evidence: inside that shell, a middle layer contains two identical small model-call stations connected by a short looping pipe that returns to the first station, making it obvious that the model is contacted twice during one tool use. Small chip 模型调用 and a small number chip 2 beside the loop.\n- Step: at the innermost core sits one single concrete tool workbench; a warm amber glowing request block travels from outside, through the two middle stations, reaches this workbench, and returns along the same path. A soft paper log strip unrolls from the workbench. Small chip 工具调用 on the workbench.\n\nMain metaphor: a three-layer machine that opens outward, where the shell governs the whole run, the middle layer governs the conversation with the model, and the core does the actual work with a tool.\nSubject: the isometric three-layer nested structure with its outer shell cut open at the front left, inner layers unfolding toward the back right, and one glowing request block moving through the path.\nComposition/framing: isometric space with a gentle diagonal push; the cut-open corner sits in the front left and the inner layers recede to the back right; generous negative space at the outer edges so it stays legible as a wide cover.\nStyle/medium: combine isometric conceptual systems scene with the selected visual style descriptor: cozy slice-of-life illustration, warm natural light, soft domestic details, calm pacing, gentle hand-drawn texture. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nBackground and lighting: a warm neutral cream backdrop with soft natural window light from the upper left; the only self-illumination is the amber request block and its thin travel path.\nColor palette: warm cream and off-white for the shell and desk, light wood brown for frames and pipes, soft muted teal for the middle model-call stations, and one warm amber accent reserved for the request block and tool workbench.\nVisible text policy: allow only four approved short chips 整轮运行, 模型调用, 工具调用 and the numeral 2, and never exceed 4 items. Every panel surface must stay blank; no engraved lettering, no stickers, no fake UI readouts. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: real product screenshots, real architecture node names, fake gauges and chart axes, code rain, neon purple-blue glow, floating chips, generic robots, piles of unrelated icons."
+}
