@@ -1,0 +1,73 @@
+{
+  "article_title": "任何编码 Agent 都适用的可复核工作流",
+  "cover_type": "architecture",
+  "core_theme": "把编码 agent 的仓库任务当成一条证据链：环境、权限、契约、证据四道关口，换成 Claude Code、Codex 还是 Copilot 都成立",
+  "reader_takeaway": "读者能看出 agent 说「已完成」时缺了哪一环，并知道每次委派要先固定环境、写清契约、分清权限、索要证据",
+  "summary_angle": "一张任务单沿斜向链条推进，依次经过环境、权限、契约、证据四道关口；被拒绝的支路变灰，通过的关口留下核对标记",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "step",
+      "source_anchor": "原文 Establish which environment owns the work：agent 的运行环境决定它能用哪些可执行文件与沙箱，SDK 不能从 IDE 推断",
+      "visual_idea": "链条起点的操作台与一层半透明隔离边界，任务单从边界内出发",
+      "visible_label": "环境",
+      "numeric_fact": "1"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文 Separate instructions from authority：运行时的 allow / ask / deny 才是权限，文档里的禁令只是提示",
+      "visual_idea": "一道闸门，一条支路被拦下变灰，主线继续向前",
+      "visible_label": "权限",
+      "numeric_fact": "2"
+    },
+    {
+      "role": "contrast",
+      "source_anchor": "原文 Make acceptance criteria observable：验收标准要写成客户端可观察的行为，并保留原有兼容路径",
+      "visual_idea": "清单卡钉在任务单上，写的是可观察结果而不是笼统的改好一点",
+      "visible_label": "契约",
+      "numeric_fact": "3"
+    },
+    {
+      "role": "evidence",
+      "source_anchor": "原文 Ask for evidence that matches the contract：结论要对应命令、版本、环境、结果和未覆盖的部分",
+      "visual_idea": "终点放着一张收据与放大镜，用来核对报告与契约是否对得上",
+      "visible_label": "证据",
+      "numeric_fact": "4"
+    }
+  ],
+  "main_metaphor": "彩铅手绘的四道关口流水线，一张任务单从环境出发，依次通过权限闸门、契约台与证据核对台",
+  "primary_subject": "一张写着任务的工作单",
+  "subject_action": "沿斜向链条依次穿过四道关口，其中一条支路停在闸门前变灰",
+  "composition": "斜向推进，主焦点是任务单，四道关口沿对角线依次排开，被拦下的支路在画面下方分叉",
+  "base_style": "isometric conceptual systems scene",
+  "selected_style": "彩铅绘本风",
+  "selected_style_prompt_descriptor": "colored-pencil picture-book illustration, tactile strokes, gentle palette, warm narrative objects, soft educational tone",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；流程与关口适合用绘本式温和手绘质感，把抽象约束画成可读物件",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["环境", "权限", "契约", "证据"],
+  "color_palette": [
+    "暖米白 cream paper",
+    "石墨灰 graphite grey",
+    "琥珀黄 amber",
+    "灰蓝 slate blue"
+  ],
+  "avoid": [
+    "漂浮芯片",
+    "无意义代码雨",
+    "霓虹高楼背景",
+    "通用机器人站姿",
+    "赛博朋克紫蓝光污染",
+    "巨量 HUD 浮层",
+    "真实终端截图",
+    "真实 dashboard",
+    "英文标语"
+  ],
+  "reference_strategy": "纯文本生成，不使用参考图",
+  "draft_goal": "先验证四道关口链条在 2.35:1 宽幅里是否读得通，任务单是否为唯一焦点",
+  "revision_targets": [
+    "关口顺序与标签是否清晰",
+    "被拒绝的支路是否一眼可辨",
+    "画面是否退化成装饰性科技氛围图"
+  ],
+  "final_prompt": "Use case: infographic-story. Asset type: wide cover infographic illustration for a Chinese tech blog article. Refine the existing cover direction: keep the same metaphor, the same four checkpoint labels and the same summary angle, only sharpen details and clean up the composition. Primary request: Create a wide cinematic infographic-story cover illustration that summarizes a practical engineering workflow. Theme: every coding agent task should be treated as a chain of evidence - four checkpoints a task must pass. The reader should quickly feel that an agent saying done is only a claim until environment, permission, contract and evidence line up. Summary angle: one work order travels diagonally through four checkpoint gates: environment, permission, contract, evidence; a rejected side path turns grey while the main path continues. Narrative flow: 3-beat process. In a 2.35:1 frame keep one dominant focal subject and 4 supporting narrative beats. Information blocks: (1) start of the chain, a tidy workbench inside a translucent isolation boundary, the task slip leaving the boundary, label 环境, numeral 1; (2) a checkpoint gate where one branch is stopped and turns grey while the main line passes through, label 权限, numeral 2; (3) a checklist card pinned to the work order showing observable acceptance results instead of vague promises, label 契约, numeral 3; (4) a receipt desk with a magnifying glass comparing the report against the contract, label 证据, numeral 4. Main metaphor: a colored-pencil drawn four-checkpoint pipeline carrying a single work order. Subject: one task slip with handwritten-looking marks on it, travelling along a diagonal chain through four gates. Composition/framing: diagonal progression, one clear focal subject, four checkpoints spread along the diagonal, the rejected grey branch splitting off in the lower part of the frame. Clean hand-drawn paper texture, no photography, no 3D render. Style/medium: combine isometric conceptual systems scene with the selected visual style descriptor: colored-pencil picture-book illustration, tactile strokes, gentle palette, warm narrative objects, soft educational tone. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist. Color palette: cream paper, graphite grey, amber, slate blue. Visible text policy: allow only the four short Chinese labels 环境 权限 契约 证据, plus the numerals 1 2 3 4. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names. Constraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter. Avoid: floating microchips, meaningless code rain, neon skyline, generic robot poses, cyberpunk purple-blue glow, dense HUD overlays, real terminal windows, real dashboards, English slogans."
+}
