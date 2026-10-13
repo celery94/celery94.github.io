@@ -1,0 +1,73 @@
+{
+  "article_title": "从工程师到工程经理，再到编码 Agent 的经理",
+  "cover_type": "analysis",
+  "core_theme": "把 Nick Cosentino 的九条工程经理上任原则搬到编码 Agent 上：五条直接复用，三条必须把关系换成机制，一条风险正好相反，而责任链的终点只有人",
+  "reader_takeaway": "读者能看出哪些管理动作可以原样迁移到 agent、哪些必须改造成可执行机制，并记住最终问责无法交给 agent",
+  "summary_angle": "一张写着原则的清单在分拣线上被分成三路：复用 5 原样通过，换机制 3 被转换成工具，反转 1 翻面折回；三路终点汇到唯一的盖章台",
+  "narrative_flow": "conflict-to-resolution",
+  "information_blocks": [
+    {
+      "role": "contrast",
+      "source_anchor": "原文第二节：五条原则的底层动作是把隐性知识写成显式约束，因此对人还是对 agent 都成立",
+      "visual_idea": "五张纸卡沿绿色传送带原样通过分拣口，形状不变，卡片上只有抽象的手写墨迹",
+      "visible_label": "复用",
+      "numeric_fact": "5"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文第三节：赢得信任、支持每个人、让对话有用这三条的底层动作是建立关系，agent 没有关系对象，只能换成验证、能力分配和交接报告机制",
+      "visual_idea": "橙色这一路把纸卡送进转换装置，出来时变成齿轮、量尺和图表三种工具形态",
+      "visible_label": "换机制",
+      "numeric_fact": "3"
+    },
+    {
+      "role": "contrast",
+      "source_anchor": "原文第一节：管理人的版本是 commit 历史变空，管理 agent 的版本是 commit 历史变满却无法验证，风险方向相反",
+      "visual_idea": "蓝色这一路只有一张卡片在分拣口翻面折回，箭头方向反转",
+      "visible_label": "反转",
+      "numeric_fact": "1"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文第一节与 Claude Code 子 agent 文档：任何 agent 消息都不构成批准，只有权限系统或你自己的消息能授权，责任链终点只有人",
+      "visual_idea": "三路传送带在右侧汇到一张工作台，台前只有一个人举着印章"
+    }
+  ],
+  "main_metaphor": "一条手绘水彩的分拣线：一叠原则卡片被分成三路，一路原样通过，一路被转换成工具，一路翻面折回，最终全部汇到唯一的盖章台",
+  "primary_subject": "盖章台前一个握着印章的人",
+  "subject_action": "站在三路汇合的台面前，抬手为一叠通过的卡片盖章",
+  "composition": "左右对照加斜向推进，主焦点是右侧握印章的人，左侧是一叠卡片与分拣口，三条支路在中间分开、在右侧汇合",
+  "base_style": "conceptual editorial illustration",
+  "selected_style": "水彩漫画风",
+  "selected_style_prompt_descriptor": "watercolor comic illustration, translucent washes, visible paper texture, soft edges, light ink structure",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；观点类文章适合用编辑插画的判断感，水彩质感让抽象的分拣关系显得温和而不说教",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["复用 5", "换机制 3", "反转 1", "责任在你"],
+  "color_palette": [
+    "暖米白 watercolor paper",
+    "靛蓝 indigo",
+    "赭石 ochre",
+    "灰绿 sage green"
+  ],
+  "avoid": [
+    "通用机器人站姿",
+    "漂浮芯片",
+    "无意义代码雨",
+    "霓虹高楼背景",
+    "赛博朋克紫蓝光污染",
+    "巨量 HUD 浮层",
+    "真实终端截图",
+    "真实 dashboard",
+    "英文标语",
+    "对话气泡",
+    "卡片上的可读文字"
+  ],
+  "reference_strategy": "纯文本生成，不使用参考图",
+  "draft_goal": "先验证三路分拣加唯一盖章台在 2.35:1 宽幅里是否读得通，末端的人是否为唯一焦点",
+  "revision_targets": [
+    "卡片上是否出现可读文字或乱码中文",
+    "三路分拣是否一眼可辨，5/3/1 是否读得出来",
+    "末端握印章的人是否成为唯一主焦点"
+  ],
+  "final_prompt": "Use case: infographic-story. Asset type: wide cover infographic illustration for a Chinese tech blog article. Primary request: Create a wide cinematic infographic-story cover illustration that summarizes an article about applying engineering-manager lessons to coding agents. Theme: nine management principles get sorted into three paths - five pass through unchanged, three must be converted from relationship-building into executable mechanisms, one reverses direction - and every path ends at a single human holding a stamp. The reader should quickly feel that some management moves transfer to agents, some must become mechanisms, and accountability stays with the human. Summary angle: a sorting line where a stack of principle cards splits into three routes; five cards travel straight through unchanged, three enter a conversion device and come out as different tools, one card is flipped and folds back; all routes converge on one stamping desk. Narrative flow: conflict-to-resolution. In a 2.35:1 frame keep one dominant focal subject and 4 supporting narrative beats. Information blocks: (1) five cards travelling straight through the sorting gate preserving their shape, label 复用 with numeral 5; (2) three cards entering a conversion device and emerging as three different working tools - a gear, a measuring ruler and a small bar chart sheet - label 换机制 with numeral 3; (3) one card flipped over at the gate with its arrow bending backwards, label 反转 with numeral 1; (4) all paths converging on a single desk where one person stands holding a stamp, label 责任在你. Main metaphor: a hand-painted watercolor sorting line carrying paper principle cards that split into three routes and reconverge at one stamping desk. Subject: one person at the end of the line holding a stamp, raising a hand over the approved cards. Composition/framing: left-to-right progression with contrast, one clear focal subject on the right, the stack of cards and the sorting gate on the left, three branches separating in the middle and rejoining on the right. Strict text rule - this is the most important constraint. The entire image contains exactly four text elements and nothing else: 复用 with the numeral 5, 换机制 with the numeral 3, 反转 with the numeral 1, and 责任在你 on the desk front. Every paper card, every page in the stack, every document in the scene shows only two or three abstract handwritten ink strokes that look like illegible scribble - no readable Chinese characters, no legible words, no glyphs, no letters, no numbers anywhere except the four approved elements. Do not label the paper stack. Do not write anything on the cards. Style/medium: combine conceptual editorial illustration with the selected visual style descriptor: watercolor comic illustration, translucent washes, visible paper texture, soft edges, light ink structure. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist. Background: only soft watercolor washes, faint distant mountains and a few paper-textured ground marks. Color palette: warm watercolor paper cream, indigo, ochre, sage green. Visible text policy: the four approved elements are the complete allowance - 复用 5, 换机制 3, 反转 1, 责任在你. Each of the three phrase labels is 2 to 4 Chinese characters. No poster title, no headline, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names, no captions. Constraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter, no speech bubbles, no human silhouettes or portrait photos on the cards. Avoid: generic robot poses, floating computer chips, meaningless code rain, neon skyscraper backgrounds, cyberpunk purple-blue glow, dense HUD overlays, realistic terminal screenshots, realistic dashboards, English slogans."
+}
