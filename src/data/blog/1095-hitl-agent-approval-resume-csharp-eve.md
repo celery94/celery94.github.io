@@ -297,6 +297,8 @@ public sealed class ApprovalResume
 - [Vercel Eve Tutorial for C# Developers](https://www.devleader.ca/2026/10/05/vercel-eve-tutorial-for-c-developers-build-an-aspnet-core-agent-client)，讲 ASP.NET Core 怎么接上同一个 pinned agent。
 - 如果你用 Microsoft Agent Framework，类似的工具审批思路在[这篇](https://www.devleader.ca/2026/03/11/tool-approval-and-humanintheloop-in-microsoft-agent-framework)里，但类型和契约不能混用。
 
+如果这类「agent 停下来等人」的边界设计对你有用，Aide Hub 会继续写 AI 助手接入、开发工具和软件工程实践方面的内容。
+
 ## 参考
 
 - [Human-in-the-Loop AI Agents in C#: Approval and Resume with Vercel Eve](https://www.devleader.ca/2026/10/14/humanintheloop-ai-agents-in-c-approval-and-resume-with-vercel-eve)
@@ -309,7 +311,3 @@ public sealed class ApprovalResume
 - [EveInputResponse 源码](https://github.com/ncosentino/eve-client/blob/v0.1.0-alpha.14/src/NexusLabs.Eve/EveInputResponse.cs)
 - [EveInputResolutionOutcome 源码](https://github.com/ncosentino/eve-client/blob/v0.1.0-alpha.14/src/NexusLabs.Eve/EveInputResolutionOutcome.cs)
 - [EveTurnOutcome 源码](https://github.com/ncosentino/eve-client/blob/v0.1.0-alpha.14/src/NexusLabs.Eve/EveTurnOutcome.cs)
-
----
-
-如果这类「agent 停下来等人」的边界设计对你有用，Aide Hub 会继续写 AI 助手接入、开发工具和软件工程实践方面的内容。
