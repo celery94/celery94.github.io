@@ -1,0 +1,57 @@
+{
+  "article_title": "Azure MCP Server 3.0 升级清单与只读上手",
+  "cover_type": "release",
+  "core_theme": "Azure MCP Server 3.0 稳定版把 Backup、Resilience、SRE Agent、Terraform 等真正的运维工具交给 AI agent，同时带来一批必须先处理的工具契约、响应结构、配置键名与协议变更。",
+  "reader_takeaway": "理解 agent 已从「查看资源」进入「执行运维」，并知道升级前要先按清单重接口、再用只读模式验证。",
+  "summary_angle": "从「只能看」到「能真的动手」，但动手之前必须先换接口：一张封面里同时表达工具箱变大和接口需要重新适配。",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "evidence",
+      "source_anchor": "CHANGELOG 3.0.0 新增命名空间 azurebackup / resiliency / sreagent（55 commands）/ azureterraform / optimization",
+      "visual_idea": "一个加固的野外工具箱被打开，里面露出明显更多、用途各异的耐用工装",
+      "visible_label": "新工具"
+    },
+    {
+      "role": "contrast",
+      "source_anchor": "CHANGELOG 3.0.0 Breaking Changes：移除 subscription/resource-group 等参数、resilience→resiliency 重命名、Advisor 与 Monitor 结果改用 properties/results 包装、配置移入 MicrosoftMcp",
+      "visual_idea": "工具箱上的旧铭牌与旧接口被拆下，褪色的废弃铭牌搁在一旁的沙土里",
+      "visible_label": "契约变更"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文 Get started with a read-only workflow：npx @azure/mcp@3.0.0 server start --read-only 的最小只读流程",
+      "visual_idea": "一条带防护栏的检修通道，只打开了观察口，没有任何切割动作发生",
+      "visible_label": "只读起步"
+    }
+  ],
+  "main_metaphor": "荒漠中的野外检修站：一台耐用的检修单元收到一整箱真正的维修工具，但用之前必须先把接口重新对好。",
+  "primary_subject": "一个风化的重型工具箱，铰链盖在破损的作业平台上敞开",
+  "subject_action": "正在被换上新的接口与铭牌，一块旧铭牌被放到一旁的尘土里",
+  "composition": "单点聚焦 + 斜向推进：主体略微偏离中心，从左下到右上依次经过三个彼此分开的叙事节点",
+  "base_style": "product-poster style illustration",
+  "selected_style": "废土末日风",
+  "selected_style_prompt_descriptor": "post-apocalyptic wasteland illustration, weathered materials, dusty atmosphere, survival objects, desaturated contrast",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；「运维工具送到偏远现场」与废土检修场景在隐喻上契合",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["新工具", "契约变更", "只读起步"],
+  "color_palette": ["沙土赭褐", "褪色警示橙", "冷铁灰", "克制的青色指示灯"],
+  "avoid": [
+    "霓虹高楼",
+    "代码雨",
+    "通用人形机器人站姿",
+    "HUD 浮层",
+    "赛博朋克紫蓝光",
+    "漂浮芯片",
+    "真实仪表盘",
+    "真实终端输出"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮先验证三个信息块是否各自可读、主体是否明确、废土风格是否服务主题而不是退化成纯氛围图",
+  "revision_targets": [
+    "三个信息块的可读性与分离度",
+    "保持工具箱为唯一焦点，检修单元退到次要位置",
+    "移除所有无关铭文与假标记"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: an AI agent has just received a much larger set of real Azure operational tools, but the interfaces must be re-fitted before any of them can be used. The reader should quickly feel that the agent moved from merely inspecting resources to actually performing maintenance work, and that the upgrade comes with a concrete re-fitting checklist.\n\nSummary angle: from \"can only look\" to \"can actually operate\", with a visible re-fitting cost before use.\nNarrative flow: 3-beat process. In a 2.35:1 frame, keep one dominant focal subject and three clearly separated supporting narrative beats.\n\nFocal subject: a weathered heavy industrial toolbox with a hinged lid standing open wide on a scarred work platform, filled with many distinct rugged work tools. It is the single dominant focal object, slightly off center to the left.\n\nBeat 1 (evidence, upper left): the open toolbox lid, revealing a noticeably larger set of distinct rugged tools inside. Small weathered label on the lid reads 新工具.\nBeat 2 (contrast, center): beside the toolbox, a dusty pile of discarded old connectors and worn couplings with a few faded blank nameplates scattered in the dirt. Small weathered label above the pile reads 契约变更.\nBeat 3 (takeaway, upper right): a safety-railed inspection catwalk with only a single observation hatch open, no cutting or repair action engaged, only inspection. Small weathered label reads 只读起步.\n\nA compact rugged field-maintenance unit (small industrial machine, not a heroic humanoid hero) leans over the right side of the toolbox as if actively re-fitting a coupling. Keep it secondary and low, never the main focal point.\n\nComposition/framing: single dominant focal object, diagonal thrust from lower-left to upper-right through three clearly separated beats, wide horizontal storytelling, generous negative space, no clutter.\n\nStyle/medium: combine product-poster style illustration with the selected visual style descriptor: post-apocalyptic wasteland illustration, weathered materials, dusty atmosphere, survival objects, desaturated contrast. Stylized, polished, editorial, visually strong, and clearly readable as a summary cover. Do not imitate a specific brand, studio, or living artist.\n\nColor palette: dust ochre and weathered brown, faded safety orange, cool iron grey, one restrained cyan indicator accent.\n\nVisible text policy: allow exactly three short Chinese labels and nothing else: 新工具, 契约变更, 只读起步. Each is at most 6 Chinese characters. Absolutely no other text, glyphs, engravings, carved symbols, runes or fake markings anywhere in the image. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names.\n\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\n\nAvoid: neon skyscrapers, code rain, generic humanoid robot hero poses, HUD overlays, cyberpunk purple-blue glow, floating chips, real dashboards, real terminal output."
+}
