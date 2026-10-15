@@ -1,0 +1,60 @@
+{
+  "article_title": "MongoDB Agent Skills：8 个技能与安装变更",
+  "cover_type": "release",
+  "core_theme": "MongoDB 官方 Agent Skills 纠正 AI agent 把关系型表设计直接翻译成 MongoDB 语法的惯性，同时用渐进加载把闲置上下文成本压到很低。",
+  "reader_takeaway": "agent 默认会照搬关系型建模思路，8 个官方技能能纠正它，并且只在需要时才占用上下文。",
+  "summary_angle": "左侧是被照搬的关系型表格网格，右侧是被重绘成的嵌套文档卡片；8 个官方技能按需介入，闲置时只占约 1.1% 的上下文。",
+  "narrative_flow": "before-after",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "原文 Training Data? 一节：AI 给出 Orders / Customers / OrderItems 三集合加 $lookup，本质是张 SQL Server 表设计换了 MongoDB 语法",
+      "visual_idea": "画面左侧是僵硬的三联表格网格，线条呆板、颜色发灰，作为被覆盖的旧结构后退到背景里",
+      "visible_label": "关系型惯性",
+      "numeric_fact": ""
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "官方仓库 skills/ 目录下的 8 个技能文件夹（含原文未覆盖的 mongodb-qe-size-estimation）",
+      "visual_idea": "右侧沿墙面排布 8 个小技能贴片，其中只有 1 个被拉出并点亮，其余保持暗淡，表达按需激活",
+      "visible_label": "8 个技能",
+      "numeric_fact": "8"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文 What does it cost you in terms of context? 的上下文占用表：闲置描述 4,204 字符，占总量 1.1%",
+      "visual_idea": "主体结构上贴一枚小计量标签，与旁边厚重的一叠参考文件形成体量对比",
+      "visible_label": "按需加载",
+      "numeric_fact": "1.1%"
+    }
+  ],
+  "main_metaphor": "街头涂鸦者在一面数据库水泥墙上喷漆，把僵硬的表格网格覆盖重绘成嵌套的文档卡片堆。",
+  "primary_subject": "一只握着喷漆罐的手正在重绘墙面，主焦点是它刚刚画出的一叠嵌套文档卡片",
+  "subject_action": "正在把左侧的表格网格覆盖改写成右侧的文档结构，笔画停留在转折处",
+  "composition": "居中主物体，左侧残留表格网格后退，右侧 8 个技能贴片沿墙排布",
+  "base_style": "product-poster style illustration",
+  "selected_style": "涂鸦街头风",
+  "selected_style_prompt_descriptor": "street-graffiti comic style, spray-paint texture, bold outlines, urban wall energy, vivid but controlled color clashes",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；原文的核心动作就是「覆盖掉旧的建模习惯」，涂鸦的覆盖重绘正好对应这层含义",
+  "style_safety_note": "该风格名是泛类型描述，不指向任何品牌、工作室或在世艺术家；最终 prompt 只使用喷漆质感、粗轮廓、街头墙面等泛化描述",
+  "allowed_visible_text": ["关系型惯性", "8 个技能", "按需加载"],
+  "color_palette": ["水泥灰", "鲜绿", "暖橙品红", "米白"],
+  "avoid": [
+    "漂浮芯片",
+    "代码雨",
+    "霓虹高楼背景",
+    "通用机器人站姿",
+    "赛博朋克紫蓝光污染",
+    "巨量 HUD 浮层",
+    "真实 MongoDB logo 复刻",
+    "海报主标题"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮验证 before-after 反差是否成立：左侧关系型网格、右侧文档卡片堆、8 个技能贴片是否一眼可读",
+  "revision_targets": [
+    "显眼的关系型网格是否过于抢戏，压过文档卡片主焦点",
+    "8 个技能贴片是否被简化成无意义装饰",
+    "中文短标签是否清晰可读而不是糊成涂鸦噪声"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: MongoDB's official Agent Skills correcting the habit of AI coding agents that translate relational table designs straight into MongoDB syntax. The reader should quickly feel that agents default to relational thinking, and that eight officially authored skills correct it while loading only on demand.\n\nSummary angle: the left side shows a rigid relational table grid being spray-painted over, and the right side shows the resulting stack of nested document cards; eight official skills step in on demand, and while idle they cost only a tiny share of the context.\nNarrative flow: before-after. In a 2.35:1 frame, keep one dominant focal subject and 3 supporting narrative beats. Each beat must map to the article's information blocks rather than generic decoration.\nInformation blocks:\n- problem: an AI agent copies a rigid three-table relational grid instead of modeling documents. Visible label: 关系型惯性\n- mechanism: eight official MongoDB agent skills drawn as small wall tags, with only one pulled out and glowing. Visible label: 8 个技能, including the number 8\n- takeaway: the skills load only when a task matches, so the idle cost stays tiny. Visible label: 按需加载\n\nMain metaphor: a street artist spray-painting over a rigid relational table grid on a concrete database wall, repainting it into stacked nested document cards.\nSubject: a hand holding a spray can mid-stroke, repainting the wall. The dominant focal object is the stack of nested document cards it has just drawn.\nComposition/framing: one dominant focal subject slightly left of center; the faded relational grid recedes toward the left edge; eight small skill tags are arranged along the right. Prefer horizontal storytelling that stays legible in a wide cover.\nStyle/medium: combine product-poster style illustration with the selected visual style descriptor: street-graffiti comic style, spray-paint texture, bold outlines, urban wall energy, vivid but controlled color clashes. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: concrete grey base, vivid green, one warm orange-magenta spray accent, off-white highlights.\nVisible text policy: allow only 3 short Chinese labels sourced from the information blocks, plus the number 8: 关系型惯性, 8 个技能, 按需加载. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names. Do not reproduce any real company logo.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: floating microchips, code rain, neon skyscrapers, generic robot poses, cyberpunk purple-blue glow, heavy HUD overlays, real MongoDB logo replication, poster headline text."
+}
