@@ -1,0 +1,59 @@
+{
+  "article_title": "C# 人的审批：Vercel Eve 暂停与恢复",
+  "cover_type": "architecture",
+  "core_theme": "在 C# 里给 AI agent 做人机审批边界：区分待批请求的分类、人的选择提交、和服务端权威判定的结算结果",
+  "reader_takeaway": "读完之后能理解为什么一次「批准」点击要拆成三层，并且知道服务端的最终 resolution 才是可信事实",
+  "summary_angle": "把「agent 暂停等审批 -> 人选中那一条请求 -> 服务端结算并恢复」做成一条正在检查的闸门流程，强调中间那一下点击本身不代表授权",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "mechanism",
+      "source_anchor": "原文 What Human-in-the-Loop AI Agents Actually Wait For：Eve 在 input.requested 之后把工作停在 session.waiting",
+      "visual_idea": "左侧一个正在运行的 agent 实体沿着轨道前进，被一道闸门拦住，闸门上方停着一个待处理的任务卡片",
+      "visible_label": "暂停",
+      "numeric_fact": "1"
+    },
+    {
+      "role": "step",
+      "source_anchor": "原文 Select the Requested Approval, Never the First Prompt：先按框架 kind 分类，再选中人真正审阅过的那一条请求",
+      "visual_idea": "中央三个并列的请求卡片，只有一张被人手选中并抽出，另外两张保持未选中状态",
+      "visible_label": "选中",
+      "numeric_fact": "2"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文 Resume with Responses Only, Then Read What Settled：服务端权威 resolution 才是被接受的事实，提交本身不算批准",
+      "visual_idea": "闸门右侧一个权威结算单元吐出结果凭证，只有凭证才让 agent 继续前进，未结算路径上是空的",
+      "visible_label": "结算",
+      "numeric_fact": "3"
+    }
+  ],
+  "main_metaphor": "一道需要人工放行的检查闸门：agent 停在门外，人只递上一张被审阅过的请求卡，真正的放行凭证由门后的权威结算单元发出",
+  "primary_subject": "一个悬浮的检查闸门装置，闸门两侧分别是等待中的 agent 和权威结算单元",
+  "subject_action": "闸门正被一只人手选中中央请求卡并递入，等待门后单元发出结算凭证",
+  "composition": "等距空间",
+  "base_style": "isometric conceptual systems scene",
+  "selected_style": "国漫二次元风",
+  "selected_style_prompt_descriptor": "contemporary Chinese anime-comic illustration, crisp linework, ornate but controlled details, vibrant fantasy-tech color accents",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["暂停", "选中", "结算"],
+  "color_palette": ["冷青", "暖金", "深靛蓝"],
+  "avoid": [
+    "漂浮芯片",
+    "无意义代码雨",
+    "霓虹高楼背景",
+    "通用机器人站姿",
+    "赛博朋克紫蓝光污染",
+    "巨量 HUD 浮层",
+    "对话气泡"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮验证等距闸门构图是否清楚，三个信息块是否各自可读且不互相干扰",
+  "revision_targets": [
+    "闸门主体是否成为唯一焦点",
+    "三张请求卡的选中关系是否一眼可读",
+    "是否出现多余的英文标签或伪造界面元素"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: building a human-in-the-loop approval boundary for AI agents in C#, separating how a pending request is classified, how a person's selection is submitted, and how the server authoritatively settles it. The reader should quickly feel that one approve click is not the same thing as authorization.\n\nSummary angle: show the pause-and-resume turn as a checkpoint gate - the agent halts, a human selects exactly one reviewed request card, and only the authoritative settlement unit behind the gate issues the pass.\nNarrative flow: 3-beat process. In a 2.35:1 frame, keep one dominant focal subject and 3 supporting narrative beats. Each beat must map to the article's information blocks rather than generic decoration.\nInformation blocks:\n- mechanism (label 暂停, chip 1): a bounded agent entity advances along a track and is halted by a checkpoint gate; one pending task card floats above the gate, implying a session waiting for human input.\n- step (label 选中, chip 2): three parallel request cards sit in a row; a human hand picks exactly one reviewed card and slides it forward while the other two stay dimmed and untouched.\n- takeaway (label 结算, chip 3): behind the gate an authoritative settlement unit emits a single result token; only that token opens the gate, while the un-settled path stays visibly empty.\n\nMain metaphor: a manned checkpoint gate - the agent waits outside, the human only hands over one reviewed request card, and the actual pass token is issued by the authority behind the door.\nSubject: a floating isometric checkpoint gate assembly, with the waiting agent on one side and the authoritative settlement unit on the other.\nComposition/framing: isometric space, layered depth, horizontal storytelling from left (waiting) through center (human selection) to right (authoritative settlement). Keep it legible in a wide cover.\nStyle/medium: combine isometric conceptual systems scene with the selected visual style descriptor: contemporary Chinese anime-comic illustration, crisp linework, ornate but controlled details, vibrant fantasy-tech color accents. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: cool cyan, warm gold, deep indigo; keep accents controlled and avoid neon purple-blue glow pollution.\nVisible text policy: allow only three short Chinese labels 暂停, 选中, 结算 plus the number chips 1, 2, 3 - all sourced from the information blocks. Each label is at most two Chinese characters. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter, no speech bubbles.\nAvoid: floating chips, meaningless code rain, neon skyline background, generic standing robot pose, cyberpunk purple-blue light pollution, massive HUD overlays, speech bubbles."
+}
