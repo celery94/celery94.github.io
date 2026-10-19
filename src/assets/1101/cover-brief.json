@@ -1,0 +1,57 @@
+{
+  "article_title": "MongoDB in C#：连接、映射与读取文档",
+  "cover_type": "tutorial",
+  "core_theme": "MongoDB 在 C# 里的难点不是 API 数量，而是四层各自的职责：客户端生命周期与归属、BSON 映射契约、读取结果的形状、以及索引与验证证据；每一层只证明自己能证明的东西。",
+  "reader_takeaway": "读者能把「DI 解析成功但第一次查询失败」这类问题按层分类，并写对客户端归属、class map 注册、projection/sort/limit 与分层验证。",
+  "summary_angle": "把四层画成一张手绘结构草图：一个客户端方块被多处借用、一张文档卡片把 CLR 名称连到 BSON 名称、一个漏斗把宽结果收窄成几条。",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "mechanism",
+      "source_anchor": "原文：MongoClient 用 singleton，但生命周期与归属要分开；Dispose 只把 cluster 交还给 cluster source，销毁要调用 ClusterRegistry.UnregisterAndDisposeCluster",
+      "visual_idea": "草图左侧一个方块代表客户端，有三条短线从它引出，分别连到三个小处理器方块，表示借用关系",
+      "visible_label": "客户端归谁"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文：不可变 record 需要显式创建路径；MapCreator 与 SetElementName 把构造函数和持久化字段名变成可见契约",
+      "visual_idea": "草图中央一张文档卡片，左侧一个方框与右侧若干字段方框用铅笔连线对应，表示名称映射",
+      "visible_label": "映射即契约"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文：filter 决定匹配、projection 决定返回字段、sort 决定顺序、limit 决定条数（0 表示不限制），四者不能混为一谈",
+      "visual_idea": "草图右侧一个漏斗，上方许多小点经过漏斗后只剩三四个小点落在下方纸面上",
+      "visible_label": "查询要收窄"
+    }
+  ],
+  "main_metaphor": "一张铅笔草图把 MongoDB 数据访问的四层拆开：客户端是唯一持有者，文档卡片把两个世界的名字连起来，漏斗只放行需要的字段和条数。",
+  "primary_subject": "一张横跨画面的手绘技术草图，画着客户端方块、文档映射卡片和收窄漏斗",
+  "subject_action": "草图从左侧的客户端方块向右推进，中间是带连线的文档卡片，右侧是漏斗把大量小点收成几个小点",
+  "composition": "斜向推进：左侧客户端方块 → 中央映射卡片 → 右侧漏斗，2.35:1 宽幅内保持一个主焦点",
+  "base_style": "editorial technical illustration",
+  "selected_style": "手绘铅笔草稿风",
+  "selected_style_prompt_descriptor": "hand-drawn pencil sketch look, visible construction lines, graphite texture, loose but intentional composition",
+  "selected_style_reason": "用户未指定风格，本篇从 40 项风格池随机选中；铅笔草稿的构造线天然适合画「分层拆解」的结构说明",
+  "style_safety_note": "清单风格为泛技法描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["客户端归谁", "映射即契约", "查询要收窄"],
+  "color_palette": ["石墨灰", "纸白", "淡赭黄", "一点砖红"],
+  "avoid": [
+    "真实数据库界面截图",
+    "终端窗口",
+    "仪表盘",
+    "伪造查询语句文字",
+    "英文口号",
+    "霓虹紫蓝",
+    "机器人",
+    "装饰性杂物"
+  ],
+  "reference_strategy": "纯文本生成（第一轮草图后按简化背景与锐化标签的定向重生 prompt 出终稿）",
+  "draft_goal": "验证三拍草图叙事：客户端方块与借用线、映射卡片连线、漏斗收窄，三个中文标签可读",
+  "revision_targets": [
+    "三个区块是否一眼可懂",
+    "铅笔构造线是否清楚而不过度杂乱",
+    "标签是否贴合对应物件"
+  ],
+  "final_prompt": "Wide cover infographic illustration, aspect ratio 2.35:1, hand-drawn pencil sketch look, visible construction lines, graphite texture, loose but intentional composition, warm cream paper.\nChinese tech blog cover about using MongoDB from C#.\nThree-beat structure, left to right, one dominant focal subject: a single large square box on the left (the client) with three short curved lines that borrow out to three small rounded handler boxes with gear marks; in the center a slightly tilted document card where a left column of short ruled lines connects by thin pencil leaders to a right column of small filled field boxes, showing two names being tied together; at the right a wide funnel that receives many small dots from above and releases only four dots onto a small sheet of paper below.\nStyle: editorial technical illustration in graphite pencil with restrained umber and soft ochre wash, faint construction and hatching lines, generous margins, nothing else on the page.\nVisible text policy: allow only these three short Chinese labels, exactly and clearly legible, each on a light wash patch — 「客户端归谁」above the client box, 「映射即契约」above the document card, 「查询要收窄」above the funnel. No poster title, no long sentences, no English words or field names, no English slogans, no fake UI labels, no fake query text, no fake chart axes, no numbers except none.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams of real systems, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter, no robots, no neon colors, no green leaf logos, no extra props, no coffee cup, no plants.\nKeep the background clean paper with light pencil hatching only at the edges. Sharpen the three labels and keep all three objects clearly separated."
+}
