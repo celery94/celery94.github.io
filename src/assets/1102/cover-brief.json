@@ -1,0 +1,70 @@
+{
+  "article_title": "MAUI 应用适配 Xcode 27 的场景生命周期",
+  "cover_type": "tutorial",
+  "core_theme": "用 Xcode 27 构建的 .NET MAUI iOS 应用闪屏后退出，需要补上 UIKit 场景生命周期并把自定义回调迁移过去",
+  "reader_takeaway": "知道要改哪两个文件、哪些回调必须换道，以及怎样验证迁移真的成功",
+  "summary_angle": "闪屏后消失不是崩溃，而是缺一张场景清单；补上两个文件让应用重新站起来，再把自定义回调搬到场景事件上",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "原文开头：应用构建成功、显示闪屏后消失，设备日志为 UIScene life cycle is required for apps built with this SDK.",
+      "visual_idea": "一台手机的屏幕刚刚暗下去，屏幕边缘还留着一圈将熄的柔光，旁边悬浮一个小小的警示三角作为问题标记",
+      "visible_label": "闪屏后退出",
+      "numeric_fact": "27"
+    },
+    {
+      "role": "step",
+      "source_anchor": "原文 Add the scene delegate 与 Add the scene manifest 两节：新增 SceneDelegate.cs 并补 UIApplicationSceneManifest",
+      "visual_idea": "一张小卡片被插进手机的侧边插槽，卡片上有简单的段落线条，代表 plist 清单",
+      "visible_label": "补两个文件"
+    },
+    {
+      "role": "step",
+      "source_anchor": "原文 Check any custom app behavior：应用级回调不再被调用，需要映射到 Scene 事件并调用 base 实现",
+      "visual_idea": "几根细细的箭头从旧轨道弯过去接上新轨道，轨道上各有一个小圆点",
+      "visible_label": "回调换道"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文 Rebuild and try it：重新构建 iOS 目标并在 iOS 27 上验证冷启动、前后台、登录、链接与快捷指令",
+      "visual_idea": "右下角一张短清单纸，前三行已经打上勾，最后一行空着等待验证",
+      "visible_label": "跑一遍"
+    }
+  ],
+  "main_metaphor": "给一台被拒之门外的手机补一张入场清单，再把旧线路接到新线路上",
+  "primary_subject": "一台竖立的手机与它侧边插入的清单卡片",
+  "subject_action": "手机屏幕正在熄灭，一张清单卡片刚好被推进侧边插槽，让屏幕重新亮起",
+  "composition": "斜向推进，手机作为单点主焦点偏左，清单与箭头向右上延展",
+  "base_style": "editorial technical illustration",
+  "selected_style": "彩铅绘本风",
+  "selected_style_prompt_descriptor": "colored-pencil picture-book illustration, tactile strokes, gentle palette, warm narrative objects, soft educational tone",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；迁移步骤适合用温和、可亲近的绘本质感表达，避免把排错场景画得过于紧张",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": [
+    "闪屏后退出",
+    "补两个文件",
+    "回调换道",
+    "跑一遍",
+    "27"
+  ],
+  "color_palette": ["暖米白", "柔和的钴蓝", "低饱和珊瑚橙", "石墨灰"],
+  "avoid": [
+    "漂浮芯片",
+    "无意义代码雨",
+    "霓虹高楼背景",
+    "通用机器人站姿",
+    "HUD 浮层",
+    "真实产品截图",
+    "仪表盘",
+    "海报标题"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "先验证闪屏熄灭的手机、插入的清单、换道的箭头这三个叙事节点能否在一张宽图里读清楚",
+  "revision_targets": [
+    "手机与卡片的空间关系是否成立",
+    "箭头是否清楚表达换道而不是装饰",
+    "标签数量是否控制在四个以内且不压住主体"
+  ],
+  "final_prompt": "Wide cover infographic illustration, 2.35:1, colored-pencil picture-book illustration with tactile strokes, warm cream paper palette, soft cobalt blue, muted coral orange, graphite grey, combined with clean editorial technical illustration. Scene: one upright smartphone on the left as the single focal subject, screen lit with a soft splash glow; a small paper checklist card sliding into a slot on the phone's right side; several thin blue arrows curving from an old track onto a newly laid track heading to the upper right; a short checklist sheet at the lower right with three lines ticked and the last line left empty. Exactly three small handwritten Chinese labels on paper tags: 闪屏后退出 above the phone, 补两个文件 on the inserted card, 回调换道 on the track junction. One small number chip 27 near the phone. Nothing else written anywhere: no title, no extra labels, no repeated words, no English words, no fake UI text. Clean uncluttered composition, generous negative space, no potted plant, no books, no stationery props, no decorative clutter. No watermark, no screenshots, no dashboards, no charts, no floating chips, no code rain, no neon city, no robots."
+}
