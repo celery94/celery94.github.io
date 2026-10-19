@@ -1,0 +1,62 @@
+{
+  "article_title": "别再存两个日期：.NET 区间类型建模",
+  "cover_type": "architecture",
+  "core_theme": "用五种区间形状替代两个孤立日期字段，让领域逻辑和 PostgreSQL range 查询共享同一套语义",
+  "reader_takeaway": "理解区间建模的边界，并能判断何时引入 CodoMetis.ValueRanges 与 PostgreSQL 排他约束",
+  "summary_angle": "从两个日期字段造成的边界混乱，收束到五种区间形状，再连接到内存与 SQL 的一致语义",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "The Two-Column Trap：两个裸日期字段缺少边界语义",
+      "visual_idea": "两张略微错开的日期卡片，中间出现一个不稳定的缝隙",
+      "visible_label": "两个日期",
+      "numeric_fact": "2"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "五种区间形状：Finite、UnboundedStart、UnboundedEnd、Infinity、EmptyRange",
+      "visual_idea": "五块区间形状在等距空间中排列：四块彩色积木加一块空槽",
+      "visible_label": "五种形状",
+      "numeric_fact": "5"
+    },
+    {
+      "role": "evidence",
+      "source_anchor": "领域层内存运算与 EF Core / PostgreSQL 查询使用同一套区间语义",
+      "visual_idea": "两条平行的区间轨道在中央对齐，并由一座窄桥连接",
+      "visible_label": "同一语义",
+      "numeric_fact": ""
+    }
+  ],
+  "main_metaphor": "把分散的日期卡片整理成一套可拼接的区间积木",
+  "primary_subject": "五块半透明区间积木，其中两块在边界处重叠",
+  "subject_action": "从两张散落的日期卡片中拼合并归一",
+  "composition": "等距空间中的左右推进，中央主焦点，保留宽幅留白",
+  "base_style": "isometric conceptual systems scene",
+  "selected_style": "日漫少女风",
+  "selected_style_prompt_descriptor": "soft shojo-inspired manga look, elegant linework, expressive faces, gentle decorative details, luminous pastel accents",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；柔和的线条适合把抽象区间画成可拼接的积木",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["两个日期", "五种形状", "同一语义"],
+  "color_palette": ["teal", "warm coral", "cream", "ink charcoal"],
+  "avoid": [
+    "poster title",
+    "long text",
+    "fake UI",
+    "dashboard",
+    "fake chart axes",
+    "watermark",
+    "code rain",
+    "robot",
+    "neon skyline",
+    "decorative clutter"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证两个日期的问题、五种区间形状和内存与 SQL 的对照关系",
+  "revision_targets": [
+    "让五块区间积木的轮廓更清楚",
+    "减少人物化装饰",
+    "保持宽幅构图和少量标签"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: replacing two loose date fields with five typed interval shapes that behave the same way in memory and in PostgreSQL. The reader should quickly feel how interval modeling removes boundary ambiguity.\n\nSummary angle: from the confusion of two date cards, collapse the messy edges into five readable interval shapes, then connect the same interval logic to an in-memory track and a SQL track.\nNarrative flow: 3-beat process. In a 2.35:1 frame, keep one dominant focal subject and three supporting narrative beats. Each beat must map to the article's information blocks rather than generic decoration.\nInformation blocks:\n- Problem: two slightly offset date cards with an unstable gap between them, visible label 两个日期, numeric chip 2.\n- Mechanism: exactly five interval shapes total, four colored interval blocks plus one empty dashed slot, arranged in an isometric conceptual systems scene, visible label 五种形状, numeric chip 5.\n- Evidence: two parallel interval rails align in the center and connect by a narrow bridge, visible label 同一语义.\n\nMain metaphor: scattered date cards assembled into a set of modular interval blocks.\nSubject: exactly five interval shapes, four colored blocks and one empty slot, with two blocks touching at a boundary, being assembled from two date cards.\nComposition/framing: isometric space, left-to-right progression, one strong central focal subject, generous negative space for a wide cover.\nStyle/medium: combine isometric conceptual systems scene with the selected visual style descriptor: soft shojo-inspired manga look, elegant linework, expressive faces, gentle decorative details, luminous pastel accents. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: teal, warm coral, cream, ink charcoal; restrained pastel highlights.\nVisible text policy: allow only 1-3 short Chinese labels or number chips, sourced from the information blocks: 两个日期, 五种形状, 同一语义, plus optional numeric chips 2 and 5. Each label <= 6 Chinese characters. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: poster title, long text, fake UI, dashboard, fake chart axes, watermark, code rain, robot, neon skyline, decorative clutter."
+}
