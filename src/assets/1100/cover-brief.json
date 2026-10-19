@@ -1,0 +1,58 @@
+{
+  "article_title": "给 Claude Code 写对 .NET 仓库上下文",
+  "cover_type": "tutorial",
+  "core_theme": "给 Claude Code 的 .NET 仓库上下文不是复述仓库，而是三件事：让 agent 去读权威证据（解决方案入口、SDK、中央包管理）、把规则按路径收窄到对应代码、把验证边界和权限护栏说清楚；上下文只影响行为，不构成强制约束。",
+  "reader_takeaway": "读者能写出一份只指向证据的根 CLAUDE.md、一到两条 path-scoped rule，并把「必须拦住」的动作交给权限规则或 PreToolUse hook。",
+  "summary_angle": "把仓库上下文画成一张手绘地图：箭头只指向真正的权威文件（版本只在一处）、规则按区域收窄、最后一枚印章盖出可审查的验证边界。",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "evidence",
+      "source_anchor": "原文：中央包管理下 PackageReference 不带 Version 是正确的；agent 不看归属就会为了「示例完整」补一个冲突版本，指令应让它先读 Directory.Packages.props 与 global.json",
+      "visual_idea": "地图左侧：几个小方块（项目）用虚线箭头指向一本合起的小册子，表示版本只在那本册子里",
+      "visible_label": "只写证据"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文：指令是拼接而非覆盖；.claude/rules/ 的 paths frontmatter 让规则只在匹配文件被访问时加载",
+      "visual_idea": "地图中央：纸张被分成几个不规则区域，其中一个区域被半透明水彩高亮，只有该区域的箭头连通",
+      "visible_label": "按路径收窄"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文验证政策：构建与测试只在约定的验证环境执行，汇报需包含 commit、命令、结果和未覆盖范围，不得声称未执行的示例通过",
+      "visual_idea": "地图右侧：一张短横线报告被一枚红色印章压下，印章周围有几滴水彩晕开",
+      "visible_label": "验证边界"
+    }
+  ],
+  "main_metaphor": "仓库上下文是一张手绘地图：箭头必须落在真实文件上，区域划分让规则各管一段，最后用印章确认哪些结论真有证据。",
+  "primary_subject": "一张摊开在木桌上的手绘仓库地图，画着分区色块与指向真实文件的虚线箭头",
+  "subject_action": "地图左下的方框指向一本小册子，中央的一个区域被水彩高亮，右上有一枚红色印章压在短横线报告上",
+  "composition": "单点聚焦于桌面地图，阅读顺序从左下证据箭头斜向推进到右上印章",
+  "base_style": "editorial technical illustration",
+  "selected_style": "水彩漫画风",
+  "selected_style_prompt_descriptor": "watercolor comic illustration, translucent washes, visible paper texture, soft edges, light ink structure",
+  "selected_style_reason": "用户未指定风格，本篇从 40 项风格池随机选中；水彩的半透明分区适合表达「规则按区域加载」这种分层关系",
+  "style_safety_note": "清单风格为泛技法描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["只写证据", "按路径收窄", "验证边界"],
+  "color_palette": ["暖米纸色", "墨蓝", "砖红", "灰绿"],
+  "avoid": [
+    "机器人站姿",
+    "终端窗口截图",
+    "真实 IDE 界面",
+    "伪代码行",
+    "仪表盘",
+    "霓虹紫蓝",
+    "英文口号",
+    "时钟",
+    "装饰性杂物"
+  ],
+  "reference_strategy": "纯文本生成（第一轮草图后按去杂物的定向重生 prompt 出终稿）",
+  "draft_goal": "验证三拍地图叙事：版本箭头指向册子、单区域水彩高亮、印章压报告，三个中文标签可读",
+  "revision_targets": [
+    "地图分区是否一眼可读",
+    "箭头是否指向具体物件而不是漂浮",
+    "标签是否不抢主体"
+  ],
+  "final_prompt": "Wide cover infographic illustration, aspect ratio 2.35:1, watercolor comic illustration, translucent washes, visible paper texture, soft edges, light ink structure. Chinese tech blog cover about giving Claude Code the right repository context for a .NET solution.\nTheme: 仓库上下文不是复述仓库，而是让 agent 去读权威证据、把规则按路径收窄、并把验证边界说清楚。\nSummary angle: 一份仓库上下文就是一张手绘地图：箭头只指向真正的权威文件，规则按区域收窄，最后用印章确认哪些结论真有证据。\nNarrative flow: 3-beat process, one dominant focal subject (the large unfolded hand-drawn map) plus three supporting beats, readable left to right and lower-left to upper-right.\nInformation blocks: (1) evidence — on the left of the map, five small square tiles (project, SDK, package, config, folder icons) connect by dashed ink arrows to one closed small booklet with a map symbol on its cover, label 「只写证据」; (2) mechanism — the center of the map is divided into four irregular watercolor regions, exactly one of them lit with warm yellow wash and connected onward by an arrow, label 「按路径收窄」; (3) takeaway — at the right, a page with only short horizontal rule lines is pressed by a round red approval stamp, label 「验证边界」.\nStyle: editorial technical illustration in watercolor, generous warm cream paper, ink outlines, restrained washes. Stylized, polished, editorial, clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: 暖米纸色、墨蓝、砖红、灰绿.\nComposition: the large unfolded map fills the frame on a plain wooden desk; keep the wooden surface and background simple, only the map, the booklet, the report page and the stamp. No extra props, no plant, no books, no cup, no other objects.\nVisible text policy: allow only these three short Chinese labels, exactly and clearly legible — 「只写证据」, 「按路径收窄」, 「验证边界」. No poster title, no long sentences, no English slogans, no fake UI labels, no fake file name captions, no fake chart axes, no fake code lines.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid 机器人站姿、终端窗口截图、真实 IDE 界面、伪代码行、仪表盘、霓虹紫蓝、英文口号、时钟、装饰性杂物、盆栽、茶杯、堆叠书本。"
+}
