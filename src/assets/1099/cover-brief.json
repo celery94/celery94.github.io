@@ -1,0 +1,58 @@
+{
+  "article_title": "新工程经理的时间管理：先定义角色，再排日历",
+  "cover_type": "analysis",
+  "core_theme": "新工程经理的时间困境不是日历技巧问题，而是角色定义与容量核算问题：人员支持本身就是管理工作，打断应按后果而非到达顺序处理，装不下的工作量要用具体取舍向上沟通，并修复反复出现的模式。",
+  "reader_takeaway": "读者能看懂「我很忙」背后缺的是三件事：一周时间账本、打断的后果判断、以及把超载部分摆上桌面的三列取舍提案。",
+  "summary_angle": "把一团没有形状的忙碌摊开到桌面上：先切成可数的块（账本），再判断哪块需要现在处理（打断），最后把装不下的那块推成三列对照去谈。",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "原文：管理的工作会被别人的需求切碎，一天结束不知道做了什么；人员支持不是重要任务之后的余暇，它就是管理的一部分",
+      "visual_idea": "一条被切出许多不整齐碎片的时间长条，其中最大的碎片上有一对正在交谈的人物剪影",
+      "visible_label": "支持算工时"
+    },
+    {
+      "role": "step",
+      "source_anchor": "原文五类时间账本：人员支持、协调、技术参与、反应式工作、思考与学习，用来区分属于岗位的工作和因为环节不正常才产生的工作",
+      "visual_idea": "桌面上摊开的一本手绘账本，内页是五个彩色横向格子，没有可读文字",
+      "visible_label": "一周账本"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文三列对照：当前期望 / 新增需求 / 需要讨论的选择，把维持现状的成本对能做决定的人变得可见",
+      "visual_idea": "三张并排立在桌面上的卡片，被一只手推向画面右侧，形成待讨论的队列",
+      "visible_label": "三列取舍"
+    }
+  ],
+  "main_metaphor": "把无形状的忙碌摊到桌面上：碎成片的时间先被记成账本，再被分级处理，最后把超载的一块变成可以推上桌的三张卡片。",
+  "primary_subject": "一条被切成碎片的彩色时间长条，横跨木质桌面并压在摊开的账本上",
+  "subject_action": "碎片从画面左下向右侧散开，最大的碎片上是一对交谈的人物剪影，右侧有一只手把三张卡片推向桌沿",
+  "composition": "斜向推进：左下碎片时间条推进到中央账本，再到右上三张卡片，保持一个主焦点",
+  "base_style": "conceptual editorial illustration",
+  "selected_style": "90年代复古动画风",
+  "selected_style_prompt_descriptor": "1990s retro animation look, cel-shaded color, analog grain, bold simple backgrounds, nostalgic broadcast texture",
+  "selected_style_reason": "用户未指定风格，本篇从 40 项风格池随机选中；复古动画的扁平色块与清晰轮廓适合把「切成块」的抽象叙事讲得可读",
+  "style_safety_note": "清单风格为泛年代与技法描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["支持算工时", "一周账本", "三列取舍"],
+  "color_palette": ["暖米色", "砖红", "青绿", "深棕"],
+  "avoid": [
+    "时钟堆叠",
+    "沙漏",
+    "真实日历或待办应用截图",
+    "仪表盘",
+    "霓虹紫蓝",
+    "机器人",
+    "英文口号",
+    "伪图表坐标轴",
+    "装饰性杂物"
+  ],
+  "reference_strategy": "纯文本生成（第一轮草图后按简化为纯文本的定向重生 prompt 出终稿）",
+  "draft_goal": "验证三拍叙事是否成立：切碎的时间条、摊开的账本、被推上桌的三张卡片，以及三个标签是否清楚可读",
+  "revision_targets": [
+    "时间条碎片是否一眼看出被切碎",
+    "账本与三张卡片的关系是否清楚",
+    "三个中文标签是否可读且不抢主体"
+  ],
+  "final_prompt": "Wide cover infographic illustration, aspect ratio 2.35:1, 1990s retro animation look, cel-shaded flat color, analog grain, bold simple backgrounds, nostalgic broadcast texture. Chinese tech blog article cover about time management for new engineering managers.\nTheme: 新工程经理的时间困境不是日历技巧，而是角色定义与容量核算：人员支持本身就是管理工作，打断要按后果而非到达顺序处理，装不下的工作量要用具体取舍向上沟通。\nSummary angle: 把一团没有形状的忙碌摊到桌面上——先切成可数的块（一周账本），再判断哪块需要现在处理（打断），最后把装不下的那块推成三列对照去谈。\nNarrative flow: 3-beat process, diagonal progression from lower left to upper right, one dominant focal subject and three supporting beats in a wide 2.35:1 frame.\nScene: a warm wooden desk, plain cream wall edge behind, calm and uncluttered. One continuous long colored time strip lies across the desk, sliced into irregular segments like a strip of film cut apart; the largest segment shows a silhouette of two people in conversation. The strip continues over an open hand-drawn ledger whose pages show five horizontal color blocks with no readable text. At the right, a hand pushes three upright cards standing side by side toward the edge of the desk, each card carrying only short plain horizontal text lines.\nStyle/medium: conceptual editorial illustration. Stylized, polished, editorial, visually strong, clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: 暖米色、砖红、青绿、深棕, flat color blocks, restrained retro grain.\nVisible text policy: allow only these three short Chinese labels, exactly and clearly legible — 「支持算工时」near the largest slice, 「一周账本」on the open ledger, 「三列取舍」above the three cards. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid 时钟堆叠、沙漏、真实日历或待办应用截图、仪表盘、霓虹紫蓝、机器人、英文口号、伪图表坐标轴、装饰性杂物。"
+}
