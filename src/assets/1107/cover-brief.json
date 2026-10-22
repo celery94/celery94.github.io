@@ -1,0 +1,63 @@
+{
+  "article_title": "带 coding agent：先分清卡在哪，再决定给什么",
+  "cover_type": "analysis",
+  "core_theme": "把 coding agent 当初级开发者来带：先看证据分清它是目标歧义、上下文缺失还是假设错了，再决定给定位、给答案还是给示例，最后要它自己交出可验证的结果，并把判断沉淀成规则或测试。",
+  "reader_takeaway": "理解带 agent 的关键不是替它改代码，而是给它判断依据和验证方式，最后把这次的判断沉淀成下次还会生效的东西。",
+  "summary_angle": "把「你搭脚手架、它砌墙」压成一张封面：人负责规则、图纸和验收，机械臂负责施工；判断留在脚手架里，墙才会自己长对。",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "第一步：分清它是哪一种卡住 —— 目标歧义、上下文缺失、假设错了这三类卡点，处理方式完全不同。",
+      "visual_idea": "同一面墙前分出三条不同的施工路径，只有一条被图纸正确标出。",
+      "visible_label": "三类卡点"
+    },
+    {
+      "role": "step",
+      "source_anchor": "第二步：决定给什么 —— 追问澄清、给定位、给答案、给示例，四种给法各有代价，示例会被过度泛化成模式。",
+      "visual_idea": "脚手架的四层高度，对应四种不同强度的辅助，越高的层越接近成品。",
+      "visible_label": "四种给法"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "什么算这次带成功了 —— agent 不跨会话记忆，判断必须沉淀成规则、测试或示例，否则每次重新犯同一个错。",
+      "visual_idea": "墙砌完后，图纸、标尺和留下的记号被收进一只文件匣，成为下一轮的依据。",
+      "visible_label": "沉淀下来"
+    }
+  ],
+  "main_metaphor": "你搭脚手架，它砌墙：脚手架、图纸和验收标尺由人负责，施工由机械臂完成，人的手不伸进墙体。",
+  "primary_subject": "低饱和画面里的一位工程师，在墙边铺开图纸并把标尺固定到脚手架上。",
+  "subject_action": "固定图纸与标尺、退后一步观察，不直接触碰正在砌的墙。",
+  "composition": "左右对照：左侧是图纸、标尺与四层脚手架，右侧是一只按图纸砌墙的机械臂，两者之间留出安静的空白。",
+  "base_style": "conceptual editorial illustration",
+  "selected_style": "低饱和文艺风",
+  "selected_style_prompt_descriptor": "low-saturation arthouse illustration, quiet composition, subtle grain, muted colors, reflective emotional tone",
+  "selected_style_reason": "用户未指定风格，本篇由 pick-cover-style.py 从风格池随机选中；低饱和的安静气质适合表达「退后一步、把判断写下来」这种克制的关系",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或在世艺术家复刻",
+  "allowed_visible_text": ["三类卡点", "四种给法", "沉淀下来"],
+  "color_palette": ["雾灰蓝", "旧纸米色", "低饱和砖红", "暗灰绿"],
+  "avoid": [
+    "漂浮芯片",
+    "无意义代码雨",
+    "霓虹高楼背景",
+    "通用机器人站姿",
+    "赛博朋克紫蓝光污染",
+    "巨量 HUD 浮层",
+    "长段说明文字",
+    "英文口号",
+    "海报主标题",
+    "水印",
+    "真实 UI 截图",
+    "仪表盘",
+    "伪造图表坐标轴",
+    "伪造指标数字"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮验证「人搭脚手架、机械臂砌墙」的分工是否一眼可读，以及三个中文短标签是否清晰。",
+  "revision_targets": [
+    "若人的手碰到墙体，改为手停在图纸与标尺上",
+    "若脚手架与墙的关系不清楚，加大脚手架层级与墙面的平行关系",
+    "若中文标签发糊或超过三个，减到一个主标签"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: 把 coding agent 当初级开发者来带，先分清它卡在哪一类，再决定给多少依据，最后让它自己交出可验证的结果。The reader should quickly feel 带 agent 不是替它改代码，而是搭好脚手架、写清验收，再让判断沉淀下来。\n\nSummary angle: 一张图讲清「你搭脚手架、它砌墙」，并让人记住判断要留在脚手架与图纸里，而不是留在人的手上。\nNarrative flow: 3-beat process. In a 2.35:1 frame, keep one dominant focal subject and 3 supporting narrative beats. Each beat must map to the article's information blocks rather than generic decoration.\nInformation blocks:\n- problem: 三类卡点（目标歧义、上下文缺失、假设错了），用同一面墙前三条不同施工路径、只有一条被图纸正确标出表达；visible label 三类卡点\n- step: 四种给法（追问澄清、给定位、给答案、给示例），用脚手架的四层高度、越高的层越接近成品表达；visible label 四种给法\n- takeaway: 判断沉淀成规则、测试、示例，用墙砌完后图纸、标尺与记号被收进一只文件匣表达；visible label 沉淀下来\n\nMain metaphor: 你搭脚手架，它砌墙。脚手架、图纸和验收标尺由工程师负责，施工由机械臂完成，人的手不伸进墙体。\nSubject: 一位穿工装的工程师在墙边铺开图纸，把标尺固定到脚手架上，随后退后一步观察。\nComposition/framing: 左右对照，左侧是图纸、标尺与四层脚手架，右侧是一只按图纸砌墙的机械臂，两者之间留出安静的空白。Prefer horizontal storytelling that stays legible in a wide cover.\nStyle/medium: combine conceptual editorial illustration with the selected visual style descriptor: low-saturation arthouse illustration, quiet composition, subtle grain, muted colors, reflective emotional tone. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: 雾灰蓝与旧纸米色为主调，低饱和砖红作为墙面主色，暗灰绿作点缀，整体低饱和、安静。\nVisible text policy: allow only 3 short Chinese labels, all sourced from the information blocks: 三类卡点 / 四种给法 / 沉淀下来. Each label <= 6 Chinese characters. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: 漂浮芯片, 无意义代码雨, 霓虹高楼背景, 通用机器人站姿, 赛博朋克紫蓝光污染, 巨量 HUD 浮层, 海报主标题, 英文口号, 长段说明文字。"
+}
