@@ -8,11 +8,11 @@ ogImage: "../../assets/1109/01-cover.jpg"
 source: "https://devblogs.microsoft.com/ifdef-windows/microsoft-ui-reactor-a-c-first-way-to-build-winui-apps/"
 ---
 
-同一个 WinUI 计数器，XAML 版至少要五个文件和一个 `.csproj`：窗口标记、code-behind、ViewModel、`App.xaml`，再加上 `App.xaml.cs` 完成引导。微软 10 月 21 日放出的实验性框架 Microsoft.UI.Reactor 把它写成一个 `counter.cs`，包引用和构建属性都在这个文件里，`winapp run counter.cs` 就能弹出真实的 WinUI 窗口。
+同一个 WinUI 计数器，XAML 版至少要五个文件和一个 `.csproj`：窗口标记、code-behind、ViewModel、`App.xaml`，再加上 `App.xaml.cs` 完成引导。微软在 10 月 21 日一篇长文里完整介绍的实验性框架 Microsoft.UI.Reactor 把它写成一个 `counter.cs`，包引用和构建属性都在这个文件里，`winapp run counter.cs` 就能弹出真实的 WinUI 窗口。
 
 核心结论先放在这里：**Reactor 把「状态到界面」这条链路从 XAML 绑定换成一个纯 C# 函数，底层控件没换。它值得现在花半小时验证，但还不值得押进交付计划——项目自己标着实验性，没有支持策略，也没有 API 保证。**
 
-原文标注这是系列第一部分（part 1 of 3），作者 Alexandre Zollinger Chohfi 在微软做开发者工具。
+原文标注这是系列第一部分（part 1 of 3）。作者 Alexandre Zollinger Chohfi 是微软的首席软件工程师，日常工作是给 Windows 开发者做 CLI、SDK 和 agent。
 
 ## 一个文件就是一个应用
 
@@ -57,9 +57,9 @@ class MyApp : Component
 winapp run counter.cs
 ```
 
-顶部那几行 `#:` 是 .NET 10 的 file-based app 能力：包引用和构建属性写在代码文件里，适合快速验证想法。`winapp run` 会编译这个文件，按 `#:property` 生成包清单，然后带着真实的包身份启动，而不是跑一个松散的 `.exe`。窗口打开后是真的 `TitleBar`、`TextBlock` 和两个 `Button`，`Count` 从 0 开始，加减都正常。
+顶部那几行 `#:` 是 .NET 10 的 file-based app 能力：包引用和构建属性写在代码文件里，适合快速验证想法。`winapp run` 会编译这个文件，按 `#:property` 生成包清单，再以打包应用的身份启动。窗口打开后是真的 `TitleBar`、`TextBlock` 和两个 `Button`，`Count` 从 0 开始，加减都正常。
 
-![Hello Reactor 窗口里的计数器：Count: 3，下面是减号按钮和蓝色加号按钮](../../assets/1109/02-counter.jpg)
+![Hello Reactor 窗口里的计数器：Count: 3，下面是减号按钮和蓝色加号按钮（截图来自原文）](../../assets/1109/02-counter.jpg)
 
 关键在于 `Render()` 的返回类型：`Element` 是一份不可变的界面描述，不是控件本身。点击按钮时 `setCount` 更新状态，Reactor 重新执行 `Render()`，把新描述和上一份做 diff，只把真正变化的属性打到下面真实的 WinUI 控件上。`UseState` 返回当前值和 setter，`VStack`、`HStack`、`Button` 这些工厂函数组合出描述树。
 
@@ -67,9 +67,9 @@ winapp run counter.cs
 
 ## MVU 和 MVVM 不是新旧关系
 
-XAML 应用通常走 MVVM：状态放在 ViewModel 上，ViewModel 通知变化，绑定把新值拉进控件。Reactor 走 MVU：状态只有一份，视图从状态直接算出来。Elm 让这个模式流行起来，React、SwiftUI、Jetpack Compose 都是它的变体。
+XAML 应用通常走 MVVM：状态放在 ViewModel 上，ViewModel 通知变化，绑定把新值拉进控件。Reactor 走 MVU：界面由状态直接算出来，中间没有一个专门负责发通知的对象。Elm 让这个模式流行起来，React、SwiftUI、Jetpack Compose 都是它的变体。
 
-原文特意强调两者是「两种有不同取舍的成熟模式」，WinUI 现在两种都能跑。这句话不是客套：Reactor 不是新 UI 平台，没有新渲染器，也没有 fork 任何东西。你写的 `Button`、`TextBox`、`NavigationView`、`TreeView` 拿到的是真控件，由同一套面板布局、同一套主题资源渲染，也能被同一批工具检查。少数部件是自己实现的，比如 flex 布局面板，但同样建立在 XAML 应用使用的那批原语之上。
+原文特意强调两者是「两种有不同取舍的成熟模式」，WinUI 现在两种都能跑。这句话不是客套：Reactor 不是新 UI 平台，没有新渲染器，也没有 fork 任何现成项目。你写的 `Button`、`TextBox`、`NavigationView`、`TreeView` 拿到的是真控件，由同一套面板布局、同一套主题资源渲染，也能被同一批工具检查。少数部件是自己实现的，比如 flex 布局面板，但同样建立在 XAML 应用使用的那批原语之上。
 
 微软做这件事的动机也值得看清楚，它决定了你该怎么评估这个项目：
 
@@ -110,13 +110,13 @@ public partial class CounterViewModel : ObservableObject
 }
 ```
 
-源生成器确实消掉了大部分样板，但原文指出三件仍然成立的事，我认为这部分是全文最有说服力的论证：
+源生成器确实消掉了大部分样板，但原文剩下的观察可以并成三点，我认为这部分是全文最有说服力的论证：
 
 1. **值要跨三个文件和两种语言才到达像素。** `{x:Bind ViewModel.CountText}` 本质是一个字符串，XAML 编译器得额外学会理解它；从 C# 端给 `CountText` 改名，你得指望工具链跟得上。
 2. **状态住在一个「存在意义就是被观察」的类里。** ViewModel 的职责不是业务，而是可通知。
-3. **「`Count` 是 5 时这屏长什么样」这种问题，答案要读三个文件、在脑子里跑一遍绑定引擎。**
+3. **要回答「`Count` 是 5 时这屏长什么样」，得读三个文件，再在脑子里跑一遍绑定引擎。**
 
-在 Reactor 里，第三个问题的答案是「读 `Render()`」。它是个函数：给它一个计数，它给你一个界面。Reactor 的大多数优点，都是从这里推出来的。
+在 Reactor 里，第三个问题的答案是「读 `Render()`」。它是个函数：给它一个计数，它给你一个界面。Reactor 的大部分好处都从这一条推出来。
 
 ## 真正多出来的是什么
 
@@ -126,25 +126,27 @@ public partial class CounterViewModel : ObservableObject
 
 **不少东西是内置的。** flexbox 布局用的是 Meta Yoga 引擎的 C# 移植，此外还有 commanding、导航、主题 token、本地化、DataGrid 和一套 docking 系统。这些如果要在 XAML 侧自己拼，通常是选第三方库。
 
-**Roslyn 分析器是真正的差异化。** UI 是普通 C#，意味着整条 Roslyn 工具链都能指向它：项目已经交付 60 多条 Reactor 专用规则，覆盖 hooks、可访问性、主题、commanding 和性能。它们抓的是「机械可检测但写在标记里就看不见」的问题——列表项缺 key、hook 写在 `if` 里、硬编码画刷活不过深色模式、只有图标的按钮被读屏念成「button」。原文的说法是「打字三秒后就知道」，而不是发版前三周。调试构建还会顺带装上 Reactor devtools。
+**Roslyn 分析器是真正的差异化。** UI 是普通 C#，意味着整条 Roslyn 工具链都能指向它：项目已经交付 60 多个 Reactor 专用分析器，覆盖 hooks、可访问性、主题、commanding 和性能。它们抓的是「能机械检查、但写在标记里就看不见」的问题——列表项缺 key、hook 写在 `if` 里、硬编码画刷活不过深色模式、只有图标的按钮被读屏念成「button」。原文的大意是：敲完三秒内就知道，而不是发版前三周。调试构建还会顺带装上 Reactor devtools。
 
 这一条也解释了为什么项目要把「agent 友好」写进设计目标：能被编译器检查的 UI，同样容易被 agent 和 CI 检查。
+
+另一个可以拿来参考的信号：OpenClaw 的 Windows 配套应用已经把 Reactor 用在生产的聊天功能上，而且默认开启，仓库开源可读。这能说明它能扛真实负载，但不构成对你所在项目的稳定性承诺。
+
+## Rust 也有同一场实验
+
+「界面是状态的函数」这个想法不绑定 C#。windows-rs 项目里有个 windows-reactor：声明式 WinUI 库，组件自己持有状态，控件向组件回传类型化消息，只有真正变化的 WinUI 控件会被更新。
+
+它已经发布在 crates.io 上，当前版本 0.100.0（2026-09-03），许可证是 MIT OR Apache-2.0。同样是早期阶段。如果你在写 Rust，可以把它看成同一套思路在另一门语言里的对照；语言不同，底下还是同一批原生控件。
 
 ## 现在不适合谁
 
 官方自己把边界说得很直白，值得逐条抄进选型结论：
 
 - **实验性，没有支持策略，没有 API 保证。** 公开得这么早是故意的：与其等大家上线之后再承担错误设计，不如现在就被说设计错了。
-- **DSL 在规模上的表现还没有答案。** 十二行看起来很好，四百行的屏幕好不好看，项目自己在问社区。语法也还可能变，团队正在和 C# 语言团队合作。
+- **DSL 在规模上的表现还没有答案。** 十几行读起来很顺，四百行的屏幕读起来还顺不顺，项目自己在问社区。语法也还可能变，团队正在和 C# 语言团队合作。
 - **不替代 XAML 和 MVVM。** XAML 没有被弃用，仍在持续投入；围绕它的设计器、模板化、指南和第三方控件生态都还在，WinUI 本身也在 GitHub 上开放开发。两种模型在同一进程、同一视觉树里可以双向互操作，缺某个控件时也能把任意 WinUI 控件包装成 Reactor 元素。
 
-按这三条往下推，场景判断大概是：
-
-- **存量 XAML/MVVM 应用**：不要迁移，更不要把重写排进计划。顶多在新窗口或独立模块里做试点。
-- **依赖可视化设计器、成熟第三方控件库的商业交付**：暂缓。原文列出的工具收益全部来自 Roslyn 分析器和 devtools，没有提设计器；如果你团队的工作流依赖拖控件，先自己确认这一点再决定。
-- **新项目、内部工具、正在验证 agent 写 UI 的工作流**：值得试，成本是一杯咖啡的时间。
-
-另一个可以拿来参考的信号：OpenClaw 的 Windows 配套应用已经把 Reactor 用在生产的聊天功能上，而且默认开启，仓库开源可读。这能说明它能扛真实负载，但不构成对你所在项目的稳定性承诺。
+还有一点容易误读：原文只在讲 XAML 生态时提到设计器——说围绕 XAML 的 tooling、designer、模板化都还在——从头到尾没有把可视化设计器算进 Reactor 的收益。如果团队的工作流依赖拖控件或成熟第三方控件库，这一项得自己先确认。
 
 ## 动手试：三条路径
 
@@ -186,12 +188,6 @@ winapp run
 
 需要说明的是，本节命令和预期结果整理自原文与官方文档，版本信息按 2026-10-22 的数据核对过；我没有在本机重新执行一遍，所以把「预期结果」和「怎么算成功」写出来，方便你自己验证。
 
-## Rust 也有同一场实验
-
-「界面是状态的函数」这个想法不绑定 C#。windows-rs 项目里有个 windows-reactor：声明式 WinUI 库，组件自己持有状态，控件向组件回传类型化消息，只有真正变化的 WinUI 控件会被更新。
-
-它已经发布在 crates.io 上，当前版本 0.100.0（2026-09-03），许可证是 MIT OR Apache-2.0。同样是早期阶段。如果你在写 Rust，可以把它看成同一套思路在另一门语言里的对照；语言不同，底下还是同一批原生控件。
-
 ## 现在该做什么
 
 按你的处境分三种动作：
@@ -202,7 +198,7 @@ winapp run
 
 想反馈的话，原文评论区、GitHub 的 issues 和 Discussions 都可以。作者的措辞很直接：现在这个窗口期，反馈能改变设计，过了实验期就只能归到「breaking change，太晚了」。
 
-如果你也在评估 WinUI 的新写法，或者正用 coding agent 写界面代码，Aide Hub 会继续分享 AI 助手、开发工具与软件工程的落地细节。
+如果你也在评估 WinUI 的新写法，或者正用 coding agent 写界面代码，Aide Hub 会继续分享 AI 助手、开发工具与软件工程的落地经验。
 
 ## 参考
 
