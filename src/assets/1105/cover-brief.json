@@ -1,0 +1,69 @@
+{
+  "article_title": "带初级开发者：先分清卡在哪，再决定帮多少",
+  "cover_type": "analysis",
+  "core_theme": "帮助卡住的初级开发者时，先判断他卡在哪一类问题，再选择帮助强度；关键是让对方保留推理和动手的主导权，而不是替他完成工作。",
+  "reader_takeaway": "理解帮助不等于接手，同一个「我卡住了」背后可能是完全不同的卡点，先诊断再决定帮多少。",
+  "summary_angle": "把「先诊断卡点 → 选择帮助强度 → 让他自己走下一步」压成一张可读的封面，并用「提灯照路，不替他走」表达帮助的边界。",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "Understand What Kind of Help They're Asking For —「I'm stuck」can mean several different things：不理解目标行为、不知道代码该放哪、或已有假设但结果超出预期。",
+      "visual_idea": "一条分岔的小路，多个岔口依次隐入暗处，暗示「卡住了」其实分好几类。",
+      "visible_label": "卡在哪"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "Give Help Immediately When the Goal Is Unclear — 目标不清楚时应当立即澄清或找到能决策的人，而不是让对方盲试。",
+      "visual_idea": "岔路口一块被灯光照亮的清晰指示牌，光只落在需要先看清的那一点上。",
+      "visible_label": ""
+    },
+    {
+      "role": "step",
+      "source_anchor": "Choose Questions, Steering, or a Demonstration — 提问、指方向、直接解释答案、演示技术，四种帮助强度各有代价。",
+      "visual_idea": "同一个提灯者投出四道长短不同的光束，落在四条路上，表达帮助可以有不同的量。",
+      "visible_label": "四种帮法"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "Finish With a Next Action They Understand — 收尾时确认对方能自己说出下一步要做什么、以及能验证什么。",
+      "visual_idea": "旅人握着属于自己的地图，自己迈步走出灯光边缘，走向未被照亮但由他选择的下一步。",
+      "visible_label": "自己走"
+    }
+  ],
+  "main_metaphor": "提灯照路，不替他走：引导者举灯照亮岔路口和路牌，但路必须由对方自己迈步走完。",
+  "primary_subject": "一位披深色旅袍的提灯引导者，在黑暗岔路口举起一盏暖金灯。",
+  "subject_action": "举灯照亮岔路口与指示牌，同时身体保持后退，不牵、不推前方的旅人。",
+  "composition": "左右对照叠加斜向推进：左侧唯一被照亮的窄路与标牌，右侧岔路沉入阴影；前景提灯的手与灯是唯一视觉焦点，旅人在光的边缘迈出第一步。",
+  "base_style": "conceptual editorial illustration",
+  "selected_style": "黑暗奇幻风",
+  "selected_style_prompt_descriptor": "dark fantasy illustration, gothic silhouettes, ancient textures, moody rim light, restrained magical atmosphere",
+  "selected_style_reason": "用户未指定风格，本篇由 pick-cover-style.py 从风格池随机选中；黑暗奇幻风格的光照对照适合表达「照亮岔路」这一主隐喻",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或在世艺术家复刻；最终 prompt 只使用光影、剪影、纹理等描述词",
+  "allowed_visible_text": ["卡在哪", "四种帮法", "自己走"],
+  "color_palette": ["深墨绿", "石板灰", "暖金色灯光", "暗铜色"],
+  "avoid": [
+    "漂浮芯片",
+    "无意义代码雨",
+    "霓虹高楼背景",
+    "通用机器人站姿",
+    "赛博朋克紫蓝光污染",
+    "巨量 HUD 浮层",
+    "长段说明文字",
+    "英文口号",
+    "海报主标题",
+    "水印",
+    "真实 UI 截图",
+    "仪表盘",
+    "伪造图表坐标轴",
+    "伪造指标数字"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮验证「提灯者照亮岔路口、旅人自己迈步」的主隐喻是否成立，以及三个中文短标签能否清晰可读。",
+  "revision_targets": [
+    "若灯与路的关系不明确，强化灯光落点与岔路口的对照",
+    "若被读成「引导者带路」而非「照亮但不代走」，加大引导者后退、旅人自己握地图的动作",
+    "若中文标签发糊或超过三个，减少到一个主标签"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: 带初级开发者时，先判断他卡在哪一类问题，再选择帮助方式，不替他完成工作。The reader should quickly feel 帮助不等于接手，关键是让对方保留推理和动手的主导权。\n\nSummary angle: 一张图讲清「先诊断卡点 → 选择帮助强度 → 让他自己走下一步」，并让人记住「提灯照路，不替他走」。\nNarrative flow: 3-beat process. In a 2.35:1 frame, keep one dominant focal subject and 3 supporting narrative beats. Each beat must map to the article's information blocks rather than generic decoration.\nInformation blocks:\n- problem: 「我卡住了」其实包含多种卡点（目标行为不清、上下文缺失、假设被推翻），用一条多岔口的小路表达；visible label 卡在哪\n- mechanism: 目标不清楚时先澄清再动手，用一块被灯照亮的清晰指示牌表达；no visible label\n- step: 提问、指方向、直接解释、演示这四种帮助强度，用一个提灯者投出的四道长短不同的光束落在四条路上表达；visible label 四种帮法\n- takeaway: 收尾确认对方能自己说出下一步，用旅人握着地图、自己迈步走出灯光边缘表达；visible label 自己走\n\nMain metaphor: 提灯照路，不替他走。引导者举灯照亮岔路口和路牌，但路必须由对方自己走完。\nSubject: 一位披深色旅袍的提灯引导者，在黑暗岔路口举起一盏暖金灯，身体保持后退，不牵不推前方的旅人。\nComposition/framing: 左右对照叠加斜向推进，左侧是唯一被灯光照亮的窄路与标牌，右侧岔路沉入阴影；前景提灯的手与灯是唯一视觉焦点，旅人在光的边缘迈出第一步。Prefer horizontal storytelling that stays legible in a wide cover.\nStyle/medium: combine conceptual editorial illustration with the selected visual style descriptor: dark fantasy illustration, gothic silhouettes, ancient textures, moody rim light, restrained magical atmosphere. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: 深墨绿与石板灰为主调，暖金色灯光作为唯一强调色，少量暗铜色。\nVisible text policy: allow only 3 short Chinese labels, all sourced from the information blocks: 卡在哪 / 四种帮法 / 自己走. Each label <= 6 Chinese characters. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: 漂浮芯片, 无意义代码雨, 霓虹高楼背景, 通用机器人站姿, 赛博朋克紫蓝光污染, 巨量 HUD 浮层, 海报主标题, 英文口号, 长段说明文字。"
+}
