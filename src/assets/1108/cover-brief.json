@@ -1,0 +1,69 @@
+{
+  "article_title": "ASP.NET Core 中同时支持多个认证方案",
+  "cover_type": "tutorial",
+  "core_theme": "在 ASP.NET Core + Angular 的 BFF 应用里，让 SchemeOne / SchemeTwo 两套 Cookie 认证方案共存：DefaultScheme 设为策略方案 Unknown，由 AddPolicyScheme 的 ForwardDefaultSelector 按 __Host-Http-one / __Host-Http-two cookie 把请求转发到对应 Cookie 方案；OIDC 登录成功后 OnTokenValidated 读取 loa 声明（loa.400 → SchemeOne，否则 SchemeTwo）并签到目标方案；控制器再用 [Authorize(AuthenticationSchemes = \"SchemeOne,SchemeTwo\")] 按方案授权。",
+  "reader_takeaway": "迁移期不必急着把多套身份合并成一个默认方案：一条策略分流加上登录后的声明落点，就能让两套身份并存，并按方案分别授权。",
+  "summary_angle": "把「两套身份并存 → 策略方案按 Cookie 分流 → 登录后按 loa 声明落到对应方案 → 控制器按方案授权」压成一条横向流程。",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "原文引言：迁移大型应用到新身份提供方、把 OIDC 服务器减到一台时，与其把多套认证方案迁到单一 Cookie 默认方案，不如先让多套方案共存，等 OIDC 认证完成后再设默认。",
+      "visual_idea": "画面左端两个并排的钥匙槽/小门，各自插着一把不同的钥匙，代表两套身份同时在线。",
+      "visible_label": "两套身份"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文 Cookies policy 段：DefaultScheme = \"Unknown\"，AddPolicyScheme(\"Unknown\", \"Select SchemeOne/SchemeTwo\") 的 ForwardDefaultSelector 检查 __Host-Http-one / __Host-Http-two cookie 决定转发到 SchemeOne 或 SchemeTwo（默认回退 SchemeOne）。",
+      "visual_idea": "画面中央一个机械道岔，把带着凭证的请求导向左右两条通道，左边通道标 1、右边通道标 2。",
+      "visible_label": "策略分流"
+    },
+    {
+      "role": "step",
+      "source_anchor": "原文 OpenID Connect 段：OnTokenValidated 事件处理器读取 loa 声明，loa == \"loa.400\" 时签到 SchemeOne，否则签到 SchemeTwo，并登出 SchemeOidcAuth。",
+      "visual_idea": "一块验证过的令牌落进标有 1 / 2 的两个插槽之一，插槽决定了它进入哪条通道。",
+      "visible_label": "按声明落地",
+      "numeric_fact": "1 / 2"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文 Setup 与 Logout 段：控制器用 [Authorize(AuthenticationSchemes = \"SchemeOne\")]，登出用 [Authorize(AuthenticationSchemes = \"SchemeOne,SchemeTwo\")]，按方案决定放行范围。",
+      "visual_idea": "两条通道末端各有一道闸门，只有当请求来自匹配的那条通道闸门才抬起放行；此处只画闸门，不配文字标签。"
+    }
+  ],
+  "main_metaphor": "铁路道岔分流：一个入口、两条轨道，凭证决定请求走哪条。",
+  "primary_subject": "一个机械道岔/分流器，把带凭证的请求导向左右两条通道。",
+  "subject_action": "道岔扳向一侧，把持着凭证的请求送进标有 1 或 2 的通道，尽头闸门随之放行。",
+  "composition": "左右对照 + 横向推进，单一主焦点（中央道岔），信息块沿一条横向流程从左到右铺开。",
+  "base_style": "editorial technical illustration",
+  "selected_style": "独立漫画风",
+  "selected_style_prompt_descriptor": "indie comic illustration, personal hand-drawn marks, muted palette, imperfect line texture, intimate editorial feeling",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；手绘质感适合这种「过渡期临时但可用」的工程取舍，不会把分流机制画成冷硬的官方架构图",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或在世艺术家复刻",
+  "allowed_visible_text": ["两套身份", "策略分流", "按声明落地"],
+  "color_palette": ["深青蓝", "暖橙", "米白", "石墨黑"],
+  "avoid": [
+    "漂浮芯片",
+    "无意义代码雨",
+    "霓虹高楼",
+    "通用机器人站姿",
+    "赛博朋克紫蓝光污染",
+    "巨量 HUD 浮层",
+    "真实 UI 截图",
+    "伪图表",
+    "水印",
+    "海报主标题",
+    "长段说明文字",
+    "英文口号",
+    "伪造架构节点名",
+    "伪造指标数字"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮验证「一个入口、两条轨道、凭证决定走哪条」的铁路道岔隐喻是否一眼可读，四个叙事节拍是否沿横向流程排开。",
+  "revision_targets": [
+    "若道岔与两条通道的主次不清，把中央道岔放大成唯一主焦点，两条轨道压到两侧",
+    "若中文标签发糊、超过三个或出现英文，收紧到两套身份 / 策略分流 / 按声明落地三个标签",
+    "若画面滑向真实架构图或仪表盘，去掉网格、坐标轴与节点框，只保留手绘道岔、轨道与闸门"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create one wide cinematic infographic-story cover illustration that summarizes an ASP.NET Core tutorial. Theme: 在同一个 ASP.NET Core + Angular BFF 应用里让两套 Cookie 认证方案 SchemeOne / SchemeTwo 共存。The reader should quickly feel 迁移期不必急着合并身份：一套策略分流就能让两套身份并存，登录后按声明各归各位，控制器再按方案授权。\n\nSummary angle: 把「两套身份并存 → 策略方案按 Cookie 分流 → 登录后按 loa 声明落到对应方案 → 控制器按方案授权」压成一条从左到右的横向铁路流程。\nNarrative flow: 3-beat process. ONE single continuous landscape, one dominant focal subject, four narrative beats laid out left to right with no panel borders and no seam lines between them.\n\nLayout, left to right, in one uninterrupted scene:\n1) problem (far left): two side-by-side keyholes on a low stone wall, one holding a dark blue key, the other a warm orange key. Visible label on a dark ink banner: 两套身份\n2) mechanism (just left of centre): a heavy mechanical railroad switch with a lever, being pulled by a hand in a coat sleeve, sending the track to the left or right, small arrow plates above the rails. Visible label: 策略分流\n3) step (just right of centre): a validated token with a check mark falling into one of two adjacent slots, the dark blue slot marked with the number 1 and the warm orange slot marked with the number 2. Visible label: 按声明落地\n4) takeaway (far right): the two railway lines end at two side-by-side gates whose barrier arms are raised open, and a small figure walks along each track through the open gate. No text label here.\nA small crate with a cookie symbol rides on the centre track in front of the switch.\n\nMain metaphor: 铁路道岔分流：一个入口、两条轨道，凭证决定请求走哪条。\nSubject: 一个机械道岔/分流器，把带凭证的请求导向左右两条通道。\nSubject action: 道岔被扳向一侧，带凭证的请求沿选定轨道穿过抬起的闸门。\nComposition/framing: 左右对照 + 横向推进, left-to-right in one continuous wide landscape; the central railroad switch is the single dominant focal point; the muted paper backdrop is unbroken across the whole frame; the outer frame is clean with no torn paper margin, no white border and no gutter strips. Prefer horizontal storytelling that stays legible in a wide cover.\nStyle/medium: combine editorial technical illustration with the selected visual style descriptor: indie comic illustration, personal hand-drawn marks, muted palette, imperfect line texture, intimate editorial feeling. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: 深青蓝为主调，暖橙用于道岔拉杆、钥匙与闸门，米白作纸底，石墨黑画线稿与阴影。Soft low hills and a few hand-drawn plants at the horizon.\nVisible text policy: allow exactly 3 short Chinese labels on dark ink banners, sourced from the information blocks: 两套身份 / 策略分流 / 按声明落地, plus number chips 1 and 2 on the two slots. Each label <= 6 Chinese characters. No other text anywhere. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: 漂浮芯片、无意义代码雨、霓虹高楼、通用机器人站姿、赛博朋克紫蓝光污染、巨量 HUD 浮层、真实 UI 截图、伪图表、水印。\n\nWide cover illustration, aspect ratio 2.35:1."
+}
