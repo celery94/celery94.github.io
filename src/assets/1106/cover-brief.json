@@ -1,0 +1,66 @@
+{
+  "article_title": "Claude Code 改 .NET 端点：先划清边界",
+  "cover_type": "tutorial",
+  "core_theme": "把 Claude Code 当作 coding agent 使用：对现有 ASP.NET Core 端点做一次有边界的改动，先用 trace 摸清请求路径与既有契约，再只改一小段，并用测试证明框外没有变化。",
+  "reader_takeaway": "知道怎么把一个看似简单的端点改动框成一小段可审查的边界，并让 coding agent 的输出可被验证。",
+  "summary_angle": "一张图讲清「先追踪路径 → 分清两种失败 → 只改框内一小段 → 框外契约保持原样」。",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "step",
+      "source_anchor": "Ask Claude Code to trace the existing request — 要求 agent 先给出从 query binding 到 query service 的追踪，标出默认值、授权、租户过滤、错误格式与排序。",
+      "visual_idea": "一条从左到右的长路径，沿途几个小站点，第一段被一只铅笔轻轻描亮。",
+      "visible_label": "先追踪"
+    },
+    {
+      "role": "evidence",
+      "source_anchor": "Define regression evidence before Claude Code implements — 验收矩阵覆盖省略输入、1 与 100 两个边界、0 与 101、负数和非数字输入，共七种 HTTP 检查。",
+      "visual_idea": "路径旁一列七个小刻度，其中两个被圈出并标上 1 与 100，表示边界。",
+      "visible_label": "七种输入",
+      "numeric_fact": "7"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "A bounded change preserves more than it adds — 改动可审查的前提是新规则明确，同时既有契约仍然可见。",
+      "visual_idea": "一个清晰的方框只框住路径的一小段，框外的线条完整连续、没有被触碰或擦改。",
+      "visible_label": "只改一段"
+    }
+  ],
+  "main_metaphor": "用彩色铅笔在一条完整路径上画出一个窄方框，只框住一小段并在框内改动；框外的一切保持原来的画法，笔迹没有擦改痕迹。",
+  "primary_subject": "一只手握着彩色铅笔，正沿一个长方形边框描线，框内圈出一小段路径和一个刻度标记。",
+  "subject_action": "在边框内描出并圈定一小段条件判断，边框外的路径保持连续、干净、未被触碰。",
+  "composition": "单点聚焦并轻微斜向推进：方框落在画面中右侧，左侧是完整路径的入口，形成从左到右的推进感。",
+  "base_style": "editorial technical illustration",
+  "selected_style": "彩铅绘本风",
+  "selected_style_prompt_descriptor": "colored-pencil picture-book illustration, tactile strokes, gentle palette, warm narrative objects, soft educational tone",
+  "selected_style_reason": "用户未指定风格，本篇由 pick-cover-style.py 从风格池随机选中；彩铅绘本的柔和教学感适合一篇讲「怎么把改动画进边界里」的教程",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或在世艺术家复刻；最终 prompt 只使用笔触、纸面、色调等描述词",
+  "allowed_visible_text": ["先追踪", "七种输入", "只改一段"],
+  "color_palette": ["米白纸面", "暖灰", "赭红", "墨绿", "靛蓝"],
+  "avoid": [
+    "漂浮芯片",
+    "无意义代码雨",
+    "霓虹高楼背景",
+    "通用机器人站姿",
+    "赛博朋克紫蓝光污染",
+    "巨量 HUD 浮层",
+    "长段说明文字",
+    "英文口号",
+    "海报主标题",
+    "水印",
+    "真实 UI 截图",
+    "仪表盘",
+    "伪造图表坐标轴",
+    "伪造指标数字",
+    "真实 IDE 界面",
+    "终端窗口"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮验证「铅笔在长路径上只框住一小段」的边界主隐喻是否成立，以及三个中文短标签在彩铅笔触下是否仍清晰可读。",
+  "revision_targets": [
+    "若方框与路径的关系不明确，强化框内外笔迹的对照：框内被圈定，框外连续完整",
+    "若被读成「擦掉重画」而非「只改一小段」，去掉橡皮与擦除痕迹，保留原线条",
+    "若中文标签发糊或出现英文，减少到两个标签"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: 把 Claude Code 当作 coding agent，对现有 ASP.NET Core 端点做一次有边界的改动：先追踪请求路径、分清绑定失败与校验失败，然后只改一小段，并用测试证明既有契约没变。The reader should quickly feel 改动可以先被框小，再被验证。\n\nSummary angle: 一张图讲清「先追踪路径 → 分清两种失败 → 只改框内一小段 → 框外契约保持原样」。\nNarrative flow: 3-beat process. In a 2.35:1 frame, keep one dominant focal subject and 3 supporting narrative beats. Each beat must map to the article's information blocks rather than generic decoration.\nInformation blocks:\n- step: 先追踪一条从请求入口到查询服务的路径，用一只彩色铅笔把路径第一段轻轻描亮；visible label 先追踪\n- evidence: 验收矩阵覆盖省略输入、1 与 100、0 与 101、负数、非数字共七种检查，用路径旁一列七个小刻度表达，其中两个刻度被圈出并标上 1 与 100；visible label 七种输入\n- takeaway: 一个窄方框只框住路径的一小段，框外线条连续完整、没有擦改痕迹；visible label 只改一段\n\nMain metaphor: 用彩色铅笔在一条完整路径上画出一个窄方框，只框住一小段并在框内改动，框外的一切保持原来的画法。\nSubject: 一只手握着彩色铅笔，沿一个长方形边框描线，框内圈出一小段条件判断与一个刻度标记。\nComposition/framing: 单点聚焦并轻微斜向推进，方框落在画面中右侧，左侧是完整路径的入口。Prefer horizontal storytelling that stays legible in a wide cover.\nStyle/medium: combine editorial technical illustration with the selected visual style descriptor: colored-pencil picture-book illustration, tactile strokes, gentle palette, warm narrative objects, soft educational tone. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: 米白纸面、暖灰为主，赭红与墨绿作为框线和路径的强调色，少量靛蓝。\nVisible text policy: allow only 3 short Chinese labels, all sourced from the information blocks: 先追踪 / 七种输入 / 只改一段. Each label <= 6 Chinese characters. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no real IDE window, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: 漂浮芯片, 无意义代码雨, 霓虹高楼背景, 通用机器人站姿, 赛博朋克紫蓝光污染, 巨量 HUD 浮层, 海报主标题, 英文口号, 长段说明文字, 橡皮擦除痕迹。"
+}
