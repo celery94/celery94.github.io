@@ -1,6 +1,11 @@
 import type { APIRoute } from "astro";
 import { getCollection, type CollectionEntry } from "astro:content";
 import { generateOgImageForPost } from "@/utils/generateOgImages";
+import {
+  createOgImageCacheKey,
+  readOgImageCache,
+  writeOgImageCache,
+} from "@/utils/ogImageCache";
 import { slugifyStr } from "@/utils/slugify";
 import { SITE } from "@/config";
 
@@ -27,10 +32,22 @@ export const GET: APIRoute = async ({ props }) => {
     });
   }
 
-  return new Response(
-    await generateOgImageForPost(props as CollectionEntry<"blog">),
-    {
-      headers: { "Content-Type": "image/png" },
-    }
-  );
+  const post = props as CollectionEntry<"blog">;
+  const cacheKey = createOgImageCacheKey({
+    id: post.id,
+    title: post.data.title,
+    author: post.data.author,
+    siteTitle: SITE.title,
+    body: post.body ?? "",
+  });
+  const cachedImage = await readOgImageCache(cacheKey);
+  const image = cachedImage ?? (await generateOgImageForPost(post));
+
+  if (!cachedImage) {
+    await writeOgImageCache(cacheKey, image);
+  }
+
+  return new Response(image, {
+    headers: { "Content-Type": "image/png" },
+  });
 };

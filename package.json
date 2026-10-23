@@ -3,7 +3,7 @@
   "version": "5.0.1",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro check && astro build && pagefind --site dist && cp -r dist/pagefind public/",
+    "build": "astro check && astro build && pagefind --site dist && node scripts/copy-pagefind.mjs",
     "images:audit": "node ./scripts/image-audit.mjs",
     "images:optimize": "node ./scripts/image-optimize.mjs",
     "preview": "astro preview",

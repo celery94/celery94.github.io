@@ -1,0 +1,61 @@
+{
+  "article_title": "AI 写发票模板：模型打平，评分器留下",
+  "cover_type": "analysis",
+  "core_theme": "两个模型生成的发票模板在九项评分中完全打平；真正值得保留的是能重复检查 HTML 与 PDF 的评分器。",
+  "reader_takeaway": "模型分数接近时，不要继续猜谁更强；把发票的打印规则和分页结果写成可重复执行的检查。",
+  "summary_angle": "两张几乎相同的发票接受同一把九格评分尺，结果都是 9/9；唯一还能看出的差异，是打印后表头背景色是否保住。",
+  "narrative_flow": "conflict-to-resolution",
+  "information_blocks": [
+    {
+      "role": "contrast",
+      "source_anchor": "原文对比了 Claude Fable 5.1 与 GPT-6 Astra 各 5 份模板，10 份全部 9/9。",
+      "visual_idea": "左右两张几乎相同的发票被同一把平衡尺压住，两侧同时落下相同的通过印记。",
+      "visible_label": "打平",
+      "numeric_fact": "9/9"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文评分器包含 5 项 HTML 检查和 4 项 PDF 渲染检查。",
+      "visual_idea": "中央是一把带九个清晰刻槽的黄铜评分尺，逐格对齐两张发票的页眉、明细行与合计区。",
+      "visible_label": "评分器",
+      "numeric_fact": "9"
+    },
+    {
+      "role": "evidence",
+      "source_anchor": "原文唯一真实差异是 print-color-adjust: exact：Claude 5/5，Astra 0/5。",
+      "visual_idea": "其中一张纸的灰色表头带保持饱满，另一张在侧光下明显褪色；差异只落在这条窄色带上。",
+      "visible_label": "背景色"
+    }
+  ],
+  "main_metaphor": "两张外观相同的发票放在校准台上，被同一把九格黄铜评分尺测量；尺子留下结果，表头色带留下唯一差异。",
+  "primary_subject": "一把横跨画面的黄铜九格评分尺，下方压着两张发票纸。",
+  "subject_action": "评分尺将两张发票对齐、压平并同时盖上相同的通过印记，只把褪色的表头色带单独框出。",
+  "composition": "左右双页对称，中央评分尺形成单点焦点，背景留出纸张与彩色铅笔的横向空间。",
+  "base_style": "conceptual editorial illustration",
+  "selected_style": "彩铅绘本风",
+  "selected_style_prompt_descriptor": "colored-pencil picture-book illustration, tactile strokes, gentle palette, warm narrative objects, soft educational tone",
+  "selected_style_reason": "用户要求重做封面；使用 pick-cover-style.py 从风格池随机选中彩铅绘本风，纸张、校准尺与手工检查的氛围适合这种质感。",
+  "style_safety_note": "风格为泛类型描述，不涉及品牌、工作室或在世艺术家复刻；prompt 只使用笔触、纸张与光线描述。",
+  "allowed_visible_text": ["打平", "9/9", "背景色"],
+  "color_palette": ["暖象牙白", "石墨灰", "低饱和朱红", "鼠尾草绿"],
+  "avoid": [
+    "人物肖像",
+    "模型品牌标志",
+    "聊天界面截图",
+    "真实仪表盘",
+    "伪造代码窗口",
+    "漂浮芯片",
+    "代码雨",
+    "霓虹紫蓝光",
+    "无关图标拼贴",
+    "海报主标题"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮先验证两张发票与中央九格评分尺能否一眼读出「打平」，同时让褪色表头成为清楚的次级差异。",
+  "revision_targets": [
+    "让九格评分尺与发票的关系更直接，减少背景物件",
+    "确保「打平」「评分器」「背景色」三个标签清晰且不拥挤",
+    "如果画面被读成普通办公场景，加强评分尺的对齐与盖章动作"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a new wide cinematic infographic-story cover illustration summarizing an article about comparing two AI-generated invoice templates. Both models wrote five templates, all ten scored 9/9, so the comparison ended in a tie. The lasting value is a repeatable nine-check scorer for HTML and rendered PDFs. The one visible difference is whether the table-header background survives printing. The reader should quickly understand: the models tied, the scorer is the real result, and the remaining difference is background color.\n\nSummary angle: two nearly identical invoice sheets are held under one brass nine-notch scoring ruler and both receive the same approval stamp; only a narrow gray table-header band on one sheet is visibly faded. Narrative flow: conflict-to-resolution. In a wide 2.35:1 frame, keep one dominant focal subject and three supporting narrative beats, each mapped to the article.\nInformation blocks:\n- contrast: two symmetrical invoice sheets look almost identical and are balanced under the same ruler, both marked with the short Chinese label 打平 and the number 9/9\n- mechanism: a horizontal brass scoring ruler with nine clear notches aligns the header, line-item rows, and total block on both sheets like a workshop calibration tool; the short Chinese label 评分器 appears once\n- evidence: one narrow gray table-header band stays rich while the matching band on the other invoice is visibly washed out under side light; the short Chinese label 背景色 points only to this band\n\nMain metaphor: two nearly identical invoices placed on a calibration desk, measured by the same nine-notch brass ruler; the ruler records the tie while the header band reveals the only difference.\nSubject: one broad aged-brass nine-notch scoring ruler spanning the center, pressing two invoice sheets flat; both sheets carry an identical approval stamp, while a small magnified inset isolates the faded versus preserved header bands.\nComposition/framing: left-right symmetry of the two invoice sheets, with the scoring ruler as the single strong focal point across the center; generous horizontal breathing room; no people.\nStyle/medium: combine conceptual editorial illustration with the selected visual style descriptor: colored-pencil picture-book illustration, tactile strokes, gentle palette, warm narrative objects, soft educational tone. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: warm ivory paper, graphite gray, muted vermilion accents, sage green stamp ink; low-saturation and paper-forward.\nEnvironment: a clean wooden calibration desk with sparse colored pencils and one paper grid at the far edges; no office clutter.\nVisible text policy: allow only the three short Chinese labels 打平, 评分器, 背景色, and the number 9/9. No poster title, no model names, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter, no people, no logos.\nAvoid: portrait, model brand logos, chat UI screenshots, dashboards, fake code windows, floating microchips, code rain, neon purple-blue light, unrelated icon collage, poster title."
+}
