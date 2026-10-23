@@ -13,10 +13,11 @@ description: 从公开 URL 取证并生成可信、自然、可执行的中文�
 
 1. 读取并核对原文
 2. 创建博客 Markdown 和文章资源
-3. 随机选择一种封面风格并生成宽封面
-4. 运行文章校验
-5. 发布到微信公众号草稿箱
-6. 微信返回 `media_id` 后，只提交并推送本次文章文件
+3. 完成内容编辑、文字编辑和去 AI 味改稿
+4. 随机选择一种封面风格并生成宽封面
+5. 运行文章校验
+6. 发布到微信公众号草稿箱
+7. 微信返回 `media_id` 后，只提交并推送本次文章文件
 
 用户明确说不要封面时跳过生图和 `ogImage`。用户明确说不发微信或只生成博客时，同时跳过微信发布、Git 提交和推送。
 
@@ -24,6 +25,8 @@ description: 从公开 URL 取证并生成可信、自然、可执行的中文�
 
 - 开始取证和写作前，读取
   [source-and-writing.md](references/source-and-writing.md)。
+- 起草、改稿和发布前审查前，读取
+  [chinese-style-and-deai.md](references/chinese-style-and-deai.md)。
 - 需要封面时，读取
   [cover-prompt-template.md](references/cover-prompt-template.md)。
 - 需要微信发布或 Git 推送时，读取
@@ -58,7 +61,12 @@ description: 从公开 URL 取证并生成可信、自然、可执行的中文�
 - 写作前确定目标读者、核心结论、原文最强内容、文章新增价值、读者行动和应删内容。
 - 区分原文、用户素材与编辑推论的归属；保留真实经历和明确立场，不编造个人故事、实测结果或用户观点。
 - 生成独立中文重述，保留事实、必要步骤、代码和证据锚点，避免逐段翻译和大段复刻。
-- 初稿完成后执行内容编辑和文字编辑，再通过发布前内容审查。
+- 初稿完成后依次执行内容编辑、文字编辑和去 AI 味改稿，再通过发布前内容审查。
+- 去 AI 味改稿必须单独执行一轮，至少重写开头、检查标题链、清理过渡与重复总结、检查结构密度、重写结尾。不要把替换同义词当成这一轮改稿。
+- 正文不得命中
+  [chinese-style-and-deai.md](references/chinese-style-and-deai.md)
+  的硬性禁用模板；默认禁用项不能在文中形成重复模式。固定关注语默认省略；
+  微信需要关注引导时，只能写与本篇主题直接相关的一句。
 - 教程必须写清前置条件、操作步骤、预期结果、验证方式和常见问题。
 - 图片保存到 `src/assets/{ID}/`，正文使用
   `../../assets/{ID}/{filename}`。
@@ -88,8 +96,9 @@ python .agents/skills/create-blog-post-from-url/scripts/pick-cover-style.py
 
 ### 5. 校验
 
-先按 `source-and-writing.md` 完成发布前内容审查，再对新文件运行 Prettier
-检查并运行：
+先按 `source-and-writing.md` 完成发布前内容审查，再按
+`chinese-style-and-deai.md` 的「发布前检查」完成去 AI 味审查，然后对新文件
+运行 Prettier 检查并运行：
 
 ```bash
 node .agents/skills/create-blog-post-from-url/scripts/validate-article.mjs \
@@ -115,6 +124,8 @@ node .agents/skills/create-blog-post-from-url/scripts/validate-article.mjs \
 - 正文图片为微信支持的 jpg/png（或确认 `wechat-draft` 会转换）。
 - 正文有明确核心结论，并提供原文摘要之外的具体价值。
 - 开头较快进入实质内容，章节形成连贯主线，重复和无关旁支已删除。
+- 未命中硬性禁用模板；开头、标题链和结尾不能原样套到另一篇文章。
+- 已单独完成去 AI 味改稿，没有用固定三项列表、等长段落、重复总结或关注语填充结构。
 - 结尾给出行动、选择条件、风险边界或后续问题；关注引导不使用固定套话。
 - 正文自然、准确，教程可以照着执行。
 - frontmatter、资源路径、封面 brief 和微信长度限制通过校验。

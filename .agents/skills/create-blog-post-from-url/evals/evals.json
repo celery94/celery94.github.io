@@ -162,7 +162,7 @@
     {
       "id": 8,
       "prompt": "把这篇技术教程改写成适合微信公众号发布的中文文章，并生成封面后发草稿箱：https://example.com/devtool-automation-guide",
-      "expected_output": "会先完成公众号运营判断：该文服务 Aide Hub 的软件开发 / AI 助手定位，读者收益是学会一个可落地的方法，分发倾向偏收藏。正文仍保持教程写法，写清前提、步骤、结果验证和坑点；标题降低解释成本，使用技术对象加具体收益或适用场景；description 作为微信预览摘要控制在 80-120 字，并自然说明读者为什么值得点开。发布到微信前会加入克制的文末关注引导，说明 Aide Hub 会持续分享 AI 助手、开发工具和软件工程实践。",
+      "expected_output": "会先完成公众号运营判断：该文服务 Aide Hub 的软件开发 / AI 助手定位，读者收益是学会一个可落地的方法，分发倾向偏收藏。正文仍保持教程写法，写清前提、步骤、结果验证和坑点；标题降低解释成本，使用技术对象加具体收益或适用场景；description 作为微信预览摘要控制在 80-120 字，并自然说明读者为什么值得点开。固定关注语默认省略；如果账号运营确实需要引导，只加入一句与本篇主题直接相关的话，并完成去 AI 味改稿。",
       "files": [],
       "assertions": [
         {
@@ -175,7 +175,7 @@
           "text": "The description is treated as a WeChat preview summary and stays useful without hype."
         },
         {
-          "text": "A natural WeChat follow prompt is included when the article is going to the WeChat draft box."
+          "text": "A fixed WeChat follow prompt is not required; any retained follow prompt is optional, topic-specific, and does not replace the article's concrete ending."
         },
         {
           "text": "After a successful WeChat draft publish, the generated Markdown and article assets are committed and pushed."
@@ -424,6 +424,29 @@
         },
         {
           "text": "The sample is used for expression only, not as evidence of current article facts or additional user experiences, and no unnecessary interview is introduced."
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "prompt": "只想把这篇发布页写成自然、具体的中文博客，不要封面、微信发布或执行计划：https://openai.com/index/decisions-api/",
+      "expected_output": "完整读取原文和必要官方文档后直接生成 Markdown。起草前参考仓库里的中文写作样本，初稿后依次完成内容编辑、文字编辑和独立的去 AI 味改稿。开头从具体工单或有限答案问题进入，不出现“这篇文章会说明”“读完后你能”等固定模板；小标题写本篇对象，清理重复过渡和总结，不机械堆三项列表，结尾落在具体行动或风险边界，并省略固定关注语。技术事实和来源归属保持不变。",
+      "files": [],
+      "assertions": [
+        {
+          "text": "The workflow reads the repository style samples and the de-AI editing guide before drafting."
+        },
+        {
+          "text": "The article is complete Markdown rather than an outline, workflow description, cover request, or WeChat publishing flow."
+        },
+        {
+          "text": "The opening uses a concrete bounded-decision scenario and does not use a fixed meta opening such as 'this article will explain' or 'after reading you can'."
+        },
+        {
+          "text": "The final pass removes generic headings, announcement-only first sentences, repeated transitions, mechanical three-item symmetry, and any fixed Aide Hub follow sentence."
+        },
+        {
+          "text": "The rewrite preserves source facts, code examples, uncertainty, and practical boundaries instead of inventing personal experience or test results."
         }
       ]
     }
