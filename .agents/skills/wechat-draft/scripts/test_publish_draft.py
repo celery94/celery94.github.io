@@ -1,8 +1,12 @@
 import argparse
+import re
 import unittest
 from unittest.mock import patch
 
+from bs4 import BeautifulSoup
+
 import publish_draft
+from style_manager import build_styled_fragment
 
 
 class RaisingParser:
@@ -27,6 +31,7 @@ def make_args(**overrides):
         "image_dir": None,
         "style_preset": "auto",
         "extra_css_file": None,
+        "delete_draft": None,
     }
     values.update(overrides)
     return argparse.Namespace(**values)
@@ -124,6 +129,68 @@ class ArticlePayloadTests(unittest.TestCase):
         )
         self.assertNotIn("is_original", article)
         self.assertNotIn("advertisement", article)
+
+
+class CodeBlockFormattingTests(unittest.TestCase):
+    @staticmethod
+    def visible_code(fragment):
+        """模拟 white-space 被微信重置后的文本，只认 br 换行。"""
+        soup = BeautifulSoup(fragment, "html.parser")
+        block = soup.find("pre")
+        for br in block.find_all("br"):
+            br.replace_with("\u2028")
+        text = re.sub(r"[ \t\r\n]+", " ", block.get_text())
+        return text.replace("\u2028", "\n").replace("\xa0", " ")
+
+    def test_publishing_preserves_reported_three_commands_without_whitespace_css(self):
+        commands = (
+            "winget install Microsoft.WinAppCli\n"
+            "dotnet --version   # 应为 10.x\n"
+            "winapp --version   # 应为 0.7.x 或更高"
+        )
+        args = make_args(
+            content=f"```bash\n{commands}\n```",
+            content_format="markdown",
+            ignore_image_errors=False,
+        )
+        output = publish_draft.prepare_content(args, "unused-token")
+        self.assertEqual(self.visible_code(output).rstrip("\n"), commands)
+
+    def test_both_markdown_converters_and_all_presets_preserve_blank_lines_and_indent(self):
+        code = 'if (x < 2 && ready) {\n    Print("中文 & <tag>");\n\n    return;\n}'
+        for converter in (
+            publish_draft.markdown_to_html,
+            publish_draft.basic_markdown_to_html,
+        ):
+            for preset in ("default", "code", "essay", "guide", "none"):
+                with self.subTest(converter=converter.__name__, preset=preset):
+                    output = build_styled_fragment(
+                        converter(f"```csharp\n{code}\n```"), preset, ""
+                    )
+                    self.assertEqual(self.visible_code(output).rstrip("\n"), code)
+                    self.assertIsNone(BeautifulSoup(output, "html.parser").find("tag"))
+
+    def test_html_highlighting_existing_breaks_tabs_and_inline_code(self):
+        fragment = (
+            '<p><code>inline code</code></p><pre><code class="language-python">'
+            '<span style="color: red">if</span> x:\r\n'
+            '\tprint(&quot;&lt;ok&gt;&quot;)<br>\n'
+            '\treturn x</code></pre>'
+        )
+        # A newline after an existing br is also a real source newline.
+        expected = 'if x:\n    print("<ok>")\n\n    return x'
+        output = build_styled_fragment(fragment, "code", "")
+        self.assertEqual(self.visible_code(output), expected)
+        soup = BeautifulSoup(output, "html.parser")
+        self.assertEqual(soup.select_one("p code").get_text(), "inline code")
+        self.assertEqual(soup.select_one("pre span").get_text(), "if")
+        self.assertIn("color: red", soup.select_one("pre span")["style"])
+        second_output = build_styled_fragment(output, "code", "")
+        self.assertEqual(self.visible_code(second_output), expected)
+
+    def test_html_pre_without_code_tag(self):
+        output = build_styled_fragment("<pre>one\n  two\n\nthree</pre>", "none", "")
+        self.assertEqual(self.visible_code(output), "one\n  two\n\nthree")
 
 
 if __name__ == "__main__":

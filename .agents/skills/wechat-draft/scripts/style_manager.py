@@ -455,6 +455,40 @@ def convert_lists_for_wechat(soup: BeautifulSoup) -> None:
         lst.unwrap()
 
 
+def convert_code_blocks_for_wechat(soup: BeautifulSoup) -> None:
+    """Preserve code whitespace even when WeChat resets white-space CSS.
+
+    Use explicit breaks and non-breaking spaces within pre only. Walk text
+    nodes so existing highlighting, HTML escaping and br elements survive.
+    """
+    for block in soup.find_all("pre"):
+        column = 0
+        for node in list(block.descendants):
+            if isinstance(node, Tag) and node.name == "br":
+                column = 0
+            if not isinstance(node, NavigableString):
+                continue
+            text = str(node).replace("\r\n", "\n").replace("\r", "\n")
+            buffer: List[str] = []
+            for char in text:
+                if char == "\n":
+                    if buffer:
+                        node.insert_before(NavigableString("".join(buffer)))
+                        buffer = []
+                    node.insert_before(soup.new_tag("br"))
+                    column = 0
+                elif char == "\t":
+                    spaces = 4 - column % 4
+                    buffer.append("\xa0" * spaces)
+                    column += spaces
+                else:
+                    buffer.append("\xa0" if char == " " else char)
+                    column += 1
+            if buffer:
+                node.insert_before(NavigableString("".join(buffer)))
+            node.extract()
+
+
 def build_styled_fragment(
     fragment_html: str, style_preset: str, extra_css: str
 ) -> str:
@@ -476,6 +510,8 @@ def build_styled_fragment(
 
     for style_tag in soup.find_all("style"):
         style_tag.decompose()
+
+    convert_code_blocks_for_wechat(soup)
 
     article = soup.find("article")
     return str(article) if article else str(soup)
