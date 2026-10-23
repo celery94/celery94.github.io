@@ -1,0 +1,57 @@
+{
+  "article_title": "Decisions API：更快返回有限答案的判断接口",
+  "cover_type": "release",
+  "core_theme": "OpenAI Decisions API 让应用和 agent 针对答案范围明确的问题，从文本、图片或 JSON 中快速得到概率、固定选项或评分，再由应用执行后续动作。",
+  "reader_takeaway": "理解 predicate、choice、score 三种答案的适用场景，并能判断何时使用 Decisions API、何时继续使用 Responses API。",
+  "summary_angle": "把大量零散输入送进一个判断入口，快速得到三种受约束的结果，再流向不同业务动作。",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "原文：应用和 agent 在工作流中会做很多小判断，例如分类输入、路由请求或选择下一步动作；单次简单，规模化后延迟与成本会累积",
+      "visual_idea": "左侧涌入多条不同形状的信息纸片，汇聚到一个明确的判断入口",
+      "visible_label": "输入"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文及开发者指南：接口返回 predicate 的概率、choice 的固定选项、score 的等级评分",
+      "visual_idea": "中央判断装置把输入压成三张不同形状的结果卡，分别显示概率、选项和等级",
+      "visible_label": "三类答案"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文：应用使用这些答案决定后续动作；开发者指南：模型返回类型化结果，应用执行所选动作",
+      "visual_idea": "三张结果卡沿不同箭头进入业务动作出口，最后都落到应用执行层",
+      "visible_label": "应用执行"
+    }
+  ],
+  "main_metaphor": "一个城市墙面的涂鸦式判断闸机：杂乱输入经过后，只输出三种清楚的结果卡，再由应用把它们送往下一步。",
+  "primary_subject": "一台带有三个出口的判断闸机",
+  "subject_action": "把左侧涌入的零散信息纸片压成概率、选项、评分三张结果卡，沿三条箭头送向右方",
+  "composition": "斜向推进：左输入、中央主装置、右输出，宽幅内保持一个主焦点",
+  "base_style": "product-poster style illustration",
+  "selected_style": "涂鸦街头风",
+  "selected_style_prompt_descriptor": "street-graffiti comic style, spray-paint texture, bold outlines, urban wall energy, vivid but controlled color clashes",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻",
+  "allowed_visible_text": ["输入", "三类答案", "应用执行"],
+  "color_palette": ["炭黑", "信号黄", "青绿", "砖红"],
+  "avoid": [
+    "真实产品界面截图",
+    "真实架构图",
+    "仪表盘",
+    "代码雨",
+    "机器人站姿",
+    "英文长句",
+    "伪造指标",
+    "无关图标拼贴"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证输入到三类答案再到应用执行的三段叙事，主装置明确，涂鸦纹理受控且标签可读",
+  "revision_targets": [
+    "中央判断装置是否成为唯一主焦点",
+    "三类结果卡是否容易区分",
+    "涂鸦纹理是否压过信息结构"
+  ],
+  "final_prompt": "Use case: infographic-story. Asset type: wide cover infographic illustration for a Chinese tech blog article. Primary request: Create a wide cinematic infographic-story cover illustration that summarizes the OpenAI Decisions API article. Theme: applications and agents turn messy input into fast, bounded decisions and then execute the next action. The reader should quickly feel that one input becomes one of three typed answers, making business routing faster and easier to control. Summary angle: a crowded stream of inputs enters one decision gateway and leaves as three bounded result cards that flow into application actions. Narrative flow: 3-beat process from left input to central mechanism to right application execution, within a 2.35:1 wide frame, with one dominant focal subject. Information blocks: (1) problem: many varied information slips gather into one decision entrance, visible label 输入; (2) mechanism: the central machine compresses the input into three distinct result cards representing probability, fixed choice, and ordered score, visible label 三类答案; (3) takeaway: three cards travel along separate arrows into an application execution exit, visible label 应用执行. Main metaphor: a street-mural decision turnstile that lets chaotic input through three clear exits. Subject: a bold three-exit decision gateway, actively stamping information slips into three result cards. Composition/framing: diagonal forward motion, left input, large centered gateway, right output, strong horizontal readability. Style/medium: combine product-poster style illustration with the selected visual style descriptor: street-graffiti comic style, spray-paint texture, bold outlines, urban wall energy, vivid but controlled color clashes. Stylized, polished, editorial, visually strong, clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist. Color palette: charcoal black, signal yellow, teal green, brick red. Visible text policy: allow only the three short Chinese labels 输入, 三类答案, 应用执行, each placed once and kept highly legible. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names. Constraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter. Avoid: real product interface, real architecture diagram, code rain, standing robot, English long text, fabricated metrics, unrelated icon collage."
+}
