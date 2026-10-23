@@ -1,0 +1,56 @@
+{
+  "article_title": "给工程师分享信息：让上下文可查，让打断有理由",
+  "cover_type": "analysis",
+  "core_theme": "区分信息可获取与立即打断，让工程师既能保持专注，也能自行找到可靠上下文",
+  "reader_takeaway": "转发信息前先看状态、工作影响和此刻需要的注意力",
+  "summary_angle": "把杂乱消息分流成可查的上下文和一条有理由的打断",
+  "narrative_flow": "before-after",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "原文开场：转发的讨论串让工程师自己判断哪些内容是最新结论",
+      "visual_idea": "一叠消息卡堆在工程师工作台旁，打断正在进行的任务"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文区分可获取的信息与要求立即关注的信息",
+      "visual_idea": "多数卡片被放进带索引的档案架，单张决策卡留在工作台",
+      "visible_label": "背景"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "原文结尾：工程师需要可靠上下文、及时变化和独立判断",
+      "visual_idea": "一条清晰的信号灯只照亮当前必须处理的变化，工程师继续工作",
+      "visible_label": "需处理"
+    }
+  ],
+  "main_metaphor": "消息分流台：可检索的档案架连接着工程师工作台上的一盏信号灯",
+  "primary_subject": "一名管理者把消息卡分到档案架和信号灯之间",
+  "subject_action": "管理者把大部分卡片归档，只让一张写着已决定的卡片触发工作台上的信号",
+  "composition": "左右对照，左侧档案架与右侧工作台由中央分流台连接",
+  "base_style": "conceptual editorial illustration",
+  "selected_style": "美式卡通风",
+  "selected_style_prompt_descriptor": "American cartoon illustration, elastic shapes, clear expressions, bold color fields, light comedic timing",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中",
+  "style_safety_note": "风格描述为泛类型，不指向具体品牌、工作室或艺术家",
+  "allowed_visible_text": ["已决定", "背景", "需处理"],
+  "color_palette": ["warm cream", "deep teal", "coral red", "charcoal"],
+  "avoid": [
+    "purple neon",
+    "screenshots",
+    "dashboards",
+    "fake UI labels",
+    "fake charts",
+    "long captions",
+    "unrelated icon collage",
+    "decorative clutter"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证消息分流台这个主隐喻能否一眼说明可查背景与必要打断的差别",
+  "revision_targets": [
+    "减少背景卡片数量，保持一个主焦点",
+    "让三张中文标签清楚但不过大",
+    "加强档案架与工作台之间的动作关系"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: accessible engineering context versus immediate interruption. The reader should quickly feel that most information can be stored and found later, while only a few changes deserve to interrupt active work.\n\nSummary angle: a manager routes a pile of message cards into a searchable archive and lets one confirmed decision activate a signal at an engineer's desk.\nNarrative flow: before-after. In a 2.35:1 frame, keep one dominant focal subject and three supporting narrative beats, all mapped to the information blocks.\nInformation blocks:\n- Problem: a pile of discussion cards crowds the engineer's workbench.\n- Mechanism: most cards go into an indexed archive shelf; visible label 背景.\n- Takeaway: one clearly confirmed card activates a single signal lamp beside the focused engineer; visual label 需处理; a small status chip on that card says 已决定.\n\nMain metaphor: a message-routing desk connecting a searchable archive shelf to a signal lamp on an engineer's workbench.\nSubject: one manager at the central routing desk, sorting message cards with clear, expressive gestures.\nComposition/framing: wide left-to-right contrast. The archive shelf occupies the left side, the routing desk and manager sit in the center, and the engineer continues focused work on the right. Preserve one clear focal point around the single signal lamp and confirmed card.\nStyle/medium: combine conceptual editorial illustration with the selected visual style descriptor: American cartoon illustration, elastic shapes, clear expressions, bold color fields, light comedic timing. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: warm cream background, deep teal archive furniture, coral red signal accent, charcoal linework. No purple neon.\nVisible text policy: allow only three short Chinese labels: 已决定, 背景, 需处理. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: purple neon, screenshots, dashboards, long captions, fake UI, excessive floating cards, generic robot, dark cyberpunk atmosphere."
+}
