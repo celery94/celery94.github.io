@@ -1,0 +1,58 @@
+{
+  "article_title": "ASP.NET Core JWT 泄露后如何立即撤销",
+  "cover_type": "tutorial",
+  "core_theme": "用短期访问令牌、刷新令牌轮换和 token_version 检查缩小 JWT 泄露后的失效窗口",
+  "reader_takeaway": "理解通常先做刷新令牌轮换，确需即时撤销时再用用户版本检查",
+  "summary_angle": "一把已经泄露的旧钥匙继续靠近一扇华丽的安全门，门内的两道封印分别负责限制等待时间和立即作废旧凭证",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "JWT 在 exp 前不会因改密码失效",
+      "visual_idea": "一把旧黄铜钥匙停在发光的安全门前，表示旧凭证仍想进入",
+      "visible_label": "旧令牌"
+    },
+    {
+      "role": "step",
+      "source_anchor": "短期 access token 与刷新令牌 family 轮换",
+      "visual_idea": "第一道环形封印把一把钥匙替换成另一把钥匙，强调轮换",
+      "visible_label": "轮换"
+    },
+    {
+      "role": "step",
+      "source_anchor": "token_version 与用户行逐次比对",
+      "visual_idea": "门中央的红色印记切换到新纹样，旧钥匙瞬间失去入口",
+      "visible_label": "即时撤销"
+    }
+  ],
+  "main_metaphor": "一座带双层封印的华丽安全门与一把已经泄露的旧钥匙",
+  "primary_subject": "一扇带黄铜机关和蜡封印记的深色安全门",
+  "subject_action": "中央红色版本封印正在换纹，旧钥匙被挡在门外",
+  "composition": "单点聚焦，安全门居中，左侧旧钥匙和右侧轮换机关形成轻微斜向推进",
+  "base_style": "editorial technical illustration",
+  "selected_style": "洛丽塔幻想风",
+  "selected_style_prompt_descriptor": "ornate fantasy fashion illustration, lace-like detail, dollhouse elegance, soft magical palette, controlled decorative density",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；用精致的封印与钥匙表现令牌撤销的层次",
+  "style_safety_note": "风格池名称只用于方向记录，最终提示词使用泛类型描述，不复刻品牌、工作室或艺术家",
+  "allowed_visible_text": ["旧令牌", "轮换", "即时撤销"],
+  "color_palette": ["墨蓝", "象牙白", "氧化黄铜", "深红"],
+  "avoid": [
+    "人物与面部",
+    "皇冠与裙装",
+    "真实产品截图",
+    "仪表盘",
+    "伪造代码",
+    "紫色霓虹",
+    "英文标语",
+    "漂浮芯片",
+    "装饰过度导致焦点消失"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "先验证双层安全门、旧钥匙和版本封印能否在一眼内形成撤销叙事",
+  "revision_targets": [
+    "删减多余花纹，保持安全门是唯一主焦点",
+    "让三道中文标签清晰但不过度像海报",
+    "避免画面变成真实系统架构图"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes an article about revoking a leaked JWT before it expires. Theme: short-lived access tokens, refresh-token rotation, and an immediate token_version check. The reader should quickly understand that a leaked old token keeps approaching a protected service, while two layered safeguards close its access window.\n\nSummary angle: An old brass key has been copied and still approaches an ornate secure door. The first seal limits the wait through refresh-token rotation; the second seal changes the user's version mark and rejects the old key immediately. Narrative flow: 3-beat process. In a 2.35:1 frame, keep one dominant focal subject and three supporting narrative beats. Each beat must map to the article rather than generic decoration.\nInformation blocks:\n- Problem: an old access token remains usable before expiry; visual idea: a weathered brass key stops at a glowing security door; visible label: 旧令牌.\n- Step 1: short access tokens and one refresh-token family per login rotate at a circular mechanism; visible label: 轮换.\n- Step 2: a per-user token_version seal changes at the center of the door, instantly invalidating the old key; visible label: 即时撤销.\n\nMain metaphor: an ornate double-sealed security door and a leaked old key. Subject: one dark navy and oxidized-brass security door with two distinct magical-mechanical seals, the central red version seal visibly changing to a new pattern while a copied old key is blocked outside. Composition/framing: single-point focus, the security door centered, the old key on the left and the rotation mechanism on the right forming a subtle diagonal progression; keep the wide layout readable.\nStyle/medium: combine editorial technical illustration with the selected visual style descriptor: ornate fantasy fashion illustration, lace-like detail, dollhouse elegance, soft magical palette, controlled decorative density. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: ink navy, ivory, oxidized brass, and a restrained deep red accent. Avoid excessive purple.\nVisible text policy: allow only these three short Chinese labels: 旧令牌, 轮换, 即时撤销. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter. No people, faces, crowns, dresses, neon skyscrapers, floating chips, or code rain.\nAvoid: decorative clutter that competes with the door; illegible text; extra labels; realistic UI; purple-blue neon glow."
+}
