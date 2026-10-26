@@ -1,0 +1,59 @@
+{
+  "article_title": "CBOR 入门：.NET 里什么时候用它换掉 JSON",
+  "cover_type": "tutorial",
+  "core_theme": "CBOR 把 JSON 表达的数据编成二进制，.NET 里用 CborWriter 和 CborReader 手工读写，什么时候值得换掉 JSON",
+  "reader_takeaway": "能看懂 CBOR 的字节结构，能写出读写代码，并知道什么条件下才该替换 JSON",
+  "summary_angle": "同一份狗的数据，JSON 107 字节压成 CBOR 80 字节，靠的是首字节自带类型和长度",
+  "narrative_flow": "before-after",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "原文开头用一只狗的数据做 JSON 示例；本文实测同一对象去掉空白后为 107 字节",
+      "visual_idea": "左侧松散排布的文本方块，块与块之间留出引号和逗号的空隙",
+      "visible_label": "107 字节",
+      "numeric_fact": "107"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文 hex dump 中 A5 表示 5 项 map，08 表示整数 8；首字节高 3 位决定类型、低 5 位给出长度或数值",
+      "visual_idea": "把首字节放大成带分割线的方块，一半写类型一半写长度，旁边放一个单字节的小方块",
+      "visible_label": "A5",
+      "numeric_fact": "A5"
+    },
+    {
+      "role": "evidence",
+      "source_anchor": "本文实测 CborWriter 输出 80 字节，与原文 hex 逐字节一致",
+      "visual_idea": "右侧压紧后的方块流，整体高度明显低于左侧",
+      "visible_label": "80 字节",
+      "numeric_fact": "80"
+    }
+  ],
+  "main_metaphor": "把散开的文本行李重新打包成贴了类型标签的紧凑箱子",
+  "primary_subject": "两只并排的行李箱，左边松散的文本方块，右边压紧的二进制方块",
+  "subject_action": "正在把左边散落的方块收进右箱，箱子边缘贴着一个放大显示的首字节标签",
+  "composition": "左右对照",
+  "base_style": "editorial technical illustration",
+  "selected_style": "日漫少年风",
+  "selected_style_prompt_descriptor": "energetic shonen-inspired manga look, clean ink lines, dynamic poses, readable action rhythm, bright restrained color accents",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；左右对照的打包动作适合用有推进感的线条节奏表达",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或在世艺术家复刻",
+  "allowed_visible_text": ["107 字节", "A5", "80 字节"],
+  "color_palette": ["深墨蓝", "暖橙", "米白"],
+  "avoid": [
+    "漂浮芯片",
+    "无意义代码雨",
+    "霓虹高楼背景",
+    "通用机器人站姿",
+    "赛博朋克紫蓝光污染",
+    "巨量 HUD 浮层",
+    "真实代码编辑器截图"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮先确认左右对照的压缩关系清楚、三个标签位置可读、没有生成海报标题",
+  "revision_targets": [
+    "左侧方块过于拥挤时减少块数，只保留引号和冒号的空隙感",
+    "首字节放大块要能看出上下两段的分割",
+    "去掉任何多余的英文标语和装饰性 HUD"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: CBOR encodes the same data as JSON into a compact binary format, and .NET reads/writes it byte by byte. The reader should quickly feel that the same payload shrinks and gains a type byte at the front.\n\nSummary angle: 同一份狗的数据，JSON 107 字节压成 CBOR 80 字节，靠的是首字节自带类型和长度.\nNarrative flow: before-after. In a 2.35:1 frame, keep one dominant focal subject and 3 supporting narrative beats. Each beat must map to the article's information blocks rather than generic decoration.\nInformation blocks:\n- problem: a loose spread of text blocks with visible quotes and commas, labelled 107 字节\n- mechanism: one enlarged first byte split into two halves (type bits / length bits) with the label A5, plus a small single-byte block\n- evidence: the tightened packed block stream on the right, clearly shorter, labelled 80 字节\n\nMain metaphor: repacking loose text luggage into a tight binary case whose edge carries a type label.\nSubject: two luggage cases side by side, loose text blocks on the left, packed binary blocks on the right, packed together by an energetic action line.\nComposition/framing: left-right contrast, wide-screen storytelling, one dominant focal subject, legible at cover size.\nStyle/medium: combine editorial technical illustration with the selected visual style descriptor: energetic shonen-inspired manga look, clean ink lines, dynamic poses, readable action rhythm, bright restrained color accents. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: deep ink blue, warm orange, off-white.\nVisible text policy: allow only 3 short Chinese labels or number chips: 107 字节, A5, 80 字节. Each label <= 6 Chinese characters or one short numeric chip. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: floating chips, meaningless code rain, neon skyscraper background, generic robot pose, cyberpunk purple-blue light spill, heavy HUD overlay layers, real code editor screenshots."
+}
