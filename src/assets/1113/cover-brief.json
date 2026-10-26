@@ -1,0 +1,65 @@
+{
+  "article_title": "先让它红一次：审 agent 生成的 .NET 测试",
+  "cover_type": "analysis",
+  "core_theme": "agent 生成的 .NET 测试常常名字描述清楚、AAA 结构整齐、一次跑绿，但这些都不是回归覆盖的证据。回归覆盖是需求、被执行的生产代码和能失败的断言之间的关系：把被测逻辑改坏一次，测试会红才算数。",
+  "reader_takeaway": "审 agent 交来的测试时，先问它能捕捉哪一种错误行为，再用一次变异（改坏守卫、删掉校验）验证红绿；绿色只代表这一次运行没触发失败。",
+  "summary_angle": "把「一路绿灯的测试面板」和「它到底接没接上警报」压成一张左右对照图：右侧把被测逻辑的守卫砖抽掉，假测试的灯仍然是绿的，真测试的灯变红。",
+  "narrative_flow": "conflict-to-resolution",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "描述性的方法名、整齐的 arrange-act-assert、绿色的运行结果都是有用的信号，但都不能证明测试会抓到你关心的那次回归。",
+      "visual_idea": "一排像素测试灯全亮绿色，最左边挂着一块写有测试方法名的牌子，其中一只灯泡线头是断的却仍然亮绿。",
+      "visible_label": "全是绿的",
+      "numeric_fact": "1"
+    },
+    {
+      "role": "evidence",
+      "source_anchor": "去掉被测代码里的负数守卫后，弱测试仍然通过；强测试因为缺少预期异常而失败（本文在 .NET 10 与 xUnit v3 上实测）。",
+      "visual_idea": "一只手从代码墙里抽走标着守卫的一块砖，左侧面板绿灯不变，右侧面板的灯转成红色。",
+      "visible_label": "改坏一次",
+      "numeric_fact": "2"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "回归覆盖是需求与可观测失败之间的关系：测试名称描述意图，arrange 选择场景，真实生产代码提供行为，断言决定评审者能得出什么结论。",
+      "visual_idea": "中间一只大警报灯连着三段通路：输入、生产代码、断言，只有三段接通时灯才红。",
+      "visible_label": "才会变红",
+      "numeric_fact": "3"
+    }
+  ],
+  "main_metaphor": "测试是仓库里的警报器：值不值得留不取决于灯现在亮不亮，而取决于把它接到真实行为上、被人触发时会不会响。",
+  "primary_subject": "一个像素风格的测试面板，中间一只大警报灯，两侧是成排的小绿灯。",
+  "subject_action": "一只手从代码墙里抽走一块守卫砖，警报灯由绿转红，旁边一排假绿灯保持不动。",
+  "composition": "左右对照加中间警报灯：左侧是仍然全绿的假测试面板，右侧是被抽掉一块砖的代码墙与变红的警报灯。",
+  "base_style": "conceptual editorial illustration",
+  "selected_style": "像素复古风",
+  "selected_style_prompt_descriptor": "retro pixel-art inspired illustration, blocky forms, limited palette, old game composition cues, readable wide layout",
+  "selected_style_reason": "用户未指定风格，本篇由 pick-cover-style.py 从风格池随机选中；像素面板与二值信号（绿/红）天然对应测试结果，也能避免画成真实终端截图。",
+  "style_safety_note": "风格为泛像素美术描述，不涉及品牌、工作室或在世艺术家复刻；不画具体游戏角色或界面。",
+  "allowed_visible_text": ["全是绿的", "改坏一次", "才会变红"],
+  "color_palette": ["暗石板灰", "荧光青绿", "警报红", "旧纸米色"],
+  "avoid": [
+    "真实终端窗口",
+    "伪造测试输出",
+    "伪造指标数字",
+    "伪造图表坐标轴",
+    "英文标签",
+    "长段文字",
+    "海报主标题",
+    "水印",
+    "品牌 logo",
+    "漂浮芯片",
+    "无意义代码雨",
+    "霓虹高楼背景",
+    "通用机器人站姿"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮验证「一排假绿灯 + 一只真警报灯 + 被抽走一块砖的代码墙」这套对照关系是否一眼可读，以及三个中文短标签是否清晰。",
+  "revision_targets": [
+    "若左右两侧的灯分不清真假，加大中间警报灯与两侧小绿灯的尺寸差",
+    "若「抽走一块砖」看不出来，给缺口加一圈亮色描边，并把砖块画成被手夹住的状态",
+    "若中文标签发糊或超过三个，减到只剩「改坏一次」一个标签"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: agent 生成的 .NET 测试看起来可信，但只有把被测逻辑改坏一次、它会变红，才算真的覆盖了回归。The reader should quickly feel 绿灯只说明这一次没失败，红绿对照才说明测试接没接上真实行为。\n\nSummary angle: 一张左右对照的像素测试面板：左侧一排最亮的绿灯代表「看起来都对」的假测试，右侧一只手从代码墙里抽走守卫砖，警报灯变红，证明只有被触发过的测试才接上了线。\nNarrative flow: conflict-to-resolution. In a 2.35:1 frame, keep one dominant focal subject and 3 supporting narrative beats. Each beat must map to the article's information blocks rather than generic decoration.\nInformation blocks:\n- problem: 方法名、AAA 结构、绿色运行都不能证明会抓到回归；用一排全绿的像素测试灯、最左边挂测试方法名牌、其中一只灯泡线头断了却仍亮绿来表达；visible label 全是绿的\n- evidence: 删掉负数守卫后弱测试仍通过、强测试失败；用一只手从代码墙里抽走标着守卫的砖块、左侧绿灯不动、右侧灯转红来表达；visible label 改坏一次\n- takeaway: 覆盖是需求与可观测失败之间的关系；用中间一只大警报灯通过三段通路分别连到输入、生产代码、断言来表达；visible label 才会变红\n\nMain metaphor: 测试是仓库里的警报器，值不值得留不取决于灯现在亮不亮，而取决于被触发时会不会响。\nSubject: 像素风格的测试面板中央一只大警报灯，两侧是成排小绿灯。\nComposition/framing: 左右对照加中间警报灯，左侧是仍然全绿的假测试面板，右侧是被抽掉一块砖的代码墙与变红的警报灯。Prefer horizontal storytelling that stays legible in a wide cover.\nStyle/medium: combine conceptual editorial illustration with the selected visual style descriptor: retro pixel-art inspired illustration, blocky forms, limited palette, old game composition cues, readable wide layout. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: 暗石板灰与旧纸米色作底，荧光青绿表示假绿，警报红作唯一强对比色。\nVisible text policy: allow only 3 short Chinese labels, all sourced from the information blocks: 全是绿的 / 改坏一次 / 才会变红. Each label <= 5 Chinese characters. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: 真实终端窗口, 伪造测试输出, 伪造指标数字, 英文标签, 长段文字, 海报主标题, 水印, 品牌 logo, 漂浮芯片, 无意义代码雨, 霓虹高楼背景, 通用机器人站姿。"
+}
