@@ -1,0 +1,65 @@
+{
+  "article_title": "MongoClient 单例之后：Dispose 释放了什么",
+  "cover_type": "architecture",
+  "core_theme": "MongoClient 在 ASP.NET Core 里应当注册成单例复用，但生命周期分成多层：容器拥有它创建的 client 并负责释放；client 只是从按配置共享的集群注册表借来 cluster；Dispose(client) 不等于关闭集群；请求服务只是借用者。",
+  "reader_takeaway": "写完注册代码之后，要分别说清 owner 和 borrowers：谁持有 client、谁共用 cluster、谁在什么条件下才释放集群；不要为了「干净」加一段无条件的 unregister。",
+  "summary_angle": "用共享机房的等距版画讲三层所有权：容器手里握着总卡，请求只借一张卡，抽回卡不等于关掉机柜；中间那台机柜是按配置被多个 client 共用的集群。",
+  "narrative_flow": "layered reveal",
+  "information_blocks": [
+    {
+      "role": "contrast",
+      "source_anchor": "容器创建的 MongoClient 由容器释放；但驱动文档明确说释放 client 不会释放 cluster 和底层连接。",
+      "visual_idea": "一只手把一张卡插回卡柜，卡柜背后的机柜仍然亮着指示灯，说明凭证被收回而基础设施还在运行。",
+      "visible_label": "谁持有",
+      "numeric_fact": "1"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "ClusterRegistry 以配置为键缓存 cluster，多个 client 可能共用同一份集群基础设施。",
+      "visual_idea": "中央机柜用两根线各自接到左侧容器外壳与右侧借用窗口，表明一份机柜被多个使用方共用。",
+      "visible_label": "谁共用",
+      "numeric_fact": "2"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "只有确认没有其他借用者时，才手动调用注册表方法释放集群；否则保留不确定性，不要写无条件的关闭承诺。",
+      "visual_idea": "机柜旁一块刻字的铭牌和一把锁，铭牌上只有一个明确的所有者位置，锁没有被打开。",
+      "visible_label": "谁释放",
+      "numeric_fact": "3"
+    }
+  ],
+  "main_metaphor": "共享机房里的一台机柜：借书卡是使用权凭证，不是机柜的产权证；收回卡不代表拆掉机柜。",
+  "primary_subject": "等距视角的共享机房：一台中央机柜、左侧的容器卡柜、右侧的借用窗口。",
+  "subject_action": "一只手把借书卡插回卡柜卡槽，机柜指示灯仍然亮着。",
+  "composition": "等距空间，左中右三层关系：左侧容器与卡柜、中间共享机柜、右侧请求借用窗口。",
+  "base_style": "isometric conceptual systems scene",
+  "selected_style": "黑白版画风",
+  "selected_style_prompt_descriptor": "black-and-white printmaking look, carved textures, bold shadows, high contrast, poster-like but no title text",
+  "selected_style_reason": "用户未指定风格，本篇由 pick-cover-style.py 从风格池随机选中；黑白版画的高对比适合表达所有权与边界这类结构关系，也能避免画成真实仪表盘或截图。",
+  "style_safety_note": "风格为泛版画描述，不涉及品牌、工作室或在世艺术家复刻；不画真实产品界面。",
+  "allowed_visible_text": ["谁持有", "谁共用", "谁释放"],
+  "color_palette": ["纯黑", "象牙白", "纸灰"],
+  "avoid": [
+    "彩色霓虹",
+    "真实终端窗口",
+    "伪造图表面板",
+    "伪造指标数字",
+    "英文标签",
+    "长段文字",
+    "海报主标题",
+    "水印",
+    "品牌 logo",
+    "漂浮芯片",
+    "无意义代码雨",
+    "通用机器人站姿",
+    "数据库图标堆叠"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮验证「左侧卡柜、中央共享机柜、右侧借用窗口」的等距三层关系是否一眼可读，以及三个中文短标签是否清晰。",
+  "revision_targets": [
+    "若「卡被收回但机柜仍亮」读不出来，加强卡柜与机柜之间的物理分离，并让机柜指示灯成为唯一亮部",
+    "若左右两侧的借用关系含糊，用两根清晰的线把机柜分别接到卡柜和借用窗口",
+    "若中文标签发糊或超过三个，减到只剩「谁释放」一个标签"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: MongoClient 在 ASP.NET Core 里应当复用为单例，但释放它的对象不等于关闭它背后的集群和连接；所有权分成容器、共享集群注册表、请求借用者三层。The reader should quickly feel 借书卡可以被收回，共享机柜并不会因此关掉。\n\nSummary angle: 一张等距版画讲清三层所有权：左侧容器握着总卡柜，右侧请求窗口只是借用者，中间一台按配置被多个 client 共用的机柜；卡片被抽回，机柜仍然亮着。\nNarrative flow: layered reveal. In a 2.35:1 frame, keep one dominant focal subject and 3 supporting narrative beats. Each beat must map to the article's information blocks rather than generic decoration.\nInformation blocks:\n- contrast: 容器创建的 client 由容器释放，但释放 client 不会释放集群；用一只手把卡插回卡柜、背后机柜仍亮着指示灯来表达；visible label 谁持有\n- mechanism: 集群注册表按配置共用同一份基础设施；用中央机柜接两根线分别到左侧容器外壳与右侧借用窗口来表达；visible label 谁共用\n- takeaway: 只有在确认没有其他借用者时才手动释放集群；用机柜旁一块刻字铭牌与一把没有打开的锁来表达；visible label 谁释放\n\nMain metaphor: 共享机房的一台机柜，借书卡是使用权凭证，不是产权证。\nSubject: 等距视角的共享机房，一台中央机柜、左侧容器卡柜、右侧借用窗口。\nComposition/framing: 等距空间，左中右三层关系，机柜是唯一强对比焦点。Prefer horizontal storytelling that stays legible in a wide cover.\nStyle/medium: combine isometric conceptual systems scene with the selected visual style descriptor: black-and-white printmaking look, carved textures, bold shadows, high contrast, poster-like but no title text. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: 纯黑与象牙白为主，纸灰作中间调，只有机柜指示灯可以是最亮的白。\nVisible text policy: allow only 3 short Chinese labels, all sourced from the information blocks: 谁持有 / 谁共用 / 谁释放. Each label <= 4 Chinese characters. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: 彩色霓虹, 真实终端窗口, 伪造图表面板, 伪造指标数字, 英文标签, 长段文字, 海报主标题, 水印, 品牌 logo, 漂浮芯片, 无意义代码雨, 通用机器人站姿, 数据库图标堆叠。"
+}
