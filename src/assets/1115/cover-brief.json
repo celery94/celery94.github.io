@@ -1,0 +1,57 @@
+{
+  "article_title": "上下文工程的现状：从塞满到遗忘",
+  "cover_type": "analysis",
+  "core_theme": "上下文工程从「把窗口塞满」走到「学会重置与遗忘」：百万 token 带来四类失败，六种修补手段最终都写进了 harness，而 agent 自主驱动 harness 又带来对抗权重与上下文惯性两类新问题。",
+  "reader_takeaway": "读完能理解上下文失败从哪来、修复手段为什么都是代码，并且知道 agent 行为变怪时先看上下文长度与重复模式，而不是先换模型。",
+  "summary_angle": "一条被塞满的长卷轴，被六种招式逐一处理，最后由习武者收卷重置、只留下已经完成的作品——上下文工程的终点是遗忘。",
+  "narrative_flow": "conflict-to-resolution",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "2024 长上下文承诺：Gemini 1.5 的百万 token 窗口，以及「长上下文不是解药、会装进更多错误」",
+      "visual_idea": "一条横贯画面的巨大宣纸卷轴被密密麻麻的墨迹填满，墨迹中间缠着打结的错误符号，卷轴本身压得画面下坠",
+      "visible_label": "塞满",
+      "numeric_fact": "1M"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "六种上下文修补手段：augmentation、tool loadout、quarantine、pruning、offloading、summarization，每一种都能写成一个函数",
+      "visual_idea": "沿卷轴排开的六个拳印或招式残影，形成一条对抗性的节奏，不是图标拼贴",
+      "visible_label": "六招",
+      "numeric_fact": "6"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "把上下文删掉、保留环境产物（Memento 每 90 分钟清空一次上下文）与 2027 预测：需要战略遗忘",
+      "visual_idea": "习武者一把卷起长卷轴收进背后，桌面只剩干净的线索和已经完成的作品，留给画面右侧",
+      "visible_label": "遗忘"
+    }
+  ],
+  "main_metaphor": "上下文是一幅越写越长的卷轴：招式用来处理卷轴里的错误，收卷重置才能把思路救回来。",
+  "primary_subject": "一位水墨武侠风格的抽象习武者",
+  "subject_action": "一手按住铺满画面的长卷轴，一手以笔为刀，正在收卷",
+  "composition": "斜向推进",
+  "base_style": "conceptual editorial illustration",
+  "selected_style": "港漫武侠风",
+  "selected_style_prompt_descriptor": "bold martial-arts comic look, expressive ink strokes, dramatic stances, gritty texture, strong motion arcs",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；文章里「对抗权重」与「上下文惯性」本身就是与模型训练惯性对抗，武侠招式与收卷动作可以同时承载「六种修补」和「重置遗忘」。",
+  "style_safety_note": "港漫武侠为泛类型描述，不指向具体作品、画师或出版社；prompt 只使用水墨、笔触、姿态等描述词。",
+  "allowed_visible_text": ["塞满", "六招", "遗忘"],
+  "color_palette": ["墨黑", "宣纸米黄", "朱砂红", "青灰"],
+  "avoid": [
+    "霓虹灯与赛博朋克紫蓝光",
+    "漂浮芯片",
+    "通用机器人站姿",
+    "UI 截图与仪表盘",
+    "长段文字与英文标语",
+    "无意义魔法光效堆叠"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "先验证「长卷轴 + 习武者 + 收卷」的隐喻能否在 2.35:1 画幅里一眼读出，三个信息块是否还能辨认",
+  "revision_targets": [
+    "画面过满导致三个信息块不可读",
+    "出现英文或长段文字",
+    "主体动作不明确"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: context engineering evolved from stuffing everything into a million-token window to learning how to reset and forget. The reader should quickly feel that the fixes are concrete moves and the real conclusion is knowing when to empty the context.\n\nSummary angle: a hugely long paper scroll overflowing with inked notes is worked over by six distinct martial moves, then a practitioner rolls it up and walks away with only the finished work left on the table.\nNarrative flow: conflict-to-resolution. In a 2.35:1 frame, keep one dominant focal subject and three supporting narrative beats. Each beat must map to the article's information blocks rather than generic decoration.\nInformation blocks:\n- Problem: an enormous horizontal paper scroll crammed edge to edge with tangled inked writing, knots of wrong marks buried inside it, the scroll's weight pulling the composition down. Visible label: 塞满. Numeric chip: 1M.\n- Mechanism: six distinct impact marks or afterimages of martial strikes arranged along the scroll, a fighting rhythm rather than an icon grid. Visible label: 六招. Numeric chip: 6.\n- Takeaway: the practitioner rolls the whole scroll shut behind the back, leaving a clean table with only a small finished object on the right side of the frame. Visible label: 遗忘.\n\nMain metaphor: the context is a scroll that grows as long as it is written; the moves handle the mistakes inside it, and rolling it up is what brings the thinking back.\nSubject: a single abstract ink-brush martial-arts practitioner, hand pressed on the sprawling scroll, holding a brush like a blade, beginning to roll it shut.\nComposition/framing: diagonal push from lower left to upper right, one clear focal subject, wide horizontal storytelling that stays legible in a 2.35:1 cover.\nStyle/medium: combine conceptual editorial illustration with the selected visual style descriptor: bold martial-arts comic look, expressive ink strokes, dramatic stances, gritty texture, strong motion arcs. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: ink black, rice-paper beige, small cinnabar red accents, slate blue-grey shadows. Matte paper texture, no glossy neon.\nVisible text policy: allow only the three short Chinese labels 塞满, 六招, 遗忘, plus the number chips 1M and 6, all sourced from the information blocks. Each label is 2 Chinese characters. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: neon lights, cyberpunk purple-blue glow, floating chips, generic robot pose, UI screenshots, dense HUD overlays, magic particle overload, decorative clutter."
+}
