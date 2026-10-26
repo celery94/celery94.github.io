@@ -1,0 +1,56 @@
+{
+  "article_title": "C# 14 扩展属性：状态存表里还是塞进对象",
+  "cover_type": "analysis",
+  "core_theme": "C# 14 的扩展属性没有背衬字段，给状态找地方只有两条路：挂在对象外面的条件弱引用表上，或者用 Unsafe.As 把字段布局相同的镜像对象伪装成原类型。前一条能用但有代价，后一条会把运行时类型、相等判断和哈希一起弄坏。",
+  "reader_takeaway": "读完能判断什么时候可以用 ConditionalWeakTable 附加状态，也能一眼看出 Unsafe.As 伪造布局为什么不该进生产代码：它放弃了编译器对字段布局的保证。",
+  "summary_angle": "一个没有挂钩的名字牌找不到地方放：左边一排寄存柜可以把它收进去，右边一件更大的外壳可以把它套在身上，但套上外壳之后镜子里的身份牌就对不上了。",
+  "narrative_flow": "conflict-to-resolution",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "扩展属性必须手写访问器，编译器不生成背衬字段，状态必须在别处落脚",
+      "visual_idea": "画面中央一个圆润的小角色举着一块空白名字牌，牌子上方没有钩子，悬在半空，角色的表情是「这东西没地方挂」的困惑",
+      "visible_label": "无落点",
+      "numeric_fact": "2"
+    },
+    {
+      "role": "contrast",
+      "source_anchor": "ConditionalWeakTable 方案：状态存在对象外面的一张弱键表里，key 被回收时表项消失",
+      "visual_idea": "画面左侧一排友善的寄存柜，其中一扇门打开，名字牌被放进格子里，柜门上贴着小号签条",
+      "visible_label": "寄存"
+    },
+    {
+      "role": "contrast",
+      "source_anchor": "Unsafe.As 方案：分配一个字段布局相同的镜像对象，再当成原类型使用；GetType 仍是镜像类型，相等与哈希失效",
+      "visual_idea": "画面右侧同一角色钻进一件明显更大的圆壳外套，外套上多出一个口袋；旁边一面小镜子映出的身份牌颜色和角色身上的不一致，暗示类型身份错位",
+      "visible_label": "套壳"
+    }
+  ],
+  "main_metaphor": "扩展属性是一块没有挂钩的名字牌；寄存柜把它收进外部格子，外壳把它套在对象身上，但外壳会让镜子里的身份对不上。",
+  "primary_subject": "一个圆润的卡通小角色，手里举着一块空白名字牌",
+  "subject_action": "站在寄存柜与外壳之间，犹豫该把名字牌交给哪一边",
+  "composition": "左右对照",
+  "base_style": "conceptual editorial illustration",
+  "selected_style": "迪士尼动画风",
+  "selected_style_prompt_descriptor": "bright family-animation feeling, rounded character shapes, clear emotional acting, polished color and lighting, no studio imitation",
+  "selected_style_reason": "用户未指定风格，本篇从 40 项风格池随机选中；「名字牌没有落点」这种抽象取舍适合用圆润角色和清晰表情讲成一个小场景。",
+  "style_safety_note": "清单中的风格为泛类型描述，prompt 只使用圆润造型、家庭动画气质、清晰表情等描述词，不出现品牌、工作室或在世艺术家名称。",
+  "allowed_visible_text": ["无落点", "寄存", "套壳"],
+  "color_palette": ["奶油白", "珊瑚红", "青绿色", "芥末黄"],
+  "avoid": [
+    "霓虹与赛博朋克紫蓝光",
+    "真实 UI 截图与仪表盘",
+    "漂浮芯片与通用机器人",
+    "长段文字与英文标语",
+    "过量装饰粒子",
+    "伪造的图表坐标轴"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "先验证「举牌角色 + 左侧寄存柜 + 右侧外壳 + 错位镜子」这套左右对照能否在 2.35:1 画幅里一眼读出，三个中文短标签是否清楚",
+  "revision_targets": [
+    "信息块挤在一起导致三处标签不可读",
+    "出现英文或长句文字",
+    "角色动作与左右对照关系不清"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: C# extension properties have no backing field, so the state must be stored somewhere else; there are only two routes, an external weak-key table or a faked object layout. The reader should quickly feel the trade-off: the locker is workable, the costume breaks identity.\n\nSummary angle: a name tag with no hook cannot be hung anywhere; a row of friendly lockers on the left can keep it, while a larger rounded shell on the right can be worn over the character's body, but after wearing the shell the identity badge in the mirror no longer matches.\nNarrative flow: conflict-to-resolution. In a 2.35:1 frame, keep one dominant focal subject and three supporting narrative beats. Each beat must map to the article's information blocks rather than generic decoration.\nInformation blocks:\n- Problem: a small rounded cartoon character in the center holds up a blank hanging name tag, no hook above it, the tag floating slightly askew, the character puzzled but no speech bubble and no question-mark symbol. Visible label: 无落点. Numeric chip: 2.\n- Contrast A: on the left, a tidy row of friendly coin lockers, one door open, the name tag placed inside a compartment, a small paper ticket stuck on the door. Visible label: 寄存.\n- Contrast B: on the right, the same character climbs into an oversized hollow shell with the exact same silhouette as itself, plus one extra pocket; next to it a small hand mirror shows an identity badge with a mismatched color, hinting at broken type identity. Visible label: 套壳.\n\nMain metaphor: the extension property is a name tag with no hook; the locker stores it outside, the shell wears it on the object, and the shell makes the reflection disagree with the character.\nSubject: one rounded cartoon character holding a blank hanging name tag.\nSubject action: standing between the locker row and the shell, hesitating over which side should take the tag.\nComposition/framing: left-right contrast, one clear focal subject in the middle, wide horizontal storytelling that stays legible in a 2.35:1 cover.\nStyle/medium: combine conceptual editorial illustration with the selected visual style descriptor: bright family-animation feeling, rounded character shapes, clear emotional acting, polished color and lighting, no studio imitation. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: warm cream background, coral red accents, teal and mustard yellow as secondary shapes. Bright, matte, friendly lighting, no glossy neon.\nLabels are flat rounded chips without bubble tails, without question marks, without emoji.\nVisible text policy: allow only the three short Chinese labels 无落点, 寄存, 套壳, plus the small number chip 2, all sourced from the information blocks. Each label is 2 to 3 Chinese characters. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: neon lights, cyberpunk purple-blue glow, floating chips, generic robot poses, UI screenshots, dense HUD overlays, magic particle overload, decorative clutter."
+}
