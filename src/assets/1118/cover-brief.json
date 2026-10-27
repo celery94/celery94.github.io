@@ -1,0 +1,57 @@
+{
+  "article_title": "C# List 与 HashSet：序列与成员资格",
+  "cover_type": "analysis",
+  "core_theme": "List 保留位置和每一次出现，HashSet 按比较器只保留成员资格；相等性和顺序是两套独立策略",
+  "reader_takeaway": "先回答「一次出现代表什么」，再决定用哪种容器，以及是否要额外补上顺序或身份层",
+  "summary_angle": "同一组产品编号分岔走两条路：一条保留每次经过的卡片，另一条只留一张代表，第三条路是判重加保序",
+  "narrative_flow": "before-after",
+  "information_blocks": [
+    {
+      "role": "contrast",
+      "source_anchor": "原文小节 A List Preserves Occurrences and Positions：List<T> 按索引记录每一次出现，重复元素各占一个位置",
+      "visual_idea": "左侧横向轨道上平铺编号卡片，其中 P-100 重复出现两次，卡片下方有位置刻度短横线",
+      "visible_label": "保留重复"
+    },
+    {
+      "role": "contrast",
+      "source_anchor": "原文小节 A HashSet Expresses Membership Under a Comparer：大小写不同的同一编号在 OrdinalIgnoreCase 下只算一个成员",
+      "visual_idea": "右侧同样的编号卡片叠进单格方槽，只留一张代表卡片，其余收进槽后阴影",
+      "visible_label": "合并成员"
+    },
+    {
+      "role": "step",
+      "source_anchor": "原文小节 Ordered Deduplication Uses Two Responsibilities：集合判重负责成员资格，列表负责记录首次出现顺序，两份职责分开持有",
+      "visual_idea": "一条从左侧轨道分流、穿过右侧单格槽位、再汇入下方新轨道的箭头路径",
+      "visible_label": "首次出现"
+    }
+  ],
+  "main_metaphor": "同一条传送带上的编号卡片在分岔口走两条路：一条保留每次经过，另一条只留一张代表",
+  "primary_subject": "一张重复出现的产品编号卡片",
+  "subject_action": "在分岔轨道上被保留或被合并成单一成员",
+  "composition": "左右对照：左侧轨道平铺卡片，右侧单格槽位收拢成员，下方箭头路径汇入新轨道；2.35:1 宽幅内保留一个主焦点和三个叙事信息块",
+  "base_style": "conceptual editorial illustration",
+  "selected_style": "厚涂插画风",
+  "selected_style_prompt_descriptor": "painterly digital illustration, rich brushwork, volumetric lighting, strong focal contrast, textured color masses",
+  "selected_style_reason": "用户未指定风格，从 40 项风格池随机选中",
+  "style_safety_note": "清单风格为泛类型描述，不涉及品牌、工作室或在世艺术家复刻",
+  "allowed_visible_text": ["保留重复", "合并成员", "首次出现"],
+  "color_palette": ["warm amber", "teal", "deep ink"],
+  "avoid": [
+    "webpage screenshot",
+    "real code editor",
+    "dashboard",
+    "floating chips",
+    "neon cyberpunk",
+    "english slogans",
+    "poster title text",
+    "watermark"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "验证「编号卡片分岔轨道」隐喻是否成立：左侧重复卡片可数、右侧单格槽位收拢、第三个信息块路径可读，且风格为厚涂而非矢量扁平",
+  "revision_targets": [
+    "三个中文标签是否清晰可读且不糊",
+    "左右对照的主焦点是否唯一",
+    "是否混入英文长标语或伪造 UI"
+  ],
+  "final_prompt": "Use case: infographic-story. Asset type: wide cover infographic illustration for a Chinese tech blog article, aspect ratio 2.35:1. Primary request: Create a wide cinematic infographic-story cover illustration that summarizes an article comparing C# List<T> and HashSet<T>. Theme: 一个 List 保留位置和每一次出现，一个 HashSet 按比较器只保留成员资格；相等性和顺序是两套互相独立的策略。The reader should quickly feel 先回答「一次出现代表什么」，再决定用哪种容器，以及是否要额外补上顺序或身份层。Summary angle: 同一组产品编号分岔走两条路：一条保留每次经过的卡片，另一条只留一张代表，第三条路是判重加保序。Narrative flow: before-after. In a 2.35:1 frame keep one dominant focal subject and 3 supporting narrative beats; each beat must map to the article's information blocks rather than generic decoration. Information blocks: (1) contrast — a long horizontal conveyor track on the left carries flat numbered product cards side by side, the same card P-100 appears twice and short position tick marks sit under the cards, small Chinese label 「保留重复」; (2) contrast — on the right the same numbered cards funnel into one single square membership slot that keeps only one representative card while the duplicate card is absorbed into the slot shadow, small Chinese label 「合并成员」; (3) step — a branching arrow path leaves the left track, passes through the single slot, and merges into a new lower track that holds only first occurrences, small Chinese label 「首次出现」. Main metaphor: 同一条传送带上的编号卡片在分岔口走两条路：一条保留每次经过，另一条只留一张代表。Primary subject: 一张重复出现的产品编号卡片, 在分岔轨道上被保留或被合并成单一成员。Composition: 左右对照 — left track stacked with cards, right single slot gathering members, lower arrow path joining a new track; horizontal storytelling that stays legible in a wide cover. Style/medium: combine conceptual editorial illustration with the selected visual style descriptor: painterly digital illustration, rich brushwork, volumetric lighting, strong focal contrast, textured color masses. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist. Color palette: warm amber, teal, deep ink. Visible text policy: allow only 3 short Chinese labels 「保留重复」「合并成员」「首次出现」 and tiny 2-4 character card codes such as P-100 and P-200; no poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names. Constraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter. Avoid: webpage screenshot, real code editor, dashboard, floating chips, neon cyberpunk, english slogans, poster title text, watermark. Refine for the final cover: keep exactly this composition and metaphor; render the three Chinese labels 保留重复 / 合并成员 / 首次出现 crisp and correctly formed; inside the single square membership slot show one clearly dominant representative card P-100 with only a faint absorbed duplicate outline behind it; keep the short position tick marks visible under the left track cards and the arrow path flowing into the lower first-occurrence track; remove the ambiguous wooden object in the lower-left foreground and all decorative clutter so the frame contains only the three conveyor tracks, the single slot, and the branching numbered card; strengthen warm amber key light against a deep ink background with teal shadow masses; keep the frame clean at the edges for a wide blog cover."
+}
