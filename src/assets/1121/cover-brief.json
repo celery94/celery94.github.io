@@ -1,0 +1,72 @@
+{
+  "article_title": "MongoDB BSON 映射：字段名、ID 与不可变记录",
+  "cover_type": "tutorial",
+  "core_theme": "MongoDB 的 C# BSON 映射是一份存储契约：类型声明本身不说明 BSON 字段名、不决定 ID 背后的 BSON 类型、不交代不可变记录怎么创建，也不处理旧文档里多出来的字段；而本机跑通一次 round trip 并不等于对历史文档兼容。",
+  "reader_takeaway": "读者能知道这四处决定必须逐项写进契约并核对：字段名怎么落、ID 用哪种 BSON 表示、不可变记录走哪条创建路径、旧文档的多余字段怎么处理；也明白本机 round trip 通过不能证明老文档兼容。",
+  "summary_angle": "把 C# 对象与 BSON 文档之间的映射摊成一张逐条勾选的存储契约，最后一条用旧纸页提醒：本机 round trip 不等于对历史文档的兼容，兼容要自己核对。",
+  "narrative_flow": "layered reveal",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "类型声明本身不说明 BSON 字段名：属性名与落库字段名需要显式约定",
+      "visual_idea": "契约第一条把左侧 C# 形状与一列名字对应起来；类型声明没写明的那一栏留在纸面上等填。",
+      "visible_label": "字段名",
+      "numeric_fact": "4"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "ID 映射到 _id，背后的 BSON 类型由属性类型决定，而不是由类型名决定",
+      "visual_idea": "一把铜钥匙横压在 ID 条款上，钥匙带有可替换的钥匙头，表示 ID 的 BSON 表示有多种选择。",
+      "visible_label": "ID 表示"
+    },
+    {
+      "role": "step",
+      "source_anchor": "不可变记录的创建路径：记录怎么构造决定反序列化能不能落地",
+      "visual_idea": "一条虚线折叠装配路径把平的 C# 纸样折成一叠封好的记录，路径就是它的创建路线。",
+      "visible_label": "创建路径"
+    },
+    {
+      "role": "contrast",
+      "source_anchor": "旧文档里多出来的字段怎么处理；本机 round trip 不等于对历史文档的兼容",
+      "visual_idea": "一张发黄的旧文档从契约纸下面露出几行多出来的内容，等着一枚圆检查章与新的契约比对。",
+      "visible_label": "兼容核对"
+    }
+  ],
+  "main_metaphor": "一张钉在木桌上摊开的存储契约：左端是 C# 对象的形状，右端是 BSON 文档的形状，四条条款逐项勾选，铜钥匙与发黄旧纸页作为两处证据",
+  "primary_subject": "摊开在木桌上的存储契约纸，作为画面中心唯一主焦点",
+  "subject_action": "被逐条勾选：铜钥匙压在 ID 条款上，折叠装配路径把纸样折成封好的记录，发黄旧纸页从契约下露出待核对",
+  "composition": "居中主物体 + 左右对照：契约纸居中并微微向观者倾斜，左侧边缘是蓝灰的 C# 对象形状，右侧边缘是嵌套的 BSON 文档形状，暖光从右上落下；对称平稳，不做左到右的斜向三段排布",
+  "base_style": "editorial technical illustration",
+  "selected_style": "吉卜力动画风",
+  "selected_style_prompt_descriptor": "warm hand-drawn animation feeling, natural environments, gentle fantasy everyday mood, soft painterly backgrounds, no studio imitation",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；契约摊在木桌上的日常桌面场景适合温暖手绘动画的自然窗光与柔和笔触，但只借手绘氛围，不复刻任何工作室",
+  "style_safety_note": "清单风格名指向动画工作室，最终 prompt 只使用温暖手绘动画、自然光、柔和笔触等非仿冒描述，并保留 no studio imitation",
+  "allowed_visible_text": ["字段名", "ID 表示", "创建路径", "兼容核对"],
+  "color_palette": [
+    "暖纸米色",
+    "冷调蓝灰墨线",
+    "单一暖铜 / 琥珀高光（钥匙与 ID 条款）",
+    "柔和自然窗光"
+  ],
+  "avoid": [
+    "UI 截图与真实应用界面",
+    "终端窗口与命令行输出",
+    "dashboard 与伪图表坐标轴",
+    "代码雨与可读代码片段",
+    "漂浮芯片",
+    "通用机器人或动漫人物",
+    "赛博朋克紫蓝霓虹",
+    "水印与海报主标题",
+    "英文长句与英文口号",
+    "假字段名、假数据表格表头",
+    "装饰性杂物与无关图标拼贴"
+  ],
+  "reference_strategy": "纯文本生成（无可用本地参考图，不使用任何产品界面截图）",
+  "draft_goal": "先验证「一张契约纸居中、C# 与 BSON 左右对照、四条条款逐项勾选」是否一眼可读，四个中文标签是否字正，是否和上一张封面的斜向三段构图区分开",
+  "revision_targets": [
+    "第一轮草图上出现多余的 C# 与 {} 字符，第二轮改成不含字母与括号的纯形状对照",
+    "确认契约纸居中 + 左右图形对照，不和上一张封面（1120）的斜向三段排布重复",
+    "确认四个中文 chip 字正、没有多余英文、数字或可读代码"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide hand-drawn infographic-story cover illustration that summarizes the article. Theme: the mapping between C# objects and MongoDB BSON documents is really a storage contract — a type declaration alone does not state the BSON field names, does not decide the BSON type behind the ID, does not say how an immutable record gets created, and does not settle what happens to extra fields found in old documents. The reader should quickly feel that these four decisions must be written into the contract and checked clause by clause, and that a local round trip passing proves nothing about compatibility with historical documents.\n\nSummary angle: turn the C#-to-BSON mapping into one unfolded storage contract sheet that is ticked clause by clause, ending with the honest check that old documents still have to be verified by hand.\nNarrative flow: layered reveal. In a 2.35:1 frame, keep one dominant focal subject with three supporting narrative beats arranged around it, so the sheet reads as one contract being checked clause by clause rather than a line of separate objects. Each beat must map to the article's information blocks rather than generic decoration.\nInformation blocks:\n- 1 (problem, field names): the contract's first clause pairs the object on the left with a column of name rows, because a type declaration never spells out the BSON field name itself; small crisp chip \"字段名\"\n- 2 (mechanism, ID representation): a brushed brass key lies across the ID clause, and the key has several interchangeable heads laid out beside it to show that the BSON type behind the ID follows the property type rather than the type name; small crisp chip \"ID 表示\"\n- 3 (step, creation path): a dotted folding-and-assembly path shows how the immutable record is created, leading flat pattern pieces into one sealed layered stack; small crisp chip \"创建路径\"\n- 4 (contrast, compatibility check): an old yellowed document with several extra rows peeks out from under the contract, waiting to be compared with the new sheet under a round check stamp, because a local round trip is not proof for historical documents; small crisp chip \"兼容核对\"\n\nMain metaphor: one unfolded storage contract pinned to a wooden desk, with the crisp blue-grey object shape at the left edge and the nested BSON document shape at the right edge, four clauses ticked one by one; a brass key and an old yellowed page act as the two pieces of evidence.\nSubject: a large unfolded storage contract sheet, the dominant focal subject, centre of the frame.\nComposition/framing: centred main object combined with a balanced left-right pairing — the contract sheet sits in the middle, slightly tilted toward the viewer and pinned at the top, a crisp blue-grey card at the left edge that reads as a typed object silhouette (a neat stack of small rounded field slots, a folded corner), a nested document at the right edge that reads as a document holding smaller documents inside, warm daylight falling from the upper right across the wooden desk. Symmetric and calm, not a left-to-right diagonal three-stage line-up.\nStyle/medium: combine editorial technical illustration with the selected visual style descriptor: warm hand-drawn animation feeling, natural environments, gentle fantasy everyday mood, soft painterly backgrounds, no studio imitation. Hand-drawn ink and gouache look, visible watercolour paper grain, soft natural window light, tidy and readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: warm paper cream and soft daylight dominate; cool blue-grey ink for the object card, the document shape and the clause rules; exactly one warm brass amber highlight on the brass key, the interchangeable key heads and the ID clause. Calm, no purple-blue neon, no rainbow clutter.\nVisible text policy: allow exactly four small crisp text chips in total, in bold clean Chinese type — \"字段名\", \"ID 表示\", \"创建路径\", \"兼容核对\". No other glyphs anywhere: no letters, no digits, no braces, no brackets, no hashtags, no code symbols, no fake field names, no data-table headers, no English words or sentences, no poster title, no slogan, no speech bubbles. Checkbox tick marks and one round rubber-stamp tick are fine as symbols.\nConstraints: no watermark, no prompt residue, no screenshots, no UI panels, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter, one single illustration, no human or anime characters.\nAvoid: UI screenshots, terminal windows, dashboards, fake charts or axes, code rain, floating chips, generic robot figures, anime characters, purple-blue neon glow, data grids that look like a real application, watermark, poster title, English sentences, decorative clutter."
+}
