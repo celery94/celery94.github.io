@@ -1,0 +1,76 @@
+{
+  "article_title": "REA 让 agent 一天重做 PowerToys 取色器",
+  "cover_type": "tutorial",
+  "core_theme": "REA（Reverse Engineer Anything）是给 AI 编码 agent 用的逆向工程工具包（MCP server + skill + 分析后端）：在 Windows 上装好并注册给 agent 后，agent 调 REA 从编译后的二进制里取证，拿到带 SHA-256、后端与限制说明的证据记录，再照证据写出自己的实现。",
+  "reader_takeaway": "读者能知道在 Windows 上怎么装、合规边界在哪、agent 怎么靠证据记录解释并重建一个功能，也明白核对结论时要自己验证：9 条结论只有 8 条全对。",
+  "summary_angle": "把「装好取证工具 → 从二进制里取到证据 → 照证据写出自己的实现」压成一条取证流水线，并用 8/9 的核对结果提醒：证据可以借，结论仍要自己验。",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "step",
+      "source_anchor": "在 Windows 上 npm 全局安装 REA CLI 并注册到 agent；REA 提供约 170 个工具",
+      "visual_idea": "左侧打开的取证工具箱，槽位密集排开暗示约 170 件工具；一根连接线把工具箱插进旁边深色玻璃质地的 agent 核心，表示工具已装进 agent。",
+      "visible_label": "装工具",
+      "numeric_fact": "170"
+    },
+    {
+      "role": "evidence",
+      "source_anchor": "agent 调用 REA 取证，返回带 SHA-256、后端与限制说明的证据记录；作者本机 170 个工具里 59 个可用",
+      "visual_idea": "中段一张取证卡从撬开的哑光黑色二进制盒子里被托起，卡面是 SHA-256 指纹式的抽象细纹与几条限制说明刻痕；放大镜悬在上方，只有一部分工具槽亮起。",
+      "visible_label": "取证",
+      "numeric_fact": "59"
+    },
+    {
+      "role": "step",
+      "source_anchor": "照证据写出 .NET 10 的 hexgrab，按 Win+Shift+H 取色入剪贴板",
+      "visual_idea": "右侧取出的取色器部件被当场重新组装成一支小取色器，立在台面上，滴管头与色块透出暖琥珀高光。",
+      "visible_label": "重建"
+    },
+    {
+      "role": "contrast",
+      "source_anchor": "9 条结论核对：8 条全对、1 条部分对，所以要自己验证",
+      "visual_idea": "取证卡旁一小列 9 个核对方块，8 个填满、1 个只填一半，用数量而不是数字表达核对结果。",
+      "visible_label": "8/9"
+    }
+  ],
+  "main_metaphor": "把编译好的二进制黑盒撬开，用取证卡和放大镜取出一个取色器部件，再把它重新组装成自己的小工具",
+  "primary_subject": "右侧刚组装完成的小取色器（滴管头 + 暖色色块）",
+  "subject_action": "从打开的二进制黑盒与取证卡旁当场组装完成，立在台面上，滴管头透出唯一暖色高光",
+  "composition": "斜向推进：左侧工具箱与黑盒、中间取证卡与放大镜、右侧组装好的取色器；主焦点落在右侧取色器，其余为叙事拍点",
+  "base_style": "editorial technical illustration",
+  "selected_style": "美漫超级英雄风",
+  "selected_style_prompt_descriptor": "American superhero-comic energy, bold outlines, halftone texture, dramatic perspective, high-contrast color blocking",
+  "selected_style_reason": "用户未指定风格，本篇从风格池随机选中；取证到重建的推进感适合粗轮廓、强透视与高对比色块，但只借用版画式能量，不做超级英雄海报",
+  "style_safety_note": "清单风格为泛类型描述，不涉及具体品牌、工作室或艺术家；最终 prompt 只用描述词，不出现模仿某品牌或工作室的表述",
+  "allowed_visible_text": ["装工具", "取证", "重建", "8/9"],
+  "color_palette": [
+    "冷钢蓝灰",
+    "深炭黑（二进制黑盒与阴影）",
+    "暖琥珀 / 取色器橙（唯一暖色高光）",
+    "纸白（高光与卡片）"
+  ],
+  "avoid": [
+    "漫画对白气泡与拟声词、SFX 字母",
+    "分屏或多格漫画、页边距",
+    "披风或超级英雄人物站姿",
+    "漂浮芯片",
+    "无意义代码雨",
+    "霓虹高楼背景",
+    "赛博朋克紫蓝光污染",
+    "巨量 HUD 浮层",
+    "终端窗口、命令行截图、真实 UI 截图",
+    "dashboard 与伪图表坐标轴",
+    "伪架构节点名",
+    "品牌 logo 与水印",
+    "海报主标题、英文口号、整句英文标签",
+    "装饰性杂物与无关图标拼贴"
+  ],
+  "reference_strategy": "纯文本生成（无可用本地参考图，不使用第三方产品截图或原站配图）",
+  "draft_goal": "先验证「黑盒撬开 → 取证卡取证据 → 重新组装成小工具」三段叙事在 2.35:1 里是否一眼可读、主焦点是否只有一个、四个中文标签是否字正且不串字",
+  "revision_targets": [
+    "若出现对白气泡、拟声词或分屏，去掉全部漫画字与分格，只保留单幅构图",
+    "若中文标签串字或冒多余数字，压回 装工具 / 取证 / 重建 / 8/9 四个 chip",
+    "若画面变成终端、代码雨或真实 UI，替换为实体工具与取证卡，只保留黑盒、卡、放大镜与取色器"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes the article. Theme: REA (Reverse Engineer Anything) is a reverse-engineering toolkit for AI coding agents — an MCP server, a skill and an analysis backend. After installing it on Windows and registering it with an agent, the agent pulls evidence out of a compiled binary as an evidence record stamped with SHA-256 hashes, backend names and limitation notes, then rebuilds one feature from that evidence as its own small .NET tool. The reader should quickly feel that a compiled binary can be handled as a chain of custody: open the black box, extract real evidence, rebuild a small working tool yourself — and verify the conclusions by hand.\n\nSummary angle: install the forensic toolkit, extract evidence from the binary, then write your own implementation — with the honesty check that only 8 of 9 verified conclusions turned out fully correct, so you still verify yourself.\nNarrative flow: 3-beat process. In a 2.35:1 frame, keep one dominant focal subject and three supporting narrative beats arranged left to right with a slight diagonal push. Each beat must map to the article's information blocks rather than generic decoration.\nInformation blocks:\n- 1 (step): a compact forensic toolkit case lies open on the left, its many slots densely packed with small hand tools to suggest a large toolkit of roughly 170 tools, and a single connector cable plugs the toolkit into a small dark glass agent core beside it; flat crisp chip \"装工具\"\n- 2 (evidence): a forensic evidence card is lifted out of a pried-open matte black binary box in the centre; the card surface carries abstract fingerprint-like hash linework and a few short limitation marks, while a large magnifier hovers above it; beside the card stands a neat vertical column of nine tiny verification squares, eight filled solid and one only half-filled; flat crisp chips \"取证\" and \"8/9\"\n- 3 (step): on the right the extracted color-picker part has been reassembled into a small handheld screen-color-picker standing on the workbench: a slim precision body, a fine pointed eyedropper nozzle at the top, a small glowing warm amber colour-swatch bead set into the body, and one captured amber colour swatch floating just under the nozzle; flat crisp chip \"重建\"\n\nMain metaphor: pry the compiled binary black box open, lift one color-picker part out with a forensic card and a magnifier, then reassemble it into a small tool of your own.\nSubject: a compact handheld screen-color-picker, freshly reassembled, its fine eyedropper nozzle and colour swatch glowing warm amber. It must read as a slim color-picker stylus, never as a torch, lighter or hot-air gun.\nComposition/framing: diagonal push from lower left to right — opened toolkit case and black binary box on the left, forensic evidence card and magnifier in the centre, the reassembled color-picker as the largest focal element on the right. Horizontal storytelling that stays legible in a wide cover, single illustration, one dominant focal point.\nStyle/medium: combine editorial technical illustration with the selected visual style descriptor: American superhero-comic energy, bold outlines, halftone texture, dramatic perspective, high-contrast color blocking. Use thick confident black ink outlines around every object, visible halftone dot shading in shadows and mid-tones, and flat high-contrast colour blocks rather than glossy smooth 3D surfaces. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: cool steel blue-grey and deep charcoal dominate the scene; exactly one warm amber / color-picker orange highlight marks the reassembled picker, the captured swatch and the chip accents; small paper-white highlights. No purple-blue neon, no rainbow clutter.\nVisible text policy: allow only four small flat text chips in total — \"装工具\", \"取证\", \"重建\", \"8/9\" — set in bold clean Chinese type, crisp and correctly written. No other characters anywhere: no poster title, no hero slogan, no English words or slogans, no long sentences, no speech bubbles, no onomatopoeia or SFX lettering, no fake UI labels, no fake chart axes, no fake architecture node names, no additional numerals.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter, not a comic page, no panels or split frames.\nAvoid: comic speech balloons, onomatopoeia, split panels or page gutters, capes or superhero character poses, torch or lighter or hot-air-gun silhouette, floating chips, meaningless code rain, neon skyscraper background, cyberpunk purple-blue glow, tall stacked HUD overlays, terminal windows, command-line screenshots, UI screenshots, dashboards, fake chart axes, fake architecture node labels, watermark, poster title, English sentences, decorative clutter."
+}
