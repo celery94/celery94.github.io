@@ -1,0 +1,64 @@
+{
+  "article_title": ".NET 10 架构选型：整洁架构还是垂直切片",
+  "cover_type": "architecture",
+  "core_theme": "为 .NET 10 Web API 在整洁架构（Clean Architecture）与垂直切片架构（Vertical Slice Architecture）之间做项目结构选择，并推荐一种混合方案：保留 Domain 与 Infrastructure 项目、去掉 Application 项目，把 endpoint / validator / handler 放进 Api 项目的 feature 文件夹，再用架构测试守住边界。",
+  "reader_takeaway": "不再二选一：把分层留作地基，把功能切片竖起来，用测试守住边界。",
+  "summary_angle": "两种互相竞争的代码组织方式（层层横铺 vs 竖着切块）收束成一座混合结构，而不是堆成一墙文字标签。",
+  "narrative_flow": "conflict-to-resolution",
+  "information_blocks": [
+    {
+      "role": "contrast",
+      "source_anchor": "文章前半部分：整洁架构的 Domain / Application / Infrastructure / Api 四层项目结构与依赖方向",
+      "visual_idea": "画面左侧一摞薄薄的水平岩层，层与层之间留有缝隙，像一叠分层的项目轮廓",
+      "visible_label": "整洁架构"
+    },
+    {
+      "role": "contrast",
+      "source_anchor": "文章前半部分：垂直切片架构按 feature 竖着切，一个功能自带 endpoint / request / validator / handler",
+      "visual_idea": "画面右侧一组并排竖立的立柱，每根立柱自成一格，彼此独立",
+      "visible_label": "垂直切片"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "文章推荐方案：保留 Domain 与 Infrastructure，去掉 Application；每个 feature 文件夹放进 Api 项目",
+      "visual_idea": "画面中心偏右的主结构：两块厚实的基座石板（地基）上直接升起一列列竖向功能柱，中间没有多余夹层",
+      "visible_label": "混合方案"
+    },
+    {
+      "role": "evidence",
+      "source_anchor": "文章结尾：用架构测试（Architecture Tests）守住 Domain 不反向依赖、Api 不越界",
+      "visual_idea": "一圈低矮的石雕围栏与方形印记围住混合结构，表示边界被测试钉住，不出现文字"
+    }
+  ],
+  "main_metaphor": "横向分层与竖向切片：混合方案里分层退成地基，切片从地基上直接竖起，边界由围栏印记守住",
+  "primary_subject": "一座单体的木刻／石刻建筑模型：两块厚基座上直接长出数根竖向功能柱",
+  "subject_action": "主结构稳稳立在画面中心偏右，左侧的分层堆与右侧的立柱群作为它的前身对照",
+  "composition": "等距空间 + 左右对照：左侧分层堆、右侧立柱群、中心偏右主结构为唯一强焦点，顶部留白",
+  "base_style": "isometric conceptual systems scene",
+  "selected_style": "黑白版画风",
+  "selected_style_prompt_descriptor": "black-and-white printmaking look, carved textures, bold shadows, high contrast, poster-like but no title text",
+  "selected_style_reason": "用户未指定风格，本篇从 40 项风格池随机选中（pick-cover-style.py 输出）；版画的刻痕、粗轮廓与高对比正好强化「结构被切开、边界被刻出来」的对照关系，也天然避免做成写实系统图。",
+  "style_safety_note": "风格为泛类型描述（黑白版画），不涉及任何品牌、工作室或在世艺术家；最终 prompt 只使用刻痕、粗阴影、高对比等安全描述词。",
+  "allowed_visible_text": ["整洁架构", "垂直切片", "混合方案"],
+  "color_palette": ["墨黑", "暖纸白", "中灰", "浅米色纸面"],
+  "avoid": [
+    "机器人",
+    "代码雨",
+    "霓虹高楼背景",
+    "漂浮芯片",
+    "HUD 浮层",
+    "赛博朋克紫蓝光污染",
+    "品牌 logo",
+    "英文标语或长句",
+    "真实系统图 / 仪表盘 / 截图"
+  ],
+  "reference_strategy": "纯文本生成；不使用参考图（文章暂无允许复用的本地配图）",
+  "draft_goal": "第一轮先验证：左侧分层堆、右侧立柱群、中心混合主结构三个叙事节点是否一眼可读，以及三个中文短标签是否没有挤成文字墙",
+  "revision_targets": [
+    "删除两枚黑色箭头，避免读成「整洁架构 -> 混合方案 -> 垂直切片」的顺序流程（实际是并列对照 + 收束）",
+    "删除柱面上的文档/盾牌/齿轮小图标，避免界面感和无关图标堆叠，只保留石刻木纹质感",
+    "让中心混合结构成为唯一强焦点，远山松树降为低对比的支撑背景，左右两侧留白更干净"
+  ],
+  "final_prompt": "Refine this wide cover illustration. Keep the strongest parts of the draft: the black-and-white woodblock printmaking rendering, the left-to-right reading order across one calm isometric scene, the three short carved Chinese labels, and the circular relationship of two competing structures resolving into one hybrid.\n\nChange only these points:\n- Remove both large black arrows completely. No arrows, no direction indicators, no pointer graphics anywhere.\n- Remove all the small pale icon glyphs carved on the column faces (document, shield, gear symbols). The columns and slabs stay as plain carved stone and wood blocks with only carved line and grain texture.\n- Keep exactly three visible Chinese labels and nothing else: 整洁架构 above the left layered stack, 混合方案 above the central hybrid model, 垂直切片 above the right column cluster. Four characters each, carved seal-style lettering, small and unobtrusive. Never add a title, headline, slogan, English word, sentence, caption, number, or fake diagram label.\n- Make the central hybrid model clearly the single dominant focal subject: two thick foundation slabs with vertical feature columns rising directly out of them, with no extra middle layer, and the carved stone boundary fence with square seal marks enclosing it as the architecture-test boundary.\n- Keep the distant ink-wash mountains and pines only as quiet, low-contrast supporting context; leave the left and right areas airy and uncluttered, with generous negative space at the top.\n\nPreserve the metaphor: horizontal layers versus vertical slices, both merging into one hybrid structure where layers become the foundation and slices rise through it.\nPrimary subject stays: one carved architectural model, isometric view from a slightly high angle.\nStyle/medium: isometric conceptual systems scene combined with black-and-white printmaking look, carved textures, bold shadows, high contrast, poster-like but no title text. Stylized, polished, editorial, strong silhouette hierarchy. Do not imitate a specific brand, studio, or living artist.\nColor palette: strictly monochrome ink black, warm paper white, mid grey, pale cream paper tone; no color accents.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no UI elements, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid robots, code rain, neon skyscrapers, floating chips, HUD overlays, purple-blue cyberpunk glow, brand logos, brand marks, arrows, and text other than the three approved labels.\n\nRefine target: sharper carved details, cleaner composition, calmer background, better spacing between the three information beats, readable as a wide 16:9 blog cover at a glance.",
+  "draft_prompt": "Use case: infographic-story\nAsset type: wide 16:9 cover illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic cover illustration that summarizes an article about choosing the project architecture for a .NET 10 Web API: Clean Architecture versus Vertical Slice Architecture, and the recommended hybrid. The reader should quickly feel: keep Domain and Infrastructure as the foundation, drop the Application project, and let each feature slice (endpoint, request, validator, handler) live inside the Api project's feature folder, with architecture tests guarding the boundaries.\n\nSummary angle: two competing ways of organizing a codebase resolve into one hybrid structure, not into a wall of words.\nNarrative flow: conflict-to-resolution. In a wide 16:9 frame, one dominant focal subject plus three supporting narrative beats, all horizontal and legible.\nInformation blocks:\n- contrast: on the left, a tall stack of thin horizontal layers with gaps between them, a layered-project silhouette; one short carved Chinese label 整洁架构\n- contrast: on the right, a cluster of parallel vertical columns, each column a self-contained feature; one short carved Chinese label 垂直切片\n- mechanism: center-right, the dominant hybrid model: two thick base slabs form the foundation, and vertical feature columns rise directly out of them with no middle layer slab in between; one short carved Chinese label 混合方案\n- evidence: a low carved stone boundary fence with square seal marks enclosing the hybrid model, meaning architecture tests that hold the boundaries; no text here\n\nMain metaphor: horizontal layers versus vertical slices; in the hybrid, the layers become the foundation and the slices rise through the API surface.\nSubject: one carved architectural model with woodcut and stone-carved surfaces, isometric view from a slightly high angle, standing calmly on the ground plane.\nComposition/framing: wide isometric scene, layered stack on the left, column cluster on the right, hybrid model center-right as the single strongest focal point, generous negative space at the top, flat horizontal storytelling that keeps its reading order from left to right.\nStyle/medium: combine isometric conceptual systems scene with the selected visual style descriptor: black-and-white printmaking look, carved textures, bold shadows, high contrast, poster-like but no title text. Stylized, polished, editorial, strong silhouette hierarchy, clearly readable as a summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: ink black, warm paper white, mid grey, pale cream paper tone; strictly monochrome, no color accents.\nVisible text policy: exactly three short Chinese labels only: 整洁架构, 垂直切片, 混合方案, four characters each, hand-carved lettering style, small and unobtrusive. No poster title, no headline, no slogan, no English words, no sentences, no captions, no fake UI labels, no fake chart axes, no fake architecture node names, no numbers.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid robots, code rain, neon skyscrapers, floating chips, HUD overlays, purple-blue cyberpunk glow, brand logos, and brand marks."
+}
