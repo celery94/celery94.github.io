@@ -1,0 +1,58 @@
+{
+  "article_title": "C# 封装：用公开操作守住不变量",
+  "cover_type": "analysis",
+  "core_theme": "C# 中封装的边界是「允许调用方执行哪些操作」，而不是把字段改成 private。核心是不变量（invariant）：两个字段各自合法，组合起来可能非法，比如价格区间的最小值不能大于最大值；因此构造与变更要共用同一条校验，对外只暴露一次操作，而不是两个 setter。",
+  "reader_takeaway": "封装不是把字段藏起来，而是只给调用方一个能同时守住整组值的公开操作。",
+  "summary_angle": "两个能各自滑动、彼此交错的独立滑块，被同一道锁扣和同一个手柄收束成「只能整体移动、永远有序」的一对刻度。",
+  "narrative_flow": "before-after",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "原文「两个字段各自合法、组合起来非法（最小值不能大于最大值）」：逐字段赋值时，两个值单独看都合法，放在一起却会破坏不变量",
+      "visual_idea": "一段木轨上有两枚各自独立的滑块，轨迹允许它们交错、越位，形成不可能的区间",
+      "visible_label": "不变量"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文「构造与 ChangeBounds 共用 ValidateBounds」以及「对外只暴露一次操作，而不是两个 setter」：所有入口过同一道校验，两个端点被同一个手柄整体移动",
+      "visual_idea": "画面中央一件带单一黄铜手柄的木制机构，手柄通过连杆同时带动两枚滑块，并经过中间的一道锁扣／闸门，旁边没有任何第二个手柄",
+      "visible_label": "一次操作"
+    },
+    {
+      "role": "evidence",
+      "source_anchor": "原文「View 跟着涨、GetSnapshot 不变」：只读视图会随内部状态变化，快照则冻结在某一刻",
+      "visual_idea": "窗外的枝叶会动（活的只读视图），窗台上放着一张同一窗景的拍立得（冻结的快照），两者对照",
+      "visible_label": "快照"
+    }
+  ],
+  "main_metaphor": "一把锁扣 + 一个手柄，把一对刻度约束成只能整体移动、顺序永不错乱；活的窗景与冻结的拍立得对照「只读视图 vs 快照」",
+  "primary_subject": "窗台上手工木制滑尺：两枚圆润木质滑块、一道黄铜锁扣、一个黄铜手柄与连杆",
+  "subject_action": "手柄被轻轻转动，连杆同时带动两枚滑块沿木轨整体滑动，锁扣始终把两者的顺序锁住",
+  "composition": "单点聚焦 + 轻微左右对照：滑尺主结构居中偏右为唯一强焦点，左侧前景放一张拍立得，右侧是暖光窗景与植物的柔和轮廓，留白充足",
+  "base_style": "conceptual editorial illustration",
+  "selected_style": "治愈日常风",
+  "selected_style_prompt_descriptor": "cozy slice-of-life illustration, warm natural light, soft domestic details, calm pacing, gentle hand-drawn texture",
+  "selected_style_reason": "用户未指定风格，本篇从 40 项风格池随机选中（pick-cover-style.py 输出）；「用一次操作守住一对值」适合用日常手作小物件的温润感来表达，避免冷硬的系统图，也把抽象的封装概念落到可触摸的实物上。",
+  "style_safety_note": "风格为泛类型描述（治愈日常风），不涉及任何品牌、工作室或在世艺术家；最终 prompt 只使用暖光、手绘质感、安静节奏等安全描述词。",
+  "allowed_visible_text": ["不变量", "一次操作", "快照"],
+  "color_palette": ["暖蜂蜜色木纹", "奶油纸白", "琥珀色阳光", "灰绿与雾蓝点缀"],
+  "avoid": [
+    "代码片段",
+    "英文标语或长句",
+    "数字与伪代码",
+    "IDE / 终端界面",
+    "仪表盘与图表坐标轴",
+    "品牌 logo",
+    "机器人",
+    "赛博朋克霓虹",
+    "图标拼贴与装饰性杂物"
+  ],
+  "reference_strategy": "纯文本生成；不使用参考图（文章暂无允许复用的本地配图）",
+  "draft_goal": "第一轮先验证：木轨双滑块 + 单手柄机构是否一眼读成「一对值被整体驱动」，以及暖窗光下的拍立得是否能与窗外场景形成可读的对照，同时确认画面没有变成文字墙",
+  "revision_targets": [
+    "终稿直接沿用草图 prompt 以 medium 质量重生成，未改结构；若需更强调「两个 setter 的反例」，可在木轨旁加一对可交错、未受约束的独立滑块，代价是画面元素变多",
+    "若觉得入画的手部抢走注意力，可去掉手、只保留单个黄铜手柄，让「一次操作」完全由器物表达",
+    "若拍立得与窗景的对照不够清楚，可让两者取景完全一致，并把拍立得再缩小一点贴到窗台角落"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide 16:9 cover illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic cover illustration that summarizes an article about C# encapsulation. Theme: the real boundary of encapsulation is which public operations a caller may perform, not turning fields private; the core is an invariant — two values that are each valid on their own can be invalid together, like a price range whose minimum must never exceed its maximum. The reader should instantly feel: expose one whole operation that keeps the pair valid, instead of two independent setters.\n\nSummary angle: two sliders that can slide independently and cross into an impossible interval have been replaced by one pair held by a single latch and driven by one handle.\nNarrative flow: before-after. In a wide 16:9 frame, keep one dominant focal object and three supporting narrative beats, each mapped to the article's information blocks rather than generic decoration.\nInformation blocks:\n- problem: on a narrow wooden rail, two rounded wooden sliders can travel independently and overlap or cross each other into an impossible range; one small Chinese label 不变量\n- mechanism: in the center, a single brass handle with a simple wooden linkage drives both sliders together and passes through one central brass latch gate; there is no second handle and no separate control point anywhere; one small Chinese label 一次操作\n- evidence: at the right, a sunlit window with gently moving leaves stands for the live read-only view, while a small instant photo of that exact same window view lies on the windowsill as the frozen snapshot that does not change; one tiny Chinese label 快照\n\nMain metaphor: one latch and one handle hold a pair of markers in a permanently valid order; the live window versus the frozen photo contrasts a changing view with an unchanging snapshot.\nSubject: a handcrafted wooden slide-gauge with two rounded wooden markers, one brass latch and one brass handle, resting on a warm sunlit windowsill.\nSubject action: the brass handle is turned gently while the wooden linkage moves both markers along the rail together, and the latch keeps their order locked.\nComposition/framing: wide cozy domestic scene, the wooden gauge center-right as the single strongest focal point, the small instant photo in the left foreground, warm window light coming from the right, generous negative space, calm horizontal storytelling that reads from left to right.\nStyle/medium: combine conceptual editorial illustration with the selected visual style descriptor: cozy slice-of-life illustration, warm natural light, soft domestic details, calm pacing, gentle hand-drawn texture. Stylized, polished, editorial, warm and inviting, and clearly readable as a summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: warm honey wood, cream paper, soft amber sunlight, muted sage and dusty blue accents.\nVisible text policy: exactly three small hand-lettered Chinese labels only: 不变量, 一次操作, 快照, small and unobtrusive. No poster title, no headline, no slogan, no English words, no code, no pseudo-code, no numbers, no sentences, no captions, no fake UI labels, no fake chart axes.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid gears, clockwork machinery, steampunk parts, dials, gauges with numbers, rulers with printed digits, robots, code rain, neon cities, floating chips, HUD overlays, purple-blue cyberpunk glow, brand logos, and brand marks."
+}
