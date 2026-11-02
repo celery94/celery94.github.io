@@ -1,0 +1,74 @@
+{
+  "article_title": "C# 遍历 List：五种写法怎么选",
+  "cover_type": "tutorial",
+  "core_theme": "同一列 List 元素有五种遍历写法：foreach、for、List.ForEach、Index()、CollectionsMarshal.AsSpan。它们不是同一条路：foreach 走结构体枚举器不分配，for 靠索引自己推进，AsSpan 直接贴着底层数组走，Index() 会绕远路，最慢与最快最多差 5.6 倍。选法就是默认 foreach、热点用 AsSpan。",
+  "reader_takeaway": "读完之后能直接选：日常遍历默认 foreach，性能热点再上 CollectionsMarshal.AsSpan，并且知道 for / List.ForEach / Index() 各自多付了什么代价。",
+  "summary_angle": "同一列 List 货物，五种遍历方式各走一条轨道——foreach 是默认的稳健小拖车，for 是带刻度的龙门架，AsSpan 是贴着货架直穿的高速光轨，Index() 是绕远路的拥堵管道，代价最多慢 5.6 倍。",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "正文基准数据段落：五种遍历写法之间的速度差最大到 5.6 倍（最慢的写法相对最快）",
+      "visual_idea": "画面右下一条绕远、管壁发黑的拥堵管道，货物在里面排队蠕行，管口挂小牌「慢 5.6 倍」；只画管道与排队，不画折线图与坐标轴",
+      "visible_label": "慢 5.6 倍",
+      "numeric_fact": "5.6"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "正文 foreach 段落：foreach 走的是结构体枚举器，不产生堆分配，是默认首选",
+      "visual_idea": "中间一条平直轨道上一台结构朴素的像素小拖车匀速前进，车身没有额外的挂斗与管线，表示不分配",
+      "visible_label": "不分配"
+    },
+    {
+      "role": "evidence",
+      "source_anchor": "正文 10 万条实测数据：AsSpan 27.27µs vs for 34.70µs",
+      "visual_idea": "最亮的高速光轨与相邻的龙门架轨道各挂一块小数字牌 27 与 34，只用牌的亮度与轨道宽度体现差距，不做图表",
+      "numeric_fact": "27 / 34"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "正文结论：日常遍历用 foreach，性能热点处改用 CollectionsMarshal.AsSpan",
+      "visual_idea": "贴着一列货架直穿的那条高速光轨最亮、最贴近货架底部，货物以光栅形态飞过，作为画面主焦点，无文字标签",
+      "numeric_fact": "0"
+    }
+  ],
+  "main_metaphor": "夜间的微型仓储编组站：左侧一列 List 货物，右侧分出五条轨道——稳健小拖车、带刻度龙门架、贴地直穿的亮光轨、绕远的拥堵管、以及一条委托式传送带；同一批货走不同的路，代价完全不同。",
+  "primary_subject": "贴着货架底部直穿过去的那条最亮高速光轨（代表 CollectionsMarshal.AsSpan）",
+  "subject_action": "一批货物从左侧货架出发，被分流到五条轨道；最亮的光轨贴着货架底部直穿，货物化作光栅飞过，而绕远的管道里货物还在缓慢排队",
+  "composition": "斜向推进：左侧货物与货架构成起点，五条轨道向右上斜向发散，主焦点是贴地直穿的高速光轨，绕远管道压在最下侧形成对照",
+  "base_style": "editorial technical illustration",
+  "selected_style": "HD-2D",
+  "selected_style_prompt_descriptor": "crisp pixel-art edges, 2D pixel-art subjects integrated into a three-dimensional miniature diorama, layered spatial depth, soft cinematic lighting, subtle atmospheric light, moderate depth of field, readable subjects and relationships, consistent pixel scale, no excessive blur",
+  "selected_style_reason": "采用仓库默认 HD-2D 风格；五条轨道分岔本身就是纵深结构，微缩仓储能把「同一起点、不同代价」一次摆清楚",
+  "style_safety_note": "以像素边缘、微缩三维空间与柔光描述，不复刻具体游戏场景、角色或素材，也不指向任何品牌、工作室或在世艺术家",
+  "allowed_visible_text": ["慢 5.6 倍", "不分配", "27", "34"],
+  "color_palette": [
+    "深靛夜色",
+    "冷青灰钢架",
+    "暖琥珀栈货",
+    "亮青绿高速光轨",
+    "暗红拥堵管道"
+  ],
+  "avoid": [
+    "poster title / 主标题文字",
+    "英文口号与拟声词",
+    "假 UI / dashboard / 控制台截图",
+    "假图表坐标轴与图例",
+    "伪造指标或百分比",
+    "漂浮芯片",
+    "无意义代码雨",
+    "霓虹高楼",
+    "通用机器人站姿",
+    "人物形象",
+    "水印与 prompt 残留",
+    "无关图标堆砌"
+  ],
+  "reference_strategy": "纯文本生成，无参考图",
+  "draft_goal": "先验证「同一批货物分出五条轨道 + 一条贴地直穿的亮光轨 + 一条绕远拥堵管」能否一眼读出对照，主焦点是否落在高速光轨上",
+  "revision_targets": [
+    "只保留「慢 5.6 倍」「不分配」和 27 / 34 四个可见项，去掉多余文字",
+    "把贴地直穿的高速光轨提亮、贴近货架底部，让它成为唯一主焦点",
+    "把绕远拥堵管压到最下侧，与光轨形成明暗与长短对照，避免五条轨道平均使力"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes a tutorial about the five ways to loop through a List in C#. Theme: the same column of List cargo can take five different lanes — foreach as the default steady little cart that walks a struct enumerator with no allocation, for as a numbered gantry the loop has to push itself, CollectionsMarshal.AsSpan as a bright high-speed light rail hugging the shelf bottom, Index() as a long congested detour pipe, and List.ForEach as a delegate conveyor belt. The slowest lane costs up to 5.6x the fastest. The reader should quickly feel: 默认 foreach，热点上 AsSpan。\n\nSummary angle: 同一列 List 货物，五种遍历方式各走一条轨道——foreach 是默认的稳健小拖车，for 是带刻度的龙门架，AsSpan 是贴着货架直穿的高速光轨，Index() 是绕远路的拥堵管道，代价最多慢 5.6 倍。\nNarrative flow: 3-beat process in one continuous three-dimensional miniature diorama, read left to right in a 2.35:1 frame, with one dominant focal subject and 3-4 supporting beats. Each beat must map to the article's information blocks rather than generic decoration.\nInformation blocks:\n- problem (visible label: 慢 5.6 倍): the long detour pipe at the lower right is blackened and congested, cargo queues and creeps through it; hang one small plate reading 慢 5.6 倍 at its mouth. Draw only pipe and queue, never a line chart or axes\n- mechanism (visible label: 不分配): a plain pixel cart runs steadily on a straight lane with no extra trailers or hoses hanging off it, standing for the struct enumerator without allocation\n- evidence (small number plates only): the brightest high-speed light rail and the adjacent gantry lane each carry a small number plate, 27 and 34; express the gap only through plate brightness and rail width, never as a chart\n- takeaway (no label): the high-speed light rail that hugs the shelf bottom and cuts straight through is the brightest element and the focal point, cargo streaking across it as light bars\n\nMain metaphor: a miniature overnight warehousing yard — one column of List cargo on the left splitting into five lanes on the right: a steady little cart, a numbered gantry, a bright ground-hugging light rail, a long congested detour pipe, and a delegate conveyor belt; the same cargo, very different cost.\nSubject: the brightest light rail cutting straight across under the shelf, standing for CollectionsMarshal.AsSpan.\nComposition/framing: diagonal forward push — cargo and shelving on the left as the origin, five lanes diverging to the upper right, the focal point is the ground-hugging high-speed light rail, and the congested detour pipe is pressed into the lower edge as the contrast. Layered depth with the light rail clearly closest to the shelf bottom. Not a vertical poster, not a multi-panel collage.\nStyle/medium: combine editorial technical illustration with the selected visual style descriptor: crisp pixel-art edges, 2D pixel-art subjects integrated into a three-dimensional miniature diorama, layered spatial depth, soft cinematic lighting, subtle atmospheric light, moderate depth of field, readable subjects and relationships, consistent pixel scale, no excessive blur. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: deep indigo night base, cold blue-grey steel frames, warm amber crates, a bright teal-green high-speed light rail, and a dark red congested pipe.\nVisible text policy: allow only the short Chinese label 慢 5.6 倍, the short Chinese label 不分配, and the two small number plates 27 and 34, and nothing else. No poster title, no headline, no long sentences, no English slogans, no fake UI labels, no fake benchmark chart axes, no legend, no fabricated metrics.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter, no people.\nAvoid: poster title, English slogan, people, floating chips, code rain, neon skyline, generic robot poses, cyberpunk purple-blue glow, dense HUD overlays, fake benchmark charts, fake IDE or console windows."
+}
