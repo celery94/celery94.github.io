@@ -11,7 +11,7 @@
           "text": "Cover generation stays backend-agnostic by default instead of hardcoding a specific image-generation skill."
         },
         {
-          "text": "When no style is specified, new covers and generated inline illustrations use HD-2D: crisp pixel edges, 2D subjects in a 3D miniature diorama, soft lighting, and moderate depth of field."
+          "text": "When no style is specified, new covers and generated inline illustrations use readable 2D pixel-art subjects, a volumetric 3D environment, and shared lighting with grounding shadows; depth of field and atmosphere are controlled for legibility."
         },
         {
           "text": "The selected style is used for the cover brief, cover prompt, and cover acceptance, but does not affect article voice or facts."
@@ -27,6 +27,9 @@
         },
         {
           "text": "After WeChat draft publishing succeeds and returns `media_id`, the workflow commits and pushes only the generated blog post and assets."
+        },
+        {
+          "text": "The HD-2D style reference is read before generation and its concrete descriptor is expanded into the prompt, not passed as a document path or only a style name."
         }
       ]
     },
@@ -47,6 +50,9 @@
         },
         {
           "text": "The cover concept expresses the article theme without pretending to be a real product screenshot."
+        },
+        {
+          "text": "The prompt specifies the actual pixel-art subject, spatial layers, light direction, and grounding relationship rather than relying on a generic isometric label."
         }
       ]
     },
@@ -566,6 +572,69 @@
         },
         {
           "text": "Changing defaults does not rewrite historical articles, images, or briefs."
+        },
+        {
+          "text": "The explicitly requested watercolor cover is not forced to satisfy HD-2D sprite, pixel, or miniature-scene requirements."
+        }
+      ]
+    },
+    {
+      "id": 30,
+      "prompt": "这篇工作流文章的原文与笔记已经完整：任务依次完成采集、分析、汇总。原文链接：https://example.com/three-stage-workflow 。本次只写 HD-2D 封面 brief 和最终 prompt，不实际生图、不发布。请把画面特点写具体。",
+      "expected_output": "读取 HD-2D 风格参考，沿用现有 brief 字段记录像素主体、三维场景层次、主光源方向、接触或投射阴影、配色与清晰区域。prompt 写出实际视觉关系和完整风格描述，保持一个主焦点与三个来源明确的信息块，不只写 HD-2D、等距或微缩标签，不把参考文件路径当作描述。尊重仅生成 brief 和 prompt 的范围。",
+      "files": [],
+      "assertions": [
+        {
+          "text": "The brief and final prompt identify a 2D pixel-art subject with deliberate pixel clusters and stepped contours, integrated into volumetric 3D scenery."
+        },
+        {
+          "text": "The scene plan makes perspective, foreground/midground/background relationships, shared light direction, and contact or cast shadows concrete."
+        },
+        {
+          "text": "The actual style descriptor and scene plan are expanded into final_prompt; a style name, generic isometric label, or reference path alone is insufficient."
+        },
+        {
+          "text": "No new required brief fields, image generation, publishing, commit, or push are introduced for this scoped request."
+        }
+      ]
+    },
+    {
+      "id": 31,
+      "prompt": "上一轮 HD-2D 封面出现了光滑塑料小人、体素积木工作台和全画面马赛克，任务交接的主构图还能使用。请仅根据这些已知偏差写下一轮精修 prompt，不生成图片。",
+      "expected_output": "保留任务交接构图，针对描述中的偏差修正 1–3 项：指定主要小人为有清晰像素色块和阶梯轮廓的平面像素主体，场景保留三维体积与协调纹理，移除整图马赛克和塑料质感；用共同光色、接触阴影与清晰主体加强融合。不会只追加 HD-2D 或更强虚化等词，也不会宣称已看图验收。",
+      "files": [],
+      "assertions": [
+        {
+          "text": "The correction preserves the usable composition while addressing the specified plastic, voxel, and full-frame mosaic failures."
+        },
+        {
+          "text": "Pixel-art appearance is assigned to the intended subject and coordinated scene surfaces rather than simulated by a full-image pixelation filter."
+        },
+        {
+          "text": "The repair keeps 3D depth and shared light/shadows without attempting to make all scene geometry flat."
+        },
+        {
+          "text": "The response is a targeted edit prompt based on the supplied description, with no unrequested generation or claim of visual inspection."
+        }
+      ]
+    },
+    {
+      "id": 32,
+      "prompt": "只写一张 HD-2D 正文流程插图的构思和 prompt：文章讲任务从输入到检查再到输出，使用明亮鲜艳的配色，不要景深虚化，不要中世纪城镇背景，不要人物，不实际生图。",
+      "expected_output": "用像素任务物件作为二维主体，置于有前中后层次和共同光影的三维原创工作场景，明亮配色、全流程清晰，不强加人物、城镇、薄雾、暗色滤镜或景深。保持正文 16:9、单一解释目标和来源真实，说明这些视觉选择符合本仓库 HD-2D 约定。",
+      "files": [],
+      "assertions": [
+        {
+          "text": "An object-led scene can satisfy the HD-2D style without a character, fixed RPG setting, or fixed character proportions."
+        },
+        {
+          "text": "Bright colors and disabled depth of field remain compatible with the core pixel-art, 3D-space, and lighting-integration requirements."
+        },
+        {
+          "text": "Optional haze, bloom, diorama bases, or a fixed isometric camera angle are not introduced as mandatory style features."
+        },
+        {
+          "text": "The inline plan preserves 16:9 framing, legibility, and the specified input-check-output relationships without generating an image."
         }
       ]
     }

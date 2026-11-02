@@ -31,6 +31,8 @@ description: 从公开 URL 取证并生成可信、自然、可执行的中文�
   [chinese-style-and-deai.md](references/chinese-style-and-deai.md)。
 - 需要封面或正文生成插图时，读取
   [cover-prompt-template.md](references/cover-prompt-template.md)。
+- 使用默认 HD-2D 风格时，同时读取
+  [hd-2d-style.md](references/hd-2d-style.md)，按其特征说明、prompt 描述和验收要求执行。
 - 需要微信发布或 Git 推送时，读取
   [publish-and-deliver.md](references/publish-and-deliver.md)。
 
@@ -85,7 +87,7 @@ python .agents/skills/create-blog-post-from-url/scripts/check-references.py \
 
 ### 4. 生成封面与正文插图
 
-- 新封面和正文生成插图默认统一使用 HD-2D：清晰像素边缘、二维像素主体、有纵深的三维微缩场景、柔和光影和适度景深。描述词与提示词见 `cover-prompt-template.md`。
+- 新封面和正文生成插图默认统一使用 HD-2D：可辨认的二维像素主体、有体积和纵深的三维场景、协调的材质、共同光源与接地阴影。景深、雾气和泛光按内容克制使用，不限定低饱和或某种游戏题材。具体描述词、可选效果和偏差修正见 `hd-2d-style.md`，画幅与文章信息要求见 `cover-prompt-template.md`。
 - 用户当次明确指定其他风格时遵从该要求；未限定具体图片时，同篇生成图片保持一致。视觉风格不影响正文语气和事实表达。
 - 封面 brief 默认将 `selected_style` 写为 `HD-2D`，同步填写 `selected_style_prompt_descriptor` 和选择理由；保留现有字段，历史 brief 无需迁移。
 - 先保存 `src/assets/{ID}/cover-brief.json`（`final_prompt` 必须非空，生图 prompt 定稿后回填），再生成、检查和按需精修封面。
@@ -131,6 +133,7 @@ node .agents/skills/create-blog-post-from-url/scripts/validate-article.mjs \
 - 正文自然、准确，教程可以照着执行。
 - frontmatter、资源路径、封面 brief 和微信长度限制通过校验。
 - 新生成图片使用 HD-2D 或用户当次明确指定的风格；真实截图和技术图保留原貌，视觉风格没有进入正文语气。
+- HD-2D 图片通过像素主体、三维空间与共同光影三项核心检查，并在小图展示时保持信息可读；不以强虚化、马赛克或光滑玩偶代替这些特征。
 - 正文插图有明确解释目标、来源依据和中文 alt，路径有效；可选插图生成失败时已省略并说明。
 - 微信返回 `media_id` 后才提交并推送。
 - 最终报告包含文章路径、封面与新增正文插图路径、`media_id`、commit hash 和推送分支；跳过或失败的步骤需说明原因。

@@ -59,7 +59,7 @@
   "composition": "居中主物体 / 左右对照 / 斜向推进 / 等距空间 / 单点聚焦",
   "base_style": "按类型映射表填写",
   "selected_style": "HD-2D",
-  "selected_style_prompt_descriptor": "crisp pixel-art edges, 2D pixel-art subjects integrated into a three-dimensional miniature diorama, layered spatial depth, soft cinematic lighting, subtle atmospheric light, moderate depth of field, readable subjects and relationships, consistent pixel scale, no excessive blur",
+  "selected_style_prompt_descriptor": "填写 hd-2d-style.md 的默认描述；单篇覆盖时使用对应风格描述",
   "selected_style_reason": "采用仓库默认 HD-2D 风格；用户当次指定其他风格时记录要求",
   "style_safety_note": "如果风格名强指向品牌、工作室、作者或在世艺术家，说明已改写为非仿冒描述",
   "allowed_visible_text": ["默认 1-3 个中文短标签或数字；确有必要时最多 4 个"],
@@ -94,13 +94,10 @@
 
 ## 4. 默认 HD-2D 风格
 
-新封面和新增正文插图默认统一使用 HD-2D。保留清晰的像素边缘，将二维像素主体放入有纵深的三维微缩场景，使用柔和光影和适度景深。主体、关系与必要标签必须清楚，避免过度虚化。
+新封面和新增正文插图默认统一使用 HD-2D。生成前读取
+[hd-2d-style.md](hd-2d-style.md)，它统一维护像素主体、三维空间、材质与光影融合、景深和配色要求，以及常见偏差和修正方式。
 
-`selected_style` 默认填写 `HD-2D`，`selected_style_prompt_descriptor` 使用以下描述，按篇章内容调整场景与配色：
-
-```text
-crisp pixel-art edges, 2D pixel-art subjects integrated into a three-dimensional miniature diorama, layered spatial depth, soft cinematic lighting, subtle atmospheric light, moderate depth of field, readable subjects and relationships, consistent pixel scale, no excessive blur
-```
+`selected_style` 默认填写 `HD-2D`，`selected_style_prompt_descriptor` 填入该参考的默认描述，不能把文档路径或占位说明直接传给生图工具。`final_prompt` 还须明确本图的像素主体、前中后层次、光源与接地阴影；景深和气氛效果以信息可读为先，配色随文章主题确定。
 
 `selected_style_reason` 说明采用仓库默认风格；`style_safety_note` 说明以像素、微缩空间和光影特征描述，不复刻具体游戏场景、角色或素材。不要只在 prompt 中写一个风格名称。
 
@@ -193,6 +190,7 @@ Information blocks:
 Main metaphor: {封面主隐喻}.
 Subject: {主视觉主体}, {主体动作}.
 Composition/framing: {构图方式}. Prefer horizontal or radial storytelling that stays legible in a wide cover.
+Scene integration: {具体场景层次、主体清晰区域、光源方向与接地关系；HD-2D 时明确二维像素主体如何融入三维环境}.
 Style/medium: combine {基础风格} with the selected visual style descriptor: {selected_style_prompt_descriptor}. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.
 Color palette: {色彩限制}.
 Visible text policy: allow only 1-3 short Chinese labels or number chips by default, and no more than 4 when strictly necessary, all sourced from the information blocks. Each label <= 6 Chinese characters or one required product/model name. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names.
@@ -221,6 +219,7 @@ Change only these points:
 
 Make the image feel more like {基础风格} combined with this selected visual style descriptor: {selected_style_prompt_descriptor}. Preserve one clear focal subject and 2-4 supporting narrative beats in a wide 2.35:1 frame. Do not imitate a specific brand, studio, or living artist.
 Primary subject should remain: {主视觉主体}, {主体动作}.
+Preserve scene integration: {应保留的空间层次、光源方向和接地关系；只修改本轮选定的问题}.
 Simplify the background so that only {背景元素} remains as supporting context.
 Color palette: {色彩限制}.
 
@@ -259,6 +258,7 @@ Avoid {禁用元素}.
 - 至少包含 `2` 个能映射回 brief 的叙事节点
 - 只允许 `1-3` 处少量中文短标签 / 数字，不出现主标题、长句和英文长标签
 - 不像真实产品截图、真实架构图、真实 dashboard 或网页截图
+- 使用 HD-2D 时，按 `hd-2d-style.md` 检查像素主体、三维空间和共同光影，并检查缩小后的可读性；强景深、泛光和固定色调不作为必选项
 - 一眼能读出这是在**概括文章内容**，而不是泛科技氛围图
 
 ## 10. 示例
@@ -270,9 +270,9 @@ Avoid {禁用元素}.
 - `information_blocks`：三个可追溯的操作阶段；可见标签为「安装」「配置」「验证」。
 - `base_style`：`editorial technical illustration`
 - `selected_style`：`HD-2D`
-- `selected_style_prompt_descriptor`：使用第 4 节的默认描述。
+- `selected_style_prompt_descriptor`：填入 `hd-2d-style.md` 的默认描述。
 - `selected_style_reason`：采用仓库默认 HD-2D 风格。
-- 主体与构图：二维像素工具与人物置于三维微缩工作台，三个操作阶段沿横向展开，柔和光照引导视线，保持一个主焦点。
+- 主体与构图：二维像素人物与任务物件置于有体积和风格化纹理的三维工作台，操作阶段沿横向展开并通过前后遮挡形成层次。侧面光同时照亮主体与工作台，用接触阴影表现接地，主体保持清楚。
 
 ### 架构正文插图：解释一次任务的流转
 
@@ -295,11 +295,11 @@ Avoid {禁用元素}.
 
 ### 风格、保存与验收
 
-- 默认 16:9，每张围绕一个解释目标；使用第 4 节描述，与封面保持配色、像素尺度和光影一致。无封面时先确定一组统一的视觉设定，用于同篇所有新增插图。
+- 默认 16:9，每张围绕一个解释目标；使用第 4 节引用的 HD-2D 描述，与封面保持配色、像素尺度和光影协调。无封面时先确定一组统一的视觉设定，用于同篇所有新增插图。解释关系需要更清楚时减弱或关闭景深。
 - 用户当次指定其他风格时，按第 5 节处理覆盖范围。仍保留来源依据和信息真实性要求。
 - 保存为 `src/assets/{ID}/02-illustration-{topic}.png` 或 `.jpg`，后续依次编号为 `03-illustration-{topic}` 等，`topic` 使用简短英文 kebab-case。避免与已有文件重名，不覆盖真实截图和其他资源。
 - 使用 `../../assets/{ID}/{filename}` 引用最终文件并补中文 alt；仅将封面路径写入 `ogImage` 与微信 `cover-image`，正文插图通过 Markdown 正文发布。
-- 检查内容与来源一致、像素边缘清晰、主体关系可读、风格一致、文件及引用有效。禁止虚构界面、命令输出、实验指标、技术标签、坐标轴和架构节点；生成图片适用第 7 节禁令。
+- 检查内容与来源一致、主体关系可读、风格一致、文件及引用有效；HD-2D 的具体视觉检查和修正见 `hd-2d-style.md`。禁止虚构界面、命令输出、实验指标、技术标签、坐标轴和架构节点；生成图片适用第 7 节禁令。
 - 首轮有问题时，只修正明确的 1–3 项后再检查。可选插图生成或精修后仍无法合格时，省略该图并删除对应正文引用，在最终报告说明；正文仍须能独立读懂。
 
 ### 正文插图 prompt
@@ -310,8 +310,9 @@ Explanation goal: {本图唯一解释目标}.
 Source-grounded content: {对应段落、来源锚点与需要表达的关系}.
 Subject and action: {主体与动作}.
 Composition: {空间布局与关系，只表达本段所需内容}.
-Style/medium: {selected_style_prompt_descriptor；默认使用第 4 节 HD-2D 描述}.
+Style/medium: {selected_style_prompt_descriptor；默认填入 hd-2d-style.md 的描述正文}.
+Scene integration: {HD-2D 时明确像素主体、三维场景层次、共同光源与接地阴影；覆盖成其他风格时按该风格填写}.
 Visual continuity: {与封面或同篇插图一致的配色、像素尺度、光影}.
 Visible text: no text by default; allow only essential short Chinese labels or ordinal markers explicitly approved from the source-grounded content. No invented technical names or metrics.
-Constraints: crisp pixel edges, readable focal relationships, moderate depth of field; no excessive blur, no watermark, no prompt residue, no UI screenshots, no dashboards, no fake terminal output, no fake charts or architecture diagrams, no fabricated metrics, no decorative clutter.
+Constraints: readable focal relationships, no excessive blur or bloom, no watermark, no prompt residue, no UI screenshots, no dashboards, no fake terminal output, no fake charts or architecture diagrams, no fabricated metrics, no decorative clutter. Apply the selected style's visual requirements without forcing pixel-art features onto an explicit non-HD-2D override.
 ```
