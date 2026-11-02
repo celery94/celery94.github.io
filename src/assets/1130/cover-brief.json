@@ -1,0 +1,76 @@
+{
+  "article_title": "C# 运算符：一条表达式要回答的四个问题",
+  "cover_type": "tutorial",
+  "core_theme": "C# 表达式的含义由四件互相独立的事决定：操作数的编译期类型、表达式如何分组（优先级与结合性）、哪些操作数真的会被求值（从左到右 + 短路跳过），以及最终被选中的那个操作或容器的语义（相等、位运算、溢出检查）。7/2 用 int 得 3、Read(first)+Read(second)*Read(third) 按 first→second→third 调用、false && CheckRemoteState() 不调用方法、object 变量比较字符串是引用比较，都是这四类规则各自答案的结果。",
+  "reader_takeaway": "读完之后，看到一行 C# 表达式不再把它当一排符号，而是按类型、分组、求值、相等四个检查点逐项问一遍；遇到丢小数、调用顺序、短路、引用比较时，知道该查哪一类规则。",
+  "summary_angle": "一条表达式被拆成四个独立问题——类型、分组、求值、相等——沿一条三维检验线逐个回答；同一行代码因此是一块带类型的结构，而不是一排符号。",
+  "narrative_flow": "layered reveal",
+  "information_blocks": [
+    {
+      "role": "mechanism",
+      "source_anchor": "原文类型段落：7/2 当两个操作数都是 int 时做整数除法得 3，赋给 double 也不会补回小数；运算先按操作数的编译期类型选择。",
+      "visual_idea": "第一道检查点是一台精密厚度量具：一条窄卡口从像素样板两侧夹住它，量具头带着一圈暖光，像在确认这块样板属于整数还是浮点；只画量具与卡口，不画数字与刻度文字。",
+      "visible_label": "类型",
+      "numeric_fact": "7/2"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文分组段落：优先级与结合性决定运算如何分组，Read(first)+Read(second)*Read(third) 的数值结果 14 依赖乘法先于加法分组。",
+      "visual_idea": "第二道检查点是一具分组夹具：它把像素字形块托成两组高低不同的子堆，括号形的机械臂在两组之间合拢，让「先算哪一段」变成看得见的物理分组；不写公式。",
+      "visible_label": "分组",
+      "numeric_fact": "14"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文求值段落：操作数从左到右求值（first、second、third 按序调用），而且 && 短路时右侧的 CheckRemoteState() 根本不会被调用。",
+      "visual_idea": "第三道检查点是一段三格步进轨道：三盏琥珀检查灯按左到右次序点亮，旁边一条分支轨道保持熄灭的暗红色，表示被短路跳过的那一路；只画灯与轨道。",
+      "visible_label": "求值"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文相等段落：string 的 == 比较内容（序数比较），object 的 == 比较引用；checked 是文本作用域内的溢出检查上下文。",
+      "visual_idea": "第四道检查点是一架双盘天平原型：一盘放着一摞封好内容的内容块，另一盘只放一枚指针，用来对照「比内容」与「比引用」两种语义；配一枚小小的检验印戳，不写文字与数字。",
+      "visible_label": "相等"
+    }
+  ],
+  "main_metaphor": "一条 C# 表达式是一块待检的像素样板，沿三维检验工作台的轨道依次经过四道独立检查点：量具判类型、夹具做分组、步进轨判求值顺序与短路、天平比对相等语义。",
+  "primary_subject": "那条由像素字形块拼成的扁平表达式样板，以及托着它前进的通电轨道",
+  "subject_action": "样板在轨道上依次经过四道检查点，每道检查点只回答一个问题；检查点的灯光分别落在样板的不同段落上，形成四处受检的亮区",
+  "composition": "轻微俯视的三分之四侧视；样板从阴影中的左下前景斜向右上方的柔雾远景穿出，四道检查点错落分布在清晰的中景带，主焦点落在样板中段、第二与第三道检查点之间；前景暗色轨道框架压住底边，远墙柔化分离，像素样板与被检验的关键关系始终清楚",
+  "base_style": "editorial technical illustration",
+  "selected_style": "HD-2D",
+  "selected_style_prompt_descriptor": "2D pixel-art subjects with crisp stepped silhouettes and deliberate pixel clusters, integrated into a volumetric 3D environment with stylized pixel-textured surfaces, coherent perspective and foreground-midground-background depth, shared directional lighting and grounded contact/cast shadows, a sharp focal plane with restrained depth of field where helpful, controlled highlights and subtle atmospheric separation, a scene-specific palette, readable at thumbnail size; no voxel-built characters, no smooth plastic figurines, no full-frame mosaic filter, no excessive bloom or blur",
+  "selected_style_reason": "采用仓库默认 HD-2D 风格；像素样板负责表达「一行代码本身是二维的符号」，三维检验台负责表达「四道检查各自独立、同时作用于同一条表达式」，符合教程类清晰、可执行的气质。",
+  "style_safety_note": "以像素色块、微缩三维空间与共同方向光描述，不复刻具体游戏场景、角色或素材，也不指向任何品牌、工作室或在世艺术家。",
+  "allowed_visible_text": ["类型", "分组", "求值", "相等"],
+  "color_palette": [
+    "深靛紫背景",
+    "冷紫灰机械金属",
+    "暖琥珀主光",
+    "薄荷青测量强调",
+    "暗珊瑚红跳过的支路"
+  ],
+  "avoid": [
+    "poster title / 主标题文字",
+    "英文单词、口号、代码文本",
+    "真实 UI / dashboard / 控制台截图",
+    "伪图表、坐标轴、图例、伪指标",
+    "伪造的架构节点名",
+    "漂浮芯片",
+    "无意义代码雨",
+    "霓虹高楼背景",
+    "通用机器人站姿",
+    "赛博朋克紫蓝光污染",
+    "巨量 HUD 浮层",
+    "水印与 prompt 残留",
+    "无关图标堆砌与装饰性杂物"
+  ],
+  "reference_strategy": "纯文本生成，无参考图",
+  "draft_goal": "先验证 2.35:1 画面能不能一眼读出「一条像素表达式样板 + 四道独立检查点」以及四个中文标签是否只有一组、无多余文字",
+  "revision_targets": [
+    "去掉多余文字、伪 UI 与伪刻度，只保留四块小铭牌上的「类型」「分组」「求值」「相等」",
+    "强化像素样板这一主焦点，让四道检查点的独立性清楚而不喧宾夺主",
+    "统一暖琥珀主光方向，补齐每道检查点与样板的接地阴影，压低背景杂物"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes a tutorial article about how C# expressions are read. Theme: one expression's meaning is decided by four independent questions — the compile-time type of each operand, how the expression is grouped by precedence and associativity, which operands are actually evaluated left-to-right with short-circuit skips, and which operation or container semantics finally applies for equality. The reader should quickly feel: read a line of code as a typed structure checked at four independent stations, not as a row of symbols.\n\nSummary angle: 一条表达式被拆成四个独立问题——类型、分组、求值、相等——沿一条三维检验线逐个回答。\nNarrative flow: layered reveal along one inspection line in a 2.35:1 frame, one dominant focal subject and four supporting stations. Each station must map to the article's information blocks rather than generic decoration.\nInformation blocks:\n- mechanism (visible label 类型): a precision thickness gauge with a narrow sizing aperture clamps the pixel placard from both sides and decides whether it is an integer object or a floating-point object; a small machined gauge head with a warm lit ring, no digits and no scale markings\n- mechanism (visible label 分组): a bracket clamp lifts the pixel glyph clusters into two grouped sub-stacks at different heights, parenthesis-like arms closing between the groups, so how the expression is grouped becomes visible physical stacking; no formula and no symbols text\n- mechanism (visible label 求值): a three-notch stepping rail where three amber inspection lamps light up in left-to-right order while a side branch rail stays dark coral-red and unlit, expressing left-to-right evaluation and the skipped short-circuit arm; only lamps and rails\n- mechanism (visible label 相等): a twin-pan equality scale compares two machined plates, one plate carrying a sealed stack of content blocks and the other holding a single small reference pointer, contrasting value comparison with reference comparison; a small inspection seal stamp beside it, no text and no numbers\n\nMain metaphor: 一条 C# 表达式是一块待检的像素样板，沿三维检验工作台的轨道依次经过四道独立检查点。\nSubject: a flat 2D pixel-art expression placard — a long strip built from stepped pixel glyph clusters that reads as a short piece of code without spelling any legible word — carried by a powered rail.\nSubject action: the placard advances through the four stations, each station lighting only its own facet of the strip.\nComposition/framing: slightly elevated three-quarter view; the strip runs from the shadowed lower-left foreground diagonally through four staggered stations in the sharp middle band and exits toward a softly hazy upper right; the dominant focal point sits on the strip between the second and third stations; a dark foreground rail frames the bottom edge and the far wall is softly separated.\nScene integration: an original precision-inspection workshop with machined 3D benches and gantries carrying restrained pixel-textured surfaces; warm amber key light from the upper left reaches the strip, the gates and the floor, and every gate and the placard cast grounded contact and cast shadows; mint-teal fill light from the far wall; the single dim coral-red branch rail is the only unlit path; subtle dust motes; no glass reflections over the strip and no bloom covering the information.\nStyle/medium: combine editorial technical illustration with the selected visual style descriptor: 2D pixel-art subjects with crisp stepped silhouettes and deliberate pixel clusters, integrated into a volumetric 3D environment with stylized pixel-textured surfaces, coherent perspective and foreground-midground-background depth, shared directional lighting and grounded contact/cast shadows, a sharp focal plane with restrained depth of field where helpful, controlled highlights and subtle atmospheric separation, a scene-specific palette, readable at thumbnail size; no voxel-built characters, no smooth plastic figurines, no full-frame mosaic filter, no excessive bloom or blur. Do not imitate a specific brand, studio, or living artist.\nColor palette: deep indigo-violet background, cool violet-grey machined metal, warm amber key light, mint-teal measured accents, one dim coral-red skipped branch; no neon glow and no saturated purple-blue cyberpunk wash.\nVisible text policy: exactly four small machined plaques, one beside each station, each carrying one short Chinese label: 类型, 分组, 求值, 相等. Nothing else is written anywhere — no poster title, no English words or code text, no numbers, no fake UI labels, no fake chart axes, no fake node names, no long sentences.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: floating chips, meaningless code rain, neon skyscraper background, generic robot poses, giant HUD overlays, any text other than the four Chinese labels."
+}
