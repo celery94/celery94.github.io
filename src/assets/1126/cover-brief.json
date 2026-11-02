@@ -1,0 +1,75 @@
+{
+  "article_title": "Task 不是线程，await 也不保证切线程",
+  "cover_type": "analysis",
+  "core_theme": "把 Task 从「另开一个线程」的误解里拆出来：它是一次异步操作的承诺，与线程没有绑定关系，await 只是挂起续体，不保证换线程；真正的风险不是切不切线程，而是被丢弃的任务异常无人观测、生命周期无人管理。",
+  "reader_takeaway": "读完之后能分清「并发」和「并行」：await 前后可能在同一个线程上，也可能不在；要安全地丢弃一个任务，必须自己包 try/catch、绑取消令牌、接管生命周期。",
+  "summary_angle": "把 Task 从「另开一个线程」的误解里拆出来——它是一次操作的承诺，await 只是挂起续体而不保证换线程；真正危险的是被丢弃的任务，异常没人观测、生命周期没人管。",
+  "narrative_flow": "conflict-to-resolution",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "正文 fire-and-forget 段落：`_ = SendAsync()` 丢弃返回的 Task，异常再也没人观测，编译器用 CS4014 提醒这个调用没有被 await",
+      "visual_idea": "右侧一个像素调度口把包裹直接甩出轨道，包裹越过缺口掉进下方暗坑，坑底散落没拆开的故障信件；调度口旁一块很小的 CS4014 警示牌",
+      "visible_label": "丢了异常",
+      "numeric_fact": "CS4014"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "正文「Task 是什么」段落：Task 表示一次操作的承诺（promise），并不绑定线程；await 只是把续体挂起，恢复时可能还在原线程，也可能在别的线程",
+      "visual_idea": "左侧一个像素承诺柜台，同一张悬空轨道从柜台伸出，但从不固定停靠在某一个线程工位；工位沿轨道轮换，包裹（承诺）本身不变",
+      "visible_label": "不绑线程"
+    },
+    {
+      "role": "evidence",
+      "source_anchor": "正文状态判断段落：用 IsCompleted / IsFaulted / IsCanceled（及 IsCompletedSuccessfully）判断一个 Task 的终态",
+      "visual_idea": "柜台墙上三盏像素状态灯，分别表示完成 / 故障 / 取消，只做灯与光影，不写任何字段名、不画界面",
+      "numeric_fact": "3"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "正文收尾：要安全地丢弃任务，需要 try/catch 兜住异常、绑上取消令牌、并接管它的生命周期",
+      "visual_idea": "暗坑下方铺开一张还没完全扣紧的安全网，包裹上系着一根挂着令牌的短绳，旁边是一个带托盘的回收工位",
+      "visible_label": "要有兜底"
+    }
+  ],
+  "main_metaphor": "一间夜色里的微型调度所：左边是发出承诺的柜台与永不固定停靠的悬空轨道，右边是把包裹甩进暗坑的调度口，底部是安全网与令牌挂绳。",
+  "primary_subject": "一个代表 Task 承诺的像素包裹，以及它被丢出时悬在暗坑上方的那一刻",
+  "subject_action": "包裹从承诺柜台出发，沿不固定停靠的轨道被派发；一旦被 fire-and-forget 甩出，就越过缺口坠向暗坑，而底部的安全网还没完全接住它",
+  "composition": "单一连续微缩场景，左到右推进：左侧承诺柜台与悬空轨道，右侧调度口与暗坑，底部横贯安全网与令牌挂绳，主焦点是暗坑边缘那只正下坠的包裹",
+  "base_style": "conceptual editorial illustration",
+  "selected_style": "HD-2D",
+  "selected_style_prompt_descriptor": "crisp pixel-art edges, 2D pixel-art subjects integrated into a three-dimensional miniature diorama, layered spatial depth, soft cinematic lighting, subtle atmospheric light, moderate depth of field, readable subjects and relationships, consistent pixel scale, no excessive blur",
+  "selected_style_reason": "采用仓库默认 HD-2D 风格；微缩调度所能同时表达「承诺出站 / 不绑工位 / 掉落暗坑 / 底部兜底」四层空间关系，比平面示意图更清楚",
+  "style_safety_note": "以像素边缘、微缩三维空间和柔光影描述，不复刻具体游戏场景、角色或素材，也不指向任何品牌、工作室或在世艺术家",
+  "allowed_visible_text": ["丢了异常", "不绑线程", "要有兜底", "CS4014"],
+  "color_palette": [
+    "深夜蓝",
+    "暗青",
+    "暖橙柜台灯",
+    "冷青绿状态灯",
+    "暗红故障信件",
+    "哑金安全网"
+  ],
+  "avoid": [
+    "poster title / 主标题文字",
+    "英文口号与拟声词",
+    "假 UI / dashboard / 控制台截图",
+    "伪造状态机字段名",
+    "假图表坐标轴与图例",
+    "伪造指标或百分比",
+    "漂浮芯片",
+    "无意义代码雨",
+    "霓虹高楼",
+    "通用机器人站姿",
+    "水印与 prompt 残留",
+    "无关图标堆砌"
+  ],
+  "reference_strategy": "纯文本生成，无参考图",
+  "draft_goal": "先验证一件事：左侧「承诺 + 不绑工位」与右侧「甩出包裹掉暗坑 + 底部安全网」能不能在一个连续微缩场景里一眼读出来，且主焦落在暗坑边缘的包裹上",
+  "revision_targets": [
+    "只保留 3 个中文短标签 + 1 个 CS4014 小牌，去掉多余文字",
+    "让悬空轨道不固定停靠的表达更清楚，避免被看成普通传送带",
+    "强化底部安全网与令牌挂绳，别让暗坑抢走全部注意力"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes an analysis piece titled 关于 Task 的常见误解. Theme: a Task is not a thread, and await does not guarantee a thread switch; a Task is the promise of one async operation, await only suspends the continuation, and the real danger is a task that is dropped — its exception is never observed and its lifetime is never owned. The reader should quickly feel: 并发不等于并行，丢掉的 Task 会安静地坏掉。\n\nSummary angle: 把 Task 从「另开一个线程」的误解里拆出来——它是一次操作的承诺，await 只是挂起续体而不保证换线程；真正危险的是被丢弃的任务，异常没人观测、生命周期没人管。\nNarrative flow: conflict-to-resolution, one continuous three-dimensional miniature scene read left to right in a 2.35:1 frame, with one dominant focal subject and 3-4 supporting beats. Each beat must map to the article's information blocks rather than generic decoration.\nInformation blocks:\n- problem (visible label: 丢了异常, plus a small CS4014 chip): a fire-and-forget call throws its parcel straight out of the dispatch hatch; the parcel clears the gap and falls toward a dark pit, where unopened failure letters lie scattered. Put a tiny CS4014 warning plate beside the hatch\n- mechanism (visible label: 不绑线程): the same parcel leaves a promise counter on a floating rail that never docks at one fixed worker booth; the booth along the rail keeps changing while the parcel's promise stays the same\n- evidence (no label, visual only): three small pixel state lamps on the counter wall marking done, faulted and canceled — lamps and glow only, no field names and no interface\n- takeaway (visible label: 要有兜底): a safety net is spread under the pit but not fully latched, a short cord with a cancellation token is tied to the parcel, and an intake tray waits at the bottom\n\nMain metaphor: a small after-hours dispatch post in a miniature diorama — a promise counter, a floating rail that never docks at one fixed booth, a dispatch hatch dropping parcels into a dark pit, and a safety net with a token cord underneath.\nSubject: a small pixel parcel standing for the Task promise, caught at the edge of the pit as it falls.\nComposition/framing: one continuous diorama, horizontal read: promise counter and floating rail on the left, dispatch hatch and dark pit on the right, safety net and token cord running across the bottom; the focal point is the parcel dropping at the pit edge. Layered depth with the pit clearly below the rail level. Not a vertical poster, not a multi-panel collage.\nStyle/medium: combine conceptual editorial illustration with the selected visual style descriptor: crisp pixel-art edges, 2D pixel-art subjects integrated into a three-dimensional miniature diorama, layered spatial depth, soft cinematic lighting, subtle atmospheric light, moderate depth of field, readable subjects and relationships, consistent pixel scale, no excessive blur. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: deep night blue and dark teal base, warm amber counter light, cool teal-green state lamps, dark red only for the dropped failure letters, muted gold for the safety net.\nVisible text policy: allow only three short Chinese labels (\"丢了异常\", \"不绑线程\", \"要有兜底\") plus one small chip reading CS4014, and nothing else. No poster title, no headline, no long sentences, no English slogans, no fake UI labels, no fabricated state-machine field names, no fake chart axes, no fake architecture node names, no fabricated metrics.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: poster title, English slogan, floating chips, code rain, neon skyline, generic robot poses, cyberpunk purple-blue glow, dense HUD overlays, fake IDE or console screenshots."
+}
