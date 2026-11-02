@@ -1,6 +1,6 @@
 ---
 name: create-blog-post-from-url
-description: 从公开 URL 取证并生成可信、自然、可执行的中文博客 Markdown、文章资源和 frontmatter。用户要求把链接改写成博客、生成封面、发布微信公众号草稿或完成博客发布流程时使用；默认生成封面，通过校验后发布微信草稿，并只提交、推送本次文章文件。
+description: 从公开 URL 取证并生成可信、自然、可执行的中文博客 Markdown、文章资源和 frontmatter。用户要求把链接改写成博客、生成封面、发布微信公众号草稿或完成博客发布流程时使用；默认生成 HD-2D 封面并按需添加正文插图，通过校验后发布微信草稿，并只提交、推送本次文章文件。
 ---
 
 # 从 URL 创建博客
@@ -14,12 +14,14 @@ description: 从公开 URL 取证并生成可信、自然、可执行的中文�
 1. 读取并核对原文
 2. 创建博客 Markdown 和文章资源
 3. 完成内容编辑、文字编辑和去 AI 味改稿
-4. 随机选择一种封面风格并生成宽封面
+4. 生成 HD-2D 宽封面，并按内容需要添加同风格正文插图（通常 0–2 张）
 5. 运行文章校验
 6. 发布到微信公众号草稿箱
 7. 微信返回 `media_id` 后，只提交并推送本次文章文件
 
-用户明确说不要封面时跳过生图和 `ogImage`。用户明确说不发微信或只生成博客时，同时跳过微信发布、Git 提交和推送。
+用户明确说不要封面时只跳过封面生成和 `ogImage`，正文仍可按需配图；说不要配图时跳过全部图片生成和 `ogImage`，已有真实截图与技术图仍按内容需要保留。用户明确说不发微信或只生成博客时，同时跳过微信发布、Git 提交和推送。
+
+本规则适用于今后新建文章，不批量重做历史文章及其图片。
 
 ## 按阶段读取参考
 
@@ -27,7 +29,7 @@ description: 从公开 URL 取证并生成可信、自然、可执行的中文�
   [source-and-writing.md](references/source-and-writing.md)。
 - 起草、改稿和发布前审查前，读取
   [chinese-style-and-deai.md](references/chinese-style-and-deai.md)。
-- 需要封面时，读取
+- 需要封面或正文生成插图时，读取
   [cover-prompt-template.md](references/cover-prompt-template.md)。
 - 需要微信发布或 Git 推送时，读取
   [publish-and-deliver.md](references/publish-and-deliver.md)。
@@ -81,18 +83,16 @@ python .agents/skills/create-blog-post-from-url/scripts/check-references.py \
 
 - 保存图片时统一转为微信支持的 jpg/png（微信 uploadimg 不接受 webp/gif/bmp），或确认 `wechat-draft` 发布时会自动转换。
 
-### 4. 生成封面
+### 4. 生成封面与正文插图
 
-- 用户未指定风格时，用随机选择脚本从风格池选 1 项（不要手写随机逻辑）：
-
-```bash
-python .agents/skills/create-blog-post-from-url/scripts/pick-cover-style.py
-```
-
-- 脚本输出 `selected_style` 与 `selected_style_prompt_descriptor`，直接填入 `cover-brief.json`。
-- 随机风格只影响封面 brief、图片提示词和封面验收，不影响正文语气。
+- 新封面和正文生成插图默认统一使用 HD-2D：清晰像素边缘、二维像素主体、有纵深的三维微缩场景、柔和光影和适度景深。描述词与提示词见 `cover-prompt-template.md`。
+- 用户当次明确指定其他风格时遵从该要求；未限定具体图片时，同篇生成图片保持一致。视觉风格不影响正文语气和事实表达。
+- 封面 brief 默认将 `selected_style` 写为 `HD-2D`，同步填写 `selected_style_prompt_descriptor` 和选择理由；保留现有字段，历史 brief 无需迁移。
 - 先保存 `src/assets/{ID}/cover-brief.json`（`final_prompt` 必须非空，生图 prompt 定稿后回填），再生成、检查和按需精修封面。
 - 最终封面保存为 `src/assets/{ID}/01-cover.{ext}`，同步更新 `ogImage` 和微信封面路径。
+- 正文插图通常 0–2 张，只在流程、机制、前后变化或方案对比需要图解时添加，短文或已有充分图解时可不添加。每张围绕一个解释目标，默认 16:9，与封面保持配色、像素尺度和光影一致。
+- 保留真实截图、实验数据图和准确技术图的原貌，生成插图只作解释补充。具体插入位置、命名和验收要求见模板的「正文插图」。
+- 用户不要封面时跳过封面 brief 和封面生成，正文插图独立按需处理；用户不要配图时跳过本阶段全部图片生成。
 - 当前模型不支持看图时，按 `azure-image-gen` 技能的 No-Vision 工作流执行；封面直接验收，不再要求用户逐篇确认，在最终报告中说明封面路径与摘要角度即可（用户不满意可要求重新生成）。
 
 ### 5. 校验
@@ -130,6 +130,7 @@ node .agents/skills/create-blog-post-from-url/scripts/validate-article.mjs \
 - 结尾给出行动、选择条件、风险边界或后续问题；关注引导不使用固定套话。
 - 正文自然、准确，教程可以照着执行。
 - frontmatter、资源路径、封面 brief 和微信长度限制通过校验。
-- 随机视觉风格没有进入正文语气。
+- 新生成图片使用 HD-2D 或用户当次明确指定的风格；真实截图和技术图保留原貌，视觉风格没有进入正文语气。
+- 正文插图有明确解释目标、来源依据和中文 alt，路径有效；可选插图生成失败时已省略并说明。
 - 微信返回 `media_id` 后才提交并推送。
-- 最终报告包含文章路径、封面路径、`media_id`、commit hash 和推送分支；跳过或失败的步骤需说明原因。
+- 最终报告包含文章路径、封面与新增正文插图路径、`media_id`、commit hash 和推送分支；跳过或失败的步骤需说明原因。

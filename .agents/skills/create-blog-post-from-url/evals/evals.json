@@ -4,14 +4,14 @@
     {
       "id": 1,
       "prompt": "请把这篇文章改写成一篇中文博客并生成封面，然后发布到微信公众号草稿箱：https://www.anthropic.com/engineering/building-effective-agents",
-      "expected_output": "会先用可交互浏览器抓取完整正文并形成结构化笔记，再生成独立的中文 Markdown 博客。进入封面阶段后，用户未指定风格时从 40 项风格池随机选择 1 个 `selected_style`；该风格只用于封面 brief、封面 prompt 和图片验收，不影响正文语气。封面阶段读取 `references/cover-prompt-template.md`，创建 `src/assets/{ID}/cover-brief.json`，再用可用的图像生成或编辑技能完成封面，把最终选中图保存为 `src/assets/{ID}/01-cover.{ext}`，并把 `ogImage` 与 `wechat-draft` 的 `cover-image` 都指向这个最终路径。",
+      "expected_output": "会先用可交互浏览器抓取完整正文并形成结构化笔记，再生成独立的中文 Markdown 博客。新封面默认使用 HD-2D，在 cover-brief.json 中记录风格描述、理由与最终 prompt；正文需要图解时通常添加 0–2 张同风格插图，保持像素尺度、配色和光影一致，不改变正文语气和事实。封面阶段读取 references/cover-prompt-template.md，最终封面保存到 src/assets/{ID}/01-cover.{ext}，并将 ogImage 与微信 cover-image 指向该路径；正文插图使用独立文件和 Markdown 引用。微信返回 media_id 后才提交推送本篇文章及资源。",
       "files": [],
       "assertions": [
         {
           "text": "Cover generation stays backend-agnostic by default instead of hardcoding a specific image-generation skill."
         },
         {
-          "text": "When no style is specified, the workflow randomly selects exactly one style from the 40-item style pool when entering the cover stage."
+          "text": "When no style is specified, new covers and generated inline illustrations use HD-2D: crisp pixel edges, 2D subjects in a 3D miniature diorama, soft lighting, and moderate depth of field."
         },
         {
           "text": "The selected style is used for the cover brief, cover prompt, and cover acceptance, but does not affect article voice or facts."
@@ -33,14 +33,14 @@
     {
       "id": 2,
       "prompt": "把这个产品发布页写成中文博客，封面用默认方式生成，不要做成产品截图：https://openai.com/index/introducing-gpt-image-2/",
-      "expected_output": "会把文章类型识别为产品更新 / 发布型，封面 brief 中选择 `release`。用户未指定风格时，从 40 项风格池随机选择 1 个 `selected_style`，并把对应的 `selected_style_prompt_descriptor` 写进封面 prompt。封面采用单张宽图的 infographic summary，用 `2-4` 个来源可追溯的信息块概括发布重点，避免泛主题插画；文字默认只保留 `1-3` 处少量中文短标签或数字，同时禁止主标题、假 UI、假 dashboard、假图表和假终端。",
+      "expected_output": "会将文章识别为 release，按产品发布类型确定主体与构图，默认 selected_style 为 HD-2D，并在 prompt 中写入像素主体、三维微缩空间、柔和光影和适度景深。封面保持 2.35:1、一个主焦点与 2–4 个来源可追溯的信息块，默认只保留 1–3 处短标签或数字，禁止主标题、假 UI、假仪表盘、假图表和假终端。",
       "files": [],
       "assertions": [
         {
           "text": "The cover type is selected from the fixed taxonomy and is appropriate for a product/release article."
         },
         {
-          "text": "Unspecified release covers use random style selection from the style pool rather than a fixed comic-style mapping."
+          "text": "An unspecified release cover uses HD-2D while its subject and composition still follow the release type."
         },
         {
           "text": "The selected style descriptor is included in the image prompt while the cover still follows infographic-story constraints."
@@ -53,20 +53,20 @@
     {
       "id": 3,
       "prompt": "请用 Azure OpenAI 生成封面，把这篇英文教程改写成中文博客并推到微信草稿箱，封面用美漫超级英雄风：https://learn.microsoft.com/en-us/azure/ai-services/openai/how-to/dall-e",
-      "expected_output": "会尊重用户明确指定 Azure 和 `美漫超级英雄风` 的要求，在封面阶段使用 `azure-image-gen`，并把 `selected_style` 设为 `美漫超级英雄风`。仍然先生成 `cover-brief.json`，使用该风格对应的安全描述词构造单张宽封面的 infographic-story prompt，并把 Azure 脚本最终输出的实际文件路径（可能是 `.png`、`.jpg` 或 `.webp`）同步到 Markdown `ogImage` 和 `wechat-draft` 的 `cover-image`。",
+      "expected_output": "会尊重用户明确指定 Azure 和美漫超级英雄风的要求，在封面阶段使用 azure-image-gen，并将 selected_style 设为美漫超级英雄风，覆盖本次封面的 HD-2D 默认值。先生成 cover-brief.json，用具体的线条、色块和漫画质感描述构造 prompt。最终资源使用 jpg/png，工具输出其他格式时先转换，并将实际最终封面路径同步到 Markdown ogImage 和微信 cover-image。",
       "files": [],
       "assertions": [
         {
           "text": "An explicit Azure preference is honored for cover generation even though the default flow is backend-agnostic."
         },
         {
-          "text": "An explicit style request overrides random style selection."
+          "text": "An explicit style request overrides the HD-2D default only for the images covered by that request."
         },
         {
-          "text": "The prompt uses the safe descriptor for `美漫超级英雄风` rather than reverting to the old two-option comic-style field."
+          "text": "The prompt describes the requested superhero-comic visual features without copying specific characters or franchise assets."
         },
         {
-          "text": "The Azure final output path extension is treated as authoritative."
+          "text": "The final saved PNG or JPG path is authoritative; an unsupported intermediate format is converted before publishing."
         },
         {
           "text": "The final image path is propagated consistently to blog frontmatter and WeChat publishing."
@@ -79,14 +79,14 @@
     {
       "id": 4,
       "prompt": "把这篇架构文章写成中文博客。封面可以参考正文里的架构图，但不能照抄，也不能生成假的架构标签：https://example.com/agent-workflow-architecture",
-      "expected_output": "会把文章类型识别为架构 / 系统设计。用户未指定风格时，会从 40 项风格池随机选择 1 个风格，而不是按 workflow / pipeline 固定选择日漫。封面仍用 `2-4` 个来源可追溯的信息块把流程压成单张宽封面；参考图只用于主体关系或空间结构，不用于像素级临摹；最终 prompt 仍禁止假架构节点名、假 dashboard、假图表坐标和 screenshot 风格。",
+      "expected_output": "会将文章识别为 architecture，默认使用 HD-2D，以三维微缩模块场景和二维像素主体表达关系。封面保持一个主焦点与 2–4 个来源明确的信息块。参考图仅帮助理解主体关系和空间结构，真实架构图在正文保留原貌；生成图片禁止假架构节点名、假仪表盘、假图表坐标和截图式画面。",
       "files": [],
       "assertions": [
         {
           "text": "Reference images are used only for composition or subject relationships, not pixel-level copying."
         },
         {
-          "text": "Architecture covers use the one selected style from the random pool unless the user specifies a style."
+          "text": "Architecture covers default to HD-2D unless the user explicitly specifies another style for that image."
         },
         {
           "text": "Architecture covers may show abstract connections and flow markers but must not create fake labeled system diagrams."
@@ -99,11 +99,11 @@
     {
       "id": 5,
       "prompt": "只把这个链接写成博客，不要生成封面，也不要发微信：https://example.com/short-note",
-      "expected_output": "会尊重用户明确的范围限制：仍然抓取完整 URL、生成独立中文 Markdown、写入 frontmatter 和参考链接；由于用户不要封面，因此不选择随机封面风格、不生成图片、不写 `ogImage`，也不调用 `wechat-draft`。",
+      "expected_output": "会生成带 frontmatter、正文和参考链接的博客。不要封面只跳过封面生成、封面 brief 和 ogImage；正文仍按需要决定是否配图，该短文无额外解释需要时不添加插图。不发微信也跳过提交和推送。",
       "files": [],
       "assertions": [
         {
-          "text": "The explicit no-cover request prevents any image-generation skill from being invoked."
+          "text": "The explicit no-cover request skips cover generation and the cover brief without prohibiting useful inline illustrations."
         },
         {
           "text": "The explicit no-WeChat request prevents `wechat-draft` from being invoked."
@@ -112,7 +112,7 @@
           "text": "The blog article is still generated normally without `ogImage`."
         },
         {
-          "text": "No random cover style is selected when cover generation is explicitly skipped."
+          "text": "This short article receives no inline illustration when the text already explains the topic adequately."
         },
         {
           "text": "The explicit no-WeChat request also skips the post-publish git commit and push flow."
@@ -122,11 +122,11 @@
     {
       "id": 6,
       "prompt": "把这篇观点文章改写成中文博客并生成封面：https://example.com/spec-driven-ai-opinion",
-      "expected_output": "会把文章识别为 `analysis`，但用户未指定风格时不会固定选择美漫，而是从 40 项风格池随机选择 1 个 `selected_style`。封面仍然做成单张宽封面的 infographic storytelling summary：至少压出 `2` 个能映射回原文的叙事信息块，而不是只画一张泛技术氛围图。",
+      "expected_output": "会将文章识别为 analysis，默认 selected_style 为 HD-2D，结合对照构图表达核心判断；封面保持单张宽图和至少两个可映射回原文的信息块，不使用泛技术氛围图。正文只有对比需要额外图解时才添加同风格插图。",
       "files": [],
       "assertions": [
         {
-          "text": "When style is unspecified for an `analysis` article, the brief randomly selects one style from the 40-item pool."
+          "text": "When style is unspecified for an analysis article, the brief records HD-2D and its concrete visual descriptor."
         },
         {
           "text": "The cover summary contains at least two article-grounded information blocks rather than a generic thematic illustration."
@@ -143,7 +143,7 @@
       "files": [],
       "assertions": [
         {
-          "text": "An explicit style request overrides random selection for a `research` article."
+          "text": "An explicit style request overrides the HD-2D default for the requested research cover."
         },
         {
           "text": "`新海诚光影风` is preserved as `selected_style` but converted to a non-imitative `selected_style_prompt_descriptor`."
@@ -447,6 +447,125 @@
         },
         {
           "text": "The rewrite preserves source facts, code examples, uncertainty, and practical boundaries instead of inventing personal experience or test results."
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "prompt": "把这篇流程讲解写成博客，只生成博客。复杂的任务交接部分可以适当加图：https://example.com/task-handoff-explainer",
+      "expected_output": "默认生成 HD-2D 封面，评估任务交接段落确有解释需要后，在对应说明之后添加通常 1–2 张 16:9 同风格概念插图。每张有明确解释目标和来源锚点，与封面的配色、像素尺度和光影一致，保留文字说明。插图保存到文章资源目录并补中文 alt，不发布微信、不提交推送。",
+      "files": [],
+      "assertions": [
+        {
+          "text": "Inline illustrations are added only where a flow, mechanism, change, or comparison benefits from visual explanation, usually zero to two per article."
+        },
+        {
+          "text": "Each inline illustration addresses one explanation goal tied to a source anchor and appears near the relevant paragraph without splitting code or numbered steps."
+        },
+        {
+          "text": "Generated inline images default to 16:9 and match the cover in palette, pixel scale, lighting, and visual style."
+        },
+        {
+          "text": "Final PNG or JPG inline assets use distinct numbered illustration filenames and relative Markdown references with Chinese alt text; only the cover is used for ogImage."
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "prompt": "把这篇只有一个简单结论的短文写成博客，生成封面即可，不发微信：https://example.com/simple-short-note",
+      "expected_output": "生成完整短文和默认 HD-2D 封面。正文已能充分表达结论时不添加插图，不为凑数量或章节配图而生成图片。",
+      "files": [],
+      "assertions": [
+        {
+          "text": "A short article with sufficient textual explanation receives zero inline illustrations."
+        },
+        {
+          "text": "The default cover uses HD-2D and does not trigger a mandatory inline-image quota."
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "prompt": "把这篇教程写成博客，不发微信，保留真实操作截图、架构图和实验结果图；难懂的机制可以加插图：https://example.com/tutorial-with-evidence-images",
+      "expected_output": "保留真实操作截图、准确架构图和实验数据图原貌与来源，只有机制确需说明时另加 HD-2D 概念插图，注明概念示意。生成图不得取代真实证据或编造实验指标、界面、终端输出和节点名。",
+      "files": [],
+      "assertions": [
+        {
+          "text": "Real screenshots, accurate technical diagrams, and experiment charts remain unstyled evidence images."
+        },
+        {
+          "text": "Any HD-2D illustration supplements the mechanism explanation and is identified as conceptual when needed."
+        },
+        {
+          "text": "Generated visuals do not invent interfaces, commands or outputs, metrics, chart axes, or technical labels."
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "prompt": "把这个链接写成博客，不要配图，不发微信：https://example.com/text-only-article",
+      "expected_output": "生成完整 Markdown，不调用任何图片生成或编辑技能，不生成封面、正文插图、封面 brief 或 ogImage。已有真实截图和技术图仍按内容需要保留，不发布微信、不提交推送。",
+      "files": [],
+      "assertions": [
+        {
+          "text": "An explicit no-images request skips all cover and inline image generation and editing."
+        },
+        {
+          "text": "No cover brief or ogImage is created, while useful existing evidence images may be retained."
+        },
+        {
+          "text": "The complete article and references are still produced without WeChat, commit, or push."
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "prompt": "把这篇机制讲解写成博客，不要封面，不发微信；正文机制部分请加一张 HD-2D 概念插图：https://example.com/mechanism-explainer",
+      "expected_output": "跳过封面、封面 brief 和 ogImage，独立生成一张解释机制的 16:9 HD-2D 正文插图。先确定配色、像素尺度和光影，记录本图解释目标、来源依据和 prompt，保存到文章资源目录，使用中文 alt 与相对路径引用。",
+      "files": [],
+      "assertions": [
+        {
+          "text": "No-cover skips only the cover, cover brief, and ogImage while allowing the requested inline image."
+        },
+        {
+          "text": "An inline image can be planned and generated without a cover or a cover brief."
+        },
+        {
+          "text": "The standalone inline illustration uses the HD-2D descriptor, 16:9 composition, a valid local reference, and Chinese alt text."
+        }
+      ]
+    },
+    {
+      "id": 28,
+      "prompt": "把这篇工具流程文章写成博客，正文可按需加图，只生成博客：https://example.com/optional-inline-image-failure",
+      "expected_output": "在可选正文插图生成失败或针对明确问题精修后仍不合格时，省略该图并删除对应 Markdown 引用，保留能独立阅读的完整正文，在最终报告说明失败或省略原因。封面失败按既有封面与发布规则处理，不能混同为可选插图失败。",
+      "files": [],
+      "assertions": [
+        {
+          "text": "An optional inline image that fails generation or remains unsuitable after targeted correction is omitted and its Markdown reference removed."
+        },
+        {
+          "text": "The complete article remains understandable without the omitted illustration and the final report explains the omission."
+        },
+        {
+          "text": "Optional inline failure handling does not bypass existing required-cover or publication validation."
+        }
+      ]
+    },
+    {
+      "id": 29,
+      "prompt": "把这篇架构文章写成博客，不发微信。封面指定水彩风，正文机制部分加一张默认风格插图：https://example.com/scoped-style-override",
+      "expected_output": "封面遵从水彩风要求并记录对应风格描述与理由；覆盖范围仅限封面，正文插图仍为默认 HD-2D，并按单图明确指定风格的例外处理。两张图都保持来源真实、主体关系可读，历史文章和 brief 不迁移。",
+      "files": [],
+      "assertions": [
+        {
+          "text": "An explicit cover-only style override applies to the cover while the inline illustration retains the HD-2D default."
+        },
+        {
+          "text": "The brief preserves existing selected_style and descriptor fields and records the override reason."
+        },
+        {
+          "text": "Changing defaults does not rewrite historical articles, images, or briefs."
         }
       ]
     }

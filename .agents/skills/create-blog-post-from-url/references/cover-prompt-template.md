@@ -1,17 +1,18 @@
-# Cover Prompt Template
+# 封面与正文插图模板
 
 ## 目录
 
 - [判断封面类型](#1-先判断封面类型)
 - [保存封面 brief](#2-先保存封面-brief)
 - [基础风格](#3-类型到基础风格的固定映射)
-- [随机风格池](#4-随机风格池)
+- [默认 HD-2D 风格](#4-默认-hd-2d-风格)
 - [生图与提示词](#6-选择生图技能)
-- [验收与示例](#9-使用要求)
+- [封面验收与示例](#9-封面使用要求)
+- [正文插图](#11-正文插图)
 
-创建文章封面时，先用这个模板生成**封面 brief**和第一轮 prompt，再选择可用的图像生成 / 编辑技能执行。默认不要在这里预设某个固定 backend；只有用户明确要求 Azure 时才点名 `azure-image-gen`。
+创建文章封面或正文插图时读取本模板。封面先生成**封面 brief**和第一轮 prompt，再选择可用的图像生成 / 编辑技能执行。默认不要在这里预设某个固定 backend；只有用户明确要求 Azure 时才点名 `azure-image-gen`。
 
-不要默认“一次生成 = 最终封面”。先确认主题、摘要弧线、主体、构图和选定随机风格是否成立，再根据问题做一次定向编辑或重生。
+不要默认“一次生成 = 最终封面”。先确认主题、摘要弧线、主体、构图和选定视觉风格是否成立，再根据问题做一次定向编辑或重生。
 
 ## 1. 先判断封面类型
 
@@ -57,9 +58,9 @@
   "subject_action": "主体正在做什么，或处于什么关系里",
   "composition": "居中主物体 / 左右对照 / 斜向推进 / 等距空间 / 单点聚焦",
   "base_style": "按类型映射表填写",
-  "selected_style": "用户指定风格，或从 40 项风格池随机选择的风格名称",
-  "selected_style_prompt_descriptor": "用于生图 prompt 的安全描述词，不要求复刻品牌、工作室或艺术家",
-  "selected_style_reason": "为什么本篇选择这个风格；随机选择时写明是随机选中",
+  "selected_style": "HD-2D",
+  "selected_style_prompt_descriptor": "crisp pixel-art edges, 2D pixel-art subjects integrated into a three-dimensional miniature diorama, layered spatial depth, soft cinematic lighting, subtle atmospheric light, moderate depth of field, readable subjects and relationships, consistent pixel scale, no excessive blur",
+  "selected_style_reason": "采用仓库默认 HD-2D 风格；用户当次指定其他风格时记录要求",
   "style_safety_note": "如果风格名强指向品牌、工作室、作者或在世艺术家，说明已改写为非仿冒描述",
   "allowed_visible_text": ["默认 1-3 个中文短标签或数字；确有必要时最多 4 个"],
   "color_palette": ["2-4 个主色"],
@@ -81,7 +82,7 @@
 
 ## 3. 类型到基础风格的固定映射
 
-按这个表直接选，不要重新发明基础风格。
+按这个表确定主体、动作和构图；`base_style` 与下节的 HD-2D 描述共同使用，保持像素质感与三维空间层次。
 
 | 类型 | 基础风格 | 主体规则 | 构图规则 | 气质 |
 |---|---|---|---|---|
@@ -91,74 +92,34 @@
 | `analysis` | conceptual editorial illustration | 一个核心冲突或对照关系 | 左右对照、拉扯或边界式构图 | 有判断力，但不煽情 |
 | `research` | abstract technical concept art | 一个机制或结构主意象 | 单点主结构 + 少量流动辅助线索 | 精确、克制、少人物 |
 
-## 4. 随机风格池
+## 4. 默认 HD-2D 风格
 
-每篇文章进入封面阶段时只确定 1 个 `selected_style`：用户明确指定时用用户指定；否则从下表 40 项里随机选 1 项。封面 brief、封面 prompt 和图片验收使用同一个风格方向。
+新封面和新增正文插图默认统一使用 HD-2D。保留清晰的像素边缘，将二维像素主体放入有纵深的三维微缩场景，使用柔和光影和适度景深。主体、关系与必要标签必须清楚，避免过度虚化。
 
-生成图片时不要直接要求“模仿某品牌 / 某工作室 / 某艺术家”。`selected_style` 可以记录原清单名称，`selected_style_prompt_descriptor` 必须使用下表的安全描述。
+`selected_style` 默认填写 `HD-2D`，`selected_style_prompt_descriptor` 使用以下描述，按篇章内容调整场景与配色：
 
-| selected_style | selected_style_prompt_descriptor |
-|---|---|
-| 日漫少年风 | energetic shonen-inspired manga look, clean ink lines, dynamic poses, readable action rhythm, bright restrained color accents |
-| 日漫少女风 | soft shojo-inspired manga look, elegant linework, expressive faces, gentle decorative details, luminous pastel accents |
-| 青年写实风 | mature realistic comic illustration, grounded anatomy, restrained expressions, cinematic everyday lighting, detailed but readable scenes |
-| 治愈日常风 | cozy slice-of-life illustration, warm natural light, soft domestic details, calm pacing, gentle hand-drawn texture |
-| 热血战斗风 | high-energy battle comic look, strong silhouettes, speed lines, impact framing, bold contrast without excessive clutter |
-| 校园恋爱风 | youthful campus romance illustration, clean school-life setting, soft backlight, subtle emotional gestures, fresh color palette |
-| 韩漫条漫风 | polished vertical-webtoon-inspired rendering adapted to a wide cover, clean gradients, sharp character shapes, glossy color blocks |
-| 国漫二次元风 | contemporary Chinese anime-comic illustration, crisp linework, ornate but controlled details, vibrant fantasy-tech color accents |
-| 港漫武侠风 | bold martial-arts comic look, expressive ink strokes, dramatic stances, gritty texture, strong motion arcs |
-| 美漫超级英雄风 | American superhero-comic energy, bold outlines, halftone texture, dramatic perspective, high-contrast color blocking |
-| 欧漫清线风 | European clear-line comic style, precise outlines, flat readable colors, tidy environments, restrained humor and detail |
-| 赛博朋克风 | cyberpunk comic mood, neon accents, rain-slick surfaces, dense urban tech atmosphere, controlled purple-blue usage |
-| 蒸汽朋克风 | steampunk adventure illustration, brass mechanisms, gears, goggles, warm industrial light, handcrafted machinery |
-| 黑暗奇幻风 | dark fantasy illustration, gothic silhouettes, ancient textures, moody rim light, restrained magical atmosphere |
-| 科幻机甲风 | science-fiction mecha concept illustration, mechanical forms, hard-surface details, cockpit-scale cues, cool industrial palette |
-| 水彩漫画风 | watercolor comic illustration, translucent washes, visible paper texture, soft edges, light ink structure |
-| 厚涂插画风 | painterly digital illustration, rich brushwork, volumetric lighting, strong focal contrast, textured color masses |
-| 极简线稿风 | minimalist line-art illustration, sparse clean strokes, ample negative space, precise symbolic objects, limited accent color |
-| 黑白版画风 | black-and-white printmaking look, carved textures, bold shadows, high contrast, poster-like but no title text |
-| Q版 Chibi 风 | chibi character illustration, small cute proportions, simplified expressions, playful shapes, clear infographic readability |
-| 美式卡通风 | American cartoon illustration, elastic shapes, clear expressions, bold color fields, light comedic timing |
-| 吉卜力动画风 | warm hand-drawn animation feeling, natural environments, gentle fantasy everyday mood, soft painterly backgrounds, no studio imitation |
-| 迪士尼动画风 | bright family-animation feeling, rounded character shapes, clear emotional acting, polished color and lighting, no studio imitation |
-| 独立漫画风 | indie comic illustration, personal hand-drawn marks, muted palette, imperfect line texture, intimate editorial feeling |
-| 像素复古风 | retro pixel-art inspired illustration, blocky forms, limited palette, old game composition cues, readable wide layout |
-| 悬疑惊悚风 | suspense thriller comic mood, low-key lighting, sharp shadows, uneasy framing, controlled tension without gore |
-| 废土末日风 | post-apocalyptic wasteland illustration, weathered materials, dusty atmosphere, survival objects, desaturated contrast |
-| 洛丽塔幻想风 | ornate fantasy fashion illustration, lace-like detail, dollhouse elegance, soft magical palette, controlled decorative density |
-| 中国古风仙侠风 | Chinese xianxia fantasy illustration, flowing robes, ink-wash atmosphere, mountains and clouds, elegant magical motion |
-| 新海诚光影风 | transparent blue skies, dramatic backlight, detailed clouds, youthful cinematic lighting, rain and reflection details, no artist imitation |
-| 高对比电影风 | high-contrast cinematic illustration, strong key light, deep shadows, wide-screen composition, dramatic but realistic color grading |
-| 涂鸦街头风 | street-graffiti comic style, spray-paint texture, bold outlines, urban wall energy, vivid but controlled color clashes |
-| 低饱和文艺风 | low-saturation arthouse illustration, quiet composition, subtle grain, muted colors, reflective emotional tone |
-| 90年代复古动画风 | 1990s retro animation look, cel-shaded color, analog grain, bold simple backgrounds, nostalgic broadcast texture |
-| 游戏原画风 | game concept art illustration, clear hero object, readable environment storytelling, polished lighting, production-art detail |
-| 动态分镜电影风 | dynamic cinematic storyboard style, sequential panels, camera-motion feeling, strong cuts, clear narrative beats |
-| 手绘铅笔草稿风 | hand-drawn pencil sketch look, visible construction lines, graphite texture, loose but intentional composition |
-| 彩铅绘本风 | colored-pencil picture-book illustration, tactile strokes, gentle palette, warm narrative objects, soft educational tone |
-| 儿童童话风 | children's fairy-tale illustration, simple magical forms, friendly proportions, bright storybook palette, safe wonder |
-| 暗黑哥特风 | dark gothic illustration, pointed arches, lace shadows, candlelit contrast, ornate black shapes, restrained horror mood |
+```text
+crisp pixel-art edges, 2D pixel-art subjects integrated into a three-dimensional miniature diorama, layered spatial depth, soft cinematic lighting, subtle atmospheric light, moderate depth of field, readable subjects and relationships, consistent pixel scale, no excessive blur
+```
+
+`selected_style_reason` 说明采用仓库默认风格；`style_safety_note` 说明以像素、微缩空间和光影特征描述，不复刻具体游戏场景、角色或素材。不要只在 prompt 中写一个风格名称。
 
 ## 5. 风格使用规则
 
-- `selected_style` 必须在封面 brief 之前确定；不要生成中途临时换风格
-- 未指定风格时必须随机选择，不按文章类型固定映射
-- 用户明确指定清单内风格时，直接使用该风格；用户指定清单外风格时，也要转成安全描述词并记录原因
-- 随机风格不得影响正文语气、结构或事实表达
-- 封面 prompt 必须同时包含 `base_style` 与 `selected_style_prompt_descriptor`，前者保证文章类型清晰，后者保证视觉风格一致
-- 强指向品牌、工作室、作者或在世艺术家的名称只允许出现在 `selected_style` 记录里；最终 prompt 使用描述词，不写“in the style of / 模仿 / 复刻”
-
-额外规则：
-
-- 不要把风格词堆满 prompt；先满足“摘要弧线清楚、主体明确、信息块可读”
-- `architecture` 与 `research` 类型可以使用漫画分镜或 callout，但不要做成真实系统图、真实仪表盘或论文图表截图
+- 在写 brief 前确定风格；用户当次明确指定其他风格时遵从要求，并将名称、描述词和理由写入现有字段。
+- 用户未限定具体图片时，同篇生成图片使用同一风格；只指定封面或某张图片时，覆盖仅作用于指定图片，其余仍用默认 HD-2D。
+- 保留 `cover-brief.json` 现有字段，历史文章与 brief 无需迁移，校验器继续接受历史风格。
+- 视觉风格只影响生成图片，不改变正文语气、结构或事实表达，也不改绘真实截图与技术图。
+- 封面 prompt 同时包含 `base_style` 与 `selected_style_prompt_descriptor`，按文章类型表达内容，保持选定的视觉特征。
+- 强指向品牌、工作室、作者或在世艺术家的名称只记录在 `selected_style`；最终 prompt 使用非仿冒的描述词。
+- 优先保证摘要清楚、主体明确、信息可读，避免堆砌风格词。
+- `architecture` 与 `research` 可用分镜和局部说明，但不能伪造真实系统图、仪表盘或论文图表。
 
 ## 6. 选择生图技能
 
-- 默认保持 backend-agnostic：根据当前环境里**可用**的图像生成 / 编辑技能完成封面，不要把模板写死到某一个特定生成器
+- 默认保持 backend-agnostic：根据当前环境里**可用**的图像生成 / 编辑技能完成封面和正文插图，不要把模板写死到某一个特定生成器
 - 封面默认是宽图，prompt 里写明 `wide cover illustration, aspect ratio 2.35:1`
-- 如果所选工具先把图片输出到临时目录、默认目录或中间路径，最终选中后移动或复制到 `src/assets/{ID}/01-cover.{ext}`
+- 如果所选工具先把图片输出到临时目录、默认目录或中间路径，最终选中后将封面移动或复制到 `src/assets/{ID}/01-cover.{ext}`；正文插图按第 11 节命名保存
 - 不要让 `ogImage`、正文图片引用或微信封面引用继续指向临时生成目录
 - 如果第一轮主题对但细节有问题，优先编辑或定向重生一次；每轮只改 1-3 个明确问题
 - 如果第一轮主题就不对，回到 brief，至少改“摘要角度 / 主隐喻 / 构图方式”中的两项后重新生成
@@ -166,14 +127,15 @@
 
 仅在使用 `azure-image-gen` 时，参考这些参数：
 
-- 草图阶段：`size 1504x640`，`quality low`
-- 终稿阶段：`size 2256x960`，`quality medium`
+- 封面草图阶段：`size 1504x640`，`quality low`
+- 封面终稿阶段：`size 2256x960`，`quality medium`
+- 正文插图：选用工具支持的 16:9 尺寸，例如 `size 1536x864`，`quality medium`；跳过脚本默认的封面后处理（`--skip-post-process`），避免正文图被缩到封面宽度
 - `background` 只用 `auto` 或 `opaque`
 - 当前脚本即使传 `--n > 1` 也只保存第一张，所以多方案探索要分多次生成或改走编辑流
 
 ## 7. 允许信息与统一禁令
 
-每个 prompt 都必须同时说明**允许什么**和**禁止什么**，避免“信息图摘要”和“防伪造限制”互相打架。
+每个图片生成 prompt 都必须同时说明**允许什么**和**禁止什么**。下述文字数量与信息块要求用于封面；正文插图的文字规则见第 11 节，两者共用第 7.2 节禁令。
 
 ### 7.1 允许的可见信息
 
@@ -274,7 +236,7 @@ Avoid {禁用元素}.
 - 如果参考图只是原网页截图，要防止最终图看起来像“网页截图换滤镜”
 - 如果第一轮主题就不对，不要强行编辑；回到 brief 重写
 
-## 9. 使用要求
+## 9. 封面使用要求
 
 - prompt 里必须同时包含“主题”“摘要角度”“信息块”“主体”“动作”“构图”“基础风格”“selected_style_prompt_descriptor”“禁令”
 - 宽封面必须保持 `1` 个主焦点 + `2-4` 个叙事信息块；不要退化成多页拼贴，也不要变成纵向长海报
@@ -301,59 +263,55 @@ Avoid {禁用元素}.
 
 ## 10. 示例
 
-### 示例 1：教程类（随机选中 `日漫少年风`）
+### 教程封面：从配置到验证
 
-关键槽位：
+- `cover_type`：`tutorial`
+- `summary_angle`：把安装、配置、验证压成一张宽封面。
+- `information_blocks`：三个可追溯的操作阶段；可见标签为「安装」「配置」「验证」。
+- `base_style`：`editorial technical illustration`
+- `selected_style`：`HD-2D`
+- `selected_style_prompt_descriptor`：使用第 4 节的默认描述。
+- `selected_style_reason`：采用仓库默认 HD-2D 风格。
+- 主体与构图：二维像素工具与人物置于三维微缩工作台，三个操作阶段沿横向展开，柔和光照引导视线，保持一个主焦点。
 
-- `文章类型`：`tutorial`
-- `摘要角度`：把“装上插件 -> 配好命令 -> 跑通工作流”压成一张封面
-- `信息块`：`装插件` / `配命令` / `跑起来`
-- `基础风格`：editorial technical illustration
-- `selected_style`：`日漫少年风`
-- `selected_style_prompt_descriptor`：energetic shonen-inspired manga look, clean ink lines, dynamic poses, readable action rhythm, bright restrained color accents
-- `selected_style_reason`：用户未指定风格，本篇从风格池随机选中；教程流程适合用有推进感的动作节奏表达
-- `style_safety_note`：清单风格为泛类型描述，不涉及品牌、工作室或艺术家复刻
+### 架构正文插图：解释一次任务的流转
 
-Prompt 片段：
+- 对应段落：介绍任务如何依次完成采集、分析与汇总。
+- 解释目标：帮助读者理解三段职责和交接顺序。
+- 来源依据：对应正文和原文中的三个阶段，不新增模块名或指标。
+- 画面：16:9 微缩场景中，三个像素工作台通过传递同一个任务物件表达交接；与封面的像素尺度、配色和光影一致。
+- 文件：`src/assets/{ID}/02-illustration-task-flow.png`
+- 正文引用：`![任务从采集到分析再到汇总的概念示意](../../assets/{ID}/02-illustration-task-flow.png)`
 
-```text
-Style/medium: combine editorial technical illustration with the selected visual style descriptor: energetic shonen-inspired manga look, clean ink lines, dynamic poses, readable action rhythm, bright restrained color accents. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.
-```
+## 11. 正文插图
 
-### 示例 2：架构类（随机选中 `科幻机甲风`）
+### 添加条件与位置
 
-关键槽位：
+- 正文插图按内容需要添加，通常 0–2 张；只有能帮助理解流程、机制、前后变化或方案对比时才生成。短文或已有充分图解时不额外添加，不为每个章节凑图。
+- 每张图先明确对应段落、解释目标、来源锚点、主体关系和最终 prompt；不要求新建一套固定 JSON 格式。
+- 将图放在相关概念首次完整解释之后或对比段落附近，避免打断代码块、步骤或连续论证，不放在文末集中堆图。
+- 真实操作截图、实验数据图、准确流程图和架构图保留原貌。新增插图用于概念说明，不能代替原始证据；必要时在 alt 或图注标注「概念示意」。
+- 「不要封面」只跳过封面及其 brief、`ogImage`；正文插图可独立生成。「不要配图」跳过全部图片生成，已有真实截图与技术图仍按内容需要保留。
 
-- `文章类型`：`architecture`
-- `摘要角度`：把“采集 -> 分析 -> 汇总”做成一张可读的工作流封面
-- `信息块`：`采集` / `分析` / `汇总`
-- `基础风格`：isometric conceptual systems scene
-- `selected_style`：`科幻机甲风`
-- `selected_style_prompt_descriptor`：science-fiction mecha concept illustration, mechanical forms, hard-surface details, cockpit-scale cues, cool industrial palette
-- `selected_style_reason`：用户未指定风格，本篇从风格池随机选中；模块化流水线可以用机械结构强化分工关系
-- `style_safety_note`：使用泛科幻机甲描述，不引用具体作品或设计师
+### 风格、保存与验收
 
-Prompt 片段：
+- 默认 16:9，每张围绕一个解释目标；使用第 4 节描述，与封面保持配色、像素尺度和光影一致。无封面时先确定一组统一的视觉设定，用于同篇所有新增插图。
+- 用户当次指定其他风格时，按第 5 节处理覆盖范围。仍保留来源依据和信息真实性要求。
+- 保存为 `src/assets/{ID}/02-illustration-{topic}.png` 或 `.jpg`，后续依次编号为 `03-illustration-{topic}` 等，`topic` 使用简短英文 kebab-case。避免与已有文件重名，不覆盖真实截图和其他资源。
+- 使用 `../../assets/{ID}/{filename}` 引用最终文件并补中文 alt；仅将封面路径写入 `ogImage` 与微信 `cover-image`，正文插图通过 Markdown 正文发布。
+- 检查内容与来源一致、像素边缘清晰、主体关系可读、风格一致、文件及引用有效。禁止虚构界面、命令输出、实验指标、技术标签、坐标轴和架构节点；生成图片适用第 7 节禁令。
+- 首轮有问题时，只修正明确的 1–3 项后再检查。可选插图生成或精修后仍无法合格时，省略该图并删除对应正文引用，在最终报告说明；正文仍须能独立读懂。
 
-```text
-Style/medium: combine isometric conceptual systems scene with the selected visual style descriptor: science-fiction mecha concept illustration, mechanical forms, hard-surface details, cockpit-scale cues, cool industrial palette. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.
-```
-
-### 示例 3：强指向风格（用户指定 `新海诚光影风`）
-
-关键槽位：
-
-- `文章类型`：`analysis`
-- `摘要角度`：把“先写规格 -> 再交给 AI -> 返工更少”的判断做成强对照封面
-- `信息块`：`先别乱写` / `先写规格` / `少返工`
-- `基础风格`：conceptual editorial illustration
-- `selected_style`：`新海诚光影风`
-- `selected_style_prompt_descriptor`：transparent blue skies, dramatic backlight, detailed clouds, youthful cinematic lighting, rain and reflection details, no artist imitation
-- `selected_style_reason`：用户明确指定该风格，覆盖随机选择
-- `style_safety_note`：原风格名强指向在世作者，最终 prompt 只使用光影、天空、云层、反射等非仿冒描述
-
-Prompt 片段：
+### 正文插图 prompt
 
 ```text
-Style/medium: combine conceptual editorial illustration with the selected visual style descriptor: transparent blue skies, dramatic backlight, detailed clouds, youthful cinematic lighting, rain and reflection details, no artist imitation. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.
+Asset type: inline explanatory illustration for a Chinese tech blog, aspect ratio 16:9.
+Explanation goal: {本图唯一解释目标}.
+Source-grounded content: {对应段落、来源锚点与需要表达的关系}.
+Subject and action: {主体与动作}.
+Composition: {空间布局与关系，只表达本段所需内容}.
+Style/medium: {selected_style_prompt_descriptor；默认使用第 4 节 HD-2D 描述}.
+Visual continuity: {与封面或同篇插图一致的配色、像素尺度、光影}.
+Visible text: no text by default; allow only essential short Chinese labels or ordinal markers explicitly approved from the source-grounded content. No invented technical names or metrics.
+Constraints: crisp pixel edges, readable focal relationships, moderate depth of field; no excessive blur, no watermark, no prompt residue, no UI screenshots, no dashboards, no fake terminal output, no fake charts or architecture diagrams, no fabricated metrics, no decorative clutter.
 ```
