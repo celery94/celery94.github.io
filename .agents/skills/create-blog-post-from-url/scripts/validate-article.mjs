@@ -13,6 +13,85 @@ const REQUIRED_FIELDS = [
   "source",
 ];
 
+// Keep in sync with references/chinese-style-and-deai.md「句式黑名单」.
+const BANNED_PATTERNS = [
+  {
+    label: "宣布拆解问题（把问题拆开/本文拆解）",
+    pattern:
+      /(?:把|将)[^。！？\n]{0,12}(?:问题|事情|这件事|话题|主题|难点|误解)[^。！？\n]{0,6}拆(?:开|成|分|解)|(?:本文|这篇|下文|下面|我们|接下来|上一篇)[^。！？\n]{0,12}拆(?:开|成|分|解)|(?:逐一|逐个|深度|技术)拆解|拆开(?:来)?(?:看|讲|说|聊)/gu,
+  },
+  {
+    label: "带你看懂/带你了解",
+    pattern:
+      /带(?:你|大家|读者)们?(?:一起|快速|从零)?(?:看|读|搞|弄|了解|理解|认识|走|过|梳理|入门|上手|体验|探索|掌握|学)|一文(?:看|读|搞|弄)懂|手把手/gu,
+  },
+  {
+    label: "不是……而是……（及并非/不在于……而在于、不是 A，是 B）",
+    pattern:
+      /(?:不是|并非|不在于)[^。！？；\n]{1,60}?(?:而是|而在于)|与其说[^。！？；\n]{1,60}?不如说|(?<![而但])不是[^。！？；，,\n]{1,30}[，,]\s*是(?![否的]|为了|因为)/gu,
+  },
+  {
+    label: "你以为……其实……",
+    pattern:
+      /你(?:可能|也许|或许|大概)?以为|(?:我们|大家|很多人|多数人|不少人|有人)(?:可能|也许|或许|一直|往往|通常)?(?:以为|觉得|认为)[^\n]{0,60}?(?:其实|实际上|事实上)|(?:表面上|乍看)[^\n]{0,40}?(?:其实|实际上)/gu,
+  },
+  {
+    label: "宣布反直觉/意外（一个反直觉的观察）",
+    pattern:
+      /反直觉|违反直觉|违背直觉|反常识|出人意料|出乎意料|(?:一个|这个)(?:有趣|意外|反常)的(?:观察|发现|现象)/gu,
+  },
+];
+
+function stripNonProse(body) {
+  const lines = body.split("\n");
+  const kept = [];
+  let inFence = false;
+  for (const line of lines) {
+    if (/^\s*(?:```|~~~)/u.test(line)) {
+      inFence = !inFence;
+      kept.push("");
+      continue;
+    }
+    if (inFence) {
+      kept.push("");
+      continue;
+    }
+    if (/^##\s+参考\s*$/u.test(line)) {
+      break;
+    }
+    if (/^\s*>/u.test(line)) {
+      kept.push("");
+      continue;
+    }
+    kept.push(line.replace(/`[^`\n]*`/gu, "``"));
+  }
+  return kept;
+}
+
+export function findBannedPhrases({ title = "", description = "", body = "" }) {
+  const hits = [];
+  const segments = [
+    { where: "title", lines: [title] },
+    { where: "description", lines: [description] },
+    { where: "正文", lines: stripNonProse(body), numbered: true },
+  ];
+  for (const { where, lines, numbered } of segments) {
+    lines.forEach((line, index) => {
+      for (const { label, pattern } of BANNED_PATTERNS) {
+        for (const match of line.matchAll(pattern)) {
+          const start = Math.max(0, match.index - 12);
+          const snippet = line
+            .slice(start, match.index + match[0].length + 12)
+            .trim();
+          const location = numbered ? `${where}第 ${index + 1} 行` : where;
+          hits.push(`${location} 命中禁用句式「${label}」: …${snippet}…`);
+        }
+      }
+    });
+  }
+  return hits;
+}
+
 function parseScalar(raw) {
   const value = raw.trim();
   if (value.startsWith('"') && value.endsWith('"')) {
@@ -192,6 +271,8 @@ export function validateArticle(articlePath, options = {}) {
       errors.push("source 不是有效 URL");
     }
   }
+
+  errors.push(...findBannedPhrases({ title, description, body }));
 
   if (!/^##\s+参考\s*$/mu.test(body)) {
     errors.push("正文必须包含 ## 参考 小节");
