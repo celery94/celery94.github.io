@@ -1,0 +1,76 @@
+{
+  "article_title": "C# 字符串里的孤立代理项，SIMD 怎么修",
+  "cover_type": "research",
+  "core_theme": "UTF-16 字符串本质上是一列 16 位单元：高代理项必须紧跟低代理项，成对才是一个合法字符（emoji 就是一对代理项）；落单的代理项要被替换成 U+FFFD。常规逐字符扫描在全是合法代理对的输入上几乎退化成逐字符检查，而 SIMD 分块可以一次判定整列，于是校验吞吐从 0.4 GB/s 回到 53 GB/s。",
+  "reader_takeaway": "读完之后能理解：孤立代理项为什么必须替换、成对判定为什么是这套算法的核心，以及为什么把判定按 16 位单元分块并行后，最常见的良构输入能零分配直接返回。",
+  "summary_angle": "把 UTF-16 字符串想成一列 16 位车厢——两节成对才是一个合法字符，落单的车厢会被换成 U+FFFD；逐字符扫描几乎退化成逐字符检查，SIMD 分块一次判定整列，校验吞吐从 0.4 GB/s 回到 53 GB/s。",
+  "narrative_flow": "layered reveal",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "正文「孤立代理项」段落：高代理项后面没有低代理项，或低代理项前面没有高代理项时，它就是孤立代理项，必须替换成 U+FFFD",
+      "visual_idea": "列尾一节落单的像素车厢独自停在旁轨，车厢上亮起暗红警示灯，旁边一台小型替换装置正把它替换成一个空白的替换字符方块（只画方块字形，不写字段名）",
+      "visible_label": "孤代理",
+      "numeric_fact": "U+FFFD"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "正文「成对判定」段落：高代理项与低代理项成对才构成一个合法字符，emoji 就是一对代理项；判定以 16 位单元为单位",
+      "visual_idea": "画面中段两节像素车厢被一对哑金扣环牢牢扣在一起，成为一节合法车厢，扣环处透出稳定的暖光",
+      "visible_label": "成对",
+      "numeric_fact": "16"
+    },
+    {
+      "role": "evidence",
+      "source_anchor": "正文基准数据段落：emoji 输入上的校验吞吐，逐字符方案约 0.4 GB/s，SIMD 分块方案约 53 GB/s",
+      "visual_idea": "主轨道下方两条并行光流：一条细窄缓慢的暗流旁挂数字牌 0.4，一条宽阔明亮的洪流旁挂数字牌 53，只做流道粗细与亮度对比，不画坐标轴与图例",
+      "numeric_fact": "0.4 / 53"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "正文收尾：良构输入零分配直接返回，只有遇到可疑块才进入慢路径",
+      "visual_idea": "场景顶部一条更亮的上层旁路轨道，一列已经扣好的良构车厢不停站直接滑过，站台边的收货托盘空着（可回收托盘干净、未被占用），表达零分配",
+      "numeric_fact": "0"
+    }
+  ],
+  "main_metaphor": "夜间的微型编组站：一列 16 位像素车厢沿高架轨道排开，成对扣合的才是合法车厢，落单的车厢被替换成替换字符方块，一道柔光切块从整列上扫过，下方两条光流表现吞吐差异，顶部旁路让良构列车零分配直通。",
+  "primary_subject": "那道横切整列车厢的柔光分块扫描，以及它扫过时唯一落单的那节车厢",
+  "subject_action": "柔光分块沿 16 位车厢整列扫过：成对的车厢亮起稳定暖光通过，落单的那节被暗红标出并替换成替换字符方块",
+  "composition": "单点主结构：一列像素车厢横贯画面作为主结构，斜切的柔光分块自上而下扫过；上方旁路轨道与下方两条光流作为少量辅助线索，主焦点是落单车厢被标出的位置",
+  "base_style": "abstract technical concept art",
+  "selected_style": "HD-2D",
+  "selected_style_prompt_descriptor": "crisp pixel-art edges, 2D pixel-art subjects integrated into a three-dimensional miniature diorama, layered spatial depth, soft cinematic lighting, subtle atmospheric light, moderate depth of field, readable subjects and relationships, consistent pixel scale, no excessive blur",
+  "selected_style_reason": "采用仓库默认 HD-2D 风格；「车厢编组 + 分块扫描 + 双流道吞吐」本来就是一个有纵深的空间结构，微缩场景能把成对、落单、旁路三层关系一次摆清",
+  "style_safety_note": "以像素边缘、微缩三维空间与柔光描述，不复刻具体游戏场景、角色或素材，也不指向任何品牌、工作室或在世艺术家",
+  "allowed_visible_text": ["孤代理", "成对", "0.4", "53"],
+  "color_palette": [
+    "冷铁蓝",
+    "暗石板灰",
+    "柔白蓝扫描光",
+    "哑金扣环",
+    "暗红落单警示",
+    "青绿良构旁路"
+  ],
+  "avoid": [
+    "poster title / 主标题文字",
+    "英文口号与拟声词",
+    "伪造的 CPU 指令名与寄存器名",
+    "假 UI / dashboard / 反汇编窗口",
+    "假图表坐标轴与图例",
+    "伪造指标或百分比",
+    "漂浮芯片",
+    "无意义代码雨",
+    "霓虹高楼",
+    "通用机器人站姿",
+    "水印与 prompt 残留",
+    "无关图标堆砌"
+  ],
+  "reference_strategy": "纯文本生成，无参考图",
+  "draft_goal": "先验证「一列 16 位车厢 + 成对扣环 + 落单车厢被替换 + 强弱势两条光流」能不能在一个微缩编组站里一眼读出，主焦点是否落在落单车厢上",
+  "revision_targets": [
+    "只保留「孤代理」「成对」和 0.4 / 53 四个可见项，去掉多余文字",
+    "强化柔光分块整列扫过的动作感，让它像一次性判定整列而不是逐节检查",
+    "把 0.4 与 53 两条光流的粗细与亮度对比拉开，别让背景杂物干扰"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes a research-style article about fixing lone UTF-16 surrogate handling in C# with SIMD. Theme: a UTF-16 string is a column of 16-bit carriages; a high surrogate must be immediately followed by a low surrogate, a pair is one legal character (an emoji is one surrogate pair), and a lone carriage becomes U+FFFD. A naive per-character scan degenerates into checking one unit at a time, while SIMD judgment works on blocks and processes the whole column at once. The reader should quickly feel: 整列一次判定，吞吐从 0.4 GB/s 回到 53 GB/s.\n\nSummary angle: 把 UTF-16 字符串想成一列 16 位车厢——两节成对才是一个合法字符，落单的车厢会被换成 U+FFFD；逐字符扫描几乎退化成逐字符检查，SIMD 分块一次判定整列，校验吞吐从 0.4 GB/s 回到 53 GB/s。\nNarrative flow: layered reveal, one continuous three-dimensional miniature diorama in a 2.35:1 frame, with one dominant focal subject and 3-4 supporting beats. Each beat must map to the article's information blocks rather than generic decoration.\nInformation blocks:\n- problem (visible label: 孤代理): one lone carriage sits by itself on a siding at the end of the column, lit by a dark red warning lamp, while a small replacement machine stamps it into a blank replacement-character square. Draw only the square glyph, no field names\n- mechanism (visible label: 成对): in the middle of the column two carriages are locked together by a pair of muted brass couplers and glow with steady warm light as one legal carriage\n- evidence (no phrase label, only two small number plates): two parallel light conduits run below the main track, a narrow slow dark current tagged 0.4 and a wide bright torrent tagged 53; express the contrast only by conduit width and brightness, never as a chart with axes or a legend\n- takeaway (no label): a brighter upper bypass track lets a fully coupled well-formed train glide through without stopping, and the intake trays on the platform stay empty and clean, meaning zero allocation\n\nMain metaphor: a miniature night marshalling yard — a column of 16-bit carriages on an elevated track, coupled pairs as legal carriages, a lone carriage stamped into the replacement square, a soft light block sweeping the whole column at once, two light conduits below showing the throughput gap, and an upper bypass for well-formed trains.\nSubject: the soft block-shaped scanning light that cuts across the whole column at once, and the single lone carriage caught by it.\nComposition/framing: one dominant structure — the column of pixel carriages crossing the frame horizontally — with a diagonal soft light block sweeping down across the whole column; the upper bypass track and the two light conduits are only supporting cues; the focal point is the lone carriage being flagged. Layered depth with the conduits clearly below the main track. Not a vertical poster, not a multi-panel collage.\nStyle/medium: combine abstract technical concept art with the selected visual style descriptor: crisp pixel-art edges, 2D pixel-art subjects integrated into a three-dimensional miniature diorama, layered spatial depth, soft cinematic lighting, subtle atmospheric light, moderate depth of field, readable subjects and relationships, consistent pixel scale, no excessive blur. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: cold iron blue and dark slate grey base, soft white-blue scanning light, muted brass couplers, dark red only on the lone carriage warning, teal green only on the well-formed bypass.\nVisible text policy: allow only the two short Chinese labels (\"孤代理\", \"成对\") plus the two small number plates \"0.4\" and \"53\", and nothing else. No poster title, no headline, no long sentences, no English slogans, no fake CPU instruction names, no register names, no fake UI labels, no fake chart axes, no legend, no fabricated metrics.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: poster title, English slogan, fake CPU instruction names, register names, floating chips, code rain, neon skyline, generic robot poses, cyberpunk purple-blue glow, dense HUD overlays, fake disassembly or console windows, people."
+}
