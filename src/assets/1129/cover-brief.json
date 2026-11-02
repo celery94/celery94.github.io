@@ -1,0 +1,76 @@
+{
+  "article_title": "Super-agent 的五个模块：会话不该让人来管",
+  "cover_type": "architecture",
+  "core_theme": "把「会话」从人的负担变成系统的内部细节：一个常驻的 Router 只对人和事件负责交互与派活、自己不执行任务；多个隔离的 Worker 房间并发干活并把状态回报；事件从各个入口流进来，最后由 Router 统一对外回话。整套五模块架构的目标，是不再让人同时盯 3 到 5 个会话。",
+  "reader_takeaway": "读完之后能画出这套系统的分工：谁是唯一常驻的交互面、谁并发执行、谁管状态与环境、谁在旁边兜底，以及为什么这样能把「一个人最多同时跟 3 到 5 个会话」的瓶颈拿掉。",
+  "summary_angle": "把「会话」从人的负担变成系统的内部细节——一个常驻的 Router 面对人负责交互和派活，多个隔离的 Worker 房间并发干活，事件从各个入口流进来，最后由 Router 统一回话。",
+  "narrative_flow": "layered reveal",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "正文开篇：一个人最多同时跟 3 到 5 个会话，再多人就顾不过来，会话管理本身变成了负担",
+      "visual_idea": "塔基一层窄小的接件门口，叠着三到五个还没人接的会话匣子，堆在门房外面；只画匣子与门口，不写数字、不画界面",
+      "visible_label": "3–5 会话",
+      "numeric_fact": "3 / 5"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "正文 Router 段落：常驻的 Router 只负责与人和事件交互、把活派下去，自己不执行具体任务",
+      "visual_idea": "塔顶一间常驻的收发室亮着暖灯，室内没有搬运设备，只有调度牌与几束向下伸出的派活光缆；它是画面主焦点",
+      "visible_label": "只派活"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "正文 Worker 段落：Worker 之间上下文隔离、互不串扰，可以并发执行并被独立管理",
+      "visual_idea": "塔身几间封闭的玻璃工作间，各自亮着独立青绿工作灯、各自托着自己的托盘，隔墙互不相通，光缆只在顶部汇合",
+      "visible_label": "隔离执行"
+    },
+    {
+      "role": "evidence",
+      "source_anchor": "正文消融实验：两级架构 p50 12.4 分钟，单会话 20.4 分钟",
+      "visual_idea": "塔左侧一条多房间并行的短外廊、右侧一条单间长廊，只用走廊长度与并行房间数表达快慢差，不画刻度、坐标轴与图例",
+      "numeric_fact": "12.4 / 20.4"
+    }
+  ],
+  "main_metaphor": "一座夜间的微型调度塔：塔顶是只派活不搬货的常驻收发室，塔身是若干互不相通的玻璃工作间，塔基是堆着未接会话匣子的接件口，塔外一盏巡逻探照灯兜底；人和事件在塔的各层之间流动，最后统一从塔顶向外回话。",
+  "primary_subject": "塔顶那间常驻的收发室（Router），以及从它向下伸出的派活光缆",
+  "subject_action": "事件从各层入口流进塔里，塔顶收发室只做交互与派活，向下把活分给隔离的工作间；工作间并发干活并把结果沿回报光缆送回塔顶，由塔顶统一对外回话",
+  "composition": "等距空间：一座分层塔楼占据画面中部，塔基接件口在左下，塔顶收发室在右上，派活与回报光缆沿纵向分层展开，主焦点是塔顶收发室的光",
+  "base_style": "isometric conceptual systems scene",
+  "selected_style": "HD-2D",
+  "selected_style_prompt_descriptor": "crisp pixel-art edges, 2D pixel-art subjects integrated into a three-dimensional miniature diorama, layered spatial depth, soft cinematic lighting, subtle atmospheric light, moderate depth of field, readable subjects and relationships, consistent pixel scale, no excessive blur",
+  "selected_style_reason": "采用仓库默认 HD-2D 风格；这套架构本来就是分层与并发的空间关系，等距微缩塔楼能把「塔顶派活、塔身隔离并发、塔基接件、塔外兜底」一次摆清楚",
+  "style_safety_note": "以像素边缘、微缩三维空间与柔光描述，不复刻具体游戏场景、角色或素材，也不指向任何品牌、工作室或在世艺术家",
+  "allowed_visible_text": ["3–5 会话", "只派活", "隔离执行"],
+  "color_palette": [
+    "深夜靛蓝",
+    "冷青灰石塔",
+    "暖琥珀塔顶灯",
+    "亮青绿工作间灯",
+    "淡金事件光流",
+    "暗红兜底警示"
+  ],
+  "avoid": [
+    "poster title / 主标题文字",
+    "英文口号与拟声词",
+    "真实系统架构图 / 节点名标签",
+    "假 UI / dashboard / 控制台截图",
+    "假图表坐标轴与图例",
+    "伪造指标或百分比",
+    "漂浮芯片",
+    "无意义代码雨",
+    "霓虹高楼",
+    "通用机器人站姿",
+    "人物形象",
+    "水印与 prompt 残留",
+    "无关图标堆砌"
+  ],
+  "reference_strategy": "纯文本生成，无参考图",
+  "draft_goal": "先验证等距塔楼能不能一次读出「塔顶常驻派活、塔身隔离并发、塔基堆着未接会话」三层关系，主焦点是否落在塔顶收发室",
+  "revision_targets": [
+    "只保留「3–5 会话」「只派活」「隔离执行」三个中文短标签，去掉多余文字与图例",
+    "强化塔顶收发室与向下派活光缆这一主焦点，避免塔身工作间抢戏",
+    "让塔基的未接会话匣子与塔顶分派形成因果对照，去掉背景杂物"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes an architecture article about a super-agent system built from five modules. Theme: turn the word session from a human burden into an internal system detail — one always-on Router faces the human, handles interaction and dispatches work but never executes tasks itself; several context-isolated Worker rooms run concurrently; events flow in from many entries; the Router alone replies outward. The goal is to stop a person from babysitting 3 to 5 sessions at once. The reader should quickly feel: 人只对唯一入口说话，会话由系统自己管。\n\nSummary angle: 把「会话」从人的负担变成系统的内部细节——一个常驻的 Router 面对人负责交互和派活，多个隔离的 Worker 房间并发干活，事件从各个入口流进来，最后由 Router 统一回话。\nNarrative flow: layered reveal, an isometric three-dimensional miniature tower in a 2.35:1 frame, with one dominant focal subject and 3-4 supporting beats. Each beat must map to the article's information blocks rather than generic decoration.\nInformation blocks:\n- problem (visible label: 3–5 会话): at the tower base a narrow intake booth has three to five unclaimed session crates stacked outside it, waiting for a person who cannot take them all; draw only the crates and the booth, no numbers rendered as data and no interface\n- mechanism (visible label: 只派活): the tower top holds one always-on dispatch room lit with warm amber light; inside there is no cargo-handling gear at all, only dispatch plates and several work-assignment light cables reaching down\n- mechanism (visible label: 隔离执行): the tower body holds several sealed glass workrooms, each with its own teal work light and its own tray, separated by walls so nothing crosses over, their cables meeting only at the top\n- evidence (no label): on the left of the tower a short outer gallery with several parallel rooms, on the right a single long gallery; express the latency gap only by gallery length and number of parallel rooms, never with ticks, axes or a legend\n\nMain metaphor: a miniature night dispatch tower — an always-on dispatch room on top that assigns but never carries, sealed glass workrooms in the body, an intake booth at the base piled with unclaimed session crates, and one patrolling spotlight outside standing for the watchdog.\nSubject: the always-on dispatch room at the tower top and the work-assignment light cables it sends downward.\nComposition/framing: isometric view; one layered tower occupies the center, the intake booth sits lower left, the dispatch room sits upper right, assignment cables and report cables run along the vertical layers, the focal point is the warm light of the dispatch room. Layered depth with clear separation between tower top, tower body and tower base. Not a vertical poster, not a multi-panel collage, not a real system diagram.\nStyle/medium: combine isometric conceptual systems scene with the selected visual style descriptor: crisp pixel-art edges, 2D pixel-art subjects integrated into a three-dimensional miniature diorama, layered spatial depth, soft cinematic lighting, subtle atmospheric light, moderate depth of field, readable subjects and relationships, consistent pixel scale, no excessive blur. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: deep indigo night base, cold blue-grey stone tower, warm amber dispatch light at the top, bright teal work lights in the sealed rooms, pale gold event light streams, dark red only on the watchdog spotlight.\nVisible text policy: allow only the three short Chinese labels 3–5 会话, 只派活 and 隔离执行, and nothing else. No poster title, no headline, no long sentences, no English slogans, no real system diagram node names, no fake UI labels, no fake chart axes, no legend, no fabricated metrics.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter, no people.\nAvoid: poster title, English slogan, people, real architecture diagram node names, floating chips, code rain, neon skyline, generic robot poses, cyberpunk purple-blue glow, dense HUD overlays, fake console windows."
+}
