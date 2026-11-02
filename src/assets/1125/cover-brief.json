@@ -1,0 +1,70 @@
+{
+  "article_title": "PR 不跑云端 CI，改用本地 signoff",
+  "cover_type": "analysis",
+  "core_theme": "把每个 PR 都要重复跑的云端流水线搬回本地执行，只在 GitHub 上留一条签核 status 当合并闸门；云端只在合并进 main 之后跑一次，既省掉重复排队，又保住合并前的把关。",
+  "reader_takeaway": "读完之后能判断：哪些检查该在本地跑、哪些判断必须留在远端闸门上，以及这套做法在 fork PR 上会失效的边界。",
+  "summary_angle": "把 PR 上重复跑的流水线搬回本地，用一个 status 把合并闸门留在 GitHub，云端只保留合并进 main 之后的一次运行。",
+  "narrative_flow": "before-after",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "正文统计段落：19 天里 PR 流水线跑了 588 次，每次约 2.7 分钟",
+      "visual_idea": "画面左侧远景是一台锈蚀的云端流水线磨坊，长长一队一模一样的旧矿车在扬尘里排队空转，代表 588 次重复运行；不做任何图表或界面，不写标签",
+      "numeric_fact": "588 / 2.7"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "正文「本地跑检查」段落：同一个脚本在本地先跑完整套检查，本地通过之后才去签核",
+      "visual_idea": "画面中部一张风吹日晒的工作台，同一套检查在本地就地跑完，工具上还带着尘土，表示不依赖云端排队",
+      "visible_label": "先跑再签",
+      "numeric_fact": "588"
+    },
+    {
+      "role": "gate",
+      "source_anchor": "正文「分支规则集」段落：GitHub 规则集只要求那条 signoff status 通过，才允许合并",
+      "visual_idea": "一枚黄铜签核令牌被推进厚重闸门的锁孔，闸门是画面主焦点，只认这一枚令牌，其它杠杆都被封死",
+      "visible_label": "签核放行"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "正文结论与边界：云端只保留合并进 main 之后的一次运行，fork 来的 PR 发不出 status；四个月合并 833 个 PR",
+      "visual_idea": "闸门之后只有一条干净的单次轨道通向主路，云端磨坊停在原地不再为每个 PR 排队；旁边几条岔路在沙尘里断掉，表示 fork PR 无法发 status",
+      "visible_label": "只跑一次",
+      "numeric_fact": "833"
+    }
+  ],
+  "main_metaphor": "废弃世界里的水闸与磨坊：左边是锈掉、还在为空转排队的云端磨坊，右边是一枚黄铜签核令牌把阀门推开，门后只剩一条干净的单次轨道。",
+  "primary_subject": "一枚黄铜签核令牌（代表那条 signoff status）与被它推开的厚重闸门",
+  "subject_action": "本地工作台先把检查跑完，令牌被推进闸门，闸门只认这一枚令牌地放行，门后是一条只跑一次的干净轨道",
+  "composition": "左右对照：左侧是重复空转的云端磨坊长队，右侧是本地工作台、签核令牌与闸门，主焦点落在令牌与闸门上",
+  "base_style": "conceptual editorial illustration",
+  "selected_style": "废土末日风",
+  "selected_style_prompt_descriptor": "post-apocalyptic wasteland illustration, weathered materials, dusty atmosphere, survival objects, desaturated contrast",
+  "selected_style_reason": "用户未指定风格，本篇从 40 项风格池随机选中（pick-cover-style.py 输出）；「锈掉的旧磨坊 vs 一枚还能用的黄铜令牌」正好对得上被嫌弃的云端排队与唯一的合并闸门",
+  "style_safety_note": "风格名为泛类型描述，不涉及品牌、工作室或在世艺术家复刻；最终 prompt 只使用 weathered materials、dusty atmosphere 等描述词",
+  "allowed_visible_text": ["先跑再签", "签核放行", "只跑一次"],
+  "color_palette": ["沙尘米黄", "锈褐", "褪色青灰", "唯一高亮用旧黄铜金"],
+  "avoid": [
+    "poster title / 主标题文字",
+    "英文口号与拟声词",
+    "真实 GitHub 界面截图",
+    "假 UI / dashboard",
+    "假图表坐标轴与图例",
+    "伪造指标或百分比",
+    "漂浮芯片",
+    "无意义代码雨",
+    "霓虹高楼",
+    "赛博朋克紫蓝光污染",
+    "通用机器人站姿",
+    "无关图标堆砌",
+    "水印与 prompt 残留"
+  ],
+  "reference_strategy": "纯文本生成，无参考图",
+  "draft_goal": "先验证左右对照成立：左侧重复排队的旧磨坊与右侧签核令牌打开的闸门是否一眼可读，主焦点是否落在令牌上",
+  "revision_targets": [
+    "只保留 3 个中文短标签，去掉多余文字",
+    "强化闸门与黄铜令牌这一主焦点，别让远景磨坊抢戏",
+    "把「重复排队 vs 只跑一次」的对照做得更清晰，去掉杂物"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes an opinion piece about not running cloud CI on pull requests, and instead signing off locally. Theme: move the pipeline that reran on every PR back onto the developer's own machine, keep one signoff status as the merge gate on GitHub, and leave the cloud with only a single run after merging into main. The reader should quickly feel the judgement: 排队等待被砍掉，合并前的把关没丢。\n\nSummary angle: 把 PR 上重复跑的流水线搬回本地，用一个 status 把合并闸门留在 GitHub，云端只保留合并进 main 之后的一次运行。\nNarrative flow: before-after, left to right contrast in a 2.35:1 frame, one dominant focal subject plus 3 supporting beats. Each beat must map to the article's information blocks rather than generic decoration.\nInformation blocks:\n- problem (no visible label): over 19 days the PR pipeline ran 588 times at roughly 2.7 minutes each; show an abandoned rusted cloud mill in the left distance with a long queue of identical worn mine carts grinding in the dust, waiting for nothing\n- mechanism (visible label: 先跑再签): the same checks are now run locally on a weathered workbench before anything is signed; show one sturdy hand tool and a stack of well-used parts, dust on the bench, no cloud queue involved\n- gate (visible label: 签核放行): the branch ruleset only accepts that one signoff status; show a single brass signoff token being pushed into the lock of a heavy floodgate, and the gate opens only for this token while every other lever stays sealed. This gate and token are the main focal subject\n- takeaway (visible label: 只跑一次): the cloud keeps one clean run after the merge; beyond the gate only one clean rail leads to the main road, while the old mill stands idle and side paths for forked pull requests crumble into dust because they cannot report the status\n\nMain metaphor: a wasteland water gate and an abandoned mill — the rusted, still-queuing cloud mill on the left, and on the right a brass signoff token opening a heavy gate with a single clean rail behind it.\nSubject: a brass signoff token, the heavy floodgate it opens, and the local workbench that earned it.\nComposition/framing: left-right contrast; the repeated idle queue sits in the left mid-distance, the local bench and the gate with the brass token hold the right side, the brass token and gate are the focal point. Wide horizontal storytelling that stays legible at 2.35:1. Not a vertical poster, not a multi-panel collage.\nStyle/medium: combine conceptual editorial illustration with the selected visual style descriptor: post-apocalyptic wasteland illustration, weathered materials, dusty atmosphere, survival objects, desaturated contrast. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: dusty sand beige, rust brown and faded blue-grey, desaturated throughout, with worn brass gold as the only warm highlight on the signoff token.\nVisible text policy: allow only the three short Chinese labels listed above (\"先跑再签\", \"签核放行\", \"只跑一次\"), each 6 characters or fewer, plus nothing else. No poster title, no headline, no long sentences, no English slogans or English labels, no fake UI labels, no fake chart axes, no fake architecture node names, no fabricated metrics.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: poster title, English slogan, GitHub UI screenshot, floating chips, code rain, neon skyline, generic robot poses, cyberpunk purple-blue glow, dense HUD overlays."
+}
