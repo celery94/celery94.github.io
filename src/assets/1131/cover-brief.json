@@ -1,0 +1,60 @@
+{
+  "article_title": "C# 事件与委托：订阅边界、失败边界与生命周期",
+  "cover_type": "architecture",
+  "core_theme": "委托、事件、发布者和订阅者各管一段边界；通知不是事务，也不保证每个订阅者完成。",
+  "reader_takeaway": "读完能判断一个通知 API 在操作返回时能承诺什么，以及失败、异步和退订各自停在哪。",
+  "summary_angle": "一次修订先写进账本，再沿唯一的订阅通道送出；订阅墙只留两个入口，传送带上的第二个接收站卡住后，第三个就收不到。",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "mechanism",
+      "source_anchor": "在声明事件的类型之外，代码只能 += 和 -=，读不到底层委托，也不能触发。",
+      "visual_idea": "档案室墙上有一道订阅闸门，只有两个窄槽，其余部分是封死的墙。",
+      "visible_label": "订阅",
+      "numeric_fact": "2"
+    },
+    {
+      "role": "contrast",
+      "source_anchor": "多播调用按调用列表顺序同步执行，某个处理器抛出未捕获异常后，后面的处理器不再执行。",
+      "visual_idea": "传送带把通知依次送到三个接收站，第二个站卡住并亮起朱红，第三个站的托盘空着。",
+      "visible_label": "失败"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "Record 先执行 _revision++，再 Invoke；处理器失败时修订号已经加过，不会回滚。",
+      "visual_idea": "账本页上已经盖好修订章，通知还在传送带上往外走，两者同时出现在画面里。",
+      "visible_label": "已记录"
+    }
+  ],
+  "main_metaphor": "一间档案室：先在账本上盖章，再把通知放上单列传送带，订阅者按顺序领取。",
+  "primary_subject": "一个二维像素档案员，站在账房工作台前盖下修订章。",
+  "subject_action": "一只手压着印章落在账本上，另一只手刚拉下通知拉杆，传送带开始转动。",
+  "composition": "轻微俯视的三分之四视角；账房工作台位于左前方清晰焦点，传送带从中景向右后方延伸，三个接收站分布在中景与远景，前景书架在左侧形成框景。",
+  "base_style": "isometric conceptual systems scene",
+  "selected_style": "HD-2D",
+  "selected_style_prompt_descriptor": "2D pixel-art subjects with crisp stepped silhouettes and deliberate pixel clusters, integrated into a volumetric 3D environment with stylized pixel-textured surfaces, coherent perspective and foreground-midground-background depth, shared directional lighting and grounded contact/cast shadows, a sharp focal plane with restrained depth of field where helpful, controlled highlights and subtle atmospheric separation, a scene-specific palette, readable at thumbnail size; no voxel-built characters, no smooth plastic figurines, no full-frame mosaic filter, no excessive bloom or blur",
+  "selected_style_reason": "采用仓库默认 HD-2D 风格：文章讲的是几个角色之间的边界与顺序，像素主体配三维档案室能把订阅通道、失败站和已盖章的账本放在同一个空间里。",
+  "style_safety_note": "只以像素轮廓、微缩空间和共同光影描述，不复刻任何具体游戏场景、角色或素材。",
+  "allowed_visible_text": ["订阅", "失败", "已记录"],
+  "color_palette": ["深青", "暖琥珀", "纸白", "朱红"],
+  "avoid": [
+    "光滑塑料玩偶",
+    "体素积木人物",
+    "全图像素化滤镜",
+    "漂浮图标",
+    "霓虹赛博朋克光效",
+    "代码雨",
+    "英文长标签",
+    "海报标题",
+    "虚假 UI 或终端截图",
+    "过强泛光与虚化"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮验证三件事：订阅闸门只有两个入口、第二个接收站卡住、账本已盖章而通知仍在路上。",
+  "revision_targets": [
+    "像素主体是否被画成光滑玩偶或体素人物",
+    "三个接收站的前后层次和失败站是否可辨认",
+    "画面是否堆了无关装饰或英文文字"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article, aspect ratio 2.35:1\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes an article about C# events and delegates as separate boundaries. Theme: a delegate defines a callable contract, an event exposes only a subscription boundary, and a publisher decides when the notification happens and how failures propagate. The reader should quickly feel that a notification is not a guarantee.\n\nSummary angle: one revision is stamped into a ledger first, then sent down a single-file notification conveyor; the subscription wall has exactly two narrow slots, and when the second receiving station jams, the third receives nothing.\nNarrative flow: 3-beat process. In a 2.35:1 frame, keep one dominant focal subject and three supporting narrative beats, each mapping to the article's information blocks.\nInformation blocks:\n- Mechanism (source: outside the declaring type code can only use += and -=): an archive wall with a subscription gate that has exactly two narrow slots, the rest of the wall sealed, small label 订阅 near the gate.\n- Contrast (source: multicast invocation stops when a handler throws an uncaught exception): a conveyor leaves the desk toward three receiving stations at different depths; the first takes the notice, the second jams and glows vermilion, the third stays empty with an open tray, small label 失败 near the jammed station.\n- Takeaway (source: Record increments the revision before raising the event): the ledger page already shows a stamped revision mark with a small label 已记录, while the notice is still travelling down the belt.\n\nMain metaphor: a records office that stamps a revision, then sends the notice along a single-file conveyor to ordered receiving stations.\nSubject: a flat pixel-art clerk at the archive desk in the left foreground, one hand pressing the revision stamp onto the ledger, the other hand pulling the notification lever.\nComposition/framing: slightly elevated three-quarter view; the desk sits in the sharp left-foreground focal area, the conveyor runs from center to the right background, the three stations occupy midground and background, foreground shelving frames the left edge.\nScene integration: the clerk remains a crisp 2D pixel sprite with a stepped silhouette and deliberate pixel clusters; the desk, shelves and conveyor are volumetric 3D with stylized pixel-textured surfaces and clear foreground-midground-background depth; warm lamp light from the upper left reaches the clerk, the ledger and the belt; contact shadows ground the clerk, the stamp and each station.\nStyle/medium: combine isometric conceptual systems scene with the selected visual style descriptor: 2D pixel-art subjects with crisp stepped silhouettes and deliberate pixel clusters, integrated into a volumetric 3D environment with stylized pixel-textured surfaces, coherent perspective and foreground-midground-background depth, shared directional lighting and grounded contact/cast shadows, a sharp focal plane with restrained depth of field where helpful, controlled highlights and subtle atmospheric separation, a scene-specific palette, readable at thumbnail size; no voxel-built characters, no smooth plastic figurines, no full-frame mosaic filter, no excessive bloom or blur. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: deep teal surfaces, warm amber lamp light, paper white, one controlled vermilion accent at the jammed station.\nVisible text policy: allow only three short Chinese labels, 订阅, 失败 and 已记录, and no more than three items total, all sourced from the information blocks. Each label is at most six Chinese characters. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: smooth plastic figurines, voxel-built characters, full-frame mosaic filter, floating icons, neon cyberpunk glow, code rain, English labels, poster titles, excessive bloom or blur.\nCorrections that must be explicit in this render:\n- The ledger shows only an abstract red seal with no letters or numbers at all; a separate small clean label chip 已记录 sits beside the ledger.\n- The conveyor stops at the jammed vermilion station. Beyond it the belt is empty: no envelopes, no papers, no glowing parcels. The third station is unlit, its tray empty, and its clerk stands idle with empty hands.\n- The first station's clerk holds exactly one notice; the second station's clerk is stuck holding a glowing vermilion notice, and the station light above it is red.\n- Wooden desk, shelving, wall panels and conveyor surfaces carry visible pixel-textured facets at a scale close to the pixel characters, while the scene keeps clear volumetric 3D depth and perspective.\n- Keep the 订阅 plate above the two narrow slots on the subscription wall, and the 失败 label above the jammed station."
+}
