@@ -1,0 +1,70 @@
+{
+  "article_title": ".NET 10 HttpClient 容错与重试顺序",
+  "cover_type": "tutorial",
+  "core_theme": "在 .NET 10 里给 HttpClient 加容错之前，先按正确顺序打好连接复用底子，再决定哪些请求可以被重试：一次下单被下游存成三条，是重试顺序错误的代价。",
+  "reader_takeaway": "读完之后能明白：先让请求走同一批复用的连接，再用标准容错处理器兜底，最后关掉不安全方法（POST）的默认重试并排好处理器顺序，重复下单才会收住。",
+  "summary_angle": "一次下单，下游却存了三条：先用连接复用打底（500 次请求后 socket 不再堆积），再用标准容错处理器兜底，最后靠关掉不安全方法的默认重试和排好处理器顺序，把重复下单切断。",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "正文「每次 new HttpClient 都新建连接」段落：500 次 new HttpClient 请求留下 500 个 TIME_WAIT socket",
+      "visual_idea": "画面最左侧是一排紧闭的像素管道口，500 个请求正把管道口一格格堵死，作为被解决的旧局面；只做像素化堵塞，不写任何标签",
+      "numeric_fact": "500"
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "正文「IHttpClientFactory 复用连接」段落：同样 500 次请求，复用连接后留下 0 个 TIME_WAIT socket",
+      "visual_idea": "画面中部一条连续贯通的像素传送管道，同一批管道口反复被复用而不再分叉堆积，末端保持干净",
+      "visible_label": "0 残留",
+      "numeric_fact": "0"
+    },
+    {
+      "role": "contrast",
+      "source_anchor": "正文默认容错 / 重复下单案例：默认重试把 1 个订单在下游存成 3 条记录",
+      "visual_idea": "画面右侧的像素仓库货架，一个订单木箱被复制成三块一模一样的木箱并排码放，三块箱子是画面主焦点",
+      "visible_label": "1 单 3 条",
+      "numeric_fact": "1 / 3"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "正文收尾：DisableForUnsafeHttpMethods 关掉不安全方法（POST）的默认重试，并排好处理器顺序",
+      "visual_idea": "传送管道末端一个像素风格的开关阀被扳到关闭位置，切断重复重发的回路",
+      "visible_label": "关掉重试"
+    }
+  ],
+  "main_metaphor": "像素关卡式流水线：左边是堵死的旧管道口，中间是复用到底的传送管道，右边仓库货架上同一个订单被复制成三份，末端一个被扳下的开关切断重试回路。",
+  "primary_subject": "一块像素风的订单木箱，以及右侧货架上它被复制出的三份相同副本",
+  "subject_action": "同一块订单木箱沿复用管道被推进，最后在右侧货架上落成三份一模一样的副本，末端的开关阀随即被扳下",
+  "composition": "斜向推进的左到右横向场景，主焦点落在右侧三份重复副本的货架上，其余叙事节拍沿水平方向依次排布",
+  "base_style": "editorial technical illustration",
+  "selected_style": "像素复古风",
+  "selected_style_prompt_descriptor": "retro pixel-art inspired illustration, blocky forms, limited palette, old game composition cues, readable wide layout",
+  "selected_style_reason": "用户未指定风格，本篇从 40 项风格池随机选中（pick-cover-style.py 输出）；像素关卡的「一段路 + 一个终点仓库」结构适合把三段顺序压进一张宽图",
+  "style_safety_note": "风格名为泛类型描述，不涉及品牌、工作室或在世艺术家复刻；最终 prompt 只使用 blocky forms、limited palette 等描述词",
+  "allowed_visible_text": ["0 残留", "1 单 3 条", "关掉重试"],
+  "color_palette": ["深墨绿", "暗炭黑", "琥珀橙", "青绿高光", "砖红警示"],
+  "avoid": [
+    "poster title / 主标题文字",
+    "英文口号与拟声词",
+    "假 UI 截图 / dashboard",
+    "假图表坐标轴与图例",
+    "伪造指标或百分比",
+    "漂浮芯片",
+    "无意义代码雨",
+    "霓虹高楼背景",
+    "通用机器人站姿",
+    "赛博朋克紫蓝光污染",
+    "巨量 HUD 浮层",
+    "水印与 prompt 残留",
+    "无关图标堆砌"
+  ],
+  "reference_strategy": "纯文本生成，无参考图",
+  "draft_goal": "先用低分辨率草图验证三拍弧线是否成立、主焦点是否落在右侧三份重复副本上、左侧堵塞与中部复用是否读得出来",
+  "revision_targets": [
+    "去掉画面里多余的标签与文字，只保留 3 个中文短标签",
+    "加强连接复用管道的中段贯通感，避免被杂物打断",
+    "确保左侧 500 个 socket 堵塞与右侧三份重复副本的反差一眼可见"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes a .NET 10 HttpClient resilience-and-retry-order article. Theme: how HTTP client resilience is stacked in the right order — reuse connections first, then rely on the standard resilience handler, then stop the default retry on unsafe methods and order the handlers correctly. The reader should quickly feel the core irony: 一次下单，下游却存了三条。\n\nSummary angle: 一条订单只提交一次，却在下游被存成三条重复记录。Left to right, in three beats: reuse connections so requests travel one shared pipeline (500 requests, no socket buildup), the standard resilience handler as the safety net, and finally switching off the default retry for unsafe methods to cut the duplicate writes.\nNarrative flow: 3-beat process, left to right, one dominant focal subject plus three supporting beats in a 2.35:1 frame. Each beat must map to the article's information blocks rather than generic decoration.\nInformation blocks:\n- problem (no visible label): 500 requests created with a fresh HttpClient leave 500 TIME_WAIT sockets piled up on the far left; show a row of pixel pipe mouths jamming shut under load\n- mechanism (visible label: 0 残留): IHttpClientFactory reuses the same connections, so the same 500 requests leave 0 residual sockets; one continuous pixel conveyor pipe loops back on itself and stays clean\n- contrast (visible label: 1 单 3 条): the default resilience pipeline stores 1 order as 3 identical rows downstream; a pixel warehouse shelf holds three identical wooden crates side by side, this shelf is the main focal subject\n- takeaway (visible label: 关掉重试): DisableForUnsafeHttpMethods turns off the default retry for POST; a pixel valve/switch at the end of the conveyor is flipped to the closed position, cutting the resend loop\n\nMain metaphor: a pixel-level stage pipeline — a jammed old pipe on the left, one reused conveyor in the middle, a shelf on the right where the same order is duplicated into three crates, and a switch at the end that cuts the retry loop.\nSubject: a pixel-art order crate travelling along the reused conveyor, and the three identical copies it becomes on the right-hand shelf.\nComposition/framing: diagonal left-to-right wide scene; the primary focal point is the shelf with the three duplicated crates; the other beats sit along the same horizontal line and stay legible in a very wide cover. Not a vertical poster, not a multi-panel collage.\nStyle/medium: combine editorial technical illustration with the selected visual style descriptor: retro pixel-art inspired illustration, blocky forms, limited palette, old game composition cues, readable wide layout. Stylized, polished, editorial, visually strong, and clearly readable as an infographic-style summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: deep ink green and dark charcoal base, amber-orange as the conveyor key light, teal-green highlight for the clean reused pipeline, brick red used only for the three duplicated crates.\nVisible text policy: allow only the three short Chinese labels listed above (\"0 残留\", \"1 单 3 条\", \"关掉重试\"), each 6 characters or fewer, plus nothing else. No poster title, no headline, no long sentences, no English slogans or English labels, no fake UI labels, no fake chart axes, no fake architecture node names, no fabricated metrics.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: poster title, English slogan, floating chips, code rain, neon skyline, generic robot poses, cyberpunk purple-blue glow, dense HUD overlays, fictional product screenshots."
+}
