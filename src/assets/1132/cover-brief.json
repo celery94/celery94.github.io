@@ -1,0 +1,61 @@
+{
+  "article_title": "C# 委托：Action、Func 与多播调用契约",
+  "cover_type": "analysis",
+  "core_theme": "委托类型规定哪些方法能进来，委托实例记录一组调用目标；多播调用按顺序执行每一项，但只返回最后一项的结果。",
+  "reader_takeaway": "读完能判断一个回调 API 实际承诺了什么：参数是分发还是传递，返回值来自一项还是全部，失败会不会中断后面。",
+  "summary_angle": "同一个实参 4 被复制进两条互不相连的调用通道，两个工位各自算出 6 和 12；只有最后一项的 12 沿回传口交还调用方，6 留在侧边托盘里没人领取。",
+  "narrative_flow": "conflict-to-resolution",
+  "information_blocks": [
+    {
+      "role": "problem",
+      "source_anchor": "开头的 Func<int, int> 多播例子：两个方法收到的都是调用方传入的 4，而不是 4→6→18 的串联。",
+      "visual_idea": "左前方操作员把一枚发光的 4 号令牌放进黄铜分线器，分线器把它复制成两份送入两条独立通道。",
+      "visible_label": "4",
+      "numeric_fact": "4"
+    },
+    {
+      "role": "contrast",
+      "source_anchor": "AddTwo(4) 得到 6，MultiplyByThree(4) 得到 12；GetInvocationList 遍历后输出 6 和 12，两条结果互不传递。",
+      "visual_idea": "两条平行通道在中景和远景各有一个工位，分别吐出一张 6 号卡片和一张 12 号卡片，通道之间没有连接件。",
+      "visible_label": "6",
+      "numeric_fact": "6"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "普通多播调用正常走到最后一项时，只有最后一项的返回值被整体调用交出来，前面的返回值不被收集。",
+      "visual_idea": "只有 12 号卡片沿右侧的回传口升回调用方，6 号卡片停在一条浅托盘里，托盘没有通向回传口的轨道。",
+      "visible_label": "12",
+      "numeric_fact": "12"
+    }
+  ],
+  "main_metaphor": "一间调度台：一份实参被复制进多条并行调用通道，只有最后一条通道的产物被送回台面。",
+  "primary_subject": "一个二维像素操作员，站在左前方的调度台后。",
+  "subject_action": "一只手刚松开 4 号令牌让它落进黄铜分线器，另一只手扶着台面边缘，身体朝向右侧的两条通道。",
+  "composition": "轻微俯视的四分之三视角；操作员、调度台与分线器位于左前方清晰焦点，两条通道斜向右后方延伸并分处中景与远景，回传口在右前方近景，台面边缘压住画面底部形成框景。",
+  "base_style": "conceptual editorial illustration",
+  "selected_style": "HD-2D",
+  "selected_style_prompt_descriptor": "2D pixel-art subjects with crisp stepped silhouettes and deliberate pixel clusters, integrated into a volumetric 3D environment with stylized pixel-textured surfaces, coherent perspective and foreground-midground-background depth, shared directional lighting and grounded contact/cast shadows, a sharp focal plane with restrained depth of field where helpful, controlled highlights and subtle atmospheric separation, a scene-specific palette, readable at thumbnail size; no voxel-built characters, no smooth plastic figurines, no full-frame mosaic filter, no excessive bloom or blur",
+  "selected_style_reason": "采用仓库默认 HD-2D 风格：文章讲的是调用通道的分叉、执行顺序和单一返回值，像素主体配一个有体积的调度车间，能把复制、并行和回传放在同一画面里。",
+  "style_safety_note": "只以像素轮廓、微缩空间和共同光影描述，不复刻任何具体游戏场景、角色或素材。",
+  "allowed_visible_text": ["4", "6", "12"],
+  "color_palette": ["深青", "暖琥珀", "铜色", "冷青高光"],
+  "avoid": [
+    "光滑塑料玩偶",
+    "体素积木人物",
+    "全图像素化滤镜",
+    "漂浮图标与令牌",
+    "霓虹赛博朋克光效",
+    "代码雨与 HUD 浮层",
+    "英文标签或海报标题",
+    "虚假 UI、终端或图表",
+    "过强泛光与整幅虚化"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮验证三件事：4 号令牌被 Y 形分线器复制进两条独立通道、两个工位分别产出 6 和 12、只有 12 沿回传滑道返回而 6 留在通道旁的地面托盘。",
+  "revision_targets": [
+    "像素主体是否被画成光滑玩偶或体素人物",
+    "两条通道是否清楚分离，回传口与侧边托盘是否容易混淆",
+    "画面是否出现多余文字、装饰或与主题无关的元素"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article, aspect ratio 2.35:1\nPrimary request: Create a wide cinematic infographic-story cover that summarizes an article about C# delegates as call contracts. Theme: a delegate type defines which methods fit, a delegate instance holds a list of methods and their targets, and ordinary multicast invocation runs each entry in order but returns only the last result. The reader should quickly feel that two callbacks receive the same argument, so their results do not chain.\n\nSummary angle: one argument token is copied into two parallel call lanes; each workstation computes its own result, and only the final result travels back to the caller while the earlier one stays in an unclaimed side tray.\nNarrative flow: conflict-to-resolution. In a 2.35:1 frame, keep one dominant focal subject and three supporting narrative beats, each mapping to the article's information blocks.\nInformation blocks:\n- Problem (source: both methods receive the caller's 4, not 4 then 6 then 18): a flat pixel-art operator at a dispatch counter drops a single glowing token marked 4 into a brass splitter; two identical copies slide into two separate lanes, small numeral 4 on the token.\n- Contrast (source: AddTwo(4) is 6, MultiplyByThree(4) is 12, and the invocation list yields both): two compact machines on parallel lanes sit at different depths, one releasing a card marked 6 and the other a card marked 12; the lanes never connect and no card feeds the next machine.\n- Takeaway (source: only the last entry's return value is exposed): only the 12 card rises through a return chute back toward the caller's counter, while the 6 card rests in a shallow side tray with no rail leading to the chute.\n\nMain metaphor: a dispatch workshop that copies one argument into parallel call lanes and returns a single last result.\nSubject: a flat 2D pixel-art operator in the left foreground, crisp stepped silhouette and deliberate pixel clusters, one hand releasing the token into the splitter, the other hand resting on the counter edge, body angled toward the two lanes.\nComposition/framing: slightly elevated three-quarter view; operator, counter and splitter form the sharp focal area in the left third of the frame, fully inside the frame; two lanes run diagonally toward the right at different depths; the return chute sits in the right foreground; the counter edge frames the bottom; the workshop wall in the background stays softly separated.\nScene integration: the operator remains a 2D pixel sprite inside a volumetric 3D workshop; teal machinery with copper rails and pixel-textured metal surfaces; a warm lamp from the upper left lights the operator, the token and both workstations with the same amber key light; each object casts a grounded contact shadow on the floor; the 4 token emits a restrained cool cyan glow that falls on nearby brass surfaces; the middle work area stays sharp while the far wall and foreground edge soften slightly.\nStyle/medium: combine conceptual editorial illustration with the selected visual style descriptor: 2D pixel-art subjects with crisp stepped silhouettes and deliberate pixel clusters, integrated into a volumetric 3D environment with stylized pixel-textured surfaces, coherent perspective and foreground-midground-background depth, shared directional lighting and grounded contact/cast shadows, a sharp focal plane with restrained depth of field where helpful, controlled highlights and subtle atmospheric separation, a scene-specific palette, readable at thumbnail size. Stylized, polished, editorial, clearly readable as a summary cover. Do not imitate a specific brand, studio, or living artist.\nColor palette: deep teal machinery, warm amber lamp light, copper rails, paper-white cards, one restrained cool cyan accent on the token.\nVisible text policy: allow only the numerals 4, 6 and 12 on the token and the two result cards. No poster title, no words, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names.\nConstraints: one dominant focal subject plus three supporting beats; no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: floating chips, code rain, neon skyscrapers, generic robot poses, cyberpunk purple-blue glow, oversized HUD overlays, smooth plastic figurines, voxel-built characters, full-frame mosaic filter, excessive bloom or blur."
+}
