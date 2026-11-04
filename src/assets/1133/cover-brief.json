@@ -1,0 +1,59 @@
+{
+  "article_title": "NuGet 包分发 agent skill 的取用与成本",
+  "cover_type": "release",
+  "core_theme": "NuGet 包可以携带 agent skill，dotnet restore 会把它下载到仓库之外的全局包缓存，需要工具把副本搬进仓库，agent 才读得到；skill 同时带来 token 成本。",
+  "reader_takeaway": "理解 skill 从包到 agent 的搬运路径，知道它默认落在哪里、为什么要复制一份进仓库，以及为什么 skill 会带来额外 token 成本。",
+  "summary_angle": "包裹里的 skill 文档先落在共享缓存，再由搬运者把一份副本送进仓库的阅读间；节点越往右越接近真正读它的地方。",
+  "narrative_flow": "3-beat process",
+  "information_blocks": [
+    {
+      "role": "mechanism",
+      "source_anchor": "原文 markout 包的 skills/*/SKILL.md 列表与 ~/.nuget/packages 下的 find 输出，说明 skill 随包发布",
+      "visual_idea": "左侧深色货架上，一个像素风格的包裹木箱里立着几张薄薄的卡片，表示包内携带 skill 文档",
+      "visible_label": "包",
+      "numeric_fact": ""
+    },
+    {
+      "role": "contrast",
+      "source_anchor": "dotnet-package-skills README：全局包缓存在 ~/.nuget/packages，位于仓库之外，机器上所有项目共用",
+      "visual_idea": "中景是宽敞的共享仓储大厅，一道门框把大厅与右侧更小的房间分开，门是边界",
+      "visible_label": "缓存",
+      "numeric_fact": ""
+    },
+    {
+      "role": "step",
+      "source_anchor": "dotnet-package-skills 的 install 把 skill 复制到 .agents/skills，并写入清单",
+      "visual_idea": "像素小信使抱着其中一张卡片穿过门，向右走进仓库房间，房间里有一张空着的阅读台等着它",
+      "visible_label": "仓库",
+      "numeric_fact": ""
+    }
+  ],
+  "main_metaphor": "信使从共享仓库取出一张 skill 卡片，穿过边界送进私人阅读间",
+  "primary_subject": "二维像素风格的小信使，双手抱着一张薄卡片",
+  "subject_action": "迈步穿过门框，卡片朝阅读台方向略微前倾",
+  "composition": "轻微俯视的四分之三视角，从左下到右上斜向推进：前景货架框住画面左侧，中景门框作为分界，背景右侧是带阅读台的仓库房间；主体与卡片保持在清晰区域",
+  "base_style": "product-poster style illustration",
+  "selected_style": "HD-2D",
+  "selected_style_prompt_descriptor": "2D pixel-art subjects with crisp stepped silhouettes and deliberate pixel clusters, integrated into a volumetric 3D environment with stylized pixel-textured surfaces, coherent perspective and foreground-midground-background depth, shared directional lighting and grounded contact/cast shadows, a sharp focal plane with restrained depth of field where helpful, controlled highlights and subtle atmospheric separation, a scene-specific palette, readable at thumbnail size; no voxel-built characters, no smooth plastic figurines, no full-frame mosaic filter, no excessive bloom or blur",
+  "selected_style_reason": "采用仓库默认 HD-2D 风格，用可辨认的像素主体加有体积的仓储空间表达从包到仓库的搬运关系",
+  "style_safety_note": "只描述像素色块、微缩三维空间与共同光影，不复刻任何具体游戏场景、角色或素材",
+  "allowed_visible_text": ["包", "仓库"],
+  "color_palette": ["deep teal", "warm amber", "muted cream", "slate gray"],
+  "avoid": [
+    "塑料玩偶感的人物",
+    "体素方块搭建的角色",
+    "全图像素滤镜造成的低清效果",
+    "漂浮的图标或悬浮芯片",
+    "霓虹城市背景与紫蓝光污染",
+    "大量 HUD 浮层",
+    "伪终端输出或伪界面截图"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "第一轮验证三段式搬运路径是否读得出来：包裹木箱、门框边界、阅读台房间，以及信使是否保持像素主体",
+  "revision_targets": [
+    "信使退化成光滑玩偶或体素方块时，恢复平面像素轮廓",
+    "三段空间挤在一起或缺少纵深时，补地面透视与前后遮挡",
+    "出现与主题无关的漂浮物或 UI 元素时删除"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article\nPrimary request: Create a wide cinematic infographic-story cover illustration that summarizes an article about shipping agent skills inside NuGet packages. Theme: a package crate carries thin SKILL.md documents, they land in a shared storage hall outside the repository, and a courier carries one copy into the repository room where an agent can read it. The reader should quickly feel the three-stage journey from package to reading desk, and that the copy is deliberate.\nSummary angle: A package carries skill documents; they land in a shared cache outside the repo; a copy is carried into the repo's reading room; that extra copy is the price of the capability.\nNarrative flow: 3-beat process, left to right across a 2.35:1 frame, with one dominant focal subject and three supporting narrative beats.\nInformation blocks:\n- mechanism: a pixel-art wooden package crate on a dark warehouse shelf, several thin cards standing inside it, small tag reading 包\n- contrast: a wide shared storage hall separated from a smaller repository room by a doorway; the doorway is the boundary; small tag reading 缓存 on the hall side\n- step: a flat pixel courier carries one card through the doorway toward an empty reading desk in the repository room; small tag reading 仓库\nMain metaphor: a courier carrying one skill card from a shared warehouse into a private reading room.\nSubject: a small flat 2D pixel-art courier holding a single thin card with both hands, mid-stride through the doorway.\nComposition/framing: slightly elevated three-quarter view; diagonal left-to-right movement; a foreground shelf frames the left edge, the doorway sits in the middle ground as the boundary, the repository room with a plain reading desk occupies the right background; keep the courier, the card and the doorway sharp.\nScene integration: the courier stays a flat pixel sprite with a crisp stepped silhouette and deliberate pixel clusters; the crate, shelves, floor, doorway and room have real 3D volume and stylized pixel-textured surfaces with correct perspective and occlusion; contact shadows under the crate, shelves, desk and courier; one warm amber side light from the left rakes across all three zones and a dimmer cool light in the repository room separates it from the warehouse.\nStyle/medium: combine product-poster style illustration with this selected visual style descriptor: 2D pixel-art subjects with crisp stepped silhouettes and deliberate pixel clusters, integrated into a volumetric 3D environment with stylized pixel-textured surfaces, coherent perspective and foreground-midground-background depth, shared directional lighting and grounded contact/cast shadows, a sharp focal plane with restrained depth of field where helpful, controlled highlights and subtle atmospheric separation, a scene-specific palette, readable at thumbnail size; no voxel-built characters, no smooth plastic figurines, no full-frame mosaic filter, no excessive bloom or blur. Do not imitate a specific brand, studio, or living artist.\nColor palette: deep teal shadows, warm amber light, muted cream cards, slate floor; four colors total, one warm accent.\nVisible text policy: allow only two tiny Chinese labels 包 and 仓库 on small unobtrusive tags, no more than two; if characters risk rendering poorly, omit them entirely rather than substituting English. No poster title, no long sentences, no English slogans, no fake UI labels, no fake chart axes, no fake architecture node names, no fabricated numbers.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no fabricated metrics, no unrelated icon collage, no decorative clutter.\nAvoid: floating chips, code rain, neon cityscape, generic robot pose, cyberpunk purple-blue glow, heavy HUD overlays, plastic toy figures, voxel-built characters, full-frame pixelation, excessive bloom or blur."
+}
