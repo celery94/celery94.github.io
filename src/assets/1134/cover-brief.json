@@ -1,0 +1,65 @@
+{
+  "article_title": "C# 多态：base 引用和接口引用调用谁",
+  "cover_type": "analysis",
+  "core_theme": "同一个对象、同一条调用语句，因为参考类型和成员派发规则不同，运行到不同的实现。",
+  "reader_takeaway": "理解同一条调用先选成员、再决定实现，编译期类型和运行期类型分别在哪一步起作用。",
+  "summary_angle": "同一个对象放在中央，左边按编译期类型通过，右边按运行期类型通过，两侧出口落进不同的托盘。",
+  "narrative_flow": "before-after",
+  "information_blocks": [
+    {
+      "role": "mechanism",
+      "source_anchor": "原文 ReferenceEquals 为 True，两个变量指向同一对象",
+      "visual_idea": "画面中央的低矮石台上放着一枚像素骰子，两侧共用这一个对象",
+      "visible_label": "",
+      "numeric_fact": ""
+    },
+    {
+      "role": "contrast",
+      "source_anchor": "原文对照：override 按运行期类型选，new 隐藏按编译期类型选",
+      "visual_idea": "石台两侧各有一座拱形闸门，左门标编译期、右门标运行期，两门颜色与插销结构不同",
+      "visible_label": "编译期 / 运行期",
+      "numeric_fact": ""
+    },
+    {
+      "role": "evidence",
+      "source_anchor": "实测输出：override 两行均为 [message]，new 隐藏输出 hidden message 与 base message",
+      "visual_idea": "最左和最右各有一个出口托盘，托盘里放着不同样式的标记物，一个素色一个带条纹",
+      "visible_label": "",
+      "numeric_fact": ""
+    }
+  ],
+  "main_metaphor": "同一个人从两个不同规则的闸机通过，落到两个不同的出口",
+  "primary_subject": "石台上的二维像素骰子",
+  "subject_action": "静止放在石台中央，一面受到暖光照射，投下接触阴影",
+  "composition": "左右对照，轻微俯视的三分之四视角，中央石台与骰子为焦点，前景导轨向观者方向弯曲制造纵深，两座闸门位于中景，出口托盘在背景左右边缘",
+  "base_style": "conceptual editorial illustration",
+  "selected_style": "HD-2D",
+  "selected_style_prompt_descriptor": "2D pixel-art subjects with crisp stepped silhouettes and deliberate pixel clusters, integrated into a volumetric 3D environment with stylized pixel-textured surfaces, coherent perspective and foreground-midground-background depth, shared directional lighting and grounded contact/cast shadows, a sharp focal plane with restrained depth of field where helpful, controlled highlights and subtle atmospheric separation, a scene-specific palette, readable at thumbnail size; no voxel-built characters, no smooth plastic figurines, no full-frame mosaic filter, no excessive bloom or blur",
+  "selected_style_reason": "采用仓库默认 HD-2D 风格，用像素主体加有体积的分拣场景表达同一个对象的两条调用路径",
+  "style_safety_note": "只描述像素色块、微缩三维空间与共同光影，不复刻任何具体游戏场景、角色或素材",
+  "allowed_visible_text": ["编译期", "运行期"],
+  "color_palette": [
+    "deep navy teal",
+    "warm coral",
+    "muted cream",
+    "slate gray"
+  ],
+  "avoid": [
+    "塑料玩偶感的人物",
+    "体素方块搭建的角色",
+    "全图像素滤镜造成的低清效果",
+    "漂浮的图标或悬浮芯片",
+    "霓虹城市背景与紫蓝光污染",
+    "大量 HUD 浮层",
+    "伪终端输出或伪界面截图",
+    "英文标语或长句标签"
+  ],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "一轮内确认左右对照是否成立：中央共享对象、两座规则不同的闸门、两个出口托盘",
+  "revision_targets": [
+    "骰子退化成光滑玩偶或体素方块时，恢复平面像素轮廓",
+    "两侧空间挤在一起时，补前景导轨与背景托盘的纵深",
+    "出现漂浮图标、UI 元素或英文文字时删除"
+  ],
+  "final_prompt": "Use case: infographic-story\nAsset type: wide cover infographic illustration for a Chinese tech blog article, aspect ratio 2.35:1\nPrimary theme: one object, two ways a method call gets routed — by the compile-time reference type or by the runtime object type. Same object, two routes, two different results.\nSummary angle: a single pixel-art die sits on a central plinth; two gateways flank it, each with different rules; whichever gate the call token passes through determines which exit tray it lands in.\nNarrative flow: before-after contrast, left and right of a central plinth, readable in one glance.\nInformation blocks:\n- mechanism: one pixel-art die resting on a low stone plinth in the middle ground, clearly shared by both sides\n- contrast: two arched gateways, the left one tagged 编译期 and the right one tagged 运行期, each in a different color with a visibly different latch mechanism\n- evidence: one exit tray at the far left and one at the far right, holding different tokens — a plain pale token on one side and a striped navy token on the other\nMain metaphor: the same object passing through two gates with different rules, landing in two different exits.\nSubject: the flat 2D pixel-art die on the plinth, one face catching warm light.\nComposition: left-right contrast, slightly elevated three-quarter view, the plinth and die as the sharp focal point; a foreground rail curves toward the viewer for depth, the two gates sit at middle depth, the exit trays sit at the back left and back right edges; keep the die, both gateways and both trays legible at thumbnail size.\nScene integration: the die stays a flat pixel sprite with crisp stepped silhouette and deliberate pixel clusters; the plinth, rail, gates, floor and trays have real 3D volume with stylized pixel-textured surfaces, correct perspective and occlusion; contact shadows beneath the die, plinth, gates and trays; one warm coral side light from the upper left rakes across the plinth and both gates, with a cooler fill separating the back plane.\nStyle/medium: combine conceptual editorial illustration with this selected visual style descriptor: 2D pixel-art subjects with crisp stepped silhouettes and deliberate pixel clusters, integrated into a volumetric 3D environment with stylized pixel-textured surfaces, coherent perspective and foreground-midground-background depth, shared directional lighting and grounded contact/cast shadows, a sharp focal plane with restrained depth of field where helpful, controlled highlights and subtle atmospheric separation, a scene-specific palette, readable at thumbnail size; no voxel-built characters, no smooth plastic figurines, no full-frame mosaic filter, no excessive bloom or blur. Do not imitate a specific brand, studio, or living artist.\nColor palette: deep navy teal shadows, warm coral light, muted cream die and trays, slate floor; four colors, one warm accent.\nVisible text policy: allow only two tiny Chinese labels 编译期 on the left gate and 运行期 on the right gate, each within six characters, on small unobtrusive plates; if characters risk rendering poorly, omit them rather than substituting English. No poster title, no slogan, no long sentence, no English words, no fake UI labels, no fake chart axes, no fabricated numbers.\nConstraints: no watermark, no prompt residue, no screenshots, no dashboards, no fake diagrams, no fake charts, no fake terminal output, no unrelated icon collage, no decorative clutter.\nAvoid: floating icons, floating chips, code rain, neon cityscape, generic robot pose, cyberpunk purple-blue glow, heavy HUD overlays, plastic toy figures, voxel-built characters, full-frame pixelation, excessive bloom or blur."
+}
