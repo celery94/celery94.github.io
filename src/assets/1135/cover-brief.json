@@ -1,0 +1,47 @@
+{
+  "article_title": ".NET 11：让 Minimal API 验证消息支持多语言",
+  "cover_type": "tutorial",
+  "core_theme": "根据请求语言查找验证消息资源",
+  "reader_takeaway": "配置请求语言、资源文件与验证，检查本地化结果",
+  "summary_angle": "请求经过语言选择与资源查找，生成本地化验证消息",
+  "narrative_flow": "从请求到资源查找再到验证结果",
+  "information_blocks": [
+    {
+      "role": "input",
+      "source_anchor": "原文请求语言提供程序",
+      "visual_idea": "纸质请求进入语言选择器",
+      "visible_label": "",
+      "numeric_fact": ""
+    },
+    {
+      "role": "mechanism",
+      "source_anchor": "原文按类型查找 resx 资源",
+      "visual_idea": "工作台后方的资源卡片架",
+      "visible_label": "",
+      "numeric_fact": ""
+    },
+    {
+      "role": "result",
+      "source_anchor": "原文不同语言的验证响应",
+      "visual_idea": "输出验证提示卡片",
+      "visible_label": "",
+      "numeric_fact": ""
+    }
+  ],
+  "main_metaphor": "验证请求经过语言选择和资源卡片查找",
+  "primary_subject": "二维像素纸质请求",
+  "subject_action": "沿工作台依次经过语言选择器和资源架",
+  "composition": "横向三阶段，斜俯视，前景轨道、中景工作台、背景资源架",
+  "base_style": "editorial technical illustration",
+  "selected_style": "HD-2D",
+  "selected_style_prompt_descriptor": "2D pixel-art subjects with crisp stepped silhouettes and deliberate pixel clusters, integrated into a volumetric 3D environment with stylized pixel-textured surfaces, coherent perspective and foreground-midground-background depth, shared directional lighting and grounded contact/cast shadows, a sharp focal plane with restrained depth of field where helpful, controlled highlights and subtle atmospheric separation, a scene-specific palette, readable at thumbnail size; no voxel-built characters, no smooth plastic figurines, no full-frame mosaic filter, no excessive bloom or blur",
+  "selected_style_reason": "仓库默认风格，适合用工作台表现请求和资源查找",
+  "style_safety_note": "原创场景，不模仿特定作品",
+  "allowed_visible_text": [],
+  "color_palette": ["teal", "cream", "amber"],
+  "avoid": ["文字", "伪界面", "光滑玩偶", "过度虚化", "全图马赛克"],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "清楚呈现请求、资源和验证结果",
+  "revision_targets": ["保持像素主体清晰", "保持场景纵深与接触阴影"],
+  "final_prompt": "Wide 2.35:1 editorial technology illustration, HD-2D. A flat pixel-art paper request travels on a physical workbench through a small language selector, past a shelf of resource cards, and emerges as a translated validation notice. Show these three distinct stages in one coherent scene, no readable text. Three-quarter view with foreground rails, a clear middle ground and background shelf. The paper is crisp 2D pixel art; workbench and shelf are volumetric 3D with pixel-textured materials. Warm directional light illuminates all objects with grounded contact shadows. Teal, cream and amber palette. 2D pixel-art subjects with crisp stepped silhouettes and deliberate pixel clusters, integrated into a volumetric 3D environment with stylized pixel-textured surfaces, coherent perspective and foreground-midground-background depth, shared directional lighting and grounded contact/cast shadows, a sharp focal plane with restrained depth of field where helpful, controlled highlights and subtle atmospheric separation, a scene-specific palette, readable at thumbnail size; no voxel-built characters, no smooth plastic figurines, no full-frame mosaic filter, no excessive bloom or blur. No text, logos, screenshots, fake code, charts, floating icons or clutter."
+}
