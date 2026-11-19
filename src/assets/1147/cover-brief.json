@@ -1,5 +1,5 @@
 {
-  "article_title": "数据库九课 02｜扣库存失败，怎样整单回滚？",
+  "article_title": "数据库九课 02｜下单失败，怎样整单回滚？",
   "cover_type": "tutorial",
   "core_theme": "事务回滚",
   "reader_takeaway": "用一次事务提交订单、库存和流水",
