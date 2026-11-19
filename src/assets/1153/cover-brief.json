@@ -1,0 +1,36 @@
+{
+  "article_title": "数据库九课 08｜怎样给订单表加必填列？",
+  "cover_type": "tutorial",
+  "core_theme": "订单表结构迁移",
+  "reader_takeaway": "分阶段回填并验证新增非空字段",
+  "summary_angle": "分阶段回填并验证新增非空字段",
+  "narrative_flow": "conflict-to-resolution",
+  "information_blocks": [
+    {
+      "role": "mechanism",
+      "source_anchor": "订单表结构迁移",
+      "visual_idea": "a side-by-side extension to an operating teal warehouse order rack, flat pixel-art builders install a new amber shelf while existing parcels continue along an open path"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "分阶段回填并验证新增非空字段",
+      "visual_idea": "Use the relation between the focal object and the operating work area to express the main point."
+    }
+  ],
+  "main_metaphor": "a side-by-side extension to an operating teal warehouse order rack, flat pixel-art builders install a new amber shelf while existing parcels continue along an open path",
+  "primary_subject": "a side-by-side extension to an operating teal warehouse order rack, flat pixel-art builders install a new amber shelf while existing parcels continue along an open path",
+  "subject_action": "分阶段回填并验证新增非空字段",
+  "composition": "斜侧俯视，主物件位于中景清晰区域，前景留出层次，背景继续展开订单工作台。",
+  "base_style": "editorial technical illustration",
+  "selected_style": "HD-2D",
+  "selected_style_prompt_descriptor": "2D pixel-art subjects with crisp stepped silhouettes and deliberate pixel clusters, integrated into a volumetric 3D environment with stylized pixel-textured surfaces, coherent perspective and foreground-midground-background depth, shared directional lighting and grounded contact/cast shadows, a sharp focal plane with restrained depth of field where helpful, controlled highlights and subtle atmospheric separation, a scene-specific palette, readable at thumbnail size; no voxel-built characters, no smooth plastic figurines, no full-frame mosaic filter, no excessive bloom or blur",
+  "selected_style_reason": "沿用仓库默认 HD-2D 封面风格，统一订单实验系列的场景和色调。",
+  "style_safety_note": "原创像素场景和物件。",
+  "allowed_visible_text": [],
+  "color_palette": ["deep teal", "warm amber", "desaturated slate"],
+  "avoid": ["文字", "标志", "浮空图标", "仪表盘", "塑料玩偶质感"],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "缩略图能辨认主题，场景具有前后关系。",
+  "revision_targets": ["保证主体像素轮廓和接触阴影", "压缩上下无关空间"],
+  "final_prompt": "Wide 2.35:1 editorial blog cover in an original connected order fulfillment workshop, same teal, slate and warm amber palette throughout the series. Show a side-by-side extension to an operating teal warehouse order rack, flat pixel-art builders install a new amber shelf while existing parcels continue along an open path. Three-quarter slightly elevated view. Place the focal relation inside the central 65 percent of the canvas vertically to allow a wide crop. Distinct foreground, focal midground and subdued background, with one warm upper-left light reaching all objects. 2D pixel-art subjects with crisp stepped silhouettes and deliberate pixel clusters, integrated into a volumetric 3D environment with stylized pixel-textured surfaces, coherent perspective and foreground-midground-background depth, shared directional lighting and grounded contact/cast shadows, a sharp focal plane with restrained depth of field where helpful, controlled highlights and subtle atmospheric separation, a scene-specific palette, readable at thumbnail size; no voxel-built characters, no smooth plastic figurines, no full-frame mosaic filter, no excessive bloom or blur. No text, numbers, letters, logos, watermarks, HUD, fabricated charts or signage."
+}
