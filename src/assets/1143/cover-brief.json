@@ -1,0 +1,36 @@
+{
+  "article_title": "把一个 .NET 10 服务升到 .NET 11",
+  "cover_type": "tutorial",
+  "core_theme": "灰度与回退",
+  "reader_takeaway": "从旧版本基线分流，保留原路",
+  "summary_angle": "从旧版本基线分流，保留原路",
+  "narrative_flow": "layered reveal",
+  "information_blocks": [
+    {
+      "role": "mechanism",
+      "source_anchor": "灰度与回退",
+      "visual_idea": "A pixel switch lever routes a small stream of light towards a miniature service building, with a return lane leading back to the original building"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "从旧版本基线分流，保留原路",
+      "visual_idea": "A pixel switch lever routes a small stream of light towards a miniature service building, with a return lane leading back to the original building"
+    }
+  ],
+  "main_metaphor": "灰度与回退",
+  "primary_subject": "A pixel switch lever routes a small stream of light towards a miniature service building, with a return lane leading back to the original building",
+  "subject_action": "从旧版本基线分流，保留原路",
+  "composition": "主物件置于中景，横向延伸出前后关系",
+  "base_style": "editorial technical illustration",
+  "selected_style": "HD-2D",
+  "selected_style_prompt_descriptor": "2D pixel-art subjects with crisp stepped silhouettes and deliberate pixel clusters, integrated into a volumetric 3D environment with stylized pixel-textured surfaces, coherent perspective and foreground-midground-background depth, shared directional lighting and grounded contact/cast shadows, a sharp focal plane with restrained depth of field where helpful, controlled highlights and subtle atmospheric separation, a scene-specific palette, readable at thumbnail size; no voxel-built characters, no smooth plastic figurines, no full-frame mosaic filter, no excessive bloom or blur",
+  "selected_style_reason": "仓库系列封面默认统一风格",
+  "style_safety_note": "原创像素物件与微缩场景",
+  "allowed_visible_text": [],
+  "color_palette": ["spruce", "amber", "limestone"],
+  "avoid": ["文字", "虚构指标", "截图", "装饰杂物"],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "从旧版本基线分流，保留原路",
+  "revision_targets": ["缩小后主体清晰", "物件保留接地阴影"],
+  "final_prompt": "Wide cover illustration, aspect ratio 2.35:1, editorial technical illustration. A pixel switch lever routes a small stream of light towards a miniature service building, with a return lane leading back to the original building. One main focal subject, two supporting beats in a coherent miniature environment. Distinct foreground, midground and background with top-side lighting and grounded shadows. Palette: spruce, amber, limestone. 2D pixel-art subjects with crisp stepped silhouettes and deliberate pixel clusters, integrated into a volumetric 3D environment with stylized pixel-textured surfaces, coherent perspective and foreground-midground-background depth, shared directional lighting and grounded contact/cast shadows, a sharp focal plane with restrained depth of field where helpful, controlled highlights and subtle atmospheric separation, a scene-specific palette, readable at thumbnail size; no voxel-built characters, no smooth plastic figurines, no full-frame mosaic filter, no excessive bloom or blur. No text, logos, slogans, watermarks, screenshots, dashboards, terminal output, fabricated metrics, fake diagrams, pseudo charts, HUD or clutter."
+}
