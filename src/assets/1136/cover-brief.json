@@ -1,0 +1,36 @@
+{
+  "article_title": ".NET 11 值得升级吗？新功能与迁移路线",
+  "cover_type": "analysis",
+  "core_theme": "升级路线",
+  "reader_takeaway": "两条现代轨道共享支持终点，旧轨道先过兼容检查",
+  "summary_angle": "两条现代轨道共享支持终点，旧轨道先过兼容检查",
+  "narrative_flow": "layered reveal",
+  "information_blocks": [
+    {
+      "role": "mechanism",
+      "source_anchor": "升级路线",
+      "visual_idea": "An upright railway signal at a switch"
+    },
+    {
+      "role": "takeaway",
+      "source_anchor": "两条现代轨道共享支持终点，旧轨道先过兼容检查",
+      "visual_idea": "An upright railway signal at a switch; two modern tracks converge under one calendar arch while the legacy branch passes an inspection shed"
+    }
+  ],
+  "main_metaphor": "升级路线",
+  "primary_subject": "An upright railway signal at a switch; two modern tracks converge under one calendar arch while the legacy branch passes an inspection shed",
+  "subject_action": "两条现代轨道共享支持终点，旧轨道先过兼容检查",
+  "composition": "主物件置于中景，横向延伸出前后关系",
+  "base_style": "conceptual editorial illustration",
+  "selected_style": "HD-2D",
+  "selected_style_prompt_descriptor": "2D pixel-art subjects with crisp stepped silhouettes and deliberate pixel clusters, integrated into a volumetric 3D environment with stylized pixel-textured surfaces, coherent perspective and foreground-midground-background depth, shared directional lighting and grounded contact/cast shadows, a sharp focal plane with restrained depth of field where helpful, controlled highlights and subtle atmospheric separation, a scene-specific palette, readable at thumbnail size; no voxel-built characters, no smooth plastic figurines, no full-frame mosaic filter, no excessive bloom or blur",
+  "selected_style_reason": "仓库系列封面默认统一风格",
+  "style_safety_note": "原创像素物件与微缩场景",
+  "allowed_visible_text": [],
+  "color_palette": ["spruce", "cream", "amber"],
+  "avoid": ["文字", "虚构指标", "截图", "装饰杂物"],
+  "reference_strategy": "纯文本生成",
+  "draft_goal": "两条现代轨道共享支持终点，旧轨道先过兼容检查",
+  "revision_targets": ["缩小后主体清晰", "物件保留接地阴影"],
+  "final_prompt": "Wide cover illustration, aspect ratio 2.35:1, conceptual editorial illustration. An upright railway signal at a switch; two modern tracks converge under one calendar arch while the legacy branch passes an inspection shed. One main focal subject, two supporting beats in a coherent miniature environment. Distinct foreground, midground and background with top-side lighting and grounded shadows. Palette: spruce, cream, amber. 2D pixel-art subjects with crisp stepped silhouettes and deliberate pixel clusters, integrated into a volumetric 3D environment with stylized pixel-textured surfaces, coherent perspective and foreground-midground-background depth, shared directional lighting and grounded contact/cast shadows, a sharp focal plane with restrained depth of field where helpful, controlled highlights and subtle atmospheric separation, a scene-specific palette, readable at thumbnail size; no voxel-built characters, no smooth plastic figurines, no full-frame mosaic filter, no excessive bloom or blur. No text, logos, slogans, watermarks, screenshots, dashboards, terminal output, fabricated metrics, fake diagrams, pseudo charts, HUD or clutter."
+}
