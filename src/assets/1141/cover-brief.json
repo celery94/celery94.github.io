@@ -1,5 +1,5 @@
 {
-  "article_title": ".NET 11 性能实测：JIT、异步与 AOT",
+  "article_title": "06｜.NET 11 性能实测：JIT、异步与 AOT",
   "cover_type": "research",
   "core_theme": "运行时测量",
   "reader_takeaway": "同一负载对照，AOT 使用独立产物",

@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2026-11-19T09:30:03+08:00
-title: "EF Core 11：选课对账的 LINQ 与 SQL"
+title: "04｜EF Core 11：选课对账的 LINQ 与 SQL"
 description: "用同一批选课对账数据对比 EF Core 10 与 11 的生成 SQL 和 SQLite 执行计划，检查全连接、分组、拆分查询和两侧缺失记录，并说明 PostgreSQL provider 的验证边界。"
 tags: ["DotNet", "EF Core", "LINQ", "SQL"]
 slug: "ef-core-11-fulljoin-sql"

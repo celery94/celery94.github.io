@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2026-11-19T09:30:00+08:00
-title: ".NET 11 值得升级吗？新功能与迁移路线"
+title: "01｜.NET 11 值得升级吗？新功能与迁移路线"
 description: "用支持期限、硬件和项目依赖判断是否迁移到 .NET 11。文中整理 .NET 8 和 9、.NET 10、.NET Framework 4.8 的三条路线，并说明如何为 API、数据库、虚拟机和容器留下可回放的升级基线。"
 tags: ["DotNet", "CSharp", "ASP.NET Core"]
 slug: "dotnet-11-upgrade-decision"

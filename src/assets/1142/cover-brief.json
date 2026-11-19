@@ -1,5 +1,5 @@
 {
-  "article_title": ".NET 11 SDK：从本地构建到 CI 和容器",
+  "article_title": "07｜.NET 11 SDK：从本地构建到 CI 和容器",
   "cover_type": "architecture",
   "core_theme": "SDK 与容器",
   "reader_takeaway": "固定工具和测试后交付可追溯镜像",

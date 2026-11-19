@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2026-11-19T09:30:02+08:00
-title: "ASP.NET Core 11 升级：Angular 契约检查"
+title: "03｜ASP.NET Core 11：Angular 契约检查"
 description: "用两份 ASP.NET Core 选课 API 和同一个 PostgreSQL 样本，实测异步验证、并发报名、OpenAPI 3.2、Angular 客户端生成与 SSE 恢复，并给出生成器尚未升级时的兼容处理。"
 tags: ["DotNet", "ASP.NET Core", "Angular", "OpenAPI"]
 slug: "aspnet-core-11-openapi-angular"

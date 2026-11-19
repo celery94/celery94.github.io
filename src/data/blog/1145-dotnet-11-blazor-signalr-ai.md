@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2026-11-19T09:30:09+08:00
-title: "Blazor、SignalR 和 AI：哪些现在能用？"
+title: "10｜Blazor、SignalR 和 AI：哪些现在能用？"
 description: "围绕选课导入进度面板，实测 .NET 11 SignalR 在同一连接刷新身份和取消普通调用，解释 Blazor circuit 暂停，并给出独立试验 Blazor AI 的最小接入范围。"
 tags: ["DotNet", "Blazor", "SignalR", "AI"]
 slug: "dotnet-11-blazor-signalr-ai"

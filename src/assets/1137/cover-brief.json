@@ -1,5 +1,5 @@
 {
-  "article_title": "C# 15 实战：用 Union 表达业务结果",
+  "article_title": "02｜C# 15 实战：用 Union 表达业务结果",
   "cover_type": "tutorial",
   "core_theme": "业务结果",
   "reader_takeaway": "三种选课回执由编译器检查分支",

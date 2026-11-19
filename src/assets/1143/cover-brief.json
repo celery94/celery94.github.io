@@ -1,5 +1,5 @@
 {
-  "article_title": "把一个 .NET 10 服务升到 .NET 11",
+  "article_title": "08｜把一个 .NET 10 服务升到 .NET 11",
   "cover_type": "tutorial",
   "core_theme": "灰度与回退",
   "reader_takeaway": "从旧版本基线分流，保留原路",

@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2026-11-19T09:30:04+08:00
-title: ".NET 11 基础库：哪些自写工具可以退役？"
+title: "05｜.NET 11 基础库：哪些自写工具可以退役？"
 description: "用成绩导出验证 .NET 11 内置的 JSON Lines、内存流、Zstandard 和进程输出捕获。提供可以运行的来回压缩和退出码检查，说明带换行的记录、失败路径及数值舍入如何做回归。"
 tags: ["DotNet", "System.Text.Json", "Compression"]
 slug: "dotnet-11-library-upgrades"

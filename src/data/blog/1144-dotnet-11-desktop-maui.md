@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2026-11-19T09:30:08+08:00
-title: "WPF、WinForms、MAUI 11 更新了什么？"
+title: "09｜WPF、WinForms、MAUI 11 更新了什么？"
 description: "按已有 Windows 桌面应用、移动端和 .NET Framework 4.8 迁移三个场景，检查 WPF、WinForms、MAUI 的新功能、发布模式、独立支持周期与实际设备验证。"
 tags: ["DotNet", "WPF", "WinForms", "MAUI"]
 slug: "dotnet-11-desktop-maui"

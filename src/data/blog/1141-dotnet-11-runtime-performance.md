@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2026-11-19T09:30:05+08:00
-title: ".NET 11 性能实测：JIT、异步与 AOT"
+title: "06｜.NET 11 性能实测：JIT、异步与 AOT"
 description: "在同一台 Windows 机器上，用可下载源码实测 .NET 10、.NET 11 默认、显式 Runtime Async 和 Native AOT 的吞吐与分配，保留原始数据及环境说明。"
 tags: ["DotNet", "Performance", "NativeAOT"]
 slug: "dotnet-11-runtime-performance"

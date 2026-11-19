@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2026-11-19T09:30:06+08:00
-title: ".NET 11 SDK：从本地构建到 CI 和容器"
+title: "07｜.NET 11 SDK：从本地构建到 CI 和容器"
 description: "固定 .NET 11 的 SDK、MTP 测试入口和容器输入，把测试产物与镜像摘要纳入同一条发布流水线。附本地 TRX 验证、容器发布参数变更和按已知镜像摘要回退的步骤。"
 tags: ["DotNet", "CI", "Microsoft.Testing.Platform", "Containers"]
 slug: "dotnet-11-sdk-ci-containers"

@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2026-11-19T09:30:07+08:00
-title: "把一个 .NET 10 服务升到 .NET 11"
+title: "08｜把一个 .NET 10 服务升到 .NET 11"
 description: "用选课服务演示 .NET 10 到 .NET 11 的升级评审，记录 SDK、HTTP 契约和数据基线。用新旧版本并存、流量分流和旧镜像恢复来验证发布条件，附可用于团队评审的灰度与回退检查表。"
 tags: ["DotNet", "ASP.NET Core", "Deployment"]
 slug: "dotnet-10-to-11-rollout"

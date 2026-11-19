@@ -1,5 +1,5 @@
 {
-  "article_title": "ASP.NET Core 11 升级：Angular 契约检查",
+  "article_title": "03｜ASP.NET Core 11：Angular 契约检查",
   "cover_type": "architecture",
   "core_theme": "前后端契约",
   "reader_takeaway": "请求验证后通过契约桥，接收方核对结构",
