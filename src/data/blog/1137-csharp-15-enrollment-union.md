@@ -3,7 +3,7 @@ pubDatetime: 2026-11-19T09:30:01+08:00
 title: "C# 15 实战：用 Union 表达业务结果"
 description: "用选课成功、课程不存在和重复报名构造 C# 15 union，并运行穷尽匹配与 JSON 往返测试。说明何时使用 closed 层级，如何识别形状相同的 JSON 分支，以及怎样保持 HTTP 状态码契约。"
 tags: ["DotNet", "CSharp", "System.Text.Json"]
-slug: "csharp-15-union-types"
+slug: "csharp-15-enrollment-union"
 ogImage: "../../assets/1137/01-cover.jpg"
 source: "https://learn.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-15"
 ---
